@@ -142,7 +142,6 @@ Table A2. JSON Dictionary to Post in Callback
 | PushJobOutput   | Any output from the chef-client run that needs to be returned to ONAP.                                                                                                                                    | Optional    | Depends on VNF action. If empty, it must not be included.   |
 +-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------+-------------------------------------------------------------+
 
-
 **Appendix B – Ansible JSON Key Value Description**
 
 The following provides the key value pairs that must be contained in the
