@@ -703,7 +703,7 @@ action request against a Chef managed VNF.
 
    “RequestId”:”8279-abcd-aksdj-19231”,
 
-   “CallbackUrl”:”https://callback.onap:9333”
+   “CallbackUrl”:”<callback>”
 
    },
 
