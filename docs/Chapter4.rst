@@ -1,4 +1,4 @@
-**4. VNF Development Requirements**
+﻿**4. VNF Development Requirements**
 ====================================
 
 a. VNF Design
@@ -19,7 +19,7 @@ grouping functions in a common cloud data center to minimize
 inter-component latency. The VNFs should be designed with a goal of
 being modular and reusable to enable using best-in-breed vendors
 
-Section 4.1.1 in *VNF Guidelines for Network Cloud and ONAP* describes
+Section 5.a VNF Design in *VNF Guidelines* describes
 the overall guidelines for designing VNFs from VNF Components (VNFCs).
 Below are more detailed requirements for composing VNFs.
 
@@ -79,7 +79,7 @@ Network Cloud, resiliency must be designed into the VNF software to
 provide high availability versus relying on the Network Cloud to achieve
 that end.
 
-Section 4.1.2 in *VNF Guidelines for Network Cloud and ONAP* describes
+Section 5.a Resiliency in *VNF Guidelines* describes
 the overall guidelines for designing VNFs to meet resiliency goals.
 Below are more detailed resiliency requirements for VNFs.
 
@@ -298,7 +298,7 @@ to all VNFs. Additional security requirements for specific types of VNFs
 will be applicable and are outside the scope of these general
 requirements.
 
-Section 4.1.3 in *VNF Guidelines for Network Cloud and ONAP* outlines
+Section 5.a Security in *VNF Guidelines* outlines
 the five broad security areas for VNFs that are detailed in the
 following sections:
 
@@ -764,7 +764,7 @@ d. VNF Modularity
 VNF Modularity Overview
 -----------------------
 
-OpenECOMP supports a modular Heat design pattern, referred to as *VNF
+ONAP supports a modular Heat design pattern, referred to as *VNF
 Modularity.* With this approach, a single VNF may be composed from one
 or more Heat templates, each of which represents some subset of the
 overall VNF. These component parts are referred to as “\ *VNF
@@ -779,8 +779,8 @@ A Heat template can be either one of the following types of modules:
 
 3. Independent Cinder Volume Modules
 
-The OpenECOMP Heat template naming convention must be followed (Section
-2.1). The naming convention identifies the module type.
+The ONAP Heat template naming convention must be followed (Section
+5.b Filenames). The naming convention identifies the module type.
 
 A VNF must be composed of one “base” VNF module (also called a base
 module) and zero to many “incremental” or “add on” VNF modules. The base
@@ -789,12 +789,12 @@ module must be deployed first, prior to the add-on modules.
 A module can be thought of as equivalent to a Heat template, where a
 Heat template is composed of a YAML file and an environment file (also
 referred to as an ENV file). A given YAML file must have a corresponding
-environment file; OpenECOMP requires it.
+environment file; ONAP requires it.
 
 A Heat template is used to create or deploy a Heat stack. Therefore, a
 module is also equivalent to a Heat Stack.
 
-OpenECOMP supports the concept of an optional, independent deployment of
+ONAP supports the concept of an optional, independent deployment of
 a Cinder volume via separate Heat templates. This allows the volume to
 persist after VNF deletion so that the volume can be reused on another
 instance (e.g. during a failover activity).
@@ -810,7 +810,7 @@ that will be introduced.
 Design Pattern: VNF Modularity
 ------------------------------
 
-OpenECOMP supports the concept of *VNF Modularity*. With this approach,
+ONAP supports the concept of *VNF Modularity*. With this approach,
 a single VNF may be composed from one or more Heat templates, each of
 which represents some subset of the overall VNF. These component parts
 are referred to as “\ *VNF Modules*\ ”. During orchestration, these
@@ -824,8 +824,8 @@ A Heat template can be either one for the following types of modules
 
 3. Independent Cinder Volume Modules
 
-The OpenECOMP Heat template naming convention must be followed (Section
-2.1). The naming convention identifies the module type.
+The ONAP Heat template naming convention must be followed (Section
+5.b Filenames). The naming convention identifies the module type.
 
 A VNF must be composed of one “base” VNF module (also called a base
 module) and zero to many “incremental” or “add on” VNF modules. The base
@@ -833,14 +833,14 @@ module must be deployed first prior to the add-on modules.
 
 A module can be thought of as equivalent to a Heat template, where a
 Heat template is composed of a YAML file and an environment file. A
-given YAML file must have a corresponding environment file; OpenECOMP
+given YAML file must have a corresponding environment file; ONAP
 requires it. A Heat template is used to create or deploy a Heat stack.
 Therefore, a module is also equivalent to a Heat Stack.
 
 However, there are cases where a module maybe composed of more than one
 Heat stack and/or more than one YAML file.
 
-As discussed in Section 2.5, Independent Volume Templates, each VNF
+As discussed in Section 5.b, Independent Volume Templates, each VNF
 Module may have an associated Volume template.
 
 -  When a volume template is utilized, it must correspond 1:1 with
@@ -856,9 +856,9 @@ one or more additional YAML files.
 Any shared resource defined in the base module template and used across
 the entire VNF (e.g., private networks, server groups), must be exposed
 to the incremental or add-on modules by declaring their resource UUIDs
-as Heat outputs (i.e., OpenECOMP Base Template Output Parameter in the
+as Heat outputs (i.e., ONAP Base Template Output Parameter in the
 output section of the Heat template). Those outputs will be provided by
-OpenECOMP as input parameter values to all add-on module Heat templates
+ONAP as input parameter values to all add-on module Heat templates
 in the VNF that have declared the parameter in the template.
 
 *Note:* A Cinder volume is *not* considered a shared resource. A volume
@@ -910,7 +910,7 @@ There are some rules to follow when building modular VNF templates:
       groups, security groups)
 
    b. Must expose all shared resources (by UUID) as “outputs” in its
-      associated Heat template (i.e., OpenECOMP Base Template Output
+      associated Heat template (i.e., ONAP Base Template Output
       Parameters)
 
    c. May include initial set of VMs
@@ -940,7 +940,7 @@ There are some rules to follow when building modular VNF templates:
       growth units)
 
 3. Each VNF Module (base or add-on) may have (optional) an associated
-   Volume template (*see Section 2.5*)
+   Volume template (*see Section 5.b, Independent Volume Templates*)
 
    a. Volume templates should correspond 1:1 with Module (base or
       add-on) templates
@@ -1020,7 +1020,7 @@ Scaling Considerations
 ----------------------
 
 Scaling of a VNF may be manually driven to add new capacity (**static
-scaling**) or it may be driven in near real-time by the OpenECOMP
+scaling**) or it may be driven in near real-time by the ONAP
 controllers based on a real-time need **(dynamic scaling).**
 
 With VNF Modularity, the recommended approach for scaling is to provide
@@ -1087,7 +1087,7 @@ software bundle, VNF suppliers using standard images would typically
 provide the NCSP with an install package consistent with the default OS
 package manager (e.g. aptitude for Ubuntu, yum for Redhat/CentOS).
 
-Section 4.1.4 in *VNF Guidelines for Network Cloud and ONAP* describes
+Section 5.a DevOps in *VNF Guidelines* describes
 the DevOps guidelines for VNFs.
 
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------+---------+

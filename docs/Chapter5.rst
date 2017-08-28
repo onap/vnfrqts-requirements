@@ -1,4 +1,4 @@
-**5. VNF Modeling Requirements**
+﻿**5. VNF Modeling Requirements**
 =====================================
 
 a. TOSCA YAML
@@ -10,13 +10,13 @@ b. Heat
 General Guidelines
 ------------------
 
-The Heat templates supported by OpenECOMP must follow the requirements
+The Heat templates supported by ONAP must follow the requirements
 enumerated in this section.
 
 Filenames
 ---------
 
-In order to enable OpenECOMP to understand the relationship between Heat
+In order to enable ONAP to understand the relationship between Heat
 files, the following Heat file naming convention must be followed.
 
 -  The file name for the base module Heat template must include “base”
@@ -49,7 +49,7 @@ files, the following Heat file naming convention must be followed.
       above base module Heat template name)
 
 -  A YAML file must have a corresponding ENV file, even if the ENV file
-   enumerates no parameters. It is an OpenECOMP requirement.
+   enumerates no parameters. It is an ONAP requirement.
 
 Valid YAML Format
 ------------------
@@ -72,65 +72,65 @@ Parameter Categories & Specification
 Parameter Categories
 ~~~~~~~~~~~~~~~~~~~~
 
-OpenECOMP requires the Heat template parameters to follow certain
-requirements in order for it to be orchestrated or deployed. OpenECOMP
+ONAP requires the Heat template parameters to follow certain
+requirements in order for it to be orchestrated or deployed. ONAP
 classifies parameters into eight broad categories.
 
--  **OpenECOMP Metadata**: OpenECOMP mandatory and optional metadata
+-  **ONAP Metadata**: ONAP mandatory and optional metadata
    parameters in the resource *OS::Nova::Server*.
 
-   -  OpenECOMP dictates the naming convention of these Metadata
-      parameters and must be adhered to (See Section 4.4).
+   -  ONAP dictates the naming convention of these Metadata
+      parameters and must be adhered to (See Section 5.b, Independent Volume Templates).
 
    -  Metadata parameters must not be enumerated in the environment
       file.
 
-   -  The OpenECOMP Metadata are generated and/or assigned by OpenECOMP
-      and supplied to the Heat by OpenECOMP at orchestration time.
+   -  The ONAP Metadata are generated and/or assigned by ONAP
+      and supplied to the Heat by ONAP at orchestration time.
 
--  **OpenECOMP Orchestration Parameters**: The data associated with
+-  **ONAP Orchestration Parameters**: The data associated with
    these parameters are VNF instance specific.
 
-   -  OpenECOMP enforces the naming convention of these parameters and
-      must be adhered to (See Section 4).
+   -  ONAP enforces the naming convention of these parameters and
+      must be adhered to (See Parameter Naming Convention).
 
    -  These parameters must not be enumerated in the environment file.
 
-   -  The OpenECOMP Orchestration Parameters are generated and/or
-      assigned by OpenECOMP and supplied to the Heat by OpenECOMP at
+   -  The ONAP Orchestration Parameters are generated and/or
+      assigned by ONAP and supplied to the Heat by ONAP at
       orchestration time.
 
 -  **VNF Orchestration Parameters**: The data associated with these
    parameters are VNF instance specific.
 
-   -  While OpenECOMP does not enforce a naming convention, the
+   -  While ONAP does not enforce a naming convention, the
       parameter names should include {vm-type} and {network-role} when
-      appropriate. (See Section 4)
+      appropriate. (See Parameter Naming Convention)
 
    -  These parameters must not be enumerated in the environment file.
 
    -  The VNF Orchestration Parameters Heat are generated and/or
-      assigned by OpenECOMP and supplied to the Heat by OpenECOMP at
+      assigned by ONAP and supplied to the Heat by ONAP at
       orchestration time.
 
--  **OpenECOMP Orchestration Constants**: The data associated with these
+-  **ONAP Orchestration Constants**: The data associated with these
    parameters must be constant across all VNF instances.
 
-   -  OpenECOMP enforces the naming convention of these parameters and
-      must be adhered to (See Section 4).
+   -  ONAP enforces the naming convention of these parameters and
+      must be adhered to (See Parameter Naming Convention).
 
    -  These parameters must be enumerated in the environment file.
 
 -  **VNF Orchestration Constants**: The data associated with these
    parameters must be constant across all VNF instances.
 
-   -  While OpenECOMP does not enforce a naming convention, the
+   -  While ONAP does not enforce a naming convention, the
       parameter names should include {vm-type} and {network-role} when
-      appropriate. (See Section 4)
+      appropriate. (See Parameter Naming Convention)
 
    -  These parameters must be enumerated in the environment file.
 
--  **OpenECOMP Base Template Output Parameters** (also referred to as
+-  **ONAP Base Template Output Parameters** (also referred to as
    Base Template Output Parameters): The output section of the base
    template allows for specifying output parameters available to add-on
    modules once the base template has been instantiated. The parameter
@@ -138,7 +138,7 @@ classifies parameters into eight broad categories.
    parameter defined in the add-on module(s) where the parameter is
    used.
 
--  **OpenECOMP Volume Template Output Parameters** (also referred to as
+-  **ONAP Volume Template Output Parameters** (also referred to as
    Volume Template Output Parameters): The output section of the volume
    template allows for specifying output parameters available to the
    corresponding Heat template (base or add-on) once the volume template
@@ -146,38 +146,38 @@ classifies parameters into eight broad categories.
    the volume must be identical to the parameter defined in the base or
    add-on module.
 
--  **OpenECOMP Predefined Output Parameters** (also referred to as
-   Predefined Output Parameters): OpenECOMP will look for a small set of
+-  **ONAP Predefined Output Parameters** (also referred to as
+   Predefined Output Parameters): ONAP will look for a small set of
    pre-defined Heat output parameters to capture resource attributes for
-   inventory in OpenECOMP. These parameters are specified in Section
-   4.6.
+   inventory in ONAP. These parameters are specified in Section
+   5.b Resource Property: name.
 
 The table below summarizes the Parameter Types. If the user is
 orchestrating a manual spin up of Heat (e.g. OpenStack command line),
-the parameter values that OpenECOMP supplies must be enumerated in the
-environment file. However, when the Heat is to be loaded into OpenECOMP
-for orchestration, the parameters that OpenECOMP supplies must be
+the parameter values that ONAP supplies must be enumerated in the
+environment file. However, when the Heat is to be loaded into ONAP
+for orchestration, the parameters that ONAP supplies must be
 deleted or marked with a comment (i.e., a “#” placed at the beginning of
 a line).
 
 +-----------------------------------------------+---------------------+---------------------------------------------------------------------------------+
 | Parameter Type                                | Naming Convention   | Parameter Value Source                                                          |
 +===============================================+=====================+=================================================================================+
-| OpenECOMP Metadata                            | Explicit            | OpenECOMP                                                                       |
+| ONAP Metadata                                 | Explicit            | ONAP                                                                            |
 +-----------------------------------------------+---------------------+---------------------------------------------------------------------------------+
-| OpenECOMP Orchestration Parameters            | Explicit            | OpenECOMP                                                                       |
+| ONAP Orchestration Parameters                 | Explicit            | ONAP                                                                            |
 +-----------------------------------------------+---------------------+---------------------------------------------------------------------------------+
-| VNF Orchestration Parameters                  | Recommended         | OpenECOMP                                                                       |
+| VNF Orchestration Parameters                  | Recommended         | ONAP                                                                            |
 +-----------------------------------------------+---------------------+---------------------------------------------------------------------------------+
-| OpenECOMP Orchestration Constants             | Explicit            | Environment File                                                                |
+| ONAP Orchestration Constants                  | Explicit            | Environment File                                                                |
 +-----------------------------------------------+---------------------+---------------------------------------------------------------------------------+
 | VNF Orchestration Constants                   | Recommended         | Environment File                                                                |
 +-----------------------------------------------+---------------------+---------------------------------------------------------------------------------+
-| OpenECOMP Base Template Output Parameters     | Recommended         | Heat Output Statement for base, OpenECOMP supplied to add-on modules            |
+| ONAP Base Template Output Parameters          | Recommended         | Heat Output Statement for base, ONAP supplied to add-on modules                 |
 +-----------------------------------------------+---------------------+---------------------------------------------------------------------------------+
-| OpenECOMP Volume Template Output Parameters   | Recommended         | Heat Output Statement for volume, OpeneECOMP supplies to corresponding module   |
+| ONAP Volume Template Output Parameters        | Recommended         | Heat Output Statement for volume, OpeneECOMP supplies to corresponding module   |
 +-----------------------------------------------+---------------------+---------------------------------------------------------------------------------+
-| OpenECOMP Predefined Output Parameters        | Explicit            | Heat Output Statement                                                           |
+| ONAP Predefined Output Parameters             | Explicit            | Heat Output Statement                                                           |
 +-----------------------------------------------+---------------------+---------------------------------------------------------------------------------+
 
 Table 1 Parameter Types
@@ -185,15 +185,15 @@ Table 1 Parameter Types
 Parameter Specifications
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-OpenECOMP METADATA Parameters
+ONAP METADATA Parameters
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-OpenECOMP defines four “metadata” parameters: vnf\_id, vf\_module\_id,
+ONAP defines four “metadata” parameters: vnf\_id, vf\_module\_id,
 vnf\_name, vf\_module\_name. These parameters must not define any
 constraints in the Heat template, including length restrictions, ranges,
 default value and/or allowed patterns.
 
-OpenECOMP Base Template & Volume Template Output Parameters 
+ONAP Base Template & Volume Template Output Parameters 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The base template and volume template output parameters are defined as
@@ -204,18 +204,18 @@ allowed patterns. The parameter name defined in the output statement of
 the Heat must be identical to the parameter name defined in the Heat
 that is to receive the value.
 
-OpenECOMP Predefined Output Parameters
+ONAP Predefined Output Parameters
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 These parameters must not define any constraints in the Heat template,
 including length restrictions, ranges, default value and/or allowed
 patterns.
 
-OpenECOMP Orchestration Parameters, VNF Orchestration Parameters, OpenECOMP Orchestration Constants, VNF Orchestration Constants
+ONAP Orchestration Parameters, VNF Orchestration Parameters, ONAP Orchestration Constants, VNF Orchestration Constants
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-OpenECOMP Orchestration Parameters, VNF Orchestration Parameters,
-OpenECOMP Orchestration Constants, VNF Orchestration Constants must
+ONAP Orchestration Parameters, VNF Orchestration Parameters,
+ONAP Orchestration Constants, VNF Orchestration Constants must
 adhere to the following:
 
 -  All parameters should be clearly documented in the template,
@@ -245,27 +245,27 @@ Use of Heat Environments
 
 A YAML file must have a corresponding environment file (also referred to
 as ENV file), even if the environment file defines no parameters. It is
-an OpenECOMP requirement.
+an ONAP requirement.
 
-The environment file must contain parameter values for the OpenECOMP
+The environment file must contain parameter values for the ONAP
 Orchestration Constants and VNF Orchestration Constants. These
 parameters are identical across all instances of a VNF type, and
-expected to change infrequently. The OpenECOMP Orchestration Constants
+expected to change infrequently. The ONAP Orchestration Constants
 are associated with OS::Nova::Server image and flavor properties (See
-Section 4.3). Examples of VNF Orchestration Constants are the networking
+Section 5.b Resource: OS::Nova::Server – Parameters). Examples of VNF Orchestration Constants are the networking
 parameters associated with an internal network (e.g. private IP ranges)
 and Cinder volume sizes.
 
 The environment file must not contain parameter values for parameters
-that are instance specific (OpenECOMP Orchestration Parameters, VNF
+that are instance specific (ONAP Orchestration Parameters, VNF
 Orchestration Parameters). These parameters are supplied to the Heat by
-OpenECOMP at orchestration time. The parameters are generated and/or
-assigned by OpenECOMP at orchestration time
+ONAP at orchestration time. The parameters are generated and/or
+assigned by ONAP at orchestration time
 
 Independent Volume Templates
 ----------------------------
 
-OpenECOMP supports independent deployment of a Cinder volume via
+ONAP supports independent deployment of a Cinder volume via
 separate Heat templates. This allows the volume to persist after VNF
 deletion so that they can be reused on another instance (e.g. during a
 failover activity).
@@ -289,14 +289,14 @@ The following rules apply to independent volume Heat templates:
       the Incremental/Base module.
 
    -  The volume template must define “outputs” for each Cinder volume
-      resource universally unique identifier (UUID) (i.e. OpenECOMP
+      resource universally unique identifier (UUID) (i.e. ONAP
       Volume Template Output Parameters).
 
 -  The VNF Incremental Module or Base Module must define input
-   parameters that match each Volume output parameter (i.e., OpenECOMP
+   parameters that match each Volume output parameter (i.e., ONAP
    Volume Template Output Parameters).
 
-   -  OpenECOMP will supply the volume template outputs automatically to
+   -  ONAP will supply the volume template outputs automatically to
       the bases/incremental template input parameters.
 
 -  Volume modules may utilize nested Heat templates.
@@ -304,7 +304,7 @@ The following rules apply to independent volume Heat templates:
 **Example (volume template):**
 
     In this example, the {vm-type} has been left as a variable.
-    {vm-type} is described in section 4.1. If the VM was a load
+    {vm-type} is described in section 5.b {vm-type}. If the VM was a load
     balancer, the {vm-type} could be defined as “lb”
 
 .. code-block:: python
@@ -367,7 +367,7 @@ The following rules apply to independent volume Heat templates:
 Nested Heat Templates
 ---------------------
 
-OpenECOMP supports nested Heat templates per the OpenStack
+ONAP supports nested Heat templates per the OpenStack
 specifications. Nested templates may be suitable for larger VNFs that
 contain many repeated instances of the same VM type(s). A common usage
 pattern is to create a nested template for each VM type along with its
@@ -375,11 +375,11 @@ supporting resources. The master VNF template (or VNF Module template)
 may then reference these component templates either statically (by
 repeated definition) or dynamically (via *OS::Heat::ResourceGroup*).
 
-Nested template support in OpenECOMP is subject to the following
+Nested template support in ONAP is subject to the following
 limitations:
 
--  Heat templates for OpenECOMP must only have one level of nesting.
-   OpenECOMP only supports one level of nesting.
+-  Heat templates for ONAP must only have one level of nesting.
+   ONAP only supports one level of nesting.
 
 -  Nested templates must be referenced by file name in the master
    template
@@ -390,7 +390,7 @@ limitations:
 -  Nested templates must have unique file names within the scope of the
    VNF
 
--  OpenECOMP does not support a directory hierarchy for nested
+-  ONAP does not support a directory hierarchy for nested
    templates. All templates must be in a single, flat directory (per
    VNF)
 
@@ -411,7 +411,7 @@ networks may also be referred to as “inter-VNF” networks.
 -  External networks must be orchestrated separately, so they can be
    shared by multiple VNFs and managed independently. When the external
    network is created, it must be assigned a unique {network-role} (See
-   section 4.2).
+   section 5.b {network-role}).
 
 -  External networks must be passed into the VNF template as parameters,
    including the network-id (i.e. the neutron network UUID) and optional
@@ -423,11 +423,11 @@ networks may also be referred to as “inter-VNF” networks.
 -  VNFs may use DHCP assigned IP addresses or assign fixed IPs when
    attaching VMs to an external network.
 
--  OpenECOMP enforces a naming convention for parameters associated with
+-  ONAP enforces a naming convention for parameters associated with
    external networks.
 
 -  Parameter values associated with an external network will be
-   generated and/or assigned by OpenECOMP at orchestration time.
+   generated and/or assigned by ONAP at orchestration time.
 
 -  Parameter values associated with an external network must not be
    enumerated in the environment file.
@@ -445,19 +445,19 @@ may also be referred to as “intra-VNF” networks or “private” networks.
 
 -  In the modular approach, internal networks must be created in the
    Base Module template, with their resource IDs exposed as outputs
-   (i.e., OpenECOMP Base Template Output Parameters) for use by all
+   (i.e., ONAP Base Template Output Parameters) for use by all
    add-on module templates. When the external network is created, it
-   must be assigned a unique {network-role} (See section 4.2).
+   must be assigned a unique {network-role} (See section 5.b {network-role}).
 
 -  VNFs may use DHCP assigned IP addresses or assign fixed IPs when
    attaching VMs to an internal network.
 
--  OpenECOMP does not enforce a naming convention for parameters for
+-  ONAP does not enforce a naming convention for parameters for
    internal network, however, a naming convention is provided that
    should be followed.
 
 -  Parameter values associated with an internal network must either be
-   passed as output parameter from the base template (i.e., OpenECOMP
+   passed as output parameter from the base template (i.e., ONAP
    Base Template Output Parameters) into the add-on modules or be
    enumerated in the environment file.
 
@@ -470,11 +470,11 @@ IP Address Assignment
 -  VMs connect to internal networks using either fixed (e.g. statically
    assigned) IP addresses or DHCP assigned IP addresses.
 
--  Neutron Floating IPs must not be used. OpenECOMP does not support
+-  Neutron Floating IPs must not be used. ONAP does not support
    Neutron Floating IPs.
 
--  OpenECOMP supports the OS::Neutron::Port property
-   “allowed\_address\_pairs.” See Section 4.4.3.
+-  ONAP supports the OS::Neutron::Port property
+   “allowed\_address\_pairs.” See Section 5.b Property:  allowed_address_pairs.
 
 Parameter Naming Convention
 ---------------------------
@@ -486,7 +486,7 @@ A common *{vm-type}* identifier must be used throughout the Heat
 template in naming parameters, for each VM type in the VNF with the
 following exceptions:
 
--  The four OpenECOMP Metadata parameters must not be prefixed with a
+-  The four ONAP Metadata parameters must not be prefixed with a
    common {vm-type} identifier. They are *vnf\_name*, *vnf\_id*,
    *vf\_module\_id*, *vf\_module\_name*.
 
@@ -498,7 +498,7 @@ following exceptions:
    identifier.
 
 -  {vm-type} must be unique to the VNF. It does not have to be globally
-   unique across all VNFs that OpenECOMP supports.
+   unique across all VNFs that ONAP supports.
 
 {network-role}
 --------------
@@ -514,7 +514,7 @@ created, it must be assigned a unique {network-role}.
 
 “External” networks must be passed into the VNF template as parameters.
 Examples include the network-id (i.e. the neutron network UUID) and
-optional subnet ID. See section 4.4.3.
+optional subnet ID. See section 5.b Property: network & subnet.
 
 Any parameter that is associated with an external network must include
 the {network-role} as part of the parameter name.
@@ -527,14 +527,14 @@ Resource: OS::Nova::Server - Parameters
 ---------------------------------------
 
 The following OS::Nova::Server Resource Property Parameter Names must
-follow the OpenECOMP parameter Naming Convention. All the parameters
-associated with OS::Nova::Server are classified as OpenECOMP
+follow the ONAP parameter Naming Convention. All the parameters
+associated with OS::Nova::Server are classified as ONAP
 Orchestration Parameters.
 
 +----------------------+-----------------------------------------+------------------+
 | OS::Nova::Server                                                                  |
 +======================+=========================================+==================+
-| Property             | OpenECOMP Parameter Naming Convention   | Parameter Type   |
+| Property             | ONAP Parameter Naming Convention        | Parameter Type   |
 +----------------------+-----------------------------------------+------------------+
 | image                | {*vm-type*}\_image\_name                | string           |
 +----------------------+-----------------------------------------+------------------+
@@ -552,7 +552,7 @@ Table 2 Resource Property Parameter Names
 Property: image
 ~~~~~~~~~~~~~~~
 
-Image is an OpenECOMP Orchestration Constant parameter. The image must
+Image is an ONAP Orchestration Constant parameter. The image must
 be referenced by the Network Cloud Service Provider (NCSP) image name,
 with the parameter enumerated in the Heat environment file.
 
@@ -565,7 +565,7 @@ clarity and flexibility.
 Property: flavor
 ~~~~~~~~~~~~~~~~
 
-Flavor is an OpenECOMP Orchestration Constant parameter. The flavors
+Flavor is an ONAP Orchestration Constant parameter. The flavors
 must be referenced by the Network Cloud Service Provider (NCSP) flavor
 name, with the parameter enumerated in the Heat environment file.
 
@@ -580,7 +580,7 @@ Property: Name
 ~~~~~~~~~~~~~~
 
 Name is an OpenEOMP Orchestration parameter; the value is provided to
-the Heat template by OpenECOMP.
+the Heat template by ONAP.
 
 VM names (hostnames) for assignment to VM instances must be passed to
 Heat templates either as
@@ -672,8 +672,8 @@ balancer.
 Property: availability\_zone
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Availability\_zone is an OpenECOMP Orchestration parameter; the value is
-provided to the Heat template by OpenECOMP.
+Availability\_zone is an ONAP Orchestration parameter; the value is
+provided to the Heat template by ONAP.
 
 Availability zones must be passed as individual numbered parameters (not
 as arrays) so that VNFs with multi-availability zone requirements can
@@ -708,16 +708,16 @@ balancer.
 Resource: OS::Nova::Server - Metadata
 -------------------------------------
 
-This section describes the OpenECOMP Metadata parameters.
+This section describes the ONAP Metadata parameters.
 
-OpenECOMP Heat templates must include the following three parameters
+ONAP Heat templates must include the following three parameters
 that are used as metadata under the resource OS::Nova:Server: vnf\_id,
 vf\_module\_id, vnf\_name
 
-OpenECOMP Heat templates may include the following parameter that is
+ONAP Heat templates may include the following parameter that is
 used as metadata under the resource OS::Nova:Server: vf\_module\_name.
 
-These parameters are all classified as OpenECOMP Metadata.
+These parameters are all classified as ONAP Metadata.
 
 +---------------------------+------------------+----------------------+
 | Metadata Parameter Name   | Parameter Type   | Mandatory/Optional   |
@@ -731,32 +731,32 @@ These parameters are all classified as OpenECOMP Metadata.
 | vf\_module\_name          | string           | optional             |
 +---------------------------+------------------+----------------------+
 
-    Table 3 OpenECOMP Metadata
+    Table 3 ONAP Metadata
 
 Required Metadata Elements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The vnf\_id, vf\_module\_id, and vnf\_name metadata elements are
 required (must) for *OS::Nova::Server* resources. The metadata
-parameters will be used by OpenECOMP to associate the servers with the
+parameters will be used by ONAP to associate the servers with the
 VNF instance.
 
 -  vnf\_id
 
-   -  *“vnf\_id”* parameter value will be supplied by OpenECOMP.
-      OpenECOMP generates the UUID that is the vnf\_id and supplies it
+   -  *“vnf\_id”* parameter value will be supplied by ONAP.
+      ONAP generates the UUID that is the vnf\_id and supplies it
       to the Heat at orchestration time.
 
 -  vf\_module\_id
 
    -  “\ *vf\_module\_id”* parameter value will be supplied by
-      OpenECOMP. OpenECOMP generates the UUID that is the vf\_module\_id
+      ONAP. ONAP generates the UUID that is the vf\_module\_id
       and supplies it to the Heat at orchestration time.
 
 -  vnf\_name
 
    -  “\ *vnf\_name”* parameter value will be generated and/or assigned
-      by OpenECOMP and supplied to the Heat by OpenECOMP at
+      by ONAP and supplied to the Heat by ONAP at
       orchestration time.
 
 Optional Metadata Elements
@@ -774,9 +774,9 @@ resources:
       process.
 
    -  *“vf\_module\_name”* parameter value, when used, will be supplied
-      by OpenECOMP to the Heat at orchestration time. The parameter will
-      be generated and/or assigned by OpenECOMP and supplied to the Heat
-      by OpenECOMP at orchestration time.
+      by ONAP to the Heat at orchestration time. The parameter will
+      be generated and/or assigned by ONAP and supplied to the Heat
+      by ONAP at orchestration time.
 
 *Example*
 
@@ -827,7 +827,7 @@ Resource: OS::Neutron::Port - Parameters
 ----------------------------------------
 
 The following four OS::Neutron::Port Resource Property Parameters must
-adhere to the OpenECOMP parameter naming convention.
+adhere to the ONAP parameter naming convention.
 
 -  network
 
@@ -842,8 +842,8 @@ network or an internal network. Thus the parameter will include
 {network-role} in its name.
 
 When the parameter references an external network, the parameter is an
-OpenECOMP Orchestration Parameter. The parameter value must be supplied
-by OpenECOMP. The parameters must adhere to the OpenECOMP parameter
+ONAP Orchestration Parameter. The parameter value must be supplied
+by ONAP. The parameters must adhere to the ONAP parameter
 naming convention.
 
 +---------------------------+-----------------------------------------------+------------------+
@@ -884,7 +884,7 @@ Table 4 Port Resource Property Parameters (External Networks)
 
 When the parameter references an internal network, the parameter is a
 VNF Orchestration Parameters. The parameter value(s) must be supplied
-either via an output statement(s) in the base module (i.e., OpenECOMP
+either via an output statement(s) in the base module (i.e., ONAP
 Base Template Output Parameters) or be enumerated in the environment
 file. The parameters must adhere to the following parameter naming
 convention.
@@ -1166,7 +1166,7 @@ Note that these parameters are *not* intended to represent Neutron
 “Floating IP” resources, for which OpenStack manages a pool of public IP
 addresses that are mapped to specific VM ports. In that case, the
 individual VMs are not even aware of the public IPs, and all assignment
-of public IPs to VMs is via OpenStack commands. OpenECOMP does not
+of public IPs to VMs is via OpenStack commands. ONAP does not
 support Neutron-style Floating IPs.
 
 Both IPv4 and IPv6 “allowed\_address\_pairs” addresses are supported.
@@ -1308,11 +1308,11 @@ Resource Property: name
 -----------------------
 
 The parameter naming standard for the resource OS::Nova::Server has been
-defined in Section 4.3.3. This section describes how the name property
+defined in Section 5.b Resource: OS::Nova::Server – Parameters. This section describes how the name property
 of all other resources must be defined.
 
 Heat templates must use the Heat “str\_replace” function in conjunction
-with the OpenECOMP supplied metadata parameter *vnf\_name* or
+with the ONAP supplied metadata parameter *vnf\_name* or
 *vnf\_module\_id* to generate a unique name for each VNF instance. This
 prevents the use of unique parameters values for resource “name”
 properties to be enumerated in a per instance environment file.
@@ -1349,7 +1349,7 @@ Note that
 Output Parameters
 -----------------
 
-OpenECOMP defines three type of Output Parameters.
+ONAP defines three type of Output Parameters.
 
 Base Template Output Parameters: 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1367,7 +1367,7 @@ module (base or add on) that the volume is associated with.
 Predefined Output Parameters
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-OpenECOMP currently defines one predefined output parameter.
+ONAP currently defines one predefined output parameter.
 
 OAM Management IP Addresses
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1375,7 +1375,7 @@ OAM Management IP Addresses
 Many VNFs will have a management interface for application controllers
 to interact with and configure the VNF. Typically, this will be via a
 specific VM that performs a VNF administration function. The IP address
-of this interface must be captured and inventoried by OpenECOMP. This
+of this interface must be captured and inventoried by ONAP. This
 might be a VIP if the VNF contains an HA pair of management VMs, or may
 be a single IP address assigned to one VM.
 
@@ -1423,7 +1423,7 @@ Heat templates *should not* reference any HTTP-based resource
 definitions, any HTTP-based nested configurations, or any HTTP-based
 environment files.
 
--  During orchestration, OpenECOMP *should not* retrieve any such
+-  During orchestration, ONAP *should not* retrieve any such
    resources from external/untrusted/unknown sources.
 
 -  VNF images should not contain such references in user-data or other
@@ -1444,7 +1444,7 @@ a VM on startup via the “personality” property.
 Support for Heat Files is subject to the following limitations:
 
 -  The ‘get\_files’ targets must be referenced in Heat templates by file
-   name, and the corresponding files should be delivered to OpenECOMP
+   name, and the corresponding files should be delivered to ONAP
    along with the Heat templates.
 
    -  URL-based file retrieval must not be used; it is not supported.
@@ -1452,7 +1452,7 @@ Support for Heat Files is subject to the following limitations:
 -  The included files must have unique file names within the scope of
    the VNF.
 
--  OpenECOMP does not support a directory hierarchy for included files.
+-  ONAP does not support a directory hierarchy for included files.
 
    -  All files must be in a single, flat directory per VNF.
 
@@ -1471,7 +1471,7 @@ example, a set of identical *OS::Nova::Server* resources plus their
 related *OS::Neutron::Port* resources via a single resource in a master
 template.
 
-*ResourceGroup* may be used in OpenECOMP to simplify the structure of a
+*ResourceGroup* may be used in ONAP to simplify the structure of a
 Heat template that creates multiple instances of the same VM type.
 However, there are important caveats to be aware of.
 
@@ -1538,7 +1538,7 @@ that is owned by an OpenStack User as opposed to being owned by an
 OpenStack Tenant. As a result, they are usable only by the User that
 created the keypair. This causes a problem when a Heat template attempts
 to reference a keypair by name, because it assumes that the keypair was
-previously created by a specific OpenECOMP user ID.
+previously created by a specific ONAP user ID.
 
 When a keypair is assigned to a server, the SSH public-key is
 provisioned on the VMs at instantiation time. They keypair itself is not
@@ -1560,12 +1560,12 @@ the keypair using the public key – i.e., that public key will be
 provisioned in the new VM. However, this recommended approach also makes
 sure that a known public key is supplied (instead of having OpenStack
 generate a public/private pair to be saved and tracked outside of
-OpenECOMP). It also removes any access/ownership issues over the created
+ONAP). It also removes any access/ownership issues over the created
 keypair.
 
 The public keys may be enumerated as a VNF Orchestration Constant in the
 environment file (since it is public, it is not a secret key), or passed
-at run-time as an instance-specific parameters. OpenECOMP will never
+at run-time as an instance-specific parameters. ONAP will never
 automatically assign a public/private key pair.
 
 *Example (create keypair with an existing ssh public-key for {vm-type}
