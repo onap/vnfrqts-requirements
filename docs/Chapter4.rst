@@ -23,47 +23,22 @@ Section 5.a VNF Design in *VNF Guidelines* describes
 the overall guidelines for designing VNFs from VNF Components (VNFCs).
 Below are more detailed requirements for composing VNFs.
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------+---------+
-| VNF Design Requirements                                                                                                                                                                                                        | Type     | ID #    |
-+================================================================================================================================================================================================================================+==========+=========+
-| Decompose VNFs into granular re-usable VNFCs                                                                                                                                                                                   | Should   | 20010   |
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------+---------+
-| Decompose if the functions have significantly different scaling characteristics (e.g., signaling versus media functions, control versus data plane functions).                                                                 | Must     | 20020   |
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------+---------+
-| Decomposition of the VNF must enable instantiating only the functionality that is needed for the VNF (e.g., if transcoding is not needed it should not be instantiated).                                                       | Must     | 20030   |
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------+---------+
-| Design VNFC as a standalone, executable process.                                                                                                                                                                               | Must     | 20040   |
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------+---------+
-| Create a single component VNF for VNFCs that can be used by other VNFs.                                                                                                                                                        | Should   | 20050   |
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------+---------+
-| Design to scale horizontally (more instances of a VNF or VNFC) and not vertically (moving the existing instances to larger VMs or increasing the resources within a VM) to achieve effective utilization of cloud resources.   | Must     | 20060   |
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------+---------+
-| Utilize cloud provided infrastructure and VNFs (e.g., virtualized Local Load Balancer) as part of the VNF so that the cloud can manage and provide a consistent service resiliency and methods across all VNF's.               | Must     | 20070   |
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------+---------+
-| VNFCs should be independently deployed, configured, upgraded, scaled, monitored, and administered by ONAP.                                                                                                                     | Should   | 20080   |
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------+---------+
-| Provide API versioning to allow for independent upgrades of VNFC.                                                                                                                                                              | Must     | 20090   |
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------+---------+
-| Minimize the use of state within a VNFC to facilitate the movement of traffic from one instance to another.                                                                                                                    | Should   | 20100   |
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------+---------+
-| Maintain state in a geographically redundant datastore that may, in fact, be its own VNFC.                                                                                                                                     | Should   | 20110   |
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------+---------+
-| Decouple persistent data from the VNFC and keep it in its own datastore that can be reached by all instances of the VNFC requiring the data.                                                                                   | Should   | 20120   |
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------+---------+
-| Utilize virtualized, scalable open source database software that can meet the performance/latency requirements of the service for all datastores.                                                                              | Must     | 20130   |
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------+---------+
-| Failure of a VNFC instance must not terminate stable sessions.                                                                                                                                                                 | Must     | 20140   |
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------+---------+
-| Enable DPDK in the guest OS for VNF’s requiring high packets/sec performance. High packet throughput is defined as greater than 500K packets/sec.                                                                              | Must     | 20150   |
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------+---------+
-| When using DPDK, use the NCSP’s supported library and compute flavor that supports DPDK to optimize network efficiency. [1]_                                                                                                   | Must     | 20160   |
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------+---------+
-| Do not use technologies that bypass virtualization layers (such as SR-IOV) unless approved by the NCSP (e.g., if necessary to meet functional or performance requirements).                                                    | Must     | 20170   |
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------+---------+
-| Limit the size of application data packets to no larger than 9000 bytes for SDN network-based tunneling when guest data packets are transported between tunnel endpoints that support guest logical networks.                  | Must     | 20180   |
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------+---------+
-| Do not require the use of a dynamic routing protocol unless necessary to meet functional requirements.                                                                                                                         | Must     | 20190   |
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------+---------+
+VNF Design Requirements
+
+* R-xxxxx The VNF **SHOULD** be decomposed into granular re-usable VNFCs.
+* R-xxxxx The VNF **MUST** be decomposed if the functions have significantly different scaling characteristics (e.g., signaling versus media functions, control versus data plane functions).
+* R-xxxxx The VNF **MUST** enable instantiating only the functionality that is needed for the decomposed VNF (e.g., if transcoding is not needed it should not be instantiated).
+* R-xxxxx The VNFC **MUST** be designed as a standalone, executable process.
+* R-xxxxx The VNF **SHOULD** create a single component VNF for VNFCs that can be used by other VNFs.
+* R-xxxxx The VNF **MUST** be designed to scale horizontally (more instances of a VNF or VNFC) and not vertically (moving the existing instances to larger VMs or increasing the resources within a VM) to achieve effective utilization of cloud resources.
+* R-xxxxx The VNF **MUST** utilize cloud provided infrastructure and VNFs (e.g., virtualized Local Load Balancer) as part of the VNF so that the cloud can manage and provide a consistent service resiliency and methods across all VNF's.
+* R-xxxxx The VNFC **SHOULD** be independently deployed, configured, upgraded, scaled, monitored, and administered by ONAP.
+* R-xxxxx The VNFC **MUST** provide API versioning to allow for independent upgrades of VNFC.
+* R-xxxxx The VNFC **SHOULD** minimize the use of state within a VNFC to facilitate the movement of traffic from one instance to another.
+* R-xxxxx The VNF **SHOULD** maintain state in a geographically redundant datastore that may, in fact, be its own VNFC.
+* R-xxxxx The VNF **SHOULD** decouple persistent data from the VNFC and keep it in its own datastore that can be reached by all instances of the VNFC requiring the data.
+* R-xxxxx The VNF **MUST** utilize virtualized, scalable open source database software that can meet the performance/latency requirements of the service for all datastores.
+* R-xxxxx The VNF **MUST** NOT terminate stable sessions if a VNFC instance fails.
 
 b. VNF Resiliency
 =================
