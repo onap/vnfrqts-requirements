@@ -526,8 +526,11 @@ VNF REST APIs
 Healthcheck is a command for which no NETCONF support exists. Therefore,
 this must be supported using a RESTful interface which we have defined.
 
-The VNF must provide a REST formatted GET RPCs to support Healthcheck
+The VNF via APP-C must provide a REST formatted GET RPCs to support Healthcheck
 queries via the GET method over HTTP(s).
+
+The VNF via VF-C must provide REST APIs to make the configurations of
+associated VNFs.
 
 The port number, url, and other authentication information is provided
 by the VNF vendor.
@@ -582,6 +585,9 @@ by the VNF vendor.
 |                 |     "time": "01-01-1000:0000"                                                                                                                                                                                                                                                                                                                                                                         |            |            |
 |                 |                                                                                                                                                                                                                                                                                                                                                                                                       |            |            |
 |                 | }                                                                                                                                                                                                                                                                                                                                                                                                     |            |            |
++-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+
+| REST APIs       |  **/configuration** This API executes a vendor-defined VNF configuration action over the scope of the entire VNF(e.g if there are multiple VMs, then run configuration on all VMs according to the input parameters).                                                                                                                                                                                 |  Must      | 12200      |
+|                 |  **/configuration** returns a 201 Created if the configuration succeeds or a 4XX/5XX response if it fails. A JSON object is returned indicating the outcome of the VNF configuration including all the necessary configuration info.                                                                                                                                                                  |            |            |
 +-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+
 
 Chef Standards and Capabilities
