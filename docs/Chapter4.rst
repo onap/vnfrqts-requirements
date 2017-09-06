@@ -1084,6 +1084,31 @@ DevOps Requirements
 * R-xxxxx The VNF **MUST** respond to a "move traffic" [3]_ command against a specific VNFC, moving all existing session elsewhere with minimal disruption if a VNF provides a load balancing function across multiple instances of its VNFCs. Note: Individual VNF performance aspects (e.g., move duration or disruption scope) may require further constraints.
 * R-xxxxx  The VNF **MUST** respond to a "drain VNFC" [2]_ command against a specific VNFC, preventing new session from reaching the targeted VNFC, with no disruption to active sessions on the impacted VNFC, if a VNF provides a load balancing function across multiple instances of its VNFCs. This is used to support scenarios such as proactive maintenance with no user impact,
 
+f. VNF Design
+==============
+
+Aid to help the VNF vendor to fasten the integration with the GVNFM, the
+OpenO provides the VNF SDK tools, and the documents. In this charter,
+the develop steps for VNF vendors will be introduced.
+
+First, using the VNF SDK tools to design the VNF with TOSCA model and
+output the VNF TOSCA package. The VNF package can be validated, and
+tested.
+
+Second, the VNF vendor should provide the VNF Rest API to integrate with
+the GVNFM if needed. The VNF Rest API is aligned to the ETSI IFA
+document.
+
+Third, the TOSCA model supports the EPA feature.
+
+Note:
+
+1. The scripts to extend capacity to satisfy some special requirements.
+   In the R2, the scripts is not implemented fully, and will be provided
+   in the next release.
+
+2. The monitoring and scale policy also be provide the next release.
+
 
 .. [1]
    Refer to NCSP’s Network Cloud specification
