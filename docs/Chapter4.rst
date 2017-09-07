@@ -1084,6 +1084,16 @@ DevOps Requirements
 * R-xxxxx The VNF **MUST** respond to a "move traffic" [3]_ command against a specific VNFC, moving all existing session elsewhere with minimal disruption if a VNF provides a load balancing function across multiple instances of its VNFCs. Note: Individual VNF performance aspects (e.g., move duration or disruption scope) may require further constraints.
 * R-xxxxx  The VNF **MUST** respond to a "drain VNFC" [2]_ command against a specific VNFC, preventing new session from reaching the targeted VNFC, with no disruption to active sessions on the impacted VNFC, if a VNF provides a load balancing function across multiple instances of its VNFCs. This is used to support scenarios such as proactive maintenance with no user impact,
 
+.. [1]
+   Refer to NCSP’s Network Cloud specification
+
+.. [2]
+   Refer to NCSP’s Network Cloud specification
+
+.. [3]
+   Not currently supported in ONAP release 1
+
+
 f. VNF Develop Steps
 =======================
 
@@ -1109,12 +1119,62 @@ Note:
 
 2. The monitoring and scale policy also be provide the next release.
 
+g. VNFM Driver Develop Steps
+==============================
 
-.. [1]
-   Refer to NCSP’s Network Cloud specification
+Aid to help the VNF vendor to fasten the integration with the NFVO via
+Special VNFM, the OpenO provides the documents. In this charter, the
+develop steps for VNF vendors will be introduced.
 
-.. [2]
-   Refer to NCSP’s Network Cloud specification
+First, using the VNF SDK tools to design the VNF with TOSCA model and
+output the VNF TOSCA package. The VNF package can be validated, and
+tested.
 
-.. [3]
-   Not currently supported in ONAP release 1
+Second, the VNF vendor should provide SVNFM Driver in the OpenO, which
+is a micro service and in duty of translation interface from NFVO to
+SVNFM. The interface of NFVO is aligned to the ETSI IFA interfaces and
+can be gotten in the charter 5.5. The interface of SVNFM is provided by
+the VNF vendor self.
+
+h. Create SVNFM Adaptor Mircoservice
+=======================================
+
+Some vnfs are managed by special vnfm, before add svnfm to openo, a
+svnfm adaptor must be added to openo to adapter the interface of nfvo
+and svnfm.
+
+A svnfm adaptor is a micro service with unique name and an appointed
+port, when started up, it must be auto registered to MSB(Micro server
+bus),following describes an example rest of register to MSB:
+
+POST /openoapi/microservices/v1/services
+
+    {
+
+    "serviceName": "catalog",
+
+    "version": "v1",
+
+    "url": "/openoapi/catalog/v1",
+
+    "protocol": "REST",
+
+    "visualRange": "1",
+
+    "nodes": [
+
+    {
+
+    "ip": "10.74.56.36",
+
+    "port": "8988",
+
+    "ttl": 0
+
+    }
+
+    ]
+
+    }
+
+
