@@ -522,12 +522,11 @@ A Heat template can be either one of the following types of modules:
 
 3. Independent Cinder Volume Modules
 
-The ONAP Heat template naming convention must be followed (Section
-5.b Filenames). The naming convention identifies the module type.
+* R-xxxxx The VNF **MUST** follow the naming convention (Section 5.b Filenames) for the ONAP Heat template. The naming convention identifies the module type.
 
-A VNF must be composed of one “base” VNF module (also called a base
-module) and zero to many “incremental” or “add on” VNF modules. The base
-module must be deployed first, prior to the add-on modules.
+* R-xxxxx The VNF **MUST** be composed of one “base” VNF module (also called a base module).
+* R-xxxxx The VNF **MAY** have zero to many “incremental” or “add on” VNF modules.
+* R-xxxxx The VNF **MUST** deploy the base module first, prior to the add-on modules.
 
 A module can be thought of as equivalent to a Heat template, where a
 Heat template is composed of a YAML file and an environment file (also
@@ -542,9 +541,8 @@ a Cinder volume via separate Heat templates. This allows the volume to
 persist after VNF deletion so that the volume can be reused on another
 instance (e.g. during a failover activity).
 
-The scope of a volume module, when it exists, must be 1:1 with the VNF
-Module (base or add-on). A single volume module must create only the
-volumes needed by a single VNF module (base or add-on).
+* R-xxxxx The VNF **MUST** keep the scope of a volume module, when it exists, to be 1:1 with the VNF Module (base or add-on).
+* R-xxxxx The VNF **MUST** create only the volumes needed by a single VNF module (base or add-on) in a single volume module.
 
 These concepts will be described in more detail throughout the document.
 This overview is provided to set the stage and help clarify the concepts
@@ -580,6 +578,8 @@ given YAML file must have a corresponding environment file; ONAP
 requires it. A Heat template is used to create or deploy a Heat stack.
 Therefore, a module is also equivalent to a Heat Stack.
 
+* R-xxxxx The VNF **MUST** have a corresponding environment file for given YAML file.
+
 However, there are cases where a module maybe composed of more than one
 Heat stack and/or more than one YAML file.
 
@@ -593,16 +593,10 @@ Module may have an associated Volume template.
    and/or base template if persistence is not required, thus not
    requiring the optional Volume template.
 
-A VNF module may support nested templates. In this case, there will be
+* R-xxxxx The VNF **MAY** have a VNF module that supports nested templates. In this case, there will be
 one or more additional YAML files.
 
-Any shared resource defined in the base module template and used across
-the entire VNF (e.g., private networks, server groups), must be exposed
-to the incremental or add-on modules by declaring their resource UUIDs
-as Heat outputs (i.e., ONAP Base Template Output Parameter in the
-output section of the Heat template). Those outputs will be provided by
-ONAP as input parameter values to all add-on module Heat templates
-in the VNF that have declared the parameter in the template.
+* R-xxxxx The VNF **MUST** expose any shared resource defined in the base module template and used across the entire VNF (e.g., private networks, server groups) to the incremental or add-on modules by declaring their resource UUIDs as Heat outputs (i.e., ONAP Base Template Output Parameter in the output section of the Heat template).Those outputs will be provided by ONAP as input parameter values to all add-on module Heat templates in the VNF that have declared the parameter in the template.
 
 *Note:* A Cinder volume is *not* considered a shared resource. A volume
 template must correspond 1:1 with a base template or add-on module
@@ -762,9 +756,7 @@ Heat\_template\_version: 2013-05-23
 Scaling Considerations
 ----------------------
 
-Scaling of a VNF may be manually driven to add new capacity (**static
-scaling**) or it may be driven in near real-time by the ONAP
-controllers based on a real-time need **(dynamic scaling).**
+* R-xxxxx The VNF **MAY** be scaled by (**static scaling**) manually driven to add new capacity or **(dynamic scaling)** driven in near real-time by the ONAP controllers based on a real-time need.
 
 With VNF Modularity, the recommended approach for scaling is to provide
 additional “growth unit” templates that can be used to create additional
@@ -782,12 +774,16 @@ and must comply with the following:
 -  Growth templates can use the private networks and other shared
    resources exposed by the Base Module template.
 
+* R-xxxxx The VNF **SHOULD** be scaled by providing additional "growth unit" templates that can be used to create additional resources in logical scaling increments.
+
 VNF Modules may also be updated “in-place” using the OpenStack Heat
 Update capability, by deploying an updated Heat template with different
 VM counts to an existing stack. This method requires another VNF module
 template that includes the new resources *in addition to all resources
 contained in the original module template*. Note that this also requires
 re-specification of all existing parameters as well as new ones.
+
+* R-xxxxx The VNF **MAY** be scaled "in-place" using the OpenStack Heat update capability.
 
 *For this approach:*
 
