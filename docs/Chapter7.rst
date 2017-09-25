@@ -4,6 +4,8 @@
 a. Service Design
 ==================
 
+This section, Service Design, has been left intentionally blank. It is out-of-scope for the VNF Requirements project for the Amsterdam release and no numbered requirements are expected. Content may be added in future updates of this document.
+
 b. VNF On-boarding and package management
 ==========================================
 
