@@ -1,4 +1,4 @@
-**8. Appendix**
+﻿**8. Appendix**
 ===============
 
 a. Data Record Formats
@@ -755,11 +755,6 @@ Some illustrative examples are shown below:
    c. Playbook terminated: {"Duration": "61 sec", “StatusCode”: 500,
       “StatusMessage”:”TERMINATED” }
 
-
-.. [1]
-   ECOMP (Enhanced Control Orchestration, Management & Policy)
-   Architecture White Paper
-   (http://about.att.com/content/dam/snrdocs/ecomp.pdf)
 
 .. [2]
    https://github.com/mbj4668/pyang

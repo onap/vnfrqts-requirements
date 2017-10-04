@@ -97,7 +97,7 @@ and GS NFV IFA011 V0.3.0 (2015-10) - Network Functions Virtualization
 
 * R-56815 The VNF Package **MUST** include documentation describing supported VNF scaling capabilities and capacity limits (e.g., number of users, bandwidth, throughput, concurrent calls).
 * R-48596 The VNF Package **MUST** include documentation describing the characteristics for the VNF reliability and high availability.
-* R-74763 The VNF Vendor **MUST** provide an artifact per VNF that contains all of the VNF Event Records supported. The artifact should include reference to the specific release of the VNF Event Stream Common Event Data Model document it is based on. ( `AT&T Service Specification; Service: VES Event Listener <https://github.com/att/evel-test-collector/tree/master/docs/att_interface_definition>`__)
+* R-74763 The VNF Vendor **MUST** provide an artifact per VNF that contains all of the VNF Event Records supported. The artifact should include reference to the specific release of the VNF Event Stream Common Event Data Model document it is based on. (e.g., `VES Event Listener <https://github.com/att/evel-test-collector/tree/master/docs/att_interface_definition>`__)
 
 **Compute, Network, abd Storage Requirements**
 
@@ -880,8 +880,7 @@ Data Structure Specification of the Event Record
 ------------------------------------------------
 
 For additional information on the event record formats of the data
-structures mentioned above, please refer to `AT&T Service Specification;
-Service: VES Event
+structures mentioned above, please refer to `VES Event
 Listener <https://github.com/att/evel-test-collector/tree/master/docs/att_interface_definition>`__.
 
 .. [1]
