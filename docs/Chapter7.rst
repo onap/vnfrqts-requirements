@@ -145,6 +145,8 @@ services. The Adapters employ a model driven approach along with
 standardized APIs provided by the VNF developers to configure resources
 and manage their runtime lifecycle.
 
+Additional details can be found in the `ONAP Application Controller (APPC) API Guide <http://onap.readthedocs.io/en/latest/submodules/appc.git/docs/APPC%20API%20Guide/APPC%20API%20Guide.html>`_.
+
 NETCONF Standards and Capabilities
 ----------------------------------
 
@@ -621,6 +623,8 @@ virtual probes provide without the need to insert probes at various
 points in the network. The VNF vendors must be able to provide the
 aforementioned set of required data directly to the ONAP collection
 layer using standardized interfaces.
+
+Additional details can be found in the `Data Collection, Analytics, and Events (DCAE) <http://onap.readthedocs.io/en/latest/submodules/dcaegen2.git/docs/index.html>`_ project documentation.
 
 Transports and Protocols Supporting Resource Interfaces
 -------------------------------------------------------
