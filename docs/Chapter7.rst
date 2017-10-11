@@ -145,6 +145,8 @@ services. The Adapters employ a model driven approach along with
 standardized APIs provided by the VNF developers to configure resources
 and manage their runtime lifecycle.
 
+Additional details can be found in the `ONAP Application Controller (APPC) API Guide <http://onap.readthedocs.io/en/latest/submodules/appc.git/docs/APPC%20API%20Guide/APPC%20API%20Guide.html>`_.
+
 NETCONF Standards and Capabilities
 ----------------------------------
 
@@ -622,6 +624,8 @@ points in the network. The VNF vendors must be able to provide the
 aforementioned set of required data directly to the ONAP collection
 layer using standardized interfaces.
 
+Additional details can be found in the `Data Collection, Analytics, and Events (DCAE) <http://onap.readthedocs.io/en/latest/submodules/dcaegen2.git/docs/index.html>`_ project documentation.
+
 Transports and Protocols Supporting Resource Interfaces
 -------------------------------------------------------
 
@@ -882,11 +886,6 @@ Data Structure Specification of the Event Record
 For additional information on the event record formats of the data
 structures mentioned above, please refer to `VES Event
 Listener <https://github.com/att/evel-test-collector/tree/master/docs/att_interface_definition>`__.
-
-.. [1]
-   ECOMP (Enhanced Control Orchestration, Management & Policy)
-   Architecture White Paper
-   (http://about.att.com/content/dam/snrdocs/ecomp.pdf)
 
 .. [2]
    https://github.com/mbj4668/pyang
