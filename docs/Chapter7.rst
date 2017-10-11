@@ -624,6 +624,8 @@ points in the network. The VNF vendors must be able to provide the
 aforementioned set of required data directly to the ONAP collection
 layer using standardized interfaces.
 
+Additional details can be found in the `Data Collection, Analytics, and Events (DCAE) <http://onap.readthedocs.io/en/latest/submodules/dcaegen2.git/docs/index.html>`_ project documentation.
+
 Transports and Protocols Supporting Resource Interfaces
 -------------------------------------------------------
 
