@@ -9,8 +9,7 @@ This section, Service Design, has been left intentionally blank. It is out-of-sc
 b. VNF On-boarding and package management
 ==========================================
 
-Design Definition
-=================
+**Design Definition**
 
 The ONAP Design Time Framework provides the ability to design NFV
 resources including VNFs, Services, and products. The vendor must
@@ -600,8 +599,6 @@ Table 10. Planned ONAP Controller Functions
 
 d. Monitoring & Management
 ===========================
-Monitoring & Management
-=======================
 
 This section addresses data collection and event processing
 functionality that is directly dependent on the interfaces provided by
