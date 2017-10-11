@@ -504,138 +504,161 @@ Data Protection Requirements
 d. VNF Modularity
 =================
 
-VNF Modularity Overview
------------------------
+ONAP Heat Orchestration Templates: Overview 
+-------------------------------------------
 
-ONAP supports a modular Heat design pattern, referred to as *VNF
-Modularity.* With this approach, a single VNF may be composed from one
-or more Heat templates, each of which represents some subset of the
+ONAP supports a modular Heat Orchestration Template design pattern,
+referred to as *VNF Modularity.*
+
+ONAP VNF Modularity Overview
+----------------------------
+
+With VNF Modularity, a single VNF may be composed from one or more Heat
+Orchestration Templates, each of which represents a subset of the
 overall VNF. These component parts are referred to as “\ *VNF
-Modules*\ ”. During orchestration, these modules may be deployed
-incrementally to build up the complete VNF.
+Modules*\ ”. During orchestration, these modules are deployed
+incrementally to create the complete VNF.
 
-A Heat template can be either one of the following types of modules:
+A modular Heat Orchestration Template can be either one of the following
+types:
 
 1. Base Module
 
-2. Incremental Modules
+2. Incremental Module
 
-3. Independent Cinder Volume Modules
+3. Cinder Volume Module
 
-* R-05810 The VNF **MUST** follow the naming convention (Section 5.b Filenames) for the ONAP Heat template. The naming convention identifies the module type.
+* R-37028 The VNF **MUST** be composed of one “base” module.
+* R-41215 The VNF **MAY** have zero to many “incremental” modules.
+* R-20974 The VNF **MUST** deploy the base module first, prior to the incremental modules.
 
-* R-37028 The VNF **MUST** be composed of one “base” VNF module (also called a base module).
-* R-41215 The VNF **MAY** have zero to many “incremental” or “add on” VNF modules.
-* R-20974 The VNF **MUST** deploy the base module first, prior to the add-on modules.
+ONAP also supports the concept of an optional, independently deployed
+Cinder volume via a separate Heat Orchestration Templates, referred to
+as a Cinder Volume Module. This allows the volume to persist after a
+Virtual Machine (VM) (i.e., OS::Nova::Server) is deleted, allowing the
+volume to be reused on another instance (e.g., during a failover
+activity).
 
-A module can be thought of as equivalent to a Heat template, where a
-Heat template is composed of a YAML file and an environment file (also
-referred to as an ENV file). A given YAML file must have a corresponding
-environment file; ONAP requires it.
+* R-11200 The VNF MUST keep the scope of a Cinder volume module, when it exists, to be 1:1 with the VNF Base Module or Incremental Module.
 
-A Heat template is used to create or deploy a Heat stack. Therefore, a
-module is also equivalent to a Heat Stack.
-
-ONAP supports the concept of an optional, independent deployment of
-a Cinder volume via separate Heat templates. This allows the volume to
-persist after VNF deletion so that the volume can be reused on another
-instance (e.g. during a failover activity).
-
-* R-11200 The VNF **MUST** keep the scope of a volume module, when it exists, to be 1:1 with the VNF Module (base or add-on).
-* R-93670 The VNF **MUST** create only the volumes needed by a single VNF module (base or add-on) in a single volume module.
+* R-nnnnn The VNF MUST have a corresponding environment file for a Base Module.
+* R-nnnnn The VNF MUST have a corresponding environment file for an Incremental Module.
+* R-nnnnn The VNF MUST have a corresponding environment file for a Cinder Volume Module.
 
 These concepts will be described in more detail throughout the document.
 This overview is provided to set the stage and help clarify the concepts
 that will be introduced.
 
-Design Pattern: VNF Modularity
-------------------------------
 
-ONAP supports the concept of *VNF Modularity*. With this approach,
-a single VNF may be composed from one or more Heat templates, each of
-which represents some subset of the overall VNF. These component parts
-are referred to as “\ *VNF Modules*\ ”. During orchestration, these
-modules may be deployed incrementally to build up the complete VNF.
+ONAP VNF Modularity
+-------------------
 
-A Heat template can be either one for the following types of modules
+ONAP supports a modular Heat Orchestration Template design pattern,
+referred to as *VNF Modularity.* With this approach, a single VNF may be
+composed from one or more Heat Orchestration Templates, each of which
+represents a subset of the overall VNF. These component parts are
+referred to as “\ *VNF Modules*\ ”. During orchestration, these modules
+are deployed incrementally to create the complete VNF.
+
+A modular Heat Orchestration Template can be either one of the following
+types:
 
 1. Base Module
 
-2. Incremental Modules
+2. Incremental Module
 
-3. Independent Cinder Volume Modules
+3. Cinder Volume Module
 
-The ONAP Heat template naming convention must be followed (Section
-5.b Filenames). The naming convention identifies the module type.
+A VNF must be composed of one “base” module and may be composed of zero
+to many “incremental” modules. The base module must be deployed first,
+prior to the incremental modules.
 
-A VNF must be composed of one “base” VNF module (also called a base
-module) and zero to many “incremental” or “add on” VNF modules. The base
-module must be deployed first prior to the add-on modules.
+ONAP also supports the concept of an optional, independently deployed
+Cinder volume via a separate Heat Orchestration Templates, referred to
+as a Cinder Volume Module. This allows the volume to persist after a VM
+(i.e., OS::Nova::Server) is deleted, allowing the volume to be reused on
+another instance (e.g., during a failover activity).
 
-A module can be thought of as equivalent to a Heat template, where a
-Heat template is composed of a YAML file and an environment file. A
-given YAML file must have a corresponding environment file; ONAP
-requires it. A Heat template is used to create or deploy a Heat stack.
-Therefore, a module is also equivalent to a Heat Stack.
+The scope of a Cinder volume module, when it exists, must be 1:1 with a
+Base module or Incremental Module.
 
-* R-74385 The VNF **MUST** have a corresponding environment file for given YAML file.
+A Base Module must have a corresponding environment file.
 
-However, there are cases where a module maybe composed of more than one
-Heat stack and/or more than one YAML file.
+An Incremental Module must have a corresponding environment file.
 
-As discussed in Section 5.b, Independent Volume Templates, each VNF
-Module may have an associated Volume template.
+A Cinder Volume Module must have a corresponding environment file.
 
--  When a volume template is utilized, it must correspond 1:1 with
-   add-on module template or base template it is associated with
+A VNF module (base, incremental, cinder) may support nested templates.
 
--  A Cinder volume may be embedded within the add-on module template
-   and/or base template if persistence is not required, thus not
-   requiring the optional Volume template.
+A shared Heat Orchestration Template resource must be defined in the
+base module. A shared resource is a resource that that will be
+referenced by another resource that is defined in the Base Module and/or
+one or more incremental modules.
 
-* R-52501 The VNF **MAY** have a VNF module that supports nested templates. In this case, there will be one or more additional YAML files.
+When the shared resource needs to be referenced by a resource in an
+incremental module, the UUID of the shared resource must be exposed by
+declaring an ONAP Base Module Output Parameter.
 
-* R-78037 The VNF **MUST** expose any shared resource defined in the base module template and used across the entire VNF (e.g., private networks, server groups) to the incremental or add-on modules by declaring their resource UUIDs as Heat outputs (i.e., ONAP Base Template Output Parameter in the output section of the Heat template).Those outputs will be provided by ONAP as input parameter values to all add-on module Heat templates in the VNF that have declared the parameter in the template.
+Note that a Cinder volume is *not* a shared resource. A volume template
+must correspond 1:1 with a base module or incremental module.
+
+An example of a shared resource is the resource
+OS::Neutron::SecurityGroup. Security groups are sets of IP filter rules
+that are applied to a VNF’s networking. The resource OS::Neutron::Port
+has a property security\_groups which provides the security groups
+associated with port. The value of parameter(s) associated with this
+property must be the UUIDs of the resource(s)
+OS::Neutron::SecurityGroup.
 
 *Note:* A Cinder volume is *not* considered a shared resource. A volume
 template must correspond 1:1 with a base template or add-on module
 template.
 
-There are two suggested usage patterns for modular VNFs, though any
-variation is supported.
+Suggested Patterns for Modular VNFs
+-----------------------------------
 
-A. **Modules per VNFC type**
+There are numerous variations of VNF modularity. Below are two suggested
+usage patterns.
 
-   a. Group all VMs (VNFCs) of a given type into its own module
+**Option 1: Modules per VNFC type**
 
-   b. Build up the VNF one VNFC type at a time
+a. Base module contains only the shared resources.
 
-   c. Base module contains only the shared resources (and possibly
-      initial Admin VMs)
+b. Group all VMs (e.g., VNFCs) of a given type (i.e. {vm-type}) into its
+   own incremental module. That is, the VNF has an incremental module
+   for each {vm-type}.
 
-   d. Suggest one or two modules per VNFC type
+c. For a given {vm-type} incremental module, the VNF may have
 
-      i.  one for initial count
+   i.  One incremental module used for both initial turn up and re-used
+       for scaling. This approach is used when the number of VMs
+       instantiated will be the same for initial deployment and scaling.
 
-      ii. one for scaling increment (if different from initial count)
+   ii. Two incremental modules, where one is used for initial turn up
+       and one is used for scaling. This approach is used when the
+       number of VMs instantiated will be different for initial
+       deployment and scaling.
 
-B. **Base VNF + Growth Units**
+**Option 2: Base VNF with Incremental Growth Modules**
 
-   a. Base module (template) contains a complete initial VNF instance
+a. Base module contains a complete initial VNF instance
 
-   b. Growth modules for incremental scaling units
+b. Incremental modules for incremental scaling units
 
-      i.  May contain VMs of multiple types in logical scaling
-          combinations
+   i.  May contain VMs of multiple types in logical scaling combinations
 
-      ii. May be separated by VM type for multi-dimensional scaling
+   ii. May be separated by VM type for multi-dimensional scaling
 
-   c. With no growth units, this is equivalent to the “\ *One Heat
-      Template per VNF*\ ” model
+With no growth units, Option 2 is equivalent to the “One Heat Template
+per VNF” model.
 
-Note that modularization of VNFs is not required. A single Heat template
-(a base template) may still define a complete VNF, which might be
-appropriate for smaller VNFs without a lot of scaling options.
+Note that modularization of VNFs is not required. A single Heat
+Orchestration Template (a base module) may still define a complete VNF,
+which might be appropriate for smaller VNFs that do not have any scaling
+options.
+
+Modularity Rules
+----------------
 
 There are some rules to follow when building modular VNF templates:
 
@@ -646,7 +669,7 @@ There are some rules to follow when building modular VNF templates:
       groups, security groups)
 
    b. Must expose all shared resources (by UUID) as “outputs” in its
-      associated Heat template (i.e., ONAP Base Template Output
+      associated Heat template (i.e., ONAP Base Module Output
       Parameters)
 
    c. May include initial set of VMs
@@ -654,7 +677,7 @@ There are some rules to follow when building modular VNF templates:
    d. May be operational as a stand-alone “minimum” configuration of the
       VNF
 
-2. VNFs may have one or more Add-On VNF Modules (templates) which:
+2. VNFs may have one or more incremental modules which:
 
    a. Defines additional resources that can be added to an existing VNF
 
@@ -665,152 +688,161 @@ There are some rules to follow when building modular VNF templates:
    c. Should define logical growth-units or sub-components of an overall
       VNF
 
-   d. On creation, receives all Base VNF Module outputs as parameters
+   d. On creation, receives appropriate Base Module outputs as
+      parameters
 
       i.  Provides access to all shared resources (by UUID)
 
       ii. must not be dependent on other Add-On VNF Modules
 
-   e. Multiple instances of an Add-On VNF Module type may be added to
-      the same VNF (e.g. incrementally grow a VNF by a fixed “add-on”
+   e. Multiple instances of an incremental Module may be added to the
+      same VNF (e.g., incrementally grow a VNF by a fixed “add-on”
       growth units)
 
-3. Each VNF Module (base or add-on) may have (optional) an associated
-   Volume template (*see Section 5.b, Independent Volume Templates*)
+3. Each VNF Module (base or incremental) may have (optional) an
+   associated Cinder Volume Module (see Cinder Volume Templates)
 
-   a. Volume templates should correspond 1:1 with Module (base or
-      add-on) templates
+   a. Volume modules must correspond 1:1 with a base module or
+      incremental module
 
-   b. A Cinder volume may be embedded within the Module template (base
-      or add-on) if persistence is not required
+   b. A Cinder volume may be embedded within the base module or
+      incremental module if persistence is not required
 
-4. Shared resource UUIDs are passed between the base template and add-on
-   template via Heat Outputs Parameters (i.e., Base Template Output
-   Parameters)
+4. Shared resource UUIDs are passed between the base module and
+   incremental modules via Heat Outputs Parameters (i.e., Base Module
+   Output Parameters)
 
    a. The output parameter name in the base must match the parameter
       name in the add-on module
 
-*Examples:*
+VNF Modularity Examples
+-----------------------
 
-In this example, the {vm-type} have been defined as “lb” for load
-balancer and “admin” for admin server.
+*Example: Base Module creates SecurityGroup*
 
-1. **Base VNF Module Heat Template (partial)**
+A VNF has a base module, named base.yaml, that defines a
+OS::Neutron::SecurityGroup. The security group will be referenced by an
+OS::Neutron::Port resource in an incremental module, named
+INCREMENTAL\_MODULE.yaml. The base module defines a parameter in the out
+section named dns\_sec\_grp\_id. dns\_sec\_grp\_id is defined as a
+parameter in the incremental module. ONAP captures the UUID value of
+dns\_sec\_grp\_id from the base module output statement and provides the
+value to the incremental module.
 
-Heat\_template\_version: 2013-05-23
+Note that the example below is not a complete Heat Orchestration
+Template. The {network-role} has been defined as oam to represent an oam
+network and the {vm-type} has been defined as dns.
 
-.. code-block:: python
-
-    parameters:
-        admin\_name\_0:
-            type: string
-
-    resources:
-        int\_oam\_network:
-            type: OS::Neutron::Network
-            properties:
-                name: {… }
-
-        admin\_server:
-            type: OS::Nova::Server
-            properties:
-            name: {get\_param: admin\_name\_0}
-            image: ...
-
-    outputs:
-        int\_oam\_net\_id:
-            value: {get\_resource: int\_oam\_network }
-
-
-2. **Add-on VNF Module Heat Template (partial)**
-
-Heat\_template\_version: 2013-05-23
+base\_MODULE.yaml
 
 .. code-block:: python
 
-    Parameters:
-        int\_oam\_net\_id:
-            type: string
-            description: ID of shared private network from Base template
-        lb\_name\_0:
-            type: string
-            description: name for the add-on VM instance
+ parameters:
+   . . .
 
-    Resources:
-        lb\_server:
-            type: OS::Nova::Server
-            properties:
-                name: {get\_param: lb\_name\_0}
-                networks:
-                    - port: { get\_resource: lb\_port }
-                    ...
+ resources:
+   DNS_SECURITY_GROUP:
+     type: OS::Neutron::SecurityGroup
+     properties:
+       description: vDNS security group
+       name:
+         str_replace:
+           template: VNF_NAME_sec_grp_DNS
+           params:
+             VMF_NAME: {get_param: vnf_name}
+       rules: [. . . . .
 
-        lb\_port:
-            type: OS::Neutron::Port
-            properties:
-                network\_id: { get\_param: int\_oam\_net\_id }
-    ...
+   . . .
 
-Scaling Considerations
-----------------------
+ outputs:
+   dns_sec_grp_id:
+     description: UUID of DNS Resource SecurityGroup
+     value: { get_resource: DNS_SECURITY_GROUP }
 
-* R-56853 The VNF **MAY** be scaled by (**static scaling**) manually driven to add new capacity or **(dynamic scaling)** driven in near real-time by the ONAP controllers based on a real-time need.
 
-With VNF Modularity, the recommended approach for scaling is to provide
-additional “growth unit” templates that can be used to create additional
-resources in logical scaling increments. This approach is very
-straightforward, and has minimal impact on the currently running VNFCs
-and must comply with the following:
+INCREMENTAL\_MODULE.yaml
 
--  Combine resources into reasonable-sized scaling increments; do not
-   just scale by one VM at a time in potentially large VNFs.
+.. code-block:: python
 
--  Combine related resources into the same growth template where
-   appropriate, e.g. if VMs of different types are always deployed in
-   pairs, include them in a single growth template.
+ parameters:
+   dns_sec_grp_id:
+     type: string
+     description: security group UUID
+   . . .
 
--  Growth templates can use the private networks and other shared
-   resources exposed by the Base Module template.
+ resources:
+   dns_oam_0_port:
+     type: OS::Neutron::Port
+     properties:
+       name:
+         str_replace:
+           template: VNF_NAME_dns_oam_port
+           params:
+             VNF_NAME: {get_param: vnf_name}
+       network: { get_param: oam_net_name }
+       fixed_ips: [{ "ip_address": { get_param: dns_oam_ip_0 }}]
+       security_groups: [{ get_param: dns_sec_grp_id }]
 
-* R-87957 The VNF **SHOULD** be scaled by providing additional "growth unit" templates that can be used to create additional resources in logical scaling increments.
 
-VNF Modules may also be updated “in-place” using the OpenStack Heat
-Update capability, by deploying an updated Heat template with different
-VM counts to an existing stack. This method requires another VNF module
-template that includes the new resources *in addition to all resources
-contained in the original module template*. Note that this also requires
-re-specification of all existing parameters as well as new ones.
+*Examples: Base Module creates an internal network*
 
-* R-99074 The VNF **MAY** be scaled "in-place" using the OpenStack Heat update capability.
+A VNF has a base module, named base\_module.yaml, that creates an
+internal network. An incremental module, named incremental\_module.yaml,
+will create a VM that will connect to the internal network. The base
+module defines a parameter in the out section named int\_oam\_net\_id.
+int\_oam\_net\_id is defined as a parameter in the incremental module.
+ONAP captures the UUID value of int\_oam\_net\_id from the base module
+output statement and provides the value to the incremental module.
 
-*For this approach:*
+Note that the example below is not a complete Heat Orchestration
+Template. The {network-role} has been defined as oam to represent an oam
+network and the {vm-type} has been defined as lb for load balancer.
 
--  Use a fixed number of pre-defined VNF module configurations
+base.yaml
 
--  Successively larger templates must be identical to the next smaller
-   one, plus add the additional VMs of the scalable type(s)
+.. code-block:: python
 
--  VNF is scalable by sending a stack-update with a different template
+ heat_template_version: 2013-05-23
 
-*Please do note that:*
+ resources:
+    int_oam_network:
+       type: OS::Neutron::Network
+       properties:
+          name: {… }
+          . . .
+ outputs:
+    int_oam_net_id:
+       value: {get_resource: int_oam_network }
 
--  If properties do not change for existing VMs, those VMs should remain
-   unchanged
 
--  If the update is performed with a smaller template, the Heat engine
-   recognizes and deletes no-longer-needed VMs (and associated
-   resources)
+incremental.yaml
 
--  Nested templates for the various server types will simplify reuse
-   across multiple configurations
+.. code-block:: python
 
--  Per the section on Use of Heat ResourceGroup, if *ResourceGroup* is
-   ever used for scaling (e.g. increment the count and include an
-   additional element to each list parameter), Heat will often rebuild
-   every existing element in addition to adding the “deltas”.  For this
-   reason, use of *ResourceGroup* for scaling in this manner is not
-   supported.
+ heat_template_version: 2013-05-23
+
+ parameters:
+    int_oam_net_id:
+       type: string
+       description: ID of shared private network from Base template
+    lb_name_0:
+       type: string
+       description: name for the add-on VM instance
+
+ Resources:
+    lb_server:
+       type: OS::Nova::Server
+       properties:
+          name: {get_param: lb_name_0}
+          networks:
+             - port: { get_resource: lb_port }
+          . . .
+
+    lb_port:
+       type: OS::Neutron::Port
+       properties:
+          network_id: { get_param: int_oam_net_id }
+ ...
 
 e. VNF Devops
 =============

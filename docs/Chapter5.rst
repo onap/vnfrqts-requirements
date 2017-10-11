@@ -1548,1411 +1548,3268 @@ b. Heat
 General Guidelines
 ------------------
 
-The Heat templates supported by ONAP must follow the requirements
-enumerated in this section.
+YAML Format
+-----------
 
-Filenames
----------
+Heat Orchestration Templates must use valid YAML. YAML (YAML Ain't
+Markup Language) is a human friendly data serialization standard for all
+programming languages. See http://www.yaml.org/.
+
+Heat Orchestration Template Format
+----------------------------------
+
+Heat Orchestration templates must be defined in YAML.
+
+YAML rules include:
+
+-  Tabs are NOT allowed, use spaces ONLY.
+
+-  You MUST indent your properties and lists with 1 or more spaces.
+
+-  All Resource IDs and resource property parameters are case-sensitive.
+   (e.g., "ThIs", is not the same as "thiS")
+
+Heat Orchestration Template Structure
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Heat Orchestration template structure follows the following format, as
+defined by OpenStack at
+https://docs.openstack.org/developer/heat/template_guide/hot_spec.html.
+
+.. code-block:: python
+
+ heat_template_version: <date>                       
+                                                       
+ description:                                          
+   # a description of the template                       
+                                                       
+ parameter_groups:                                    
+   # a declaration of input parameter groups and order   
+                                                       
+ parameters:                                           
+   # declaration of input parameters                     
+                                                       
+ resources:                                            
+   # declaration of template resources                   
+                                                       
+ outputs:                                              
+   # declaration of output parameters                    
+                                                       
+ conditions:                                           
+   # declaration of conditions                           
+
+
+Heat Orchestration templates for ONAP must contain the following
+sections:
+
+-  heat\_template\_version:
+
+-  description:
+
+-  parameters:
+
+-  resources:
+
+Heat Orchestration templates for ONAP may contain the following
+sections:
+
+-  parameter\_groups:
+
+-  outputs:
+
+heat\_template\_version
+^^^^^^^^^^^^^^^^^^^^^^^
+
+This section is ONAP mandatory. The heat\_template\_version must be set
+to a date that is supported by the OpenStack environment.
+
+description
+^^^^^^^^^^^
+
+This ONAP mandatory section allows for a description of the template.
+
+parameter\_groups
+^^^^^^^^^^^^^^^^^
+
+This ONAP optional section allows for specifying how the input
+parameters should be grouped and the order to provide the parameters in.
+
+parameters
+^^^^^^^^^^
+
+The parameter section is ONAP mandatory. This section allows for
+specifying input parameters that have to be provided when instantiating
+the template. Each parameter is specified in a separated nested block
+with the name of the parameters defined in the first line and additional
+attributes (e.g., type, label) defined as nested elements.
+
+The Pre-Amsterdam VNF Validation Program (i.e., ICE Project) process
+requires all parameters declared in a template to be used in a resource
+with the exception of the parameters for the OS::Nova::Server property
+availability\_zone. See `Property: availability\_zone`_. for more details on
+availability\_zone.
+
+.. code-block:: python
+
+ parameters:
+   <param name>:
+     type: <string | number | json | comma_delimited_list | boolean>
+     label: <human-readable name of the parameter>
+     description: <description of the parameter>
+     default: <default value for parameter>
+     hidden: <true | false>
+     constraints:
+       <parameter constraints>
+     immutable: <true | false>
+
+-  param name:
+
+   -  The name of the parameter.
+
+   -  ONAP requires that the param name must contain only alphanumeric
+      characters and “\_” underscores. Special characters must not be
+      used.
+
+-  type:
+
+   -  The type of the parameter. Supported types are string, number,
+      comma\_delimited\_list, json and boolean.
+
+   -  This attribute must be provided per the OpenStack Heat
+      Orchestration Template standard.
+
+-  label:
+
+   -  A human readable name for the parameter.
+
+   -  This attribute is optional.
+
+-  description:
+
+   -  A human readable description for the parameter.
+
+   -  This attribute is ONAP mandatory; it must be provided. (Note that
+      this attribute is OpenStack optional.)
+
+-  default:
+
+   -  A default value for the parameter.
+
+   -  ONAP does not support this attribute; it *must not* be provided in
+      the Heat Orchestration Template. If a parameter has a default
+      value, it must be provided in the environment file. (Note that
+      this attribute is OpenStack optional.)
+
+-  hidden:
+
+   -  Defines whether the parameters should be hidden when a user
+      requests information about a stack created from the template. This
+      attribute can be used to hide passwords specified as parameters.
+
+   -  This attribute is optional and defaults to false.
+
+-  constraints:
+
+   -  A list of constraints to apply. The constraints block of a
+      parameter definition defines additional validation constraints
+      that apply to the value of the parameter. The parameter values
+      provided in the Heat Orchestration Template are validated against
+      the constraints at instantiation time. The constraints are defined
+      as a list with the following syntax
+
+    constraints:
+
+    - <constraint type>: <constraint definition>
+
+    description: <constraint description>
+
+-  constraint type: Type of constraint to apply.
+
+-  constraint definition: The actual constraint, depending on the
+   constraint type.
+
+-  description: A description of the constraint. The text is presented
+   to the user when the value the user defines violates the constraint.
+   If omitted, a default validation message is presented to the user.
+   This attribute is optional.
+
+-  When the parameter type is set to number, the Heat Orchestration
+   Template uploaded into ONAP must have constraints for range or
+   allowed\_values.
+
+   -  range: The range constraint applies to parameters of type number.
+      It defines a lower and upper limit for the numeric value of the
+      parameter. The syntax of the range constraint is
+
+    range: { min: <lower limit>, max: <upper limit> }
+
+    It is possible to define a range constraint with only a lower limit
+    or an upper limit.
+
+-  allowed\_values: The allowed\_values constraint applies to parameters
+   of type string or number. It specifies a set of possible values for a
+   parameter. At deployment time, the user-provided value for the
+   respective parameter must match one of the elements of the list. The
+   syntax of the allowed\_values constraint is
+
+    allowed\_values: [ <value>, <value>, ... ]
+
+    Alternatively, the following YAML list notation can be used
+
+    allowed\_values:
+
+    - <value>
+
+    - <value>
+
+    - ...
+
+-  Other <constraint type> are optional, they may be used (e.g., length,
+   modulo, allowed\_pattern, custom\_constraint, allowed\_values (for
+   string types))
+
+-  Note that constrains must not be defined for any parameter enumerated
+   in a nested heat template.
+
+-  Some ONAP parameters must never have constraints defined. See `ONAP Resource ID and Parameter Naming Convention`_ for the use cases where these exceptions exist.
+
+-  immutable:
+
+   -  Defines whether the parameter is updatable. Stack update fails, if
+      this is set to true and the parameter value is changed.
+
+   -  This attribute is optional and defaults to false.
+
+resources
+^^^^^^^^^
+
+This section is ONAP mandatory; it must be provided. This section
+contains the declaration of the single resources of the template. This
+section with at least one resource must be defined in the Heat
+Orchestration Template, or the template would not create any resources
+when being instantiated.
+
+Each resource is defined as a separate block in the resources section
+with the following syntax.
+
+.. code-block:: python
+
+ resources:
+   <resource ID>:
+     type: <resource type>
+     properties:
+       <property name>: <property value>
+     metadata:
+       <resource specific metadata>
+     depends\_on: <resource ID or list of ID>
+     update\_policy: <update policy>
+     deletion\_policy: <deletion policy>
+     external\_id: <external resource ID>
+     condition: <condition name or expression or boolean>
+
+-  resource ID
+
+   -  A resource ID that must be unique within the resources section of
+      the Heat Orchestration Template.
+
+   -  ONAP requires that the resource ID must be unique across all Heat
+      Orchestration Templates that compose the VNF. This requirement
+      also applies when a VNF is composed of more than one Heat
+      Orchestration Template (see ONAP VNF Modularity Overview).
+
+   -  The naming convention for a resource ID is provided in `Resource IDs`_.
+
+-  type
+
+   -  The resource type, such as OS::Nova::Server or OS::Neutron::Port.
+      Note that the type may specify a nested heat file. This attribute
+      is required.
+
+-  properties
+
+   -  A list of resource-specific properties. The property value can be
+      provided in place, or via a function (e.g., Intrinsic functions). This section is optional.
+
+   -  The naming convention for property parameters is provided in `ONAP Resource ID and Parameter Naming Convention`_.
+
+-  metadata
+
+   -  Resource-specific metadata. This section is optional, except for
+      the resource OS::Nova::Server. See `Resource:  OS::Nova::Server - Parameters`_.
+
+-  depends\_on
+
+   -  Dependencies of the resource on one or more resources of the
+      template. This attribute is optional. See `Resource Data Synchronization`_ for additional details.
+
+-  update\_policy
+
+   -  Update policy for the resource, in the form of a nested
+      dictionary. Whether update policies are supported and what the
+      exact semantics are depends on the type of the current resource.
+      This attribute is optional.
+
+-  deletion\_policy
+
+   -  Deletion policy for the resource. The allowed deletion policies
+      are Delete, Retain, and Snapshot. Beginning with
+      heat\_template\_version 2016-10-14, the lowercase equivalents
+      delete, retain, and snapshot are also allowed. This attribute is
+      optional; the default policy is to delete the physical resource
+      when deleting a resource from the stack.
+
+-  external\_id
+
+   -  Allows for specifying the resource\_id for an existing external
+      (to the stack) resource. External resources cannot depend on other
+      resources, but we allow other resources to depend on external
+      resource. This attribute is optional. Note: when this is
+      specified, properties will not be used for building the resource
+      and the resource is not managed by Heat. This is not possible to
+      update that attribute. Also, resource won’t be deleted by heat
+      when stack is deleted.
+
+-  condition
+
+   -  Condition for the resource. The condition decides whether to
+      create the resource or not. This attribute is optional.
+
+outputs
+^^^^^^^
+
+This ONAP optional section allows for specifying output parameters
+available to users once the template has been instantiated. If the
+section is specified, it will need to adhere to specific requirements.
+See `ONAP Parameter Classifications Overview`_ and `ONAP Output Parameter Names`_ for additional details.
+
+Environment File Format
+-----------------------
+
+The environment file is a yaml text file.
+(https://docs.openstack.org/developer/heat/template_guide/environment.html)
+
+The environment file can contain the following sections:
+
+-  parameters: A list of key/value pairs.
+
+-  resource\_registry: Definition of custom resources.
+
+-  parameter\_defaults: Default parameters passed to all template
+   resources.
+
+-  encrypted\_parameters: List of encrypted parameters.
+
+-  event\_sinks: List of endpoints that would receive stack events.
+
+-  parameter\_merge\_strategies: Merge strategies for merging parameters
+   and parameter defaults from the environment file.
+
+Environment files for ONAP must contain the following sections:
+
+-  parameters:
+
+Environment files for ONAP may contain the following sections:
+
+-  resource\_registry:
+
+-  parameter\_defaults:
+
+-  encrypted\_parameters:
+
+-  event\_sinks:
+
+-  parameter\_merge\_strategies:
+
+The use of an environment file in OpenStack is optional. In ONAP, it is
+mandatory. A Heat Orchestration Template uploaded to ONAP must have a
+corresponding environment file, even if no parameters are enumerated in
+the mandatory parameter section.
+
+(Note that ONAP, the open source version of ONAP, does not
+programmatically enforce the use of an environment file.)
+
+SDC Treatment of Environment Files
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Parameter values enumerated in the environment file are used by SDC as
+the default value. However, the SDC user may use the SDC GUI to
+overwrite the default values in the environment file.
+
+SDC generates a new environment file for distribution to MSO based on
+the uploaded environment file and the user provided GUI updates. The
+user uploaded environment file is discarded when the new file is
+created.
+
+ONAP has requirements for what parameters must be enumerated in the
+environment file and what parameter must not be enumerated in the
+environment file. See `ONAP Parameter Classifications Overview`_ and `ONAP Resource ID and Parameter Naming Convention`_ for more details.
+
+Nested Heat Orchestration Templates Overview
+--------------------------------------------
+
+ONAP supports nested Heat Orchestration Templates per OpenStack
+specifications.
+
+A Base Module may utilize nested templates.
+
+An Incremental Module may utilize nested templates.
+
+A Cinder Volume Module may utilize nested templates.
+
+A nested template must not define parameter constraints in the parameter
+definition section.
+
+Nested templates may be suitable for larger VNFs that contain many
+repeated instances of the same VM type(s). A common usage pattern is to
+create a nested template for each VM type along with its supporting
+resources. The Heat Orchestration Template may then reference these
+nested templates either statically (by repeated definition) or
+dynamically (via OS::Heat::ResourceGroup).
+
+See `Nested Heat Templates`_ for additional details.
+
+ONAP Heat Orchestration Template Filenames
+------------------------------------------
 
 In order to enable ONAP to understand the relationship between Heat
-files, the following Heat file naming convention must be followed.
+files, the following Heat file naming convention must be utilized.
 
--  The file name for the base module Heat template must include “base”
-   in the filename.
+In the examples below, <text> represents any alphanumeric string that
+must not contain any special characters and must not contain the word
+“base”.
 
-   -  Examples: *base\_xyz.yml* or *base\_xyz.yaml*; *xyz\_base.yml* or
-      *xyz\_base.yaml*
+Base Modules
+~~~~~~~~~~~~
 
--  There is no explicit naming convention for the add-on modules.
+The file name for the base module must include “base” in the filename
+and must match one of the following options:
 
-   -  Examples: *module1.yml* or *module1.yaml*
+-  base\_<text>.y[a]ml
 
--  All Cinder volume templates must be named the same as the
-   corresponding Heat template with “\_volume” appended to the file
-   name.
+-  <text>\_base.y[a]ml
 
-   -  Examples: *base\_xyz\_volume.yml* or *base\_xyz\_volume.yaml*;
-      *xyz\_base\_volume.yml* or *xyz\_base\_volume.yaml*;
-      *module1\_volume.yml* or *module1\_volume.yaml* (referencing the
-      above base module Heat template name)
+-  base.y[a]ml
 
--  The file name of the environment files must fully match the
-   corresponding Heat template filename and have *.env* or *.ENV*
-   extension.
+-  <text>\_base\_<text>.y[a]ml
 
-   -  Examples: *base\_xyz.env* or *base\_xyz.ENV*; *xyz\_base.env* or
-      *xyz\_base.ENV*; *base\_xyz\_volume.env* or
-      *base\_xyz\_volume.ENV*; *module1.env* or *module1.ENV;
-      module1\_volume.env* or *module1\_volume.ENV* (referencing the
-      above base module Heat template name)
+The base module’s corresponding environment file must be named identical
+to the base module with “.y[a]ml” replaced with “.env”.
 
--  A YAML file must have a corresponding ENV file, even if the ENV file
-   enumerates no parameters. It is an ONAP requirement.
+Incremental Modules
+~~~~~~~~~~~~~~~~~~~
 
-Valid YAML Format
-------------------
+There is no explicit naming convention for the incremental modules. As
+noted above, <text> represents any alphanumeric string that must not
+contain any special characters and must not contain the word “base”.
 
-A Heat template (a YAML file and its corresponding environment file) 
-must be formatted in valid YAML. For a description of YAML, refer to the
-following OpenStack wiki.
+-  <text>.y[a]ml
 
-https://wiki.openstack.org/wiki/Heat/YAMLTemplates
+The incremental module’s corresponding environment file must be named
+identical to the incremental module with “.y[a]ml” replaced with “.env”.
 
-A Heat template must follow a specific format. The OpenStack Heat
-Orchestration Template (HOT) specification explains in detail all
-elements of the HOT template format.
+To clearly identify the incremental module, it is recommended to use the
+following naming options for modules:
 
-http://docs.openstack.org/developer/heat/template_guide/hot_spec.html
+-  module\_<text>.y[a]ml
 
-Parameter Categories & Specification
-------------------------------------
+-  <text>\_module.y[a]ml
 
-Parameter Categories
-~~~~~~~~~~~~~~~~~~~~
+-  module.y[a]ml
 
-ONAP requires the Heat template parameters to follow certain
-requirements in order for it to be orchestrated or deployed. ONAP
-classifies parameters into eight broad categories.
+Cinder Volume Modules
+~~~~~~~~~~~~~~~~~~~~~
 
--  **ONAP Metadata**: ONAP mandatory and optional metadata
-   parameters in the resource *OS::Nova::Server*.
+The file name for the Cinder volume module must be named the same as the
+corresponding module it is supporting (base module or incremental
+module) with “\_volume” appended
 
-   -  ONAP dictates the naming convention of these Metadata
-      parameters and must be adhered to (See Section 5.b, Independent Volume Templates).
+-  <base module name>\_volume.y[a]ml
 
-   -  Metadata parameters must not be enumerated in the environment
-      file.
+-  <incremental module name>\_volume.y[a]ml
 
-   -  The ONAP Metadata are generated and/or assigned by ONAP
-      and supplied to the Heat by ONAP at orchestration time.
+The volume module’s corresponding environment file must be named
+identical to the volume module with “.y[a]ml” replaced with “.env”.
 
--  **ONAP Orchestration Parameters**: The data associated with
-   these parameters are VNF instance specific.
+Nested Heat file
+~~~~~~~~~~~~~~~~
 
-   -  ONAP enforces the naming convention of these parameters and
-      must be adhered to (See Parameter Naming Convention).
+There is no explicit naming convention for nested Heat files with the
+following exceptions; the name should contain “nest”. As noted above,
+<text> represents any alphanumeric string that must not contain any
+special characters and must not contain the word “base”.
 
-   -  These parameters must not be enumerated in the environment file.
+-  <text>.y[a]m
 
-   -  The ONAP Orchestration Parameters are generated and/or
-      assigned by ONAP and supplied to the Heat by ONAP at
-      orchestration time.
+Nested Heat files do not have corresponding environment files, per
+OpenStack specifications. All parameter values associated with the
+nested heat file must be passed in as properties in the resource
+definition defined in the parent heat template.
 
--  **VNF Orchestration Parameters**: The data associated with these
-   parameters are VNF instance specific.
+ONAP Parameter Classifications Overview
+---------------------------------------
 
-   -  While ONAP does not enforce a naming convention, the
-      parameter names should include {vm-type} and {network-role} when
-      appropriate. (See Parameter Naming Convention)
+In order for ONAP to support workflow automation, Heat Orchestration
+Template resource property parameters must adhere to specific naming
+conventions and requirements.
 
-   -  These parameters must not be enumerated in the environment file.
+Broadly, ONAP categorizes parameters into four categories:
 
-   -  The VNF Orchestration Parameters Heat are generated and/or
-      assigned by ONAP and supplied to the Heat by ONAP at
-      orchestration time.
+1. ONAP metadata parameters
 
--  **ONAP Orchestration Constants**: The data associated with these
-   parameters must be constant across all VNF instances.
+2. Instance specific parameters
 
-   -  ONAP enforces the naming convention of these parameters and
-      must be adhered to (See Parameter Naming Convention).
+3. Constant parameters
 
-   -  These parameters must be enumerated in the environment file.
+4. Output parameters.
 
--  **VNF Orchestration Constants**: The data associated with these
-   parameters must be constant across all VNF instances.
-
-   -  While ONAP does not enforce a naming convention, the
-      parameter names should include {vm-type} and {network-role} when
-      appropriate. (See Parameter Naming Convention)
-
-   -  These parameters must be enumerated in the environment file.
-
--  **ONAP Base Template Output Parameters** (also referred to as
-   Base Template Output Parameters): The output section of the base
-   template allows for specifying output parameters available to add-on
-   modules once the base template has been instantiated. The parameter
-   defined in the output section of the base must be identical to the
-   parameter defined in the add-on module(s) where the parameter is
-   used.
-
--  **ONAP Volume Template Output Parameters** (also referred to as
-   Volume Template Output Parameters): The output section of the volume
-   template allows for specifying output parameters available to the
-   corresponding Heat template (base or add-on) once the volume template
-   has been instantiated. The parameter defined in the output section of
-   the volume must be identical to the parameter defined in the base or
-   add-on module.
-
--  **ONAP Predefined Output Parameters** (also referred to as
-   Predefined Output Parameters): ONAP will look for a small set of
-   pre-defined Heat output parameters to capture resource attributes for
-   inventory in ONAP. These parameters are specified in Section
-   5.b Resource Property: name.
-
-The table below summarizes the Parameter Types. If the user is
-orchestrating a manual spin up of Heat (e.g. OpenStack command line),
-the parameter values that ONAP supplies must be enumerated in the
-environment file. However, when the Heat is to be loaded into ONAP
-for orchestration, the parameters that ONAP supplies must be
-deleted or marked with a comment (i.e., a “#” placed at the beginning of
-a line).
-
-+-----------------------------------------------+---------------------+---------------------------------------------------------------------------------+
-| Parameter Type                                | Naming Convention   | Parameter Value Source                                                          |
-+===============================================+=====================+=================================================================================+
-| ONAP Metadata                                 | Explicit            | ONAP                                                                            |
-+-----------------------------------------------+---------------------+---------------------------------------------------------------------------------+
-| ONAP Orchestration Parameters                 | Explicit            | ONAP                                                                            |
-+-----------------------------------------------+---------------------+---------------------------------------------------------------------------------+
-| VNF Orchestration Parameters                  | Recommended         | ONAP                                                                            |
-+-----------------------------------------------+---------------------+---------------------------------------------------------------------------------+
-| ONAP Orchestration Constants                  | Explicit            | Environment File                                                                |
-+-----------------------------------------------+---------------------+---------------------------------------------------------------------------------+
-| VNF Orchestration Constants                   | Recommended         | Environment File                                                                |
-+-----------------------------------------------+---------------------+---------------------------------------------------------------------------------+
-| ONAP Base Template Output Parameters          | Recommended         | Heat Output Statement for base, ONAP supplied to add-on modules                 |
-+-----------------------------------------------+---------------------+---------------------------------------------------------------------------------+
-| ONAP Volume Template Output Parameters        | Recommended         | Heat Output Statement for volume, OpeneECOMP supplies to corresponding module   |
-+-----------------------------------------------+---------------------+---------------------------------------------------------------------------------+
-| ONAP Predefined Output Parameters             | Explicit            | Heat Output Statement                                                           |
-+-----------------------------------------------+---------------------+---------------------------------------------------------------------------------+
-
-Table 1 Parameter Types
-
-Parameter Specifications
+ONAP Metadata Parameters
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-ONAP METADATA Parameters
+There are both mandatory and optional ONAP metadata parameters
+associated with the resource OS::Nova::Server.
+
+-  ONAP metadata parameters must not have parameter constraints defined.
+
+-  Both mandatory and optional (if specified) ONAP metadata parameter
+   names must follow the ONAP metadata parameter naming convention.
+
+`Resource:  OS::Nova::Server – Metadata Parameters`_ provides more details on the metadata parameters.
+
+Instance specific parameters
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The instance specific parameters are VNF instance specific. The value of
+the parameter will be different for every instance of a VNF (e.g., IP
+address). The instance specific parameters are subdivided into two
+categories: **ONAP Orchestration Parameters** and **VNF Orchestration
+Parameters**
+
+ONAP Orchestration Parameters
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-ONAP defines four “metadata” parameters: vnf\_id, vf\_module\_id,
-vnf\_name, vf\_module\_name. These parameters must not define any
-constraints in the Heat template, including length restrictions, ranges,
-default value and/or allowed patterns.
+ONAP Orchestration Parameters are per instance parameters where the
+value is assigned via ONAP automation. (Note that in some cases,
+automation is currently not available and the value is loaded into ONAP
+prior to instantiation.)
 
-ONAP Base Template & Volume Template Output Parameters 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-  ONAP orchestration parameters must not be enumerated in the
+   environment file.
 
-The base template and volume template output parameters are defined as
-input parameters in subsequent modules. When defined as input
-parameters, these parameters must not define any constraints in the Heat
-template, including length restrictions, ranges, default value and/or
-allowed patterns. The parameter name defined in the output statement of
-the Heat must be identical to the parameter name defined in the Heat
-that is to receive the value.
+-  When the ONAP orchestration parameter type is set to number, the
+   parameter must have constraints for range and/or allowed\_values.
+
+-  Parameter constraints for ONAP orchestration parameters are optional
+   for all parameter types other than number. If constraints are
+   specified, they must adhere to the OpenStack specifications.
+
+-  The ONAP orchestration parameter names must follow the ONAP
+   orchestration parameter naming convention. `ONAP Resource ID and Parameter Naming Convention`_ provides
+   additional details.
+
+VNF Orchestration Parameters
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+VNF Orchestration Parameters are per instance parameters where the
+values are assigned manually. They are not supported by ONAP automation.
+The per instance values are loaded into ONAP prior to VNF instantiation.
+
+-  VNF orchestration parameters must not be enumerated in the
+   environment file.
+
+-  When the VNF orchestration parameter type is set to number, the
+   parameter must have constraints for range or allowed\_values.
+
+-  Parameter constraints for VNF orchestration parameters are optional
+   for all parameter types other than number. If constraints are
+   specified, they must adhere to the OpenStack specifications.
+
+-  The VNF orchestration parameter names should follow the VNF
+   orchestration parameter naming convention. `ONAP Resource ID and Parameter Naming Convention`_ provides
+   additional details.
+
+Constant Parameters
+~~~~~~~~~~~~~~~~~~~
+
+The constant parameters are parameters that remain constant across many
+VNF instances (e.g., image, flavor). The constant parameters are
+subdivided into two categories: **ONAP Constant Parameters** and **VNF Constant Parameters.**
+
+ONAP Constant Parameters
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+-  ONAP Constant Parameters must be enumerated in the environment file.
+   These parameter values are not assigned by ONAP.
+
+-  When the ONAP Constant Parameter type is set to number, the parameter
+   must have constraints for range and/or allowed\_values.
+
+-  Parameter constraints for ONAP constant parameters are optional for
+   all parameter types other than number. If constraints are specified,
+   they must adhere to the OpenStack specifications.
+
+-  The ONAP Constant Parameter names must follow the ONAP orchestration
+   parameter naming convention. `ONAP Resource ID and Parameter Naming Convention`_ provides additional details.
+
+VNF Constant Parameters
+^^^^^^^^^^^^^^^^^^^^^^^
+
+-  VNF Constant Parameters must be enumerated in the environment file.
+   These parameter values are not assigned by ONAP.
+
+-  When the VNF Constant Parameters type is set to number, the parameter
+   must have constraints for range and/or allowed\_values.
+
+-  Parameter constraints for ONAP constant parameters are optional for
+   all parameter types other than number. If constraints are specified,
+   they must adhere to the OpenStack specifications.
+
+-  The VNF Constant Parameters names should follow the ONAP
+   orchestration parameter naming convention. `ONAP Resource ID and Parameter Naming Convention`_ provides
+   additional details.
+
+Output Parameters
+~~~~~~~~~~~~~~~~~
+
+The output parameters are parameters defined in the output section of a
+Heat Orchestration Template. The ONAP output parameters are subdivided
+into three categories:
+
+1. ONAP Base Module Output Parameters
+
+2. ONAP Volume Module Output Parameters
+
+3. ONAP Predefined Output Parameters.
+
+ONAP Base Module Output Parameters
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ONAP Base Module Output Parameters are declared in the outputs: section
+of the base module Heat Orchestration Template. A Base Module Output
+Parameter is available as an input parameter (i.e., declared in the
+“parameters:” section) to all incremental modules in the VNF.
+
+-  A Base Module Output Parameter may be used as an input parameter in
+   an incremental module.
+
+-  The Output parameter name and type must match the input parameter
+   name and type unless the Output parameter is of the type
+   comma\_delimited\_list.
+
+   -  If the Output parameter has a comma\_delimited\_list value (e.g.,
+      a collection of UUIDs from a Resource Group), then the
+      corresponding input parameter must be declared as type json and
+      not a comma\_delimited\_list, which is actually a string value
+      with embedded commas.
+
+-  When a Base Module Output Parameter is declared as an input parameter
+   in an incremental module Heat Orchestration Template, parameter
+   constraints must not be declared.
+
+Additional details on ONAP Base Module Output Parameters are provided in
+`ONAP Output Parameter Names`_ and ONAP VNF Modularity.
+
+ONAP Volume Module Output Parameters
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The volume template output parameters are only available for the module
+(base or add on) that the volume is associated with.
+
+-  ONAP Volume Module Output Parameters are declared in the “outputs:”
+   section of the Cinder volume module Heat Orchestration Template
+
+-  An ONAP Volume Module Output Parameter is available as an input
+   parameter (i.e., declared in the parameters: section) only for the
+   module (base or incremental) that the Cinder volume module is
+   associated with. The Output parameter name and type must match the
+   input parameter name and type unless the Output parameter is of the
+   type comma\_delimited\_list.
+
+-  If the Output parameter has a comma\_delimited\_list value (e.g., a
+   collection of UUIDs from a Resource Group), then the corresponding
+   input parameter must be declared as type json and not a
+   comma\_delimited\_list, which is actually a string value with
+   embedded commas.
+
+-  When an ONAP Volume Module Output Parameter is declared as an input
+   parameter in a base module or incremental module, parameter
+   constraints must not be declared.
+
+Additional details on ONAP Base Module Output Parameters are provided in
+`ONAP Output Parameter Names`_ and `Cinder Volume Templates`_.
 
 ONAP Predefined Output Parameters
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-These parameters must not define any constraints in the Heat template,
-including length restrictions, ranges, default value and/or allowed
-patterns.
+ONAP will look for a small set of pre-defined Heat output parameters to
+capture resource attributes for inventory in ONAP. These output
+parameters are optional and are specified in `OAM Management IP Addresses`_.
 
-ONAP Orchestration Parameters, VNF Orchestration Parameters, ONAP Orchestration Constants, VNF Orchestration Constants
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Support of heat stack update
+----------------------------
 
-ONAP Orchestration Parameters, VNF Orchestration Parameters,
-ONAP Orchestration Constants, VNF Orchestration Constants must
-adhere to the following:
+VNF Heat Orchestration Templates must not be designed to utilize the
+OpenStack heat stack-update command for scaling (growth/de-growth). ONAP
+does not support the use of heat stack-update command for scaling.
 
--  All parameters should be clearly documented in the template,
-   including expected values.
+It is important to note that ONAP only supports heat stack-update for
+image upgrades.
 
--  All parameters should be clearly specified, including constraints and
-   description.
+Networking
+----------
 
--  Numeric parameter constraints should include range and/or allowed
-   values.
+ONAP defines two types of networks: External Networks and Internal
+Networks.
 
--  When the parameter type is a string and the parameter name contains
-   an index, the index must be zero based. That is, the index starts at
-   zero.
+ONAP defines an external network in relation to the VNF and not with
+regard to the Network Cloud site. External networks may also be referred
+to as “inter-VNF” networks. An external network connects VMs in a VNF to
 
--  When the parameter type is a Comma Delimited List (CDL), the
-   reference index must start at zero.
+-  VMs in another VNF or
 
--  Default values must only be supplied in a Heat environment file to
-   keep the template itself as clean as possible.
+-  an external gateway or router
 
--  Special characters must not be used in parameter names, as currently
-   only alphanumeric characters and “\_” underscores are allowed.
+ONAP defines an internal network in relation to the VNF and not with
+regard to the Network Cloud site. Internal networks may also be referred
+to as “intra-VNF” networks or “private” networks. An internal network
+only connects VMs in a single VNF. It must not connect to other VNFs or
+an external gateway or router.
 
-Use of Heat Environments
+External Networks
+-----------------
+
+VNF Heat Orchestration Templates must not include any resources for
+external networks connected to the VNF. External networks must be
+orchestrated separately, as independent, stand-alone VNF Heat
+Orchestration Templates, so they can be shared by multiple VNFs and
+managed independently.
+
+When the external network is created, it must be assigned a unique
+{network-role}. The {network-role} should describe the network (e.g.,
+oam). The {network-role} while unique to the LCP, can repeat across
+LCPs.
+
+An External Network may be a Neutron Network or a Contrail Network
+
+External networks must be passed into the VNF Heat Orchestration
+Templates as parameters.
+
+-  Neutron Network-id (UUID)
+
+-  Neutron Network subnet ID (UUID)
+
+-  Contrail Network Fully Qualified Domain Name (FQDN)
+
+ONAP enforces a naming convention for parameters associated with
+external networks. `ONAP Resource ID and Parameter Naming Convention`_ provides additional details.
+
+Parameter values associated with an external network will be generated
+and/or assigned by ONAP at orchestration time. Parameter values
+associated with an external network must not be enumerated in the
+environment file. `ONAP Resource ID and Parameter Naming Convention`_ provides additional details.
+
+VNFs may use **Cloud assigned IP addresses** or **ONAP SDN-C assigned IP addresses**
+when attaching VMs to an external network
+
+-  A Cloud assigned IP address is assigned by OpenStack’s DHCP Service.
+
+-  An ONAP SDN-C assigned IP address is assigned by the ONAP SDN-C
+   controller
+
+-  Note that Neutron Floating IPs must not be used. ONAP does not
+   support Neutron Floating IPs (e.g., OS::Neutron::FloatingIP)
+
+-  ONAP supports the property allowed\_address\_pairs in the resource
+   OS::Neutron:Port and the property
+   virtual\_machine\_interface\_allowed\_address\_pairs in
+   OS::ContrailV2::VirtualMachineInterfaces. This allows the assignment
+   of a virtual IP (VIP) address to a set of VMs.
+
+VNF Heat Orchestration Templates must pass the appropriate external
+network IDs into nested VM templates when nested Heat is used.
+
+Internal Networks
+-----------------
+
+The VNF Heat Orchestration Templates must include the resource(s) to
+create the internal network. The internal network must be either a
+Neutron Network or a Contrail Network.
+
+In the modular approach, internal networks must be created in the Base
+Module, with their resource IDs exposed as outputs (i.e., ONAP Base
+Module Output Parameters) for use by all incremental modules. If the
+Network resource ID is required in the base template, then a
+get\_resource must be used.
+
+When the internal network is created, it should be assigned a unique
+{network-role} in the context of the VNF. `ONAP Resource ID and Parameter Naming Convention`_ provides additional
+details.
+
+VNFs may use **Cloud assigned IP addresses** or 
+**predetermined static IPs** when attaching VMs to an internal network.
+
+-  A Cloud assigned IP address is assigned by OpenStack’s DHCP Service.
+
+-  A predetermined static IP address is enumerated in the Heat
+   environment file. Since an internal network is local to the VNF, IP
+   addresses can be re-used at every VNF instance.
+
+-  Note that Neutron Floating IPs must not be used. ONAP does not
+   support Neutron Floating IPs (e.g., OS::Neutron::FloatingIP)
+
+-  ONAP supports the property allowed\_address\_pairs in the resource
+   OS::Neutron:Port and the property
+   virtual\_machine\_interface\_allowed\_address\_pairs in
+   OS::ContrailV2::VirtualMachineInterfaces. This allows the assignment
+   of a virtual IP (VIP) address to a set of VMs.
+
+ONAP does not programmatically enforce a naming convention for
+parameters for internal network. However, a naming convention is
+provided that must be followed. `ONAP Resource ID and Parameter Naming Convention`_ provides additional details.
+
+ONAP Resource ID and Parameter Naming Convention
+------------------------------------------------
+
+This section provides the ONAP naming requirements for
+
+1. Resource IDs
+
+2. Resource Property Parameters
+
+{vm-type}
+---------
+
+The Heat Orchestration Templates for a VNF must assign a VNF unique
+{vm-type} for each Virtual Machine type (i.e., OS::Nova::Server)
+instantiated in the VNF. While the {vm-type} must be unique to the VNF,
+it does not have to be globally unique across all VNFs that ONAP
+supports.
+
+Any parameter that is associated with a unique Virtual Machine type in
+the VNF must include {vm-type} as part of the parameter name.
+
+Any resource ID that is associated with a unique Virtual Machine type in
+the VNF must include {vm-type} as part of the resource ID.
+
+Note that {vm-type} must not be a substring of {network-role}. A
+substring of a string is another string that occurs "in". For example,
+"oam" is a substring of "oam\_protected". It will cause the
+Pre-Amsterdam VNF Validation Program (i.e., ICE Project) process to
+produce erroneous error messages.
+
+The {vm-type} should not contain the string “\_int” or “int\_” or
+“\_int\_”. It may cause the Pre-Amsterdam VNF Validation Program (i.e.,
+ICE Project) process to produce erroneous error messages.
+
+The {vm-type} must be the same case in all parameter names in the VNF.
+
+The {vm-type} must be the same case in all Resource IDs in the VNF.
+
+It is recommended that the {vm-type} case in the parameter names matches
+the {vm-type} case in the Resource IDs.
+
+There are two exceptions to the above rules:
+
+1. The six ONAP Metadata parameters must not be prefixed with a common
+   {vm-type} identifier. They are *vnf\_name*, *vnf\_id*,
+   *vf\_module\_id*, *vf\_module\_name, vm\_role*. The ONAP Metadata
+   parameters are described in `Resource:  OS::Nova::Server – Metadata Parameters`_.
+
+2. The parameter referring to the OS::Nova::Server property
+   availability\_zone must not be prefixed with a common {vm-type}
+   identifier. availability\_zone is described in `Property: availability_zone`_.
+
+{network-role}
+--------------
+
+The assignment of a {network-role} is discussed in `Networking`_.
+
+Any parameter that is associated with an external network must include
+the {network-role} as part of the parameter name.
+
+Any resource ID that is associated with an external network must include
+the {network-role} as part of the resource ID.
+
+Any parameter that is associated with an internal network must include
+int\_{network-role} as part of the parameter name.
+
+Any resource ID that is associated with an internal network must include
+int\_{network-role} as part of the resource ID.
+
+Note that {network-role} must not be a substring of {vm-type}. A
+substring of a string is another string that occurs "in". For example,
+"oam" is a substring of "oam\_protected". It will cause the
+Pre-Amsterdam VNF Validation Program (i.e., ICE Project) process to
+produce erroneous error messages.
+
+The {network-role} should not contain the string “\_int” or “int\_” or
+“\_int\_”. It may cause the Pre-Amsterdam VNF Validation Program (i.e.,
+ICE Project) process to produce erroneous error messages.
+
+The {network-role} must be the same case in all parameter names in the
+VNF.
+
+The {network-role} must be the same case in all Resource IDs in the VNF.
+
+It is recommended that the {network-role} case in the parameter names
+matches the {network-role} case in the Resource IDs.
+
+Resource IDs
+------------
+
+Heat Orchestration Template resources are described in `resources`_
+
+A resource ID that must be unique within the resources section of a Heat
+Orchestration Template. This is an OpenStack Requirement.
+
+When a VNF is composed of more than one Heat Orchestration Template
+(i.e., modules), ONAP requires that the resource ID must be unique
+across all modules that compose the VNF.
+
+When a resource is associated with a single {vm-type}, the resource ID
+must contain {vm-type}.
+
+When a resource is associated with a single external network, the
+resource ID must contain {network-role}.
+
+When a resource is associated with a single internal network, the
+resource ID must contain int\_{network-role}.
+
+When a resource is associated with a single {vm-type} and a single
+external network, the resource ID must contain both the {vm-type} and
+{network-role}.
+
+-  The {vm-type} must appear before the {network-role} and must be
+   separated by an underscore (i.e., {vm-type}\_{network-role}).
+
+-  Note that an {index} value may separate the {vm-type} and the
+   {network-role}. An underscore will separate the three values (i.e.,
+   {vm-type}\_{index}\_{network-role}).
+
+When a resource is associated with a single {vm-type} and a single
+internal network, the resource ID must contain both the {vm-type} and
+int\_{network-role}.
+
+-  The {vm-type} must appear before the int\_{network-role} and must be
+   separated by an underscore (i.e., {vm-type}\_int\_{network-role}).
+
+-  Note that an {index} value may separate the {vm-type} and the
+   int\_{network-role}. An underscore will separate the three values
+   (i.e., {vm-type}\_{index}\_int\_{network-role}).
+
+When a resource is associated with more than one {vm-type} and/or more
+than one network, the resource ID
+
+-  must not contain the {vm-type} and/or
+   {network-role}/int\_{network-role}
+
+-  should contain the term “shared” and/or contain text that identifies
+   the VNF.
+
+Only alphanumeric characters and “\_” underscores must be used in the
+resource ID. Special characters must not be used.
+
+All {index} values must be zero based. That is, the {index} must start
+at zero and increment by one.
+
+The table below provides example OpenStack Heat resource ID for
+resources only associated with one {vm-type} and/or one network.
+
++--------------------------------+------------------------------------------------------------+
+| Resource Type                  | Resource ID Format                                         |
++================================+============================================================+
+| OS::Cinder::Volume             | {vm\_type}\_volume\_{index}                                |
++--------------------------------+------------------------------------------------------------+
+| OS::Cinder::VolumeAttachment   | {vm\_type}\_volumeattachment\_{index}                      |
++--------------------------------+------------------------------------------------------------+
+| OS::Heat::CloudConfig          | {vm\_type}\_RCC                                            |
++--------------------------------+------------------------------------------------------------+
+| OS::Heat::MultipartMime        | {vm\_type}\_RMM                                            |
++--------------------------------+------------------------------------------------------------+
+| OS::Heat::ResourceGroup        | {vm\_type}\_RRG                                            |
++--------------------------------+------------------------------------------------------------+
+| OS::Heat::SoftwareConfig       | {vm\_type}\_RSC                                            |
++--------------------------------+------------------------------------------------------------+
+| OS::Neutron::Port              | {vm\_type}\_{index}\_{network\_role}\_{index}\_port        |
++--------------------------------+------------------------------------------------------------+
+|                                | {vm\_type}\_{index}\_int\_{network\_role}\_{index}\_port   |
++--------------------------------+------------------------------------------------------------+
+| OS::Neutron::SecurityGroup     | {vm\_type}\_RSG                                            |
++--------------------------------+------------------------------------------------------------+
+| OS::Neutron::Subnet            | {network\_role}\_subnet\_{index}                           |
++--------------------------------+------------------------------------------------------------+
+| OS::Nova::Server               | {vm\_type}\_{index}                                        |
++--------------------------------+------------------------------------------------------------+
+| OS::Nova::ServerGroup          | {vm\_type}\_RSG                                            |
++--------------------------------+------------------------------------------------------------+
+| OS::Swift::Container           | {vm\_type}\_RSwiftC                                        |
++--------------------------------+------------------------------------------------------------+
+
+    Table 1: Example OpenStack Heat Resource ID
+
+The table below provides example Contrail Heat resource ID for resources
+only associated with one {vm-type} and/or one network.
+
++-------------------------------------------+---------------------------------------------+
+| Resource Type                             | Resource ID Format                          |
++===========================================+=============================================+
+| OS::ContrailV2::InstanceIp                | {vm\_type}\_{index}\_{network\_role}\_RII   |
++-------------------------------------------+---------------------------------------------+
+| OS::ContrailV2::InterfaceRouteTable       | {network\_role}\_RIRT                       |
++-------------------------------------------+---------------------------------------------+
+| OS::ContrailV2::NetworkIpam               | {network\_role}\_RNI                        |
++-------------------------------------------+---------------------------------------------+
+| OS::ContrailV2::PortTuple                 | {vm\_type}\_RPT                             |
++-------------------------------------------+---------------------------------------------+
+| OS::ContrailV2::ServiceHealthCheck        | {vm\_type}\_RSHC\_{LEFT\|RIGHT}             |
++-------------------------------------------+---------------------------------------------+
+| OS::ContrailV2::ServiceTemplate           | {vm\_type}\_RST\_{index}                    |
++-------------------------------------------+---------------------------------------------+
+| OS::ContrailV2::VirtualMachineInterface   | int\_{network\_role}\_RVMI                  |
++-------------------------------------------+---------------------------------------------+
+| OS::ContrailV2::VirtualNetwork            | int\_{network\_role}\_RVN                   |
++-------------------------------------------+---------------------------------------------+
+
+    Table 2: Example Contrail Heat resource ID
+
+Resource: OS::Nova::Server - Parameters
+---------------------------------------
+
+The resource OS::Nova::Server manages the running virtual machine (VM)
+instance within an OpenStack cloud. (See
+https://docs.openstack.org/developer/heat/template_guide/openstack.html#OS::Nova::Server.)
+
+Four properties of this resource must follow the ONAP parameter naming
+convention. The four properties are:
+
+1. image
+
+2. flavor
+
+3. name
+
+4. availability\_zone
+
+The table below provides a summary. The sections that follow provides
+additional details.
+
+Note that the {vm\_type} must be identical across all four property
+parameter for a given OS::Nova::Server resource.
+
++-----------------------------+-------------------------------+------------------+------------------------------+---------------------------------+
+| Resource OS::Nova::Server                                                                                                                       |
++=============================+===============================+==================+==============================+=================================+
+| Property Name               | ONAP Parameter Name           | Parameter Type   | Parameter Value Generation   | ONAP Parameter Classification   |
++-----------------------------+-------------------------------+------------------+------------------------------+---------------------------------+
+| image                       | {vm-type}\_image\_name        | string           | Environment File             | ONAP Constant                   |
++-----------------------------+-------------------------------+------------------+------------------------------+---------------------------------+
+| flavor                      | {vm-type}\_flavor\_name       | string           | Environment File             | ONAP Constant                   |
++-----------------------------+-------------------------------+------------------+------------------------------+---------------------------------+
+| name                        | {vm-type}\_name\_{index}      | string           | ONAP                         | ONAP Orchestration              |
++-----------------------------+-------------------------------+------------------+------------------------------+---------------------------------+
+|                             | {vm-type}\_names              | CDL              | ONAP                         | ONAP Orchestration              |
++-----------------------------+-------------------------------+------------------+------------------------------+---------------------------------+
+| availability\_zone          | availability\_zone\_{index}   | string           | ONAP                         | ONAP Orchestration              |
++-----------------------------+-------------------------------+------------------+------------------------------+---------------------------------+
+
+Table 3 Resource Property Parameter Names
+
+Property: image
+~~~~~~~~~~~~~~~
+
+The parameter associated with the property image is an ONAP Constant
+parameter.
+
+The parameters must be named {vm-type}\_image\_name in the Heat
+Orchestration Template.
+
+The parameter must be declared as type: string
+
+The parameter must be enumerated in the Heat Orchestration Template
+environment file.
+
+Each VM type (i.e., {vm-type}) must have a separate parameter for image,
+even if more than one {vm-type} shares the same image. This provides
+maximum clarity and flexibility.
+
+*Example Parameter Definition*
+
+.. code-block:: python
+
+ parameters:
+     {vm-type}_image_name:
+         type: string
+         description: {vm-type} server image
+
+Property: flavor
+~~~~~~~~~~~~~~~~
+
+The parameter associated with the property flavor is an ONAP Constant
+parameter.
+
+The parameters must be named {vm-type}\_flavor\_name in the Heat
+Orchestration Template.
+
+The parameter must be declared as type: string
+
+The parameter must be enumerated in the Heat Orchestration Template
+environment file.
+
+Each VM type (i.e., {vm-type}) must have a separate parameter for
+flavors, even if more than one {vm-type} shares the same flavor. This
+provides maximum clarity and flexibility.
+
+*Example Parameter Definition*
+
+.. code-block:: python
+
+ parameters:
+     {vm-type}_flavor_name:
+         type: string
+         description: {vm-type} flavor
+
+Property: Name
+~~~~~~~~~~~~~~
+
+The parameter associated with the property name is an ONAP Orchestration
+parameter.
+
+The parameter value is provided to the Heat template by ONAP. The
+parameter must not be enumerated in the environment file.
+
+The parameter must be declared as type: string or type:
+comma\_delimited\_list
+
+If the parameter is declared as type:string, the parameter must be named
+{vm-type}\_name\_{index}, where {index} is a numeric value that starts
+at zero and increments by one.
+
+If the parameter is declared as type:comma\_delimited\_list, the
+parameter must be named as {vm-type}\_names
+
+Each element in the VM Name list should be assigned to successive
+instances of that VM type.
+
+If a VNF contains more than three instances of a given {vm-type}, the
+comma\_delimited\_list form of the parameter name (i.e.,
+{vm-type}\_names) should be used to minimize the number of unique
+parameters defined in the Heat.
+
+*Example: Parameter Definition*
+
+.. code-block:: python
+
+ parameters:
+     {vm-type}_names:
+         type: comma_delimited_list
+         description: VM Names for {vm-type} VMs
+     {vm-type}_name_{index}:
+         type: string
+         description: VM Name for {vm-type} VM {index}
+
+*Example: comma\_delimited\_list*
+
+In this example, the {vm-type} has been defined as “lb” for load
+balancer.
+
+.. code-block:: python
+
+ parameters:
+     lb_names:
+         type: comma_delimited_list
+         description: VM Names for lb VMs
+
+ resources:
+     lb_0:
+         type: OS::Nova::Server
+         properties:
+             name: { get_param: [lb_names, 0] }
+             ...
+
+     lb_1:
+         type: OS::Nova::Server
+         properties:
+             name: { get_param: [lb_names, 1] }
+             ...
+
+*Example: fixed-index*
+
+In this example, the {vm-type} has been defined as “lb” for load
+balancer.
+
+.. code-block:: python
+
+ parameters:
+     lb_name_0:
+         type: string
+         description: VM Name for lb VM 0
+
+     lb_name_1:
+         type: string
+         description: VM Name for lb VM 1
+
+ resources:
+     lb_0:
+         type: OS::Nova::Server
+         properties:
+             name: { get_param: lb_name_0 }
+             ...
+
+     lb_1:
+         type: OS::Nova::Server
+         properties:
+             name: { get_param: lb_name_1 }
+             ...
+
+Contrail Issue with Values for OS::Nova::Server Property Name
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The Contrail GUI has a limitation displaying special characters. The
+issue is documented in
+https://bugs.launchpad.net/juniperopenstack/+bug/1590710. It is
+recommended that special characters be avoided. However, if special
+characters must be used, the only special characters supported are:
+
+- “ ! $ ‘ ( ) = ~ ^ \| @ \` { } [ ] > , . \_
+
+Property: availability\_zone
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The parameter associated with the property availability\_zone is an ONAP
+Orchestration parameter.
+
+The parameter value is provided to the Heat template by ONAP. The
+parameter must not be enumerated in the environment file.
+
+The parameter must be named availability\_zone\_{index} in the Heat
+Orchestration Template. The {index} must start at zero. The {index} must
+increment by one. The parameter name must not include the {vm-type}.
+
+The parameter must be declared as type: string
+
+The parameter must not be declared as type: comma\_delimited\_list
+
+Example
+~~~~~~~
+
+The example below depicts part of a Heat Orchestration Template that
+uses the four OS::Nova::Server properties discussed in this section.
+
+In the Heat Orchestration Template below, four Virtual Machines
+(OS::Nova::Server) are created: two dns servers with {vm-type} set to
+“dns” and two oam servers with {vm-type} set to “oam”. Note that the
+parameter associated with the property name is a comma\_delimited\_list
+for dns and a string for oam.
+
+.. code-block:: python
+
+ parameters:
+   dns_image_name:
+     type: string
+     description: dns server image
+   dns_flavor_name:
+     type: string
+     description: dns server flavor
+   dns_names:
+     type: comma_delimited_list
+     description: dns server names
+   oam_image_name:
+     type: string
+     description: oam server image
+   oam_flavor_name:
+     type: string
+     description: oam server flavor
+   oam_name_0:
+     type: string
+     description: oam server name 0
+   oam_name_1:
+     type: string
+     description: oam server name 1
+   availability_zone_0:
+     type: string
+     description: availability zone ID or Name
+   availability_zone_1:
+     type: string
+     description: availability zone ID or Name
+
+ resources:
+   dns_server_0:
+     type: OS::Nova::Server
+     properties:
+       name: { get_param: [ dns_names, 0 ] }
+       image: { get_param: dns_image_name }
+       flavor: { get_param: dns_flavor_name }
+       availability_zone: { get_param: availability_zone_0 }
+       . . .
+
+   dns_server_1:
+     type: OS::Nova::Server
+     properties:
+       name: { get_param: [ dns_names, 1 ] }
+       image: { get_param: dns_image_name }
+       flavor: { get_param: dns_flavor_name }
+       availability_zone: { get_param: availability_zone_1 }
+       . . .
+
+   oam_server_0:
+     type: OS::Nova::Server
+     properties:
+       name: { get_param: oam_name_0 }
+       image: { get_param: oam_image_name }
+       flavor: { get_param: oam_flavor_name }
+       availability_zone: { get_param: availability_zone_0 }
+       . . .
+
+   oam_server_1:
+     type: OS::Nova::Server
+     properties:
+       name: { get_param: oam_name_1 }
+       image: { get_param: oam_image_name }
+       flavor: { get_param: oam_flavor_name }
+       availability_zone: { get_param: availability_zone_1 }
+       . . .
+
+Resource: OS::Nova::Server – Metadata Parameters
+------------------------------------------------
+
+The resource OS::Nova::Server has an OpenStack optional property
+metadata. The metadata property is mandatory for ONAP Heat Orchestration
+Templates; it must be included.
+
+ONAP requires the following three mandatory metadata parameters for an
+OS::Nova::Server resource:
+
+-  vnf\_id
+
+-  vf\_module\_id
+
+-  vnf\_name
+
+ONAP allows the following three optional metadata parameters for an
+OS::Nova::Server resource. They may be included
+
+-  vm\_role
+
+-  vf\_module\_name
+
+Note that the metadata parameters do not and must not contain {vm-type}
+in their name.
+
+When Metadata parameters are past into a nested heat template, the
+parameter names must not change.
+
+The table below provides a summary. The sections that follow provides
+additional details.
+
++---------------------------+------------------+----------------------+------------------------------+
+| Metadata Parameter Name   | Parameter Type   | Mandatory/Optional   | Parameter Value Generation   |
++===========================+==================+======================+==============================+
+| vnf\_id                   | string           | Mandatory            | ONAP                         |
++---------------------------+------------------+----------------------+------------------------------+
+| vf\_module\_id            | string           | Mandatory            | ONAP                         |
++---------------------------+------------------+----------------------+------------------------------+
+| vnf\_name                 | string           | Mandatory            | ONAP                         |
++---------------------------+------------------+----------------------+------------------------------+
+| vf\_module\_name          | string           | Optional             | ONAP                         |
++---------------------------+------------------+----------------------+------------------------------+
+| vm\_role                  | string           | Optional             | YAML or Environment File     |
++---------------------------+------------------+----------------------+------------------------------+
++---------------------------+------------------+----------------------+------------------------------+
+
+    Table 4: ONAP Metadata
+
+vnf\_id
+~~~~~~~
+
+The vnf\_id parameter is mandatory; it must be included in the Heat
+Orchestration Template.
+
+The vnf\_id parameter value will be supplied by ONAP. ONAP generates the
+UUID that is the vnf\_id and supplies it to the Heat Orchestration
+Template at orchestration time.
+
+The parameter must be declared as type: string
+
+Parameter constraints must not be defined.
+
+The parameter must not be enumerated in the Heat environment file.
+
+*Example Parameter Definition*
+
+.. code-block:: python
+
+ parameters:
+     vnf_id:
+         type: string
+         description: Unique ID for this VNF instance
+
+vf\_module\_id
+~~~~~~~~~~~~~~
+
+The vf\_module\_id parameter is mandatory; it must be included in the
+Heat Orchestration Template.
+
+The vf\_module\_id parameter value will be supplied by ONAP. ONAP
+generates the UUID that is the vf\_module\_id and supplies it to the
+Heat Orchestration Template at orchestration time.
+
+The parameter must be declared as type: string
+
+Parameter constraints must not be defined.
+
+The parameter must not be enumerated in the Heat environment file.
+
+*Example Parameter Definition*
+
+.. code-block:: python
+
+ parameters:
+     vnf_module_id:
+         type: string
+         description: Unique ID for this VNF module instance
+
+vnf\_name
+~~~~~~~~~
+
+The vnf\_name parameter is mandatory; it must be included in the Heat
+Orchestration Template.
+
+The vnf\_name parameter value will be generated and/or assigned by ONAP
+and supplied to the Heat Orchestration Template by ONAP at orchestration
+time.
+
+The parameter must be declared as type: string
+
+Parameter constraints must not be defined.
+
+The parameter must not be enumerated in the Heat environment file.
+
+*Example Parameter Definition*
+
+.. code-block:: python
+
+ parameters:
+     vnf_name:
+         type: string
+         description: Unique name for this VNF instance
+
+vf\_module\_name
+~~~~~~~~~~~~~~~~
+
+The vf\_module\_name parameter is optional; it may be included in the
+Heat Orchestration Template.
+
+The vf\_module\_name parameter is the name of the name of the Heat stack
+(e.g., <STACK\_NAME>) in the command “Heat stack-create” (e.g., Heat
+stack-create [-f <FILE>] [-e <FILE>] <STACK\_NAME>). The <STACK\_NAME>
+needs to be specified as part of the orchestration process.
+
+The parameter must be declared as type: string
+
+Parameter constraints must not be defined.
+
+The parameter must not be enumerated in the Heat environment file.
+
+*Example Parameter Definition*
+
+.. code-block:: python
+
+ parameters:
+     vf_module_name:
+         type: string
+         description: Unique name for this VNF Module instance
+
+vm\_role
+~~~~~~~~
+
+The vm\_role parameter is optional; it may be included in the Heat
+Orchestration Template.
+
+Any roles tagged to the VMs via metadata will be stored in ONAP’s A&AI
+system and available for use by other ONAP components and/or north bound
+systems.
+
+The vm\_role values must be either
+
+-  hard-coded into the Heat Orchestration Template or
+
+-  enumerated in the environment file.
+
+Defining the vm\_role as the {vm-type} is a recommended convention
+
+The parameter must be declared as type: string
+
+Parameter constraints must not be defined.
+
+*Example Parameter Definition*
+
+.. code-block:: python
+
+ parameters:
+     vm_role:
+         type: string
+         description: Unique role for this VM
+
+*Example Resource Definition: Hard Coded*
+
+In this example, the {vm-role} is hard coded in the Heat Orchestration
+Template.
+
+.. code-block:: python
+
+ resources:
+   dns_servers:
+     type: OS::Nova::Server
+     properties:
+       . . . .
+       metadata:
+         vm_role: lb
+
+*Example Resource Definition: get\_param*
+
+In this example, the {vm-role} is enumerated in the environment file.
+
+.. code-block:: python
+
+ resources:
+   dns_servers:
+     type: OS::Nova::Server
+     properties:
+       . . . .
+       metadata:
+         vm_role: { get_param: vm_role }
+
+Example 
+~~~~~~~~
+
+The example below depicts part of a Heat Orchestration Template that
+uses the five of the OS::Nova::Server metadata parameter discussed in
+this section. The {vm-type} has been defined as lb for load balancer.
+
+.. code-block:: python
+
+ parameters:
+    lb_name_0
+       type: string
+       description: VM Name for lb VM 0
+    vnf_name:
+       type: string
+       description: Unique name for this VNF instance
+    vnf_id:
+       type: string
+       description: Unique ID for this VNF instance
+    vf_module_name:
+       type: string
+       description: Unique name for this VNF Module instance
+    vf_module_id:
+       type: string
+       description: Unique ID for this VNF Module instance
+    vm_role:
+       type: string
+       description: Unique role for this VM
+
+ resources:
+
+    lb_vm_0:
+       type: OS::Nova::Server
+       properties:
+       name: { get_param: lb_name_0 }
+       ...
+       metadata:
+          vnf_name: { get_param: vnf_name }
+          vnf_id: { get_param: vnf_id }
+          vf_module_name: { get_param: vf_module_name }
+          vf_module_id: { get_param: vf_module_id }
+          vm_role: lb
+
+Resource: OS::Neutron::Port - Parameters
+----------------------------------------
+
+The resource OS::Neutron::Port is for managing Neutron ports (See
+https://docs.openstack.org/developer/heat/template_guide/openstack.html#OS::Neutron::Port.)
+
+Introduction
+~~~~~~~~~~~~
+
+Four properties of the resource OS::Neutron::Port that must follow the
+ONAP parameter naming convention. The four properties are:
+
+1. network
+
+2. fixed\_ips, ip\_address
+
+3. fixed\_ips, subnet\_id
+
+4. allowed\_address\_pairs, ip\_address
+
+The parameters associated with these properties may reference an
+external network or internal network. External networks and internal
+networks are defined in `Networking`_.
+
+External Networks
+^^^^^^^^^^^^^^^^^
+
+When the parameter references an external network
+
+-  the parameter name must contain {network-role}
+
+-  the parameter must not be enumerated in the Heat environment file
+
+-  the parameter is classified as an ONAP Orchestration Parameter
+
++----------------------------------------+-----------------------------------------------+--------------------------+
+| Property Name                          | ONAP Parameter Name                           | Parameter Type           |
++========================================+===============================================+==========================+
+| network                                | {network-role}\_net\_id                       | string                   |
++----------------------------------------+-----------------------------------------------+--------------------------+
+|                                        | {network-role}\_net\_name                     | string                   |
++----------------------------------------+-----------------------------------------------+--------------------------+
+| fixed\_ips, ip\_address                | {vm-type}\_{network-role}\_ip\_{index}        | string                   |
++----------------------------------------+-----------------------------------------------+--------------------------+
+|                                        | {vm-type}\_{network-role}\_ips                | comma\_delimited\_list   |
++----------------------------------------+-----------------------------------------------+--------------------------+
+|                                        | {vm-type}\_{network-role}\_v6\_ip\_{index}    | string                   |
++----------------------------------------+-----------------------------------------------+--------------------------+
+|                                        | {vm-type}\_{network-role}\_v6\_ips            | comma\_delimited\_list   |
++----------------------------------------+-----------------------------------------------+--------------------------+
+| fixed\_ips, subnet                     | {network-role}\_subnet\_id                    | string                   |
++----------------------------------------+-----------------------------------------------+--------------------------+
+|                                        | {network-role}\_v6\_subnet\_id                | string                   |
++----------------------------------------+-----------------------------------------------+--------------------------+
+| allowed\_address\_pairs, ip\_address   | {vm-type}\_{network-role}\_floating\_ip       | string                   |
++----------------------------------------+-----------------------------------------------+--------------------------+
+|                                        | {vm-type}\_{network-role}\_floating\_v6\_ip   | string                   |
++----------------------------------------+-----------------------------------------------+--------------------------+
+|                                        | {vm-type}\_{network-role}\_ip\_{index}        | string                   |
++----------------------------------------+-----------------------------------------------+--------------------------+
+|                                        | {vm-type}\_{network-role}\_ips                | comma\_delimited\_list   |
++----------------------------------------+-----------------------------------------------+--------------------------+
+|                                        | {vm-type}\_{network-role}\_v6\_ip\_{index}    | string                   |
++----------------------------------------+-----------------------------------------------+--------------------------+
+|                                        | {vm-type}\_{network-role}\_v6\_ips            | comma\_delimited\_list   |
++----------------------------------------+-----------------------------------------------+--------------------------+
+
+Table 5: OS::Neutron::Port Resource Property Parameters (External
+Networks)
+
+Internal Networks
+^^^^^^^^^^^^^^^^^
+
+When the parameter references an internal network
+
+-  the parameter name must contain int\_{network-role}
+
+-  the parameter may be enumerated in the environment file.
+
++----------------------------------------+----------------------------------------------------+--------------------------+
+| Property                               | Parameter Name for Internal Networks               | Parameter Type           |
++========================================+====================================================+==========================+
+| network                                | int\_{network-role}\_net\_id                       | string                   |
++----------------------------------------+----------------------------------------------------+--------------------------+
+|                                        | int\_{network-role}\_net\_name                     | string                   |
++----------------------------------------+----------------------------------------------------+--------------------------+
+| fixed\_ips, ip\_address                | {vm-type}\_int\_{network-role}\_ip\_{index}        | string                   |
++----------------------------------------+----------------------------------------------------+--------------------------+
+|                                        | {vm-type}\_int\_{network-role}\_ips                | comma\_delimited\_list   |
++----------------------------------------+----------------------------------------------------+--------------------------+
+|                                        | {vm-type}\_int\_{network-role}\_v6\_ip\_{index}    | string                   |
++----------------------------------------+----------------------------------------------------+--------------------------+
+|                                        | {vm-type}\_int\_{network-role}\_v6\_ips            | comma\_delimited\_list   |
++----------------------------------------+----------------------------------------------------+--------------------------+
+| fixed\_ips, subnet                     | int\_{network-role}\_subnet\_id                    | string                   |
++----------------------------------------+----------------------------------------------------+--------------------------+
+|                                        | int\_{network-role}\_v6\_subnet\_id                | string                   |
++----------------------------------------+----------------------------------------------------+--------------------------+
+| allowed\_address\_pairs, ip\_address   | {vm-type}\_int\_{network-role}\_floating\_ip       | string                   |
++----------------------------------------+----------------------------------------------------+--------------------------+
+|                                        | {vm-type}\_int\_{network-role}\_floating\_v6\_ip   | string                   |
++----------------------------------------+----------------------------------------------------+--------------------------+
+|                                        | {vm-type}\_int\_{network-role}\_ip\_{index}        | string                   |
++----------------------------------------+----------------------------------------------------+--------------------------+
+|                                        | {vm-type}\_int\_{network-role}\_ips                | comma\_delimited\_list   |
++----------------------------------------+----------------------------------------------------+--------------------------+
+|                                        | {vm-type}\_int\_{network-role}\_v6\_ip\_{index}    | string                   |
++----------------------------------------+----------------------------------------------------+--------------------------+
+|                                        | {vm-type}\_int\_{network-role}\_v6\_ips            | comma\_delimited\_list   |
++----------------------------------------+----------------------------------------------------+--------------------------+
+
+Table 6: Port Resource Property Parameters (Internal Networks)
+
+Property: network
+~~~~~~~~~~~~~~~~~
+
+The property networks in the resource OS::Neutron::Port must be
+referenced by Neutron Network ID, a UUID value, or by the network name
+defined in OpenStack.
+
+External Networks
+^^^^^^^^^^^^^^^^^
+
+When the parameter associated with the property network is referencing
+an “external” network, the parameter must adhere to the following naming
+convention in the Heat Orchestration Template
+
+-  {network-role}\_net\_id for the Neutron network ID
+
+-  {network-role}\_net\_name for the network name in OpenStack
+
+The parameter must be declared as type: string
+
+The parameter must not be enumerated in the Heat environment file.
+
+*Example Parameter Definition*
+
+.. code-block:: python
+
+ parameters:
+     {network-role}_net_id:
+         type: string
+         description: Neutron UUID for the {network-role} network
+     {network-role}_net_name:
+         type: string
+         description: Neutron name for the {network-role} network
+
+*Example: One Cloud Assigned IP Address (DHCP) assigned to a network
+that has only one subnet*
+
+In this example, the {network-role} has been defined as oam to represent
+an oam network and the {vm-type} has been defined as lb for load
+balancer. The Cloud Assigned IP Address uses the OpenStack DHCP service
+to assign IP addresses.
+
+.. code-block:: python
+
+ parameters:
+    oam_net_id:
+       type: string
+       description: Neutron UUID for the oam network
+
+ resources:
+    lb_port_1:
+       type: OS::Neutron::Port
+       network: { get_param: oam_net_id }
+
+Internal Networks
+^^^^^^^^^^^^^^^^^
+
+When the parameter associated with the property network is referencing
+an “internal” network, the parameter must adhere to the following naming
+convention.
+
+-  int\_{network-role}\_net\_id for the Neutron network ID
+
+-  int\_{network-role}\_net\_name for the network name in OpenStack
+
+The parameter must be declared as type: string
+
+The assumption is that internal networks are created in the base module.
+The Neutron Network ID will be passed as an output parameter (e.g., ONAP
+Base Module Output Parameter) to the incremental modules. In the
+incremental modules, it will be defined as input parameter.
+
+*Example Parameter Definition*
+
+.. code-block:: python
+
+ parameters:
+     int_{network-role}_net_id:
+         type: string
+         description: Neutron UUID for the {network-role} network
+     int_{network-role}_net_name:
+         type: string
+         description: Neutron name for the {network-role} network
+
+Property: fixed\_ips, Map Property: subnet\_id
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The property fixed\_ips is used to assign IPs to a port. The Map
+Property subnet\_id specifies the subnet the IP is assigned from.
+
+The property fixed\_ips and Map Property subnet\_id must be used if a
+Cloud (i.e., DHCP) IP address assignment is being requested and the
+Cloud IP address assignment is targeted at a specific subnet when two or
+more subnets exist.
+
+The property fixed\_ips and Map Property subnet\_id should not be used
+if all IP assignments are fixed, or if the Cloud IP address assignment
+does not target a specific subnet or there is only one subnet.
+
+Note that DHCP assignment of IP addresses is also referred to as cloud
+assigned IP addresses.
+
+Subnet of an External Networks
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+When the parameter is referencing a subnet of an “external” network, the
+property fixed\_ips and Map Property subnet\_id parameter must adhere to
+the following naming convention.
+
+-  {network-role}\_subnet\_id if the subnet is an IPv4 subnet
+
+-  {network-role}\_v6\_subnet\_id if the subnet is an IPv6 subnet
+
+The parameter must be declared as type: string
+
+The parameter must not be enumerated in the Heat environment file.
+
+*Example Parameter Definition*
+
+.. code-block:: python
+
+ parameters:
+     {network-role}_subnet_id:
+         type: string
+         description: Neutron subnet UUID for the {network-role} network
+
+     {network-role}_v6_subnet_id:
+         type: string
+         description: Neutron subnet UUID for the {network-role} network
+
+*Example: One Cloud Assigned IPv4 Address (DHCP) assigned to a network
+that has two or more subnets subnet:*
+
+In this example, the {network-role} has been defined as oam to represent
+an oam network and the {vm-type} has been defined as lb for load
+balancer. The Cloud Assigned IP Address uses the OpenStack DHCP service
+to assign IP addresses.
+
+.. code-block:: python
+
+ parameters:
+    oam_net_id:
+       type: string
+       description: Neutron UUID for the oam network
+
+    oam_subnet_id:
+       type: string
+       description: Neutron subnet UUID for the oam network
+
+ resources:
+    lb_port_1:
+       type: OS::Neutron::Port
+       network: { get_param: oam_net_id }
+    fixed_ips:
+      - subnet_id: { get_param: oam_subnet_id }
+
+*Example: One Cloud Assigned IPv4 address and one Cloud Assigned IPv6
+address assigned to a network that has at least one IPv4 subnet and one
+IPv6 subnet*
+
+In this example, the {network-role} has been defined as oam to represent
+an oam network and the {vm-type} has been defined as lb for load
+balancer.
+
+.. code-block:: python
+
+ parameters:
+    oam_net_id:
+       type: string
+       description: Neutron UUID for the oam network
+
+    oam_subnet_id:
+       type: string
+       description: Neutron subnet UUID for the oam network
+
+    oam_v6_subnet_id:
+       type: string
+       description: Neutron subnet UUID for the oam network
+
+ resources:
+    lb_port_1:
+       type: OS::Neutron::Port
+       properties:
+          network: { get_param: oam_net_id }
+          fixed_ips:
+           - subnet_id: { get_param: oam_subnet_id }
+           - subnet_id: { get_param: oam_v6_subnet_id }
+
+Internal Networks
+^^^^^^^^^^^^^^^^^
+
+When the parameter is referencing the subnet of an “internal” network,
+the property fixed\_ips and Map Property subnet\_id parameter must
+adhere to the following naming convention.
+
+-  int\_{network-role}\_subnet\_id if the subnet is an IPv4 subnet
+
+-  int\_{network-role}\_v6\_subnet\_id if the subnet is an IPv6 subnet
+
+The parameter must be declared as type: string
+
+The assumption is that internal networks are created in the base module.
+The Neutron subnet network ID will be passed as an output parameter
+(e.g., ONAP Base Module Output Parameter) to the incremental modules. In
+the incremental modules, it will be defined as input parameter.
+
+*Example Parameter Definition*
+
+.. code-block:: python
+
+ parameters:
+     int_{network-role}_subnet_id:
+        type: string
+         description: Neutron subnet UUID for the {network-role} network
+
+     int_{network-role}_v6_subnet_id:
+         type: string
+         description: Neutron subnet UUID for the {network-role} network
+
+Property: fixed\_ips, Map Property: ip\_address
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The property fixed\_ips is used to assign IPs to a port. The Map
+Property ip\_address specifies the IP address to be assigned to the
+port.
+
+The property fixed\_ips and Map Property ip\_address must be used when
+statically assigning one or more IP addresses to a port. This is also
+referred to as ONAP SDN-C IP address assignment. ONAP’s SDN-C provides
+the IP address assignment.
+
+An IP address is assigned to a port on a VM (referenced by {vm-type})
+that is connected to an external network (referenced by {network-role})
+or internal network (referenced by int\_{network-role}).
+
+When a SDN-C IP assignment is made to a port connected to an external
+network, the parameter name must contain {vm-type} and {network-role}.
+
+When a SDN-C IP assignment is made to a port connected to an internal
+network, the parameter name must contain {vm-type} and
+int\_{network-role}.
+
+IP Address Assignments on External Networks
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+When the property fixed\_ips and Map Property ip\_address is used to
+assign IP addresses to an external network, the parameter name is
+dependent on the parameter type (comma\_delimited\_list or string) and
+IP address type (IPv4 or IPv6).
+
+When the parameter for property fixed\_ips and Map Property ip\_address
+is declared type: comma\_delimited\_list, the parameter must adhere to
+the following naming convention
+
+-  {vm-type}\_{network-role}\_ips for IPv4 address
+
+-  {vm-type}\_{network-role}\_v6\_ips for IPv6 address
+
+Each element in the IP list should be assigned to successive instances
+of {vm-type} on {network-role}.
+
+The parameter must not be enumerated in the Heat environment file.
+
+*Example Parameter Definition*
+
+.. code-block:: python
+
+ parameters:
+ 
+    {vm-type}_{network-role}_ips:
+       type: comma_delimited_list
+       description: Fixed IPv4 assignments for {vm-type} VMs on the {Network-role} network
+
+    {vm-type}_{network-role}_v6_ips:
+       type: comma_delimited_list
+       description: Fixed IPv6 assignments for {vm-type} VMs on the {network-role} network
+
+*Example: comma\_delimited\_list parameters for IPv4 and IPv6 Address
+Assignments to an external network*
+
+In this example, the {network-role} has been defined as oam to represent
+an oam network and the {vm-type} has been defined as db for database.
+
+.. code-block:: python
+
+ parameters:
+    oam_net_id:
+       type: string
+       description: Neutron UUID for a oam network
+
+    db_oam_ips:
+       type: comma_delimited_list
+       description: Fixed IPv4 assignments for db VMs on the oam network
+
+    db_oam_v6_ips:
+       type: comma_delimited_list
+       description: Fixed IPv6 assignments for db VMs on the oam network
+
+ resources:
+    db_0_port_1:
+       type: OS::Neutron::Port
+       network: { get_param: oam_net_id }
+       fixed_ips: [ { “ip_address”: {get_param: [ db_oam_ips, 0 ]}}, {“ip_address”: {get_param: [ db_oam_v6_ips, 0 ]}}]
+
+    db_1_port_1:
+       type: OS::Neutron::Port
+       properties:
+       network: { get_param: oam_net_id }
+       fixed_ips:
+          - “ip_address”: {get_param: [ db_oam_ips, 1 ]}
+          - “ip_address”: {get_param: [ db_oam_v6_ips, 1 ]}
+
+When the parameter for property fixed\_ips and Map Property ip\_address
+is declared type: string, the parameter must adhere to the following
+naming convention.
+
+-  {vm-type}\_{network-role}\_ip\_{index} for an IPv4 address
+
+-  {vm-type}\_{network-role}\_v6\_ip\_{index} for an IPv6 address
+
+The value for {index} must start at zero (0) and increment by one.
+
+The parameter must not be enumerated in the Heat environment file.
+
+*Example Parameter Definition*
+
+.. code-block:: python
+
+ parameters:
+    {vm-type}_{network-role}_ip_{index}:
+       type: string
+       description: Fixed IPv4 assignment for {vm-type} VM {index} on the{network-role} network
+
+    {vm-type}_{network-role}_v6_ip_{index}:
+       type: string
+       description: Fixed IPv6 assignment for {vm-type} VM {index} on the{network-role} network
+
+*Example: string parameters for IPv4 and IPv6 Address Assignments to an external network*
+
+In this example, the {network-role} has been defined as “oam” to
+represent an oam network and the {vm-type} has been defined as “db” for
+database.
+
+.. code-block:: python
+
+ parameters:
+    oam_net_id:
+    type: string
+    description: Neutron UUID for an OAM network
+
+ db_oam_ip_0:
+    type: string
+    description: Fixed IPv4 assignment for db VM 0 on the OAM network
+
+ db_oam_ip_1:
+    type: string
+    description: Fixed IPv4 assignment for db VM 1 on the OAM network
+
+ db_oam_v6_ip_0:
+    type: string
+    description: Fixed IPv6 assignment for db VM 0 on the OAM network
+
+ db_oam_v6_ip_1:
+    type: string
+    description: Fixed IPv6 assignment for db VM 1 on the OAM network
+
+ resources:
+    db_0_port_1:
+       type: OS::Neutron::Port
+       properties:
+          network: { get_param: oam_net_id }
+          fixed_ips: [ { “ip_address”: {get_param: db_oam_ip_0}}, {“ip_address”: {get_param: db_oam_v6_ip_0 ]}}]
+
+    db_1_port_1:
+       type: OS::Neutron::Port
+       properties:
+          network: { get_param: oam_net_id }
+          fixed_ips:
+             - “ip_address”: {get_param: db_oam_ip_1}}]
+             - “ip_address”: {get_param: db_oam_v6_ip_1}}]
+
+IP Address Assignment on Internal Networks
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+When the property fixed\_ips and Map Property ip\_address is used to
+assign IP addresses to an internal network, the parameter name is
+dependent on the parameter type (comma\_delimited\_list or string) and
+IP address type (IPv4 or IPv6).
+
+When the parameter for property fixed\_ips and Map Property ip\_address
+is declared type: comma\_delimited\_list, the parameter must adhere to
+the following naming convention
+
+-  {vm-type}\_int\_{network-role}\_ips for IPv4 address
+
+-  {vm-type}\_int\_{network-role}\_v6\_ips for IPv6 address
+
+Each element in the IP list should be assigned to successive instances
+of {vm-type} on {network-role}.
+
+The parameter must be enumerated in the Heat environment file. Since an
+internal network is local to the VNF, IP addresses can be re-used at
+every VNF instance.
+
+*Example Parameter Definition*
+
+.. code-block:: python
+
+ parameters:
+
+    {vm-type}_int_{network-role}_ips:
+       type: comma_delimited_list
+       description: Fixed IPv4 assignments for {vm-type} VMs on the int_{network-role} network
+
+    {vm-type}_int_{network-role}_v6_ips:
+       type: comma_delimited_list
+       description: Fixed IPv6 assignments for {vm-type} VMs on the int_{network-role} network
+
+*Example: comma\_delimited\_list parameters for IPv4 and IPv6 Address
+Assignments to an internal network*
+
+In this example, the {network-role} has been defined as oam\_int to
+represent an oam network internal to the vnf. The role oam\_int was
+picked to differentiate from an external oam network with a
+{network-role} of oam. The {vm-type} has been defined as db for
+database.
+
+.. code-block:: python
+
+ parameters:
+    int_oam_int_net_id:
+       type: string
+       description: Neutron UUID for the oam internal network
+
+    db_int_oam_int_ips:
+       type: comma_delimited_list
+       description: Fixed IPv4 assignments for db VMs on the oam internal network
+
+    db_int_oam_int_v6_ips:
+       type: comma_delimited_list
+       description: Fixed IPv6 assignments for db VMs on the oam internal network
+
+ resources:
+    db_0_port_1:
+       type: OS::Neutron::Port
+       properties:
+       network: { get_param: int_oam_int_net_id }
+       fixed_ips: [ { “ip_address”: {get_param: [ db_int_oam_int_ips, 0]}}, { “ip_address”: {get_param: [ db_int_oam_int_v6_ips, 0 ]}}]
+
+    db_1_port_1:
+       type: OS::Neutron::Port
+       properties:
+       network: { get_param: int_oam_int_net_id }
+       fixed_ips:
+          - “ip_address”: {get_param: [ db_int_oam_int_ips, 1 ]}
+          - “ip_address”: {get_param: [ db_int_oam_int_v6_ips, 1 ]}
+
+When the parameter for property fixed\_ips and Map Property ip\_address
+is declared type: string, the parameter must adhere to the following
+naming convention.
+
+-  {vm-type}\_int\_{network-role}\_ip\_{index} for an IPv4 address
+
+-  {vm-type}\_int\_{network-role}\_v6\_ip\_{index} for an IPv6 address
+
+The value for {index} must start at zero (0) and increment by one.
+
+The parameter must be enumerated in the Heat environment file. Since an
+internal network is local to the VNF, IP addresses can be re-used at
+every VNF instance.
+
+*Example Parameter Definition*
+
+.. code-block:: python
+
+ parameters:
+
+    {vm-type}_int_{network-role}_ip_{index}:
+       type: string
+       description: Fixed IPv4 assignment for {vm-type} VM {index} on the{network-role} network
+
+    {vm-type}_int_{network-role}_v6_ip_{index}:
+       type: string
+       description: Fixed IPv6 assignment for {vm-type} VM {index} on the{network-role} network
+
+*Example: string parameters for IPv4 and IPv6 Address Assignments to an internal network*
+
+In this example, the {network-role} has been defined as oam\_int to
+represent an oam network internal to the vnf. The role oam\_int was
+picked to differentiate from an external oam network with a
+{network-role} of oam. The {vm-type} has been defined as db for
+database.
+
+.. code-block:: python
+
+ parameters:
+    int_oam_int_net_id:
+       type: string
+       description: Neutron UUID for an OAM internal network
+
+    db_oam_int_ip_0:
+       type: string
+       description: Fixed IPv4 assignment for db VM on the oam_int network
+
+    db_oam_int_ip_1:
+       type: string
+       description: Fixed IPv4 assignment for db VM 1 on the oam_int network
+
+    db_oam_int_v6_ip_0:
+       type: string
+       description: Fixed IPv6 assignment for db VM 0 on the oam_int network
+
+    db_oam_int_v6_ip_1:
+       type: string
+       description: Fixed IPv6 assignment for db VM 1 on the oam_int network
+
+ resources:
+    db_0_port_0:
+       type: OS::Neutron::Port
+       properties:
+          network: { get_param: int_oam_int_net_id }
+          fixed_ips: [ { “ip_address”: {get_param: db_oam_int_ip_0}}, {“ip_address”: {get_param: db_oam_int_v6_ip_0 ]}}]
+
+    db_1_port_0:
+       type: OS::Neutron::Port
+       properties:
+          network: { get_param: int_oam_int_net_id }
+          fixed_ips:
+             - “ip_address”: {get_param: db_oam_int_ip_1}}]
+             - “ip_address”: {get_param: db_oam_int_v6_ip_1}}]
+
+Property: allowed\_address\_pairs, Map Property: ip\_address
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The property allowed\_address\_pairs in the resource OS::Neutron::Port
+allows the user to specify a mac\_address and/or ip\_address that will
+pass through a port regardless of subnet. This enables the use of
+protocols such as VRRP, which floats an IP address between two instances
+to enable fast data plane failover. The map property ip\_address
+specifies the IP address.
+
+The allowed\_address\_pairs is an optional property. It is not required.
+
+An ONAP Heat Orchestration Template allows the assignment of one IPv4
+address allowed\_address\_pairs and/or one IPv6 address to a {vm-type}
+and {network-role}/int\_{network-role} combination.
+
+An ONAP Heat Orchestration Template allows the assignment of one IPv6
+address allowed\_address\_pairs and/or one IPv6 address to a {vm-type}
+and {network-role}/int\_{network-role} combination.
+
+Note that the management of these IP addresses (i.e. transferring
+ownership between active and standby VMs) is the responsibility of the
+application itself.
+
+Note that these parameters are **not** intended to represent Neutron
+“Floating IP” resources, for which OpenStack manages a pool of public IP
+addresses that are mapped to specific VM ports. In that case, the
+individual VMs are not even aware of the public IPs, and all assignment
+of public IPs to VMs is via OpenStack commands. ONAP does not support
+Neutron-style Floating IPs.
+
+External Networks
+^^^^^^^^^^^^^^^^^
+
+When the parameter is referencing an “external” network, the property
+allowed\_address\_pairs and Map Property ip\_address parameter must
+adhere to the following naming convention.
+
+-  {vm-type}\_{network-role}\_floating\_ip for an IPv4 address
+
+-  {vm-type}\_{network-role}\_floating\_v6\_ip for an IPv6 address
+
+The parameter must be declared as type: string
+
+The parameter must not be enumerated in the Heat environment file.
+
+*Example Parameter Definition*
+
+.. code-block:: python
+
+ parameters:
+
+    {vm-type}_{network-role}_floating_ip:
+       type: string
+       description: VIP for {vm-type} VMs on the {network-role} network
+
+    {vm-type}_{network-role}_floating_v6_ip:
+       type: string
+       description: VIP for {vm-type} VMs on the {network-role} network
+
+*Example:*
+
+In this example, the {network-role} has been defined as oam to represent
+an oam network and the {vm-type} has been defined as db for database.
+
+.. code-block:: python
+
+ parameters:
+    oam_net_id:
+       type: string
+       description: Neutron UUID for the oam network
+
+    db_oam_ips:
+       type: comma_delimited_list
+       description: Fixed IPs for db VMs on the oam network
+
+    db_oam_floating_ip:
+       type: string
+       description: VIP IP for db VMs on the oam network
+ 
+ resources:
+    db_0_port_0:
+       type: OS::Neutron::Port
+       properties:
+          network: { get_param: oam_net_id }
+          fixed_ips: [ { “ip_address”: {get_param: [db_oam_ips,0] }}]
+          allowed_address_pairs: [ { “ip_address”: {get_param: db_oam_floating_ip}}]
+
+    db_1_port_0:
+       type: OS::Neutron::Port
+       properties:
+          network: { get_param: oam_net_id }
+          fixed_ips: [ { “ip_address”: {get_param: [db_oam_ips,1] }}]
+          allowed_address_pairs: [ { “ip_address”: {get_param: db_oam_floating_ip}}]
+
+Internal Networks
+^^^^^^^^^^^^^^^^^
+
+When the parameter is referencing an “internal” network, the property
+allowed\_address\_pairs and Map Property ip\_address parameter must
+adhere to the following naming convention.
+
+-  {vm-type}\_int\_{network-role}\_floating\_ip for an IPv4 address
+
+-  {vm-type}\_int\_{network-role}\_floating\_v6\_ip for an IPv6 address
+
+The parameter must be declared as type: string
+
+The parameter must be enumerated in the Heat environment file.
+
+*Example Parameter Definition*
+
+.. code-block:: python
+
+ parameters:
+
+    {vm-type}_int_{network-role}_floating_ip:
+       type: string
+       description: VIP for {vm-type} VMs on the int_{network-role} network
+
+    {vm-type}_int_{network-role}_floating_v6_ip:
+       type: string
+       description: VIP for {vm-type} VMs on the int_{network-role} network
+
+Multiple allowed\_address\_pairs for a {vm-type} / {network-role} combination
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The parameter {vm-type}\_{network-role}\_floating\_ip provides only one
+allowed address pair IPv4 address per {vm-type} and {network-role} pair.
+
+The parameter {vm-type}\_{network-role}\_floating\_v6\_ip provides only
+one allowed address pair IPv6 address per {vm-type} and {network-role}
+pair.
+
+If there is a need for multiple allowed address pair IPs for a given
+{vm-type} and {network-role} combination within a VNF, then the
+parameter names defined for the property fixed\_ips and Map Property
+ip\_address should be used with the allowed\_address\_pairs property.
+The examples below illustrate this.
+
+*Example: A VNF has four load balancers. Each pair has a unique VIP.*
+
+In this example, there are two administrative VM pairs. Each pair has
+one VIP. The {network-role} has been defined as oam to represent an oam
+network and the {vm-type} has been defined as admin for an
+administrative VM.
+
+Pair 1: Resources admin\_0\_port\_0 and admin\_1\_port\_0 share a unique
+VIP, [admin\_oam\_ips,2]
+
+Pair 2: Resources admin\_2\_port\_0 and admin\_3\_port\_0 share a unique
+VIP, [admin\_oam\_ips,5]
+
+.. code-block:: python
+
+ parameters:
+    oam_net_id:
+       type: string
+       description: Neutron UUID for the oam network
+    admin_oam_ips:
+       type: comma_delimited_list
+       description: Fixed IP assignments for admin VMs on the oam network
+
+ resources:
+
+    admin_0_port_0:
+       type: OS::Neutron::Port
+       properties:
+          network: { get_param: oam_net_id }
+          fixed_ips: [ { “ip_address”: {get_param: [admin_oam_ips,0] }}]
+          allowed_address_pairs: [{ “ip_address”: {get_param: [admin_oam_ips,2] }}]
+
+    admin_1_port_0:
+       type: OS::Neutron::Port
+       properties:
+          network: { get_param: oam_net_id }
+          fixed_ips: [ { “ip_address”: {get_param: [admin_oam_ips,1] }}]
+          allowed_address_pairs: [{ “ip_address”: {get_param:  [admin_oam_ips,2] }}]
+
+    admin_2_port_0:
+       type: OS::Neutron::Port
+       properties:
+          network: { get_param: oam_net_id }
+          fixed_ips: [ { “ip_address”: {get_param: [admin_oam_ips,3] }}]
+          allowed_address_pairs: [{ “ip_address”: {get_param: [admin_oam_ips,5] }}]
+
+    admin_3_port_0:
+       type: OS::Neutron::Port
+       properties:
+          network: { get_param: oam_net_id }
+          fixed_ips: [ { “ip_address”: {get_param: [admin_oam_ips,4] }}]
+          allowed_address_pairs: [{ “ip_address”: {get_param:  [admin_oam_ips,5] }}]
+
+*Example: A VNF has two load balancers. The pair of load balancers share
+two VIPs.*
+
+In this example, there is one load balancer pairs. The pair has two
+VIPs. The {network-role} has been defined as oam to represent an oam
+network and the {vm-type} has been defined as lb for a load balancer VM.
+
+.. code-block:: python
+
+ resources:
+    lb_0_port_0:
+       type: OS::Neutron::Port
+       properties:
+          network: { get_param: oam_net_id }
+          fixed_ips: [ { “ip_address”: {get_param: [lb_oam_ips,0] }}]
+          allowed_address_pairs: [{ "ip_address": {get_param: [lb_oam_ips,2]}, {get_param: [lb_oam_ips,3] }}]
+
+    lb_1_port_0:
+       type: OS::Neutron::Port
+       properties:
+          network: { get_param: oam_net_id }
+          fixed_ips: [ { “ip_address”: {get_param: [lb_oam_ips,1] }}]
+          allowed_address_pairs: [{ "ip_address": {get_param: [lb_oam_ips,2]}, {get_param: [lb_oam_ips,3] }}]
+
+As a general rule, provide the fixed IPs for the VMs indexed first in
+the CDL and then the VIPs as shown in the examples above.
+
+ONAP SDN-C Assignment of allowed\_address\_pair IP Addresses
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The following items must be taken into consideration when designing Heat
+Orchestration Templates that expect ONAP’s SDN-C to assign
+allowed\_address\_pair IP addresses via automation.
+
+The VMs must be of the same {vm-type}.
+
+The VMs must be created in the same module (base or incremental).
+
+Resource Property “name”
 ------------------------
 
-A YAML file must have a corresponding environment file (also referred to
-as ENV file), even if the environment file defines no parameters. It is
-an ONAP requirement.
+The parameter naming convention of the property name for the resource
+OS::Nova::Server has been defined in `Resource:  OS::Nova::Server – Metadata Parameters`_.
+
+This section provides the requirements how the property name for non
+OS::Nova::Server resources must be defined when the property is used.
+Not all resources require the property name (e.g., it is optional) and
+some resources do not support the property.
+
+When the property name for a non OS::Nova::Server resources is defined
+in a Heat Orchestration Template, the intrinsic function str\_replace
+must be used in conjunction with the ONAP supplied metadata parameter
+vnf\_name to generate a unique value. This prevents the enumeration of a
+unique value for the property name in a per instance environment file.
+
+Note that
+
+-  In most cases, only the use of the metadata value vnf\_name is
+   required to create a unique property name
+
+-  the Heat Orchestration Template pseudo parameter 'OS::stack\_name’
+   may also be used in the str\_replace construct to generate a unique
+   name when the vnf\_name does not provide uniqueness
+
+*Example: Property* name *for resource* OS::Neutron::SecurityGroup
+
+.. code-block:: python
+
+ resources:
+   DNS_SECURITY_GROUP:
+     type: OS::Neutron::SecurityGroup
+     properties:
+       description: vDNS security group
+       name:
+         str_replace:
+           template: VNF_NAME_sec_grp_DNS
+           params:
+             VNF_NAME: {get_param: vnf_name}
+       rules: [. . . . .
+              ]
+
+*Example: Property name for resource* OS::Cinder::Volume
+
+.. code-block:: python
+
+ resources:
+   DNS_Cinder_Volume:
+     type: OS::Cinder::Volume
+     properties:
+       description: Cinder Volume
+       name:
+         str_replace:
+           template: VNF_NAME_STACK_NAME_dns_volume
+           params:
+             VNF_NAME: {get_param: vnf_name}
+             STACK_NAME: { get_param: 'OS::stack_name' }
+       . . . .
+
+Contrail Issue with Values for the Property Name
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The Contrail GUI has a limitation displaying special characters. The
+issue is documented in
+https://bugs.launchpad.net/juniperopenstack/+bug/1590710. It is
+recommended that special characters be avoided. However, if special
+characters must be used, note that for the following resources:
+
+-  Virtual Machine
+
+-  Virtual Network
+
+-  Port
+
+-  Security Group
+
+-  Policies
+
+-  IPAM Creation
+
+the only special characters supported are:
+
+- “ ! $ ‘ ( ) = ~ ^ \| @ \` { } [ ] > , . \_
+
+ONAP Output Parameter Names
+---------------------------
+
+ONAP defines three types of Output Parameters as detailed in `Output Parameters`_.
+
+ONAP Base Module Output Parameters: 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ONAP Base Module Output Parameters do not have an explicit naming
+convention. The parameter name must contain {vm-type} and {network-role}
+when appropriate.
+
+ONAP Volume Template Output Parameters: 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ONAP Base Module Output Parameters do not have an explicit naming
+convention. The parameter name must contain {vm-type} when appropriate.
+
+Predefined Output Parameters
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ONAP currently defines one predefined output parameter the OAM
+Management IP Addresses.
+
+OAM Management IP Addresses
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+A VNF may have a management interface for application controllers to
+interact with and configure the VNF. Typically, this will be via a
+specific VM that performs a VNF administration function. The IP address
+of this interface must be captured and inventoried by ONAP. The IP
+address might be a VIP if the VNF contains an HA pair of management VMs,
+or may be a single IP address assigned to one VM.
+
+The Heat template may define either (or both) of the following Output
+parameters to identify the management IP address.
+
+-  oam\_management\_v4\_address
+
+-  oam\_management\_v6\_address
+
+*Notes*:
+
+-  The use of this output parameters are optional.
+
+-  The Management IP Address should be defined only once per VNF, so it
+   must only appear in one Module template
+
+-  If a fixed IP for the admin VM is passed as an input parameter, it
+   may be echoed in the output parameters. In this case, a IPv4 and/or
+   IPv6 parameter must be defined in the parameter section of the YAML
+   Heat template. The parameter maybe named oam\_management\_v4\_address
+   and/or oam\_management\_v6\_address or may be named differently.
+
+-  If the IP for the admin VM is obtained via DHCP, it may be obtained
+   from the resource attributes. In this case,
+   oam\_management\_v4\_address and/or oam\_management\_v6\_address must
+   not be defined in the parameter section of the YAML Heat template.
+
+*Example: SDN-C Assigned IP Address echoed as*
+oam\_management\_v4\_address
+
+.. code-block:: python
+
+ parameters:
+    admin_oam_ip_0:
+       type: string
+       description: Fixed IPv4 assignment for admin VM 0 on the OAM network
+    . . .
+
+ resources:
+    admin_oam_net_0_port:
+       type: OS::Neutron::Port
+       properties:
+          name:
+             str_replace:
+                template: VNF_NAME_admin_oam_net_0_port
+                params:
+                   VNF_NAME: {get_param: vnf_name}
+          network: { get_param: oam_net_id }
+          fixed_ips: [{ "ip_address": { get_param: admin_oam_ip_0 }}]
+          security_groups: [{ get_param: security_group }]
+
+    admin_server:
+       type: OS::Nova::Server
+       properties:
+          name: { get_param: admin_names }
+          image: { get_param: admin_image_name }
+          flavor: { get_param: admin_flavor_name }
+          availability_zone: { get_param: availability_zone_0 }
+          networks:
+             - port: { get_resource: admin_oam_net_0_port }
+          metadata:
+             vnf_id: { get_param: vnf_id }
+             vf_module_id: { get_param: vf_module_id }
+             vnf_name: {get_param: vnf_name }
+    Outputs:
+       oam_management_v4_address:
+       value: {get_param: admin_oam_ip_0 }
+
+*Example: Cloud Assigned IP Address output as*
+oam\_management\_v4\_address
+
+.. code-block:: python
+
+ parameters:
+    . . .
+ resources:
+   admin_oam_net_0_port:
+     type: OS::Neutron::Port
+     properties:
+       name:
+         str_replace:
+           template: VNF_NAME_admin_oam_net_0_port
+           params:
+             VNF_NAME: {get_param: vnf_name}
+       network: { get_param: oam_net_id }
+       security_groups: [{ get_param: security_group }]
+
+   admin_server:
+     type: OS::Nova::Server
+     properties:
+       name: { get_param: admin_names }
+       image: { get_param: admin_image_name }
+       flavor: { get_param: admin_flavor_name }
+       availability_zone: { get_param: availability_zone_0 }
+       networks:
+         - port: { get_resource: admin_oam_net_0_port }
+       metadata:
+         vnf_id: { get_param: vnf_id }
+         vf_module_id: { get_param: vf_module_id }
+         vnf_name: {get_param: vnf_name }
+
+ Outputs:
+   oam_management_v4_address:
+   value: {get_attr: [admin_server, networks, {get_param: oam_net_id}, 0] }
+
+Contrail Resource Parameters
+----------------------------
+
+ONAP requires the parameter names of certain Contrail Resources to
+follow specific naming conventions. This section provides these
+requirements.
+
+Contrail Network Parameters 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Contrail based resources may require references to a Contrail network
+using the network FQDN.
+
+External Networks
+^^^^^^^^^^^^^^^^^
+
+When the parameter associated with the Contrail Network is referencing
+an “external” network, the parameter must adhere to the following naming
+convention in the Heat Orchestration Template
+
+-  {network-role}\_net\_fqdn
+
+The parameter must be declared as type: string
+
+The parameter must not be enumerated in the Heat environment file.
+
+*Example: Parameter declaration*
+
+.. code-block:: python
+
+ parameters:
+    {network-role}_net_fqdn:
+       type: string
+       description: Contrail FQDN for the {network-role} network
+
+*Example: Contrail Resource OS::ContrailV2::VirtualMachineInterface
+Reference to a Network FQDN.*
+
+In this example, the {network-role} has been defined as oam to represent
+an oam network and the {vm-type} has been defined as fw for firewall.
+The Contrail resource OS::ContrailV2::VirtualMachineInterface property
+virtual\_network\_refs references a contrail network FQDN.
+
+.. code-block:: python
+
+ FW_OAM_VMI:
+   type: OS::ContrailV2::VirtualMachineInterface
+   properties:
+     name:
+       str_replace:
+         template: VM_NAME_virtual_machine_interface_1
+         params:
+           VM_NAME: { get_param: fw_name_0 }
+     virtual_machine_interface_properties:
+       virtual_machine_interface_properties_service_interface_type: { get_param: oam_protected_interface_type }
+     virtual_network_refs:
+       - get_param: oam_net_fqdn
+     security_group_refs:
+       - get_param: fw_sec_grp_id
+
+Interface Route Table Prefixes for Contrail InterfaceRoute Table
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The parameter associated with the resource
+OS::ContrailV2::InterfaceRouteTable property
+interface\_route\_table\_routes, map property
+interface\_route\_table\_routes\_route\_prefix is an ONAP Orchestration
+Parameter.
+
+The parameters must be named {vm-type}\_{network-role}\_route\_prefixes
+in the Heat Orchestration Template.
+
+The parameter must be declared as type: json
+
+The parameter supports IP addresses in the format:
+
+1. Host IP Address (e.g., 10.10.10.10)
+
+2. CIDR Notation format (e.g., 10.0.0.0/28)
+
+The parameter must not be enumerated in the Heat environment file.
+
+*Example Parameter Definition*
+
+.. code-block:: python
+
+ parameters:
+    {vm-type}_{network-role}_route_prefixes:
+       type: json
+       description: JSON list of Contrail Interface Route Table route prefixes
+
+*Example:*
+
+.. code-block:: python
+
+ parameters:
+   vnf_name:
+     type: string
+     description: Unique name for this VF instance
+   fw_int_fw_route_prefixes:
+     type: json
+     description: prefix for the ServiceInstance InterfaceRouteTable
+   int_fw_dns_trusted_interface_type:
+     type: string
+     description: service_interface_type for ServiceInstance
+
+ <resource name>:
+   type: OS::ContrailV2::InterfaceRouteTable
+   depends_on: [*resource name of* *OS::ContrailV2::ServiceInstance*]
+   properties:
+     name:
+       str_replace:
+         template: VNF_NAME_interface_route_table
+         params:
+           VNF_NAME: { get_param: vnf_name }
+     interface_route_table_routes:
+       interface_route_table_routes_route: { get_param: fw_int_fw_route_prefixes }
+     service_instance_refs:
+       - get_resource: < *resource name of* *OS::ContrailV2::ServiceInstance* >
+     service_instance_refs_data:
+       - service_instance_refs_data_interface_type: { get_param: int_fw_interface_type }
+
+Parameter Names in Contrail Resources
+-------------------------------------
+
+Contrail Heat resource properties will use, when appropriate, the same
+naming convention as OpenStack Heat resources. For example, the resource
+OS::ContrailV2::InstanceIp has two properties that the parameter naming
+convention is identical to properties in OS::Neutron::Port.
+
+*Example: Contrail Resource OS::ContrailV2::InstanceIp, Property
+instance\_ip\_address*
+
+The property instance\_ip\_address uses the same parameter naming
+convention as the property fixed\_ips and Map Property ip\_address in
+OS::Neutron::Port. The resource is assigning an ONAP SDN-C Assigned IP
+Address. The {network-role} has been defined as oam\_protected to
+represent an oam protected network and the {vm-type} has been defined as
+fw for firewall.
+
+.. code-block:: python
+
+ CMD_FW_OAM_PROTECTED_RII:
+   type: OS::ContrailV2::InstanceIp
+   depends_on:
+     - FW_OAM_PROTECTED_RVMI
+   properties:
+     virtual_machine_interface_refs:
+       - get_resource: FW_OAM_PROTECTED_RVMI
+     virtual_network_refs:
+       - get_param: oam_protected_net_fqdn
+     instance_ip_address: { get_param: [fw_oam_protected_ips, get_param: index ] }
+
+*Example: Contrail Resource OS::ContrailV2::InstanceIp, Property
+subnet\_uuid*
+
+The property instance\_ip\_address uses the same parameter naming
+convention as the property fixed\_ips and Map Property subnet\_id in
+OS::Neutron::Port. The resource is assigning a Cloud Assigned IP
+Address. The {network-role} has been defined as “oam\_protected” to
+represent an oam protected network and the {vm-type} has been defined as
+“fw” for firewall.
+
+.. code-block:: python
+
+ CMD_FW_SGI_PROTECTED_RII:
+   type: OS::ContrailV2::InstanceIp
+   depends_on:
+     - FW_OAM_PROTECTED_RVMI
+   properties:
+     virtual_machine_interface_refs:
+       - get_resource: FW_OAM_PROTECTED_RVMI
+     virtual_network_refs:
+       - get_param: oam_protected_net_fqdn
+     subnet_uuid: { get_param: oam_protected_subnet_id }
+				
+Cinder Volume Templates
+-----------------------
+
+ONAP supports the independent deployment of a Cinder volume via separate
+Heat Orchestration Templates, the Cinder Volume module. This allows the
+volume to persist after VNF deletion so that they can be reused on
+another instance (e.g., during a failover activity).
+
+A Base Module or Incremental Module may have a corresponding volume
+module. Use of separate volume modules is optional. A Cinder volume may
+be embedded within the Base Module or Incremental Module if persistence
+is not required.
+
+If a VNF Base Module or Incremental Module has an independent volume
+module, the scope of volume templates must be 1:1 with Base module or
+Incremental module. A single volume module must create only the volumes
+required by a single Incremental module or Base module.
+
+The following rules apply to independent volume Heat templates:
+
+-  Cinder volumes must be created in a separate Heat Orchestration
+   Template from the Base Module or Incremental Module.
+
+   -  A single Cinder volume module must include all Cinder volumes
+      needed by the Base/Incremental module.
+
+   -  The volume template must define “outputs” for each Cinder volume
+      resource universally unique identifier (UUID) (i.e. ONAP Volume
+      Template Output Parameters).
+
+-  The VNF Incremental Module or Base Module must define input
+   parameters that match each Volume output parameter (i.e., ONAP Volume
+   Template Output Parameters).
+
+   -  ONAP will supply the volume template outputs automatically to the
+      bases/incremental template input parameters.
+
+-  Volume modules may utilize nested Heat templates.
+
+*Examples: Volume Template*
+
+A VNF has a Cinder volume module, named incremental\_volume.yaml, that
+creates an independent Cinder volume for a VM in the module
+incremental.yaml. The incremental\_volume.yaml defines a parameter in
+the output section, lb\_volume\_id\_0 which is the UUID of the cinder
+volume. lb\_volume\_id\_0 is defined as a parameter in incremental.yaml.
+ONAP captures the UUID value of lb\_volume\_id\_0 from the volume module
+output statement and provides the value to the incremental module.
+
+Note that the example below is not a complete Heat Orchestration
+Template. The {vm-type} has been defined as “lb” for load balancer
+
+incremental\_volume.yaml
+
+.. code-block:: python
+
+ parameters:
+    vnf_name:
+       type: string
+    lb_volume_size_0:
+       type: number
+    ...
+
+ resources:
+    dns_volume_0:
+       type: OS::Cinder::Volume
+       properties:
+          name:
+             str_replace:
+                template: VNF_NAME_volume_0
+                params:
+                   VNF_NAME: { get_param: vnf_name }
+          size: {get_param: dns_volume_size_0}
+    ...
+
+ outputs:
+    lb_volume_id_0:
+       value: {get_resource: dns_volume_0}
+    ...
+
+
+incremental.yaml
+
+.. code-block:: python
+
+ parameters:
+    lb_name_0:
+       type: string
+    lb_volume_id_0:
+       type: string
+    ...
+
+ resources:
+    lb_0:
+       type: OS::Nova::Server
+       properties:
+          name: {get_param: dns_name_0}
+          networks:
+          ...
+
+    lb_0_volume_attach:
+       type: OS::Cinder::VolumeAttachment
+       properties:
+          instance_uuid: { get_resource: lb_0 }
+          volume_id: { get_param: lb_volume_id_0 }
+
+ONAP Support of Environment Files
+---------------------------------
+
+The use of an environment file in OpenStack is optional. In ONAP, it is
+mandatory. A Heat Orchestration Template uploaded to ONAP must have a
+corresponding environment file, even if no parameters are required to be
+enumerated.
+
+(Note that ONAP, the open source version of ONAP, does not
+programmatically enforce the use of an environment file.)
+
+A Base Module Heat Orchestration Template must have a corresponding
+environment file.
+
+An Incremental Module Heat Orchestration Template must have a
+corresponding environment file.
+
+A Cinder Volume Module Heat Orchestration Template must have a
+corresponding environment file.
+
+A nested heat template must not have an environment file; OpenStack does
+not support it.
 
 The environment file must contain parameter values for the ONAP
 Orchestration Constants and VNF Orchestration Constants. These
 parameters are identical across all instances of a VNF type, and
-expected to change infrequently. The ONAP Orchestration Constants
-are associated with OS::Nova::Server image and flavor properties (See
-Section 5.b Resource: OS::Nova::Server – Parameters). Examples of VNF Orchestration Constants are the networking
-parameters associated with an internal network (e.g. private IP ranges)
+expected to change infrequently. The ONAP Orchestration Constants are
+associated with OS::Nova::Server image and flavor properties (See
+`Property: image`_ and `Property: flavor`_). Examples of VNF Orchestration Constants are the networking
+parameters associated with an internal network (e.g., private IP ranges)
 and Cinder volume sizes.
 
 The environment file must not contain parameter values for parameters
 that are instance specific (ONAP Orchestration Parameters, VNF
 Orchestration Parameters). These parameters are supplied to the Heat by
-ONAP at orchestration time. The parameters are generated and/or
-assigned by ONAP at orchestration time
+ONAP at orchestration time.
 
-Independent Volume Templates
-----------------------------
+SDC Treatment of Environment Files
+----------------------------------
 
-ONAP supports independent deployment of a Cinder volume via
-separate Heat templates. This allows the volume to persist after VNF
-deletion so that they can be reused on another instance (e.g. during a
-failover activity).
+Parameter values enumerated in the environment file are used by SDC as
+the default value. However, the SDC user may use the SDC GUI to
+overwrite the default values in the environment file.
 
-A VNF Incremental Module or Base Module may have an independent volume
-module. Use of separate volume modules is optional. A Cinder volume may
-be embedded within the Incremental or Base Module if persistence is not
-required.
+SDC generates a new environment file for distribution to MSO based on
+the uploaded environment file and the user provided GUI updates. The
+user uploaded environment file is discarded when the new file is
+created. Note that if the user did not change any values via GUI
+updates, the SDC generated environment file will contain the same values
+as the uploaded file.
 
-If a VNF Incremental Module or Base Module has an independent volume
-module, the scope of volume templates must be 1:1 with Incremental
-module or Base module. A single volume module must create only the
-volumes required by a single Incremental module or Base module.
+Use of Environment Files when using OpenStack “heat stack-create” CLI
+---------------------------------------------------------------------
 
-The following rules apply to independent volume Heat templates:
+When ONAP is instantiating the Heat Orchestration Template, certain
+parameter must not be enumerated in the environment file. This document
+provides the details of what parameters should not be enumerated.
 
--  Cinder volumes must be created in a separate Heat template from the
-   Incremental and Base Modules.
+If the Heat Orchestration Template is to be instantiated from the
+OpenStack Command Line Interface (CLI) using the command “heat
+stack-create”, all parameters must be enumerated in the environment
+file.
 
-   -  A single volume module must include all Cinder volumes needed by
-      the Incremental/Base module.
-
-   -  The volume template must define “outputs” for each Cinder volume
-      resource universally unique identifier (UUID) (i.e. ONAP
-      Volume Template Output Parameters).
-
--  The VNF Incremental Module or Base Module must define input
-   parameters that match each Volume output parameter (i.e., ONAP
-   Volume Template Output Parameters).
-
-   -  ONAP will supply the volume template outputs automatically to
-      the bases/incremental template input parameters.
-
--  Volume modules may utilize nested Heat templates.
-
-**Example (volume template):**
-
-    In this example, the {vm-type} has been left as a variable.
-    {vm-type} is described in section 5.b {vm-type}. If the VM was a load
-    balancer, the {vm-type} could be defined as “lb”
-
-.. code-block:: python
-
-    parameters:
-        vm-typevnf\_name:
-            type: string
-        {vm-type}\_volume\_size\_0:
-            type: number
-        ...
-
-    resources:
-        {vm-type}\_volume\_0:
-            type: OS::Cinder::Volume
-            properties:
-                name:
-                    str\_replace:
-                        template: VNF\_NAME\_volume\_0
-                        params:
-                            VNF\_NAME: { get\_param: vnf\_name }
-                size: {get\_param: {vm-type}\_volume\_size\_0}
-        ...
-
-*(+ additional volume definitions)*
-
-.. code-block:: python
-
-    outputs:
-        {vm-type}\_volume\_id\_0:
-            value: {get\_resource: {vm-type}\_volume\_0}
-        ...
-
-*(+ additional volume outputs)*
-
-*Example (VNF module template):*
-
-.. code-block:: python
-
-    parameters:
-        {vm-type}\_name\_0:
-            type: string
-        {vm-type}\_volume\_id\_0:
-            type: string
-        ...
-
-    resources:
-        {vm-type}\_0:
-            type: OS::Nova::Server
-            properties:
-                name: {get\_param: {vm-type}\_name\_0}
-                networks:
-                ...
-
-    {vm-type}\_0\_volume\_attach:
-        type: OS::Cinder::VolumeAttachment
-        properties:
-            instance\_uuid: { get\_resource: {vm-type}\_0 }
-            volume\_id: { get\_param: {vm-type}\_volume\_id\_0 }
+Heat Template Constructs
+------------------------
 
 Nested Heat Templates
 ---------------------
 
-ONAP supports nested Heat templates per the OpenStack
-specifications. Nested templates may be suitable for larger VNFs that
-contain many repeated instances of the same VM type(s). A common usage
-pattern is to create a nested template for each VM type along with its
-supporting resources. The master VNF template (or VNF Module template)
-may then reference these component templates either statically (by
-repeated definition) or dynamically (via *OS::Heat::ResourceGroup*).
-
-Nested template support in ONAP is subject to the following
-limitations:
-
--  Heat templates for ONAP must only have one level of nesting.
-   ONAP only supports one level of nesting.
-
--  Nested templates must be referenced by file name in the master
-   template
-
-   -  i.e. use of *resource\_registry* in the .env file is *not*
-      currently supported
-
--  Nested templates must have unique file names within the scope of the
-   VNF
-
--  ONAP does not support a directory hierarchy for nested
-   templates. All templates must be in a single, flat directory (per
-   VNF)
-
--  A nested template may be shared by all Modules (i.e., Heat templates)
-   within a given VNF
-
-Networking 
-----------
-
-External Networks
------------------
-
-VNF templates must not include any resources for external networks
-connected to the VNF. In this context, “external” is in relation to the
-VNF itself (not with regard to the Network Cloud site). External
-networks may also be referred to as “inter-VNF” networks.
-
--  External networks must be orchestrated separately, so they can be
-   shared by multiple VNFs and managed independently. When the external
-   network is created, it must be assigned a unique {network-role} (See
-   section 5.b {network-role}).
-
--  External networks must be passed into the VNF template as parameters,
-   including the network-id (i.e. the neutron network UUID) and optional
-   subnet ID.
-
--  VNF templates must pass the appropriate external network IDs into
-   nested VM templates when nested Heat is used.
-
--  VNFs may use DHCP assigned IP addresses or assign fixed IPs when
-   attaching VMs to an external network.
-
--  ONAP enforces a naming convention for parameters associated with
-   external networks.
-
--  Parameter values associated with an external network will be
-   generated and/or assigned by ONAP at orchestration time.
-
--  Parameter values associated with an external network must not be
-   enumerated in the environment file.
-
-Internal Networks
------------------
-
-Orchestration activities related to internal networks must be included
-in VNF templates. In this context, “internal” is in relation to the VNF
-itself (not in relation to the Network Cloud site). Internal networks
-may also be referred to as “intra-VNF” networks or “private” networks.
-
--  Internal networks must not attach to any external gateways and/or
-   routers. Internal networks are for intra-VM communication only.
-
--  In the modular approach, internal networks must be created in the
-   Base Module template, with their resource IDs exposed as outputs
-   (i.e., ONAP Base Template Output Parameters) for use by all
-   add-on module templates. When the external network is created, it
-   must be assigned a unique {network-role} (See section 5.b {network-role}).
-
--  VNFs may use DHCP assigned IP addresses or assign fixed IPs when
-   attaching VMs to an internal network.
-
--  ONAP does not enforce a naming convention for parameters for
-   internal network, however, a naming convention is provided that
-   should be followed.
-
--  Parameter values associated with an internal network must either be
-   passed as output parameter from the base template (i.e., ONAP
-   Base Template Output Parameters) into the add-on modules or be
-   enumerated in the environment file.
-
-IP Address Assignment
----------------------
-
--  VMs connect to external networks using either fixed (e.g. statically
-   assigned) IP addresses or DHCP assigned IP addresses.
-
--  VMs connect to internal networks using either fixed (e.g. statically
-   assigned) IP addresses or DHCP assigned IP addresses.
-
--  Neutron Floating IPs must not be used. ONAP does not support
-   Neutron Floating IPs.
-
--  ONAP supports the OS::Neutron::Port property
-   “allowed\_address\_pairs.” See Section 5.b Property:  allowed_address_pairs.
-
-Parameter Naming Convention
----------------------------
-
-{vm-type}
----------
-
-A common *{vm-type}* identifier must be used throughout the Heat
-template in naming parameters, for each VM type in the VNF with the
-following exceptions:
-
--  The four ONAP Metadata parameters must not be prefixed with a
-   common {vm-type} identifier. They are *vnf\_name*, *vnf\_id*,
-   *vf\_module\_id*, *vf\_module\_name*.
-
--  Parameters only referring to a network or subnetwork must not be
-   prefixed with a common {vm-type} identifier.
-
--  The parameter referring to the OS::Nova::Server property
-   availability\_zone must not be prefixed with a common {vm-type}
-   identifier.
-
--  {vm-type} must be unique to the VNF. It does not have to be globally
-   unique across all VNFs that ONAP supports.
-
-{network-role}
---------------
-
-VNF templates must not include any resources for external networks
-connected to the VNF. In this context, “external” is in relation to the
-VNF itself (not with regard to the Network Cloud site). External
-networks may also be referred to as “inter-VNF” networks.
-
-External networks must be orchestrated separately, so they can be shared
-by multiple VNFs and managed independently. When the external network is
-created, it must be assigned a unique {network-role}.
-
-“External” networks must be passed into the VNF template as parameters.
-Examples include the network-id (i.e. the neutron network UUID) and
-optional subnet ID. See section 5.b Property: network & subnet.
-
-Any parameter that is associated with an external network must include
-the {network-role} as part of the parameter name.
-
-Internal network parameters must also define a {network-role}. Any
-parameter that is associated with an internal network must include
-int\_{network-role} as part of the parameter name.
-
-Resource: OS::Nova::Server - Parameters
----------------------------------------
-
-The following OS::Nova::Server Resource Property Parameter Names must
-follow the ONAP parameter Naming Convention. All the parameters
-associated with OS::Nova::Server are classified as ONAP
-Orchestration Parameters.
-
-+----------------------+-----------------------------------------+------------------+
-| OS::Nova::Server                                                                  |
-+======================+=========================================+==================+
-| Property             | ONAP Parameter Naming Convention        | Parameter Type   |
-+----------------------+-----------------------------------------+------------------+
-| image                | {*vm-type*}\_image\_name                | string           |
-+----------------------+-----------------------------------------+------------------+
-| flavor               | {*vm-type*}\_flavor\_name               | string           |
-+----------------------+-----------------------------------------+------------------+
-| name                 | {*vm-type*}\_name\_{*index*}            | string           |
-+----------------------+-----------------------------------------+------------------+
-|                      | {vm-type}\_names                        | CDL              |
-+----------------------+-----------------------------------------+------------------+
-| availability\_zone   | availability\_zone\_{index}             | string           |
-+----------------------+-----------------------------------------+------------------+
-
-Table 2 Resource Property Parameter Names
-
-Property: image
-~~~~~~~~~~~~~~~
-
-Image is an ONAP Orchestration Constant parameter. The image must
-be referenced by the Network Cloud Service Provider (NCSP) image name,
-with the parameter enumerated in the Heat environment file.
-
-The parameters must be named *“{vm-type}\_image\_name”* in the VNF.
-
-Each VM type (e.g., {vm-type}) should have a separate parameter for
-images, even if several share the same image. This provides maximum
-clarity and flexibility.
-
-Property: flavor
-~~~~~~~~~~~~~~~~
-
-Flavor is an ONAP Orchestration Constant parameter. The flavors
-must be referenced by the Network Cloud Service Provider (NCSP) flavor
-name, with the parameter enumerated in the Heat environment file.
-
-The parameters must be named *“{vm-type}\_flavor\_name”* for each
-*{vm-type}* in the VNF.
-
-Each VM type should have separate parameters for flavors, even if more
-than one VM shares the same flavor. This provides maximum clarity and
-flexibility.
-
-Property: Name
-~~~~~~~~~~~~~~
-
-Name is an OpenEOMP Orchestration parameter; the value is provided to
-the Heat template by ONAP.
-
-VM names (hostnames) for assignment to VM instances must be passed to
-Heat templates either as
-
--  an array (comma delimited list) for each VM type
-
--  a set of fixed-index parameters for each VM type instance.
-
-Each element in the VM Name list should be assigned to successive
-instances of that VM type.
-
-The parameter names must reflect the VM Type (i.e., include the
-{vm-type} in the parameter name.) The parameter name format must be one
-of the following:
-
--  If the parameter type is a comma delimited list: {**vm-type**}\_names
-
--  If the parameter type is a string with a fixed index:
-   {**vm-type**}\_name\_{**index**}
-
-If a VNF contains more than three instances of a given {vm-type}, the
-CDL form of the parameter name (i.e., *{vm-type}*\ \_names} should be
-used to minimize the number of unique parameters defined in the Heat.
-
-*Examples:*
-
-.. code-block:: python
-
-    parameters:
-        {vm-type}\_names:
-            type: comma\_delimited\_list
-            description: VM Names for {vm-type} VMs
-        {vm-type}\_name\_{index}:
-            type: string
-            description: VM Name for {vm-type} VM {index}
-
-*Example (CDL):*
-
-In this example, the {vm-type} has been defined as “lb” for load
-balancer.
-
-.. code-block:: python
-
-    parameters:
-        lb\_names:
-            type: comma\_delimited\_list
-            description: VM Names for lb VMs
-    resources:
-        lb\_0:
-            type: OS::Nova::Server
-            properties:
-                name: { get\_param: [lb\_names, 0] }
-                ...
-
-        lb\_1:
-            type: OS::Nova::Server
-            properties:
-                name: { get\_param: [lb\_names, 1] }
-                ...
-
-**Example (fixed-index):**
-
-In this example, the {vm-type} has been defined as “lb” for load
-balancer.
-
-.. code-block:: python
-
-    parameters:
-        lb\_name\_0:
-            type: string
-            description: VM Name for lb VM 0
-        lb\_name\_1:
-            type: string
-            description: VM Name for lb VM 1
-
-    resources:
-        lb\_0:
-            type: OS::Nova::Server
-            properties:
-                name: { get\_param: lb\_name\_0 }
-                ...
-
-    lb\_1:
-        type: OS::Nova::Server
-        properties:
-            name: { get\_param: lb\_name\_1 }
-            ...
-
-Property: availability\_zone
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Availability\_zone is an ONAP Orchestration parameter; the value is
-provided to the Heat template by ONAP.
-
-Availability zones must be passed as individual numbered parameters (not
-as arrays) so that VNFs with multi-availability zone requirements can
-clearly specify that in its parameter definitions.
-
-The availability zone parameter must be defined as
-“availability\_zone\_{index}”, with the {index} starting at zero.
-
-*Example:*
-
-In this example, the {vm-type} has been defined as “lb” for load
-balancer.
-
-.. code-block:: python
-
-    parameters:
-        lb\_names:
-            type: comma\_delimited\_list
-            description: VM Names for lb VMs
-        availability\_zone\_0:
-            type: string
-            description: First availability zone ID or Name
-
-    resources:
-        lb\_0:
-            type: OS::Nova::Server
-            properties:
-                name: { get\_param: [lb\_names, 0] }
-                availability\_zone: { get\_param: availability\_zone\_0 }
-                ...
-
-Resource: OS::Nova::Server - Metadata
--------------------------------------
-
-This section describes the ONAP Metadata parameters.
-
-ONAP Heat templates must include the following three parameters
-that are used as metadata under the resource OS::Nova:Server: vnf\_id,
-vf\_module\_id, vnf\_name
-
-ONAP Heat templates may include the following parameter that is
-used as metadata under the resource OS::Nova:Server: vf\_module\_name.
-
-These parameters are all classified as ONAP Metadata.
-
-+---------------------------+------------------+----------------------+
-| Metadata Parameter Name   | Parameter Type   | Mandatory/Optional   |
-+===========================+==================+======================+
-| vnf\_id                   | string           | mandatory            |
-+---------------------------+------------------+----------------------+
-| vf\_module\_id            | string           | mandatory            |
-+---------------------------+------------------+----------------------+
-| vnf\_name                 | string           | mandatory            |
-+---------------------------+------------------+----------------------+
-| vf\_module\_name          | string           | optional             |
-+---------------------------+------------------+----------------------+
-
-    Table 3 ONAP Metadata
-
-Required Metadata Elements
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-The vnf\_id, vf\_module\_id, and vnf\_name metadata elements are
-required (must) for *OS::Nova::Server* resources. The metadata
-parameters will be used by ONAP to associate the servers with the
-VNF instance.
-
--  vnf\_id
-
-   -  *“vnf\_id”* parameter value will be supplied by ONAP.
-      ONAP generates the UUID that is the vnf\_id and supplies it
-      to the Heat at orchestration time.
-
--  vf\_module\_id
-
-   -  “\ *vf\_module\_id”* parameter value will be supplied by
-      ONAP. ONAP generates the UUID that is the vf\_module\_id
-      and supplies it to the Heat at orchestration time.
-
--  vnf\_name
-
-   -  “\ *vnf\_name”* parameter value will be generated and/or assigned
-      by ONAP and supplied to the Heat by ONAP at
-      orchestration time.
-
-Optional Metadata Elements
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-The following metadata element is optional for *OS::Nova::Server*
-resources:
-
--  *vf\_module\_name*
-
-   -  The vf\_module\_name is the name of the name of the Heat stack
-      (e.g., <STACK\_NAME>) in the command “Heat stack-create” (e.g.
-      Heat stack-create [-f <FILE>] [-e <FILE>] <STACK\_NAME>). The
-      <STACK\_NAME> needs to be specified as part of the orchestration
-      process.
-
-   -  *“vf\_module\_name”* parameter value, when used, will be supplied
-      by ONAP to the Heat at orchestration time. The parameter will
-      be generated and/or assigned by ONAP and supplied to the Heat
-      by ONAP at orchestration time.
-
-*Example*
-
-In this example, the {vm-type} has been defined as “lb” for load
-balancer.
-
-.. code-block:: python
-
-    parameters:
-        vnf\_name:
-            type: string
-            description: Unique name for this VNF instance
-        vnf\_id:
-            type: string
-            description: Unique ID for this VNF instance
-        vf\_module\_name:
-            type: string
-            description: Unique name for this VNF Module instance
-        vf\_module\_id:
-            type: string
-            description: Unique ID for this VNF Module instance
-
-    resources:
-        lb\_server\_group:
-            type: OS::Nova::ServerGroup
-                properties:
-                    name:
-                        str\_replace:
-                            template: VNF\_NAME\_lb\_ServerGroup
-                            params:
-                                VNF\_NAME: { get\_param: VNF\_name }
-                    policies: [ ‘anti-affinity’ ]
-        
-        lb\_vm\_0:
-            type: OS::Nova::Server
-            properties:
-                name: { get\_param: lb\_name\_0 }
-                scheduler\_hints:
-                group: { get\_resource: lb\_server\_group }
-                metadata:   
-                    vnf\_name: { get\_param: vnf\_name }
-                    vnf\_id: { get\_param: vnf\_id }
-                    vf\_module\_name: { get\_param: vf\_module\_name }
-                    vf\_module\_id: { get\_param: vf\_module\_id }
-                ...
-
-Resource: OS::Neutron::Port - Parameters
-----------------------------------------
-
-The following four OS::Neutron::Port Resource Property Parameters must
-adhere to the ONAP parameter naming convention.
-
--  network
-
--  subnet
-
--  fixed\_ips
-
--  allowed\_address\_pairs
-
-These four parameters reference a network, which maybe an external
-network or an internal network. Thus the parameter will include
-{network-role} in its name.
-
-When the parameter references an external network, the parameter is an
-ONAP Orchestration Parameter. The parameter value must be supplied
-by ONAP. The parameters must adhere to the ONAP parameter
-naming convention.
-
-+---------------------------+-----------------------------------------------+------------------+
-| OS::Neutron::Port                                                                            |
-+===========================+===============================================+==================+
-| Property                  | Parameter Name for External Networks          | Parameter Type   |
-+---------------------------+-----------------------------------------------+------------------+
-| Network                   | {network-role}\_net\_id                       | string           |
-+---------------------------+-----------------------------------------------+------------------+
-|                           | {network-role}\_net\_name                     | string           |
-+---------------------------+-----------------------------------------------+------------------+
-| Subnet                    | {network-role}\_subnet\_id                    | string           |
-+---------------------------+-----------------------------------------------+------------------+
-|                           | {network-role}\_v6\_subnet\_id                | string           |
-+---------------------------+-----------------------------------------------+------------------+
-| fixed\_ips                | {vm-type}\_{network-role}\_ip\_{index}        | string           |
-+---------------------------+-----------------------------------------------+------------------+
-|                           | {vm-type}\_{network-role}\_ips                | CDL              |
-+---------------------------+-----------------------------------------------+------------------+
-|                           | {vm-type}\_{network-role}\_v6\_ip\_{index}    | string           |
-+---------------------------+-----------------------------------------------+------------------+
-|                           | {vm-type}\_{network-role}\_v6\_ips            | CDL              |
-+---------------------------+-----------------------------------------------+------------------+
-| allowed\_address\_pairs   | {vm-type}\_{network-role}\_floating\_ip       | string           |
-+---------------------------+-----------------------------------------------+------------------+
-|                           | {vm-type}\_{network-role}\_floating\_v6\_ip   | string           |
-+---------------------------+-----------------------------------------------+------------------+
-|                           | {vm-type}\_{network-role}\_ip\_{index}        | string           |
-+---------------------------+-----------------------------------------------+------------------+
-|                           | {vm-type}\_{network-role}\_ips                | CDL              |
-+---------------------------+-----------------------------------------------+------------------+
-|                           | {vm-type}\_{network-role}\_v6\_ip\_{index}    | string           |
-+---------------------------+-----------------------------------------------+------------------+
-|                           | {vm-type}\_{network-role}\_v6\_ips            | CDL              |
-+---------------------------+-----------------------------------------------+------------------+
-
-Table 4 Port Resource Property Parameters (External Networks)
-
-When the parameter references an internal network, the parameter is a
-VNF Orchestration Parameters. The parameter value(s) must be supplied
-either via an output statement(s) in the base module (i.e., ONAP
-Base Template Output Parameters) or be enumerated in the environment
-file. The parameters must adhere to the following parameter naming
-convention.
-
-+---------------------------+----------------------------------------------------+------------------+
-| OS::Neutron::Port                                                                                 |
-+===========================+====================================================+==================+
-| Property                  | Parameter Name for Internal Networks               | Parameter Type   |
-+---------------------------+----------------------------------------------------+------------------+
-| Network                   | int\_{network-role}\_net\_id                       | string           |
-+---------------------------+----------------------------------------------------+------------------+
-|                           | int\_{network-role}\_net\_name                     | string           |
-+---------------------------+----------------------------------------------------+------------------+
-| Subnet                    | int\_{network-role}\_subnet\_id                    | string           |
-+---------------------------+----------------------------------------------------+------------------+
-|                           | Int\_{network-role}\_v6\_subnet\_id                | string           |
-+---------------------------+----------------------------------------------------+------------------+
-| fixed\_ips                | {vm-type}\_int\_{network-role}\_ip\_{index}        | string           |
-+---------------------------+----------------------------------------------------+------------------+
-|                           | {vm-type}\_int\_{network-role}\_ips                | CDL              |
-+---------------------------+----------------------------------------------------+------------------+
-|                           | {vm-type}\_int\_{network-role}\_v6\_ip\_{index}    | string           |
-+---------------------------+----------------------------------------------------+------------------+
-|                           | {vm-type}\_int\_{network-role}\_v6\_ips            | CDL              |
-+---------------------------+----------------------------------------------------+------------------+
-| allowed\_address\_pairs   | {vm-type}\_int\_{network-role}\_floating\_ip       | string           |
-+---------------------------+----------------------------------------------------+------------------+
-|                           | {vm-type}\_int\_{network-role}\_floating\_v6\_ip   | string           |
-+---------------------------+----------------------------------------------------+------------------+
-|                           | {vm-type}\_int\_{network-role}\_ip\_{index}        | string           |
-+---------------------------+----------------------------------------------------+------------------+
-|                           | {vm-type}\_int\_{network-role}\_ips                | CDL              |
-+---------------------------+----------------------------------------------------+------------------+
-|                           | {vm-type}\_int\_{network-role}\_v6\_ip\_{index}    | string           |
-+---------------------------+----------------------------------------------------+------------------+
-|                           | {vm-type}\_int\_{network-role}\_v6\_ips            | CDL              |
-+---------------------------+----------------------------------------------------+------------------+
-
-Table 5 Port Resource Property Parameters (Internal Networks)
-
-Property: network & subnet
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-The property “networks” in the resource OS::Neutron::Port must be
-referenced by Neutron Network ID, a UUID value, or by the network name
-defined in OpenStack.
-
-When the parameter is referencing an “external” network, the parameter
-must adhere to the following naming convention
-
--  *“{*\ network-role}\_net\_id”, for the Neutron network ID
-
--  “{network-role}\_net\_name”, for the network name in OpenStack
-
-When the parameter is referencing an “internal” network, the parameter
-must adhere to the following naming convention.
-
--  “\ *int\_{network-role}\_net\_id*\ ”, for the Neutron network ID
-
--  “\ *int\_{network-role}\_net\_name*\ ”, for the network name in
-   OpenStack
-
-The property “subnet\_id” must be used if a DHCP IP address assignment
-is being requested and the DHCP IP address assignment is targeted at a
-specific subnet.
-
-The property “subnet\_id” should not be used if all IP assignments are
-fixed, or if the DHCP assignment does not target a specific subnet
-
-When the parameter is referencing an “external” network subnet, the
-“subnet\_id” parameter must adhere to the following naming convention.
-
--  “\ *{network-role}\_subnet\_id*\ ” if the subnet is an IPv4 subnet
-
--  “\ *{network-role}\_v6\_subnet\_id”* if the subnet is an IPv6 subnet
-
-When the parameter is referencing an “internal” network subnet, the
-“subnet\_id” parameter must adhere to the following naming convention.
-
--  “\ *int\_{network-role}\_subnet\_id*\ ” if the subnet is an IPv4
-   subnet
-
--  “\ *int\_{network-role}\_v6\_subnet\_id*\ ” if the subnet is an IPv6
-   subnet
-
-*Example:*
-
-.. code-block:: python
-
-    parameters:
-        {network-role}\_net\_id:
-            type: string
-            description: Neutron UUID for the {network-role} network
-        {network-role}\_net\_name:
-            type: string
-            description: Neutron name for the {network-role} network
-        {network-role}\_subnet\_id:
-            type: string
-            description: Neutron subnet UUID for the {network-role} network
-        {network-role}\_v6\_subnet\_id:
-            type: string
-            description: Neutron subnet UUID for the {network-role} network
-
-*Example:*
-
-In this example, the {network-role} has been defined as “oam” to
-represent an oam network and the {vm-type} has been defined as “lb” for
-load balancer.
-
-.. code-block:: python
-
-    parameters:
-        oam\_net\_id:
-            type: string
-            description: Neutron UUID for the oam network
-
-    resources:
-        lb\_port\_1:
-            type: OS::Neutron::Port
-            network: { get\_param: oam\_net\_id }
-
-Property: fixed\_ips
-~~~~~~~~~~~~~~~~~~~~
-
-The property “fixed\_ips” in the resource OS::Neutron::Port must be used
-when statically assigning IP addresses.
-
-An IP address is assigned to a port on a type of VM (i.e., {vm-type})
-that is connected to a type of network (i.e., {network-role}). These two
-tags are components of the parameter name.
-
-When the “fixed\_ips” parameter is referencing an “external” network,
-the parameter must adhere to the naming convention below. The parameter
-may be a comma delimited list or a string.
-
-There must be a different parameter name for IPv4 IP addresses and IPv6
-addresses
-
--  **Comma-delimited list:** Each element in the IP list should be
-   assigned to successive instances of that VM type on that network.
-
-   -  *Format for IPv4 addresses:* {vm-type}\_{network-role}\_ips
-
-   -  *Format for IPv6 addresses:* {vm-type}\_{network-role}\_v6\_ips
-
--  **A set of fixed-index parameters:** In this case, the parameter
-   should have “\ *type: string*\ ” and must be repeated for every IP
-   expected for each {vm-type} + {network-role} pair.
-
-   -  *Format for IPv4 addresses:*
-      {vm-type}\_{network-role}\_ip\_{index}
-
-   -  *Format for IPv6 addresses:*
-      {vm-type}\_{network-role}\_v6\_ip\_{index}
-
-When the “fixed\_ips” parameter is referencing an “internal” network,
-the parameter must adhere to the naming convention below. The parameter
-may be a comma delimited list or a string.
-
-There must be a different parameter name for IPv4 IP addresses and IPv6
-addresses
-
--  **Comma-delimited list:** Each element in the IP list should be
-   assigned to successive instances of that VM type on that network.
-
-   -  *Format for IPv4 addresses:* {vm-type}\_int\_{network-role}\_ips
-
-   -  *Format for IPv6 addresses:*
-      {vm-type}\_int\_{network-role}\_v6\_ips
-
--  **A set of fixed-index parameters:** In this case, the parameter
-   should have “\ *type: string*\ ” and must be repeated for every IP
-   expected for each {vm-type} and {network-role}pair.
-
-   -  *Format for IPv4 addresses:*
-      {vm-type}\_int\_{network-role}\_ip\_{index}
-
-   -  *Format for IPv6 addresses:*
-      {vm-type}\_int\_{network-role}\_v6\_ip\_{index}
-
-If a VNF contains more than three IP addresses for a given {vm-type} and
-{network-role} combination, the CDL form of the parameter name should be
-used to minimize the number of unique parameters defined in the Heat.
-
-*Example (external network)*
-
-.. code-block:: python
-
-    parameters:
-        {vm-type}\_{network-role}\_ips:
-            type: comma\_delimited\_list
-            description: Fixed IPv4 assignments for {vm-type} VMs on the
-    {network-role} network
-        {vm-type}\_{network-role}\_v6\_ips:
-            type: comma\_delimited\_list
-            description: Fixed IPv6 assignments for {vm-type} VMs on the
-    {network-role} network
-        {vm-type}\_{network-role}\_ip\_{index}:
-            type: string
-            description: Fixed IPv4 assignment for {vm-type} VM {index} on the
-            {network-role} network
-        {vm-type}\_{network-role}\_v6\_ip\_{index}:
-            type: string
-            description: Fixed IPv6 assignment for {vm-type} VM {index} on the
-            {network-role} network
-
-*Example (CDL parameter for IPv4 Address Assignments to an external
-network):*
-
-In this example, the {network-role} has been defined as “oam” to
-represent an oam network and the {vm-type} has been defined as “db” for
-database.
-
-.. code-block:: python
-
-    parameters:
-        oam\_net\_id:
-            type: string
-            description: Neutron UUID for a oam network
-        db\_oam\_ips:
-            type: comma\_delimited\_list
-            description: Fixed IP assignments for db VMs on the oam network
-
-    resources:
-        db\_0\_port\_1:
-            type: OS::Neutron::Port
-            network: { get\_param: oam\_net\_id }
-            fixed\_ips: [ { “ip\_address”: {get\_param: [ db\_oam\_ips, 0]
-            }}]
-        db\_1\_port\_1:
-            type: OS::Neutron::Port
-            network: { get\_param: oam\_net\_id }
-            fixed\_ips: [ { “ip\_address”: {get\_param: [ db\_oam\_ips, 1]
-            }}]
-
-*Example (string parameters for IPv4 Address Assignments to an external
-network):*
-
-In this example, the {network-role} has been defined as “oam” to
-represent an oam network and the {vm-type} has been defined as “db” for
-database.
-
-.. code-block:: python
-
-    parameters:
-        oam\_net\_id:
-            type: string
-            description: Neutron UUID for an OAM network
-        db\_oam\_ip\_0:
-            type: string
-            description: First fixed IP assignment for db VMs on the OAM network
-        db\_oam\_ip\_1:
-            type: string
-            description: Second fixed IP assignment for db VMs on the OAM network
-
-    resources:
-        db\_0\_port\_1:
-            type: OS::Neutron::Port
-            network: { get\_param: oam\_net\_id }
-            fixed\_ips: [ { “ip\_address”: {get\_param: db\_oam\_ip\_0}}]
-        db\_1\_port\_1:
-            type: OS::Neutron::Port
-            network: { get\_param: oam\_net\_id }
-            fixed\_ips: [ { “ip\_address”: {get\_param: db\_oam\_ip\_1}}]
-
-Property: allowed\_address\_pairs
+ONAP supports nested Heat templates per the OpenStack specifications.
+Nested templates may be suitable for larger VNFs that contain many
+repeated instances of the same VM type(s). A common usage pattern is to
+create a nested template for each {vm-type} along with its supporting
+resources. The VNF module may then reference these component templates
+either statically by repeated definition or dynamically by using the
+resource OS::Heat::ResourceGroup.
+
+Nested Heat Template Requirements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The property “allowed\_address\_pairs” in the resource OS::Neutron::Port
-allows the user to specify mac\_address/ip\_address (CIDR) pairs that
-pass through a port regardless of subnet. This enables the use of
-protocols such as VRRP, which floats an IP address between two instances
-to enable fast data plane failover. An “allowed\_address\_pairs” is
-unique to a {vm-type} and {network-role} combination. The management of
-these IP addresses (i.e. transferring ownership between active and
-standby VMs) is the responsibility of the application itself.
+ONAP supports nested Heat Orchestration Templates. A Base Module,
+Incremental Module, and Cinder Volume Module may use nested heat.
 
-Note that these parameters are *not* intended to represent Neutron
-“Floating IP” resources, for which OpenStack manages a pool of public IP
-addresses that are mapped to specific VM ports. In that case, the
-individual VMs are not even aware of the public IPs, and all assignment
-of public IPs to VMs is via OpenStack commands. ONAP does not
-support Neutron-style Floating IPs.
+A Heat Orchestration Template may reference the nested heat statically
+by repeated definition.
 
-Both IPv4 and IPv6 “allowed\_address\_pairs” addresses are supported.
+A Heat Orchestration Template may reference the nested heat dynamically
+using the resource OS::Heat::ResourceGroup.
 
-If property “allowed\_address\_pairs” is used with an external network,
-the parameter name must adhere to the following convention:
+A Heat Orchestration template must have no more than three levels of
+nesting. ONAP supports a maximum of three levels.
 
--  *Format for IPv4 addresses: {vm-type}\_{network-role}\_floating\_ip*
+Nested heat templates must be referenced by file name. The use of
+resource\_registry in the environment file is not supported and must not
+be used.
 
--  *Format for IPv6 addresses:
-   {vm-type}\_{network-role}\_floating\_v6\_ip*
+A nested heat yaml file must have a unique file names within the scope
+of the VNF
 
-*Example:*
+ONAP does not support a directory hierarchy for nested templates. All
+templates must be in a single, flat directory (per VNF)
 
-.. code-block:: python
+A nested heat template may be used by any module within a given VNF.
 
-    parameters:
-        {vm-type}\_{network-role}\_floating\_ip:
-            type: string
-            description: VIP for {vm-type} VMs on the {network-role} network
-        {vm-type}\_{network-role}\_floating\_v6\_ip:
-            type: string
-            description: VIP for {vm-type} VMs on the {network-role} network
+Note that:
 
-*Example:*
+-  Constrains must not be defined for any parameter enumerated in a
+   nested heat template.
 
-In this example, the {network-role} has been defined as “oam” to
-represent an oam network and the {vm-type} has been defined as “db” for
-database.
+-  All parameters defined in nested heat must be passed in as properties
+   of the resource calling the nested yaml file.
 
-.. code-block:: python
+-  When OS::Nova::Server metadata parameters are past into a nested heat
+   template, the parameter names must not change
 
-    parameters:
-        db\_oam\_ips:
-            type: comma\_delimited\_list
-            description: Fixed IPs for db VMs on the oam network
-        db\_oam\_floating\_ip:
-            type: string
-            description: Floating IP for db VMs on the oam network
-    resources:
-        db\_0\_port\_0:
-            type: OS::Neutron::Port
-            network: { get\_param: oam\_net\_id }
-            fixed\_ips: [ { “ip\_address”: {get\_param: [db\_oam\_ips,0] }}]
-            allowed\_address\_pairs: [
-                { “ip\_address”: {get\_param: db\_oam\_floating\_ip}}]
-        db\_1\_port\_0:
-            type: OS::Neutron::Port
-            network: { get\_param: oam\_net\_id }
-            fixed\_ips: [ { “ip\_address”: {get\_param: [db\_oam\_ips,1] }}]
-            allowed\_address\_pairs: [
-                { “ip\_address”: {get\_param: db\_oam\_floating\_ip}}]
+-  With nested templates, outputs are required to expose any resource
+   properties of the child templates to the parent template. Those would
+   not explicitly be declared as parameters but simply referenced as
+   get\_attribute targets against the “parent” resource.
 
-If property “allowed\_address\_pairs” is used with an internal network,
-the parameter name should adhere to the following convention:
+Nested Heat Template Example: Static
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
--  *Format for IPv4 addresses:
-   {vm-type}\_int\_{network-role}\_floating\_ip*
-
--  *Format for IPv6 addresses:
-   {vm-type}\_int\_{network-role}\_floating\_v6\_ip*
-
-Using the parameter *{vm-type}\_{network-role}\_floating\_ip* or
-*{vm-type}\_{network-role}\_floating\_v6\_ip* provides only one floating
-IP per Vm-type{vm-type} and {network-role} pair. If there is a need for
-multiple floating IPs (e.g., Virtual IPs (VIPs)) for a given {vm-type}
-and {network-role} combination within a VNF, then the parameter names
-defined for the “fixed\_ips” should be used with the
-“allowed\_address\_pairs” property. The examples below illustrate this.
-
-Below example reflects two load balancer pairs in a single VNF. Each
-pair has one VIP.
-
-*Example: A VNF has four load balancers. Each pair has a unique VIP.*
-
-*Pair 1:* lb\_0 and lb\_1 share a unique VIP
-
-*Pair 2:* lb\_2 and lb\_3 share a unique VIP
-
-In this example, the {network-role} has been defined as “oam” to
-represent an oam network and the {vm-type} has been defined as “lb” for
-load balancer.
+incremental.yaml
 
 .. code-block:: python
 
-    resources:
-        lb\_0\_port\_0:
-            type: OS::Neutron::Port
-            network: { get\_param: oam\_net\_id }
-            fixed\_ips: [ { “ip\_address”: {get\_param: [lb\_oam\_ips,0] }}]
-            allowed\_address\_pairs: [{ “ip\_address”: {get\_param: [lb\_oam\_ips,2] }}]
-        
-        lb\_1\_port\_0:
-            type: OS::Neutron::Port
-            network: { get\_param: oam\_net\_id }
-            fixed\_ips: [ { “ip\_address”: {get\_param: [lb\_oam\_ips,1] }}]
-            allowed\_address\_pairs: [{ “ip\_address”: {get\_param: [lb\_oam\_ips,2] }}]
+ Resources:
+   dns_server_0:
+     type: nested.yaml
+     properties:
+       dns_image_name: { get_param: dns_image_name }
+       dns_flavor_name: { get_param: dns_flavor_name }
+       availability_zone: { get_param: availability_zone_0 }
+       security_group: { get_param: DNS_shared_sec_grp_id }
+       oam_net_id: { get_param: oam_protected_net_id }
+       dns_oam_ip: { get_param: dns_oam_ip_0 }
+       dns_name: { get_param: dns_name_0 }
+       vnf_name: { get_param: vnf_name }
+       vnf_id: { get_param: vnf_id }
+       vf_module_id: {get_param: vf_module_id}
 
-          lb\_2\_port\_0:
-            type: OS::Neutron::Port
-            network: { get\_param: oam\_net\_id }
-            fixed\_ips: [ { “ip\_address”: {get\_param: [lb\_oam\_ips,3] }}]
-            allowed\_address\_pairs: [{ “ip\_address”: {get\_param: [lb\_oam\_ips,5] }}]
+ dns_server_1:
+   type: nested.yaml
+   properties:
+     dns_image_name: { get_param: dns_image_name }
+     dns_flavor_name: { get_param: dns_flavor_name }
+     availability_zone: { get_param: availability_zone_1 }
+     security_group: { get_param: DNS_shared_sec_grp_id }
+     oam_net_id: { get_param: oam_protected_net_id }
+     dns_oam_ip: { get_param: dns_oam_ip_1 }
+     dns_name: { get_param: dns_name_1 }
+     vnf_name: { get_param: vnf_name }
+     vnf_id: { get_param: vnf_id }
+     vf_module_id: {get_param: vf_module_id}
 
-        lb\_3\_port\_0:
-            type: OS::Neutron::Port
-            network: { get\_param: oam\_net\_id }
-            fixed\_ips: [ { “ip\_address”: {get\_param: [lb\_oam\_ips,4] }}]
-            allowed\_address\_pairs: [{ “ip\_address”: {get\_param: [lb\_oam\_ips,5] }}]
-
-Below example reflects a single app VM pair within a VNF with two VIPs: 
-
-*Example: A VNF has two load balancers. The pair of load balancers share
-two VIPs.*
-
-In this example, the {network-role} has been defined as “oam” to
-represent an oam network and the {vm-type} has been defined as “lb” for
-load balancer.
+nested.yaml
 
 .. code-block:: python
 
-    resources:
-        lb\_0\_port\_0:
-            type: OS::Neutron::Port
-            network: { get\_param: oam\_net\_id }
-            fixed\_ips: [ { “ip\_address”: {get\_param: [lb\_oam\_ips,0] }}]
-            allowed\_address\_pairs: [{ "ip\_address": {get\_param: [lb\_oam\_ips,2] }, {get\_param: [lb\_oam\_ips,3] }}]
+ dns_oam_0_port:
+   type: OS::Neutron::Port
+   properties:
+     name:
+       str_replace:
+         template: VNF_NAME_dns_oam_port
+         params:
+           VNF_NAME: {get_param: vnf_name}
+     network: { get_param: oam_net_id }
+     fixed_ips: [{ "ip_address": { get_param: dns_oam_ip }}]
+     security_groups: [{ get_param: security_group }]
 
-        lb\_1\_port\_0:
-            type: OS::Neutron::Port
-            network: { get\_param: oam\_net\_id }
-            fixed\_ips: [ { “ip\_address”: {get\_param: [lb\_oam\_ips,1] }}]
-           allowed\_address\_pairs: [{ "ip\_address": {get\_param: [lb\_oam\_ips,2] }, {get\_param: [lb\_oam\_ips,3] }}]
+ dns_servers:
+   type: OS::Nova::Server
+   properties:
+     name: { get_param: dns_names }
+     image: { get_param: dns_image_name }
+     flavor: { get_param: dns_flavor_name }
+     availability_zone: { get_param: availability_zone }
+     networks:
+       - port: { get_resource: dns_oam_0_port }
+     metadata:
+       vnf_id: { get_param: vnf_id }
+       vf_module_id: { get_param: vf_module_id }
+       vnf_name {get_param: vnf_name }
 
-As a general rule, provide the fixed IPs for the VMs indexed first in
-the CDL and then the VIPs as shown in the examples above.
+Use of Heat ResourceGroup
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Resource Property: name
------------------------
+The OS::Heat::ResourceGroup is a useful Heat element for creating
+multiple instances of a given resource or collection of resources.
+Typically it is used with a nested Heat template, to create, for
+example, a set of identical OS::Nova::Server resources plus their
+related OS::Neutron::Port resources via a single resource in a master
+template.
 
-The parameter naming standard for the resource OS::Nova::Server has been
-defined in Section 5.b Resource: OS::Nova::Server – Parameters. This section describes how the name property
-of all other resources must be defined.
+ResourceGroup may be used in ONAP to simplify the structure of a Heat
+template that creates multiple instances of the same VM type.
 
-Heat templates must use the Heat “str\_replace” function in conjunction
-with the ONAP supplied metadata parameter *vnf\_name* or
-*vnf\_module\_id* to generate a unique name for each VNF instance. This
-prevents the use of unique parameters values for resource “name”
-properties to be enumerated in a per instance environment file.
+However, there are important caveats to be aware of:
 
-Note that
+ResourceGroup does not deal with structured parameters
+(comma-delimited-list and json) as one might typically expect. In
+particular, when using a list-based parameter, where each list element
+corresponds to one instance of the ResourceGroup, it is not possible to
+use the intrinsic “loop variable” %index% in the ResourceGroup
+definition.
 
--  In most cases, only the use of the vnf\_name is necessary to create a
-   unique name
-
--  the Heat pseudo parameter 'OS::stack\_name’ can also be used in the
-   ‘str\_replace’ construct to generate a unique name when the vnf\_name
-   does not provide uniqueness
-
-.. code-block:: python
-
-    type: OS::Cinder::Volume
-        properities:
-            name:
-                str\_replace:
-                    template: VF\_NAME\_STACK\_NAME\_oam\_volume
-                    params:
-                        VF\_NAME: { get\_param: vnf\_name }
-                        STACK\_NAME: { get\_param: 'OS::stack\_name'  }
-
-        type: OS::Neutron::SecurityGroup
-        properties:
-            description: Security Group of Firewall
-            name:
-                str\_replace:
-                    template: VNF\_NAME\_Firewall\_SecurityGroup
-                    params:
-                        VNF\_NAME: { get\_param: vnf\_name }
-
-Output Parameters
------------------
-
-ONAP defines three type of Output Parameters.
-
-Base Template Output Parameters: 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-The base template output parameters are available for use as input
-parameters in all add-on modules. The add-on modules may (or may not)
-use these parameters.
-
-Volume Template Output Parameters: 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-The volume template output parameters are only available only for the
-module (base or add on) that the volume is associated with.
-
-Predefined Output Parameters
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-ONAP currently defines one predefined output parameter.
-
-OAM Management IP Addresses
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Many VNFs will have a management interface for application controllers
-to interact with and configure the VNF. Typically, this will be via a
-specific VM that performs a VNF administration function. The IP address
-of this interface must be captured and inventoried by ONAP. This
-might be a VIP if the VNF contains an HA pair of management VMs, or may
-be a single IP address assigned to one VM.
-
-The Heat template may define either (or both) of the following Output
-parameters to identify the management IP address.
-
--  *oam\_management\_v4\_address*
-
--  *oam\_management\_v6\_address*
-
-*Notes*:
-
--  The Management IP Address should be defined only once per VNF, so it
-   would only appear in one Module template
-
--  If a fixed IP for the admin VM is passed as an input parameter, it
-   may be echoed in the output parameters
-
--  If the IP for the admin VM is obtained via DHCP, it may be obtained
-   from the resource attributes
-
-*Example:*
+For instance, the following is **not** valid Heat for ResourceGroup:
 
 .. code-block:: python
 
-    resources:
-        admin\_server:
-            type: OS::Nova::Server
-            properties:
-                networks:
-                    - network: {get\_param: oam\_net\_id }
-                ...
+ type: OS::Heat::ResourceGroup
+   resource_def:
+     type: my_nested_vm_template.yaml
+     properties:
+       name: {get_param: [vm_name_list, %index%]}
 
-    Outputs:
-    oam\_management\_v4\_address:
-        value: {get\_attr: [admin\_server, networks, {get\_param: oam\_net\_id}, 0] }
+Although this appears to use the nth entry of the vm\_name\_list list
+for the nth element of the ResourceGroup, it will in fact result in a
+Heat exception. When parameters are provided as a list (one for each
+element of a ResourceGroup), you must pass the complete parameter to the
+nested template along with the current index as separate parameters.
 
-Heat Template Constructs
-------------------------
+Below is an example of an **acceptable** Heat Syntax for a
+ResourceGroup:
+
+.. code-block:: python
+
+ type: OS::Heat::ResourceGroup
+   resource_def:
+     type: my_nested_vm_template.yaml
+     properties:
+       names: {get_param: vm_name_list}
+       index: %index%
+
+You can then reference within the nested template as:
+
+{ get\_param: [names, {get\_param: index} ] }
+
+ResourceGroup Property count
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ONAP requires that the OS::Heat::ResourceGroup property count be defined
+(even if the value is one) and that the value must be enumerated in the
+environment file. This is required for ONAP to build the TOSCA model for
+the VNF.
+
+.. code-block:: python
+
+ type: OS::Heat::ResourceGroup
+   properties:
+   count: { get_param: count }
+   index_var: index
+     resource_def:
+       type: my_nested_vm_template.yaml
+       properties:
+         names: {get_param: vm_name_list}
+     index: index
+
+Availability Zone and ResourceGroups
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The resource OS::Heat::ResourceGroup and the property availability\_zone
+has been an “issue” with a few VNFs since ONAP only supports
+availability\_zone as a string parameter and not a
+comma\_delimited\_list. This makes it difficult to use a ResourceGroup
+to create Virtual Machines in more than one availability zone.
+
+There are numerous solutions to this issue. Below are two suggested
+usage patterns.
+
+**Option 1:** create a CDL in the OS::Heat::ResourceGroup. In the
+resource type: OS::Heat::ResourceGroup, create a comma\_delimited\_list
+availability\_zones by using the intrinsic function list\_join.
+
+.. code-block:: python
+
+ <resource name>:
+  type: OS::Heat::ResourceGroup
+     properties:
+       count: { get_param: node_count }
+       index_var: index
+       resource_def:
+         type: nested.yaml
+         properties:
+           index: index
+           avaialability_zones: { list_join: [',', [ { get_param: availability_zone_0 }, { get_param: availability_zone_1 } ] ] }
+
+In the nested heat
+
+.. code-block:: python
+
+ parameters:
+   avaialability_zones:
+     type: comma_delimited_list
+     description:
+
+ resources:
+   servers:
+     type: OS::Nova::Server
+     properties:
+       name: { get_param: [ dns_names, get_param: index ] }
+       image: { get_param: dns_image_name }
+       flavor: { get_param: dns_flavor_name }
+       availability_zone: { get_param: [ avaialability_zones, get_param: index ] }
+
+
+**Option 2:** Create a resource group per availability zone. A separate
+OS::Heat::ResourceGroup is created for each availability zone.
 
 External References
 -------------------
@@ -2961,8 +4818,8 @@ Heat templates *should not* reference any HTTP-based resource
 definitions, any HTTP-based nested configurations, or any HTTP-based
 environment files.
 
--  During orchestration, ONAP *should not* retrieve any such
-   resources from external/untrusted/unknown sources.
+-  During orchestration, ONAP *should not* retrieve any such resources
+   from external/untrusted/unknown sources.
 
 -  VNF images should not contain such references in user-data or other
    configuration/operational scripts that are specified via Heat or
@@ -2975,15 +4832,15 @@ Heat Files Support (get\_file)
 ------------------------------
 
 Heat Templates may contain the inclusion of text files into Heat
-templates via the Heat “get\_file” directive. This may be used, for
+templates via the Heat get\_file directive. This may be used, for
 example, to define a common “user-data” script, or to inject files into
 a VM on startup via the “personality” property.
 
 Support for Heat Files is subject to the following limitations:
 
--  The ‘get\_files’ targets must be referenced in Heat templates by file
-   name, and the corresponding files should be delivered to ONAP
-   along with the Heat templates.
+-  The get\_files targets must be referenced in Heat templates by file
+   name, and the corresponding files should be delivered to ONAP along
+   with the Heat templates.
 
    -  URL-based file retrieval must not be used; it is not supported.
 
@@ -2998,70 +4855,6 @@ Support for Heat Files is subject to the following limitations:
 
 -  get\_file directives may be used in both non-nested and nested
    templates
-
-Use of Heat ResourceGroup
--------------------------
-
-The *OS::Heat::ResourceGroup* is a useful Heat element for creating
-multiple instances of a given resource or collection of resources.
-Typically it is used with a nested Heat template, to create, for
-example, a set of identical *OS::Nova::Server* resources plus their
-related *OS::Neutron::Port* resources via a single resource in a master
-template.
-
-*ResourceGroup* may be used in ONAP to simplify the structure of a
-Heat template that creates multiple instances of the same VM type.
-However, there are important caveats to be aware of.
-
-*ResourceGroup* does not deal with structured parameters
-(comma-delimited-list and json) as one might typically expect. In
-particular, when using a list-based parameter, where each list element
-corresponds to one instance of the *ResourceGroup*, it is not possible
-to use the intrinsic “loop variable” %index% in the *ResourceGroup*
-definition.
-
-For instance, the following is **not** valid Heat for a *ResourceGroup*:
-
-.. code-block:: python
-
-    type: OS::Heat::ResourceGroup
-        resource:
-            type: my\_nested\_vm\_template.yaml
-             properties:
-                name: {get\_param: [vm\_name\_list, %index%]}
-
-Although this appears to use the nth entry of the *vm\_name\_list* list
-for the nth element of the *ResourceGroup*, it will in fact result in a
-Heat exception. When parameters are provided as a list (one for each
-element of a *ResourceGroup*), you must pass the complete parameter to
-the nested template along with the current index as separate parameters.
-
-Below is an example of an **acceptable** Heat Syntax for a
-*ResourceGroup*:
-
-.. code-block:: python
-
-    type: OS::Heat::ResourceGroup
-    resource:
-        type: my\_nested\_vm\_template.yaml
-        properties:
-            names: {get\_param: vm\_name\_list}
-            index: %index%
-
-You can then reference within the nested template as:
-
-{ get\_param: [names, {get\_param: index} ] }
-
-Note that this is workaround has very important limitations. Since the
-entire list parameter is passed to the nested template, any change to
-that list (e.g., adding an additional element) will cause Heat to treat
-the entire parameter as updated within the context of the nested
-template (i.e., for each *ResourceGroup* element).  As a result, if
-*ResourceGroup* is ever used for scaling (e.g., increment the count and
-include an additional element to each list parameter), Heat will often
-rebuild every existing element in addition to adding the “deltas”. For
-this reason, use of *ResourceGroup* for scaling in this manner is not
-supported.
 
 Key Pairs
 ---------
@@ -3097,13 +4890,12 @@ By following this approach, the end result is the same as pre-creating
 the keypair using the public key – i.e., that public key will be
 provisioned in the new VM. However, this recommended approach also makes
 sure that a known public key is supplied (instead of having OpenStack
-generate a public/private pair to be saved and tracked outside of
-ONAP). It also removes any access/ownership issues over the created
-keypair.
+generate a public/private pair to be saved and tracked outside of ONAP).
+It also removes any access/ownership issues over the created keypair.
 
 The public keys may be enumerated as a VNF Orchestration Constant in the
 environment file (since it is public, it is not a secret key), or passed
-at run-time as an instance-specific parameters. ONAP will never
+at run-time as instance-specific parameters. ONAP will never
 automatically assign a public/private key pair.
 
 *Example (create keypair with an existing ssh public-key for {vm-type}
@@ -3111,22 +4903,23 @@ of lb (for load balancer)):*
 
 .. code-block:: python
 
-    parameters:
-        vnf\_name:
-            type: string
-        ssh\_public\_key:
-            type: string
-        resources:
-        my\_keypair:
-            type: OS::Nova::Keypair
-            properties:
-                name:
-                    str\_replace:
-                    template: VNF\_NAME\_key\_pair
-                    params:
-                    VNF\_NAME: { get\_param: vnf\_name }
-                public\_key: {get\_param: lb\_ssh\_public\_key}
-                save\_private\_key: false
+ parameters:
+    vnf_name:
+       type: string
+    lb_ssh_public_key:
+       type: string
+
+ resources:
+    my_keypair:
+       type: OS::Nova::Keypair
+       properties:
+          name:
+             str_replace:
+                template: VNF_NAME_key_pair
+                params:
+                VNF_NAME: { get_param: vnf_name }
+          public_key: {get_param: lb_ssh_public_key}
+          save_private_key: false
 
 Security Groups
 ---------------
@@ -3135,74 +4928,170 @@ OpenStack allows a tenant to create Security groups and define rules
 within the security groups.
 
 Security groups, with their rules, may either be created in the Heat
-template or they can be pre-created in OpenStack and referenced within
-the Heat template via parameter(s). There can be a different approach
-for security groups assigned to ports on internal (intra-VNF) networks
-or external networks (inter-VNF). Furthermore, there can be a common
-security group across all VMs for a specific network or it can vary by
-VM (i.e., {vm-type}) and network type (i.e., {network-role}).
+Orchestration Template or they can be pre-created in OpenStack and
+referenced within the Heat template via parameter(s). There can be a
+different approach for security groups assigned to ports on internal
+(intra-VNF) networks or external networks (inter-VNF). Furthermore,
+there can be a common security group across all VMs for a specific
+network or it can vary by VM (i.e., {vm-type}) and network type (i.e.,
+{network-role}).
 
 Anti-Affinity and Affinity Rules
 --------------------------------
 
 Anti-affinity or affinity rules are supported using normal OpenStack
-*“OS::Nova::ServerGroup”* resources. Separate ServerGroups are typically
+OS::Nova::ServerGroup resources. Separate ServerGroups are typically
 created for each VM type to prevent them from residing on the same host,
 but they can be applied to multiple VM types to extend the
 affinity/anti-affinity across related VM types as well.
 
 *Example:*
 
-In this example, the {network-role} has been defined as “oam” to
-represent an oam network and the {vm-type} have been defined as “lb” for
-load balancer and “db” for database.
+In this example, the {network-role} has been defined as oam to represent
+an oam network and the {vm-type} have been defined as lb for load
+balancer and db for database.
 
 .. code-block:: python
 
-    resources:
-        db\_server\_group:
-            type: OS::Nova::ServerGroup
-            properties:
-                name:
-                str\_replace:
-                    params:
-                        $vnf\_name: {get\_param: vnf\_name}
-                    template: $vnf\_name-server\_group1
-                policies:
-                    - *anti-affinity*
-            
-        lb\_server\_group:
-            type: OS::Nova::ServerGroup
-            properties:
-                name:
-                    str\_replace:
-                    params:
-                        $vnf\_name: {get\_param: vnf\_name}
-                    template: $vnf\_name-server\_group2
-                policies:
-                    - *affinity*
+ resources:
+ db_server_group:
+    type: OS::Nova::ServerGroup
+    properties:
+       name:
+          str_replace:
+             params:
+                $vnf_name: {get_param: vnf_name}
+             template: $vnf_name-server_group1
+       policies:
+          - anti-affinity
 
-        *db\_0:*
-            *type: OS::Nova::Server*
-            *properties:*
-            *...*
-            scheduler\_hints:
-                group: {get\_param: db\_server\_group}
+ lb_server_group:
+    type: OS::Nova::ServerGroup
+    properties:
+       name:
+          str_replace:
+             params:
+                $vnf_name: {get_param: vnf_name}
+             template: $vnf_name-server_group2
+       policies:
+          - affinity
 
-        db\_1:
-            type: OS::Nova::Server
-            properties:
-            ...
-            scheduler\_hints:
-                group: {get\_param: db\_server\_group}
+ db_0:
+    type: OS::Nova::Server
+    properties:
+    ...
+    scheduler_hints:
+       group: {get_resource: db_server_group}
 
-        lb\_0:
-            type: OS::Nova::Server
-            properties:
-            ...
-            scheduler\_hints:
-                group: {get\_param: lb\_server\_group} 
-				
+ db_1:
+    type: OS::Nova::Server
+    properties:
+    ...
+    scheduler_hints:
+       group: {get_resource: db_server_group}
+
+ lb_0:
+    type: OS::Nova::Server
+    properties:
+    ...
+    scheduler_hints:
+       group: {get_resource: lb_server_group} 
+
+Resource Data Synchronization 
+------------------------------
+
+For cases where synchronization is required in the orchestration of Heat
+resources, two approaches are recommended:
+
+-  Standard Heat depends\_on property for resources
+
+   -  Assures that one resource completes before the dependent resource
+      is orchestrated.
+
+   -  Definition of completeness to OpenStack may not be sufficient
+      (e.g., a VM is considered complete by OpenStack when it is ready
+      to be booted, not when the application is up and running).
+
+-  Use of Heat Notifications
+
+   -  Create OS::Heat::WaitCondition and OS::Heat::WaitConditionHandle
+      resources.
+
+   -  Pre-requisite resources issue *wc\_notify* commands in user\_data.
+
+   -  Dependent resource define depends\_on in the
+      OS::Heat::WaitCondition resource.
+
+*Example: “depends\_on” case*
+
+In this example, the {network-role} has been defined as oam to represent
+an oam network and the {vm-type} has been defined as oam to represent an
+oam server.
+
+.. code-block:: python
+
+ resources:
+   oam_server_01:
+     type: OS::Nova::Server
+     properties:
+       name: {get_param: [oam_ names, 0]}
+       image: {get_param: oam_image_name}
+       flavor: {get_param: oam_flavor_name}
+       availability_zone: {get_param: availability_zone_0}
+       networks:
+         - port: {get_resource: oam01_port_0}
+         - port: {get_resource: oam01_port_1}
+       user_data:
+       scheduler_hints: {group: {get_resource: oam_servergroup}}
+       user_data_format: RAW
+
+ oam_01_port_0:
+   type: OS::Neutron::Port
+   properties:
+     network: {get_resource: oam_net_name}
+     fixed_ips: [{"ip_address": {get_param: [oam_oam_net_ips, 1]}}]
+     security_groups: [{get_resource: oam_security_group}]
+
+ oam_01_port_1:
+   type: OS::Neutron::Port
+   properties:
+     network: {get_param: oam_net_name}
+     fixed_ips: [{"ip_address": {get_param: [oam_oam_net_ips, 2]}}]
+     security_groups: [{get_resource: oam_security_group}]
+
+ oam_01_vol_attachment:
+   type: OS::Cinder::VolumeAttachment
+   depends_on: oam_server_01
+   properties:
+     volume_id: {get_param: oam_vol_1}
+     mountpoint: /dev/vdb
+     instance_uuid: {get_resource: oam_server_01}
+
+High Availability 
+-----------------
+
+VNF/VM parameters may include availability zone IDs for VNFs that
+require high availability.
+
+The Heat must comply with the following requirements to specific
+availability zone IDs:
+
+-  The Heat template should spread Nova and Cinder resources across the
+   availability zones as desired
+
+Post Orchestration & VNF Configuration
+--------------------------------------
+
+Heat templates should contain a minimum amount of post-orchestration
+configuration data. For instance, *do not* embed complex user-data
+scripts in the template with large numbers of configuration parameters
+to the Heat template.
+
+-  VNFs may provide configuration APIs for use after VNF creation. Such
+   APIs will be invoked via application and/or SDN controllers.
+
+*Note:* It is important to follow this convention to the extent possible
+even in the short-term as of the long-term direction.
 
 d. VNFM Driver Develop Steps
 ==============================
