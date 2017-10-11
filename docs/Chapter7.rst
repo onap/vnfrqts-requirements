@@ -887,11 +887,6 @@ For additional information on the event record formats of the data
 structures mentioned above, please refer to `VES Event
 Listener <https://github.com/att/evel-test-collector/tree/master/docs/att_interface_definition>`__.
 
-.. [1]
-   ECOMP (Enhanced Control Orchestration, Management & Policy)
-   Architecture White Paper
-   (http://about.att.com/content/dam/snrdocs/ecomp.pdf)
-
 .. [2]
    https://github.com/mbj4668/pyang
 
