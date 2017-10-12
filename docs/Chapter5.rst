@@ -5093,7 +5093,7 @@ to the Heat template.
 *Note:* It is important to follow this convention to the extent possible
 even in the short-term as of the long-term direction.
 
-d. VNFM Driver Develop Steps
+c. VNFM Driver Develop Steps
 ==============================
 
 Aid to help the VNF vendor to fasten the integration with the NFVO via
@@ -5110,7 +5110,7 @@ SVNFM. The interface of NFVO is aligned to the ETSI IFA interfaces and
 can be gotten in the charter 5.5. The interface of SVNFM is provided by
 the VNF vendor self.
 
-e. Create SVNFM Adaptor Mircoservice
+d. Create SVNFM Adaptor Mircoservice
 =======================================
 
 Some vnfs are managed by special vnfm, before add svnfm to openo, a
