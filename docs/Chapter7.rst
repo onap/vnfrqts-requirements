@@ -144,7 +144,7 @@ services. The Adapters employ a model driven approach along with
 standardized APIs provided by the VNF developers to configure resources
 and manage their runtime lifecycle.
 
-Additional details can be found in the `ONAP Application Controller (APPC) API Guide <http://onap.readthedocs.io/en/latest/submodules/appc.git/docs/APPC%20API%20Guide/APPC%20API%20Guide.html>`_.
+Additional details can be found in the `ONAP Application Controller (APPC) API Guide <http://onap.readthedocs.io/en/latest/submodules/appc.git/docs/APPC%20API%20Guide/APPC%20API%20Guide.html>`_ and the `ONAP SDNC project <http://onap.readthedocs.io/en/latest/submodules/sdnc/northbound.git/docs/index.html>`_.
 
 NETCONF Standards and Capabilities
 ----------------------------------
