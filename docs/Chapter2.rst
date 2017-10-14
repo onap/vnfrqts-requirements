@@ -5,3 +5,4 @@
 - Requirements that are not applicable to VNF providers such as those that applicable to service providers are not included in this document.
 - These requirements are applicable to the Amsterdam release of ONAP.
 - Scope of the ONAP versions/release and future functionality
+

@@ -795,3 +795,4 @@ Some illustrative examples are shown below:
 .. [10]
    The “name” field is a mandatory field in a valid Chef Node Object
    JSON dictionary.
+

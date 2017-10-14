@@ -9,3 +9,4 @@
 - Chapter 6 details the requirements specific to an implementation. The current implementations documented are OpenStack and Azure.
 - Chapter 7 provides the comprehensive set of requirements for VNFs to be on-boarded, configured and managed by ONAP.
 - Chapter 8 is the appendix that provide a number of detailed data record formats.
+

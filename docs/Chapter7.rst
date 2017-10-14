@@ -55,19 +55,19 @@ and GS NFV IFA011 V0.3.0 (2015-10) - Network Functions Virtualization
  **Configuration Management via Netconf/YANG**
 
  * R-30278 The VNF Vendor **MUST** provide a Resource/Device YANG model as a foundation for creating the YANG model for configuration. This will include VNF attributes/parameters and valid values/attributes configurable by policy.
- 
- **Configuration Management via Chef** 
+
+ **Configuration Management via Chef**
 
  * R-13390 The VNF Vendor **MUST** provide cookbooks to be loaded on the appropriate Chef Server.
  * R-18525 The VNF Vendor **MUST** provide a JSON file for each supported action for the VNF.  The JSON file must contain key value pairs with all relevant values populated with sample data that illustrates its usage. The fields and their description are defined in Appendix A.
- 
+
  Note: Chef support in ONAP is not currently available and planned for 4Q 2017.
 
  **Configuration Management via Ansible**
 
  * R-75608 The VNF Vendor **MUST** provide playbooks to be loaded on the appropriate Ansible Server.
  * R-16777 The VNF Vendor **MUST** provide a JSON file for each supported action for the VNF.  The JSON file must contain key value pairs with all relevant values populated with sample data that illustrates its usage. The fields and their description are defined in Appendix B.
-  
+
   Note: Ansible support in ONAP is not currently available and planned for 4Q 2017.
 
 * R-46567 The VNF Package **MUST** include configuration scripts for boot sequence and configuration.
@@ -159,8 +159,8 @@ industry standards.
 
 **Configuration Management**
 
-* R-88026 The VNF **MUST** include a NETCONF server enabling runtime configuration and lifecycle management capabilities. 
-* R-95950 The VNF **MUST** provide a NETCONF interface fully defined by supplied YANG models for the embedded NETCONF server. 
+* R-88026 The VNF **MUST** include a NETCONF server enabling runtime configuration and lifecycle management capabilities.
+* R-95950 The VNF **MUST** provide a NETCONF interface fully defined by supplied YANG models for the embedded NETCONF server.
 
 **NETCONF Server Requirements**
 
@@ -174,7 +174,7 @@ industry standards.
 * R-11235 The VNF **MUST** implement the protocol operation: **kill-session(session)** - Force the termination of **session**.
 * R-02597 The VNF **MUST** implement the protocol operation: **lock(target)** - Lock the configuration datastore target.
 * R-96554 The VNF **MUST** implement the protocol operation: **unlock(target)** - Unlock the configuration datastore target.
-* R-29324 The VNF **SHOULD** implement the protocol operation: **copy-config(target, source) -** Copy the content of the configuration datastore source to the configuration datastore target. 
+* R-29324 The VNF **SHOULD** implement the protocol operation: **copy-config(target, source) -** Copy the content of the configuration datastore source to the configuration datastore target.
 * R-88031 The VNF **SHOULD** implement the protocol operation: **delete-config(target) -** Delete the named configuration datastore target.
 * R-97529 The VNF **SHOULD** implement the protocol operation: **get-schema(identifier, version, format) -** Retrieve the YANG schema.
 * R-62468 The VNF **MUST** allow all configuration data shall to be edited through a NETCONF <edit-config> operation. Proprietary NETCONF RPCs that make configuration changes are not sufficient.
@@ -216,9 +216,9 @@ industry standards.
 
 * R-63953 The VNF **MUST** have the echo command return a zero value otherwise the validation has failed
 * R-26508 The VNF **MUST** support NETCONF server that can be mounted on OpenDaylight (client) and perform the following operations:
- 
+
 - Modify, update, change, rollback configurations using each configuration data element.
-- Query each state (non-configuration) data element. 
+- Query each state (non-configuration) data element.
 - Execute each YANG RPC.
 - Receive data through each notification statement.
 
@@ -250,8 +250,8 @@ NETCONF RFCs.
 * R-08134 The VNF **MUST** conform to the NETCONF RFC 6241, “NETCONF Configuration Protocol”.
 * R-78282 The VNF **MUST** conform to the NETCONF RFC 6242, “Using the Network Configuration Protocol over Secure Shell”.
 
-VNF REST APIs 
---------------
+VNF REST APIs
+-------------
 
 Healthcheck is a command for which no NETCONF support exists. Therefore,
 this must be supported using a RESTful interface which we have defined.
@@ -274,24 +274,24 @@ Examples:
 .. code-block:: python
 
  200
- { 
+ {
    "identifier": "scope represented",
    "state": "healthy",
    "time": "01-01-1000:0000"
- } 
+ }
 
  200
- { 
+ {
    "identifier": "scope represented",
    "state": "unhealthy",
     {[
-   "info": "System threshold exceeded details", 
+   "info": "System threshold exceeded details",
    "fault":
-     { 
+     {
        "cpuOverall": 0.80,
-       "cpuThreshold": 0.45    
+       "cpuThreshold": 0.45
      }
-     ]},    
+     ]},
    "time": "01-01-1000:0000"
  }
 
@@ -478,7 +478,7 @@ The Ansible Server will determine if a playbook invoked to execute a VNF action 
 
 * R-43253 The VNF **MUST** use playbooks designed to allow Ansible Server to infer failure or success based on the “PLAY_RECAP” capability.
 * R-50252 The VNF **MUST** write to a specific set of text files that will be retrieved and made available by the Ansible Server If, as part of a VNF action (e.g., audit), a playbook is required to return any VNF information.
-* R-51442 The VNF **SHOULD** use playbooks that are designed to automatically ‘rollback’ to the original state in case of any errors for actions that change state of the VNF (e.g., configure). 
+* R-51442 The VNF **SHOULD** use playbooks that are designed to automatically ‘rollback’ to the original state in case of any errors for actions that change state of the VNF (e.g., configure).
 
 ONAP Controller APIs and Behavior
 ---------------------------------
@@ -666,8 +666,8 @@ Monitoring & Management Requirements
 
 **Reporting Frequency**
 
-* R-98191 The VNF **MUST** vary the frequency that asynchronous data is delivered based on the content and how data may be aggregated or grouped together. For example, alarms and alerts are expected to be delivered as soon as they appear. In contrast, other content, such as performance measurements, KPIs or reported network signaling may have various ways of packaging and delivering content. Some content should be streamed immediately; or content may be monitored over a time interval, then packaged as collection of records and delivered as block; or data may be collected until a package of a certain size has been collected; or content may be summarized statistically over a time interval, or computed as a KPI, with the summary or KPI being delivered. 
- 
+* R-98191 The VNF **MUST** vary the frequency that asynchronous data is delivered based on the content and how data may be aggregated or grouped together. For example, alarms and alerts are expected to be delivered as soon as they appear. In contrast, other content, such as performance measurements, KPIs or reported network signaling may have various ways of packaging and delivering content. Some content should be streamed immediately; or content may be monitored over a time interval, then packaged as collection of records and delivered as block; or data may be collected until a package of a certain size has been collected; or content may be summarized statistically over a time interval, or computed as a KPI, with the summary or KPI being delivered.
+
   -  We expect the reporting frequency to be configurable depending on the virtual network function’s needs for management. For example, Service Provider may choose to vary the frequency of collection between normal and trouble-shooting scenarios.
   -  Decisions about the frequency of data reporting will affect the size of delivered data sets, recommended delivery method, and how the data will be interpreted by ONAP. However, this should not affect deserialization and decoding of the data, which will be guided by the accompanying JSON schema.
 
@@ -679,7 +679,7 @@ ONAP destinations can be addressed by URLs for RESTful data PUT. Future data set
 * R-84879 The VNF **MUST** have the capability of maintaining a primary and backup DNS name (URL) for connecting to ONAP collectors, with the ability to switch between addresses based on conditions defined by policy such as time-outs, and buffering to store messages until they can be delivered. At its discretion, the service provider may choose to populate only one collector address for a VNF. In this case, the network will promptly resolve connectivity problems caused by a collector or network failure transparently to the VNF.
 * R-81777 The VNF **MUST** be configured with initial address(es) to use at deployment time. After that the address(es) may be changed through ONAP-defined policies delivered from ONAP to the VNF using PUTs to a RESTful API, in the same way that other controls over data reporting will be controlled by policy.
 * R-08312 The VNF **MAY** use other options which are expected to include
- 
+
  -  REST delivery of binary encoded data sets.
  -  TCP for high volume streaming asynchronous data sets and for other high volume data sets. TCP delivery can be used for either JSON or binary encoded data sets.
  -  SFTP for asynchronous bulk files, such as bulk files that contain large volumes of data collected over a long time interval or data collected across many VNFs. This is not preferred. Preferred is to reorganize the data into more frequent or more focused data sets, and deliver these by REST or TCP as appropriate.
@@ -697,7 +697,7 @@ ONAP destinations can be addressed by URLs for RESTful data PUT. Future data set
 * R-11240 The VNF **MUST** respond with content encoded in JSON, as described in the RESTCONF specification. This way the encoding of a synchronous communication will be consistent with Avro.
 * R-70266 The VNF **MUST** respond to an ONAP request to deliver the current data for any of the record types defined in Section 8.d “Data Model for Event Records” by returning the requested record, populated with the current field values. (Currently the defined record types include the common header record, technology independent records such as Fault, Heartbeat, State Change, Syslog, and technology specific records such as Mobile Flow, Signaling and Voice Quality records.  Additional record types will be added in the future as they are standardized and become available.)
 * R-46290 The VNF **MUST** respond to an ONAP request to deliver granular data on device or subsystem status or performance, referencing the YANG configuration model for the VNF by returning the requested data elements.
-* R-43327 The VNF **SHOULD** use “Modeling JSON text with YANG”, https://trac.tools.ietf.org/id/draft-lhotka-netmod-yang-json-00.html, If YANG models need to be translated to and from JSON. YANG configuration and content can be represented via JSON, consistent with Avro, as described in “Encoding and Serialization” section.   
+* R-43327 The VNF **SHOULD** use “Modeling JSON text with YANG”, https://trac.tools.ietf.org/id/draft-lhotka-netmod-yang-json-00.html, If YANG models need to be translated to and from JSON. YANG configuration and content can be represented via JSON, consistent with Avro, as described in “Encoding and Serialization” section.
 
 **Security**
 
@@ -706,8 +706,8 @@ ONAP destinations can be addressed by URLs for RESTful data PUT. Future data set
 * R-47597 The VNF **MUST** carry data in motion only over secure connections.
 * R-68165 The VNF **MUST** encrypt any content containing Sensitive Personal Information (SPI) or certain proprietary data, in addition to applying the regular procedures for securing access and delivery.
 
-Data Model for Event Records 
------------------------------
+Data Model for Event Records
+----------------------------
 
 This section describes the data model for the collection of telemetry
 data from VNFs by Service Providers (SPs) to manage VNF health and
@@ -927,3 +927,4 @@ Listener <https://github.com/att/evel-test-collector/tree/master/docs/att_interf
 .. |image0| image:: Data_Model_For_Event_Records.png
       :width: 7in
       :height: 8in
+
