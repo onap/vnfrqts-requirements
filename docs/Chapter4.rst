@@ -270,7 +270,7 @@ Integration and operation within a robust security environment is necessary and 
 * R-85633 The VNF **MUST** implement Data Storage Encryption (database/disk encryption) for Sensitive Personal Information (SPI) and other subscriber identifiable data. Note: subscriber’s SPI/data must be encrypted at rest, and other subscriber identifiable data should be encrypted at rest. Other data protection requirements exist and should be well understood by the developer.
 * R-92207 The VNF **SHOULD** implement a mechanism for automated and frequent "system configuration (automated provisioning / closed loop)" auditing.
 * R-23882 The VNF **SHOULD** be scanned using both network scanning and application scanning security tools on all code, including underlying OS and related configuration. Scan reports shall be provided. Remediation roadmaps shall be made available for any findings.
-* R-46986 The VNF **SHOULD** have source code scanned using scanning tools (e.g., Fortify) and provide reports. 
+* R-46986 The VNF **SHOULD** have source code scanned using scanning tools (e.g., Fortify) and provide reports.
 * R-55830 The VNF **MUST** distribute all production code from NCSP internal sources only. No production code, libraries, OS images, etc. shall be distributed from publically accessible depots.
 * R-99771 The VNF **MUST** provide all code/configuration files in a “Locked down” or hardened state or with documented recommendations for such hardening. All unnecessary services will be disabled. Vendor default credentials, community strings and other such artifacts will be removed or disclosed so that they can be modified or removed during provisioning.
 * R-19768 The VNF **SHOULD** support L3 VPNs that enable segregation of traffic by application (dropping packets not belonging to the VPN) (i.e., AVPN, IPSec VPN for Internet routes).
@@ -308,7 +308,7 @@ Identity and Access Management Requirements
 * R-95105 The VNF **MUST** host connectors for access to the application layer.
 * R-45496 The VNF **MUST** host connectors for access to the OS (Operating System) layer.
 * R-05470 The VNF **MUST** host connectors for access to the database layer.
-* R-77737 The VNF **MUST** 
+* R-77737 The VNF **MUST**
 * R-99174 The VNF **MUST** comply with Individual Accountability (each person must be assigned a unique ID) when persons or non-person entities access VNFs.
 * R-42874 The VNF **MUST** comply with Least Privilege (no more privilege than required to perform job functions) when persons or non-person entities access VNFs.
 * R-71787 The VNF **MUST** comply with Segregation of Duties (access to a single layer and no developer may access production without special oversight) when persons or non-person entities access VNFs.
@@ -504,7 +504,7 @@ Data Protection Requirements
 d. VNF Modularity
 =================
 
-ONAP Heat Orchestration Templates: Overview 
+ONAP Heat Orchestration Templates: Overview
 -------------------------------------------
 
 ONAP supports a modular Heat Orchestration Template design pattern,
@@ -878,7 +878,7 @@ f. VNF Develop Steps
 =======================
 
 Aid to help the VNF vendor to fasten the integration with the GVNFM, the
-OpenO provides the VNF SDK tools, and the documents. In this charter,
+ONAP provides the VNF SDK tools, and the documents. In this charter,
 the develop steps for VNF vendors will be introduced.
 
 First, using the VNF SDK tools to design the VNF with TOSCA model and

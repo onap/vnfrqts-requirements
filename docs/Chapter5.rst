@@ -9,8 +9,8 @@ Introduction
 -------------
 
 This reference document is the VNF TOSCA Template Requirements for
-OpenO, which provides recommendations and standards for building VNF
-TOSCA templates compatible with OpenO– initial implementations of
+ONAP, which provides recommendations and standards for building VNF
+TOSCA templates compatible with ONAP initial implementations of
 Network Cloud. It has the following features:
 
 1. VNF TOSCA template designer supports GUI and CLI.
@@ -25,26 +25,26 @@ Intended Audience
 -----------------
 
 This document is intended for persons developing VNF TOSCA templates
-that will be orchestrated by OpenO.
+that will be orchestrated by ONAP.
 
-Scope 
-------
+Scope
+-----
 
-OpenO implementations of Network Cloud supports TOSCA Templates, also
+ONAP implementations of Network Cloud supports TOSCA Templates, also
 referred to as TOSCA in this document.
 
-OpenO requires the TOSCA Templates to follow a specific format. This
+ONAP requires the TOSCA Templates to follow a specific format. This
 document provides the mandatory, recommended, and optional requirements
 associated with this format.
 
-Overview 
+Overview
 ---------
 
 The document includes three charters to help the VNF vendors to use the
 VNF model design tools and understand the VNF package structure and VNF
 TOSCA templates.
 
-In the OPENO, VNF Package and VNFD template can be designed by manually
+In the ONAP, VNF Package and VNFD template can be designed by manually
 or via model designer tools. VNF model designer tools can provide the
 GUI and CLI tools for the VNF vendor to develop the VNF Package and VNFD
 template.
@@ -59,7 +59,7 @@ self-defined node or other extensions.
 NFV TOSCA Template
 ------------------
 
-TOSCA templates supported by OPENO must follow the requirements
+TOSCA templates supported by ONAP must follow the requirements
 enumerated in this section.
 
 TOSCA Introduction
@@ -84,7 +84,7 @@ Node Template references a Node Type and adds usage constraints, such as
 how many times the component can occur.
 
 |image1|
-Figure 1: Structural Elements of Service Template and their Relations 
+Figure 1: Structural Elements of Service Template and their Relations
 
 TOSCA Modeling Principles & Data Model
 --------------------------------------
@@ -653,7 +653,7 @@ Definition
 Artifact
 ^^^^^^^^
 +-----------+------------+-------------------------------+---------------+------------------------------------------------+
-| Name      | Required   | Type                          | Constraints   | Description                                    |                                                                         
+| Name      | Required   | Type                          | Constraints   | Description                                    |
 +===========+============+===============================+===============+================================================+
 | SwImage   | Yes        | tosca.artifacts.nfv.SwImage   |               | Describes the software image which is          |
 |           |            |                               |               | directly realizing this virtual storage        |
@@ -770,12 +770,12 @@ Properties
 
 
 +-------------------------------+------------+------------------------------------------+---------------+----------------------------------------------------------+
-| Name                          | Required   | Type                                     | Constraints   | Description                                              |                                
+| Name                          | Required   | Type                                     | Constraints   | Description                                              |
 +===============================+============+==========================================+==========================================================================+
-| bitrate_requirement           | no         | integer                                  |               | Bitrate requirement on this connection point.            |                                
+| bitrate_requirement           | no         | integer                                  |               | Bitrate requirement on this connection point.            |
 +-------------------------------+------------+------------------------------------------+---------------+----------------------------------------------------------+
 | virtual\_network\_interface_\ | no         | VirtualNetworkInterfaceRequirements      |               | Specifies requirements on a virtual network              |
-| requirements                  |            |                                          |               | realising the CPs instantiated from this CPD             | 
+| requirements                  |            |                                          |               | realising the CPs instantiated from this CPD             |
 +-------------------------------+------------+------------------------------------------+---------------+----------------------------------------------------------+
 
 Attributes
@@ -1578,25 +1578,25 @@ https://docs.openstack.org/developer/heat/template_guide/hot_spec.html.
 
 .. code-block:: python
 
- heat_template_version: <date>                       
-                                                       
- description:                                          
-   # a description of the template                       
-                                                       
- parameter_groups:                                    
-   # a declaration of input parameter groups and order   
-                                                       
- parameters:                                           
-   # declaration of input parameters                     
-                                                       
- resources:                                            
-   # declaration of template resources                   
-                                                       
- outputs:                                              
-   # declaration of output parameters                    
-                                                       
- conditions:                                           
-   # declaration of conditions                           
+ heat_template_version: <date>
+
+ description:
+   # a description of the template
+
+ parameter_groups:
+   # a declaration of input parameter groups and order
+
+ parameters:
+   # declaration of input parameters
+
+ resources:
+   # declaration of template resources
+
+ outputs:
+   # declaration of output parameters
+
+ conditions:
+   # declaration of conditions
 
 
 Heat Orchestration templates for ONAP must contain the following
@@ -2344,7 +2344,7 @@ When the internal network is created, it should be assigned a unique
 {network-role} in the context of the VNF. `ONAP Resource ID and Parameter Naming Convention`_ provides additional
 details.
 
-VNFs may use **Cloud assigned IP addresses** or 
+VNFs may use **Cloud assigned IP addresses** or
 **predetermined static IPs** when attaching VMs to an internal network.
 
 -  A Cloud assigned IP address is assigned by OpenStack’s DHCP Service.
@@ -3078,8 +3078,8 @@ In this example, the {vm-role} is enumerated in the environment file.
        metadata:
          vm_role: { get_param: vm_role }
 
-Example 
-~~~~~~~~
+Example
+~~~~~~~
 
 The example below depicts part of a Heat Orchestration Template that
 uses the five of the OS::Nova::Server metadata parameter discussed in
@@ -3502,7 +3502,7 @@ The parameter must not be enumerated in the Heat environment file.
 .. code-block:: python
 
  parameters:
- 
+
     {vm-type}_{network-role}_ips:
        type: comma_delimited_list
        description: Fixed IPv4 assignments for {vm-type} VMs on the {Network-role} network
@@ -3844,7 +3844,7 @@ an oam network and the {vm-type} has been defined as db for database.
     db_oam_floating_ip:
        type: string
        description: VIP IP for db VMs on the oam network
- 
+
  resources:
     db_0_port_0:
        type: OS::Neutron::Port
@@ -4086,15 +4086,15 @@ ONAP Output Parameter Names
 
 ONAP defines three types of Output Parameters as detailed in `Output Parameters`_.
 
-ONAP Base Module Output Parameters: 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ONAP Base Module Output Parameters:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ONAP Base Module Output Parameters do not have an explicit naming
 convention. The parameter name must contain {vm-type} and {network-role}
 when appropriate.
 
-ONAP Volume Template Output Parameters: 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ONAP Volume Template Output Parameters:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ONAP Base Module Output Parameters do not have an explicit naming
 convention. The parameter name must contain {vm-type} when appropriate.
@@ -4225,8 +4225,8 @@ ONAP requires the parameter names of certain Contrail Resources to
 follow specific naming conventions. This section provides these
 requirements.
 
-Contrail Network Parameters 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Contrail Network Parameters
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Contrail based resources may require references to a Contrail network
 using the network FQDN.
@@ -4393,7 +4393,7 @@ represent an oam protected network and the {vm-type} has been defined as
      virtual_network_refs:
        - get_param: oam_protected_net_fqdn
      subnet_uuid: { get_param: oam_protected_subnet_id }
-				
+
 Cinder Volume Templates
 -----------------------
 
@@ -4997,8 +4997,8 @@ balancer and db for database.
     scheduler_hints:
        group: {get_resource: lb_server_group} 
 
-Resource Data Synchronization 
-------------------------------
+Resource Data Synchronization
+-----------------------------
 
 For cases where synchronization is required in the orchestration of Heat
 resources, two approaches are recommended:
@@ -5067,7 +5067,7 @@ oam server.
      mountpoint: /dev/vdb
      instance_uuid: {get_resource: oam_server_01}
 
-High Availability 
+High Availability
 -----------------
 
 VNF/VM parameters may include availability zone IDs for VNFs that
@@ -5097,14 +5097,14 @@ c. VNFM Driver Develop Steps
 ==============================
 
 Aid to help the VNF vendor to fasten the integration with the NFVO via
-Special VNFM, the OpenO provides the documents. In this charter, the
+Special VNFM, the ONAP provides the documents. In this charter, the
 develop steps for VNF vendors will be introduced.
 
 First, using the VNF SDK tools to design the VNF with TOSCA model and
 output the VNF TOSCA package. The VNF package can be validated, and
 tested.
 
-Second, the VNF vendor should provide SVNFM Driver in the OpenO, which
+Second, the VNF vendor should provide SVNFM Driver in the ONAP, which
 is a micro service and in duty of translation interface from NFVO to
 SVNFM. The interface of NFVO is aligned to the ETSI IFA interfaces and
 can be gotten in the charter 5.5. The interface of SVNFM is provided by
@@ -5113,7 +5113,7 @@ the VNF vendor self.
 d. Create SVNFM Adaptor Mircoservice
 =======================================
 
-Some vnfs are managed by special vnfm, before add svnfm to openo, a
+Some vnfs are managed by special vnfm, before add svnfm to ONAP, a
 svnfm adaptor must be added to openo to adapter the interface of nfvo
 and svnfm.
 
@@ -5149,4 +5149,4 @@ POST /openoapi/microservices/v1/services
 
     ]
 
-    }				
+    }
