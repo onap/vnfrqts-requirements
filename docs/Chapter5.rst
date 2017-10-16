@@ -1576,7 +1576,7 @@ Heat Orchestration template structure follows the following format, as
 defined by OpenStack at
 https://docs.openstack.org/developer/heat/template_guide/hot_spec.html.
 
-.. code-block:: python
+.. code-block:: yaml
 
  heat_template_version: <date>
 
@@ -1649,7 +1649,7 @@ with the exception of the parameters for the OS::Nova::Server property
 availability\_zone. See `Property: availability\_zone`_. for more details on
 availability\_zone.
 
-.. code-block:: python
+.. code-block:: yaml
 
  parameters:
    <param name>:
@@ -1792,7 +1792,7 @@ when being instantiated.
 Each resource is defined as a separate block in the resources section
 with the following syntax.
 
-.. code-block:: python
+.. code-block:: yaml
 
  resources:
    <resource ID>:
@@ -2633,7 +2633,7 @@ maximum clarity and flexibility.
 
 *Example Parameter Definition*
 
-.. code-block:: python
+.. code-block:: yaml
 
  parameters:
      {vm-type}_image_name:
@@ -2660,7 +2660,7 @@ provides maximum clarity and flexibility.
 
 *Example Parameter Definition*
 
-.. code-block:: python
+.. code-block:: yaml
 
  parameters:
      {vm-type}_flavor_name:
@@ -2696,7 +2696,7 @@ parameters defined in the Heat.
 
 *Example: Parameter Definition*
 
-.. code-block:: python
+.. code-block:: yaml
 
  parameters:
      {vm-type}_names:
@@ -2711,7 +2711,7 @@ parameters defined in the Heat.
 In this example, the {vm-type} has been defined as “lb” for load
 balancer.
 
-.. code-block:: python
+.. code-block:: yaml
 
  parameters:
      lb_names:
@@ -2736,7 +2736,7 @@ balancer.
 In this example, the {vm-type} has been defined as “lb” for load
 balancer.
 
-.. code-block:: python
+.. code-block:: yaml
 
  parameters:
      lb_name_0:
@@ -2800,7 +2800,7 @@ In the Heat Orchestration Template below, four Virtual Machines
 parameter associated with the property name is a comma\_delimited\_list
 for dns and a string for oam.
 
-.. code-block:: python
+.. code-block:: yaml
 
  parameters:
    dns_image_name:
@@ -2935,7 +2935,7 @@ The parameter must not be enumerated in the Heat environment file.
 
 *Example Parameter Definition*
 
-.. code-block:: python
+.. code-block:: yaml
 
  parameters:
      vnf_id:
@@ -2960,7 +2960,7 @@ The parameter must not be enumerated in the Heat environment file.
 
 *Example Parameter Definition*
 
-.. code-block:: python
+.. code-block:: yaml
 
  parameters:
      vnf_module_id:
@@ -2985,7 +2985,7 @@ The parameter must not be enumerated in the Heat environment file.
 
 *Example Parameter Definition*
 
-.. code-block:: python
+.. code-block:: yaml
 
  parameters:
      vnf_name:
@@ -3011,7 +3011,7 @@ The parameter must not be enumerated in the Heat environment file.
 
 *Example Parameter Definition*
 
-.. code-block:: python
+.. code-block:: yaml
 
  parameters:
      vf_module_name:
@@ -3042,7 +3042,7 @@ Parameter constraints must not be defined.
 
 *Example Parameter Definition*
 
-.. code-block:: python
+.. code-block:: yaml
 
  parameters:
      vm_role:
@@ -3054,7 +3054,7 @@ Parameter constraints must not be defined.
 In this example, the {vm-role} is hard coded in the Heat Orchestration
 Template.
 
-.. code-block:: python
+.. code-block:: yaml
 
  resources:
    dns_servers:
@@ -3068,7 +3068,7 @@ Template.
 
 In this example, the {vm-role} is enumerated in the environment file.
 
-.. code-block:: python
+.. code-block:: yaml
 
  resources:
    dns_servers:
@@ -3085,7 +3085,7 @@ The example below depicts part of a Heat Orchestration Template that
 uses the five of the OS::Nova::Server metadata parameter discussed in
 this section. The {vm-type} has been defined as lb for load balancer.
 
-.. code-block:: python
+.. code-block:: yaml
 
  parameters:
     lb_name_0
@@ -3258,7 +3258,7 @@ The parameter must not be enumerated in the Heat environment file.
 
 *Example Parameter Definition*
 
-.. code-block:: python
+.. code-block:: yaml
 
  parameters:
      {network-role}_net_id:
@@ -3276,7 +3276,7 @@ an oam network and the {vm-type} has been defined as lb for load
 balancer. The Cloud Assigned IP Address uses the OpenStack DHCP service
 to assign IP addresses.
 
-.. code-block:: python
+.. code-block:: yaml
 
  parameters:
     oam_net_id:
@@ -3308,7 +3308,7 @@ incremental modules, it will be defined as input parameter.
 
 *Example Parameter Definition*
 
-.. code-block:: python
+.. code-block:: yaml
 
  parameters:
      int_{network-role}_net_id:
@@ -3353,7 +3353,7 @@ The parameter must not be enumerated in the Heat environment file.
 
 *Example Parameter Definition*
 
-.. code-block:: python
+.. code-block:: yaml
 
  parameters:
      {network-role}_subnet_id:
@@ -3372,7 +3372,7 @@ an oam network and the {vm-type} has been defined as lb for load
 balancer. The Cloud Assigned IP Address uses the OpenStack DHCP service
 to assign IP addresses.
 
-.. code-block:: python
+.. code-block:: yaml
 
  parameters:
     oam_net_id:
@@ -3398,7 +3398,7 @@ In this example, the {network-role} has been defined as oam to represent
 an oam network and the {vm-type} has been defined as lb for load
 balancer.
 
-.. code-block:: python
+.. code-block:: yaml
 
  parameters:
     oam_net_id:
@@ -3442,7 +3442,7 @@ the incremental modules, it will be defined as input parameter.
 
 *Example Parameter Definition*
 
-.. code-block:: python
+.. code-block:: yaml
 
  parameters:
      int_{network-role}_subnet_id:
@@ -3499,7 +3499,7 @@ The parameter must not be enumerated in the Heat environment file.
 
 *Example Parameter Definition*
 
-.. code-block:: python
+.. code-block:: yaml
 
  parameters:
 
@@ -3517,7 +3517,7 @@ Assignments to an external network*
 In this example, the {network-role} has been defined as oam to represent
 an oam network and the {vm-type} has been defined as db for database.
 
-.. code-block:: python
+.. code-block:: yaml
 
  parameters:
     oam_net_id:
@@ -3560,7 +3560,7 @@ The parameter must not be enumerated in the Heat environment file.
 
 *Example Parameter Definition*
 
-.. code-block:: python
+.. code-block:: yaml
 
  parameters:
     {vm-type}_{network-role}_ip_{index}:
@@ -3577,7 +3577,7 @@ In this example, the {network-role} has been defined as “oam” to
 represent an oam network and the {vm-type} has been defined as “db” for
 database.
 
-.. code-block:: python
+.. code-block:: yaml
 
  parameters:
     oam_net_id:
@@ -3640,7 +3640,7 @@ every VNF instance.
 
 *Example Parameter Definition*
 
-.. code-block:: python
+.. code-block:: yaml
 
  parameters:
 
@@ -3661,7 +3661,7 @@ picked to differentiate from an external oam network with a
 {network-role} of oam. The {vm-type} has been defined as db for
 database.
 
-.. code-block:: python
+.. code-block:: yaml
 
  parameters:
     int_oam_int_net_id:
@@ -3707,7 +3707,7 @@ every VNF instance.
 
 *Example Parameter Definition*
 
-.. code-block:: python
+.. code-block:: yaml
 
  parameters:
 
@@ -3727,7 +3727,7 @@ picked to differentiate from an external oam network with a
 {network-role} of oam. The {vm-type} has been defined as db for
 database.
 
-.. code-block:: python
+.. code-block:: yaml
 
  parameters:
     int_oam_int_net_id:
@@ -3813,7 +3813,7 @@ The parameter must not be enumerated in the Heat environment file.
 
 *Example Parameter Definition*
 
-.. code-block:: python
+.. code-block:: yaml
 
  parameters:
 
@@ -3830,7 +3830,7 @@ The parameter must not be enumerated in the Heat environment file.
 In this example, the {network-role} has been defined as oam to represent
 an oam network and the {vm-type} has been defined as db for database.
 
-.. code-block:: python
+.. code-block:: yaml
 
  parameters:
     oam_net_id:
@@ -3877,7 +3877,7 @@ The parameter must be enumerated in the Heat environment file.
 
 *Example Parameter Definition*
 
-.. code-block:: python
+.. code-block:: yaml
 
  parameters:
 
@@ -3918,7 +3918,7 @@ VIP, [admin\_oam\_ips,2]
 Pair 2: Resources admin\_2\_port\_0 and admin\_3\_port\_0 share a unique
 VIP, [admin\_oam\_ips,5]
 
-.. code-block:: python
+.. code-block:: yaml
 
  parameters:
     oam_net_id:
@@ -3965,7 +3965,7 @@ In this example, there is one load balancer pairs. The pair has two
 VIPs. The {network-role} has been defined as oam to represent an oam
 network and the {vm-type} has been defined as lb for a load balancer VM.
 
-.. code-block:: python
+.. code-block:: yaml
 
  resources:
     lb_0_port_0:
@@ -4024,7 +4024,7 @@ Note that
 
 *Example: Property* name *for resource* OS::Neutron::SecurityGroup
 
-.. code-block:: python
+.. code-block:: yaml
 
  resources:
    DNS_SECURITY_GROUP:
@@ -4041,7 +4041,7 @@ Note that
 
 *Example: Property name for resource* OS::Cinder::Volume
 
-.. code-block:: python
+.. code-block:: yaml
 
  resources:
    DNS_Cinder_Volume:
@@ -4143,7 +4143,7 @@ parameters to identify the management IP address.
 *Example: SDN-C Assigned IP Address echoed as*
 oam\_management\_v4\_address
 
-.. code-block:: python
+.. code-block:: yaml
 
  parameters:
     admin_oam_ip_0:
@@ -4184,7 +4184,7 @@ oam\_management\_v4\_address
 *Example: Cloud Assigned IP Address output as*
 oam\_management\_v4\_address
 
-.. code-block:: python
+.. code-block:: yaml
 
  parameters:
     . . .
@@ -4246,7 +4246,7 @@ The parameter must not be enumerated in the Heat environment file.
 
 *Example: Parameter declaration*
 
-.. code-block:: python
+.. code-block:: yaml
 
  parameters:
     {network-role}_net_fqdn:
@@ -4261,7 +4261,7 @@ an oam network and the {vm-type} has been defined as fw for firewall.
 The Contrail resource OS::ContrailV2::VirtualMachineInterface property
 virtual\_network\_refs references a contrail network FQDN.
 
-.. code-block:: python
+.. code-block:: yaml
 
  FW_OAM_VMI:
    type: OS::ContrailV2::VirtualMachineInterface
@@ -4302,7 +4302,7 @@ The parameter must not be enumerated in the Heat environment file.
 
 *Example Parameter Definition*
 
-.. code-block:: python
+.. code-block:: yaml
 
  parameters:
     {vm-type}_{network-role}_route_prefixes:
@@ -4311,7 +4311,7 @@ The parameter must not be enumerated in the Heat environment file.
 
 *Example:*
 
-.. code-block:: python
+.. code-block:: yaml
 
  parameters:
    vnf_name:
@@ -4358,7 +4358,7 @@ Address. The {network-role} has been defined as oam\_protected to
 represent an oam protected network and the {vm-type} has been defined as
 fw for firewall.
 
-.. code-block:: python
+.. code-block:: yaml
 
  CMD_FW_OAM_PROTECTED_RII:
    type: OS::ContrailV2::InstanceIp
@@ -4381,7 +4381,7 @@ Address. The {network-role} has been defined as “oam\_protected” to
 represent an oam protected network and the {vm-type} has been defined as
 “fw” for firewall.
 
-.. code-block:: python
+.. code-block:: yaml
 
  CMD_FW_SGI_PROTECTED_RII:
    type: OS::ContrailV2::InstanceIp
@@ -4448,7 +4448,7 @@ Template. The {vm-type} has been defined as “lb” for load balancer
 
 incremental\_volume.yaml
 
-.. code-block:: python
+.. code-block:: yaml
 
  parameters:
     vnf_name:
@@ -4477,7 +4477,7 @@ incremental\_volume.yaml
 
 incremental.yaml
 
-.. code-block:: python
+.. code-block:: yaml
 
  parameters:
     lb_name_0:
@@ -4625,7 +4625,7 @@ Nested Heat Template Example: Static
 
 incremental.yaml
 
-.. code-block:: python
+.. code-block:: yaml
 
  Resources:
    dns_server_0:
@@ -4658,7 +4658,7 @@ incremental.yaml
 
 nested.yaml
 
-.. code-block:: python
+.. code-block:: yaml
 
  dns_oam_0_port:
    type: OS::Neutron::Port
@@ -4710,7 +4710,7 @@ definition.
 
 For instance, the following is **not** valid Heat for ResourceGroup:
 
-.. code-block:: python
+.. code-block:: yaml
 
  type: OS::Heat::ResourceGroup
    resource_def:
@@ -4727,7 +4727,7 @@ nested template along with the current index as separate parameters.
 Below is an example of an **acceptable** Heat Syntax for a
 ResourceGroup:
 
-.. code-block:: python
+.. code-block:: yaml
 
  type: OS::Heat::ResourceGroup
    resource_def:
@@ -4748,7 +4748,7 @@ ONAP requires that the OS::Heat::ResourceGroup property count be defined
 environment file. This is required for ONAP to build the TOSCA model for
 the VNF.
 
-.. code-block:: python
+.. code-block:: yaml
 
  type: OS::Heat::ResourceGroup
    properties:
@@ -4776,7 +4776,7 @@ usage patterns.
 resource type: OS::Heat::ResourceGroup, create a comma\_delimited\_list
 availability\_zones by using the intrinsic function list\_join.
 
-.. code-block:: python
+.. code-block:: yaml
 
  <resource name>:
   type: OS::Heat::ResourceGroup
@@ -4791,7 +4791,7 @@ availability\_zones by using the intrinsic function list\_join.
 
 In the nested heat
 
-.. code-block:: python
+.. code-block:: yaml
 
  parameters:
    avaialability_zones:
@@ -4901,7 +4901,7 @@ automatically assign a public/private key pair.
 *Example (create keypair with an existing ssh public-key for {vm-type}
 of lb (for load balancer)):*
 
-.. code-block:: python
+.. code-block:: yaml
 
  parameters:
     vnf_name:
@@ -4951,7 +4951,7 @@ In this example, the {network-role} has been defined as oam to represent
 an oam network and the {vm-type} have been defined as lb for load
 balancer and db for database.
 
-.. code-block:: python
+.. code-block:: yaml
 
  resources:
  db_server_group:
@@ -5028,7 +5028,7 @@ In this example, the {network-role} has been defined as oam to represent
 an oam network and the {vm-type} has been defined as oam to represent an
 oam server.
 
-.. code-block:: python
+.. code-block:: yaml
 
  resources:
    oam_server_01:
