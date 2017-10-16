@@ -735,7 +735,7 @@ network and the {vm-type} has been defined as dns.
 
 base\_MODULE.yaml
 
-.. code-block:: python
+.. code-block:: yaml
 
  parameters:
    . . .
@@ -762,7 +762,7 @@ base\_MODULE.yaml
 
 INCREMENTAL\_MODULE.yaml
 
-.. code-block:: python
+.. code-block:: yaml
 
  parameters:
    dns_sec_grp_id:
@@ -800,7 +800,7 @@ network and the {vm-type} has been defined as lb for load balancer.
 
 base.yaml
 
-.. code-block:: python
+.. code-block:: yaml
 
  heat_template_version: 2013-05-23
 
@@ -817,7 +817,7 @@ base.yaml
 
 incremental.yaml
 
-.. code-block:: python
+.. code-block:: yaml
 
  heat_template_version: 2013-05-23
 
