@@ -5113,11 +5113,11 @@ the VNF vendor self.
 d. Create SVNFM Adaptor Mircoservice
 =======================================
 
-Some vnfs are managed by special vnfm, before add svnfm to ONAP, a
-svnfm adaptor must be added to openo to adapter the interface of nfvo
-and svnfm.
+Some vnfs are managed by special VNFM, before add SVNFM to ONAP, a
+SVNFM adaptor must be added to ONAP to adapter the interface of NFVO
+and SVNFM.
 
-A svnfm adaptor is a micro service with unique name and an appointed
+A SVNFM adaptor is a micro service with unique name and an appointed
 port, when started up, it must be auto registered to MSB(Micro server
 bus),following describes an example rest of register to MSB:
 
