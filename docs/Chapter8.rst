@@ -1576,3 +1576,4 @@ R-20912: The VNF **MUST** support alternative monitoring capabilities when VNFs 
 .. [10]
    The “name” field is a mandatory field in a valid Chef Node Object
    JSON dictionary.
+
