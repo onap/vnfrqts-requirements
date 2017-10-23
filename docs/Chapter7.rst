@@ -1,4 +1,5 @@
-﻿**7. ONAP Management Requirements**
+﻿:tocdepth: 2
+**7. ONAP Management Requirements**
 =====================================
 
 a. Service Design
