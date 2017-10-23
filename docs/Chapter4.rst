@@ -308,7 +308,6 @@ Identity and Access Management Requirements
 * R-95105 The VNF **MUST** host connectors for access to the application layer.
 * R-45496 The VNF **MUST** host connectors for access to the OS (Operating System) layer.
 * R-05470 The VNF **MUST** host connectors for access to the database layer.
-* R-77737 The VNF **MUST**
 * R-99174 The VNF **MUST** comply with Individual Accountability (each person must be assigned a unique ID) when persons or non-person entities access VNFs.
 * R-42874 The VNF **MUST** comply with Least Privilege (no more privilege than required to perform job functions) when persons or non-person entities access VNFs.
 * R-71787 The VNF **MUST** comply with Segregation of Duties (access to a single layer and no developer may access production without special oversight) when persons or non-person entities access VNFs.
