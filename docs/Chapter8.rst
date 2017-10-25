@@ -109,7 +109,7 @@ a. The JSON file must be created for each action for each VNF.
 b. If a VNF action involves multiple endpoints (VMs) of a VNF, ONAP will
    replicate the “Node” JSON dictionary in the template and post it to
    each FQDN (i.e., endpoint) in the NodeList after setting the “name”
-   field in the Node object to be the respective FQDN [10]_. Hence, it
+   field in the Node object to be the respective FQDN [1]_. Hence, it
    is required that all end points (VMs) of a VNF involved in a VNF
    action support the same set of Node Object attributes.
 
@@ -859,7 +859,7 @@ R-19768: The VNF **SHOULD** support L3 VPNs that enable segregation of traffic b
 
 R-55478: The VNF **MUST** log logoffs.
 
-R-14853: The VNF **MUST** respond to a "move traffic" [3]_ command against a specific VNFC, moving all existing session elsewhere with minimal disruption if a VNF provides a load balancing function across multiple instances of its VNFCs. Note: Individual VNF performance aspects (e.g., move duration or disruption scope) may require further constraints.
+R-14853: The VNF **MUST** respond to a "move traffic" [2]_ command against a specific VNFC, moving all existing session elsewhere with minimal disruption if a VNF provides a load balancing function across multiple instances of its VNFCs. Note: Individual VNF performance aspects (e.g., move duration or disruption scope) may require further constraints.
 
 R-68165: The VNF **MUST** encrypt any content containing Sensitive Personal Information (SPI) or certain proprietary data, in addition to applying the regular procedures for securing access and delivery.
 
@@ -1017,7 +1017,7 @@ R-83790: The VNF **MUST** implement the **:validate** capability
 
 R-83873: The VNF **MUST** support **:rollback-on-error** value for the <error-option> parameter to the <edit-config> operation. If any error occurs during the requested edit operation, then the target database (usually the running configuration) will be left affected. This provides an 'all-or-nothing' edit mode for a single <edit-config> request.
 
-R-25238: The VNF PACKAGE **MUST** validated YANG code using the open source pyang [2]_ program using the following commands:
+R-25238: The VNF PACKAGE **MUST** validated YANG code using the open source pyang [3]_ program using the following commands:
 
 R-58370: The VNF **MUST** coexist and operate normally with commercial anti-virus software which shall produce alarms every time when there is a security incident.
 
@@ -1035,7 +1035,7 @@ R-02137: The VNF **MUST** implement all monitoring and logging as described in t
 
 R-16496: The VNF **MUST** enable instantiating only the functionality that is needed for the decomposed VNF (e.g., if transcoding is not needed it should not be instantiated).
 
-R-32217: The VNF **MUST** have routable FQDNs that are reachable via the Ansible Server for the endpoints (VMs) of a VNF on which playbooks will be executed. ONAP will initiate requests to the Ansible Server for invocation of playbooks against these end points [6]_.
+R-32217: The VNF **MUST** have routable FQDNs that are reachable via the Ansible Server for the endpoints (VMs) of a VNF on which playbooks will be executed. ONAP will initiate requests to the Ansible Server for invocation of playbooks against these end points [4]_.
 
 R-47849: The VNF Vendor **MUST** support the metadata about licenses (and their applicable entitlements) as defined in this document for VNF software, and any license keys required to authorize use of the VNF software.  This metadata will be used to facilitate onboarding the VNF into the ONAP environment and automating processes for putting the licenses into use and managing the full lifecycle of the licenses. The details of this license model are described in Appendix C. Note: License metadata support in ONAP is not currently available and planned for 1Q 2018.
 
@@ -1057,7 +1057,7 @@ R-79107: The VNF **MUST**, if not using the NCSP’s IDAM API, enforce a configu
 
 R-75850: The VNF **SHOULD** decouple persistent data from the VNFC and keep it in its own datastore that can be reached by all instances of the VNFC requiring the data.
 
-R-46960: The VNF **MUST** utilize only the Guest OS versions that are supported by the NCSP’s Network Cloud. [1]_
+R-46960: The VNF **MUST** utilize only the Guest OS versions that are supported by the NCSP’s Network Cloud. [5]_
 
 R-21210: The VNF **MUST** implement the following input validation control: Validate that any input file has a correct and valid Multipurpose Internet Mail Extensions (MIME) type. Input files should be tested for spoofed MIME types.
 
@@ -1145,7 +1145,7 @@ R-22367: The VNF **MUST** support detection of malformed packets due to software
 
 R-93860: The VNF **MUST** provide the capability to integrate with an external encryption service.
 
-R-09467: The VNF **MUST**  utilize only NCSP standard compute flavors. [2]_
+R-09467: The VNF **MUST**  utilize only NCSP standard compute flavors. [5]_
 
 R-62170: The VNF **MUST** over-ride any default values for configurable parameters that can be set by ONAP in the roles, cookbooks and recipes.
 
@@ -1189,7 +1189,7 @@ R-35305: The VNF **MUST** meet the same guidelines as the Ansible Server hosted 
 
 R-95864: The VNF **MUST** use commercial tools that comply with X.509 standards and produce x.509 compliant keys for public/private key generation.
 
-R-23475: The VNF **SHOULD** utilize only NCSP provided Guest OS images. [2]_
+R-23475: The VNF **SHOULD** utilize only NCSP provided Guest OS images. [5]_
 
 R-64503: The VNF **MUST** provide minimum privileges for initial and default settings for new user accounts.
 
@@ -1205,7 +1205,7 @@ R-70266: The VNF **MUST** respond to an ONAP request to deliver the current data
 
 R-70496: The VNF **MUST** implement the protocol operation: **commit(confirmed, confirm-timeout)** - Commit candidate configuration datastore to the running configuration.
 
-R-19624: The VNF **MUST** encode and serialize content delivered to ONAP using JSON (option 1). High-volume data is to be encoded and serialized using Avro, where Avro data format are described using JSON (option 2) [8]_.
+R-19624: The VNF **MUST** encode and serialize content delivered to ONAP using JSON (option 1). High-volume data is to be encoded and serialized using Avro, where Avro data format are described using JSON (option 2) [6]_.
 
 R-25094: The VNF **MUST** perform data capture for security functions.
 
@@ -1433,7 +1433,7 @@ R-10716: The VNF **MUST** support parallel and simultaneous configuration of sep
 
 R-71842: The VNF **MUST** include the field “service or program used for access” in the Security alarms (where applicable and technically feasible).
 
-R-54430: The VNF **MUST** use the NCSP’s supported library and compute flavor that supports DPDK to optimize network efficiency if using DPDK. [1]_
+R-54430: The VNF **MUST** use the NCSP’s supported library and compute flavor that supports DPDK to optimize network efficiency if using DPDK. [5]_
 
 R-03465: The VNF **MUST** release locks to prevent permanent lock-outs when the corresponding <partial-unlock> operation succeeds.
 
@@ -1534,47 +1534,25 @@ R-20912: The VNF **MUST** support alternative monitoring capabilities when VNFs 
 
 
 .. [1]
-   ECOMP (Enhanced Control Orchestration, Management & Policy)
-   Architecture White Paper
-   (http://about.att.com/content/dam/snrdocs/ecomp.pdf)
-
-.. [2]
-   https://github.com/mbj4668/pyang
-
-.. [3]
-   Decision on which Chef Server instance associates with a VNF will be
-   made on a case-by-case basis depending on VNF, access requirements,
-   etc. and are outside the scope of this document. The specific
-   criteria for this would involve considerations like connectivity and
-   access required by the VNF, security, VNF topology and proprietary
-   cookbooks.
-
-.. [4]
-   Recall that the Node Object **is required** to be identical across
-   all VMs of a VNF invoked as part of the action except for the “name”.
-
-.. [5]
-   Decision on which Ansible Server to use may happen on a case-by-case
-   basis depending on VNF, access requirements etc. and are outside the
-   scope of this document. The specific criteria for this could involve
-   considerations like connectivity and access required by the VNF,
-   security, VNF topology and proprietary playbooks.
-
-.. [6]
-   Upstream elements must provide the appropriate FQDN in the request to
-   ONAP for the desired action.
-
-.. [7]
-   Multiple ONAP actions may map to one playbook.
-
-.. [8]
-   This option is not currently supported in ONAP and it is currently
-   under consideration.
-
-.. [9]
-   https://wiki.opnfv.org/display/PROJ/VNF+Event+Stream
-
-.. [10]
    The “name” field is a mandatory field in a valid Chef Node Object
    JSON dictionary.
 
+.. [2]
+   Not currently supported in ONAP release 1
+
+.. [3]
+   https://github.com/mbj4668/pyang
+
+.. [4]
+   Upstream elements must provide the appropriate FQDN in the request to
+   ONAP for the desired action.
+
+.. [5]
+   Refer to NCSP’s Network Cloud specification
+
+.. [6]
+   This option is not currently supported in ONAP and it is currently
+   under consideration.
+
+.. [7]
+   Multiple ONAP actions may map to one playbook.

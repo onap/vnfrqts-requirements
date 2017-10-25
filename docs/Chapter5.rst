@@ -85,6 +85,7 @@ Node Template references a Node Type and adds usage constraints, such as
 how many times the component can occur.
 
 |image1|
+
 Figure 1: Structural Elements of Service Template and their Relations
 
 TOSCA Modeling Principles & Data Model

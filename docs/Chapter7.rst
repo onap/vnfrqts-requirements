@@ -208,7 +208,7 @@ industry standards.
 * R-60656 The VNF **MUST** support sub tree filtering.
 * R-80898 The VNF **MUST** support heartbeat via a <get> with null filter.
 * R-06617 The VNF **MUST** support get-schema (ietf-netconf-monitoring) to pull YANG model over session.
-* R-25238 The VNF PACKAGE **MUST** validated YANG code using the open source pyang [2]_ program using the following commands:
+* R-25238 The VNF PACKAGE **MUST** validated YANG code using the open source pyang [1]_ program using the following commands:
 
 .. code-block:: python
 
@@ -330,7 +330,7 @@ Chef-Client and Push Jobs Client on the VNF
 
 **Chef Server Requirements**
 
-ONAP will interact with the Chef Server designated to manage a target VNF. ONAP design allows for the VNF to register with the following types of Chef Server  [3]_:
+ONAP will interact with the Chef Server designated to manage a target VNF. ONAP design allows for the VNF to register with the following types of Chef Server  [2]_:
 
 -  **Chef Server hosted by ONAP**: ONAP will provide a Chef Server to manage a VNF.
 
@@ -390,7 +390,7 @@ action request against a Chef managed VNF.
 
 3. Next, it creates a Node Object from the “Node” JSON dictionary for
    all elements listed in the NodeList (using the FQDN to construct the
-   endpoint) by replicating it  [4]_. As part of this process, it will
+   endpoint) by replicating it  [3]_. As part of this process, it will
    set the name field in each Node Object to the corresponding FQDN.
    These node objects are then posted on the Chef Server to
    corresponding Node Object REST endpoints to update the corresponding
@@ -448,7 +448,7 @@ manage VNFs that support Ansible.
 **Ansible Server Requirements**
 
 ONAP will utilize an Ansible server in order to manage VNFs that support Ansible playbooks.  We note that Ansible in general does not require the use of a server. However, this framework has been adopted to align with ONAP architecture, ease of management and scalability.
-All playbooks for the VNF will be hosted on a designated Ansible Server that meets ONAP Ansible API requirements. ONAP design allows for VNFs to be managed by an Ansible Server in any of the two following forms [5]_:
+All playbooks for the VNF will be hosted on a designated Ansible Server that meets ONAP Ansible API requirements. ONAP design allows for VNFs to be managed by an Ansible Server in any of the two following forms [4]_:
 
 -  **Ansible Server hosted by ONAP**: ONAP will provide an Ansible Server to manage a VNF.
 
@@ -461,7 +461,7 @@ All playbooks for the VNF will be hosted on a designated Ansible Server that mee
 
 **Ansible Client Requirements**
 
-* R-32217 The VNF **MUST** have routable FQDNs that are reachable via the Ansible Server for the endpoints (VMs) of a VNF on which playbooks will be executed. ONAP will initiate requests to the Ansible Server for invocation of playbooks against these end points [6]_.
+* R-32217 The VNF **MUST** have routable FQDNs that are reachable via the Ansible Server for the endpoints (VMs) of a VNF on which playbooks will be executed. ONAP will initiate requests to the Ansible Server for invocation of playbooks against these end points [5]_.
 * R-98929 The VNF **MAY** have a single endpoint.
 * R-54373 The VNF **MUST** have Python >= 2.7 on the endpoint VM(s) of a VNF on which an Ansible playbook will be executed.
 * R-35401 The VNF **MUST** must support SSH and allow SSH access to the Ansible server for the endpoint VM(s) and comply with the  Network Cloud Service Provider guidelines for authentication and access.
@@ -471,7 +471,7 @@ All playbooks for the VNF will be hosted on a designated Ansible Server that mee
 An Ansible playbook is a collection of tasks that is executed on the Ansible server (local host) and/or the target VM (s) in order to complete the desired action.
 
 * R-40293 The VNF **MUST** make available (or load on VNF Ansible Server) playbooks that conform to the ONAP requirement.
-* R-49396 The VNF **MUST** support each VNF action by invocation of **one** playbook [7]_. The playbook will be responsible for executing all necessary tasks (as well as calling other playbooks) to complete the request.
+* R-49396 The VNF **MUST** support each VNF action by invocation of **one** playbook [6]_. The playbook will be responsible for executing all necessary tasks (as well as calling other playbooks) to complete the request.
 * R-33280 The VNF **MUST NOT** use any instance specific parameters in a playbook.
 * R-48698 The VNF **MUST** utilize   information from key value pairs that will be provided by the Ansible Server as extra-vars during invocation to execute the desired VNF action. If the playbook requires files, they must also be supplied using the methodology detailed in the Ansible Server API.
 
@@ -658,7 +658,7 @@ Monitoring & Management Requirements
 
 **Encoding and Serialization**
 
-* R-19624 The VNF **MUST** encode and serialize content delivered to ONAP using JSON (option 1). High-volume data is to be encoded and serialized using Avro, where Avro data format are described using JSON (option 2) [8]_.
+* R-19624 The VNF **MUST** encode and serialize content delivered to ONAP using JSON (option 1). High-volume data is to be encoded and serialized using Avro, where Avro data format are described using JSON (option 2) [7]_.
 
  -  JSON plain text format is preferred for moderate volume data sets (option 1), as JSON has the advantage of having well-understood simple processing and being human-readable without additional decoding. Examples of moderate volume data sets include the fault alarms and performance alerts, heartbeat messages, measurements used for VNF scaling and syslogs.
  -  Binary format using Avro is preferred for high volume data sets (option 2) such as mobility flow measurements and other high-volume streaming events (such as mobility signaling events or SIP signaling) or bulk data, as this will significantly reduce the volume of data to be transmitted. As of the date of this document, all events are reported using plain text JSON and REST.
@@ -716,7 +716,7 @@ runtime lifecycle. This data model is referred to as the VNF Event
 Streaming (VES) specifications. While this document is focused on
 specifying some of the records from the ONAP perspective, there may be
 other external bodies using the same framework to specify additional
-records. For example, OPNFV has a VES project [9]_ that is looking to
+records. For example, OPNFV has a VES project [8]_ that is looking to
 specify records for OpenStack’s internal telemetry to manage Application
 (VNFs), physical and virtual infrastructure (compute, storage, network
 devices), and virtual infrastructure managers (cloud controllers, SDN
@@ -753,6 +753,7 @@ The Data Model consists of:
    depicted.
 
 |image0|
+
 Figure 1. Data Model for Event Records
 
 Event Records - Data Structure Description
@@ -885,10 +886,10 @@ For additional information on the event record formats of the data
 structures mentioned above, please refer to `VES Event
 Listener <https://github.com/att/evel-test-collector/tree/master/docs/att_interface_definition>`__.
 
-.. [2]
+.. [1]
    https://github.com/mbj4668/pyang
 
-.. [3]
+.. [2]
    Decision on which Chef Server instance associates with a VNF will be
    made on a case-by-case basis depending on VNF, access requirements,
    etc. and are outside the scope of this document. The specific
@@ -896,34 +897,30 @@ Listener <https://github.com/att/evel-test-collector/tree/master/docs/att_interf
    access required by the VNF, security, VNF topology and proprietary
    cookbooks.
 
-.. [4]
+.. [3]
    Recall that the Node Object **is required** to be identical across
    all VMs of a VNF invoked as part of the action except for the “name”.
 
-.. [5]
+.. [4]
    Decision on which Ansible Server to use may happen on a case-by-case
    basis depending on VNF, access requirements etc. and are outside the
    scope of this document. The specific criteria for this could involve
    considerations like connectivity and access required by the VNF,
    security, VNF topology and proprietary playbooks.
 
-.. [6]
+.. [5]
    Upstream elements must provide the appropriate FQDN in the request to
    ONAP for the desired action.
 
-.. [7]
+.. [6]
    Multiple ONAP actions may map to one playbook.
 
-.. [8]
+.. [7]
    This option is not currently supported in ONAP and it is currently
    under consideration.
 
-.. [9]
+.. [8]
    https://wiki.opnfv.org/display/PROJ/VNF+Event+Stream
-
-.. [10]
-   The “name” field is a mandatory field in a valid Chef Node Object
-   JSON dictionary.
 
 .. |image0| image:: Data_Model_For_Event_Records.png
       :width: 7in

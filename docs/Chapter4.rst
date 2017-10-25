@@ -862,15 +862,15 @@ the DevOps guidelines for VNFs.
 DevOps Requirements
 
 * R-46960 The VNF **MUST** utilize only the Guest OS versions that are supported by the NCSP’s Network Cloud. [1]_
-* R-23475 The VNF **SHOULD** utilize only NCSP provided Guest OS images. [2]_
-* R-09467 The VNF **MUST**  utilize only NCSP standard compute flavors. [2]_
+* R-23475 The VNF **SHOULD** utilize only NCSP provided Guest OS images. [1]_
+* R-09467 The VNF **MUST**  utilize only NCSP standard compute flavors. [1]_
 * R-02997 The VNF **MUST** preserve their persistent data. Running VMs will not be backed up in the Network Cloud infrastructure.
 * R-29760 The VNFC **MUST** be installed on non-root file systems, unless software is specifically included with the operating system distribution of the guest image.
 * R-20860 The VNF **MUST** be agnostic to the underlying infrastructure (such as hardware, host OS, Hypervisor), any requirements should be provided as specification to be fulfilled by any hardware.
 * R-89800 The VNF **MUST NOT** require Hypervisor-level customization from the cloud provider.
 * R-86758 The VNF **SHOULD** provide an automated test suite to validate every new version of the software on the target environment(s). The tests should be of sufficient granularity to independently test various representative VNF use cases throughout its lifecycle. Operations might choose to invoke these tests either on a scheduled basis or on demand to support various operations functions including test, turn-up and troubleshooting.
 * R-39650 The VNF **SHOULD** provide the ability to test incremental growth of the VNF.
-* R-14853 The VNF **MUST** respond to a "move traffic" [3]_ command against a specific VNFC, moving all existing session elsewhere with minimal disruption if a VNF provides a load balancing function across multiple instances of its VNFCs. Note: Individual VNF performance aspects (e.g., move duration or disruption scope) may require further constraints.
+* R-14853 The VNF **MUST** respond to a "move traffic" [2]_ command against a specific VNFC, moving all existing session elsewhere with minimal disruption if a VNF provides a load balancing function across multiple instances of its VNFCs. Note: Individual VNF performance aspects (e.g., move duration or disruption scope) may require further constraints.
 * R-06327  The VNF **MUST** respond to a "drain VNFC" [2]_ command against a specific VNFC, preventing new session from reaching the targeted VNFC, with no disruption to active sessions on the impacted VNFC, if a VNF provides a load balancing function across multiple instances of its VNFCs. This is used to support scenarios such as proactive maintenance with no user impact,
 
 f. VNF Develop Steps
@@ -903,7 +903,4 @@ Note:
    Refer to NCSP’s Network Cloud specification
 
 .. [2]
-   Refer to NCSP’s Network Cloud specification
-
-.. [3]
    Not currently supported in ONAP release 1
