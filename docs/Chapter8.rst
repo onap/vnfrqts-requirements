@@ -1,10 +1,8 @@
 ﻿**8. Appendix**
 ===============
 
-a. Data Record Formats
-======================
-
-**Appendix A – Chef JSON Key Value Description**
+a. – Chef JSON Key Value Description
+=================================================
 
 The following provides the key value pairs that must be contained in the
 JSON file supporting Chef action.
@@ -143,7 +141,8 @@ Table A2. JSON Dictionary to Post in Callback
 +-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------+-------------------------------------------------------------+
 
 
-**Appendix B – Ansible JSON Key Value Description**
+b. – Ansible JSON Key Value Description
+===================================================
 
 The following provides the key value pairs that must be contained in the
 JSON file supporting Ansible action.
@@ -198,7 +197,8 @@ b. Execute the playbook named ‘Ansible\_configure.yml’ on nodes with
 c. If execution time of the playbook exceeds 60 secs (across all hosts),
    it will be terminated.
 
-**Appendix C – VNF License Information Guidelines**
+c. – VNF License Information Guidelines
+===================================================
 
 This Appendix describes the metadata to be supplied for VNF licenses.
 
@@ -549,7 +549,8 @@ Table C8. Required Fields for Amount
 +------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+-------------+
 
 
-**Appendix D – Ansible Server Specification**
+d. – Ansible Server Specification
+=============================================
 
 This section outlines the specifications for an ONAP compliant Ansible
 Server that can optionally be provided by the VNF Vendor. The Ansible
@@ -755,8 +756,8 @@ Some illustrative examples are shown below:
    c. Playbook terminated: {"Duration": "61 sec", “StatusCode”: 500,
       “StatusMessage”:”TERMINATED” }
 
-b. Requirement List
-===================
+e. – Requirement List
+==================================
 
 R-11200: The VNF MUST keep the scope of a Cinder volume module, when it exists, to be 1:1 with the VNF Base Module or Incremental Module.
 
