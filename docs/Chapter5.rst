@@ -5098,32 +5098,30 @@ even in the short-term as of the long-term direction.
 c. VNFM Driver Develop Steps
 ==============================
 
-Aid to help the VNF vendor to fasten the integration with the NFVO via
-Special VNFM, the ONAP provides the documents. In this charter, the
+Aid to help the VNF vendors to fasten the integration with VF-C via
+special VNFM, ONAP provides the documents. In this chapter, the
 develop steps for VNF vendors will be introduced.
 
 First, using the VNF SDK tools to design the VNF with TOSCA model and
 output the VNF TOSCA package. The VNF package can be validated, and
 tested.
 
-Second, the VNF vendor should provide SVNFM Driver in the ONAP, which
-is a micro service and in duty of translation interface from NFVO to
-SVNFM. The interface of NFVO is aligned to the ETSI IFA interfaces and
-can be gotten in the charter 5.5. The interface of SVNFM is provided by
-the VNF vendor self.
+Second, the VNF vendor should provide special VNFM driver in ONAP, which
+is a micro service and in duty of translation interface from VF-C to
+special VNFM. The interfaces of special VNFM are provided by
+the VNF vendors themselves.
 
-d. Create SVNFM Adaptor Mircoservice
-=======================================
+d. Create Special VNFM Adaptor Mircoservice
+============================================
 
-Some vnfs are managed by special VNFM, before add SVNFM to ONAP, a
-SVNFM adaptor must be added to ONAP to adapter the interface of NFVO
-and SVNFM.
+Some vnfs are managed by special VNFM. Before adding special VNFM to ONAP, a
+special VNFM adaptor must be added to ONAP implementing the interface of the special VNFM.
 
-A SVNFM adaptor is a micro service with unique name and an appointed
-port, when started up, it must be auto registered to MSB(Micro server
-bus),following describes an example rest of register to MSB:
+A special VNFM adaptor is a micro service with unique name and an appointed
+port, when started up, it must be automatically registered to MSB(Micro server
+bus),following describes an example RESTful of registering to MSB:
 
-POST /openoapi/microservices/v1/services
+POST /api/microservices/v1/services
 
     {
 
@@ -5131,7 +5129,7 @@ POST /openoapi/microservices/v1/services
 
     "version": "v1",
 
-    "url": "/openoapi/catalog/v1",
+    "url": "/api/catalog/v1",
 
     "protocol": "REST",
 
