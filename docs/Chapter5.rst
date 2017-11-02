@@ -1,4 +1,5 @@
 ﻿:tocdepth: 2
+
 **5. VNF Modeling Requirements**
 =====================================
 
@@ -5095,58 +5096,47 @@ to the Heat template.
 *Note:* It is important to follow this convention to the extent possible
 even in the short-term as of the long-term direction.
 
-c. VNFM Driver Develop Steps
-==============================
+c. VNFM Driver Development Steps
+================================
 
-Aid to help the VNF vendors to fasten the integration with VF-C via
-special VNFM, ONAP provides the documents. In this chapter, the
-develop steps for VNF vendors will be introduced.
+Refer to the ONAP documentation for VNF vendor instructions on integrating 
+special VNFM adaptors with VF-C.  The VNF driver development steps are
+highlighted below. 
 
-First, using the VNF SDK tools to design the VNF with TOSCA model and
-output the VNF TOSCA package. The VNF package can be validated, and
-tested.
+1. Use the VNF SDK tools to design the VNF with TOSCA models to output
+the VNF TOSCA package.  Using the VNF SDK tools, the VNF package can be 
+validated and tested.
 
-Second, the VNF vendor should provide special VNFM driver in ONAP, which
-is a micro service and in duty of translation interface from VF-C to
-special VNFM. The interfaces of special VNFM are provided by
+2. The VNF vendor can provide a special VNFM driver in ONAP, which
+is a microservice providing a translation interface from VF-C to
+the special VNFM. The interface definitions of special VNFM adaptors are provided by
 the VNF vendors themselves.
 
-d. Create Special VNFM Adaptor Mircoservice
-============================================
+d. Creating Special VNFM Adaptor Microservices
+==============================================
 
-Some vnfs are managed by special VNFM. Before adding special VNFM to ONAP, a
-special VNFM adaptor must be added to ONAP implementing the interface of the special VNFM.
+VNFs can be managed by special VNFMs. To add a special VNFM to ONAP, a
+special VNFM adaptor is added to ONAP implementing the interface of the special VNFM.
 
-A special VNFM adaptor is a micro service with unique name and an appointed
-port, when started up, it must be automatically registered to MSB(Micro server
-bus),following describes an example RESTful of registering to MSB:
+A special VNFM adaptor is a microservice with a unique name and an appointed
+port. When started up, the special VNFM adaptor microservice is automatically registered to the 
+Microservices Bus (MSB). The following RESTful example describes the scenario of 
+registering a special VNFM adaptor to MSB:
 
-POST /api/microservices/v1/services
+.. code-block:: java
 
+    POST /api/microservices/v1/services
     {
-
-    "serviceName": "catalog",
-
-    "version": "v1",
-
-    "url": "/api/catalog/v1",
-
-    "protocol": "REST",
-
-    "visualRange": "1",
-
-    "nodes": [
-
-    {
-
-    "ip": "10.74.56.36",
-
-    "port": "8988",
-
-    "ttl": 0
-
-    }
-
-    ]
-
+        "serviceName": "catalog",
+        "version": "v1",
+        "url": "/api/catalog/v1",
+        "protocol": "REST",
+        "visualRange": "1",
+        "nodes": [
+        {
+            "ip": "10.74.56.36",
+            "port": "8988",
+            "ttl": 0
+        }
+        ]
     }
