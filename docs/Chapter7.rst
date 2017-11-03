@@ -99,17 +99,17 @@ and GS NFV IFA011 V0.3.0 (2015-10) - Network Functions Virtualization
 * R-48596 The VNF Package **MUST** include documentation describing the characteristics for the VNF reliability and high availability.
 * R-74763 The VNF Vendor **MUST** provide an artifact per VNF that contains all of the VNF Event Records supported. The artifact should include reference to the specific release of the VNF Event Stream Common Event Data Model document it is based on. (e.g., `VES Event Listener <https://github.com/att/evel-test-collector/tree/master/docs/att_interface_definition>`__)
 
-**Compute, Network, abd Storage Requirements**
+**Compute, Network, and Storage Requirements**
 
 * R-35851 The VNF Package **MUST** include VNF topology that describes basic network and application connectivity internal and external to the VNF including Link type, KPIs, Bandwidth, latency, jitter, QoS (if applicable) for each interface.
 * R-97102 The VNF Package **MUST** include VM requirements via a Heat template that provides the necessary data for:
 
-- VM specifications for all VNF components - for hypervisor, CPU, memory, storage.
-  - Network connections, interface connections, internal and external to VNF.
-  - High availability redundancy model.
-  - Scaling/growth VM specifications.
+ - VM specifications for all VNF components - for hypervisor, CPU, memory, storage.
+ - Network connections, interface connections, internal and external to VNF.
+ - High availability redundancy model.
+ - Scaling/growth VM specifications.
 
-  Note: Must comply with the *Heat requirements in 5.b*.
+ Note: Must comply with the *Heat requirements in 5.b*.
 
 * R-26881 The VNF Vendor **MUST** provide the binaries and images needed to instantiate the VNF (VNF and VNFC images).
 * R-96634 The VNF Vendor **MUST** describe scaling capabilities to manage scaling characteristics of the VNF.
