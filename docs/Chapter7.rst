@@ -69,8 +69,6 @@ and GS NFV IFA011 V0.3.0 (2015-10) - Network Functions Virtualization
  * R-75608 The VNF Vendor **MUST** provide playbooks to be loaded on the appropriate Ansible Server.
  * R-16777 The VNF Vendor **MUST** provide a JSON file for each supported action for the VNF.  The JSON file must contain key value pairs with all relevant values populated with sample data that illustrates its usage. The fields and their description are defined in Appendix B.
 
-  Note: Ansible support in ONAP is not currently available and planned for 4Q 2017.
-
 * R-46567 The VNF Package **MUST** include configuration scripts for boot sequence and configuration.
 * R-16065 The VNF Vendor **MUST** provide configurable parameters (if unable to conform to YANG model) including VNF attributes/parameters and valid values, dynamic attributes and cross parameter dependencies (e.g., customer provisioning data).
 
@@ -254,25 +252,28 @@ NETCONF RFCs.
 VNF REST APIs
 -------------
 
-Healthcheck is a command for which no NETCONF support exists. Therefore,
-this must be supported using a RESTful interface which we have defined.
+Healthcheck is a command for which no NETCONF support exists. Therefore, this must be supported using a RESTful interface (defined in this section) or 
+with a Chef cookbook/Ansible playbook (defined in sections `Chef Standards and Capabilities`_ and `Ansible Standards and Capabilities`_).
 
-The VNF via APP-C must provide a REST formatted GET RPCs to support Healthcheck
-queries via the GET method over HTTP(s).
+HealthCheck Definition: The VNF level HealthCheck is a check over the entire scope of the VNF. 
+The VNF must be 100% healthy, ready to take requests and provide services, with all VNF required 
+capabilities ready to provide services and with all active and standby resources fully ready with 
+no open MINOR, MAJOR or CRITICAL alarms.  NOTE: A switch may need to be turned on, but the VNF 
+should be ready to take service requests or be already processing service requests successfully.
 
-The VNF via VF-C must provide REST APIs to make the configurations of
-associated VNFs.
+The VNF must provide a REST formatted GET RPCs to support Healthcheck queries via the GET method 
+over HTTP(s).
 
 The port number, url, and other authentication information is provided
 by the VNF vendor.
 
 **REST APIs**
 
-* R-31809 The VNF **MUST** support the HealthCheck RPC. The HealthCheck RPC, executes a vendor-defined VNF Healthcheck over the scope of the entire VNF (e.g., if there are multiple VNFCs, then run a health check, as appropriate, for all VNFCs). It returns a 200 OK if the test completes. A JSON object is returned indicating state (healthy, unhealthy), scope identifier, time-stamp and one or more blocks containing info and fault information. If the VNF is unable to run the HealthCheck, return a standard http error code and message.
+* R-31809 The VNF **MUST** support the HealthCheck RPC. The HealthCheck RPC executes a vendor-defined VNF Healthcheck over the scope of the entire VNF (e.g., if there are multiple VNFCs, then run a health check, as appropriate, for all VNFCs). It returns a 200 OK if the test completes. A JSON object is returned indicating state (healthy, unhealthy), scope identifier, time-stamp and one or more blocks containing info and fault information. If the VNF is unable to run the HealthCheck, return a standard http error code and message.
 
 Examples:
 
-.. code-block:: python
+.. code-block:: java
 
  200
  {
@@ -296,16 +297,6 @@ Examples:
    "time": "01-01-1000:0000"
  }
 
-
-**Table 5. VNF REST APIs**
-
-+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+
-| **Principal**   | **Description**                                                                                                                                                                                                                                                                                                                                                                                       | **Type**   | **ID #**   |
-+=================+=======================================================================================================================================================================================================================================================================================================================================================================================================+============+============+
-+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+
-| REST APIs       |  **/configuration** This API executes a vendor-defined VNF configuration action over the scope of the entire VNF(e.g if there are multiple VMs, then run configuration on all VMs according to the input parameters).                                                                                                                                                                                 |  Must      | 12200      |
-|                 |  **/configuration** returns a 201 Created if the configuration succeeds or a 4XX/5XX response if it fails. A JSON object is returned indicating the outcome of the VNF configuration including all the necessary configuration info.                                                                                                                                                                  |            |            |
-+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+
 
 Chef Standards and Capabilities
 -------------------------------
@@ -390,22 +381,16 @@ action request against a Chef managed VNF.
    unique Request Id. An example push job posted by ONAP is listed
    below:
 
+.. code-block:: java
+
    {
-
-   "command": "chef-client",
-
-   "run\_timeout": 300,
-
-   "nodes”: [“node1.vnf\_a.onap.com”, “node2.vnf\_a.onap.com”],
-
-   "env": {
-
-   “RequestId”:”8279-abcd-aksdj-19231”,
-
-   “CallbackUrl”:”<callback>”
-
-   },
-
+     "command": "chef-client",
+     "run\_timeout": 300,
+     "nodes”: [“node1.vnf\_a.onap.com”, “node2.vnf\_a.onap.com”],
+       "env": {
+                “RequestId”:”8279-abcd-aksdj-19231”,
+                “CallbackUrl”:”<callback>”
+              },
    }
 
 5. If CallbackCapable field in the template is not present or set to
@@ -423,45 +408,102 @@ Ansible Standards and Capabilities
 ONAP will support configuration of VNFs via Ansible subject to the
 requirements and guidelines defined in this section.
 
-Ansible allows agentless management of VMs via execution of ‘playbooks’
-over ssh. The ‘playbooks’ are a structured set of tasks which contain
-all the necessary data and execution capabilities to take the necessary
-action on one or more target VMs of the VNF. ONAP will utilize the
-framework of an Ansible Server that will host and invoke playbooks to
-manage VNFs that support Ansible.
+Ansible allows agentless management of VNFs/VMs/VNFCs via execution of ‘playbooks’ 
+over ssh. The ‘playbooks’ are a structured set of tasks which contain all the necessary 
+data and execution capabilities to take the necessary action on one or more target VMs 
+(and/or VNFCs) of the VNF. ONAP will utilize the framework of an Ansible Server that 
+will host and run playbooks to manage VNFs that support Ansible.
 
 **VNF Configuration via Ansible Requirements**
 
 **Ansible Client Requirements**
 
 * R-32217 The VNF **MUST** have routable FQDNs that are reachable via the Ansible Server for the endpoints (VMs) of a VNF on which playbooks will be executed. ONAP will initiate requests to the Ansible Server for invocation of playbooks against these end points [3]_.
-* R-98929 The VNF **MAY** have a single endpoint.
 * R-54373 The VNF **MUST** have Python >= 2.7 on the endpoint VM(s) of a VNF on which an Ansible playbook will be executed.
-* R-35401 The VNF **MUST** must support SSH and allow SSH access to the Ansible server for the endpoint VM(s) and comply with the  Network Cloud Service Provider guidelines for authentication and access.
+* R-35401 The VNF **MUST** support SSH and allow SSH access to the Ansible server for the endpoint VM(s) and comply with the  Network Cloud Service Provider guidelines for authentication and access.
+* R-NNNNN The VNF **SHOULD** load the SSH key onto VNF VM(s) as part of instantiation. This will allow the Ansible Server to authenticate to perform post-instantiation configuration without manual intervention and without requiring specific VNF login IDs and passwords.
+
+ CAUTION: For VNFs configured using Ansible, to eliminate the need for manual steps, post-instantiation and pre-configuration, to upload of SSH keys, SSH keys loaded during (heat) instantiation shall be preserved and not removed by (heat) embedded scripts. 
+
+* R-NNNNN The VNF **MUST** include as part of post-instantiation configuration done by Ansible Playbooks the removal/update of SSH keys loaded through instantiation to support Ansible. This may include download and install of new SSH keys.
+* R-NNNNN The VNF **MUST** update the Ansible Server and other entities storing and using the SSH key for authentication when the SSH key used by Ansible is regenerated/updated.
 
 **Ansible Playbook Requirements**
 
 An Ansible playbook is a collection of tasks that is executed on the Ansible server (local host) and/or the target VM (s) in order to complete the desired action.
 
-* R-40293 The VNF **MUST** make available (or load on VNF Ansible Server) playbooks that conform to the ONAP requirement.
-* R-49396 The VNF **MUST** support each VNF action by invocation of **one** playbook [4]_. The playbook will be responsible for executing all necessary tasks (as well as calling other playbooks) to complete the request.
+* R-40293 The VNF **MUST** make available playbooks that conform to the ONAP requirement.
+* R-49396 The VNF **MUST** support each VNF action be supported by ONAP (APPC) by invocation of **one** playbook [4]_. The playbook will be responsible for executing all necessary tasks (as well as calling other playbooks) to complete the request.
 * R-33280 The VNF **MUST NOT** use any instance specific parameters in a playbook.
-* R-48698 The VNF **MUST** utilize   information from key value pairs that will be provided by the Ansible Server as extra-vars during invocation to execute the desired VNF action. If the playbook requires files, they must also be supplied using the methodology detailed in the Ansible Server API.
+* R-48698 The VNF **MUST** utilize information from key value pairs that will be provided by the Ansible Server as extra-vars during invocation to execute the desired VNF action. If the playbook requires files, they must also be supplied using the methodology detailed in the Ansible Server API.
 
 The Ansible Server will determine if a playbook invoked to execute a VNF action finished successfully or not using the “PLAY_RECAP” summary in Ansible log.  The playbook will be considered to successfully finish only if the “PLAY RECAP” section at the end of playbook execution output has no unreachable hosts and no failed tasks. Otherwise, the playbook will be considered to have failed.
 
 * R-43253 The VNF **MUST** use playbooks designed to allow Ansible Server to infer failure or success based on the “PLAY_RECAP” capability.
-* R-50252 The VNF **MUST** write to a specific set of text files that will be retrieved and made available by the Ansible Server If, as part of a VNF action (e.g., audit), a playbook is required to return any VNF information.
+* R-50252 The VNF **MUST** write to a specific set of text files that will be retrieved and made available by the Ansible Server if, as part of a VNF action (e.g., audit), a playbook is required to return any VNF information. The text files must be written in the same directory as the one from which the playbook is being executed. A text file must be created for each host the playbook run targets/affects, with the name ‘<hostname>_results.txt’ into which any desired output from each respective VM/VNF must be written.
 * R-51442 The VNF **SHOULD** use playbooks that are designed to automatically ‘rollback’ to the original state in case of any errors for actions that change state of the VNF (e.g., configure).
+
+ NOTE: In case rollback at the playbook level is not supported or possible, vendor shall provide alternative locking mechanism (e.g., for a small VNF the rollback mechanism may rely on workflow to terminate and re-instantiate VNF VMs and then re-run playbook(s)). Backing up updated files also recommended to support rollback when soft rollback is feasible.
+
+* R-NNNNN The VNF **SHOULD NOT** use playbooks that make requests to Cloud resources e.g. Openstack (nova, neutron, glance, heat, etc.); therefore, there is no use for Cloud specific variables like Openstack UUIDs in Ansible Playbooks.
+
+ Rationale: Flows that require interactions with Cloud services e.g. Openstack shall rely on workflows run by an Orchestrator or other capability (such as a control loop or Operations GUI) outside Ansible Server which can be executed by a Controller such as APPC.  There are policies, as part of Control Loop models, that send remediation action requests to APPC; these are triggered as a response to an event or correlated events published to Event Bus.
+
+* R-NNNNN The VNF **SHOULD** use the Ansible backup feature to save a copy of configuration files before implementing changes to support operations such as backing out of software upgrades, configuration changes or other work as this will help backing out of configuration changes when needed.
+* R-NNNNN The VNF **MUST** return control from Ansible Playbooks only after tasks are fully complete, signaling that the playbook completed all tasks. When starting services, return control only after all services are up. This is critical for workflows where the next steps are dependent on prior tasks being fully completed.
+
+ Detailed examples:
+ 
+ StopApplication Playbook – StopApplication Playbook shall return control and a completion status only after VNF application is fully stopped, all processes/services stopped.
+ StartApplication Playbook – StartApplication Playbook shall return control and a completion status only after all VNF application services are fully up, all processes/services started and ready to provide services. NOTE: Start Playbook should not be declared complete/done after starting one or several processes that start the other processes.
+ 
+ HealthCheck Playbook:
+ 
+ SUCCESS – HealthCheck success shall be returned (return code 0) by a Playbook or Cookbook only when VNF is 100% healthy, ready to take requests and provide services, with all VNF required capabilities ready to provide services and with all active and standby resources fully ready with no open MINOR, MAJOR or CRITICAL alarms.
+ 
+ NOTE: In some cases, a switch may need to be turned on, but a VNF reported as healthy, should be ready to take service requests or be already processing service requests successfully.
+ 
+ A successful execution of a health-check playbook shall also create one file per VNF VM, named using IP address or VM name followed by “_results.txt (<hostname>_results.txt) to indicate health-check was executed and completed successfully, example: 1xx.2yy.zzz.105_results.txt, with the following contents:
+ 
+ "status”:"healthy”
+
+ Example:
+ 
+ $ cat 1xx.2yy.zzz.105_results.txt
+
+ "status”:"healthy”
+ 
+ FAILURE – A health check playbook shall return a non-zero return code in case VNF is not 100% healthy because one or more VNF application processes are stopped or not ready to take service requests or because critical or non-critical resources are not ready or because there are open MINOR, MAJOR or CRITICAL traps/alarms or because there are issues with the VNF that need attention even if they do not impact services provided by the VNF.
+ 
+ A failed health-check playbook shall also create one file per VNF VM, named using Playbook Name plus IP address or VM name, followed by “_results.txt to indicate health-check was executed and found issues in the health of the VNF. This is to differentiate from failure to run health-check playbook or tasks to verify the health of the VNF, example: 1xx.2yy.zzz.105_results.txt, with the following contents:
+ 
+ "status”:"unhealthy”
+ 
+ Example:
+  
+ $ cat 1xx.2yy.zzz.105_results.txt
+ 
+ "status”:"unhealthy”
+ 
+ See `VNF REST APIs`_ for additional details on HealthCheck.
+
+ONAP Controller / Ansible API Usage
+-----------------------------------
+
+This section outlines the workflow that ONAP Controller invokes when it receives an action request against an Ansible managed VNF.
+
+ #. When ONAP Controller receives a request for an action for an AnsibleManaged VNF, it retrieves the corresponding template (based on **action** and **VNF**) from its database and sets necessary values (such as an Id, NodeList, and EnvParameters) from either information in the request or data obtained from other sources.   This is referred to as the payload that is sent as a JSON object to the Ansible server.
+ #. The ONAP Controller sends a request to the Ansible server to execute the action. 
+ #. The ONAP Controller polls the Ansible Server for result (success or failure).  The ONAP Controllers has a timeout value which is contained in the template.   If the result is not available when the timeout is reached, the ONAP Controller stops polling and returns a timeout error to the requester.   The Ansible Server continues to process the request.
+
 
 ONAP Controller APIs and Behavior
 ---------------------------------
 
-ONAP Controllers support the following operations which act directly
-upon the VNF. Most of these utilize the NETCONF interface. There are
-additional commands in use but these either act internally on Controller
-itself or depend upon network cloud components for implementation. Those
-actions do not put any special requirement on the VNF provider.
+ONAP Controllers such as APPC expose a northbound API to clients which offer a set of commands. The following commands are expected to be supported 
+on all VNF’s if applicable, either directly (via the Netconf interface) or indirectly (via a Chef or Ansible server). There are additional commands 
+offered to northbound clients that are not listed here, as these commands either act internally on the Controller itself or depend upon network cloud 
+components for implementation (thus, these actions do not put any special requirement on the VNF provider).
 
 The following table summarizes how the VNF must act in response to
 commands from ONAP.
@@ -487,17 +529,17 @@ Table 8. ONAP Controller APIs and NETCONF Commands
 |                     |                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                               |
 | ConfigModify        |                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                               |
 +---------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Health              | Executes a VNF health check and returns the result. A health check is VNF-specific.                                                                                                                                                                                              | The ONAP health check interface is defined over REST and requires the target VNF to expose a standardized HTTP(S) interface for that purpose. See Section 8.c VNF REST APIs.                                                  |
+| Health              | Executes a VNF health check and returns the result. A health check is VNF-specific.                                                                                                                                                                                              | This command has no existing NETCONF RPC action.  It must be supported either by REST (see `VNF REST APIs`_) or using Ansible or Chef.                                                                                        |
 |                     |                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                               |
 | Check               |                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                               |
 +---------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| StartApplication,   | ONAP requests application to be started or stopped on the VNF or VNFC. These actions do not need to be supported if (1) the application starts automatically after Configure or if the VM’s are started and (2) the application gracefully shuts down if the VM’s are stopped.   | These commands have no specific NETCONF RPC action.                                                                                                                                                                           |
+| StartApplication,   | ONAP requests application to be started or stopped on the VNF. These actions do not need to be supported if (1) the application starts automatically after Configure or if the VM’s are started and (2) the application gracefully shuts down if the VM’s are stopped.           | These commands have no specific NETCONF RPC action.                                                                                                                                                                           |
 |                     |                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                               |
-| StopApplication     |                                                                                                                                                                                                                                                                                  | They can be supported using Ansible or Chef (see Table 9 below).                                                                                                                                                              |
+| StopApplication     |                                                                                                                                                                                                                                                                                  | If applicable, these commands must be supported using Ansible or Chef (see Table 9 below).                                                                                                                                    |
 +---------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| SoftwareUpload,     | Upgrades the target VNF to a new version without interrupting VNF operation.                                                                                                                                                                                                     | These commands have no specific NETCONF RPC action.                                                                                                                                                                           |
+| ConfigBackup,       | ONAP requests the VNF configuration parameters to be backed up or restored (replacing existing configuration parameters on the VNF).                                                                                                                                             | These commands have no specific NETCONF RPC action.                                                                                                                                                                           |
 |                     |                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                               |
-| LiveUpgrade         |                                                                                                                                                                                                                                                                                  | They can be supported using Ansible or Chef (see Table 9 below).                                                                                                                                                              |
+| ConfigRestore       |                                                                                                                                                                                                                                                                                  | They can be supported using Ansible or Chef (see Table 9 below).                                                                                                                                                              |
 +---------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Table 9 lists the required Chef and Ansible support for commands from
@@ -505,198 +547,105 @@ ONAP.
 
 Table 9. ONAP Controller APIs and Chef/Ansible Support
 
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| **Action**          | **Chef**                                                                                                                                                                                                                                                                                         | **Ansible**                                                                                                                                                                                                                                             |
-+=====================+==================================================================================================================================================================================================================================================================================================+=========================================================================================================================================================================================================================================================+
-| Action              | Not needed. ActionStatus is managed internally by the ONAP controller.                                                                                                                                                                                                                           | Not needed. ActionStatus is managed internally by the ONAP controller.                                                                                                                                                                                  |
-|                     |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                         |
-| Status              |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                         |
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Audit, Sync         | VNF Vendor must provide any necessary roles, cookbooks, recipes to retrieve the running configuration from a VNF and place it in the respective Node Objects ‘PushJobOutput’ attribute of all nodes in NodeList when triggered by a chef-client run.                                             | VNF Vendor must provide an Ansible playbook to retrieve the running configuration from a VNF and place the output on the Ansible server in a manner aligned with playbook requirements listed in this document.                                         |
-|                     |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                         |
-|                     | The JSON file for this VNF action is required to set “PushJobFlag” to “True” and “GetOutputFlag” to “True”. The “Node” JSON dictionary must have the run list populated with the necessary sequence of roles, cookbooks, recipes.                                                                | The PlaybookName must be provided in the JSON file.                                                                                                                                                                                                     |
-|                     |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                         |
-|                     | The Environment and Node values should contain all appropriate configuration attributes.                                                                                                                                                                                                         | NodeList must list FQDNs of an example VNF on which to execute playbook.                                                                                                                                                                                |
-|                     |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                         |
-|                     | NodeList must list sample FQDNs that are required to conduct a chef-client run for this VNF Action.                                                                                                                                                                                              |                                                                                                                                                                                                                                                         |
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Lock,               | Not needed. VNF locking and unlocking is managed internally by the ONAP controller.                                                                                                                                                                                                              | Not needed. VNF locking and unlocking is managed internally by the ONAP controller.                                                                                                                                                                     |
-|                     |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                         |
-| Unlock,             |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                         |
-|                     |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                         |
-| CheckLock           |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                         |
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Configure,          | VNF Vendor must provide any necessary roles, cookbooks, recipes to apply configuration attributes to the VNF when triggered by a chef-client run. All configurable attributes must be obtained from the Environment and Node objects on the Chef Server.                                         | VNF Vendor must provide an Ansible playbook that can configure the VNF with parameters supplied by the Ansible Server.                                                                                                                                  |
-|                     |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                         |
-| ConfigModify        | The JSON file for this VNF action should include all configurable attributes in the Environment and/or Node JSON dictionary.                                                                                                                                                                     | The PlaybookName must be provided in the JSON file.                                                                                                                                                                                                     |
-|                     |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                         |
-|                     | The “PushJobFlag” must be set to “True”.                                                                                                                                                                                                                                                         | The “EnvParameters” and/or “FileParameters” field values should be provided and contain all configurable parameters for the VNF.                                                                                                                        |
-|                     |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                         |
-|                     | The “Node” JSON dictionary must have the run list populated with necessary sequence of roles, cookbooks, recipes. This action is not expected to return an output.                                                                                                                               | NodeList must list FQDNs of an example VNF on which to execute playbook.                                                                                                                                                                                |
-|                     |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                         |
-|                     | “GetOutputFlag” must be set to “False”.                                                                                                                                                                                                                                                          |                                                                                                                                                                                                                                                         |
-|                     |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                         |
-|                     | NodeList must list sample FQDNs that are required to conduct a chef-client run for this VNF Action.                                                                                                                                                                                              |                                                                                                                                                                                                                                                         |
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Health              | The ONAP health check interface is defined over REST and requires the target VNF to expose a standardized HTTP(S) interface for that purpose. See Section 8.c VNF REST APIs.                                                                                                                     | The ONAP health check interface is defined over REST and requires the target VNF to expose a standardized HTTP(S) interface for that purpose. See Section 8.c VNF REST APIs.                                                                            |
-|                     |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                         |
-| Check               |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                         |
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| StartApplication,   | VNF Vendor must provide roles, cookbooks, recipes to start an application on the VNF when triggered by a chef-client run. If application does not start, the run must fail or raise an exception. If application is already started, or starts successfully, the run must finish successfully.   | VNF Vendor must provide an Ansible playbook to start the application on the VNF. If application does not start, the playbook must indicate failure. If application is already started, or starts successfully, the playbook must finish successfully.   |
-|                     |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                         |
-| StopApplication     | For StopApplication, the application must be stopped gracefully (no loss of traffic).                                                                                                                                                                                                            | For StopApplication, the application must be stopped gracefully (no loss of traffic).                                                                                                                                                                   |
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| SoftwareUpload,     | VNF Vendor must provide any necessary roles, cookbooks, recipes to apply a software upgrade to the VNF when triggered by a chef-client run.                                                                                                                                                      | VNF Vendor must provide an Ansible playbook that can apply a software upgrade to the VNF when triggered by the Ansible server                                                                                                                           |
-|                     |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                         |
-| LiveUpgrade         |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                         |
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++---------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **Action**          | **Chef**                                                                                                                                                                                                                                                                                         | **Ansible**                                                                                                                                                                                                                                                                                 |
++=====================+==================================================================================================================================================================================================================================================================================================+=============================================================================================================================================================================================================================================================================================+
+| Action              | Not needed. ActionStatus is managed internally by the ONAP controller.                                                                                                                                                                                                                           | Not needed. ActionStatus is managed internally by the ONAP controller.                                                                                                                                                                                                                      |
+|                     |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                                                             |
+| Status              |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                                                             |
++---------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Audit, Sync         | VNF Vendor must provide any necessary roles, cookbooks, recipes to retrieve the running configuration from a VNF and place it in the respective Node Objects ‘PushJobOutput’ attribute of all nodes in NodeList when triggered by a chef-client run.                                             | VNF Vendor must provide an Ansible playbook to retrieve the running configuration from a VNF and place the output on the Ansible server in a manner aligned with playbook requirements listed in this document.                                                                             |
+|                     |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                                                             |
+|                     | The JSON file for this VNF action is required to set “PushJobFlag” to “True” and “GetOutputFlag” to “True”. The “Node” JSON dictionary must have the run list populated with the necessary sequence of roles, cookbooks, recipes.                                                                | The PlaybookName must be provided in the JSON file.                                                                                                                                                                                                                                         |
+|                     |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                                                             |
+|                     | The Environment and Node values should contain all appropriate configuration attributes.                                                                                                                                                                                                         | NodeList must list FQDNs of an example VNF on which to execute playbook.                                                                                                                                                                                                                    |
+|                     |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                                                             |
+|                     | NodeList must list sample FQDNs that are required to conduct a chef-client run for this VNF Action.                                                                                                                                                                                              |                                                                                                                                                                                                                                                                                             |
++---------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Lock,               | Not needed. VNF locking and unlocking is managed internally by the ONAP controller.                                                                                                                                                                                                              | Not needed. VNF locking and unlocking is managed internally by the ONAP controller.                                                                                                                                                                                                         |
+|                     |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                                                             |
+| Unlock,             |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                                                             |
+|                     |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                                                             |
+| CheckLock           |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                                                             |
++---------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Configure,          | VNF Vendor must provide any necessary roles, cookbooks, recipes to apply configuration attributes to the VNF when triggered by a chef-client run. All configurable attributes must be obtained from the Environment and Node objects on the Chef Server.                                         | VNF Vendor must provide an Ansible playbook that can configure the VNF with parameters supplied by the Ansible Server.                                                                                                                                                                      |
+|                     |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                                                             |
+| ConfigModify        | The JSON file for this VNF action should include all configurable attributes in the Environment and/or Node JSON dictionary.                                                                                                                                                                     | The PlaybookName must be provided in the JSON file.                                                                                                                                                                                                                                         |
+|                     |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                                                             |
+|                     | The “PushJobFlag” must be set to “True”.                                                                                                                                                                                                                                                         | The “EnvParameters” and/or “FileParameters” field values should be provided and contain all configurable parameters for the VNF.                                                                                                                                                            |
+|                     |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                                                             |
+|                     | The “Node” JSON dictionary must have the run list populated with necessary sequence of roles, cookbooks, recipes. This action is not expected to return an output.                                                                                                                               | NodeList must list FQDNs of an example VNF on which to execute playbook.                                                                                                                                                                                                                    |
+|                     |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                                                             |
+|                     | “GetOutputFlag” must be set to “False”.                                                                                                                                                                                                                                                          |                                                                                                                                                                                                                                                                                             |
+|                     |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                                                             |
+|                     | NodeList must list sample FQDNs that are required to conduct a chef-client run for this VNF Action.                                                                                                                                                                                              |                                                                                                                                                                                                                                                                                             |
++---------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Health              | The VNF level HealthCheck run a check over the entire scope of the VNF (for more details, see `VNF REST APIs`_).  It can be supported either via a REST interface or with Chef roles, cookbooks, and recipes.                                                                                    | The VNF level HealthCheck run a check over the entire scope of the VNF (for more details, see `VNF REST APIs`_).  It can be supported either via a REST interface or with an Ansible playbook.                                                                                              |
+|                     |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                                                             |
+| Check               |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                                                             |
++---------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| StartApplication,   | VNF Vendor must provide roles, cookbooks, recipes to start an application on the VNF when triggered by a chef-client run. If application does not start, the run must fail or raise an exception. If application is already started, or starts successfully, the run must finish successfully.   | VNF Vendor must provide an Ansible playbook to start the application on the VNF. If application does not start, the playbook must indicate failure. If application is already started, or starts successfully, the playbook must finish successfully.                                       |
+|                     |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                                                             |
+| StopApplication     | For StopApplication, the application must be stopped gracefully (no loss of traffic).                                                                                                                                                                                                            | For StopApplication, the application must be stopped gracefully (no loss of traffic).                                                                                                                                                                                                       |
++---------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ConfigBackup,       | VNF Vendor must provide roles, cookbooks, recipes to backup or restore the configuration parameters on the VNF when triggered by an ECOMP request.                                                                                                                                               | VNF Vendor must provide an Ansible playbook to backup or restore the configuration parameters on the VNF when triggered by an ECOMP request.                                                                                                                                                |
+|                     |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                                                             |
+|                     | When the ConfigBackup command is executed, the current VNF configuration parameters are copied over to the Ansible or Chef server (if there is an existing set of backed up parameters, they are overwritten). When the ConfigRestore command is executed, the VNF configuration parameters      | When the ConfigBackup command is executed, the current VNF configuration parameters are copied over to the Ansible or Chef server (if there is an existing set of backed up parameters, they are overwritten). When the ConfigRestore command is executed, the VNF configuration parameters |
+| ConfigRestore       | which are backed up on the Ansible or Chef server are applied to the VNF (replacing existing parameters). It can be assumed that the VNF is not in service when a ConfigRestore command is executed.                                                                                             | which are backed up on the Ansible or Chef server are applied to the VNF (replacing existing parameters). It can be assumed that the VNF is not in service when a ConfigRestore command is executed.                                                                                        |
+|                     |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                                                             |
+|                     | If either command fails, the run must fail or raise an exception.                                                                                                                                                                                                                                | If either command fails, the run must fail or raise an exception.                                                                                                                                                                                                                           |
++---------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 For information purposes, the following ONAP controller functions are
 planned in the future:
 
 Table 10. Planned ONAP Controller Functions
 
-+------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ConfigSave,      | ConfigSave stores the VNF running configuration to a url or file using a specified name. ConfigRestore replaces the VNF running configuration with the configuration previously stored with a url or file with the specified name.                                                                               |
-|                  |                                                                                                                                                                                                                                                                                                                  |
-| ConfigRestore    |                                                                                                                                                                                                                                                                                                                  |
-+==================+==================================================================================================================================================================================================================================================================================================================+
-| Reconfigure      | If the audit fails, Reconfigure may be used to be replace the VNF running configuration using a previously uploaded configuration in the ONAP controller.                                                                                                                                                        |
-+------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ConfigStartup    | ConfigStartup is used to store a running configuration to be used when a VNF is rebooted.                                                                                                                                                                                                                        |
-+------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ConfigRecovery   | ConfigRecovery is used to replace the running configuration with a recovery configuration. This recovery configuration is stored in the ONAP Controller and is the configuration uploaded after instantiation. It will only be used if there is no other option to restore the VNF to a working configuration.   |
-+------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| StatusQuery      | Executes a VNF status query and returns the result. A status query is VNF-specific.                                                                                                                                                                                                                              |
-+------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-
-
++------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Action           | Description                                                                                                                                                                     |
++==================+=================================================================================================================================================================================+
+| UpgradeSoftware  | Upgrades the target VNF to a new software version.                                                                                                                              |
++------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| QuiesceTraffic,  | Quiesces traffic (stops traffic gracefully) and resume traffic on the VNF.   These commands do not stop the application processes (which is done using StopApplication).        |
+| ResumeTraffic    |                                                                                                                                                                                 |
++------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+ 
+ 
 d. Monitoring & Management
 ===========================
 
-This section addresses data collection and event processing
-functionality that is directly dependent on the interfaces provided by
-the VNFs’ APIs. These can be in the form of asynchronous interfaces for
-event, fault notifications, and autonomous data streams. They can also
-be synchronous interfaces for on-demand requests to retrieve various
-performance, usage, and other event information.
+This section addresses data collection and event processing functionality that is directly 
+dependent on the interfaces provided by the VNFs’ APIs. These can be in the form of asynchronous 
+interfaces for event, fault notifications, and autonomous data streams. They can also be 
+synchronous interfaces for on-demand requests to retrieve various performance, usage, 
+and other event information.
 
-The target direction for VNF interfaces is to employ APIs that are
-implemented utilizing standardized messaging and modeling protocols over
-standardized transports. Migrating to a virtualized environment presents
-a tremendous opportunity to eliminate the need for proprietary
-interfaces for vendor equipment while removing the traditional
-boundaries between Network Management Systems and Element Management
-Systems. Additionally, VNFs provide the ability to instrument the
-networking applications by creating event records to test and monitor
-end-to-end data flow through the network, similar to what physical or
-virtual probes provide without the need to insert probes at various
-points in the network. The VNF vendors must be able to provide the
-aforementioned set of required data directly to the ONAP collection
-layer using standardized interfaces.
-
-Additional details can be found in the `Data Collection, Analytics, and Events (DCAE) <http://onap.readthedocs.io/en/latest/submodules/dcaegen2.git/docs/index.html>`_ project documentation.
-
-Transports and Protocols Supporting Resource Interfaces
--------------------------------------------------------
-
-Delivery of data from VNFs to ONAP must use the same common transport
-mechanisms and protocols for all VNFs. Transport mechanisms and
-protocols have been selected to enable both high volume and moderate
-volume datasets, as well as asynchronous and synchronous communications
-over secure connections. The specified encoding provides
-self-documenting content, so data fields can be changed as needs evolve,
-while minimizing changes to data delivery.
-
-The term ‘Event Record’ is used throughout this document to represent
-various forms instrumentation/telemetry made available by the VNF
-including, faults, status events and various other types of VNF
-measurements and logs. Headers received by themselves must be used as
-heartbeat indicators. The common structure and delivery protocols for
-other types of data will be given in future versions of this document as
-we get more insight into data volumes and required processing.
-
-In the following guidelines, we provide options for encoding,
-serialization and data delivery. Agreements between Service Providers
-and VNF vendors shall determine which encoding, serialization and
-delivery method to use for particular data sets. The selected methods
-must be agreed to prior to the on-boarding of the VNF into ONAP design
-studio.
-
-Monitoring & Management Requirements
-
-**VNF telemetry via standardized interface**
-
-* R-51910 The VNF **MUST** provide all telemetry (e.g., fault event records, syslog records, performance records etc.) to ONAP using the model, format and mechanisms described in this section.
-
-**Encoding and Serialization**
-
-* R-19624 The VNF **MUST** encode and serialize content delivered to ONAP using JSON (option 1). High-volume data is to be encoded and serialized using Avro, where Avro data format are described using JSON (option 2) [5]_.
-
- -  JSON plain text format is preferred for moderate volume data sets (option 1), as JSON has the advantage of having well-understood simple processing and being human-readable without additional decoding. Examples of moderate volume data sets include the fault alarms and performance alerts, heartbeat messages, measurements used for VNF scaling and syslogs.
- -  Binary format using Avro is preferred for high volume data sets (option 2) such as mobility flow measurements and other high-volume streaming events (such as mobility signaling events or SIP signaling) or bulk data, as this will significantly reduce the volume of data to be transmitted. As of the date of this document, all events are reported using plain text JSON and REST.
- -  Avro content is self-documented, using a JSON schema. The JSON schema is delivered along with the data content (http://avro.apache.org/docs/current/ ). This means the presence and position of data fields can be recognized automatically, as well as the data format, definition and other attributes. Avro content can be serialized as JSON tagged text or as binary. In binary format, the JSON schema is included as a separate data block, so the content is not tagged, further compressing the volume. For streaming data, Avro will read the schema when the stream is established and apply the schema to the received content.
- -  In the future, we may consider support for other types of encoding & serialization (e.g., gRPC) based on industry demand.
-
-**Reporting Frequency**
-
-* R-98191 The VNF **MUST** vary the frequency that asynchronous data is delivered based on the content and how data may be aggregated or grouped together. For example, alarms and alerts are expected to be delivered as soon as they appear. In contrast, other content, such as performance measurements, KPIs or reported network signaling may have various ways of packaging and delivering content. Some content should be streamed immediately; or content may be monitored over a time interval, then packaged as collection of records and delivered as block; or data may be collected until a package of a certain size has been collected; or content may be summarized statistically over a time interval, or computed as a KPI, with the summary or KPI being delivered.
-
-  -  We expect the reporting frequency to be configurable depending on the virtual network function’s needs for management. For example, Service Provider may choose to vary the frequency of collection between normal and trouble-shooting scenarios.
-  -  Decisions about the frequency of data reporting will affect the size of delivered data sets, recommended delivery method, and how the data will be interpreted by ONAP. However, this should not affect deserialization and decoding of the data, which will be guided by the accompanying JSON schema.
-
-**Addressing and Delivery Protocol**
-
-ONAP destinations can be addressed by URLs for RESTful data PUT. Future data sets may also be addressed by host name and port number for TCP streaming, or by host name and landing zone directory for SFTP transfer of bulk files.
-
-* R-88482 The VNF **SHOULD** use REST using HTTPS delivery of plain text JSON for moderate sized asynchronous data sets, and for high volume data sets when feasible.
-* R-84879 The VNF **MUST** have the capability of maintaining a primary and backup DNS name (URL) for connecting to ONAP collectors, with the ability to switch between addresses based on conditions defined by policy such as time-outs, and buffering to store messages until they can be delivered. At its discretion, the service provider may choose to populate only one collector address for a VNF. In this case, the network will promptly resolve connectivity problems caused by a collector or network failure transparently to the VNF.
-* R-81777 The VNF **MUST** be configured with initial address(es) to use at deployment time. After that the address(es) may be changed through ONAP-defined policies delivered from ONAP to the VNF using PUTs to a RESTful API, in the same way that other controls over data reporting will be controlled by policy.
-* R-08312 The VNF **MAY** use other options which are expected to include
-
- -  REST delivery of binary encoded data sets.
- -  TCP for high volume streaming asynchronous data sets and for other high volume data sets. TCP delivery can be used for either JSON or binary encoded data sets.
- -  SFTP for asynchronous bulk files, such as bulk files that contain large volumes of data collected over a long time interval or data collected across many VNFs. This is not preferred. Preferred is to reorganize the data into more frequent or more focused data sets, and deliver these by REST or TCP as appropriate.
- -  REST for synchronous data, using RESTCONF (e.g., for VNF state polling).
-
-* R-03070 The VNF **MUST**, by ONAP Policy, provide the ONAP addresses as data destinations for each VNF, and may be changed by Policy while the VNF is in operation. We expect the VNF to be capable of redirecting traffic to changed destinations with no loss of data, for example from one REST URL to another, or from one TCP host and port to another.
-
-**Asynchronous and Synchronous Data Delivery**
-
-* R-06924 The VNF **MUST** deliver asynchronous data as data becomes available, or according to the configured frequency.
-* R-73285 The VNF **MUST** must encode the delivered data using JSON or Avro, addressed and delivered as described in the previous paragraphs.
-* R-42140 The VNF **MUST** respond to data requests from ONAP as soon as those requests are received, as a synchronous response.
-* R-34660 The VNF **MUST** use the RESTCONF/NETCONF framework used by the ONAP configuration subsystem for synchronous communication.
-* R-86585 The VNF **MUST** use the YANG configuration models and RESTCONF (https://tools.ietf.org/html/draft-ietf-netconf-restconf-09#page-46).
-* R-11240 The VNF **MUST** respond with content encoded in JSON, as described in the RESTCONF specification. This way the encoding of a synchronous communication will be consistent with Avro.
-* R-70266 The VNF **MUST** respond to an ONAP request to deliver the current data for any of the record types defined in Section 8.d “Data Model for Event Records” by returning the requested record, populated with the current field values. (Currently the defined record types include the common header record, technology independent records such as Fault, Heartbeat, State Change, Syslog, and technology specific records such as Mobile Flow, Signaling and Voice Quality records.  Additional record types will be added in the future as they are standardized and become available.)
-* R-46290 The VNF **MUST** respond to an ONAP request to deliver granular data on device or subsystem status or performance, referencing the YANG configuration model for the VNF by returning the requested data elements.
-* R-43327 The VNF **SHOULD** use “Modeling JSON text with YANG”, https://trac.tools.ietf.org/id/draft-lhotka-netmod-yang-json-00.html, If YANG models need to be translated to and from JSON. YANG configuration and content can be represented via JSON, consistent with Avro, as described in “Encoding and Serialization” section.
-
-**Security**
-
-* R-42366 The VNF **MUST** support secure connections and transports.
-* R-44290 The VNF **MUST** control access to ONAP and to VNFs, and creation of connections, through secure credentials, log-on and exchange mechanisms.
-* R-47597 The VNF **MUST** carry data in motion only over secure connections.
-* R-68165 The VNF **MUST** encrypt any content containing Sensitive Personal Information (SPI) or certain proprietary data, in addition to applying the regular procedures for securing access and delivery.
+The target direction for VNF interfaces is to employ APIs that are implemented 
+utilizing standardized messaging and modeling protocols over standardized transports. 
+Migrating to a virtualized environment presents a tremendous opportunity to eliminate 
+the need for proprietary interfaces for vendor equipment while removing the traditional 
+boundaries between Network Management Systems and Element Management Systems. Additionally, 
+VNFs provide the ability to instrument the networking applications by creating event 
+records to test and monitor end-to-end data flow through the network, similar to what 
+physical or virtual probes provide without the need to insert probes at various points 
+in the network. The VNF vendors must be able to provide the aforementioned set of required 
+data directly to the ONAP collection layer using standardized interfaces.
 
 Data Model for Event Records
 ----------------------------
 
-This section describes the data model for the collection of telemetry
-data from VNFs by Service Providers (SPs) to manage VNF health and
-runtime lifecycle. This data model is referred to as the VNF Event
-Streaming (VES) specifications. While this document is focused on
-specifying some of the records from the ONAP perspective, there may be
-other external bodies using the same framework to specify additional
-records. For example, OPNFV has a VES project [6]_ that is looking to
-specify records for OpenStack’s internal telemetry to manage Application
-(VNFs), physical and virtual infrastructure (compute, storage, network
-devices), and virtual infrastructure managers (cloud controllers, SDN
-controllers). Note that any configurable parameters for these data
-records (e.g., frequency, granularity, policy-based configuration) will
-be managed using the “Configuration” framework described in the prior
-sections of this document.
+This section describes the data model for the collection of telemetry data from VNFs 
+by Service Providers (SPs) to manage VNF health and runtime lifecycle. This data 
+model is referred to as the VNF Event Streaming (VES) specifications. While this 
+document is focused on specifying some of the records from the ONAP perspective, 
+there may be other external bodies using the same framework to specify additional 
+records. For example, OPNFV has a VES project  that is looking to specify records 
+for OpenStack’s internal telemetry to manage Application (VNFs), physical and 
+virtual infrastructure (compute, storage, network devices), and virtual infrastructure 
+managers (cloud controllers, SDN controllers). Note that any configurable parameters 
+for these data records (e.g., frequency, granularity, policy-based configuration) 
+will be managed using the “Configuration” framework described in the prior sections 
+of this document.
 
 The Data Model consists of:
 
@@ -704,26 +653,23 @@ The Data Model consists of:
    Technology Independent and Technology Specific records sections of
    the data model.
 
--  Technology Independent Records: This version of the document
-   specifies the model for Fault, Heartbeat, State Change, Syslog,
-   Threshold Crossing Alerts, and VF Scaling\* (short for
-   measurementForVfScalingFields) records. In the future, these may be
-   extended to support other types of technology independent records.
-   Each of these records allows additional fields (name/ value pairs)
-   for extensibility. The vendors can use these vendor-specific
-   additional fields to provide additional information that may be
-   relevant to the managing systems.
+-  Technology Independent Records: This version of the document specifies 
+   the model for Fault, Heartbeat, State Change, Syslog, Threshold Crossing 
+   Alerts, and VNF Scaling* (short for measurementForVfScalingFields – actual 
+   name used in JSON specification) records. In the future, these may be 
+   extended to support other types of technology independent records. Each 
+   of these records allows additional fields (name/ value pairs) for extensibility. 
+   The vendors can use these vendor-specific additional fields to provide 
+   additional information that may be relevant to the managing systems.
 
--  Technology Specific Records: This version of the document specifies
-   the model for Mobile Flow records, Signaling and Voice Quality
-   records. In the future, these may be extended to support other types
-   of records (e.g., Network Fabric, Security records, etc.). Each of
-   these records allows additional fields (name/value pairs) for
-   extensibility. The VNF vendors can use these VNF-specific additional
-   fields to provide additional information that may be relevant to the
-   managing systems. A placeholder for additional technology specific
-   areas of interest to be defined in the future documents has been
-   depicted.
+-  Technology Specific Records: This version of the document specifies the model 
+   for Mobile Flow records, Signaling and Voice Quality records. In the future, 
+   these may be extended to support other types of records (e.g. Network Fabric, 
+   Security records, etc.). Each of these records allows additional fields 
+   (name/value pairs) for extensibility. The VNF vendors can use these VNF-specific 
+   additional fields to provide additional information that may be relevant to the 
+   managing systems. A placeholder for additional technology specific areas of 
+   interest to be defined in the future documents has been depicted.
 
 |image0|
 
@@ -745,112 +691,104 @@ The data structure for event records consists of:
    -  e.g., Mobile Flow domain, Signaling domain, Voice Quality domain,
       etc.
 
-Note: Heartbeat records would only have the Common Event Header block.
-An optional heartbeat domain is available if required by the heartbeat
-implementation.
-
 Common Event Header
 ~~~~~~~~~~~~~~~~~~~~~
 
-The common header that precedes any of the domain-specific records
-contains information identifying the type of record to follow,
-information about the sender and other identifying characteristics
-related to timestamp, sequence number, etc.
+The common header that precedes any of the domain-specific records contains 
+information identifying the type of record to follow, information about 
+the sender and other identifying characteristics related to timestamp, 
+sequence number, etc. 
 
 Technology Independent Records – Fault Fields
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The Fault Record, describing a condition in the Fault domain, contains
-information about the fault such as the entity under fault, the
+The Fault Record, describing a condition in the Fault domain, contains 
+information about the fault such as the entity under fault, the 
 severity, resulting status, etc.
 
 Technology Independent Records – Heartbeat Fields
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The Heartbeat Record provides an optional structure for communicating
-information about heartbeat or watchdog signaling events. It can contain
-information about service intervals, status information etc. as required
-by the heartbeat implementation.
+The Heartbeat Record provides an optional structure for communicating 
+information about heartbeat or watchdog signaling events.  It can 
+contain information about service intervals, status information etc. 
+as required by the heartbeat implementation.
+
+Note: Heartbeat records would only have the Common Event Header block.
+An optional heartbeat domain is available if required by the heartbeat
+implementation.
 
 Technology Independent Records – State Change Fields
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The State Change Record provides a structure for communicating
-information about data flow through the VNF. It can contain information
-about state change related to physical device that is reported by VNF.
-As an example, when cards or port name of the entity that has changed
-state.
+The State Change Record provides a structure for communicating information 
+about data flow through the VNF. It can contain information about state 
+change related to physical device that is reported by VNF. As an example, 
+when cards or port name of the entity that has changed state.
 
 Technology Independent Records – Syslog Fields
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The Syslog Record provides a structure for communicating any type of
-information that may be logged by the VNF. It can contain information
+The Syslog Record provides a structure for communicating any type of 
+information that may be logged by the VNF. It can contain information 
 about system internal events, status, errors, etc.
 
 Technology Independent Records – Threshold Crossing Alert Fields
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The Threshold Crossing Alert (TCA) Record provides a structure for
-communicating information about threshold crossing alerts. It can
-contain alert definitions and types, actions, events, timestamps and
-physical or logical details.
+The Threshold Crossing Alert (TCA) Record provides a structure for 
+communicating information about threshold crossing alerts. It can 
+contain alert definitions and types, actions, events, timestamps 
+and physical or logical details.
 
-Technology Independent Records - VF Scaling Fields
+Technology Independent Records - VNF Scaling Fields
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The VF Scaling\* (short for measurementForVfScalingFields) Record
-contains information about VF and VNF resource structure and its
-condition to help in the management of the resources for purposes of
-elastic scaling.
+The VNF Scaling\* (short for measurementForVfScalingFields – 
+actual name used in JSON specification) Record contains information 
+about VNF and VNF resource structure and its condition to help in 
+the management of the resources for purposes of elastic scaling.
 
 Technology Independent Records – otherFields
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The otherFields Record defines fields for events belonging to the
-otherFields domain of the Technology Independent domain enumeration.
-This record provides a mechanism to convey a complex set of fields
-(possibly nested or opaque) and is purely intended to address
-miscellaneous needs such as addressing time-to-market considerations or
-other proof-of-concept evaluations.  Hence, use of this record type is
-discouraged and should be minimized.
+The otherFields Record defines fields for events belonging to the 
+otherFields domain of the Technology Independent domain enumeration. 
+This record provides a mechanism to convey a complex set of fields 
+(possibly nested or opaque) and is purely intended to address 
+miscellaneous needs such as addressing time-to-market considerations 
+or other proof-of-concept evaluations. Hence, use of this record 
+type is discouraged and should be minimized. 
 
 Technology Specific Records – Mobile Flow Fields
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The Mobile Flow Record provides a structure for communicating
-information about data flow through the VNF. It can contain information
-about connectivity and data flows between serving elements for mobile
-service, such as between LTE reference points, etc.
+The Mobile Flow Record provides a structure for communicating 
+information about data flow through the VNF. It can contain 
+information about connectivity and data flows between serving 
+elements for mobile service, such as between LTE reference points, etc.
 
 Technology Specific Records – Signaling Fields
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The Signaling Record provides a structure for communicating information
-about signaling messages, parameters and signaling state. It can contain
-information about data flows for
-`signaling <https://en.wikipedia.org/wiki/Signaling_%28telecommunications%29>`__
-and controlling
-`multimedia <https://en.wikipedia.org/wiki/Multimedia>`__ communication
-`session <https://en.wikipedia.org/wiki/Session_%28computer_science%29>`__\ s
-such as `voice <https://en.wikipedia.org/wiki/Telephone_call>`__ and
-`video calls <https://en.wikipedia.org/wiki/Video_call>`__.
+The Signaling Record provides a structure for communicating information 
+about signaling messages, parameters and signaling state.  It can 
+contain information about data flows for signaling and controlling 
+multimedia communication sessions such as voice and video calls. 
 
 Technology Specific Records – Voice Quality Fields
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-The Voice Quality Record provides a structure for communicating
-information about voice quality statistics including media connection
-information, such as transmitted octet and packet counts, packet loss,
-packet delay variation, round-trip delay, QoS parameters and codec
-selection.
+The Voice Quality Record provides a structure for communicating information 
+about voice quality statistics including media connection information, 
+such as transmitted octet and packet counts, packet loss, packet delay 
+variation, round-trip delay, QoS parameters and codec selection.  
 
 Technology Specific Records – Future Domains
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The futureDomains Record is a placeholder for additional technology
-specific areas of interest that will be defined and described in the
-future documents.
+The futureDomains Record is a placeholder for additional technology 
+specific areas of interest that will be defined and described 
+in the future documents.
 
 Data Structure Specification of the Event Record
 ------------------------------------------------
@@ -858,6 +796,211 @@ Data Structure Specification of the Event Record
 For additional information on the event record formats of the data
 structures mentioned above, please refer to `VES Event
 Listener <https://github.com/att/evel-test-collector/tree/master/docs/att_interface_definition>`__.
+
+Transports and Protocols Supporting Resource Interfaces
+-------------------------------------------------------
+
+Delivery of data from VNFs to ONAP must use the common transport mechanisms and protocols 
+for all VNFs as defined in this document. Transport mechanisms and protocols have been 
+selected to enable both high volume and moderate volume datasets, as well as asynchronous 
+and synchronous communications over secure connections. The specified encoding provides 
+self-documenting content, so data fields can be changed as needs evolve, while minimizing 
+changes to data delivery.
+
+The term ‘Event Record’ is used throughout this document to represent various forms of 
+telemetry or instrumentation made available by the VNF including, faults, status events, 
+various other types of VNF measurements and logs. Headers received by themselves must be 
+used as heartbeat indicators. Common structures and delivery protocols for other types of 
+data will be given in future versions of this document as we get more insight into data 
+volumes and required processing.
+
+In the following sections, we provide options for encoding, serialization and data 
+delivery. Agreements between Service Providers and VNF vendors shall determine which 
+encoding, serialization and delivery method to use for particular data sets. The selected 
+methods must be agreed to prior to the on-boarding of the VNF into ONAP design studio.
+
+VNF Telemetry using VES/JSON Model
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The preferred model for data delivery from a VNF to ONAP DCAE is the JSON driven model as depicted in Figure 2.
+ 
+|image1|
+
+Figure 2. VES/JSON Driven Model
+
+VNF vendors will provide a YAML artifact to the Service Provider that describes:
+
+* standard VES/JSON model information elements (key/values) that the VNF provides
+* any additional non-standard (custom) VES/JSON model information elements (key/values) that the VNF provides
+
+Using the semantics and syntax supported by YAML, vendors will indicate specific conditions that may 
+arise, and recommend actions that should be taken at specific thresholds, or if specific conditions 
+repeat within a specified time interval.  
+ 
+Based on the vendor’s recommendations, the Service Provider may create additional YAML artifacts 
+(using ONAP design Studio), which finalizes Service Provider engineering rules for the processing of 
+the vendor’s events.  The Service Provider may alter the threshold levels recommended by the vendor, 
+and may modify and more clearly specify actions that should be taken when specified conditions arise. 
+The Service Provider-created version of the YAML artifact will be distributed to ONAP applications 
+by the Design framework.
+
+VNF Telemetry using YANG Model
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In addition to the JSON driven model described above, a YANG driven model can also be 
+supported, as depicted in Figure 3.
+
+|image2|
+ 
+Figure 3. YANG Driven Model
+
+VNF vendors will provide to the Service Provider the following YANG model artifacts:
+
+* common IETF YANG modules that support the VNF
+* native (vendor-supplied) YANG modules that support the VNF
+* open (OpenConfig) YANG modules and the following configuration-related information, including:
+
+  * telemetry configuration and operational state data; such as:
+
+    * sensor paths
+    * subscription bindings
+    * path destinations 
+    * delivery frequency
+    * transport mechanisms
+    * data encodings
+
+* a YAML artifact that provides all necessary mapping relationships between YANG model data types to VES/JSON information elements
+* YANG helper or decoder functions that automate the conversion between YANG model data types to VES/JSON information elements
+* OPTIONAL: YANG Telemetry modules in JSON format per RFC 7951
+
+Using the semantics and syntax supported by YANG, vendors will indicate specific conditions that may 
+arise, and recommend actions that should be taken at specific thresholds, or if specific conditions 
+repeat within a specified time interval.  
+
+Based on the vendor’s recommendations, the Service Provider may create additional YAML artifacts 
+(using ONAP design Studio), which finalizes Service Provider engineering rules for the processing 
+of the vendor’s events.  The Service Provider may alter the threshold levels recommended by the 
+vendor, and may modify and more clearly specify actions that should be taken when specified 
+conditions arise.  The Service Provided-created version of the YAML will be distributed to ONAP 
+applications by the Design framework.
+
+Note: While supporting the YANG model described above, we are still leveraging the VES JSON 
+based model in DCAE.  The purpose of the diagram above is to illustrate the concept only and 
+not to imply a specific implementation.
+
+VNF Telemetry using Google Protocol Buffers
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In addition to the data delivery models described above, support for delivery of VNF telemetry 
+using Google Protocol Buffers (GPB) can also be supported, as depicted in Figure 4. 
+
+VNF vendors will provide to the Service Provider the additional following artifacts to 
+support the delivery of VNF telemetry to DCAE via the open-source gRPC mechanism using 
+Google's Protocol Buffers:
+
+* the YANG model artifacts described in support of the "VNF Telemetry using YANG Model"
+* valid definition file(s) for all GPB / KV-GPB encoded messages
+* valid definition file(s) for all gRPC services 
+* gRPC method parameters and return types specified as Protocol Buffers messages
+
+|image3|
+ 
+Figure 4. Protocol Buffers Driven Model
+
+Note: if Google Protocol Buffers are employed for delivery of VNF telemetry, Key-Value 
+Google Protocol Buffers (KV-GPB) is the preferred serialization method.  Details of 
+specifications and versioning corresponding to a release can be found 
+at: `VES Event Listener <https://github.com/att/evel-test-collector/tree/master/docs/att_interface_definition>`__.
+
+Note: While supporting the VNF telemetry delivery approach described above, we are 
+still leveraging the VES JSON based model in DCAE.  The purpose of the diagram above 
+is to illustrate the concept only and not to imply a specific implementation.
+
+Monitoring & Management Requirements
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**VNF telemetry via standardized interface**
+
+* R-51910 The VNF **MUST** provide all telemetry (e.g., fault event records, syslog records, performance records etc.) to ONAP using the model, format and mechanisms described in this section.
+
+**Encoding and Serialization**
+
+Content delivered from VNFs to ONAP is to be encoded and serialized using JSON:
+
+**JSON**
+
+* R-19624 The VNF **MUST** encode and serialize content delivered to ONAP using JSON (RFC 7159) plain text format. High-volume data 
+  is to be encoded and serialized using `Avro <http://avro.apache.org/>`_, where the Avro [5]_ data format are described using JSON.
+
+ -  JSON plain text format is preferred for moderate volume data sets (option 1), as JSON has the advantage of having well-understood simple processing and being human-readable without additional decoding. Examples of moderate volume data sets include the fault alarms and performance alerts, heartbeat messages, measurements used for VNF scaling and syslogs.
+ -  Binary format using Avro is preferred for high volume data sets (option 2) such as mobility flow measurements and other high-volume streaming events (such as mobility signaling events or SIP signaling) or bulk data, as this will significantly reduce the volume of data to be transmitted. As of the date of this document, all events are reported using plain text JSON and REST.
+ -  Avro content is self-documented, using a JSON schema. The JSON schema is delivered along with the data content (http://avro.apache.org/docs/current/ ). This means the presence and position of data fields can be recognized automatically, as well as the data format, definition and other attributes. Avro content can be serialized as JSON tagged text or as binary. In binary format, the JSON schema is included as a separate data block, so the content is not tagged, further compressing the volume. For streaming data, Avro will read the schema when the stream is established and apply the schema to the received content.
+
+In addition to the preferred method (JSON), content can be delivered from VNFs to ONAP can be encoded and serialized using Google Protocol Buffers (GPB).
+
+**KV-GPB/GPB**
+
+Telemetry data delivered using Google Protocol Buffers v3 (proto3) can be serialized in one of the following methods:
+
+* Key-value Google Protocol Buffers (KV-GPB) is also known as self-describing GPB:
+
+  * keys are strings that correspond to the path of the system resources for the VNF being monitored.
+  * values correspond to integers or strings that identify the operational state of the VNF resource, such a statistics counters and the state of a VNF resource.
+
+* VNF vendors must supply valid KV-GPB definition file(s) to allow for the decoding of all KV-GPB encoded telemetry messages.
+
+* Native Google Protocol Buffers (GPB) is also known as compact GPB:
+
+  * keys are represented as integers pointing to the system resources for the VNF being monitored.
+  * values correspond to integers or strings that identify the operational state of the VNF resource, such a statistics counters and the state of a VNF resource.
+
+* Google Protocol Buffers (GPB) requires metadata in the form of .proto files. VNF vendors must supply the necessary GPB .proto files such that GPB telemetry messages can be encoded and decoded.
+
+* In the future, we may consider support for other types of encoding & serialization methods based on industry demand
+
+
+**Reporting Frequency**
+
+* R-98191 The VNF **MUST** vary the frequency that asynchronous data is delivered based on the content and how data may be aggregated or grouped together. For example, alarms and alerts are expected to be delivered as soon as they appear. In contrast, other content, such as performance measurements, KPIs or reported network signaling may have various ways of packaging and delivering content. Some content should be streamed immediately; or content may be monitored over a time interval, then packaged as collection of records and delivered as block; or data may be collected until a package of a certain size has been collected; or content may be summarized statistically over a time interval, or computed as a KPI, with the summary or KPI being delivered.
+
+  -  We expect the reporting frequency to be configurable depending on the virtual network function’s needs for management. For example, Service Provider may choose to vary the frequency of collection between normal and trouble-shooting scenarios.
+  -  Decisions about the frequency of data reporting will affect the size of delivered data sets, recommended delivery method, and how the data will be interpreted by ONAP. These considerations should not affect deserialization and decoding of the data, which will be guided by the accompanying JSON schema or GPB definition files.
+
+**Addressing and Delivery Protocol**
+
+ONAP destinations can be addressed by URLs for RESTful data PUT. Future data sets may also be addressed by host name and port number for TCP streaming, or by host name and landing zone directory for SFTP transfer of bulk files.
+
+* R-88482 The VNF **SHOULD** use REST using HTTPS delivery of plain text JSON for moderate sized asynchronous data sets, and for high volume data sets when feasible.
+* R-84879 The VNF **MUST** have the capability of maintaining a primary and backup DNS name (URL) for connecting to ONAP collectors, with the ability to switch between addresses based on conditions defined by policy such as time-outs, and buffering to store messages until they can be delivered. At its discretion, the service provider may choose to populate only one collector address for a VNF. In this case, the network will promptly resolve connectivity problems caused by a collector or network failure transparently to the VNF.
+* R-81777 The VNF **MUST** be configured with initial address(es) to use at deployment time. Subsequently, address(es) may be changed through ONAP-defined policies delivered from ONAP to the VNF using PUTs to a RESTful API, in the same manner that other controls over data reporting will be controlled by policy.
+* R-08312 The VNF **MAY** use other options which are expected to include
+
+ -  REST delivery of binary encoded data sets.
+ -  TCP for high volume streaming asynchronous data sets and for other high volume data sets. TCP delivery can be used for either JSON or binary encoded data sets.
+ -  SFTP for asynchronous bulk files, such as bulk files that contain large volumes of data collected over a long time interval or data collected across many VNFs. This is not preferred. Preferred is to reorganize the data into more frequent or more focused data sets, and deliver these by REST or TCP as appropriate.
+ -  REST for synchronous data, using RESTCONF (e.g., for VNF state polling).
+
+* R-03070 The VNF **MUST**, by ONAP Policy, provide the ONAP addresses as data destinations for each VNF, and may be changed by Policy while the VNF is in operation. We expect the VNF to be capable of redirecting traffic to changed destinations with no loss of data, for example from one REST URL to another, or from one TCP host and port to another.
+
+**Asynchronous and Synchronous Data Delivery**
+
+* R-06924 The VNF **MUST** deliver asynchronous data as data becomes available, or according to the configured frequency.
+* R-73285 The VNF **MUST** must encode, address and deliver the data as described in the previous paragraphs.
+* R-42140 The VNF **MUST** respond to data requests from ONAP as soon as those requests are received, as a synchronous response.
+* R-34660 The VNF **MUST** use the RESTCONF/NETCONF framework used by the ONAP configuration subsystem for synchronous communication.
+* R-86585 The VNF **MUST** use the YANG configuration models and RESTCONF  [RFC8040] (https://tools.ietf.org/html/rfc8040).
+* R-11240 The VNF **MUST** respond with content encoded in JSON, as described in the RESTCONF specification. This way the encoding of a synchronous communication will be consistent with Avro.
+* R-70266 The VNF **MUST** respond to an ONAP request to deliver the current data for any of the record types defined in `Event Records - Data Structure Description`_ by returning the requested record, populated with the current field values. (Currently the defined record types include fault fields, mobile flow fields, measurements for VNF scaling fields, and syslog fields. Other record types will be added in the future as they become standardized and are made available.)
+* R-46290 The VNF **MUST** respond to an ONAP request to deliver granular data on device or subsystem status or performance, referencing the YANG configuration model for the VNF by returning the requested data elements.
+* R-43327 The VNF **SHOULD** use `Modeling JSON text with YANG <https://tools.ietf.org/html/rfc7951>`_, If YANG models need to be translated to and from JSON{RFC7951]. YANG configuration and content can be represented via JSON, consistent with Avro, as described in “Encoding and Serialization” section.
+
+**Security**
+
+* R-42366 The VNF **MUST** support secure connections and transports such as Transport Layer Security (TLS) protocol [`RFC5246 <https://tools.ietf.org/html/rfc5246>`_] and should adhere to the best current practices outlined in `RFC7525 <https://tools.ietf.org/html/rfc7525>`_.
+* R-44290 The VNF **MUST** control access to ONAP and to VNFs, and creation of connections, through secure credentials, log-on and exchange mechanisms.
+* R-47597 The VNF **MUST** carry data in motion only over secure connections.
+* R-68165 The VNF **MUST** encrypt any content containing Sensitive Personal Information (SPI) or certain proprietary data, in addition to applying the regular procedures for securing access and delivery.
+
 
 .. [1]
    https://github.com/mbj4668/pyang
@@ -883,3 +1026,16 @@ Listener <https://github.com/att/evel-test-collector/tree/master/docs/att_interf
 .. |image0| image:: Data_Model_For_Event_Records.png
       :width: 7in
       :height: 8in
+
+
+.. |image1| image:: VES_JSON_Driven_Model.png
+      :width: 5in
+      :height: 3in
+
+.. |image2| image:: YANG_Driven_Model.png
+      :width: 5in
+      :height: 3in
+
+.. |image3| image:: Protocol_Buffers_Driven_Model.png
+      :width: 4.74in
+      :height: 3.3in
