@@ -5099,7 +5099,7 @@ even in the short-term as of the long-term direction.
 c. VNFM Driver Development Steps
 ================================
 
-Refer to the ONAP documentation for VNF providerr instructions on integrating 
+Refer to the ONAP documentation for VNF provider instructions on integrating 
 special VNFM adaptors with VF-C.  The VNF driver development steps are
 highlighted below. 
 

@@ -29,7 +29,7 @@ and GS NFV IFA011 V0.3.0 (2015-10) - Network Functions Virtualization
 
 **Resource Description**
 
-* R-77707 The VNF provide **MUST** include a Manifest File that contains a list of all the components in the VNF package.
+* R-77707 The VNF provider **MUST** include a Manifest File that contains a list of all the components in the VNF package.
 * R-66070 The VNF Package **MUST** include VNF Identification Data to uniquely identify the resource for a given VNF provider. The identification data must include: an identifier for the VNF, the name of the VNF as was given by the VNF provider, VNF description, VNF provider, and version.
 * R-69565 The VNF Package **MUST** include documentation describing VNF Management APIs. The document must include information and tools for:
 
@@ -837,7 +837,7 @@ Using the semantics and syntax supported by YAML, VNF providers will indicate sp
 arise, and recommend actions that should be taken at specific thresholds, or if specific conditions 
 repeat within a specified time interval.  
  
-Based on the VNF provider’s recommendations, the Service Provider may create additional YAML artifacts 
+Based on the VNF provider's recommendations, the Service Provider may create additional YAML artifacts 
 (using ONAP design Studio), which finalizes Service Provider engineering rules for the processing of 
 the VNF events.  The Service Provider may alter the threshold levels recommended by the VNF providor, 
 and may modify and more clearly specify actions that should be taken when specified conditions arise. 
@@ -877,7 +877,7 @@ Using the semantics and syntax supported by YANG, VNF providers will indicate sp
 arise, and recommend actions that should be taken at specific thresholds, or if specific conditions 
 repeat within a specified time interval.  
 
-Based on the VNF provider’s recommendations, the Service Provider may create additional YAML artifacts 
+Based on the VNF provider's recommendations, the Service Provider may create additional YAML artifacts 
 (using ONAP design Studio), which finalizes Service Provider engineering rules for the processing 
 of the VNF events.  The Service Provider may alter the threshold levels recommended by the 
 VNF provider, and may modify and more clearly specify actions that should be taken when specified 

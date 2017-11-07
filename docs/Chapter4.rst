@@ -232,7 +232,7 @@ the five broad security areas for VNFs that are detailed in the
 following sections:
 
 -  **VNF General Security**: This section addresses general security
-   requirements for the VNFs that the VNF provide will need to address.
+   requirements for the VNFs that the VNF provider will need to address.
 
 -  **VNF Identity and Access Management**: This section addresses
    security requirements with respect to Identity and Access Management
@@ -272,7 +272,7 @@ Integration and operation within a robust security environment is necessary and 
 * R-23882 The VNF **SHOULD** be scanned using both network scanning and application scanning security tools on all code, including underlying OS and related configuration. Scan reports shall be provided. Remediation roadmaps shall be made available for any findings.
 * R-46986 The VNF **SHOULD** have source code scanned using scanning tools (e.g., Fortify) and provide reports.
 * R-55830 The VNF **MUST** distribute all production code from NCSP internal sources only. No production code, libraries, OS images, etc. shall be distributed from publically accessible depots.
-* R-99771 The VNF **MUST** provide all code/configuration files in a “Locked down” or hardened state or with documented recommendations for such hardening. All unnecessary services will be disabled. VNF provide default credentials, community strings and other such artifacts will be removed or disclosed so that they can be modified or removed during provisioning.
+* R-99771 The VNF **MUST** provide all code/configuration files in a "Locked down" or hardened state or with documented recommendations for such hardening. All unnecessary services will be disabled. VNF provider default credentials, community strings and other such artifacts will be removed or disclosed so that they can be modified or removed during provisioning.
 * R-19768 The VNF **SHOULD** support L3 VPNs that enable segregation of traffic by application (dropping packets not belonging to the VPN) (i.e., AVPN, IPSec VPN for Internet routes).
 * R-33981 The VNF **SHOULD** interoperate with various access control mechanisms for the Network Cloud execution environment (e.g., Hypervisors, containers).
 * R-40813 The VNF **SHOULD** support the use of virtual trusted platform module, hypervisor security testing and standards scanning tools.
