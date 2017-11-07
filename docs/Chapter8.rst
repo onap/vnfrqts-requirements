@@ -67,7 +67,7 @@ Chef Template example:
       “GetOutputFlag” : “False”
  }
 
-The example JSON file provided by the vendor for each VNF action will be
+The example JSON file provided by the VNF provider for each VNF action will be
 turned into a template by ONAP, that can be updated with instance
 specific values at run-time.
 
@@ -122,7 +122,7 @@ Table B1. Ansible JSON File key value description
 +------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------+---------------------------------------------------------------------+
 | **Field Name**   | **Description**                                                                                                                                                                                                                                                                            | **Type**    | **Comment**                                                         |
 +==================+============================================================================================================================================================================================================================================================================================+=============+=====================================================================+
-| PlaybookName     | VNF Vendor must list name of the playbook used to execute the VNF action.                                                                                                                                                                                                                  | Mandatory   |                                                                     |
+| PlaybookName     | VNF providor must list name of the playbook used to execute the VNF action.                                                                                                                                                                                                                | Mandatory   |                                                                     |
 +------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------+---------------------------------------------------------------------+
 | Action           | Name of VNF action.                                                                                                                                                                                                                                                                        | Optional    |                                                                     |
 +------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------+---------------------------------------------------------------------+
@@ -178,23 +178,21 @@ Table C1 defines the required and optional fields for licenses.
 Table C1. Required Fields for General Information
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+--------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+-------------+
-| **Field Name**                 | **Description**                                                                                                                                                                                                                                                                                           | **Data Type**     | **Type**    |
-+================================+===========================================================================================================================================================================================================================================================================================================+===================+=============+
-| Vendor Name                    | The name of the vendor.                                                                                                                                                                                                                                                                                   | String            | Mandatory   |
-+--------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+-------------+
-| Vendor Product                 | The name of the product to which this agreement applies.                                                                                                                                                                                                                                                  | String            | Mandatory   |
-|                                |                                                                                                                                                                                                                                                                                                           |                   |             |
-|                                | Note: a contract/agreement may apply to more than one vendor product. In that case, provide the metadata for each product separately.                                                                                                                                                                     |                   |             |
-+--------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+-------------+
-| Vendor Product Description     | A general description of vendor software product.                                                                                                                                                                                                                                                         | String            | Optional    |
-+--------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+-------------+
-| Export Control                 | ECCNs are 5-character alpha-numeric designations used on the Commerce Control List (CCL) to identify dual-use items for export control purposes. An ECCN categorizes items based on the nature of the product, i.e. type of commodity, software, or technology and its respective technical parameters.   | String            | Mandatory   |
-|                                |                                                                                                                                                                                                                                                                                                           |                   |             |
-| Classification Number (ECCN)   |                                                                                                                                                                                                                                                                                                           |                   |             |
-+--------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+-------------+
-| Reporting Requirements         | A list of any reporting requirements on the usage of the software product.                                                                                                                                                                                                                                | List of strings   | Optional    |
-+--------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+-------------+
++---------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+-------------+
+| **Field Name**                              | **Description**                                                                                                                                                                                                                                                                                           | **Data Type**     | **Type**    |
++=============================================+===========================================================================================================================================================================================================================================================================================================+===================+=============+
+| VNF Provider Name                           | The name of the VNF provider.                                                                                                                                                                                                                                                                             | String            | Mandatory   |
++---------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+-------------+
+| VNF Provider Product                        | The name of the product to which this agreement applies.                                                                                                                                                                                                                                                  | String            | Mandatory   |
+|                                             |                                                                                                                                                                                                                                                                                                           |                   |             |
+|                                             | Note: a contract/agreement may apply to more than one VNF provider product. In that case, provide the metadata for each product separately.                                                                                                                                                               |                   |             |
++---------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+-------------+
+| VNF Provider Product Description            | A general description of VNF provider software product.                                                                                                                                                                                                                                                   | String            | Optional    |
++---------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+-------------+
+| Export Control Classification Number (ECCN) | ECCNs are 5-character alpha-numeric designations used on the Commerce Control List (CCL) to identify dual-use items for export control purposes. An ECCN categorizes items based on the nature of the product, i.e. type of commodity, software, or technology and its respective technical parameters.   | String            | Mandatory   |
++---------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+-------------+
+| Reporting Requirements                      | A list of any reporting requirements on the usage of the software product.                                                                                                                                                                                                                                | List of strings   | Optional    |
++---------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+-------------+
 
 1. Entitlements
 
@@ -209,33 +207,33 @@ following fields:
 Table C2. Required Fields for Entitlements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+-----------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+---------------+
-| **Field Name**                                      | **Description**                                                                                                                                                                       | **Data Type**     | **Type**      |
-+=====================================================+=======================================================================================================================================================================================+===================+===============+
-| Vendor Part Number / Manufacture Reference Number   | Identifier for the entitlement as described by the vendor in their price list / catalog / contract.                                                                                   | String            | Mandatory     |
-+-----------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+---------------+
-| Description                                         | Verbiage that describes the entitlement.                                                                                                                                              | String            | Optional      |
-+-----------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+---------------+
-| Entitlement Identifier                              | Each entitlement defined must be identified by a unique value (e.g., numbered 1, 2, 3….)                                                                                              | String            | Mandatory     |
-+-----------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+---------------+
-| Minimum Order Requirement                           | The minimum number of entitlements that need to be purchased. For example, the entitlements must be purchased in a block of 100. If no minimum is required, the value will be zero.   | Number            | Mandatory     |
-+-----------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+---------------+
-| Unique Reporting Requirements                       | A list of any reporting requirements on the usage of the software product. (e.g.: quarterly usage reports are required)                                                               | List of Strings   | Optional      |
-+-----------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+---------------+
-| License Type                                        | Type of license applicable to the software product. (e.g.: fixed-term, perpetual, trial, subscription.)                                                                               | String            | Mandatory     |
-+-----------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+---------------+
-| License Duration                                    | Valid values:                                                                                                                                                                         | String            | Conditional   |
-|                                                     |                                                                                                                                                                                       |                   |               |
-|                                                     | **year**, **quarter**, **month**, **day**.                                                                                                                                            |                   |               |
-|                                                     |                                                                                                                                                                                       |                   |               |
-|                                                     | Not applicable when license type is Perpetual.                                                                                                                                        |                   |               |
-+-----------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+---------------+
-| License Duration Quantification                     | Number of years, quarters, months, or days for which the license is valid.                                                                                                            | Number            | Conditional   |
-|                                                     |                                                                                                                                                                                       |                   |               |
-|                                                     | Not applicable when license type is Perpetual.                                                                                                                                        |                   |               |
-+-----------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+---------------+
-| Limits                                              | see section C.4 for possible values                                                                                                                                                   | List              | Optional      |
-+-----------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+---------------+
++---------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+---------------+
+| **Field Name**                                          | **Description**                                                                                                                                                                       | **Data Type**     | **Type**      |
++=========================================================+=======================================================================================================================================================================================+===================+===============+
+| VNF Provider Part Number / Manufacture Reference Number | Identifier for the entitlement as described by the VNF provider in their price list / catalog / contract.                                                                                   | String            | Mandatory     |
++---------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+---------------+
+| Description                                             | Verbiage that describes the entitlement.                                                                                                                                              | String            | Optional      |
++---------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+---------------+
+| Entitlement Identifier                                  | Each entitlement defined must be identified by a unique value (e.g., numbered 1, 2, 3….)                                                                                              | String            | Mandatory     |
++---------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+---------------+
+| Minimum Order Requirement                               | The minimum number of entitlements that need to be purchased. For example, the entitlements must be purchased in a block of 100. If no minimum is required, the value will be zero.   | Number            | Mandatory     |
++---------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+---------------+
+| Unique Reporting Requirements                           | A list of any reporting requirements on the usage of the software product. (e.g.: quarterly usage reports are required)                                                               | List of Strings   | Optional      |
++---------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+---------------+
+| License Type                                            | Type of license applicable to the software product. (e.g.: fixed-term, perpetual, trial, subscription.)                                                                               | String            | Mandatory     |
++---------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+---------------+
+| License Duration                                        | Valid values:                                                                                                                                                                         | String            | Conditional   |
+|                                                         |                                                                                                                                                                                       |                   |               |
+|                                                         | **year**, **quarter**, **month**, **day**.                                                                                                                                            |                   |               |
+|                                                         |                                                                                                                                                                                       |                   |               |
+|                                                         | Not applicable when license type is Perpetual.                                                                                                                                        |                   |               |
++---------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+---------------+
+| License Duration Quantification                         | Number of years, quarters, months, or days for which the license is valid.                                                                                                            | Number            | Conditional   |
+|                                                         |                                                                                                                                                                                       |                   |               |
+|                                                         | Not applicable when license type is Perpetual.                                                                                                                                        |                   |               |
++---------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+---------------+
+| Limits                                                  | see section C.4 for possible values                                                                                                                                                   | List              | Optional      |
++---------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+---------------+
 
 1. License Keys
 
@@ -329,7 +327,7 @@ Table C4. Required Fields for Location
 +------------------------+---------------------------------------------------------------------------------------------------------------------+------------------+-------------+
 | Limit Type             | Valid values: **city, county, state, country, region, MSA, BTA, CLLI**                                              | String           | Mandatory   |
 +------------------------+---------------------------------------------------------------------------------------------------------------------+------------------+-------------+
-| Limit List             | List of locations where the Vendor Product can be used or needs to be restricted from use                           | List of String   | Mandatory   |
+| Limit List             | List of locations where the VNF provider Product can be used or needs to be restricted from use                     | List of String   | Mandatory   |
 +------------------------+---------------------------------------------------------------------------------------------------------------------+------------------+-------------+
 | Limit Set Type         | Indicates if the list is an inclusion or exclusion.                                                                 | String           | Mandatory   |
 |                        |                                                                                                                     |                  |             |
@@ -368,7 +366,7 @@ Table C5. Required Fields for Time
 +------------------------+-------------------------------------------------------------------------------------------------------------------------------+------------------+---------------+
 | Limit Type             | Valid values: **duration, date**                                                                                              | String           | Mandatory     |
 +------------------------+-------------------------------------------------------------------------------------------------------------------------------+------------------+---------------+
-| Limit List             | List of times for which the Vendor Product can be used or needs to be restricted from use                                     | List of String   | Mandatory     |
+| Limit List             | List of times for which the VNF Provider Product can be used or needs to be restricted from use                               | List of String   | Mandatory     |
 +------------------------+-------------------------------------------------------------------------------------------------------------------------------+------------------+---------------+
 | Duration Units         | Required when limit type is duration. Valid values: **perpetual, year, quarter, month, day, minute, second, millisecond**     | String           | Conditional   |
 +------------------------+-------------------------------------------------------------------------------------------------------------------------------+------------------+---------------+
@@ -447,7 +445,7 @@ Table C7. Required Fields for Entity
 +------------------------+--------------------------------------------------------------------------------------------------------------+------------------+-------------+
 | Limit Type             | Valid values: **product line, organization, internal customer, external customer**                           | String           | Mandatory   |
 +------------------------+--------------------------------------------------------------------------------------------------------------+------------------+-------------+
-| Limit List             | List of entities for which the Vendor Product can be used or needs to be restricted from use                 | List of String   | Mandatory   |
+| Limit List             | List of entities for which the VNF Provider Product can be used or needs to be restricted from use           | List of String   | Mandatory   |
 +------------------------+--------------------------------------------------------------------------------------------------------------+------------------+-------------+
 | Limit Set Type         | Indicates if the list is an inclusion or exclusion.                                                          | String           | Mandatory   |
 |                        |                                                                                                              |                  |             |
@@ -538,7 +536,7 @@ R-88031: The VNF **SHOULD** implement the protocol operation: **delete-config(ta
 
 R-42207: The VNF **MUST** design resiliency into a VNF such that the resiliency deployment model (e.g., active-active) can be chosen at run-time.
 
-R-98617: The VNF Vendor **MUST** provide information regarding any dependency (e.g., affinity, anti-affinity) with other VNFs and resources.
+R-98617: The VNF provider **MUST** provide information regarding any dependency (e.g., affinity, anti-affinity) with other VNFs and resources.
 
 R-62498: The VNF **MUST**, if not using the NCSP’s IDAM API, encrypt OA&M access (e.g., SSH, SFTP).
 
@@ -552,7 +550,7 @@ R-57617: The VNF **MUST** include the field “success/failure” in the Securit
 
 R-57271: The VNF **MUST** provide the capability of generating security audit logs by interacting with the operating system (OS) as appropriate.
 
-R-44569: The VNF Vendor **MUST NOT** require additional infrastructure such as a vendor license server for Vendor functions and metrics..
+R-44569: The VNF provider **MUST NOT** require additional infrastructure such as a VNF provider license server for VNF providor functions and metrics..
 
 R-67918: The VNF **MUST** handle replication race conditions both locally and geo-located in the event of a data base instance failure to maintain service continuity.
 
@@ -564,7 +562,7 @@ R-50252: The VNF **MUST** write to a specific set of text files that will be ret
 
 R-58977: The VNF **MUST** provide or support the Identity and Access Management (IDAM) based threat detection data for Eavesdropping.
 
-R-59391: The VNF vendor **MUST**, where a VNF vendor requires the assumption of permissions, such as root or administrator, first log in under their individual user login ID then switch to the other higher level account; or where the individual user login is infeasible, must login with an account with admin privileges in a way that uniquely identifies the individual performing the function.
+R-59391: The VNF provider **MUST**, where a VNF provider requires the assumption of permissions, such as root or administrator, first log in under their individual user login ID then switch to the other higher level account; or where the individual user login is infeasible, must login with an account with admin privileges in a way that uniquely identifies the individual performing the function.
 
 R-93443: The VNF **MUST** define all data models in YANG [RFC6020], and the mapping to NETCONF shall follow the rules defined in this RFC.
 
@@ -576,7 +574,7 @@ R-73468: The VNF **MUST** allow the NETCONF server connection parameters to be c
 
 R-46908: The VNF **MUST**, if not using the NCSP’s IDAM API, comply with "password complexity" policy. When passwords are used, they shall be complex and shall at least meet the following password construction requirements: (1) be a minimum configurable number of characters in length, (2) include 3 of the 4 following types of characters: upper-case alphabetic, lower-case alphabetic, numeric, and special, (3) not be the same as the UserID with which they are associated or other common strings as specified by the environment, (4) not contain repeating or sequential characters or numbers, (5) not to use special characters that may have command functions, and (6) new passwords must not contain sequences of three or more characters from the previous password.
 
-R-86261: The VNF **MUST NOT** allow vendor access to VNFs remotely.
+R-86261: The VNF **MUST NOT** allow VNF provider access to VNFs remotely.
 
 R-75343: The VNF **MUST** provide the capability of testing the validity of a digital certificate by recognizing the identity represented by the certificate — the "distinguished name".
 
@@ -596,7 +594,7 @@ R-54520: The VNF **MUST** log successful and unsuccessful login attempts.
 
 R-10173: The VNF **MUST** allow another NETCONF session to be able to initiate the release of the lock by killing the session owning the lock, using the <kill-session> operation to guard against hung NETCONF sessions.
 
-R-36280: The VNF Vendor **MUST** provide documentation describing VNF Functional Capabilities that are utilized to operationalize the VNF and compose complex services.
+R-36280: The VNF provider **MUST** provide documentation describing VNF Functional Capabilities that are utilized to operationalize the VNF and compose complex services.
 
 R-15671: The VNF **MUST NOT** provide public or unrestricted access to any data without the permission of the data owner. All data classification and access controls must be followed.
 
@@ -658,7 +656,7 @@ R-23035: The VNF **MUST** be designed to scale horizontally (more instances of a
 
 R-97445: The VNF **MUST** log the field “date/time” in the security audit logs.
 
-R-16777: The VNF Vendor **MUST** provide a JSON file for each supported action for the VNF.  The JSON file must contain key value pairs with all relevant values populated with sample data that illustrates its usage. The fields and their description are defined in Appendix B.
+R-16777: The VNF provider **MUST** provide a JSON file for each supported action for the VNF.  The JSON file must contain key value pairs with all relevant values populated with sample data that illustrates its usage. The fields and their description are defined in Appendix B.
 
 R-08134: The VNF **MUST** conform to the NETCONF RFC 6241, “NETCONF Configuration Protocol”.
 
@@ -672,7 +670,7 @@ R-90007: The VNF **MUST** implement the protocol operation: **close-session()**-
 
 R-42140: The VNF **MUST** respond to data requests from ONAP as soon as those requests are received, as a synchronous response.
 
-R-27511: The VNF Vendor **MUST** provide the ability to scale up a vendor supplied product during growth and scale down a vendor supplied product during decline without “real-time” restrictions based upon vendor permissions.
+R-27511: The VNF provider **MUST** provide the ability to scale up a VNF provider supplied product during growth and scale down a VNF provider supplied product during decline without “real-time” restrictions based upon VNF provider permissions.
 
 R-05470: The VNF **MUST** host connectors for access to the database layer.
 
@@ -684,7 +682,7 @@ R-49036: The VNF **SHOULD** conform its YANG model to RFC 7277, “A YANG Data M
 
 R-63217: The VNF **MUST**, if not using the NCSP’s IDAM API, support logging via ONAP for a historical view of “who did what and when”.
 
-R-44125: The VNF Vendor **MUST** agree to the process that can be met by Service Provider reporting infrastructure. The Contract shall define the reporting process and the available reporting tools.
+R-44125: The VNF provider **MUST** agree to the process that can be met by Service Provider reporting infrastructure. The Contract shall define the reporting process and the available reporting tools.
 
 R-22700: The VNF **MUST** conform its YANG model to RFC 6470, “NETCONF Base Notifications”.
 
@@ -700,7 +698,7 @@ R-57855: The VNF **MUST** support hitless staggered/rolling deployments between 
 
 R-73285: The VNF **MUST** must encode the delivered data using JSON or Avro, addressed and delivered as described in the previous paragraphs.
 
-R-85028: The VNF **MUST** authenticate system to system access and do not conceal a VNF vendor user’s individual accountability for transactions.
+R-85028: The VNF **MUST** authenticate system to system access and do not conceal a VNF provider user’s individual accountability for transactions.
 
 R-28545: The VNF **MUST** conform its YANG model to RFC 6060, “YANG - A Data Modeling Language for the Network Configuration Protocol (NETCONF)”
 
@@ -752,7 +750,7 @@ R-26115: The VNF **MUST** follow the data model upgrade rules defined in [RFC602
 
 R-49145: The VNF **MUST** implement **:confirmed-commit** If **:candidate** is supported.
 
-R-04298: The VNF Vendor **MUST** provide their testing scripts to support testing.
+R-04298: The VNF provider **MUST** provide their testing scripts to support testing.
 
 R-92935: The VNF **SHOULD** minimize the propagation of state information across multiple data centers to avoid cross data center traffic.
 
@@ -798,7 +796,7 @@ R-16496: The VNF **MUST** enable instantiating only the functionality that is ne
 
 R-32217: The VNF **MUST** have routable FQDNs that are reachable via the Ansible Server for the endpoints (VMs) of a VNF on which playbooks will be executed. ONAP will initiate requests to the Ansible Server for invocation of playbooks against these end points [4]_.
 
-R-47849: The VNF Vendor **MUST** support the metadata about licenses (and their applicable entitlements) as defined in this document for VNF software, and any license keys required to authorize use of the VNF software.  This metadata will be used to facilitate onboarding the VNF into the ONAP environment and automating processes for putting the licenses into use and managing the full lifecycle of the licenses. The details of this license model are described in Appendix C. Note: License metadata support in ONAP is not currently available and planned for 1Q 2018.
+R-47849: The VNF provider **MUST** support the metadata about licenses (and their applicable entitlements) as defined in this document for VNF software, and any license keys required to authorize use of the VNF software.  This metadata will be used to facilitate onboarding the VNF into the ONAP environment and automating processes for putting the licenses into use and managing the full lifecycle of the licenses. The details of this license model are described in Appendix C. Note: License metadata support in ONAP is not currently available and planned for 1Q 2018.
 
 R-85419: The VNF **SHOULD** use REST APIs exposed to Client Applications for the implementation of OAuth 2.0 Authorization Code Grant and Client Credentials Grant, as the standard interface for a VNF.
 
@@ -814,7 +812,7 @@ R-70933: The VNF **MUST** provide the ability to migrate to newer versions of cr
 
 R-48917: The VNF **MUST** monitor for and alert on (both sender and receiver) errant, running longer than expected and missing file transfers, so as to minimize the impact due to file transfer errors.
 
-R-79107: The VNF **MUST**, if not using the NCSP’s IDAM API, enforce a configurable maximum number of Login attempts policy for the users. VNF vendor must comply with "terminate idle sessions" policy. Interactive sessions must be terminated, or a secure, locking screensaver must be activated requiring authentication, after a configurable period of inactivity. The system-based inactivity timeout for the enterprise identity and access management system must also be configurable.
+R-79107: The VNF **MUST**, if not using the NCSP’s IDAM API, enforce a configurable maximum number of Login attempts policy for the users. VNF provider must comply with "terminate idle sessions" policy. Interactive sessions must be terminated, or a secure, locking screensaver must be activated requiring authentication, after a configurable period of inactivity. The system-based inactivity timeout for the enterprise identity and access management system must also be configurable.
 
 R-75850: The VNF **SHOULD** decouple persistent data from the VNFC and keep it in its own datastore that can be reached by all instances of the VNFC requiring the data.
 
@@ -848,7 +846,7 @@ R-64445: The VNF **MUST** support the ability of a requestor of the service to d
 
 R-64768: The VNF **MUST** limit the size of application data packets to no larger than 9000 bytes for SDN network-based tunneling when guest data packets are transported between tunnel endpoints that support guest logical networks.
 
-R-75608: The VNF Vendor **MUST** provide playbooks to be loaded on the appropriate Ansible Server.
+R-75608: The VNF provider **MUST** provide playbooks to be loaded on the appropriate Ansible Server.
 
 R-61354: The VNF **MUST** implement access control list for OA&M services (e.g., restricting access to certain ports or applications).
 
@@ -922,7 +920,7 @@ R-80898: The VNF **MUST** support heartbeat via a <get> with null filter.
 
 R-20974: The VNF **MUST** deploy the base module first, prior to the incremental modules.
 
-R-69610: The VNF **MUST** provide the capability of using certificates issued from a Certificate Authority not provided by the VNF vendor.
+R-69610: The VNF **MUST** provide the capability of using certificates issued from a Certificate Authority not provided by the VNF provider.
 
 R-27310: The VNF Package **MUST** include all relevant Chef artifacts (roles/cookbooks/recipes) required to execute VNF actions requested by ONAP for loading on appropriate Chef Server.
 
@@ -930,7 +928,7 @@ R-98191: The VNF **MUST** vary the frequency that asynchronous data is delivered
 
 R-31412: The VNF **MUST** provide or support the Identity and Access Management (IDAM) based threat detection data for XSS / CSRF.
 
-R-58775: The VNF Vendor **MUST** provide software components that can be packaged with/near the VNF, if needed, to simulate any functions or systems that connect to the VNF system under test. This component is necessary only if the existing testing environment does not have the necessary simulators.
+R-58775: The VNF provider **MUST** provide software components that can be packaged with/near the VNF, if needed, to simulate any functions or systems that connect to the VNF system under test. This component is necessary only if the existing testing environment does not have the necessary simulators.
 
 R-45496: The VNF **MUST** host connectors for access to the OS (Operating System) layer.
 
@@ -938,7 +936,7 @@ R-13151: The VNF **SHOULD** disable the paging of the data requiring encryption,
 
 R-49308: The VNF **SHOULD** test for adherence to the defined resiliency rating recommendation at each layer, during each delivery cycle with delivered results, so that the resiliency rating is measured and the code is adjusted to meet software resiliency requirements.
 
-R-74763: The VNF Vendor **MUST** provide an artifact per VNF that contains all of the VNF Event Records supported. The artifact should include reference to the specific release of the VNF Event Stream Common Event Data Model document it is based on. (e.g., `VES Event Listener <https://github.com/att/evel-test-collector/tree/master/docs/att_interface_definition>`__)
+R-74763: The VNF provider **MUST** provide an artifact per VNF that contains all of the VNF Event Records supported. The artifact should include reference to the specific release of the VNF Event Stream Common Event Data Model document it is based on. (e.g., `VES Event Listener <https://github.com/att/evel-test-collector/tree/master/docs/att_interface_definition>`__)
 
 R-77786: The VNF Package **MUST** include all relevant cookbooks to be loaded on the ONAP Chef Server.
 
@@ -986,7 +984,7 @@ R-84366: The VNF Package **MUST** include documentation describing VNF Functiona
 
 R-58421: The VNF **SHOULD** be decomposed into granular re-usable VNFCs.
 
-R-27711: The VNF Vendor **MUST** provide an XML file that contains a list of VNF error codes, descriptions of the error, and possible causes/corrective action.
+R-27711: The VNF provider **MUST** provide an XML file that contains a list of VNF error codes, descriptions of the error, and possible causes/corrective action.
 
 R-78282: The VNF **MUST** conform to the NETCONF RFC 6242, “Using the Network Configuration Protocol over Secure Shell”.
 
@@ -1016,7 +1014,7 @@ R-19367: The VNF **MUST** monitor API invocation patterns to detect anomalous ac
 
 R-33981: The VNF **SHOULD** interoperate with various access control mechanisms for the Network Cloud execution environment (e.g., Hypervisors, containers).
 
-R-26881: The VNF Vendor **MUST** provide the binaries and images needed to instantiate the VNF (VNF and VNFC images).
+R-26881: The VNF provider **MUST** provide the binaries and images needed to instantiate the VNF (VNF and VNFC images).
 
 R-69565: The VNF Package **MUST** include documentation describing VNF Management APIs. The document must include information and tools for:
 
@@ -1038,7 +1036,7 @@ R-98391: The VNF **MUST**, if not using the NCSP’s IDAM API, support Role-Base
 
 R-29967: The VNF **MUST** conform its YANG model to RFC 6022, “YANG module for NETCONF monitoring”.
 
-R-80335: The VNF **MUST** make visible a Warning Notices: A formal statement of resource intent, i.e., a warning notice, upon initial access to a VNF vendor user who accesses private internal networks or Company computer resources, e.g., upon initial logon to an internal web site, system or application which requires authentication.
+R-80335: The VNF **MUST** make visible a Warning Notices: A formal statement of resource intent, i.e., a warning notice, upon initial access to a VNF provider user who accesses private internal networks or Company computer resources, e.g., upon initial logon to an internal web site, system or application which requires authentication.
 
 R-48596: The VNF Package **MUST** include documentation describing the characteristics for the VNF reliability and high availability.
 
@@ -1048,7 +1046,7 @@ R-02616: The VNF **MUST** permit locking at the finest granularity if a VNF need
 
 R-15659: The VNF **MUST** restrict changing the criticality level of a system security alarm to administrator(s).
 
-R-96634: The VNF Vendor **MUST** describe scaling capabilities to manage scaling characteristics of the VNF.
+R-96634: The VNF provider **MUST** describe scaling capabilities to manage scaling characteristics of the VNF.
 
 R-32641: The VNF **MUST** provide the capability to encrypt data on non-volatile memory.
 
@@ -1062,7 +1060,7 @@ R-52870: The VNF **MUST** provide a method of metrics gathering and analysis to 
 
 R-89474: The VNF **MUST** log the field “Login ID” in the security audit logs.
 
-R-13390: The VNF Vendor **MUST** provide cookbooks to be loaded on the appropriate Chef Server.
+R-13390: The VNF provider **MUST** provide cookbooks to be loaded on the appropriate Chef Server.
 
 R-24825: The VNF **MUST** provide Context awareness data (device, location, time, etc.) and be able to integrate with threat detection system.
 
@@ -1078,7 +1076,7 @@ R-96554: The VNF **MUST** implement the protocol operation: **unlock(target)** -
 
 R-27995: The VNF **SHOULD** include control loop mechanisms to notify the consumer of the VNF of their exceeding SLA thresholds so the consumer is able to control its load against the VNF.
 
-R-31809: The VNF **MUST** support the HealthCheck RPC. The HealthCheck RPC, executes a vendor-defined VNF Healthcheck over the scope of the entire VNF (e.g., if there are multiple VNFCs, then run a health check, as appropriate, for all VNFCs). It returns a 200 OK if the test completes. A JSON object is returned indicating state (healthy, unhealthy), scope identifier, time-stamp and one or more blocks containing info and fault information. If the VNF is unable to run the HealthCheck, return a standard http error code and message.
+R-31809: The VNF **MUST** support the HealthCheck RPC. The HealthCheck RPC, executes a VNF providor-defined VNF Healthcheck over the scope of the entire VNF (e.g., if there are multiple VNFCs, then run a health check, as appropriate, for all VNFCs). It returns a 200 OK if the test completes. A JSON object is returned indicating state (healthy, unhealthy), scope identifier, time-stamp and one or more blocks containing info and fault information. If the VNF is unable to run the HealthCheck, return a standard http error code and message.
 
 R-25401: The VNF **MUST** use asymmetric keys of at least 2048 bits in length.
 
@@ -1110,7 +1108,7 @@ R-60656: The VNF **MUST** support sub tree filtering.
 
 R-51883: The VNF **MUST** provide or support the Identity and Access Management (IDAM) based threat detection data for Replay.
 
-R-66070: The VNF Package **MUST** include VNF Identification Data to uniquely identify the resource for a given Vendor. The identification data must include: an identifier for the VNF, the name of the VNF as was given by the VNF Vendor, VNF description, VNF Vendor, and version.
+R-66070: The VNF Package **MUST** include VNF Identification Data to uniquely identify the resource for a given VNF provider. The identification data must include: an identifier for the VNF, the name of the VNF as was given by the VNF provider, VNF description, VNF provider, and version.
 
 R-19804: The VNF **MUST** validate the CA signature on the certificate, ensure that the date is within the validity period of the certificate, check the Certificate Revocation List (CRL), and recognize the identity represented by the certificate where PKI-based authentication is used.
 
@@ -1122,7 +1120,7 @@ R-63330: The VNF **MUST** detect when the security audit log storage medium is a
 
 R-22645: The VNF **SHOULD** use commercial algorithms only when there are no applicable governmental standards for specific cryptographic functions, e.g., public key cryptography, message digests.
 
-R-22888: The VNF Vendor **MUST** provide documentation for the VNF Policy Description to manage the VNF runtime lifecycle. The document must include a description of how the policies (conditions and actions) are implemented in the VNF.
+R-22888: The VNF provider **MUST** provide documentation for the VNF Policy Description to manage the VNF runtime lifecycle. The document must include a description of how the policies (conditions and actions) are implemented in the VNF.
 
 R-78066: The VNF **MUST** support requests for information from law enforcement and government agencies.
 
@@ -1134,7 +1132,7 @@ R-28756: The VNF **MUST** support **:partial-lock** and **:partial-unlock** capa
 
 R-41252: The VNF **MUST** support the capability of online storage of security audit logs.
 
-R-77707: The VNF Vendor **MUST** include a Manifest File that contains a list of all the components in the VNF package.
+R-77707: The VNF provider **MUST** include a Manifest File that contains a list of all the components in the VNF package.
 
 R-20860: The VNF **MUST** be agnostic to the underlying infrastructure (such as hardware, host OS, Hypervisor), any requirements should be provided as specification to be fulfilled by any hardware.
 
@@ -1168,13 +1166,13 @@ R-78010: The VNF **MUST** use the NCSP’s IDAM API for Identification, authenti
 
 R-46986: The VNF **SHOULD** have source code scanned using scanning tools (e.g., Fortify) and provide reports.
 
-R-97293: The VNF Vendor **MUST NOT** require audits of Service Provider’s business.
+R-97293: The VNF provider **MUST NOT** require audits of Service Provider’s business.
 
-R-16065: The VNF Vendor **MUST** provide configurable parameters (if unable to conform to YANG model) including VNF attributes/parameters and valid values, dynamic attributes and cross parameter dependencies (e.g., customer provisioning data).
+R-16065: The VNF provider **MUST** provide configurable parameters (if unable to conform to YANG model) including VNF attributes/parameters and valid values, dynamic attributes and cross parameter dependencies (e.g., customer provisioning data).
 
 R-34484: The VNF **SHOULD** create a single component VNF for VNFCs that can be used by other VNFs.
 
-R-30278: The VNF Vendor **MUST** provide a Resource/Device YANG model as a foundation for creating the YANG model for configuration. This will include VNF attributes/parameters and valid values/attributes configurable by policy.
+R-30278: The VNF provider **MUST** provide a Resource/Device YANG model as a foundation for creating the YANG model for configuration. This will include VNF attributes/parameters and valid values/attributes configurable by policy.
 
 R-35401: The VNF **MUST** must support SSH and allow SSH access to the Ansible server for the endpoint VM(s) and comply with the  Network Cloud Service Provider guidelines for authentication and access.
 
@@ -1186,7 +1184,7 @@ R-18864: The VNF **MUST** NOT use technologies that bypass virtualization layers
 
 R-37028: The VNF **MUST** be composed of one “base” module.
 
-R-40827: The VNF Vendor **MUST** enumerate all of the open source licenses their VNF(s) incorporate.
+R-40827: The VNF provider **MUST** enumerate all of the open source licenses their VNF(s) incorporate.
 
 R-95950: The VNF **MUST** provide a NETCONF interface fully defined by supplied YANG models for the embedded NETCONF server.
 
@@ -1222,15 +1220,15 @@ R-54816: The VNF **MUST** support the storage of security audit logs for agreed 
 
 R-34957: The VNF **MUST** provide a method of metrics gathering for each layer's performance to identify/document variances in the allocations so they can be addressed.
 
-R-43958: The VNF Package **MUST** include documentation describing the tests that were conducted by the Vendor and the test results.
+R-43958: The VNF Package **MUST** include documentation describing the tests that were conducted by the VNF provider and the test results.
 
 R-61648: The VNF **MUST** support event logging, formats, and delivery tools to provide the required degree of event data to ONAP
 
-R-18525: The VNF Vendor **MUST** provide a JSON file for each supported action for the VNF.  The JSON file must contain key value pairs with all relevant values populated with sample data that illustrates its usage. The fields and their description are defined in Appendix A.
+R-18525: The VNF provider **MUST** provide a JSON file for each supported action for the VNF.  The JSON file must contain key value pairs with all relevant values populated with sample data that illustrates its usage. The fields and their description are defined in Appendix A.
 
 R-99174: The VNF **MUST** comply with Individual Accountability (each person must be assigned a unique ID) when persons or non-person entities access VNFs.
 
-R-99771: The VNF **MUST** provide all code/configuration files in a “Locked down” or hardened state or with documented recommendations for such hardening. All unnecessary services will be disabled. Vendor default credentials, community strings and other such artifacts will be removed or disclosed so that they can be modified or removed during provisioning.
+R-99771: The VNF **MUST** provide all code/configuration files in a “Locked down” or hardened state or with documented recommendations for such hardening. All unnecessary services will be disabled. VNF provider default credentials, community strings and other such artifacts will be removed or disclosed so that they can be modified or removed during provisioning.
 
 R-58358: The VNF **MUST** implement the **:with-defaults** capability [RFC6243].
 
@@ -1268,13 +1266,13 @@ R-06668: The VNF **MUST** handle the start or restart of VNFC instances in any o
 
 R-41215: The VNF **MAY** have zero to many “incremental” modules.
 
-R-85991: The VNF Vendor **MUST** provide a universal license key per VNF to be used as needed by services (i.e., not tied to a VM instance) as the recommended solution. The vendor may provide pools of Unique VNF License Keys, where there is a unique key for each VNF instance as an alternate solution. Licensing issues should be resolved without interrupting in-service VNFs.
+R-85991: The VNF provider **MUST** provide a universal license key per VNF to be used as needed by services (i.e., not tied to a VM instance) as the recommended solution. The VNF provider may provide pools of Unique VNF License Keys, where there is a unique key for each VNF instance as an alternate solution. Licensing issues should be resolved without interrupting in-service VNFs.
 
 R-52085: The VNF **MUST**, if not using the NCSP’s IDAM API, provide the ability to support Multi-Factor Authentication (e.g., 1st factor = Software token on device (RSA SecureID); 2nd factor = User Name+Password, etc.) for the users.
 
 R-29495: The VNF **MUST** support locking if a common object is being manipulated by two simultaneous NETCONF configuration operations on the same VNF within the context of the same writable running data store (e.g., if an interface parameter is being configured then it should be locked out for configuration by a simultaneous configuration operation on that same interface parameter).
 
-R-31751: The VNF **MUST** subject vendor VNF access to privilege reconciliation tools to prevent access creep and ensure correct enforcement of access policies.
+R-31751: The VNF **MUST** subject VNF provider VNF access to privilege reconciliation tools to prevent access creep and ensure correct enforcement of access policies.
 
 R-48698: The VNF **MUST** utilize   information from key value pairs that will be provided by the Ansible Server as extra-vars during invocation to execute the desired VNF action. If the playbook requires files, they must also be supplied using the methodology detailed in the Ansible Server API.
 
@@ -1288,7 +1286,7 @@ R-12538: The VNF **SHOULD** support load balancing and discovery mechanisms in r
 
 R-59610: The VNF **MUST** implement the data model discovery and download as defined in [RFC6022].
 
-R-49945: The VNF **MUST** authorize vendor access through a client application API by the client application owner and the resource owner of the VNF before provisioning authorization through Role Based Access Control (RBAC), Attribute Based Access Control (ABAC), or other policy based mechanism.
+R-49945: The VNF **MUST** authorize VNF provider access through a client application API by the client application owner and the resource owner of the VNF before provisioning authorization through Role Based Access Control (RBAC), Attribute Based Access Control (ABAC), or other policy based mechanism.
 
 R-20912: The VNF **MUST** support alternative monitoring capabilities when VNFs do not expose data or control traffic or use proprietary and optimized protocols for inter VNF communication.
 
@@ -1595,7 +1593,7 @@ the VNF instance name, which is 9 characters long. VNF instance name in
 some cases corresponds to the stack name for the VNF when VNF instance
 is built based on a single module, single stack. Example of VNF instance
 name: vfdb9904v. All VNF performing this function, running the same
-software, coming from the same vendor will start with the same 4
+software, coming from the same VNF provider will start with the same 4
 characters, in this example, vfdb.
 
 VNF type, determined through these 4 characters, is also known as VNF
@@ -1854,13 +1852,13 @@ NOTE: Please note names in this file shall use underscore “\_” not dots
 8. Upload any SSH keys referenced on hosts file to appropriate
    directory.
 
-NOTE: HOT templates used by heat to instantiate VNF configured by these
+NOTE: HOT templates used by Heat to instantiate VNF configured by these
 playbooks shall include the same SSH key to be installed as part of
 instantiation.
 
-Other non-vendor specific playbook tasks need to be incorporated on
+Other non-VNF provider specific playbook tasks need to be incorporated on
 overall post-instantiation configuration playbooks or company Playbooks
-need to be uploaded and executed after VNF vendor provided or internally
+need to be uploaded and executed after VNF provided or internally
 developed playbooks for the VNF.
 
 

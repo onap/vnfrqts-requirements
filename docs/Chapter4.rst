@@ -17,7 +17,7 @@ flexibility of sizing and scaling and also provides flexibility with
 packaging and deploying VNFs as needed for the service. It enables
 grouping functions in a common cloud data center to minimize
 inter-component latency. The VNFs should be designed with a goal of
-being modular and reusable to enable using best-in-breed vendors
+being modular and reusable to enable using best-in-breed vendors.
 
 Section 5.a VNF Design in *VNF Guidelines* describes
 the overall guidelines for designing VNFs from VNF Components (VNFCs).
@@ -232,7 +232,7 @@ the five broad security areas for VNFs that are detailed in the
 following sections:
 
 -  **VNF General Security**: This section addresses general security
-   requirements for the VNFs that the vendors will need to address.
+   requirements for the VNFs that the VNF provide will need to address.
 
 -  **VNF Identity and Access Management**: This section addresses
    security requirements with respect to Identity and Access Management
@@ -272,7 +272,7 @@ Integration and operation within a robust security environment is necessary and 
 * R-23882 The VNF **SHOULD** be scanned using both network scanning and application scanning security tools on all code, including underlying OS and related configuration. Scan reports shall be provided. Remediation roadmaps shall be made available for any findings.
 * R-46986 The VNF **SHOULD** have source code scanned using scanning tools (e.g., Fortify) and provide reports.
 * R-55830 The VNF **MUST** distribute all production code from NCSP internal sources only. No production code, libraries, OS images, etc. shall be distributed from publically accessible depots.
-* R-99771 The VNF **MUST** provide all code/configuration files in a “Locked down” or hardened state or with documented recommendations for such hardening. All unnecessary services will be disabled. Vendor default credentials, community strings and other such artifacts will be removed or disclosed so that they can be modified or removed during provisioning.
+* R-99771 The VNF **MUST** provide all code/configuration files in a “Locked down” or hardened state or with documented recommendations for such hardening. All unnecessary services will be disabled. VNF provide default credentials, community strings and other such artifacts will be removed or disclosed so that they can be modified or removed during provisioning.
 * R-19768 The VNF **SHOULD** support L3 VPNs that enable segregation of traffic by application (dropping packets not belonging to the VPN) (i.e., AVPN, IPSec VPN for Internet routes).
 * R-33981 The VNF **SHOULD** interoperate with various access control mechanisms for the Network Cloud execution environment (e.g., Hypervisors, containers).
 * R-40813 The VNF **SHOULD** support the use of virtual trusted platform module, hypervisor security testing and standards scanning tools.
@@ -287,7 +287,7 @@ Integration and operation within a robust security environment is necessary and 
 * R-98391 The VNF **MUST**, if not using the NCSP’s IDAM API, support Role-Based Access Control to permit/limit the user/application to performing specific activities.
 * R-63217 The VNF **MUST**, if not using the NCSP’s IDAM API, support logging via ONAP for a historical view of “who did what and when”.
 * R-62498 The VNF **MUST**, if not using the NCSP’s IDAM API, encrypt OA&M access (e.g., SSH, SFTP).
-* R-79107 The VNF **MUST**, if not using the NCSP’s IDAM API, enforce a configurable maximum number of Login attempts policy for the users. VNF vendor must comply with "terminate idle sessions" policy. Interactive sessions must be terminated, or a secure, locking screensaver must be activated requiring authentication, after a configurable period of inactivity. The system-based inactivity timeout for the enterprise identity and access management system must also be configurable.
+* R-79107 The VNF **MUST**, if not using the NCSP’s IDAM API, enforce a configurable maximum number of Login attempts policy for the users. VNF provider must comply with "terminate idle sessions" policy. Interactive sessions must be terminated, or a secure, locking screensaver must be activated requiring authentication, after a configurable period of inactivity. The system-based inactivity timeout for the enterprise identity and access management system must also be configurable.
 * R-35144 The VNF **MUST**, if not using the NCSP’s IDAM API, comply with the NCSP’s credential management policy.
 * R-75041 The VNF **MUST**, if not using the NCSP’s IDAM API, expire passwords at regular configurable intervals.
 * R-46908 The VNF **MUST**, if not using the NCSP’s IDAM API, comply with "password complexity" policy. When passwords are used, they shall be complex and shall at least meet the following password construction requirements: (1) be a minimum configurable number of characters in length, (2) include 3 of the 4 following types of characters: upper-case alphabetic, lower-case alphabetic, numeric, and special, (3) not be the same as the UserID with which they are associated or other common strings as specified by the environment, (4) not contain repeating or sequential characters or numbers, (5) not to use special characters that may have command functions, and (6) new passwords must not contain sequences of three or more characters from the previous password.
@@ -311,9 +311,9 @@ Identity and Access Management Requirements
 * R-99174 The VNF **MUST** comply with Individual Accountability (each person must be assigned a unique ID) when persons or non-person entities access VNFs.
 * R-42874 The VNF **MUST** comply with Least Privilege (no more privilege than required to perform job functions) when persons or non-person entities access VNFs.
 * R-71787 The VNF **MUST** comply with Segregation of Duties (access to a single layer and no developer may access production without special oversight) when persons or non-person entities access VNFs.
-* R-86261 The VNF **MUST NOT** allow vendor access to VNFs remotely.
-* R-49945 The VNF **MUST** authorize vendor access through a client application API by the client application owner and the resource owner of the VNF before provisioning authorization through Role Based Access Control (RBAC), Attribute Based Access Control (ABAC), or other policy based mechanism.
-* R-31751 The VNF **MUST** subject vendor VNF access to privilege reconciliation tools to prevent access creep and ensure correct enforcement of access policies.
+* R-86261 The VNF **MUST NOT** allow VNF provider access to VNFs remotely.
+* R-49945 The VNF **MUST** authorize VNF provider access through a client application API by the client application owner and the resource owner of the VNF before provisioning authorization through Role Based Access Control (RBAC), Attribute Based Access Control (ABAC), or other policy based mechanism.
+* R-31751 The VNF **MUST** subject VNF provider access to privilege reconciliation tools to prevent access creep and ensure correct enforcement of access policies.
 * R-34552 The VNF **MUST** provide or support the Identity and Access Management (IDAM) based threat detection data for OWASP Top 10.
 * R-29301 The VNF **MUST** provide or support the Identity and Access Management (IDAM) based threat detection data for Password Attacks.
 * R-72243 The VNF **MUST** provide or support the Identity and Access Management (IDAM) based threat detection data for Phishing / SMishing.
@@ -324,9 +324,9 @@ Identity and Access Management Requirements
 * R-44032 The VNF **MUST** provide or support the Identity and Access Management (IDAM) based threat detection data for Man in the Middle (MITM).
 * R-58977 The VNF **MUST** provide or support the Identity and Access Management (IDAM) based threat detection data for Eavesdropping.
 * R-24825 The VNF **MUST** provide Context awareness data (device, location, time, etc.) and be able to integrate with threat detection system.
-* R-59391 The VNF vendor **MUST**, where a VNF vendor requires the assumption of permissions, such as root or administrator, first log in under their individual user login ID then switch to the other higher level account; or where the individual user login is infeasible, must login with an account with admin privileges in a way that uniquely identifies the individual performing the function.
-* R-85028 The VNF **MUST** authenticate system to system access and do not conceal a VNF vendor user’s individual accountability for transactions.
-* R-80335 The VNF **MUST** make visible a Warning Notices: A formal statement of resource intent, i.e., a warning notice, upon initial access to a VNF vendor user who accesses private internal networks or Company computer resources, e.g., upon initial logon to an internal web site, system or application which requires authentication.
+* R-59391 The VNF provider **MUST**, where a VNF provider requires the assumption of permissions, such as root or administrator, first log in under their individual user login ID then switch to the other higher level account; or where the individual user login is infeasible, must login with an account with admin privileges in a way that uniquely identifies the individual performing the function.
+* R-85028 The VNF **MUST** authenticate system to system access and do not conceal a VNF provider user’s individual accountability for transactions.
+* R-80335 The VNF **MUST** make visible a Warning Notices: A formal statement of resource intent, i.e., a warning notice, upon initial access to a VNF provider user who accesses private internal networks or Company computer resources, e.g., upon initial logon to an internal web site, system or application which requires authentication.
 * R-73541 The VNF **MIST** use access controls for VNFs and their supporting computing systems at all times to restrict access to authorized personnel only, e.g., least privilege. These controls could include the use of system configuration or access control software.
 * R-64503 The VNF **MUST** provide minimum privileges for initial and default settings for new user accounts.
 * R-86835 The VNF **MUST** set the default settings for user access to sensitive commands and data to deny authorization.
@@ -493,7 +493,7 @@ Data Protection Requirements
 * R-95864 The VNF **MUST** use commercial tools that comply with X.509 standards and produce x.509 compliant keys for public/private key generation.
 * R-12110 The VNF **MUST NOT** use keys generated or derived from predictable functions or values, e.g., values considered predictable include user identity information, time of day, stored/transmitted data.
 * R-52060 The VNF **MUST** provide the capability to configure encryption algorithms or devices so that they comply with the laws of the jurisdiction in which there are plans to use data encryption.
-* R-69610 The VNF **MUST** provide the capability of using certificates issued from a Certificate Authority not provided by the VNF vendor.
+* R-69610 The VNF **MUST** provide the capability of using certificates issued from a Certificate Authority not provided by the VNF provider.
 * R-83500 The VNF **MUST** provide the capability of allowing certificate renewal and revocation.
 * R-29977 The VNF **MUST** provide the capability of testing the validity of a digital certificate by validating the CA signature on the certificate.
 * R-24359 The VNF **MUST** provide the capability of testing the validity of a digital certificate by validating the date the certificate is being used is within the validity period for the certificate.
@@ -846,7 +846,7 @@ incremental.yaml
 e. VNF Devops
 =============
 
-This section includes guidelines for vendors to ensure that a Network
+This section includes guidelines for VNF providers to ensure that a Network
 Cloud Service Provider’s operations personnel have a common and
 consistent way to support VNFs and VNFCs.
 
@@ -878,15 +878,15 @@ DevOps Requirements
 f. VNF Develop Steps
 =======================
 
-Aid to help the VNF vendor to fasten the integration with the GVNFM, the
+Aid to help the VNF provider to fasten the integration with the GVNFM, the
 ONAP provides the VNF SDK tools, and the documents. In this charter,
-the develop steps for VNF vendors will be introduced.
+the develop steps for VNF providers will be introduced.
 
 First, using the VNF SDK tools to design the VNF with TOSCA model and
 output the VNF TOSCA package. The VNF package can be validated, and
 tested.
 
-Second, the VNF vendor should provide the VNF Rest API to integrate with
+Second, the VNF provider should provide the VNF Rest API to integrate with
 the GVNFM if needed. The VNF Rest API is aligned to the ETSI IFA
 document.
 

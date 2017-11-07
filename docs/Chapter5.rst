@@ -42,13 +42,13 @@ associated with this format.
 Overview
 ---------
 
-The document includes three charters to help the VNF vendors to use the
+The document includes three charters to help the VNF providers to use the
 VNF model design tools and understand the VNF package structure and VNF
 TOSCA templates.
 
 In the ONAP, VNF Package and VNFD template can be designed by manually
 or via model designer tools. VNF model designer tools can provide the
-GUI and CLI tools for the VNF vendor to develop the VNF Package and VNFD
+GUI and CLI tools for the VNF provider to develop the VNF Package and VNFD
 template.
 
 The VNF package structure is align to the NFV TOSCA protocol, and
@@ -5099,7 +5099,7 @@ even in the short-term as of the long-term direction.
 c. VNFM Driver Development Steps
 ================================
 
-Refer to the ONAP documentation for VNF vendor instructions on integrating 
+Refer to the ONAP documentation for VNF providerr instructions on integrating 
 special VNFM adaptors with VF-C.  The VNF driver development steps are
 highlighted below. 
 
@@ -5107,10 +5107,10 @@ highlighted below.
 the VNF TOSCA package.  Using the VNF SDK tools, the VNF package can be 
 validated and tested.
 
-2. The VNF vendor can provide a special VNFM driver in ONAP, which
+2. The VNF provider can provide a special VNFM driver in ONAP, which
 is a microservice providing a translation interface from VF-C to
 the special VNFM. The interface definitions of special VNFM adaptors are provided by
-the VNF vendors themselves.
+the VNF providers themselves.
 
 d. Creating Special VNFM Adaptor Microservices
 ==============================================
