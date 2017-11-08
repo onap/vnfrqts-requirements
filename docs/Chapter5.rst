@@ -5099,29 +5099,29 @@ even in the short-term as of the long-term direction.
 c. VNFM Driver Development Steps
 ================================
 
-Refer to the ONAP documentation for VNF provider instructions on integrating 
-special VNFM adaptors with VF-C.  The VNF driver development steps are
+Refer to the ONAP documentation for VNF Provider instructions on integrating 
+vendor-specific VNFM adaptors with VF-C.  The VNF driver development steps are
 highlighted below. 
 
 1. Use the VNF SDK tools to design the VNF with TOSCA models to output
 the VNF TOSCA package.  Using the VNF SDK tools, the VNF package can be 
 validated and tested.
 
-2. The VNF provider can provide a special VNFM driver in ONAP, which
+2. The VNF Provider supplies a vendor-specific VNFM driver in ONAP, which
 is a microservice providing a translation interface from VF-C to
-the special VNFM. The interface definitions of special VNFM adaptors are provided by
-the VNF providers themselves.
+the vendor-specific VNFM. The interface definitions of vendor-specific VNFM adaptors are supplied by
+the VNF Providers themselves.
 
-d. Creating Special VNFM Adaptor Microservices
-==============================================
+d. Creating Vendor-Specific VNFM Adaptor Microservices
+======================================================
 
-VNFs can be managed by special VNFMs. To add a special VNFM to ONAP, a
-special VNFM adaptor is added to ONAP implementing the interface of the special VNFM.
+VNFs can be managed by vendor-specific VNFMs. To add a vendor-specific VNFM to ONAP, a
+vendor-specific VNFM adaptor is added to ONAP implementing the interface of the vendor-specific VNFM.
 
-A special VNFM adaptor is a microservice with a unique name and an appointed
-port. When started up, the special VNFM adaptor microservice is automatically registered to the 
+A vendor-specific VNFM adaptor is a microservice with a unique name and an appointed
+port. When started up, the vendor-specific VNFM adaptor microservice is automatically registered to the 
 Microservices Bus (MSB). The following RESTful example describes the scenario of 
-registering a special VNFM adaptor to MSB:
+registering a vendor-specific VNFM adaptor to MSB:
 
 .. code-block:: java
 
