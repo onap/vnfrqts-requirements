@@ -2,7 +2,7 @@
 ===============
 
 a. – Chef JSON Key Value Description
-=================================================
+====================================
 
 The following provides the key value pairs that must be contained in the
 JSON file supporting Chef action.
@@ -35,20 +35,20 @@ Chef Template example:
  “Environment”:{
       "name": "HAR",
       "description": "VNF Chef environment for HAR",
-      "json\_class": "Chef::Environment",
-      "chef\_type": "environment",
-      "default\_attributes": { },
-      "override\_attributes": {
-            “Retry\_Time”:”50”,
+      "json_class": "Chef::Environment",
+      "chef_type": "environment",
+      "default_attributes": { },
+      "override_attributes": {
+            “Retry_Time”:”50”,
             “MemCache”: “1024”,
-            “Database\_IP”:”10.10.1.5”
+            “Database_IP”:”10.10.1.5”
       },
  }
  }
  “Node”: {
       “name” : “signal.network.com “
-      "chef\_type": "node",
-      "json\_class": "Chef::Node",
+      "chef_type": "node",
+      "json_class": "Chef::Node",
       "attributes": {
             “IPAddress1”: “192.168.1.2”,
             “IPAddress2”:”135.16.162.5”,
@@ -58,10 +58,10 @@ Chef Template example:
       "default": {},
       “normal”:{},
       “automatic”:{},
-      “chef\_environment” : “\_default”
-      "run\_list": [ "configure\_signal" ]
+      “chef_environment” : “_default”
+      "run_list": [ "configure_signal" ]
       },
-      “NodeList”:[“node1.vnf\_a.onap.com”, “node2.vnf\_a.onap.com”],
+      “NodeList”:[“node1.vnf_a.onap.com”, “node2.vnf_a.onap.com”],
       “PushJobFlag”: “True”
       “CallbackCapable”:True
       “GetOutputFlag” : “False”
@@ -141,15 +141,15 @@ Ansible JSON file example:
 
       “Action”:”Configure”,
 
-      "PlaybookName": "Ansible\_configure.yml",
+      "PlaybookName": "Ansible_configure.yml",
 
-      "NodeList": ["test1.vnf\_b.onap.com", “test2.vnf\_b.onap.com”],
+      "NodeList": ["test1.vnf_b.onap.com", “test2.vnf_b.onap.com”],
 
       "Timeout": 60,
 
       "EnvParameters": {"Retry": 3, "Wait": 5, “ConfigFile”:”config.txt”},
 
-      “FileParameters”:{“config.txt”:”db\_ip=10.1.1.1, sip\_timer=10000”}
+      “FileParameters”:{“config.txt”:”db_ip=10.1.1.1, sip_timer=10000”}
 
 }
 
@@ -158,8 +158,8 @@ In the above example, the Ansible Server will:
 a. Process the “FileParameters” dictionary and generate a file named
    ‘config.txt’ with contents set to the value of the ‘config.txt’ key.
 
-b. Execute the playbook named ‘Ansible\_configure.yml’ on nodes with
-   FQDNs test1.vnf\_b.onap.com and test2.vnf\_b.onap.com respectively
+b. Execute the playbook named ‘Ansible_configure.yml’ on nodes with
+   FQDNs test1.vnf_b.onap.com and test2.vnf_b.onap.com respectively
    while providing the following key value pairs to the playbook:
    Retry=3, Wait=5, ConfigFile=config.txt
 
@@ -542,7 +542,7 @@ R-62498: The VNF **MUST**, if not using the NCSP’s IDAM API, encrypt OA&M acce
 
 R-42366: The VNF **MUST** support secure connections and transports.
 
-R-33955: The VNF **SHOULD** conform its YANG model to \*\*RFC 6991, “Common YANG Data Types”.
+R-33955: The VNF **SHOULD** conform its YANG model to **RFC 6991, “Common YANG Data Types”.
 
 R-33488: The VNF **MUST** protect against all denial of service attacks, both volumetric and non-volumetric, or integrate with external denial of service protection tools.
 
@@ -1297,8 +1297,8 @@ e. - Ansible Playbook Examples
 The following sections contain examples of Ansible playbook contents
 which follow the guidelines.
 
-Guidelines for Playbooks to properly integrate with APPC 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Guidelines for Playbooks to properly integrate with APPC
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 NOTE: To support concurrent requests to multiple VNF instances of same
 or different type, VNF hosts and other files with VNF specific default
@@ -1339,7 +1339,7 @@ Comments:
    needs to be part of APPC template.
 
 Ansible Playbooks will use the VNF instance name (passed using
---extra-vars "vnf\_instance=vfdb9904v") to identify other default values
+--extra-vars "vnf_instance=vfdb9904v") to identify other default values
 to run the playbook(s) against the target VNF instance. Same example as
 above:
 
@@ -1390,7 +1390,7 @@ And here the scrubbed default arguments for this VNF instance:
  …
 
 IMPORTANT: The APPC and default file attribute name for
-vm\_config\_oam\_vnfc\_name, as an example, is derived from vm\_config
+vm_config_oam_vnfc_name, as an example, is derived from vm_config
 array structure (list) in the CSAR package ENV file, with dots replaced
 by underscore:
 
@@ -1401,9 +1401,9 @@ by underscore:
  oam: {vnfc_name: {{ vm_config_oam_vnfc_name }}, hostname: {{
  vm_config_oam_hostname }}, provider_ip_address: {{
  vm_config_oam_provider_ip_address }
- 
+
  },
- 
+
  …
 
 Parameters like VNF names, VNFC names, OA&M IP addresses, after
@@ -1527,10 +1527,10 @@ VNF instance hosts file, to be stored under the Ansible Server Playbooks
 root directory, under the inventory subdirectory, and under a directory
 for each VNF instance, named after the VNF instance, as follows:
 
-ansible/inventory/<VNF\_instance\_name>/hosts
+ansible/inventory/<VNF_instance_name>/hosts
 
 Example of inventory hosts file path, relative to ansible playbooks root
-directory (playbooks\_dir): ansible/inventory/vnfx0001v/hosts
+directory (playbooks_dir): ansible/inventory/vnfx0001v/hosts
 
 Designing for a shared environment, concurrently running playbooks,
 targeting multiple VNF instances – default argument variables for
@@ -1544,12 +1544,12 @@ passed down by APPC, to the Ansible Server, overriding these defaults:
 
 Following the same approach for inventory hosts files, files
 referenced/included by playbooks containing default values,
-default\_args.yml, shall be stored under a directory with VNF instance
+default_args.yml, shall be stored under a directory with VNF instance
 name on the path.
 
 Example:
 
-ansible/vars/<VNF\_instance\_name>/default\_args.yml
+ansible/vars/<VNF_instance_name>/default_args.yml
 
 Files containing attribute name value pairs (variable name and default
 values), referenced/included by playbooks – created dynamically by
@@ -1564,7 +1564,7 @@ VNF instance name on the path.
 
 Example:
 
-tmp/<VNF\_instance\_name>/all.yml
+tmp/<VNF_instance_name>/all.yml
 
 Files containing site specific (Openstack location non-instance
 specific) attribute name value pairs, like NTP server and DNS server’s
@@ -1575,13 +1575,13 @@ lax2,…).
 
 Examples:
 
-ansible/vars/<Site>/default\_args.yml
+ansible/vars/<Site>/default_args.yml
 
-ansible/vars/nyc1/default\_args.yml
+ansible/vars/nyc1/default_args.yml
 
-ansible/vars/lax2/default\_args.yml
+ansible/vars/lax2/default_args.yml
 
-\ **Ansible Server Design - Directory Structure**
+ **Ansible Server Design - Directory Structure**
 
 To help understanding the contents of this section, here are few basic
 definitions:
@@ -1672,7 +1672,7 @@ Required:
 
 .. code-block:: none
 
- /storage/<VNF type>/<Version>/ansible/vars/<VNF instance name>/default\_args.yml
+ /storage/<VNF type>/<Version>/ansible/vars/<VNF instance name>/default_args.yml
 
 NOTE: This requirement is expected to be deprecated in part in the
 future, for automated actions, once APPC can pass down all VNF specific
@@ -1686,7 +1686,7 @@ Optional:
 
 .. code-block:: none
 
- /storage/<VNF type>/<Version>/ansible/groups/<VNF instance name>/common\_groups.yml
+ /storage/<VNF type>/<Version>/ansible/groups/<VNF instance name>/common_groups.yml
 
 NOTE: Default groups will be created based on VNFC type, 3 characters,
 on VNFC name. Example: “oam”, “rdb”, “dbs”, “man”, “iox”, “app”,…
@@ -1741,7 +1741,7 @@ VM(s) as specified in the request.
 ONAP APPC REST API to Ansible Server is documented separately and can be
 found under ONAP (onap.org).
 
-\ **Ansible Server – On-boarding Ansible Playbooks **
+ **Ansible Server – On-boarding Ansible Playbooks **
 
 Once playbooks are developed following the guidelines listed in prior
 section(s), playbooks need to be on-boarded onto Ansible Server(s). In
@@ -1801,15 +1801,15 @@ Ansible Server.
     $ cat inventory/vfdb9904v/hosts
 
     [host]
-    localhost ansible\_connection=local
+    localhost ansible_connection=local
 
     [oam]
-    1xx.2yy.zzz.109 ansible\_ssh\_private\_key\_file=/storage/.ssh/Kilo-SSH-Key.pem
-    1xx.2yy.zzz.110 ansible\_ssh\_private\_key\_file=/storage/.ssh/Kilo-SSH-Key.pem
+    1xx.2yy.zzz.109 ansible_ssh_private_key_file=/storage/.ssh/Kilo-SSH-Key.pem
+    1xx.2yy.zzz.110 ansible_ssh_private_key_file=/storage/.ssh/Kilo-SSH-Key.pem
 
     [rdb]
-    1xx.2yy.zzz.105 ansible\_ssh\_private\_key\_file=/storage/.ssh/Kilo-SSH-Key.pem
-    1xx.2yy.zzz.106 ansible\_ssh\_private\_key\_file=/storage/.ssh/Kilo-SSH-Key.pem
+    1xx.2yy.zzz.105 ansible_ssh_private_key_file=/storage/.ssh/Kilo-SSH-Key.pem
+    1xx.2yy.zzz.106 ansible_ssh_private_key_file=/storage/.ssh/Kilo-SSH-Key.pem
 
 6. Create directory to hold default arguments for each VNF instance,
    example:
@@ -1817,33 +1817,33 @@ Ansible Server.
 .. code-block:: none
 
    $ mkdir –p vars/vfdb9904v
-   $ touch vars/vfdb9904v/default\_args.yml
-   $ cat vars/vfdb9904v/default\_args.yml
-   vm\_config\_oam1\_vnfc\_name: vfdb9904vm001oam001
-   vm\_config\_oam1\_hostname: vfdb9904vm001
-   vm\_config\_oam1\_provider\_ip\_address: 1xx.2yy.zzz.109
+   $ touch vars/vfdb9904v/default_args.yml
+   $ cat vars/vfdb9904v/default_args.yml
+   vm_config_oam1_vnfc_name: vfdb9904vm001oam001
+   vm_config_oam1_hostname: vfdb9904vm001
+   vm_config_oam1_provider_ip_address: 1xx.2yy.zzz.109
 
-   vm\_config\_oam2\_vnfc\_name: vfdb9904vm002oam001
-   vm\_config\_oam2\_hostname: vfdb9904vm002
-   vm\_config\_oam2\_provider\_ip\_address: 1xx.2yy.zzz.110
+   vm_config_oam2_vnfc_name: vfdb9904vm002oam001
+   vm_config_oam2_hostname: vfdb9904vm002
+   vm_config_oam2_provider_ip_address: 1xx.2yy.zzz.110
 
-   vm\_config\_rdb1\_vnfc\_name: vfdb9904vm003rdb001
-   vm\_config\_rdb1\_hostname: vfdb9904vm003
-   vm\_config\_rdb1\_provider\_ip\_address: 1xx.2yy.zzz.105
+   vm_config_rdb1_vnfc_name: vfdb9904vm003rdb001
+   vm_config_rdb1_hostname: vfdb9904vm003
+   vm_config_rdb1_provider_ip_address: 1xx.2yy.zzz.105
 
-   vm\_config\_rdb2\_vnfc\_name: vfdb9904vm004rdb001
-   vm\_config\_rdb2\_hostname: vfdb9904vm004
-   vm\_config\_rdb2\_provider\_ip\_address: 1xx.2yy.zzz.106
+   vm_config_rdb2_vnfc_name: vfdb9904vm004rdb001
+   vm_config_rdb2_hostname: vfdb9904vm004
+   vm_config_rdb2_provider_ip_address: 1xx.2yy.zzz.106
 
-   vm\_config\_rdb3\_vnfc\_name: vfdb9904vm005rdb001
-   vm\_config\_rdb3\_hostname: vfdb9904vm005
-   vm\_config\_rdb3\_provider\_ip\_address: 1xx.2yy.zzz.xxx
+   vm_config_rdb3_vnfc_name: vfdb9904vm005rdb001
+   vm_config_rdb3_hostname: vfdb9904vm005
+   vm_config_rdb3_provider_ip_address: 1xx.2yy.zzz.xxx
 
-   vm\_config\_rdb4\_vnfc\_name: vfdb9904vm006rdb001
-   vm\_config\_rdb4\_hostname: vfdb9904vm006
-   vm\_config\_rdb4\_provider\_ip\_address: 1xx.2yy.zzz.yyy
+   vm_config_rdb4_vnfc_name: vfdb9904vm006rdb001
+   vm_config_rdb4_hostname: vfdb9904vm006
+   vm_config_rdb4_provider_ip_address: 1xx.2yy.zzz.yyy
 
-NOTE: Please note names in this file shall use underscore “\_” not dots
+NOTE: Please note names in this file shall use underscore “_” not dots
 “.” or dashes “-“.
 
 7. Perform some basic playbook validation running with “--check” option,

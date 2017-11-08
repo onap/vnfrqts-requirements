@@ -514,8 +514,8 @@ ONAP VNF Modularity Overview
 
 With VNF Modularity, a single VNF may be composed from one or more Heat
 Orchestration Templates, each of which represents a subset of the
-overall VNF. These component parts are referred to as “\ *VNF
-Modules*\ ”. During orchestration, these modules are deployed
+overall VNF. These component parts are referred to as “ *VNF
+Modules* ”. During orchestration, these modules are deployed
 incrementally to create the complete VNF.
 
 A modular Heat Orchestration Template can be either one of the following
@@ -556,7 +556,7 @@ ONAP supports a modular Heat Orchestration Template design pattern,
 referred to as *VNF Modularity.* With this approach, a single VNF may be
 composed from one or more Heat Orchestration Templates, each of which
 represents a subset of the overall VNF. These component parts are
-referred to as “\ *VNF Modules*\ ”. During orchestration, these modules
+referred to as “ *VNF Modules* ”. During orchestration, these modules
 are deployed incrementally to create the complete VNF.
 
 A modular Heat Orchestration Template can be either one of the following
@@ -604,7 +604,7 @@ must correspond 1:1 with a base module or incremental module.
 An example of a shared resource is the resource
 OS::Neutron::SecurityGroup. Security groups are sets of IP filter rules
 that are applied to a VNF’s networking. The resource OS::Neutron::Port
-has a property security\_groups which provides the security groups
+has a property security_groups which provides the security groups
 associated with port. The value of parameter(s) associated with this
 property must be the UUIDs of the resource(s)
 OS::Neutron::SecurityGroup.
@@ -722,17 +722,17 @@ VNF Modularity Examples
 A VNF has a base module, named base.yaml, that defines a
 OS::Neutron::SecurityGroup. The security group will be referenced by an
 OS::Neutron::Port resource in an incremental module, named
-INCREMENTAL\_MODULE.yaml. The base module defines a parameter in the out
-section named dns\_sec\_grp\_id. dns\_sec\_grp\_id is defined as a
+INCREMENTAL_MODULE.yaml. The base module defines a parameter in the out
+section named dns_sec_grp_id. dns_sec_grp_id is defined as a
 parameter in the incremental module. ONAP captures the UUID value of
-dns\_sec\_grp\_id from the base module output statement and provides the
+dns_sec_grp_id from the base module output statement and provides the
 value to the incremental module.
 
 Note that the example below is not a complete Heat Orchestration
 Template. The {network-role} has been defined as oam to represent an oam
 network and the {vm-type} has been defined as dns.
 
-base\_MODULE.yaml
+base_MODULE.yaml
 
 .. code-block:: yaml
 
@@ -759,7 +759,7 @@ base\_MODULE.yaml
      value: { get_resource: DNS_SECURITY_GROUP }
 
 
-INCREMENTAL\_MODULE.yaml
+INCREMENTAL_MODULE.yaml
 
 .. code-block:: yaml
 
@@ -785,12 +785,12 @@ INCREMENTAL\_MODULE.yaml
 
 *Examples: Base Module creates an internal network*
 
-A VNF has a base module, named base\_module.yaml, that creates an
-internal network. An incremental module, named incremental\_module.yaml,
+A VNF has a base module, named base_module.yaml, that creates an
+internal network. An incremental module, named incremental_module.yaml,
 will create a VM that will connect to the internal network. The base
-module defines a parameter in the out section named int\_oam\_net\_id.
-int\_oam\_net\_id is defined as a parameter in the incremental module.
-ONAP captures the UUID value of int\_oam\_net\_id from the base module
+module defines a parameter in the out section named int_oam_net_id.
+int_oam_net_id is defined as a parameter in the incremental module.
+ONAP captures the UUID value of int_oam_net_id from the base module
 output statement and provides the value to the incremental module.
 
 Note that the example below is not a complete Heat Orchestration
@@ -873,7 +873,7 @@ DevOps Requirements
 * R-39650 The VNF **SHOULD** provide the ability to test incremental growth of the VNF.
 * R-14853 The VNF **MUST** respond to a "move traffic" [2]_ command against a specific VNFC, moving all existing session elsewhere with minimal disruption if a VNF provides a load balancing function across multiple instances of its VNFCs. Note: Individual VNF performance aspects (e.g., move duration or disruption scope) may require further constraints.
 * R-06327 The VNF **MUST** respond to a "drain VNFC" [2]_ command against a specific VNFC, preventing new session from reaching the targeted VNFC, with no disruption to active sessions on the impacted VNFC, if a VNF provides a load balancing function across multiple instances of its VNFCs. This is used to support scenarios such as proactive maintenance with no user impact.
-* R-NNNNN The VNF **SHOULD** support a software promotion methodology from dev/test -> pre-prod -> production in software, development & testing and operations. 
+* R-NNNNN The VNF **SHOULD** support a software promotion methodology from dev/test -> pre-prod -> production in software, development & testing and operations.
 
 f. VNF Develop Steps
 =======================
