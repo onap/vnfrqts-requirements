@@ -540,9 +540,9 @@ activity).
 
 * R-11200 The VNF MUST keep the scope of a Cinder volume module, when it exists, to be 1:1 with the VNF Base Module or Incremental Module.
 
-* R-nnnnn The VNF MUST have a corresponding environment file for a Base Module.
-* R-nnnnn The VNF MUST have a corresponding environment file for an Incremental Module.
-* R-nnnnn The VNF MUST have a corresponding environment file for a Cinder Volume Module.
+* R-38474 The VNF MUST have a corresponding environment file for a Base Module.
+* R-81725 The VNF MUST have a corresponding environment file for an Incremental Module.
+* R-53433 The VNF MUST have a corresponding environment file for a Cinder Volume Module.
 
 These concepts will be described in more detail throughout the document.
 This overview is provided to set the stage and help clarify the concepts
@@ -863,7 +863,7 @@ DevOps Requirements
 
 * R-46960 The VNF **MUST** utilize only the Guest OS versions that are supported by the NCSP’s Network Cloud. [1]_
 * R-23475 The VNF **SHOULD** utilize only NCSP provided Guest OS images. [1]_
-* R-NNNNN The VNF **MUST** install the NCSP required software on Guest OS images when not using the NCSP provided Guest OS images. [1]_
+* R-33846 The VNF **MUST** install the NCSP required software on Guest OS images when not using the NCSP provided Guest OS images. [1]_
 * R-09467 The VNF **MUST**  utilize only NCSP standard compute flavors. [1]_
 * R-02997 The VNF **MUST** preserve their persistent data. Running VMs will not be backed up in the Network Cloud infrastructure.
 * R-29760 The VNFC **MUST** be installed on non-root file systems, unless software is specifically included with the operating system distribution of the guest image.
@@ -873,7 +873,7 @@ DevOps Requirements
 * R-39650 The VNF **SHOULD** provide the ability to test incremental growth of the VNF.
 * R-14853 The VNF **MUST** respond to a "move traffic" [2]_ command against a specific VNFC, moving all existing session elsewhere with minimal disruption if a VNF provides a load balancing function across multiple instances of its VNFCs. Note: Individual VNF performance aspects (e.g., move duration or disruption scope) may require further constraints.
 * R-06327 The VNF **MUST** respond to a "drain VNFC" [2]_ command against a specific VNFC, preventing new session from reaching the targeted VNFC, with no disruption to active sessions on the impacted VNFC, if a VNF provides a load balancing function across multiple instances of its VNFCs. This is used to support scenarios such as proactive maintenance with no user impact.
-* R-NNNNN The VNF **SHOULD** support a software promotion methodology from dev/test -> pre-prod -> production in software, development & testing and operations. 
+* R-64713 The VNF **SHOULD** support a software promotion methodology from dev/test -> pre-prod -> production in software, development & testing and operations. 
 
 f. VNF Develop Steps
 =======================
