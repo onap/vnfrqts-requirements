@@ -6,19 +6,11 @@
 VNF Requirements Release Notes
 ==================
 
-.. note::
-	* This Release Notes must be updated each time the team decides to Release new artifacts.
-	* The scope of this Release Notes is for this particular component. In other words, each ONAP component has its Release Notes.
-	* This Release Notes is cumulative, the most recently Released artifact is made visible in the top of this Release Notes.
-	* Except the date and the version number, all the other sections are optional but there must be at least one section describing the purpose of this new release.
-	* This note must be removed after content has been added.
-		   
-
-Version: x.y.z
---------------
+Version: 1.0.0
+---------------
 
 
-:Release Date: yyyy-mm-dd
+:Release Date: 2017-11-16
 
 
 
@@ -27,7 +19,7 @@ Version: x.y.z
 
         This intitial releases is based on seed documents that came from Open-O and Open ECOMP. For details, refer `Seed Document Mappings to VNFRQTS Deliverable Outlines <https://wiki.onap.org/display/DW/Seed+Document+Mappings+to+VNFRQTS+Deliverable+Outlines>`_.
 
-        This release addresses EPICs: `VNFRQTS-6 <https://jira.onap.org/browse/VNFRQTS-6>`_.
+        This release provides a consolidated list of requirements as prototype text for RFPs to acquire VNFs to run in an ONAP context. The requirements are uniquely numbered and in a consistent format.
 
 **Bug Fixes**
 	- None
@@ -36,9 +28,9 @@ Version: x.y.z
 	- `VNFRQTS-83 Chapter 5, Section B Requirements <https://jira.onap.org/browse/VNFRQTS-83>`_.
 
 	  - Heat requirments have not been formatted into the standard format used througout the document.
-	  
+
 	  - Therefore they are not included in the summary of requirements listed in Appendix 8.d.
-	  
+
 	  - These requirements can be found by searching for the keywords must, should in the sections of the document that discuss Heat.
 
 **Security Issues**
