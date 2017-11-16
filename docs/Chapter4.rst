@@ -861,8 +861,8 @@ the DevOps guidelines for VNFs.
 
 DevOps Requirements
 
-* R-46960 The VNF **MUST** utilize only the Guest OS versions that are supported by the NCSP’s Network Cloud. [1]_
-* R-23475 The VNF **SHOULD** utilize only NCSP provided Guest OS images. [1]_
+* R-46960 NCSPs **MAY** operate a limited set of Guest OS and CPU architectures and families, virtual machines, etc.
+* R-23475 VNFCs **SHOULD** be agnostic to the details of the Network Cloud (such as hardware, host OS, Hypervisor or container technology) and must run on the Network Cloud with acknowledgement to the paradigm that the Network Cloud will continue to rapidly evolve and the underlying components of the platform will change regularly.
 * R-33846 The VNF **MUST** install the NCSP required software on Guest OS images when not using the NCSP provided Guest OS images. [1]_
 * R-09467 The VNF **MUST**  utilize only NCSP standard compute flavors. [1]_
 * R-02997 The VNF **MUST** preserve their persistent data. Running VMs will not be backed up in the Network Cloud infrastructure.
