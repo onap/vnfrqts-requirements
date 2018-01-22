@@ -910,7 +910,11 @@ R-62170: The VNF **MUST** over-ride any default values for configurable paramete
 
 R-41994: The VNF **MUST**, if not using the NCSP’s IDAM API, comply with "No Self-Signed Certificates" policy. Self-signed certificates must be used for encryption only, using specified and approved encryption protocols such as LS 1.1 or higher or equivalent security protocols such as IPSec, AES.
 
-R-nnnnn: The VNF MUST have a corresponding environment file for a Cinder Volume Module.
+R-38474: The VNF **MUST** have a corresponding environment file for a Base Module.
+
+R-81725: The VNF **MUST** have a corresponding environment file for an Incremental Module.
+
+R-53433: The VNF **MUST** have a corresponding environment file for a Cinder Volume Module.
 
 R-84160: The VNF **MUST** have security logging for VNFs and their OSs be active from initialization. Audit logging includes automatic routines to maintain activity records and cleanup programs to ensure the integrity of the audit/logging systems.
 
@@ -1019,8 +1023,6 @@ R-26881: The VNF provider **MUST** provide the binaries and images needed to ins
 R-69565: The VNF Package **MUST** include documentation describing VNF Management APIs. The document must include information and tools for:
 
 R-92571: The VNF **MUST** provide operational instrumentation such as logging, so as to facilitate quick resolution of issues with the VNF to provide service continuity.
-
-R-77737: The VNF **MUST**
 
 R-29488: The VNF **MUST** implement the protocol operation: **get-config(source, filter)** - Retrieve a (filtered subset of a) configuration from the configuration datastore source.
 
