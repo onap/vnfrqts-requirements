@@ -1299,8 +1299,8 @@ e. - Ansible Playbook Examples
 The following sections contain examples of Ansible playbook contents
 which follow the guidelines.
 
-Guidelines for Playbooks to properly integrate with APPC 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Guidelines for Playbooks to properly integrate with APPC
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 NOTE: To support concurrent requests to multiple VNF instances of same
 or different type, VNF hosts and other files with VNF specific default
@@ -1403,9 +1403,7 @@ by underscore:
  oam: {vnfc_name: {{ vm_config_oam_vnfc_name }}, hostname: {{
  vm_config_oam_hostname }}, provider_ip_address: {{
  vm_config_oam_provider_ip_address }
- 
  },
- 
  …
 
 Parameters like VNF names, VNFC names, OA&M IP addresses, after
