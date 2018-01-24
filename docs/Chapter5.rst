@@ -1965,7 +1965,7 @@ definition section.
 Nested templates may be suitable for larger VNFs that contain many
 repeated instances of the same VM type(s). A common usage pattern is to
 create a nested template for each VM type along with its supporting
-resources. The Heat Orchestration Template may then reference these
+resources. The Heat Orchestration Template may then references these
 nested templates either statically (by repeated definition) or
 dynamically (via OS::Heat::ResourceGroup).
 
@@ -5099,12 +5099,12 @@ even in the short-term as of the long-term direction.
 c. VNFM Driver Development Steps
 ================================
 
-Refer to the ONAP documentation for VNF Provider instructions on integrating 
+Refer to the ONAP documentation for VNF Provider instructions on integrating
 vendor-specific VNFM adaptors with VF-C.  The VNF driver development steps are
-highlighted below. 
+highlighted below.
 
 1. Use the VNF SDK tools to design the VNF with TOSCA models to output
-the VNF TOSCA package.  Using the VNF SDK tools, the VNF package can be 
+the VNF TOSCA package.  Using the VNF SDK tools, the VNF package can be
 validated and tested.
 
 2. The VNF Provider supplies a vendor-specific VNFM driver in ONAP, which
@@ -5119,8 +5119,8 @@ VNFs can be managed by vendor-specific VNFMs. To add a vendor-specific VNFM to O
 vendor-specific VNFM adaptor is added to ONAP implementing the interface of the vendor-specific VNFM.
 
 A vendor-specific VNFM adaptor is a microservice with a unique name and an appointed
-port. When started up, the vendor-specific VNFM adaptor microservice is automatically registered to the 
-Microservices Bus (MSB). The following RESTful example describes the scenario of 
+port. When started up, the vendor-specific VNFM adaptor microservice is automatically registered to the
+Microservices Bus (MSB). The following RESTful example describes the scenario of
 registering a vendor-specific VNFM adaptor to MSB:
 
 .. code-block:: java
