@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a93c517_22cab16e",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1968,
+      "author": {
+        "id": 1201
+      },
+      "writtenOn": "2018-01-24T11:53:20Z",
+      "side": 1,
+      "message": "?",
+      "revId": "5d4a4fa231608484ab3f98b730c5d690c29818dd",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_c2c8ad76",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 5122,
+      "author": {
+        "id": 1201
+      },
+      "writtenOn": "2018-01-24T11:53:20Z",
+      "side": 1,
+      "message": "It may be wrapped here (out of this change)",
+      "revId": "5d4a4fa231608484ab3f98b730c5d690c29818dd",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
