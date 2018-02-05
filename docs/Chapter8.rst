@@ -604,7 +604,7 @@ R-21558: The VNF **SHOULD** use intelligent routing by having knowledge of multi
 
 R-07545: The VNF **MUST** support all operations, administration and management (OAM) functions available from the supplier for VNFs using the supplied YANG code and associated NETCONF servers.
 
-R-73541: The VNF **MIST** use access controls for VNFs and their supporting computing systems at all times to restrict access to authorized personnel only, e.g., least privilege. These controls could include the use of system configuration or access control software.
+R-73541: The VNF **MUST** use access controls for VNFs and their supporting computing systems at all times to restrict access to authorized personnel only, e.g., least privilege. These controls could include the use of system configuration or access control software.
 
 R-97102: The VNF Package **MUST** include VM requirements via a Heat template that provides the necessary data for:
 
