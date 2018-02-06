@@ -518,7 +518,7 @@ Table C8. Required Fields for Amount
 d. – Requirement List
 ==================================
 
-R-11200: The VNF MUST keep the scope of a Cinder volume module, when it exists, to be 1:1 with the VNF Base Module or Incremental Module.
+R-11200: The VNF **MUST** keep the scope of a Cinder volume module, when it exists, to be 1:1 with the VNF Base Module or Incremental Module.
 
 R-01334: The VNF **MUST** conform to the NETCONF RFC 5717, “Partial Lock Remote Procedure Call”.
 
