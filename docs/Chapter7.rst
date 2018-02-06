@@ -231,7 +231,7 @@ conform, and those where applicable, that suppliers need to use.
 * R-22700 The VNF **MUST** conform its YANG model to RFC 6470, “NETCONF Base Notifications”.
 * R-10353 The VNF **MUST** conform its YANG model to RFC 6244, “An Architecture for Network Management Using NETCONF and YANG”.
 * R-53317 The VNF **MUST** conform its YANG model to RFC 6087, “Guidelines for Authors and Reviewers of YANG Data Model Documents”.
-* R-33955 The VNF **SHOULD** conform its YANG model to \*\*RFC 6991, “Common YANG Data Types”.
+* R-33955 The VNF **SHOULD** conform its YANG model to RFC 6991, “Common YANG Data Types”.
 * R-22946 The VNF **SHOULD** conform its YANG model to RFC 6536, “NETCONF Access Control Model”.
 * R-10129 The VNF **SHOULD** conform its YANG model to RFC 7223, “A YANG Data Model for Interface Management”.
 * R-12271 The VNF **SHOULD** conform its YANG model to RFC 7223, “IANA Interface Type YANG Module”.

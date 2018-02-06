@@ -542,7 +542,7 @@ R-62498: The VNF **MUST**, if not using the NCSP’s IDAM API, encrypt OA&M acce
 
 R-42366: The VNF **MUST** support secure connections and transports.
 
-R-33955: The VNF **SHOULD** conform its YANG model to \*\*RFC 6991, “Common YANG Data Types”.
+R-33955: The VNF **SHOULD** conform its YANG model to RFC 6991, “Common YANG Data Types”.
 
 R-33488: The VNF **MUST** protect against all denial of service attacks, both volumetric and non-volumetric, or integrate with external denial of service protection tools.
 
