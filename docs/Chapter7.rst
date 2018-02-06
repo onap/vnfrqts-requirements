@@ -332,7 +332,7 @@ Chef-Client and Push Jobs Client on the VNF
 **Chef Roles/Requirements**
 
 * R-27310 The VNF Package **MUST** include all relevant Chef artifacts (roles/cookbooks/recipes) required to execute VNF actions requested by ONAP for loading on appropriate Chef Server.
-* R-26567 The VNF Package **MUST** include a run list of roles/cookbooks/recipes, for each supported VNF action, that will perform the desired VNF action in its entirety as specified by ONAP (see Section 8.c, ONAP Controller APIs and Behavior, for list of VNF actions and requirements), when triggered by a chef-client run list in JSON file.
+* R-26567 The VNF Package **MUST** include a run list of roles/cookbooks/recipes, for each supported VNF action, that will perform the desired VNF action in its entirety as specified by ONAP (see Section 7.c, ONAP Controller APIs and Behavior, for list of VNF actions and requirements), when triggered by a chef-client run list in JSON file.
 * R-98911 The VNF **MUST NOT** use any instance specific parameters for the VNF in roles/cookbooks/recipes invoked for a VNF action.
 * R-37929 The VNF **MUST** accept all necessary instance specific data from the environment or node object attributes for the VNF in roles/cookbooks/recipes invoked for a VNF action.
 * R-62170 The VNF **MUST** over-ride any default values for configurable parameters that can be set by ONAP in the roles, cookbooks and recipes.
