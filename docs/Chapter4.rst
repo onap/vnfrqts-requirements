@@ -540,7 +540,7 @@ activity).
 
 * R-11200 The VNF MUST keep the scope of a Cinder volume module, when it exists, to be 1:1 with the VNF Base Module or Incremental Module.
 
-* R-38474 The VNF MUST have a corresponding environment file for a Base Module.
+* R-38474 The VNF **MUST** have a corresponding environment file for a Base Module.
 * R-81725 The VNF MUST have a corresponding environment file for an Incremental Module.
 * R-53433 The VNF MUST have a corresponding environment file for a Cinder Volume Module.
 
