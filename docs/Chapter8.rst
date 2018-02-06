@@ -1038,7 +1038,7 @@ R-98391: The VNF **MUST**, if not using the NCSP’s IDAM API, support Role-Base
 
 R-29967: The VNF **MUST** conform its YANG model to RFC 6022, “YANG module for NETCONF monitoring”.
 
-R-80335: The VNF **MUST** make visible a Warning Notices: A formal statement of resource intent, i.e., a warning notice, upon initial access to a VNF provider user who accesses private internal networks or Company computer resources, e.g., upon initial logon to an internal web site, system or application which requires authentication.
+R-80335: The VNF **MUST** make visible a Warning Notice: A formal statement of resource intent, i.e., a warning notice, upon initial access to a VNF provider user who accesses private internal networks or Company computer resources, e.g., upon initial logon to an internal web site, system or application which requires authentication.
 
 R-48596: The VNF Package **MUST** include documentation describing the characteristics for the VNF reliability and high availability.
 
