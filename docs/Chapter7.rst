@@ -79,7 +79,7 @@ and GS NFV IFA011 V0.3.0 (2015-10) - Network Functions Virtualization
 
  - A unique identification string for the specific VNF, a description of the problem that caused the error, and steps or procedures to perform Root Cause Analysis and resolve the issue.
  - All events, severity level (e.g., informational, warning, error) and descriptions including causes/fixes if applicable for the event.
- - All events (fault, measurement for VNF Scaling, Syslogs, State Change and Mobile Flow), that need to be collected at each VM, VNFC (defined in *VNF Guidelines for Network Cloud and ONAP*) and for the overall VNF.
+ - All events (fault, measurement for VNF Scaling, Syslogs, State Change and Mobile Flow), that need to be collected at each VM, VNFC (defined in `VNF Guidelines <http://onap.readthedocs.io/en/latest/submodules/vnfrqts/guidelines.git/docs/vnf_guidelines/vnf_guidelines.html#a-glossary>`__ ) and for the overall VNF.
 
 * R-27711 The VNF provider **MUST** provide an XML file that contains a list of VNF error codes, descriptions of the error, and possible causes/corrective action.
 * R-01478 The VNF Package **MUST** include documentation describing all parameters that are available to monitor the VNF after instantiation (includes all counters, OIDs, PM data, KPIs, etc.) that must be collected for reporting purposes. The documentation must include a list of:
