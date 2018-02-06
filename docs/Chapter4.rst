@@ -294,7 +294,7 @@ Integration and operation within a robust security environment is necessary and 
 * R-39342 The VNF **MUST**, if not using the NCSP’s IDAM API, comply with "password changes (includes default passwords)" policy. Products will support password aging, syntax and other credential management practices on a configurable basis.
 * R-40521 The VNF **MUST**, if not using the NCSP’s IDAM API, support use of common third party authentication and authorization tools such as TACACS+, RADIUS.
 * R-41994 The VNF **MUST**, if not using the NCSP’s IDAM API, comply with "No Self-Signed Certificates" policy. Self-signed certificates must be used for encryption only, using specified and approved encryption protocols such as LS 1.1 or higher or equivalent security protocols such as IPSec, AES.
-* R-23135 The VNF **MUST**, if not using the NCSP’s IDAM API, authenticate system to system communications were one system accesses the resources of another system, and must never conceal individual accountability.
+* R-23135 The VNF **MUST**, if not using the NCSP’s IDAM API, authenticate system to system communications where one system accesses the resources of another system, and must never conceal individual accountability.
 
 VNF Identity and Access Management Requirements
 -----------------------------------------------
