@@ -908,7 +908,7 @@ R-09467: The VNF **MUST**  utilize only NCSP standard compute flavors. [5]_
 
 R-62170: The VNF **MUST** over-ride any default values for configurable parameters that can be set by ONAP in the roles, cookbooks and recipes.
 
-R-41994: The VNF **MUST**, if not using the NCSP’s IDAM API, comply with "No Self-Signed Certificates" policy. Self-signed certificates must be used for encryption only, using specified and approved encryption protocols such as LS 1.1 or higher or equivalent security protocols such as IPSec, AES.
+R-41994: The VNF **MUST**, if not using the NCSP’s IDAM API, comply with "No Self-Signed Certificates" policy. Self-signed certificates must be used for encryption only, using specified and approved encryption protocols such as TLS 1.2 or higher or equivalent security protocols such as IPSec, AES.
 
 R-38474: The VNF **MUST** have a corresponding environment file for a Base Module.
 
