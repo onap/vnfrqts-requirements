@@ -331,7 +331,7 @@ Identity and Access Management Requirements
 * R-64503 The VNF **MUST** provide minimum privileges for initial and default settings for new user accounts.
 * R-86835 The VNF **MUST** set the default settings for user access to sensitive commands and data to deny authorization.
 * R-77157 The VNF **MUST** conform to approved request, workflow authorization, and authorization provisioning requirements when creating privileged users.
-* R-81147 The VNF **MUST** have greater restrictions for access and execution, such as up to 3 factors of authentication and restricted authorization, for commands affecting network services, such as commands relating to VNFs, must.
+* R-81147 The VNF **MUST** have greater restrictions for access and execution, such as up to 3 factors of authentication and restricted authorization, for commands affecting network services, such as commands relating to VNFs.
 * R-49109 The VNF **MUST** encrypt TCP/IP--HTTPS (e.g., TLS v1.2) transmission of data on internal and external networks.
 * R-39562 The VNF **MUST** disable unnecessary or vulnerable cgi-bin programs.
 * R-15671 The VNF **MUST NOT** provide public or unrestricted access to any data without the permission of the data owner. All data classification and access controls must be followed.
