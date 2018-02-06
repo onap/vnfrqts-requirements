@@ -850,7 +850,7 @@ R-75608: The VNF provider **MUST** provide playbooks to be loaded on the appropr
 
 R-61354: The VNF **MUST** implement access control list for OA&M services (e.g., restricting access to certain ports or applications).
 
-R-62468: The VNF **MUST** allow all configuration data shall to be edited through a NETCONF <edit-config> operation. Proprietary NETCONF RPCs that make configuration changes are not sufficient.
+R-62468: The VNF **MUST** allow all configuration data to be edited through a NETCONF <edit-config> operation. Proprietary NETCONF RPCs that make configuration changes are not sufficient.
 
 R-34552: The VNF **MUST** provide or support the Identity and Access Management (IDAM) based threat detection data for OWASP Top 10.
 
