@@ -176,7 +176,7 @@ industry standards.
 * R-29324 The VNF **SHOULD** implement the protocol operation: **copy-config(target, source) -** Copy the content of the configuration datastore source to the configuration datastore target.
 * R-88031 The VNF **SHOULD** implement the protocol operation: **delete-config(target) -** Delete the named configuration datastore target.
 * R-97529 The VNF **SHOULD** implement the protocol operation: **get-schema(identifier, version, format) -** Retrieve the YANG schema.
-* R-62468 The VNF **MUST** allow all configuration data shall to be edited through a NETCONF <edit-config> operation. Proprietary NETCONF RPCs that make configuration changes are not sufficient.
+* R-62468 The VNF **MUST** allow all configuration data to be edited through a NETCONF <edit-config> operation. Proprietary NETCONF RPCs that make configuration changes are not sufficient.
 * R-01382 The VNF **MUST** allow the entire configuration of the VNF to be retrieved via NETCONF's <get-config> and <edit-config>, independently of whether it was configured via NETCONF or other mechanisms.
 * R-28756 The VNF **MUST** support **:partial-lock** and **:partial-unlock** capabilities, defined in RFC 5717. This allows multiple independent clients to each write to a different part of the <running> configuration at the same time.
 * R-83873 The VNF **MUST** support **:rollback-on-error** value for the <error-option> parameter to the <edit-config> operation. If any error occurs during the requested edit operation, then the target database (usually the running configuration) will be left unaffected. This provides an 'all-or-nothing' edit mode for a single <edit-config> request.
