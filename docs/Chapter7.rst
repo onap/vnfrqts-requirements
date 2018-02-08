@@ -433,7 +433,7 @@ will host and run playbooks to manage VNFs that support Ansible.
 An Ansible playbook is a collection of tasks that is executed on the Ansible server (local host) and/or the target VM (s) in order to complete the desired action.
 
 * R-40293 The VNF **MUST** make available playbooks that conform to the ONAP requirement.
-* R-49396 The VNF **MUST** support each VNF action be supported by ONAP (APPC) by invocation of **one** playbook [4]_. The playbook will be responsible for executing all necessary tasks (as well as calling other playbooks) to complete the request.
+* R-49396 The VNF **MUST** support each VNF action by invocation of **one** playbook [4]_. The playbook will be responsible for executing all necessary tasks (as well as calling other playbooks) to complete the request.
 * R-33280 The VNF **MUST NOT** use any instance specific parameters in a playbook.
 * R-48698 The VNF **MUST** utilize information from key value pairs that will be provided by the Ansible Server as extra-vars during invocation to execute the desired VNF action. If the playbook requires files, they must also be supplied using the methodology detailed in the Ansible Server API.
 
