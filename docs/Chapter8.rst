@@ -1104,7 +1104,7 @@ R-35291: The VNF **MUST** support the ability to failover a VNFC automatically t
 
 R-43332: The VNF **MUST** activate security alarms automatically when the following event is detected: successful modification of critical system or application files
 
-R-81147: The VNF **MUST** have greater restrictions for access and execution, such as up to 3 factors of authentication and restricted authorization, for commands affecting network services, such as commands relating to VNFs, must.
+R-81147: The VNF **MUST** have greater restrictions for access and execution, such as up to 3 factors of authentication and restricted authorization, for commands affecting network services, such as commands relating to VNFs.
 
 R-60656: The VNF **MUST** support sub tree filtering.
 
