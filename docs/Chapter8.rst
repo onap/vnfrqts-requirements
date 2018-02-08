@@ -1088,7 +1088,7 @@ R-47597: The VNF **MUST** carry data in motion only over secure connections.
 
 R-43253: The VNF **MUST** use playbooks designed to allow Ansible Server to infer failure or success based on the “PLAY_RECAP” capability.
 
-R-23135: The VNF **MUST**, if not using the NCSP’s IDAM API, authenticate system to system communications were one system accesses the resources of another system, and must never conceal individual accountability.
+R-23135: The VNF **MUST**, if not using the NCSP’s IDAM API, authenticate system to system communications where one system accesses the resources of another system, and must never conceal individual accountability.
 
 R-99730: The VNF **MUST** include the field “Login ID” in the Security alarms (where applicable and technically feasible).
 
