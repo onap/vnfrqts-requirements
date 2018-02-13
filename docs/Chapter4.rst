@@ -542,7 +542,7 @@ activity).
 
 * R-38474 The VNF MUST have a corresponding environment file for a Base Module.
 * R-81725 The VNF MUST have a corresponding environment file for an Incremental Module.
-* R-53433 The VNF MUST have a corresponding environment file for a Cinder Volume Module.
+* R-53433 The VNF **MUST** have a corresponding environment file for a Cinder Volume Module.
 
 These concepts will be described in more detail throughout the document.
 This overview is provided to set the stage and help clarify the concepts
