@@ -1,3 +1,8 @@
+.. This work is licensed under a Creative Commons Attribution 4.0 International License.
+.. http://creativecommons.org/licenses/by/4.0
+.. Copyright 2017 AT&T Intellectual Property.  All rights reserved.
+
+
 **3. Introduction**
 ====================
 - These requirements are specific to the Amsterdam release of ONAP. It is the initial release of requirements based on a merge of the Open-O and OpenECOMP requirements.
