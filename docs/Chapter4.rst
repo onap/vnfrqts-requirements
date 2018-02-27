@@ -37,7 +37,7 @@ VNF Design Requirements
 * R-86585 The VNFC **SHOULD** minimize the use of state within a VNFC to facilitate the movement of traffic from one instance to another.
 * R-65134 The VNF **SHOULD** maintain state in a geographically redundant datastore that may, in fact, be its own VNFC.
 * R-75850 The VNF **SHOULD** decouple persistent data from the VNFC and keep it in its own datastore that can be reached by all instances of the VNFC requiring the data.
-* R-88199 The VNF **MUST** utilize virtualized, scalable open source database software that can meet the performance/latency requirements of the service for all datastores.
+* R-88199 The VNF **MUST** utilize a persistent datastore service that can meet the data performance/latency requirements. (For example: Datastore service could be a VNFC in VNF or a DBaaS in the Cloud execution environment)
 * R-99656 The VNF **MUST** NOT terminate stable sessions if a VNFC instance fails.
 * R-84473 The VNF **MUST** enable DPDK in the guest OS for VNF’s requiring high packets/sec performance.  High packet throughput is defined as greater than 500K packets/sec.
 * R-54430 The VNF **MUST** use the NCSP’s supported library and compute flavor that supports DPDK to optimize network efficiency if using DPDK. [1]_
