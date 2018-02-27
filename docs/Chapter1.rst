@@ -1,3 +1,8 @@
+.. This work is licensed under a Creative Commons Attribution 4.0 International License.
+.. http://creativecommons.org/licenses/by/4.0
+.. Copyright 2017 AT&T Intellectual Property.  All rights reserved.
+
+
 **1. Purpose**
 ==============
 - The purpose of these requirements is to accelerate adoption of VNF best practices which will increase innovation, minimize customization needed to onboard VNFs as well as reduce implementation complexity, time and cost for all impacted stakeholders.
