@@ -134,7 +134,7 @@ System Resource Optimization Requirements
 * R-22059 The VNF **MUST NOT** execute long running tasks (e.g., IO, database, network operations, service calls) in a critical section of code, so as to minimize blocking of other operations and increase concurrent throughput.
 * R-63473 The VNF **MUST** automatically advertise newly scaled components so there is no manual intervention required.
 * R-74712 The VNF **MUST** utilize FQDNs (and not IP address) for both Service Chaining and scaling.
-* R-41159 The VNF **MUST** deliver any and all functionality from any VNFC in the pool. The VNFC pool member should be transparent to the client. Upstream and downstream clients should only recognize the function being performed, not the member performing it.
+* R-41159 The VNF **MUST** deliver any and all functionality from any VNFC in the pool (where pooling is the most suitable solution). The VNFC pool member should be transparent to the client. Upstream and downstream clients should only recognize the function being performed, not the member performing it.
 * R-85959 The VNF **SHOULD** automatically enable/disable added/removed sub-components or component so there is no manual intervention required.
 * R-06885 The VNF **SHOULD** support the ability to scale down a VNFC pool without jeopardizing active sessions. Ideally, an active session should not be tied to any particular VNFC instance.
 * R-12538 The VNF **SHOULD** support load balancing and discovery mechanisms in resource pools containing VNFC instances.
