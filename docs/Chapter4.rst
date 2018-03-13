@@ -113,7 +113,7 @@ applications.
 
 Application Resilient Error Handling Requirements
 
-* R-26371 The VNF **MUST** detect connectivity failure for inter VNFC instance and intra/inter VNF and re-establish connectivity automatically to maintain the VNF without manual intervention to provide service continuity.
+* R-26371 The VNF **MUST** detect communication failure for inter VNFC instance and intra/inter VNF and re-establish communication automatically to maintain the VNF without manual intervention to provide service continuity.
 * R-18725 The VNF **MUST** handle the restart of a single VNFC instance without requiring all VNFC instances to be restarted.
 * R-06668 The VNF **MUST** handle the start or restart of VNFC instances in any order with each VNFC instance establishing or re-establishing required connections or relationships with other VNFC instances and/or VNFs required to perform the VNF function/role without requiring VNFC instance(s) to be started/restarted in a particular order.
 * R-80070 The VNF **MUST** handle errors and exceptions so that they do not interrupt processing of incoming VNF requests to maintain service continuity.
