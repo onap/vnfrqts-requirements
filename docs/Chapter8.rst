@@ -3,17 +3,17 @@
 .. Copyright 2017 AT&T Intellectual Property.  All rights reserved.
 
 
-**8. Appendix**
+**Appendix**
 ===============
 
-a. – Chef JSON Key Value Description
-=================================================
+Chef JSON Key Value Description
+--------------------------------------------------------------
 
 The following provides the key value pairs that must be contained in the
 JSON file supporting Chef action.
 
 Table A1. Chef JSON File key value description
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 +-------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------+-----------------------------------------------------------------------------------------------------------------------------------------+
 | **Field Name**    | **Description**                                                                                                                                                                                                                                                                                   | **Type**    | **Comment**                                                                                                                             |
@@ -90,7 +90,7 @@ b. If a VNF action involves multiple endpoints (VMs) of a VNF, ONAP will
 The following table describes the JSON dictionary to post in Callback.
 
 Table A2. JSON Dictionary to Post in Callback
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 +-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------+-------------------------------------------------------------+
 | **Key**         | **Description**                                                                                                                                                                                           | **Type**    | **Comment**                                                 |
@@ -115,14 +115,14 @@ Table A2. JSON Dictionary to Post in Callback
 +-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------+-------------------------------------------------------------+
 
 
-b. – Ansible JSON Key Value Description
-===================================================
+Ansible JSON Key Value Description
+-------------------------------------------------------------
 
 The following provides the key value pairs that must be contained in the
 JSON file supporting Ansible action.
 
 Table B1. Ansible JSON File key value description
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 +------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------+---------------------------------------------------------------------+
 | **Field Name**   | **Description**                                                                                                                                                                                                                                                                            | **Type**    | **Comment**                                                         |
@@ -171,8 +171,8 @@ b. Execute the playbook named ‘Ansible\_configure.yml’ on nodes with
 c. If execution time of the playbook exceeds 60 secs (across all hosts),
    it will be terminated.
 
-c. – VNF License Information Guidelines
-===================================================
+VNF License Information Guidelines
+------------------------------------------------------------
 
 This Appendix describes the metadata to be supplied for VNF licenses.
 
@@ -181,7 +181,7 @@ This Appendix describes the metadata to be supplied for VNF licenses.
 Table C1 defines the required and optional fields for licenses.
 
 Table C1. Required Fields for General Information
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 +---------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+-------------+
 | **Field Name**                              | **Description**                                                                                                                                                                                                                                                                                           | **Data Type**     | **Type**    |
@@ -210,7 +210,7 @@ One or more entitlements can be defined; each one consists of the
 following fields:
 
 Table C2. Required Fields for Entitlements
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 +---------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+---------------+
 | **Field Name**                                          | **Description**                                                                                                                                                                       | **Data Type**     | **Type**      |
@@ -251,7 +251,7 @@ License Keys are not required. Optionally, one or more license keys can
 be defined; each one consists of the following fields:
 
 Table C3. Required Fields for License Keys
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 +--------------------------+---------------------------------------------------------------------------------------------------------------+-----------------+-------------+
 | **Field Name**           | **Description**                                                                                               | **Data Type**   | **Type**    |
@@ -317,7 +317,7 @@ example:
 -  use is allowed in Canada
 
 Table C4. Required Fields for Location
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 +------------------------+---------------------------------------------------------------------------------------------------------------------+------------------+-------------+
 | **Field Name**         | **Description**                                                                                                     | **Data Type**    | **Type**    |
@@ -354,7 +354,7 @@ Limit on the length of time the software may be used. For example:
 -  entitlement valid from 15 May 2018 thru 30 June 2020
 
 Table C5. Required Fields for Time
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 +------------------------+-------------------------------------------------------------------------------------------------------------------------------+------------------+---------------+
 | **Field Name**         | **Description**                                                                                                               | **Data Type**    | **Type**      |
@@ -397,7 +397,7 @@ Limits based on how the software is used. For example:
 -  use is limited by software release
 
 Table C6. Required Fields for Usage
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 +------------------------+--------------------------------------------------------------------------------------------------------------+------------------+-------------+
 | **Field Name**         | **Description**                                                                                              | **Data Type**    | **Type**    |
@@ -435,7 +435,7 @@ make use of the software. For example:
 -  allowed to be used only for government entities
 
 Table C7. Required Fields for Entity
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 +------------------------+--------------------------------------------------------------------------------------------------------------+------------------+-------------+
 | **Field Name**         | **Description**                                                                                              | **Data Type**    | **Type**    |
@@ -478,7 +478,7 @@ any aggregation function (e.g., peak or average users), and aggregation
 interval (day, month, quarter, year, etc.).
 
 Table C8. Required Fields for Amount
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 +------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+-------------+
 | **Field Name**         | **Description**                                                                                                                                                                                                                                                | **Data Type**   | **Type**    |
@@ -520,8 +520,8 @@ Table C8. Required Fields for Amount
 | Type of User           | Describes the types of users of the functionality offered by the software (e.g., authorized, named). This field is included when Limit Type is user.                                                                                                           | String          | Optional    |
 +------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+-------------+
 
-d. – Requirement List
-==================================
+Requirement List
+--------------------------------
 
 R-11200: The VNF **MUST** keep the scope of a Cinder volume module, when it exists, to be 1:1 with the VNF Base Module or Incremental Module.
 
@@ -1298,14 +1298,14 @@ R-49945: The VNF **MUST** authorize VNF provider access through a client applica
 R-20912: The VNF **MUST** support alternative monitoring capabilities when VNFs do not expose data or control traffic or use proprietary and optimized protocols for inter VNF communication.
 
 
-e. - Ansible Playbook Examples
-==============================
+Ansible Playbook Examples
+-----------------------------------------------
 
 The following sections contain examples of Ansible playbook contents
 which follow the guidelines.
 
 Guidelines for Playbooks to properly integrate with APPC
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 NOTE: To support concurrent requests to multiple VNF instances of same
 or different type, VNF hosts and other files with VNF specific default
@@ -1496,7 +1496,7 @@ NOTE: Arguments passed by APPC to Ansible Server to run a playbook take
 precedence over any defaults stored in Ansible Server.
 
 Ansible Playbooks – Notes On Artifacts Required to Run Playbooks
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Inventory hosts file: should be VNF instance specific.
 

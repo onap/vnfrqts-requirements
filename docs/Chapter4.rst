@@ -3,11 +3,11 @@
 .. Copyright 2017 AT&T Intellectual Property.  All rights reserved.
 
 
-**4. VNF Development Requirements**
+**VNF Development Requirements**
 ====================================
 
-a. VNF Design
-==============
+VNF Design
+--------------------
 
 Services are composed of VNFs and common components and are designed to
 be agnostic of the location to leverage capacity where it exists in the
@@ -50,8 +50,8 @@ VNF Design Requirements
 * R-64768 The VNF **MUST** limit the size of application data packets to no larger than 9000 bytes for SDN network-based tunneling when guest data packets are transported between tunnel endpoints that support guest logical networks.
 * R-74481 The VNF **MUST** NOT require the use of a dynamic routing protocol unless necessary to meet functional requirements.
 
-b. VNF Resiliency
-=================
+VNF Resiliency
+-------------------------
 
 The VNF is responsible for meeting its resiliency goals and must factor
 in expected availability of the targeted virtualization environment.
@@ -69,7 +69,7 @@ the overall guidelines for designing VNFs to meet resiliency goals.
 Below are more detailed resiliency requirements for VNFs.
 
 All Layer Redundancy
---------------------
+^^^^^^^^^^^^^^^^^^
 
 Design the VNF to be resilient to the failures of the underlying
 virtualized infrastructure (Network Cloud). VNF design considerations
@@ -89,7 +89,7 @@ All Layer Redundancy Requirements
 * R-36843 The VNF **MUST** support the ability of the VNFC to be deployable in multi-zoned cloud sites to allow for site support in the event of cloud zone failure or upgrades.
 
 Minimize Cross Data-Center Traffic
-----------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Avoid performance-sapping data center-to-data center replication delay
 by applying techniques such as caching and persistent transaction paths
@@ -103,7 +103,7 @@ Minimize Cross Data-Center Traffic Requirements
 * R-92935 The VNF **SHOULD** minimize the propagation of state information across multiple data centers to avoid cross data center traffic.
 
 Application Resilient Error Handling
-------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Ensure an application communicating with a downstream peer is equipped
 to intelligently handle all error conditions. Make sure code can handle
@@ -124,7 +124,7 @@ Application Resilient Error Handling Requirements
 
 
 System Resource Optimization
-----------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Ensure an application is using appropriate system resources for the task
 at hand; for example, do not use network or IO operations inside
@@ -149,7 +149,7 @@ System Resource Optimization Requirements
 
 
 Application Configuration Management
-------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Leverage configuration management audit capability to drive conformity
 to develop gold configurations for technologies like Java, Python, etc.
@@ -162,7 +162,7 @@ Application Configuration Management Requirements
 
 
 Intelligent Transaction Distribution & Management
--------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Leverage Intelligent Load Balancing and redundant components (hardware
 and modules) for all transactions, such that at any point in the
@@ -181,7 +181,7 @@ Intelligent Transaction Distribution & Management Requirements
 * R-27995 The VNF **SHOULD** include control loop mechanisms to notify the consumer of the VNF of their exceeding SLA thresholds so the consumer is able to control its load against the VNF.
 
 Deployment Optimization
------------------------
+^^^^^^^^^^^^^^^^^^^^^^
 
 Reduce opportunity for failure, by human or by machine, through smarter
 deployment practices and automation. This can include rolling code
@@ -200,7 +200,7 @@ Deployment Optimization Requirements
 * R-16039 The VNF **SHOULD** test for adherence to the defined resiliency rating recommendation at each layer, during each delivery cycle so that the resiliency rating is measured and feedback is provided where software resiliency requirements are not met.
 
 Monitoring & Dashboard
-----------------------
+^^^^^^^^^^^^^^^^^^^^^
 
 Promote dashboarding as a tool to monitor and support the general
 operational health of a system. It is critical to the support of the
@@ -221,8 +221,8 @@ Monitoring & Dashboard Requirements
 * R-87352 The VNF **SHOULD** utilize Cloud health checks, when available from the Network Cloud, from inside the application through APIs to check the network connectivity, dropped packets rate, injection, and auto failover to alternate sites if needed.
 * R-16560 The VNF **SHOULD** conduct a resiliency impact assessment for all inter/intra-connectivity points in the VNF to provide an overall resiliency rating for the VNF to be incorporated into the software design and development of the VNF.
 
-c. VNF Security
-===============
+VNF Security
+----------------------
 
 The objective of this section is to provide the key security
 requirements that need to be met by VNFs. The security requirements are
@@ -256,7 +256,7 @@ following sections:
    requirements associated with data protection.
 
 VNF General Security Requirements
----------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This section provides details on the VNF general security requirements
 on various security areas such as user access control, network security,
@@ -302,7 +302,7 @@ Integration and operation within a robust security environment is necessary and 
 * R-23135 The VNF **MUST**, if not using the NCSP’s IDAM API, authenticate system to system communications where one system accesses the resources of another system, and must never conceal individual accountability.
 
 VNF Identity and Access Management Requirements
------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The following security requirements for logging, identity, and access
 management need to be met by the solution in a virtual environment:
@@ -349,7 +349,7 @@ Identity and Access Management Requirements
 
 
 VNF API Security Requirements
------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This section covers API security requirements when these are used by the
 VNFs. Key security areas covered in API security are Access Control,
@@ -382,7 +382,7 @@ API Requirements
 
 
 VNF Security Analytics Requirements
------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This section covers VNF security analytics requirements that are mostly
 applicable to security monitoring. The VNF Security Analytics cover the
@@ -474,7 +474,7 @@ Security Analytics Requirements
 * R-84160 The VNF **MUST** have security logging for VNFs and their OSs be active from initialization. Audit logging includes automatic routines to maintain activity records and cleanup programs to ensure the integrity of the audit/logging systems.
 
 VNF Data Protection Requirements
---------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This section covers VNF data protection requirements that are mostly
 applicable to security monitoring.
@@ -505,17 +505,17 @@ Data Protection Requirements
 * R-39604 The VNF **MUST** provide the capability of testing the validity of a digital certificate by checking the Certificate Revocation List (CRL) for the certificates of that type to ensure that the certificate has not been revoked.
 * R-75343 The VNF **MUST** provide the capability of testing the validity of a digital certificate by recognizing the identity represented by the certificate — the "distinguished name".
 
-d. VNF Modularity
-=================
+VNF Modularity
+---------------------------
 
 ONAP Heat Orchestration Templates: Overview
--------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ONAP supports a modular Heat Orchestration Template design pattern,
 referred to as *VNF Modularity.*
 
 ONAP VNF Modularity Overview
-----------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 With VNF Modularity, a single VNF may be composed from one or more Heat
 Orchestration Templates, each of which represents a subset of the
@@ -555,7 +555,7 @@ that will be introduced.
 
 
 ONAP VNF Modularity
--------------------
+^^^^^^^^^^^^^^^^^^^
 
 ONAP supports a modular Heat Orchestration Template design pattern,
 referred to as *VNF Modularity.* With this approach, a single VNF may be
@@ -619,7 +619,7 @@ template must correspond 1:1 with a base template or add-on module
 template.
 
 Suggested Patterns for Modular VNFs
------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 There are numerous variations of VNF modularity. Below are two suggested
 usage patterns.
@@ -662,7 +662,7 @@ which might be appropriate for smaller VNFs that do not have any scaling
 options.
 
 Modularity Rules
-----------------
+^^^^^^^^^^^^^^
 
 There are some rules to follow when building modular VNF templates:
 
@@ -720,7 +720,7 @@ There are some rules to follow when building modular VNF templates:
       name in the add-on module
 
 VNF Modularity Examples
------------------------
+^^^^^^^^^^^^^^^^^^^^^^
 
 *Example: Base Module creates SecurityGroup*
 
@@ -848,8 +848,8 @@ incremental.yaml
           network_id: { get_param: int_oam_net_id }
  ...
 
-e. VNF Devops
-=============
+VNF Devops
+---------------------
 
 This section includes guidelines for VNF providers to ensure that a Network
 Cloud Service Provider’s operations personnel have a common and
@@ -880,8 +880,8 @@ DevOps Requirements
 * R-06327 The VNF **MUST** respond to a "drain VNFC" [2]_ command against a specific VNFC, preventing new session from reaching the targeted VNFC, with no disruption to active sessions on the impacted VNFC, if a VNF provides a load balancing function across multiple instances of its VNFCs. This is used to support scenarios such as proactive maintenance with no user impact.
 * R-64713 The VNF **SHOULD** support a software promotion methodology from dev/test -> pre-prod -> production in software, development & testing and operations.
 
-f. VNF Develop Steps
-=======================
+VNF Develop Steps
+--------------------------------
 
 Aid to help the VNF provider to fasten the integration with the GVNFM, the
 ONAP provides the VNF SDK tools, and the documents. In this charter,

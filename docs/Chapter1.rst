@@ -3,7 +3,7 @@
 .. Copyright 2017 AT&T Intellectual Property.  All rights reserved.
 
 
-**1. Purpose**
+**Purpose**
 ==============
 - The purpose of these requirements is to accelerate adoption of VNF/PNF best practices which will increase innovation, minimize customization needed to onboard VNFs/PNFs as well as reduce implementation complexity, time and cost for all impacted stakeholders.
 - This initial release consolidates the requirements from Open-O and OpenECOMP to provide common VNF/PNF requirements across the industry in order to drive interoperability, simplify management, and reduce cost to build, deploy and manage VNFs/PNFs.

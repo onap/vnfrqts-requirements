@@ -3,7 +3,7 @@
 .. Copyright 2017 AT&T Intellectual Property.  All rights reserved.
 
 
-**3. Introduction**
+**Introduction**
 ====================
 - These requirements are specific to the Amsterdam release of ONAP. It is the initial release of requirements based on a merge of the Open-O and OpenECOMP requirements.
 - Requirements are identified as either MUST, MUST NOT, SHOULD, SHOULD NOT, or MAY as defined in RFC 2119.

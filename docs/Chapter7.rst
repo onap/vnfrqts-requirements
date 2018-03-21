@@ -1,11 +1,9 @@
-﻿:tocdepth: 2
-
 .. This work is licensed under a Creative Commons Attribution 4.0 International License.
 .. http://creativecommons.org/licenses/by/4.0
 .. Copyright 2017 AT&T Intellectual Property.  All rights reserved.
 
 
-**7. ONAP Management Requirements**
+**ONAP Management Requirements**
 =====================================
 
 The ONAP platform is the part of the larger Network Function Virtualization/Software Defined Network (NFV/SDN) ecosystem that is responsible for the efficient control, operation and management of Virtual Network Function (VNF) capabilities and functions. It specifies standardized abstractions and interfaces that enable efficient interoperation of the NVF/SDN ecosystem components. It enables product/service independent capabilities for design, creation and runtime lifecycle management (includes all aspects of installation, change management, assurance, and retirement) of resources in NFV/SDN environment (see ECOMP white paper ). These capabilities are provided using two major architectural frameworks: (1) a Design Time Framework to design, define and program the platform (uniform onboarding), and (2) a Runtime Execution Framework to execute the logic programmed in the design environment (uniform delivery and runtime lifecycle management). The platform delivers an integrated information model based on the VNF package to express the characteristics and behavior of these resources in the Design Time Framework. The information model is utilized by Runtime Execution Framework to manage the runtime lifecycle of the VNFs. The management processes are orchestrated across various modules of ONAP to instantiate, configure, scale, monitor, and reconfigure the VNFs using a set of standard APIs provided by the VNF developers.
@@ -19,15 +17,16 @@ Although the guidelines and requirements specified in this document were origina
 * Requirements that only apply to PNFs are defined as "The PNF MUST/SHOULD/..."
 
 
-a. Service Design
-==================
+Service Design
+------------------------------------
 
 This section, Service Design, has been left intentionally blank. It is out-of-scope for the VNF Requirements project for the Amsterdam release and no numbered requirements are expected. Content may be added in future updates of this document.
 
-b. VNF On-boarding and package management
-==========================================
+VNF On-boarding and package management
+-----------------------------------------------------------------------------
 
-**Design Definition**
+Design Definition
+^^^^^^^^^^^^^^^^^^
 
 The ONAP Design Time Framework provides the ability to design NFV
 resources including VNFs, Services, and products. The VNF provider must
@@ -44,7 +43,8 @@ Requirements contained in the ETSI Document: ETSI GS NFV-MAN 001 v1.1.1
 and GS NFV IFA011 V0.3.0 (2015-10) - Network Functions Virtualization
 (NFV), Management and Orchestration, VNF Packaging Specification.
 
-**Resource Description**
+Resource Description
+^^^^^^^^^^^^^^^^^^^^^^
 
 * R-77707 The VNF provider **MUST** include a Manifest File that contains a list of all the components in the VNF package.
 * R-66070 The xNF Package **MUST** include xNF Identification Data to uniquely identify the resource for a given xNF provider. The identification data must include: an identifier for the xNF, the name of the xNF as was given by the xNF provider, xNF description, xNF provider, and version.
@@ -60,7 +60,8 @@ and GS NFV IFA011 V0.3.0 (2015-10) - Network Functions Virtualization
 * R-36280 The xNF provider **MUST** provide documentation describing xNF Functional Capabilities that are utilized to operationalize the xNF and compose complex services.
 * R-98617 The xNF provider **MUST** provide information regarding any dependency (e.g., affinity, anti-affinity) with other xNFs and resources.
 
-**Resource Configuration**
+Resource Configuration
+^^^^^^^^^^^^^^^^^^^^^^^
 
 * R-89571 The xNF **MUST** support and provide artifacts for configuration management using at least one of the following technologies:
 
@@ -70,18 +71,21 @@ and GS NFV IFA011 V0.3.0 (2015-10) - Network Functions Virtualization
 
  Note: The requirements for Netconf/YANG, Chef, and Ansible protocols are provided separately and must be supported only if the corresponding protocol option is provided by the xNF providor.
 
- **Configuration Management via Netconf/YANG**
+Configuration Management via Netconf/YANG
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
  * R-30278 The xNF provider **MUST** provide a Resource/Device YANG model as a foundation for creating the YANG model for configuration. This will include xNF attributes/parameters and valid values/attributes configurable by policy.
 
- **Configuration Management via Chef**
+Configuration Management via Chef
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
  * R-13390 The xNF provider **MUST** provide cookbooks to be loaded on the appropriate Chef Server.
  * R-18525 The xNF provider **MUST** provide a JSON file for each supported action for the xNF.  The JSON file must contain key value pairs with all relevant values populated with sample data that illustrates its usage. The fields and their description are defined in Appendix A.
 
  Note: Chef support in ONAP is not currently available and planned for 4Q 2017.
 
- **Configuration Management via Ansible**
+Configuration Management via Ansible
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
  * R-75608 The xNF provider **MUST** provide playbooks to be loaded on the appropriate Ansible Server.
  * R-16777 The xNF provider **MUST** provide a JSON file for each supported action for the xNF.  The JSON file must contain key value pairs with all relevant values populated with sample data that illustrates its usage. The fields and their description are defined in Appendix B.
@@ -89,7 +93,8 @@ and GS NFV IFA011 V0.3.0 (2015-10) - Network Functions Virtualization
 * R-46567 The xNF Package **MUST** include configuration scripts for boot sequence and configuration.
 * R-16065 The xNF provider **MUST** provide configurable parameters (if unable to conform to YANG model) including xNF attributes/parameters and valid values, dynamic attributes and cross parameter dependencies (e.g., customer provisioning data).
 
-**Resource Control Loop**
+Resource Control Loop
+^^^^^^^^^^^^^^^^^^^^^^^
 
 * R-22888 The xNF provider **MUST** provide documentation for the xNF Policy Description to manage the xNF runtime lifecycle. The document must include a description of how the policies (conditions and actions) are implemented in the xNF.
 * R-01556 The xNF Package **MUST** include documentation describing the fault, performance, capacity events/alarms and other event records that are made available by the xNF. The document must include:
@@ -114,7 +119,8 @@ and GS NFV IFA011 V0.3.0 (2015-10) - Network Functions Virtualization
 * R-48596 The xNF Package **MUST** include documentation describing the characteristics for the xNF reliability and high availability.
 * R-74763 The xNF provider **MUST** provide an artifact per xNF that contains all of the xNF Event Records supported. The artifact should include reference to the specific release of the xNF Event Stream Common Event Data Model document it is based on. (e.g., `VES Event Listener <https://github.com/att/evel-test-collector/tree/master/docs/att_interface_definition>`__)
 
-**Compute, Network, and Storage Requirements**
+Compute, Network, and Storage Requirements
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * R-35851 The xNF Package **MUST** include xNF topology that describes basic network and application connectivity internal and external to the xNF including Link type, KPIs, Bandwidth, latency, jitter, QoS (if applicable) for each interface.
 * R-97102 The VNF Package **MUST** include VM requirements via a Heat template that provides the necessary data for:
@@ -130,13 +136,15 @@ and GS NFV IFA011 V0.3.0 (2015-10) - Network Functions Virtualization
 * R-96634 The VNF provider **MUST** describe scaling capabilities to manage scaling characteristics of the VNF.
 
 
-**Testing**
+Testing
+^^^^^^^^^^
 
 * R-43958 The xNF Package **MUST** include documentation describing the tests that were conducted by the xNF providor and the test results.
 * R-04298 The xNF provider **MUST** provide their testing scripts to support testing.
 * R-58775 The xNF provider **MUST** provide software components that can be packaged with/near the xNF, if needed, to simulate any functions or systems that connect to the xNF system under test. This component is necessary only if the existing testing environment does not have the necessary simulators.
 
-**Licensing Requirements**
+Licensing Requirements
+^^^^^^^^^^^^^^^^^^^^^^^
 
 * R-85653 The xNF **MUST** provide metrics (e.g., number of sessions, number of subscribers, number of seats, etc.) to ONAP for tracking every license.
 * R-44125 The xNF provider **MUST** agree to the process that can be met by Service Provider reporting infrastructure. The Contract shall define the reporting process and the available reporting tools.
@@ -148,8 +156,8 @@ and GS NFV IFA011 V0.3.0 (2015-10) - Network Functions Virtualization
 * R-85991 The xNF provider **MUST** provide a universal license key per xNF to be used as needed by services (i.e., not tied to a VM instance) as the recommended solution. The xNF provider may provide pools of Unique xNF License Keys, where there is a unique key for each xNF instance as an alternate solution. Licensing issues should be resolved without interrupting in-service xNFs.
 * R-47849 The xNF provider **MUST** support the metadata about licenses (and their applicable entitlements) as defined in this document for xNF software, and any license keys required to authorize use of the xNF software.  This metadata will be used to facilitate onboarding the xNF into the ONAP environment and automating processes for putting the licenses into use and managing the full lifecycle of the licenses. The details of this license model are described in Appendix C. Note: License metadata support in ONAP is not currently available and planned for 1Q 2018.
 
-c. Configuration Management
-===========================
+Configuration Management
+---------------------------------------------------
 
 ONAP interacts directly with VNFs through its Network and Application
 Adapters to perform configuration activities within NFV environment.
@@ -163,7 +171,7 @@ and manage their runtime lifecycle.
 Additional details can be found in the `ONAP Application Controller (APPC) API Guide <http://onap.readthedocs.io/en/latest/submodules/appc.git/docs/APPC%20API%20Guide/APPC%20API%20Guide.html>`_, `ONAP VF-C project <http://onap.readthedocs.io/en/latest/submodules/vfc/nfvo/lcm.git/docs/index.html>`_ and the `ONAP SDNC project <http://onap.readthedocs.io/en/latest/submodules/sdnc/northbound.git/docs/index.html>`_.
 
 NETCONF Standards and Capabilities
-----------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ONAP Controllers and their Adapters utilize device YANG model and
 NETCONF APIs to make the required changes in the VNF state and
@@ -171,14 +179,17 @@ configuration. The VNF providers must provide the Device YANG model and
 NETCONF server supporting NETCONF APIs to comply with target ONAP and
 industry standards.
 
-**VNF Configuration via NETCONF Requirements**
+VNF Configuration via NETCONF Requirements
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Configuration Management**
+Configuration Management
++++++++++++++++++++++++++++
 
 * R-88026 The xNF **MUST** include a NETCONF server enabling runtime configuration and lifecycle management capabilities.
 * R-95950 The xNF **MUST** provide a NETCONF interface fully defined by supplied YANG models for the embedded NETCONF server.
 
-**NETCONF Server Requirements**
+NETCONF Server Requirements
+++++++++++++++++++++++++++++++
 
 * R-73468 The xNF **MUST** allow the NETCONF server connection parameters to be configurable during virtual machine instantiation through Heat templates where SSH keys, usernames, passwords, SSH service and SSH port numbers are Heat template parameters.
 * R-90007 The xNF **MUST** implement the protocol operation: **close-session()**- Gracefully close the current session.
@@ -267,7 +278,7 @@ NETCONF RFCs.
 * R-78282 The xNF **MUST** conform to the NETCONF RFC 6242, “Using the Network Configuration Protocol over Secure Shell”.
 
 VNF REST APIs
--------------
+^^^^^^^^^^^^^
 
 Healthcheck is a command for which no NETCONF support exists. Therefore, this must be supported using a RESTful interface (defined in this section) or
 with a Chef cookbook/Ansible playbook (defined in sections `Chef Standards and Capabilities`_ and `Ansible Standards and Capabilities`_).
@@ -284,7 +295,8 @@ over HTTP(s).
 The port number, url, and other authentication information is provided
 by the VNF provider.
 
-**REST APIs**
+REST APIs
+~~~~~~~~~
 
 * R-31809 The xNF **MUST** support the HealthCheck RPC. The HealthCheck RPC executes a xNF Provider-defined xNF Healthcheck over the scope of the entire xNF (e.g., if there are multiple VNFCs, then run a health check, as appropriate, for all VNFCs). It returns a 200 OK if the test completes. A JSON object is returned indicating state (healthy, unhealthy), scope identifier, time-stamp and one or more blocks containing info and fault information. If the xNF is unable to run the HealthCheck, return a standard http error code and message.
 
@@ -316,7 +328,7 @@ Examples:
 
 
 Chef Standards and Capabilities
--------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ONAP will support configuration of VNFs via Chef subject to the
 requirements and guidelines defined in this section.
@@ -334,9 +346,11 @@ Chef REST APIs to manage the VNF and requires the use of open source
 Chef-Client and Push Jobs Client on the VNF
 (https://downloads.chef.io/).
 
-**VNF Configuration via Chef Requirements**
+VNF Configuration via Chef Requirements
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Chef Client Requirements**
+Chef Client Requirements
+++++++++++++++++++++++
 
 * R-79224 The xNF **MUST** have the chef-client be preloaded with validator keys and configuration to register with the designated Chef Server as part of the installation process.
 * R-72184 The xNF **MUST** have routable FQDNs for all the endpoints (VMs) of a xNF that contain chef-clients which are used to register with the Chef Server.  As part of invoking xNF actions, ONAP will trigger push jobs against FQDNs of endpoints for a xNF, if required.
@@ -346,7 +360,8 @@ Chef-Client and Push Jobs Client on the VNF
  -  Chef-Client >= 12.0
  -  Chef push jobs client >= 2.0
 
-**Chef Roles/Requirements**
+Chef Roles/Requirements
+++++++++++++++++++++++
 
 * R-27310 The xNF Package **MUST** include all relevant Chef artifacts (roles/cookbooks/recipes) required to execute xNF actions requested by ONAP for loading on appropriate Chef Server.
 * R-26567 The xNF Package **MUST** include a run list of roles/cookbooks/recipes, for each supported xNF action, that will perform the desired xNF action in its entirety as specified by ONAP (see Section 7.c, ONAP Controller APIs and Behavior, for list of xNF actions and requirements), when triggered by a chef-client run list in JSON file.
@@ -420,7 +435,7 @@ action request against a Chef managed VNF.
    Object attribute node[‘PushJobOutput’].
 
 Ansible Standards and Capabilities
-----------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ONAP will support configuration of VNFs via Ansible subject to the
 requirements and guidelines defined in this section.
@@ -431,9 +446,11 @@ data and execution capabilities to take the necessary action on one or more targ
 (and/or VNFCs) of the VNF. ONAP will utilize the framework of an Ansible Server that
 will host and run playbooks to manage VNFs that support Ansible.
 
-**VNF Configuration via Ansible Requirements**
+VNF Configuration via Ansible Requirements
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Ansible Client Requirements**
+Ansible Client Requirements
+++++++++++++++++++++++++
 
 * R-32217 The xNF **MUST** have routable FQDNs that are reachable via the Ansible Server for the endpoints (VMs) of a xNF on which playbooks will be executed. ONAP will initiate requests to the Ansible Server for invocation of playbooks against these end points [3]_.
 * R-54373 The xNF **MUST** have Python >= 2.7 on the endpoint VM(s) of a xNF on which an Ansible playbook will be executed.
@@ -445,7 +462,8 @@ will host and run playbooks to manage VNFs that support Ansible.
 * R-92866 The VNF **MUST** include as part of post-instantiation configuration done by Ansible Playbooks the removal/update of SSH keys loaded through instantiation to support Ansible. This may include download and install of new SSH keys.
 * R-91745 The VNF **MUST** update the Ansible Server and other entities storing and using the SSH key for authentication when the SSH key used by Ansible is regenerated/updated.
 
-**Ansible Playbook Requirements**
+Ansible Playbook Requirements
+++++++++++++++++++++++++++++
 
 An Ansible playbook is a collection of tasks that is executed on the Ansible server (local host) and/or the target VM (s) in order to complete the desired action.
 
@@ -505,7 +523,7 @@ The Ansible Server will determine if a playbook invoked to execute a xNF action 
  See `VNF REST APIs`_ for additional details on HealthCheck.
 
 ONAP Controller / Ansible API Usage
------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This section outlines the workflow that ONAP Controller invokes when it receives an action request against an Ansible managed VNF.
 
@@ -515,7 +533,7 @@ This section outlines the workflow that ONAP Controller invokes when it receives
 
 
 ONAP Controller APIs and Behavior
----------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ONAP Controllers such as APPC expose a northbound API to clients which offer a set of commands. The following commands are expected to be supported
 on all VNF’s if applicable, either directly (via the Netconf interface) or indirectly (via a Chef or Ansible server). There are additional commands
@@ -628,8 +646,8 @@ Table 10. Planned ONAP Controller Functions
 +------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-d. Monitoring & Management
-===========================
+Monitoring & Management
+--------------------------------------------------
 
 This section addresses data collection and event processing functionality that is directly
 dependent on the interfaces provided by the VNFs’ APIs. These can be in the form of asynchronous
@@ -649,7 +667,7 @@ in the network. The VNF providers must be able to provide the aforementioned set
 data directly to the ONAP collection layer using standardized interfaces.
 
 Data Model for Event Records
-----------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This section describes the data model for the collection of telemetry data from VNFs
 by Service Providers (SPs) to manage VNF health and runtime lifecycle. This data
@@ -693,7 +711,7 @@ The Data Model consists of:
 Figure 1. Data Model for Event Records
 
 Event Records - Data Structure Description
-------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The data structure for event records consists of:
 
@@ -808,14 +826,14 @@ specific areas of interest that will be defined and described
 in the future documents.
 
 Data Structure Specification of the Event Record
-------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 For additional information on the event record formats of the data
 structures mentioned above, please refer to `VES Event
 Listener <https://github.com/att/evel-test-collector/tree/master/docs/att_interface_definition>`__.
 
 Transports and Protocols Supporting Resource Interfaces
--------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Delivery of data from VNFs to ONAP must use the common transport mechanisms and protocols
 for all VNFs as defined in this document. Transport mechanisms and protocols have been
@@ -934,17 +952,20 @@ still leveraging the VES JSON based model in DCAE.  The purpose of the diagram a
 is to illustrate the concept only and not to imply a specific implementation.
 
 Monitoring & Management Requirements
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**VNF telemetry via standardized interface**
+VNF telemetry via standardized interface
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * R-51910 The xNF **MUST** provide all telemetry (e.g., fault event records, syslog records, performance records etc.) to ONAP using the model, format and mechanisms described in this section.
 
-**Encoding and Serialization**
+Encoding and Serialization
+~~~~~~~~~~~~~~~~~~~~~~
 
 Content delivered from VNFs to ONAP is to be encoded and serialized using JSON:
 
-**JSON**
+JSON
+~~~~~~~~~~~~~~~~~~
 
 * R-19624 The xNF **MUST** encode and serialize content delivered to ONAP using JSON (RFC 7159) plain text format. High-volume data
   is to be encoded and serialized using `Avro <http://avro.apache.org/>`_, where the Avro [5]_ data format are described using JSON.
@@ -955,7 +976,8 @@ Content delivered from VNFs to ONAP is to be encoded and serialized using JSON:
 
 In addition to the preferred method (JSON), content can be delivered from xNFs to ONAP can be encoded and serialized using Google Protocol Buffers (GPB).
 
-**KV-GPB/GPB**
+KV-GPB/GPB
+~~~~~~~~~~~~~~~~~~
 
 Telemetry data delivered using Google Protocol Buffers v3 (proto3) can be serialized in one of the following methods:
 
@@ -976,14 +998,16 @@ Telemetry data delivered using Google Protocol Buffers v3 (proto3) can be serial
 * In the future, we may consider support for other types of encoding & serialization methods based on industry demand
 
 
-**Reporting Frequency**
+Reporting Frequency
+~~~~~~~~~~~~~~~~~~
 
 * R-98191 The xNF **MUST** vary the frequency that asynchronous data is delivered based on the content and how data may be aggregated or grouped together. For example, alarms and alerts are expected to be delivered as soon as they appear. In contrast, other content, such as performance measurements, KPIs or reported network signaling may have various ways of packaging and delivering content. Some content should be streamed immediately; or content may be monitored over a time interval, then packaged as collection of records and delivered as block; or data may be collected until a package of a certain size has been collected; or content may be summarized statistically over a time interval, or computed as a KPI, with the summary or KPI being delivered.
 
   -  We expect the reporting frequency to be configurable depending on the virtual network function’s needs for management. For example, Service Provider may choose to vary the frequency of collection between normal and trouble-shooting scenarios.
   -  Decisions about the frequency of data reporting will affect the size of delivered data sets, recommended delivery method, and how the data will be interpreted by ONAP. These considerations should not affect deserialization and decoding of the data, which will be guided by the accompanying JSON schema or GPB definition files.
 
-**Addressing and Delivery Protocol**
+Addressing and Delivery Protocol
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ONAP destinations can be addressed by URLs for RESTful data PUT. Future data sets may also be addressed by host name and port number for TCP streaming, or by host name and landing zone directory for SFTP transfer of bulk files.
 
@@ -999,7 +1023,8 @@ ONAP destinations can be addressed by URLs for RESTful data PUT. Future data set
 
 * R-03070 The xNF **MUST**, by ONAP Policy, provide the ONAP addresses as data destinations for each xNF, and may be changed by Policy while the xNF is in operation. We expect the xNF to be capable of redirecting traffic to changed destinations with no loss of data, for example from one REST URL to another, or from one TCP host and port to another.
 
-**Asynchronous and Synchronous Data Delivery**
+Asynchronous and Synchronous Data Delivery
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * R-06924 The xNF **MUST** deliver asynchronous data as data becomes available, or according to the configured frequency.
 * R-73285 The xNF **MUST** must encode, address and deliver the data as described in the previous paragraphs.
@@ -1011,7 +1036,8 @@ ONAP destinations can be addressed by URLs for RESTful data PUT. Future data set
 * R-46290 The xNF **MUST** respond to an ONAP request to deliver granular data on device or subsystem status or performance, referencing the YANG configuration model for the xNF by returning the requested data elements.
 * R-43327 The xNF **SHOULD** use `Modeling JSON text with YANG <https://tools.ietf.org/html/rfc7951>`_, If YANG models need to be translated to and from JSON{RFC7951]. YANG configuration and content can be represented via JSON, consistent with Avro, as described in “Encoding and Serialization” section.
 
-**Security**
+Security
+~~~~~~~
 
 * R-42366 The xNF **MUST** support secure connections and transports such as Transport Layer Security (TLS) protocol [`RFC5246 <https://tools.ietf.org/html/rfc5246>`_] and should adhere to the best current practices outlined in `RFC7525 <https://tools.ietf.org/html/rfc7525>`_.
 * R-44290 The xNF **MUST** control access to ONAP and to xNFs, and creation of connections, through secure credentials, log-on and exchange mechanisms.

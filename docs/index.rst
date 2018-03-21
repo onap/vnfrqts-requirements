@@ -2,7 +2,8 @@ VNF Requirements Documentation
 ------------------------------
 
 .. toctree::
-    :titlesonly:
+    :maxdepth: 2
+    :numbered:
 
     Chapter1
     Chapter2
