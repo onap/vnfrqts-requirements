@@ -7,13 +7,13 @@
 ===============
 
 Chef JSON Key Value Description
---------------------------------------------------------------
+-------------------------------------
 
 The following provides the key value pairs that must be contained in the
 JSON file supporting Chef action.
 
 Table A1. Chef JSON File key value description
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 +-------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------+-----------------------------------------------------------------------------------------------------------------------------------------+
 | **Field Name**    | **Description**                                                                                                                                                                                                                                                                                   | **Type**    | **Comment**                                                                                                                             |
@@ -90,7 +90,7 @@ b. If a VNF action involves multiple endpoints (VMs) of a VNF, ONAP will
 The following table describes the JSON dictionary to post in Callback.
 
 Table A2. JSON Dictionary to Post in Callback
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 +-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------+-------------------------------------------------------------+
 | **Key**         | **Description**                                                                                                                                                                                           | **Type**    | **Comment**                                                 |
@@ -114,7 +114,6 @@ Table A2. JSON Dictionary to Post in Callback
 | PushJobOutput   | Any output from the chef-client run that needs to be returned to ONAP.                                                                                                                                    | Optional    | Depends on VNF action. If empty, it must not be included.   |
 +-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------+-------------------------------------------------------------+
 
-
 Ansible JSON Key Value Description
 -------------------------------------------------------------
 
@@ -122,7 +121,7 @@ The following provides the key value pairs that must be contained in the
 JSON file supporting Ansible action.
 
 Table B1. Ansible JSON File key value description
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 +------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------+---------------------------------------------------------------------+
 | **Field Name**   | **Description**                                                                                                                                                                                                                                                                            | **Type**    | **Comment**                                                         |
@@ -181,7 +180,7 @@ This Appendix describes the metadata to be supplied for VNF licenses.
 Table C1 defines the required and optional fields for licenses.
 
 Table C1. Required Fields for General Information
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 +---------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+-------------+
 | **Field Name**                              | **Description**                                                                                                                                                                                                                                                                                           | **Data Type**     | **Type**    |
@@ -210,7 +209,7 @@ One or more entitlements can be defined; each one consists of the
 following fields:
 
 Table C2. Required Fields for Entitlements
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 +---------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+---------------+
 | **Field Name**                                          | **Description**                                                                                                                                                                       | **Data Type**     | **Type**      |
@@ -251,7 +250,7 @@ License Keys are not required. Optionally, one or more license keys can
 be defined; each one consists of the following fields:
 
 Table C3. Required Fields for License Keys
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 +--------------------------+---------------------------------------------------------------------------------------------------------------+-----------------+-------------+
 | **Field Name**           | **Description**                                                                                               | **Data Type**   | **Type**    |
@@ -1305,7 +1304,7 @@ The following sections contain examples of Ansible playbook contents
 which follow the guidelines.
 
 Guidelines for Playbooks to properly integrate with APPC
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 NOTE: To support concurrent requests to multiple VNF instances of same
 or different type, VNF hosts and other files with VNF specific default
@@ -1496,7 +1495,7 @@ NOTE: Arguments passed by APPC to Ansible Server to run a playbook take
 precedence over any defaults stored in Ansible Server.
 
 Ansible Playbooks – Notes On Artifacts Required to Run Playbooks
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Inventory hosts file: should be VNF instance specific.
 

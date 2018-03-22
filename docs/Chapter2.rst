@@ -16,7 +16,7 @@ References
 This section contains a list of normative and informative references along with information on acquiring the identified references.  Normative references are required to be implemented by this document. Informative references are for informational purposes only.
 
 Normative References
-^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^
 +---------------+---------------------------------------------------------------------------------------------------------------+
 | Reference     | Description                                                                                                   |
 +===============+===============================================================================================================+
@@ -24,7 +24,7 @@ Normative References
 +---------------+---------------------------------------------------------------------------------------------------------------+
 
 Informative References
-^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^
 +---------------+---------------------------------------------------------------------------------------------------------------+
 | Reference     | Description                                                                                                   |
 +===============+===============================================================================================================+
@@ -32,7 +32,7 @@ Informative References
 +---------------+---------------------------------------------------------------------------------------------------------------+
 
 Reference Acquisition
-^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^
 IETF Specifications:
 
 - Internet Engineering Task Force (IETF) Secretariat, 48377 Fremont Blvd., Suite 117, Fremont, California 94538, USA; Phone: +1-510-492-4080, Fax: +1-510-492-4001.

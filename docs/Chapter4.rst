@@ -69,7 +69,7 @@ the overall guidelines for designing VNFs to meet resiliency goals.
 Below are more detailed resiliency requirements for VNFs.
 
 All Layer Redundancy
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
 
 Design the VNF to be resilient to the failures of the underlying
 virtualized infrastructure (Network Cloud). VNF design considerations
@@ -89,7 +89,7 @@ All Layer Redundancy Requirements
 * R-36843 The VNF **MUST** support the ability of the VNFC to be deployable in multi-zoned cloud sites to allow for site support in the event of cloud zone failure or upgrades.
 
 Minimize Cross Data-Center Traffic
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Avoid performance-sapping data center-to-data center replication delay
 by applying techniques such as caching and persistent transaction paths
@@ -103,7 +103,7 @@ Minimize Cross Data-Center Traffic Requirements
 * R-92935 The VNF **SHOULD** minimize the propagation of state information across multiple data centers to avoid cross data center traffic.
 
 Application Resilient Error Handling
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Ensure an application communicating with a downstream peer is equipped
 to intelligently handle all error conditions. Make sure code can handle
@@ -124,7 +124,7 @@ Application Resilient Error Handling Requirements
 
 
 System Resource Optimization
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Ensure an application is using appropriate system resources for the task
 at hand; for example, do not use network or IO operations inside
@@ -149,7 +149,7 @@ System Resource Optimization Requirements
 
 
 Application Configuration Management
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Leverage configuration management audit capability to drive conformity
 to develop gold configurations for technologies like Java, Python, etc.
@@ -162,7 +162,7 @@ Application Configuration Management Requirements
 
 
 Intelligent Transaction Distribution & Management
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Leverage Intelligent Load Balancing and redundant components (hardware
 and modules) for all transactions, such that at any point in the
@@ -181,7 +181,7 @@ Intelligent Transaction Distribution & Management Requirements
 * R-27995 The VNF **SHOULD** include control loop mechanisms to notify the consumer of the VNF of their exceeding SLA thresholds so the consumer is able to control its load against the VNF.
 
 Deployment Optimization
-^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Reduce opportunity for failure, by human or by machine, through smarter
 deployment practices and automation. This can include rolling code
@@ -200,7 +200,7 @@ Deployment Optimization Requirements
 * R-16039 The VNF **SHOULD** test for adherence to the defined resiliency rating recommendation at each layer, during each delivery cycle so that the resiliency rating is measured and feedback is provided where software resiliency requirements are not met.
 
 Monitoring & Dashboard
-^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Promote dashboarding as a tool to monitor and support the general
 operational health of a system. It is critical to the support of the
@@ -256,7 +256,7 @@ following sections:
    requirements associated with data protection.
 
 VNF General Security Requirements
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This section provides details on the VNF general security requirements
 on various security areas such as user access control, network security,
@@ -302,7 +302,7 @@ Integration and operation within a robust security environment is necessary and 
 * R-23135 The VNF **MUST**, if not using the NCSP’s IDAM API, authenticate system to system communications where one system accesses the resources of another system, and must never conceal individual accountability.
 
 VNF Identity and Access Management Requirements
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The following security requirements for logging, identity, and access
 management need to be met by the solution in a virtual environment:
@@ -349,7 +349,7 @@ Identity and Access Management Requirements
 
 
 VNF API Security Requirements
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This section covers API security requirements when these are used by the
 VNFs. Key security areas covered in API security are Access Control,
@@ -382,7 +382,7 @@ API Requirements
 
 
 VNF Security Analytics Requirements
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This section covers VNF security analytics requirements that are mostly
 applicable to security monitoring. The VNF Security Analytics cover the
@@ -474,7 +474,7 @@ Security Analytics Requirements
 * R-84160 The VNF **MUST** have security logging for VNFs and their OSs be active from initialization. Audit logging includes automatic routines to maintain activity records and cleanup programs to ensure the integrity of the audit/logging systems.
 
 VNF Data Protection Requirements
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This section covers VNF data protection requirements that are mostly
 applicable to security monitoring.
@@ -509,13 +509,13 @@ VNF Modularity
 ---------------------------
 
 ONAP Heat Orchestration Templates: Overview
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ONAP supports a modular Heat Orchestration Template design pattern,
 referred to as *VNF Modularity.*
 
 ONAP VNF Modularity Overview
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 With VNF Modularity, a single VNF may be composed from one or more Heat
 Orchestration Templates, each of which represents a subset of the
@@ -555,7 +555,7 @@ that will be introduced.
 
 
 ONAP VNF Modularity
-^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
 
 ONAP supports a modular Heat Orchestration Template design pattern,
 referred to as *VNF Modularity.* With this approach, a single VNF may be
@@ -619,7 +619,7 @@ template must correspond 1:1 with a base template or add-on module
 template.
 
 Suggested Patterns for Modular VNFs
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 There are numerous variations of VNF modularity. Below are two suggested
 usage patterns.
@@ -662,7 +662,7 @@ which might be appropriate for smaller VNFs that do not have any scaling
 options.
 
 Modularity Rules
-^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^
 
 There are some rules to follow when building modular VNF templates:
 
@@ -720,7 +720,7 @@ There are some rules to follow when building modular VNF templates:
       name in the add-on module
 
 VNF Modularity Examples
-^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 *Example: Base Module creates SecurityGroup*
 

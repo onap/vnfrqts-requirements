@@ -171,7 +171,7 @@ and manage their runtime lifecycle.
 Additional details can be found in the `ONAP Application Controller (APPC) API Guide <http://onap.readthedocs.io/en/latest/submodules/appc.git/docs/APPC%20API%20Guide/APPC%20API%20Guide.html>`_, `ONAP VF-C project <http://onap.readthedocs.io/en/latest/submodules/vfc/nfvo/lcm.git/docs/index.html>`_ and the `ONAP SDNC project <http://onap.readthedocs.io/en/latest/submodules/sdnc/northbound.git/docs/index.html>`_.
 
 NETCONF Standards and Capabilities
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ONAP Controllers and their Adapters utilize device YANG model and
 NETCONF APIs to make the required changes in the VNF state and
@@ -278,7 +278,7 @@ NETCONF RFCs.
 * R-78282 The xNF **MUST** conform to the NETCONF RFC 6242, “Using the Network Configuration Protocol over Secure Shell”.
 
 VNF REST APIs
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^
 
 Healthcheck is a command for which no NETCONF support exists. Therefore, this must be supported using a RESTful interface (defined in this section) or
 with a Chef cookbook/Ansible playbook (defined in sections `Chef Standards and Capabilities`_ and `Ansible Standards and Capabilities`_).
@@ -328,7 +328,7 @@ Examples:
 
 
 Chef Standards and Capabilities
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ONAP will support configuration of VNFs via Chef subject to the
 requirements and guidelines defined in this section.
@@ -347,10 +347,10 @@ Chef-Client and Push Jobs Client on the VNF
 (https://downloads.chef.io/).
 
 VNF Configuration via Chef Requirements
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Chef Client Requirements
-++++++++++++++++++++++
++++++++++++++++++++++++++
 
 * R-79224 The xNF **MUST** have the chef-client be preloaded with validator keys and configuration to register with the designated Chef Server as part of the installation process.
 * R-72184 The xNF **MUST** have routable FQDNs for all the endpoints (VMs) of a xNF that contain chef-clients which are used to register with the Chef Server.  As part of invoking xNF actions, ONAP will trigger push jobs against FQDNs of endpoints for a xNF, if required.
@@ -361,7 +361,7 @@ Chef Client Requirements
  -  Chef push jobs client >= 2.0
 
 Chef Roles/Requirements
-++++++++++++++++++++++
+++++++++++++++++++++++++++
 
 * R-27310 The xNF Package **MUST** include all relevant Chef artifacts (roles/cookbooks/recipes) required to execute xNF actions requested by ONAP for loading on appropriate Chef Server.
 * R-26567 The xNF Package **MUST** include a run list of roles/cookbooks/recipes, for each supported xNF action, that will perform the desired xNF action in its entirety as specified by ONAP (see Section 7.c, ONAP Controller APIs and Behavior, for list of xNF actions and requirements), when triggered by a chef-client run list in JSON file.
@@ -435,7 +435,7 @@ action request against a Chef managed VNF.
    Object attribute node[‘PushJobOutput’].
 
 Ansible Standards and Capabilities
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ONAP will support configuration of VNFs via Ansible subject to the
 requirements and guidelines defined in this section.
@@ -447,10 +447,10 @@ data and execution capabilities to take the necessary action on one or more targ
 will host and run playbooks to manage VNFs that support Ansible.
 
 VNF Configuration via Ansible Requirements
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Ansible Client Requirements
-++++++++++++++++++++++++
++++++++++++++++++++++++++++++
 
 * R-32217 The xNF **MUST** have routable FQDNs that are reachable via the Ansible Server for the endpoints (VMs) of a xNF on which playbooks will be executed. ONAP will initiate requests to the Ansible Server for invocation of playbooks against these end points [3]_.
 * R-54373 The xNF **MUST** have Python >= 2.7 on the endpoint VM(s) of a xNF on which an Ansible playbook will be executed.
@@ -463,7 +463,7 @@ Ansible Client Requirements
 * R-91745 The VNF **MUST** update the Ansible Server and other entities storing and using the SSH key for authentication when the SSH key used by Ansible is regenerated/updated.
 
 Ansible Playbook Requirements
-++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++
 
 An Ansible playbook is a collection of tasks that is executed on the Ansible server (local host) and/or the target VM (s) in order to complete the desired action.
 
@@ -523,7 +523,7 @@ The Ansible Server will determine if a playbook invoked to execute a xNF action 
  See `VNF REST APIs`_ for additional details on HealthCheck.
 
 ONAP Controller / Ansible API Usage
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This section outlines the workflow that ONAP Controller invokes when it receives an action request against an Ansible managed VNF.
 
@@ -533,7 +533,7 @@ This section outlines the workflow that ONAP Controller invokes when it receives
 
 
 ONAP Controller APIs and Behavior
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ONAP Controllers such as APPC expose a northbound API to clients which offer a set of commands. The following commands are expected to be supported
 on all VNF’s if applicable, either directly (via the Netconf interface) or indirectly (via a Chef or Ansible server). There are additional commands
@@ -667,7 +667,7 @@ in the network. The VNF providers must be able to provide the aforementioned set
 data directly to the ONAP collection layer using standardized interfaces.
 
 Data Model for Event Records
-^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This section describes the data model for the collection of telemetry data from VNFs
 by Service Providers (SPs) to manage VNF health and runtime lifecycle. This data
@@ -711,7 +711,7 @@ The Data Model consists of:
 Figure 1. Data Model for Event Records
 
 Event Records - Data Structure Description
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The data structure for event records consists of:
 
@@ -735,14 +735,14 @@ the sender and other identifying characteristics related to timestamp,
 sequence number, etc.
 
 Technology Independent Records – Fault Fields
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The Fault Record, describing a condition in the Fault domain, contains
 information about the fault such as the entity under fault, the
 severity, resulting status, etc.
 
 Technology Independent Records – Heartbeat Fields
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The Heartbeat Record provides an optional structure for communicating
 information about heartbeat or watchdog signaling events.  It can
@@ -754,7 +754,7 @@ An optional heartbeat domain is available if required by the heartbeat
 implementation.
 
 Technology Independent Records – State Change Fields
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The State Change Record provides a structure for communicating information
 about data flow through the VNF. It can contain information about state
@@ -762,14 +762,14 @@ change related to physical device that is reported by VNF. As an example,
 when cards or port name of the entity that has changed state.
 
 Technology Independent Records – Syslog Fields
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The Syslog Record provides a structure for communicating any type of
 information that may be logged by the VNF. It can contain information
 about system internal events, status, errors, etc.
 
 Technology Independent Records – Threshold Crossing Alert Fields
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The Threshold Crossing Alert (TCA) Record provides a structure for
 communicating information about threshold crossing alerts. It can
@@ -777,7 +777,7 @@ contain alert definitions and types, actions, events, timestamps
 and physical or logical details.
 
 Technology Independent Records - VNF Scaling Fields
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The VNF Scaling\* (short for measurementForVfScalingFields –
 actual name used in JSON specification) Record contains information
@@ -785,7 +785,7 @@ about VNF and VNF resource structure and its condition to help in
 the management of the resources for purposes of elastic scaling.
 
 Technology Independent Records – otherFields
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The otherFields Record defines fields for events belonging to the
 otherFields domain of the Technology Independent domain enumeration.
@@ -796,7 +796,7 @@ or other proof-of-concept evaluations. Hence, use of this record
 type is discouraged and should be minimized.
 
 Technology Specific Records – Mobile Flow Fields
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The Mobile Flow Record provides a structure for communicating
 information about data flow through the VNF. It can contain
@@ -804,7 +804,7 @@ information about connectivity and data flows between serving
 elements for mobile service, such as between LTE reference points, etc.
 
 Technology Specific Records – Signaling Fields
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The Signaling Record provides a structure for communicating information
 about signaling messages, parameters and signaling state.  It can
@@ -812,28 +812,28 @@ contain information about data flows for signaling and controlling
 multimedia communication sessions such as voice and video calls.
 
 Technology Specific Records – Voice Quality Fields
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 The Voice Quality Record provides a structure for communicating information
 about voice quality statistics including media connection information,
 such as transmitted octet and packet counts, packet loss, packet delay
 variation, round-trip delay, QoS parameters and codec selection.
 
 Technology Specific Records – Future Domains
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The futureDomains Record is a placeholder for additional technology
 specific areas of interest that will be defined and described
 in the future documents.
 
 Data Structure Specification of the Event Record
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 For additional information on the event record formats of the data
 structures mentioned above, please refer to `VES Event
 Listener <https://github.com/att/evel-test-collector/tree/master/docs/att_interface_definition>`__.
 
 Transports and Protocols Supporting Resource Interfaces
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Delivery of data from VNFs to ONAP must use the common transport mechanisms and protocols
 for all VNFs as defined in this document. Transport mechanisms and protocols have been
@@ -955,12 +955,12 @@ Monitoring & Management Requirements
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 VNF telemetry via standardized interface
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * R-51910 The xNF **MUST** provide all telemetry (e.g., fault event records, syslog records, performance records etc.) to ONAP using the model, format and mechanisms described in this section.
 
 Encoding and Serialization
-~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Content delivered from VNFs to ONAP is to be encoded and serialized using JSON:
 
@@ -999,7 +999,7 @@ Telemetry data delivered using Google Protocol Buffers v3 (proto3) can be serial
 
 
 Reporting Frequency
-~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
 
 * R-98191 The xNF **MUST** vary the frequency that asynchronous data is delivered based on the content and how data may be aggregated or grouped together. For example, alarms and alerts are expected to be delivered as soon as they appear. In contrast, other content, such as performance measurements, KPIs or reported network signaling may have various ways of packaging and delivering content. Some content should be streamed immediately; or content may be monitored over a time interval, then packaged as collection of records and delivered as block; or data may be collected until a package of a certain size has been collected; or content may be summarized statistically over a time interval, or computed as a KPI, with the summary or KPI being delivered.
 
@@ -1024,7 +1024,7 @@ ONAP destinations can be addressed by URLs for RESTful data PUT. Future data set
 * R-03070 The xNF **MUST**, by ONAP Policy, provide the ONAP addresses as data destinations for each xNF, and may be changed by Policy while the xNF is in operation. We expect the xNF to be capable of redirecting traffic to changed destinations with no loss of data, for example from one REST URL to another, or from one TCP host and port to another.
 
 Asynchronous and Synchronous Data Delivery
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * R-06924 The xNF **MUST** deliver asynchronous data as data becomes available, or according to the configured frequency.
 * R-73285 The xNF **MUST** must encode, address and deliver the data as described in the previous paragraphs.
@@ -1037,7 +1037,7 @@ Asynchronous and Synchronous Data Delivery
 * R-43327 The xNF **SHOULD** use `Modeling JSON text with YANG <https://tools.ietf.org/html/rfc7951>`_, If YANG models need to be translated to and from JSON{RFC7951]. YANG configuration and content can be represented via JSON, consistent with Avro, as described in “Encoding and Serialization” section.
 
 Security
-~~~~~~~
+~~~~~~~~~~
 
 * R-42366 The xNF **MUST** support secure connections and transports such as Transport Layer Security (TLS) protocol [`RFC5246 <https://tools.ietf.org/html/rfc5246>`_] and should adhere to the best current practices outlined in `RFC7525 <https://tools.ietf.org/html/rfc7525>`_.
 * R-44290 The xNF **MUST** control access to ONAP and to xNFs, and creation of connections, through secure credentials, log-on and exchange mechanisms.
