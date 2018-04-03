@@ -1845,7 +1845,7 @@ with the following syntax.
       the resource OS::Nova::Server. See `Resource:  OS::Nova::Server - Parameters`_.
 
    -  R-97199 The VNF Heat **MUST** use the metadata property for OS::Nova::Server resource type.
-		 
+
 -  depends\_on
 
    -  Dependencies of the resource on one or more resources of the
@@ -2236,7 +2236,7 @@ The volume template output parameters are only available for the module
 -  An ONAP Volume Module Output Parameter is available as an input
    parameter (i.e., declared in the parameters: section) only for the
    module (base or incremental) that the Cinder volume module is
-   associated with. 
+   associated with.
 
 -  R-07443 The VNF Heat **MUST** match the Output parameter name and type with the
    input parameter name and type unless the Output parameter is of the
@@ -2437,7 +2437,7 @@ There are two exceptions to the above rules:
 2. R-15422 The VNF Heat **MUST NOT** be prefixed with a common {vm-type}
    identifier the parameter referring to the OS::Nova::Server property
    availability\_zone . availability\_zone is described in `Property: availability_zone`_.
-   
+
 {network-role}
 ^^^^^^^^^^^^^^^
 
@@ -2452,7 +2452,7 @@ the {network-role} as part of the resource ID for any resource ID that is associ
 R-84322 The VNF Heat **MUST** include
 int\_{network-role} as part of the parameter name for any parameter that is associated with an internal network.
 
-R-96983 The VNF Heat **MUST** include 
+R-96983 The VNF Heat **MUST** include
 int\_{network-role} as part of the resource ID for any resource ID that is associated with an internal network.
 
 Note that {network-role} must not be a substring of {vm-type}. A
@@ -4650,8 +4650,8 @@ Note that:
    nested heat template.
 
 -  R-11041 The VNF Heat **MUST** have the resource calling the nested yaml file pass
-   in as properties all parameters defined in nested yaml file. 
-   
+   in as properties all parameters defined in nested yaml file.
+
 -  R-61183 The VNF Heat **MUST NOT** change the parameter names, when OS::Nova::Server metadata parameters are past into a nested heat
    template.
 
@@ -5135,12 +5135,12 @@ even in the short-term as of the long-term direction.
 VNFM Driver Development Steps
 -----------------------------------------------------------
 
-Refer to the ONAP documentation for VNF Provider instructions on integrating 
+Refer to the ONAP documentation for VNF Provider instructions on integrating
 vendor-specific VNFM adaptors with VF-C.  The VNF driver development steps are
-highlighted below. 
+highlighted below.
 
 1. Use the VNF SDK tools to design the VNF with TOSCA models to output
-the VNF TOSCA package.  Using the VNF SDK tools, the VNF package can be 
+the VNF TOSCA package.  Using the VNF SDK tools, the VNF package can be
 validated and tested.
 
 2. The VNF Provider supplies a vendor-specific VNFM driver in ONAP, which
@@ -5155,8 +5155,8 @@ VNFs can be managed by vendor-specific VNFMs. To add a vendor-specific VNFM to O
 vendor-specific VNFM adaptor is added to ONAP implementing the interface of the vendor-specific VNFM.
 
 A vendor-specific VNFM adaptor is a microservice with a unique name and an appointed
-port. When started up, the vendor-specific VNFM adaptor microservice is automatically registered to the 
-Microservices Bus (MSB). The following RESTful example describes the scenario of 
+port. When started up, the vendor-specific VNFM adaptor microservice is automatically registered to the
+Microservices Bus (MSB). The following RESTful example describes the scenario of
 registering a vendor-specific VNFM adaptor to MSB:
 
 .. code-block:: java

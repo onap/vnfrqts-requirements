@@ -17,7 +17,7 @@ Version: 2.0.0
 		*https://jira.onap.org/browse/VNFRQTS-83
 
 	-Chapter Header re-structured to help readability of documents.
-		*https://jira.onap.org/browse/VNFRQTS-130 
+		*https://jira.onap.org/browse/VNFRQTS-130
 		*https://wiki.onap.org/display/DW/VNF+Requirement+Updated+Header+Structure
 
 	-Changed language to take into consider PNF (xNF).
