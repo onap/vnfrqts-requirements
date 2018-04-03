@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a93c517_cddbf5eb",
+        "filename": "docs/release-notes.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 269
+      },
+      "writtenOn": "2018-04-03T19:41:41Z",
+      "side": 1,
+      "message": "tabulation to be removed",
+      "revId": "17585053c8aa15a65d8ff6a10a913c1a9a2bf064",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_edd6f1c2",
+        "filename": "docs/release-notes.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 269
+      },
+      "writtenOn": "2018-04-03T19:41:41Z",
+      "side": 1,
+      "message": "tabulations to be removed",
+      "revId": "17585053c8aa15a65d8ff6a10a913c1a9a2bf064",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
