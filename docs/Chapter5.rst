@@ -130,37 +130,43 @@ The following table defines the TOSCA Type “derived from” values that
 SHALL be used when using the TOSCA Simple Profile for NFV version 1.0
 specification [TOSCA-Simple-Profile-NFV-v1.0] for NFV VNFD.
 
-+-----------------------------------------+---------------------------------------+-----------------------+
-| **ETSI NFV Element**                    | **TOSCA VNFD**                        | **Derived from**      |
-|                                         |                                       |                       |
-| **[IFA011]**                            | **[TOSCA-Simple-Profile-NFV-v1.0]**   |                       |
-+=========================================+=======================================+=======================+
-| VNF                                     | tosca.nodes.nfv.VNF                   | tosca.nodes.Root      |
-+-----------------------------------------+---------------------------------------+-----------------------+
-| VDU                                     | tosca.nodes.nfv.VDU                   | tosca.nodes.Root      |
-+-----------------------------------------+---------------------------------------+-----------------------+
-| Cpd (Connection Point)                  | tosca.nodes.nfv.Cpd                   | tosca.nodes.Root      |
-+-----------------------------------------+---------------------------------------+-----------------------+
-| VduCpd (internal connection point)      | tosca.nodes.nfv.VduCpd                | tosca.nodes.nfv.Cpd   |
-+-----------------------------------------+---------------------------------------+-----------------------+
-| VnfVirtualLinkDesc (Virtual Link)       | tosca.nodes.nfv.VnfVirtualLinkDesc    | tosca.nodes.Root      |
-+-----------------------------------------+---------------------------------------+-----------------------+
-| VnfExtCpd (External Connection Point)   | tosca.nodes.nfv.VnfExtCpd             | tosca.nodes.Root      |
-+-----------------------------------------+---------------------------------------+-----------------------+
-| Virtual Storage                         |                                       |                       |
-+-----------------------------------------+---------------------------------------+-----------------------+
-| Virtual Compute                         |                                       |                       |
-+-----------------------------------------+---------------------------------------+-----------------------+
-| Software Image                          |                                       |                       |
-+-----------------------------------------+---------------------------------------+-----------------------+
-| Deployment Flavour                      |                                       |                       |
-+-----------------------------------------+---------------------------------------+-----------------------+
-| Scaling Aspect                          |                                       |                       |
-+-----------------------------------------+---------------------------------------+-----------------------+
-| Element Group                           |                                       |                       |
-+-----------------------------------------+---------------------------------------+-----------------------+
-| Instantiation Level                     |                                       |                       |
-+-----------------------------------------+---------------------------------------+-----------------------+
++---------------------+------------------------------------+-----------------+
+| **ETSI NFV Element**| **TOSCA VNFD**                     | **Derived from**|
+|                     |                                    |                 |
+| **[IFA011]**        | **[TOSCA-Simple-Profile-NFV-v1.0]**|                 |
++=====================+====================================+=================+
+| VNF                 | tosca.nodes.nfv.VNF                | tosca.nodes.Root|
++---------------------+------------------------------------+-----------------+
+| VDU                 | tosca.nodes.nfv.VDU                | tosca.nodes.Root|
++---------------------+------------------------------------+-----------------+
+| Cpd (Connection     | tosca.nodes.nfv.Cpd                | tosca.nodes.Root|
+| Point)              | tosca.nodes.nfv.Cpd                | tosca.nodes.Root|
++---------------------+------------------------------------+-----------------+
+| VduCpd (internal    | tosca.nodes.nfv.VduCpd             | tosca.nodes.\   |
+| connection point)   |                                    | nfv.Cpd         |
++---------------------+------------------------------------+-----------------+
+| VnfVirtualLinkDesc  | tosca.nodes.nfv.VnfVirtualLinkDesc | tosca.nodes.Root|
+| (Virtual Link)      |                                    |                 |
++---------------------+------------------------------------+-----------------+
+| VnfExtCpd (External | tosca.nodes.nfv.VnfExtCpd          | tosca.nodes.Root|
+| Connection Point)   |                                    |                 |
++---------------------+------------------------------------+-----------------+
+| Virtual Storage     |                                    |                 |
++---------------------+------------------------------------+-----------------+
+| Virtual Compute     |                                    |                 |
++---------------------+------------------------------------+-----------------+
+| Software Image      |                                    |                 |
++---------------------+------------------------------------+-----------------+
+| Deployment Flavour  |                                    |                 |
++---------------------+------------------------------------+-----------------+
+| Scaling Aspect      |                                    |                 |
++---------------------+------------------------------------+-----------------+
+| Element Group       |                                    |                 |
++---------------------+------------------------------------+-----------------+
+| Instantiation       |                                    |                 |
+| Level               |                                    |                 |
++---------------------+------------------------------------+-----------------+
+
 
 +--------------------------------------------------------------------+
 | +--------------------------------------------------------------+   |
@@ -426,18 +432,27 @@ tosca.capabilites.nfv.VirtualCompute
 Properties
 +++++++++++
 
-+-------------------------------------+------------+-----------------------------------------------------+---------------+---------------------------------------------------------+
-| Name                                | Required   | Type                                                | Constraints   | Description                                             |
-+=====================================+============+=====================================================+===============+=========================================================+
-| request\_additional\_capabilities   | No         | tosca.datatypes.nfv.RequestedAdditionalCapability   |               | Describes additional capability for a particular VDU.   |
-+-------------------------------------+------------+-----------------------------------------------------+---------------+---------------------------------------------------------+
-| virtual\_memory                     | yes        | tosca.datatypes.nfv.VirtualMemory                   |               | Describes virtual memory of the virtualized compute     |
-+-------------------------------------+------------+-----------------------------------------------------+---------------+---------------------------------------------------------+
-| virtual\_cpu                        | yes        | tosca.datatypes.nfv.VirtualCpu                      |               | Describes virtual CPU(s) of the virtualized compute.    |
-+-------------------------------------+------------+-----------------------------------------------------+---------------+---------------------------------------------------------+
-+-------------------------------------+------------+-----------------------------------------------------+---------------+---------------------------------------------------------+
-| name                                | yes        |                                                     |               |                                                         |
-+-------------------------------------+------------+-----------------------------------------------------+---------------+---------------------------------------------------------+
++---------------+---------+---------------+------------+----------------------+
+| Name          | Required| Type          | Constraints| Description          |
++===============+=========+===============+============+======================+
+| request\      | No      | tosca.\       |            | Describes additional |
+| _additional\  |         | datatypes.\   |            | capability for a     |
+| _capabilities |         | nfv.Requested\|            | particular VDU.      |
+|               |         | Additional\   |            |                      |
+|               |         | Capability    |            |                      |
++---------------+---------+---------------+------------+----------------------+
+| virtual\      | yes     | tosca.\       |            | Describes virtual    |
+| _memory       |         | datatypes.\   |            | memory of the        |
+|               |         | nfv.Virtual\  |            | virtualized compute. |
+|               |         | Memory        |            |                      |
++---------------+---------+---------------+------------+----------------------+
+| virtual\      | yes     | tosca.\       |            | Describes virtual    |
+| _cpu          |         | datatypes.\   |            | CPU(s) of the        |
+|               |         | nfv.Virtual\  |            | virtualized compute. |
+|               |         | Cpu           |            |                      |
++---------------+---------+---------------+------------+----------------------+
+| name          | yes     |               |            |                      |
++---------------+---------+---------------+------------+----------------------+
 
 Definition
 +++++++++++
@@ -501,169 +516,186 @@ None
 Capabilities
 ++++++++++++++
 
-+-------------------------+-------------------------------------------------+---------------+-----------------------------------------------------------------------------------------------------+
-| Name                    | Type                                            | Constraints   | Description                                                                                         |
-+=========================+=================================================+===============+=====================================================================================================+
-| virtual\_compute        | tosca.capabilities.nfv.VirtualCompute           |               | Describes virtual compute resources capabilities.                                                   |
-+-------------------------+-------------------------------------------------+---------------+-----------------------------------------------------------------------------------------------------+
-| monitoring\_parameter   | tosca.capabilities.nfv.Metric                   | None          | Monitoring parameter, which can be tracked for a VNFC based on this VDU                             |
-|                         |                                                 |               |                                                                                                     |
-|                         |                                                 |               | Examples include: memory-consumption, CPU-utilisation, bandwidth-consumption, VNFC downtime, etc.   |
-+-------------------------+-------------------------------------------------+---------------+-----------------------------------------------------------------------------------------------------+
-| Virtual\_binding        | tosca.capabilities.nfv.VirtualBindable          |               | Defines ability of VirtualBindable                                                                  |
-|                         |                                                 |               |                                                                                                     |
-|                         | editor note: need to create a capability type   |               |                                                                                                     |
-+-------------------------+-------------------------------------------------+---------------+-----------------------------------------------------------------------------------------------------+
++------------+--------------------+------------+------------------------------+
+| Name       | Type               | Constraints| Description                  |
++============+====================+============+==============================+
+| virtual\   | tosca.\            |            | Describes virtual compute    |
+| _compute   | capabilities.nfv.\ |            | resources capabilities.      |
+|            | VirtualCompute     |            |                              |
++------------+--------------------+------------+------------------------------+
+| monitoring\| tosca.\            | None       | Monitoring parameter, which  |
+| _parameter | capabilities.nfv.\ |            | can be tracked for a VNFC    |
+|            | Metric             |            | based on this VDU            |
+|            |                    |            |                              |
+|            |                    |            | Examples include:            |
+|            |                    |            | memory-consumption,          |
+|            |                    |            | CPU-utilisation,             |
+|            |                    |            | bandwidth-consumption, VNFC  |
+|            |                    |            | downtime, etc.               |
++------------+--------------------+------------+------------------------------+
+| Virtual\   | tosca.\            |            | Defines ability of           |
+| _binding   | capabilities.nfv.\ |            | VirtualBindable              |
+|            | VirtualBindable    |            |                              |
+|            |                    |            |                              |
+|            | editor note: need  |            |                              |
+|            | to create a        |            |                              |
+|            | capability type    |            |                              |
++------------+--------------------+------------+------------------------------+
 
 Definition
 ++++++++++++
 
-+-----------------------------------------------------------------------------------------------------+
-| tosca.nodes.nfv.VDU.Compute:                                                                        |
-|                                                                                                     |
-| derived\_from: tosca.nodes.Compute                                                                  |
-|                                                                                                     |
-| properties:                                                                                         |
-|                                                                                                     |
-| name:                                                                                               |
-|                                                                                                     |
-| type: string                                                                                        |
-|                                                                                                     |
-| required: true                                                                                      |
-|                                                                                                     |
-| description:                                                                                        |
-|                                                                                                     |
-| type: string                                                                                        |
-|                                                                                                     |
-| required: true                                                                                      |
-|                                                                                                     |
-| boot\_order:                                                                                        |
-|                                                                                                     |
-| type: list # explicit index (boot index) not necessary, contrary to IFA011                          |
-|                                                                                                     |
-| entry\_schema:                                                                                      |
-|                                                                                                     |
-| type: string                                                                                        |
-|                                                                                                     |
-| required: false                                                                                     |
-|                                                                                                     |
-| nfvi\_constraints:                                                                                  |
-|                                                                                                     |
-| type: list                                                                                          |
-|                                                                                                     |
-| entry\_schema:                                                                                      |
-|                                                                                                     |
-| type: string                                                                                        |
-|                                                                                                     |
-| required: false                                                                                     |
-|                                                                                                     |
-| configurable\_properties:                                                                           |
-|                                                                                                     |
-| type: map                                                                                           |
-|                                                                                                     |
-| entry\_schema:                                                                                      |
-|                                                                                                     |
-| type: tosca.datatypes.nfv.VnfcConfigurableProperties                                                |
-|                                                                                                     |
-| required: true                                                                                      |
-|                                                                                                     |
-| attributes:                                                                                         |
-|                                                                                                     |
-| private\_address:                                                                                   |
-|                                                                                                     |
-| status: deprecated                                                                                  |
-|                                                                                                     |
-| public\_address:                                                                                    |
-|                                                                                                     |
-| status: deprecated                                                                                  |
-|                                                                                                     |
-| networks:                                                                                           |
-|                                                                                                     |
-| status: deprecated                                                                                  |
-|                                                                                                     |
-| ports:                                                                                              |
-|                                                                                                     |
-| status: deprecated                                                                                  |
-|                                                                                                     |
-| capabilities:                                                                                       |
-|                                                                                                     |
-| virtual\_compute:                                                                                   |
-|                                                                                                     |
-| type: tosca.capabilities.nfv.VirtualCompute                                                         |
-|                                                                                                     |
-| virtual\_binding:                                                                                   |
-|                                                                                                     |
-| type: tosca.capabilities.nfv.VirtualBindable                                                        |
-|                                                                                                     |
-| #monitoring\_parameter:                                                                             |
-|                                                                                                     |
-| # modeled as ad hoc (named) capabilities in VDU node template                                       |
-|                                                                                                     |
-| # for example:                                                                                      |
-|                                                                                                     |
-| #capabilities:                                                                                      |
-|                                                                                                     |
-| # cpu\_load: tosca.capabilities.nfv.Metric                                                          |
-|                                                                                                     |
-| # memory\_usage: tosca.capabilities.nfv.Metric                                                      |
-|                                                                                                     |
-| host: #Editor note: FFS. How this capabilities should be used in NFV Profile                        |
-|                                                                                                     |
-| type: `*tosca.capabilities.Container* <#DEFN_TYPE_CAPABILITIES_CONTAINER>`__                        |
-|                                                                                                     |
-| valid\_source\_types: [`*tosca.nodes.SoftwareComponent* <#DEFN_TYPE_NODES_SOFTWARE_COMPONENT>`__]   |
-|                                                                                                     |
-| occurrences: [0,UNBOUNDED]                                                                          |
-|                                                                                                     |
-| endpoint:                                                                                           |
-|                                                                                                     |
-| occurrences: [0,0]                                                                                  |
-|                                                                                                     |
-| os:                                                                                                 |
-|                                                                                                     |
-| occurrences: [0,0]                                                                                  |
-|                                                                                                     |
-| scalable: #Editor note: FFS. How this capabilities should be used in NFV Profile                    |
-|                                                                                                     |
-| type: `*tosca.capabilities.Scalable* <#DEFN_TYPE_CAPABILITIES_SCALABLE>`__                          |
-|                                                                                                     |
-| binding:                                                                                            |
-|                                                                                                     |
-| occurrences: [0,UNBOUND]                                                                            |
-|                                                                                                     |
-| requirements:                                                                                       |
-|                                                                                                     |
-| - virtual\_storage:                                                                                 |
-|                                                                                                     |
-| capability: tosca.capabilities.nfv.VirtualStorage                                                   |
-|                                                                                                     |
-| relationship: tosca.relationships.nfv.VDU.AttachedTo                                                |
-|                                                                                                     |
-| node: tosca.nodes.nfv.VDU.VirtualStorage                                                            |
-|                                                                                                     |
-| occurences: [ 0, UNBOUNDED ]                                                                        |
-|                                                                                                     |
-| - local\_storage: #For NFV Profile, this requirement is deprecated.                                 |
-|                                                                                                     |
-| occurrences: [0,0]                                                                                  |
-|                                                                                                     |
-| artifacts:                                                                                          |
-|                                                                                                     |
-| - sw\_image:                                                                                        |
-|                                                                                                     |
-| file:                                                                                               |
-|                                                                                                     |
-| type: tosca.artifacts.nfv.SwImage                                                                   |
-+-----------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------+
+| tosca.nodes.nfv.VDU.Compute:                                                |
+|                                                                             |
+| derived\_from: tosca.nodes.Compute                                          |
+|                                                                             |
+| properties:                                                                 |
+|                                                                             |
+| name:                                                                       |
+|                                                                             |
+| type: string                                                                |
+|                                                                             |
+| required: true                                                              |
+|                                                                             |
+| description:                                                                |
+|                                                                             |
+| type: string                                                                |
+|                                                                             |
+| required: true                                                              |
+|                                                                             |
+| boot\_order:                                                                |
+|                                                                             |
+| type: list # explicit index (boot index) not necessary, contrary to IFA011  |
+|                                                                             |
+| entry\_schema:                                                              |
+|                                                                             |
+| type: string                                                                |
+|                                                                             |
+| required: false                                                             |
+|                                                                             |
+| nfvi\_constraints:                                                          |
+|                                                                             |
+| type: list                                                                  |
+|                                                                             |
+| entry\_schema:                                                              |
+|                                                                             |
+| type: string                                                                |
+|                                                                             |
+| required: false                                                             |
+|                                                                             |
+| configurable\_properties:                                                   |
+|                                                                             |
+| type: map                                                                   |
+|                                                                             |
+| entry\_schema:                                                              |
+|                                                                             |
+| type: tosca.datatypes.nfv.VnfcConfigurableProperties                        |
+|                                                                             |
+| required: true                                                              |
+|                                                                             |
+| attributes:                                                                 |
+|                                                                             |
+| private\_address:                                                           |
+|                                                                             |
+| status: deprecated                                                          |
+|                                                                             |
+| public\_address:                                                            |
+|                                                                             |
+| status: deprecated                                                          |
+|                                                                             |
+| networks:                                                                   |
+|                                                                             |
+| status: deprecated                                                          |
+|                                                                             |
+| ports:                                                                      |
+|                                                                             |
+| status: deprecated                                                          |
+|                                                                             |
+| capabilities:                                                               |
+|                                                                             |
+| virtual\_compute:                                                           |
+|                                                                             |
+| type: tosca.capabilities.nfv.VirtualCompute                                 |
+|                                                                             |
+| virtual\_binding:                                                           |
+|                                                                             |
+| type: tosca.capabilities.nfv.VirtualBindable                                |
+|                                                                             |
+| #monitoring\_parameter:                                                     |
+|                                                                             |
+| # modeled as ad hoc (named) capabilities in VDU node template               |
+|                                                                             |
+| # for example:                                                              |
+|                                                                             |
+| #capabilities:                                                              |
+|                                                                             |
+| # cpu\_load: tosca.capabilities.nfv.Metric                                  |
+|                                                                             |
+| # memory\_usage: tosca.capabilities.nfv.Metric                              |
+|                                                                             |
+| host: #Editor note: FFS. How this capabilities should be used in NFV Profile|
+|                                                                             |
+| type: `*tosca.capabilities.Container* <#DEFN_TYPE_CAPABILITIES_CONTAINER>`__|
+|                                                                             |
+| valid\_source\_types:                                                       |
+| [`*tosca.nodes.SoftwareComponent* <#DEFN_TYPE_NODES_SOFTWARE_COMPONENT>`__] |
+|                                                                             |
+| occurrences: [0,UNBOUNDED]                                                  |
+|                                                                             |
+| endpoint:                                                                   |
+|                                                                             |
+| occurrences: [0,0]                                                          |
+|                                                                             |
+| os:                                                                         |
+|                                                                             |
+| occurrences: [0,0]                                                          |
+|                                                                             |
+| scalable:                                                                   |
+| #Editor note: FFS. How this capabilities should be used in NFV Profile      |
+|                                                                             |
+| type: `*tosca.capabilities.Scalable* <#DEFN_TYPE_CAPABILITIES_SCALABLE>`__  |
+|                                                                             |
+| binding:                                                                    |
+|                                                                             |
+| occurrences: [0,UNBOUND]                                                    |
+|                                                                             |
+| requirements:                                                               |
+|                                                                             |
+| - virtual\_storage:                                                         |
+|                                                                             |
+| capability: tosca.capabilities.nfv.VirtualStorage                           |
+|                                                                             |
+| relationship: tosca.relationships.nfv.VDU.AttachedTo                        |
+|                                                                             |
+| node: tosca.nodes.nfv.VDU.VirtualStorage                                    |
+|                                                                             |
+| occurences: [ 0, UNBOUNDED ]                                                |
+|                                                                             |
+| - local\_storage: #For NFV Profile, this requirement is deprecated.         |
+|                                                                             |
+| occurrences: [0,0]                                                          |
+|                                                                             |
+| artifacts:                                                                  |
+|                                                                             |
+| - sw\_image:                                                                |
+|                                                                             |
+| file:                                                                       |
+|                                                                             |
+| type: tosca.artifacts.nfv.SwImage                                           |
++-----------------------------------------------------------------------------+
 
 Artifact
-+++++++++
-+-----------+------------+-------------------------------+---------------+------------------------------------------------+
-| Name      | Required   | Type                          | Constraints   | Description                                    |
-+===========+============+===============================+===============+================================================+
-| SwImage   | Yes        | tosca.artifacts.nfv.SwImage   |               | Describes the software image which is          |
-|           |            |                               |               | directly realizing this virtual storage        |
-+-----------+------------+-------------------------------+---------------+------------------------------------------------+
+++++++++++
+
++--------+---------+----------------+------------+------------------------+
+| Name   | Required| Type           | Constraints| Description            |
++========+=========+================+============+========================+
+| SwImage| Yes     | tosca.\        |            | Describes the software |
+|        |         | artifacts.nfv.\|            | image which is directly|
+|        |         | SwImage        |            | realizing this virtual |
+|        |         |                |            | storage                |
++--------+---------+----------------+------------+------------------------+
 
 
 |image2|
@@ -775,14 +807,20 @@ Properties
 +++++++++++
 
 
-+-------------------------------+------------+------------------------------------------+---------------+----------------------------------------------------------+
-| Name                          | Required   | Type                                     | Constraints   | Description                                              |
-+===============================+============+==========================================+==========================================================================+
-| bitrate_requirement           | no         | integer                                  |               | Bitrate requirement on this connection point.            |
-+-------------------------------+------------+------------------------------------------+---------------+----------------------------------------------------------+
-| virtual\_network\_interface_\ | no         | VirtualNetworkInterfaceRequirements      |               | Specifies requirements on a virtual network              |
-| requirements                  |            |                                          |               | realising the CPs instantiated from this CPD             |
-+-------------------------------+------------+------------------------------------------+---------------+----------------------------------------------------------+
++-----------------+---------+---------------+------------+--------------------+
+| Name            | Required| Type          | Constraints| Description        |
++=================+=========+===============+============+====================+
+| bitrate\        | no      | integer       |            | Bitrate requirement|
+| _requirement    |         |               |            | on this connection |
+|                 |         |               |            | point.             |
++-----------------+---------+---------------+------------+--------------------+
+| virtual\        |         | Virtual\      |            | Specifies          |
+| _network\       | no      | Network\      |            | requirements on a  |
+| _interface_\    |         | Interface\    |            | virtual network    |
+| requirements    |         | Requirements\ |            | realising the CPs  |
+|                 |         |               |            | instantiated from  |
+|                 |         |               |            | this CPD           |
++-----------------+---------+---------------+------------+--------------------+
 
 Attributes
 +++++++++++
@@ -792,13 +830,18 @@ None
 Requirements
 +++++++++++++
 
-+--------------------+------------+------------------------------------------+---------------+----------------------------------------------------------+
-| Name               | Required   | Type                                     | Constraints   | Description                                              |
-+====================+============+==========================================+===============+==========================================================+
-| virtual\_binding   | yes        | tosca.capabilities.nfv.VirtualBindable   |               | Describe the requirement for binding with VDU            |
-+--------------------+------------+------------------------------------------+---------------+----------------------------------------------------------+
-| virtual\_link      | no         | tosca.capabilities.nfv.VirtualLinkable   |               | Describes the requirements for linking to virtual link   |
-+--------------------+------------+------------------------------------------+---------------+----------------------------------------------------------+
++----------+---------+--------------------+------------+----------------------+
+| Name     | Required| Type               | Constraints| Description          |
++==========+=========+====================+============+======================+
+| virtual\ | yes     | tosca.\            |            | Describe the         |
+| _binding |         | capabilities.nfv.\ |            | requirement for      |
+|          |         | VirtualBindable\   |            | binding with VDU     |
++----------+---------+--------------------+------------+----------------------+
+| virtual\ | no      | tosca.\            |            | Describes the        |
+| _link    |         | capabilities.nfv.\ |            | requirements for     |
+|          |         | VirtualLinkable    |            | linking to virtual   |
+|          |         |                    |            | link                 |
++----------+---------+--------------------+------------+----------------------+
 
 Definition
 +++++++++++
@@ -883,31 +926,55 @@ tosca.artifacts.nfv.SwImage
 Properties
 ++++++++++++
 
-+------------------------------------------+------------+--------------------+---------------+----------------------------------------------------------------------------------------------------+
-| Name                                     | Required   | Type               | Constraints   | Description                                                                                        |
-+==========================================+============+====================+===============+====================================================================================================+
-| name                                     | yes        | string             |               | Name of this software image                                                                        |
-+------------------------------------------+------------+--------------------+---------------+----------------------------------------------------------------------------------------------------+
-| version                                  | yes        | string             |               | Version of this software image                                                                     |
-+------------------------------------------+------------+--------------------+---------------+----------------------------------------------------------------------------------------------------+
-| checksum                                 | yes        | string             |               | Checksum of the software image file                                                                |
-+------------------------------------------+------------+--------------------+---------------+----------------------------------------------------------------------------------------------------+
-| container\_format                        | yes        | string             |               | The container format describes the container file format in which software image is provided.      |
-+------------------------------------------+------------+--------------------+---------------+----------------------------------------------------------------------------------------------------+
-| disk\_format                             | yes        | string             |               | The disk format of a software image is the format of the underlying disk image                     |
-+------------------------------------------+------------+--------------------+---------------+----------------------------------------------------------------------------------------------------+
-| min\_disk                                | yes        | scalar-unit.size   |               | The minimal disk size requirement for this software image.                                         |
-+------------------------------------------+------------+--------------------+---------------+----------------------------------------------------------------------------------------------------+
-| min\_ram                                 | no         | scalar-unit.size   |               | The minimal RAM requirement for this software image.                                               |
-+------------------------------------------+------------+--------------------+---------------+----------------------------------------------------------------------------------------------------+
-| Size                                     | yes        | scalar-unit.size   |               | The size of this software image                                                                    |
-+------------------------------------------+------------+--------------------+---------------+----------------------------------------------------------------------------------------------------+
-| sw\_image                                | yes        | string             |               | A reference to the actual software image within VNF Package, or url.                               |
-+------------------------------------------+------------+--------------------+---------------+----------------------------------------------------------------------------------------------------+
-| operating\_system                        | no         | string             |               | Identifies the operating system used in the software image.                                        |
-+------------------------------------------+------------+--------------------+---------------+----------------------------------------------------------------------------------------------------+
-| supported \_virtualization\_enviroment   | no         | list               |               | Identifies the virtualization environments (e.g. hypervisor) compatible with this software image   |
-+------------------------------------------+------------+--------------------+---------------+----------------------------------------------------------------------------------------------------+
++-----------------+---------+----------+------------+-------------------------+
+| Name            | Required| Type     | Constraints| Description             |
++=================+=========+==========+============+=========================+
+| name            | yes     | string   |            | Name of this software   |
+|                 |         |          |            | image                   |
++-----------------+---------+----------+------------+-------------------------+
+| version         | yes     | string   |            | Version of this software|
+|                 |         |          |            | image                   |
++-----------------+---------+----------+------------+-------------------------+
+| checksum        | yes     | string   |            | Checksum of the software|
+|                 |         |          |            | image file              |
++-----------------+---------+----------+------------+-------------------------+
+| container\      | yes     | string   |            | The container format    |
+| _format         |         |          |            | describes the container |
+|                 |         |          |            | file format in which    |
+|                 |         |          |            | software image is       |
+|                 |         |          |            | provided.               |
++-----------------+---------+----------+------------+-------------------------+
+| disk\_format    | yes     | string   |            | The disk format of a    |
+|                 |         |          |            | software image is the   |
+|                 |         |          |            | format of the underlying|
+|                 |         |          |            | disk image              |
++-----------------+---------+----------+------------+-------------------------+
+| min\_disk       | yes     | scalar-\ |            | The minimal disk size   |
+|                 |         | unit.size|            | requirement for this    |
+|                 |         |          |            | software image.         |
++-----------------+---------+----------+------------+-------------------------+
+| min\_ram        | no      | scalar-\ |            | The minimal RAM         |
+|                 |         | unit.size|            | requirement for this    |
+|                 |         |          |            | software image.         |
++-----------------+---------+----------+------------+-------------------------+
+| Size            | yes     | scalar-\ |            | The size of this        |
+|                 |         | unit.size|            | software image          |
++-----------------+---------+----------+------------+-------------------------+
+| sw\_image       | yes     | string   |            | A reference to the      |
+|                 |         |          |            | actual software image   |
+|                 |         |          |            | within VNF Package, or  |
+|                 |         |          |            | url.                    |
++-----------------+---------+----------+------------+-------------------------+
+| operating\      | no      | string   |            | Identifies the operating|
+| _system         |         |          |            | system used in the      |
+|                 |         |          |            | software image.         |
++-----------------+---------+----------+------------+-------------------------+
+| supported\      | no      | list     |            | Identifies the          |
+| _virtualization\|         |          |            | virtualization          |
+| _enviroment     |         |          |            | environments (e.g.      |
+|                 |         |          |            | hypervisor) compatible  |
+|                 |         |          |            | with this software image|
++-----------------+---------+----------+------------+-------------------------+
 
 Definition
 +++++++++++
@@ -1570,7 +1637,8 @@ YAML rules include:
 
 -  Tabs are NOT allowed, use spaces ONLY.
 
--  R-43125 The VNF Heat **MUST** indent properties and lists with 1 or more spaces.
+-  R-43125 The VNF Heat **MUST** indent properties and lists with 1 or
+   more spaces.
 
 -  All Resource IDs and resource property parameters are case-sensitive.
    (e.g., "ThIs", is not the same as "thiS")
@@ -1651,8 +1719,8 @@ the template. Each parameter is specified in a separated nested block
 with the name of the parameters defined in the first line and additional
 attributes (e.g., type, label) defined as nested elements.
 
-R-90279 The VNF Heat **MUST** use in a resource all parameters declared in a template
-except for the parameters for the OS::Nova::Server property
+R-90279 The VNF Heat **MUST** use in a resource all parameters declared in
+a template except for the parameters for the OS::Nova::Server property
 availability\_zone. See `Property: availability\_zone`_. for more details on
 availability\_zone.
 
@@ -1682,8 +1750,8 @@ availability\_zone.
    -  The type of the parameter. Supported types are string, number,
       comma\_delimited\_list, json and boolean.
 
-   -  R-28657 The VNF Heat **MUST** provide the attribute 'type' on parameters per the OpenStack Heat
-      Orchestration Template standard.
+   -  R-28657 The VNF Heat **MUST** provide the attribute 'type' on
+      parameters per the OpenStack Heat Orchestration Template standard.
 
 -  label:
 
@@ -1695,17 +1763,17 @@ availability\_zone.
 
    -  A human readable description for the parameter.
 
-   -  R-44001 The VNF Heat **MUST** provide the attribute 'description' on parameters. (Note that
-      this attribute is OpenStack optional.)
+   -  R-44001 The VNF Heat **MUST** provide the attribute 'description'
+      on parameters. (Note that this attribute is OpenStack optional.)
 
 -  default:
 
    -  A default value for the parameter.
 
    -  R-90526 The VNF Heat **MUST NOT** use the attribute 'default'.
-      If a parameter has a default
-      value, it must be provided in the environment file. (Note that
-      this attribute is OpenStack optional.)
+      If a parameter has a default value, it must be provided in
+      the environment file. (Note that this attribute is OpenStack
+      optional.)
 
 -  hidden:
 
@@ -1740,7 +1808,8 @@ availability\_zone.
    If omitted, a default validation message is presented to the user.
    This attribute is optional.
 
--  R-88863 The VNF Heat **MUST** have a constraint of range or allowed\_values for a parameter type 'number'.
+-  R-88863 The VNF Heat **MUST** have a constraint of range or
+   allowed\_values for a parameter type 'number'.
 
    -  range: The range constraint applies to parameters of type number.
       It defines a lower and upper limit for the numeric value of the
@@ -1776,7 +1845,9 @@ availability\_zone.
 -  Note that constrains must not be defined for any parameter enumerated
    in a nested heat template.
 
--  Some ONAP parameters must never have constraints defined. See `ONAP Resource ID and Parameter Naming Convention`_ for the use cases where these exceptions exist.
+-  Some ONAP parameters must never have constraints defined. See
+   `ONAP Resource ID and Parameter Naming Convention`_ for the
+   use cases where these exceptions exist.
 
 -  immutable:
 
@@ -1788,7 +1859,8 @@ availability\_zone.
 resources
 ++++++++++
 
-R-23664 The VNF Heat **MUST** have a resources: section with the declaration of at least one resource.
+R-23664 The VNF Heat **MUST** have a resources: section with the
+declaration of at least one resource.
 
 This section
 contains the declaration of the single resources of the template. This
@@ -1835,21 +1907,25 @@ with the following syntax.
 -  properties
 
    -  A list of resource-specific properties. The property value can be
-      provided in place, or via a function (e.g., Intrinsic functions). This section is optional.
+      provided in place, or via a function (e.g., Intrinsic functions).
+      This section is optional.
 
-   -  The naming convention for property parameters is provided in `ONAP Resource ID and Parameter Naming Convention`_.
+   -  The naming convention for property parameters is provided in
+      `ONAP Resource ID and Parameter Naming Convention`_.
 
 -  metadata
 
    -  Resource-specific metadata. This section is optional, except for
       the resource OS::Nova::Server. See `Resource:  OS::Nova::Server - Parameters`_.
 
-   -  R-97199 The VNF Heat **MUST** use the metadata property for OS::Nova::Server resource type.
+   -  R-97199 The VNF Heat **MUST** use the metadata property for
+      OS::Nova::Server resource type.
 
 -  depends\_on
 
    -  Dependencies of the resource on one or more resources of the
-      template. This attribute is optional. See `Resource Data Synchronization`_ for additional details.
+      template. This attribute is optional. See
+      `Resource Data Synchronization`_ for additional details.
 
 -  update\_policy
 
@@ -1889,7 +1965,8 @@ outputs
 This ONAP optional section allows for specifying output parameters
 available to users once the template has been instantiated. If the
 section is specified, it will need to adhere to specific requirements.
-See `ONAP Parameter Classifications Overview`_ and `ONAP Output Parameter Names`_ for additional details.
+See `ONAP Parameter Classifications Overview`_ and
+`ONAP Output Parameter Names`_ for additional details.
 
 Environment File Format
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1913,7 +1990,8 @@ The environment file can contain the following sections:
 -  parameter\_merge\_strategies: Merge strategies for merging parameters
    and parameter defaults from the environment file.
 
-R-03324 The VNF Heat **MUST** contain the following sections in the environment file:
+R-03324 The VNF Heat **MUST** contain the following sections in the
+environment file:
 
 -  parameters:
 
@@ -1951,7 +2029,8 @@ created.
 
 ONAP has requirements for what parameters must be enumerated in the
 environment file and what parameter must not be enumerated in the
-environment file. See `ONAP Parameter Classifications Overview`_ and `ONAP Resource ID and Parameter Naming Convention`_ for more details.
+environment file. See `ONAP Parameter Classifications Overview`_ and
+`ONAP Resource ID and Parameter Naming Convention`_ for more details.
 
 Nested Heat Orchestration Templates Overview
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1990,9 +2069,11 @@ must not contain any special characters and must not contain the word
 Base Modules
 ~~~~~~~~~~~~~~
 
-R-19473 The VNF Heat **MUST** include “base” in the filename for the base module
+R-19473 The VNF Heat **MUST** include “base” in the filename for the
+base module
 
-R-81339 The VNF Heat **MUST** match one of the following options for the base module file name:
+R-81339 The VNF Heat **MUST** match one of the following options for
+the base module file name:
 
 -  base\_<text>.y[a]ml
 
@@ -2002,8 +2083,9 @@ R-81339 The VNF Heat **MUST** match one of the following options for the base mo
 
 -  <text>\_base\_<text>.y[a]ml
 
-R-91342 The VNF Heat **MUST** name the base module’s corresponding environment file to be identical
-to the base module with “.y[a]ml” replaced with “.env”.
+R-91342 The VNF Heat **MUST** name the base module’s corresponding
+environment file to be identical to the base module with “.y[a]ml”
+replaced with “.env”.
 
 Incremental Modules
 ~~~~~~~~~~~~~~~~~~~~~
@@ -2011,12 +2093,14 @@ Incremental Modules
 There is no explicit naming convention for the incremental modules.
 As noted above, <text> represents any alphanumeric string.
 
-R-87247 The VNF Heat **MUST NOT** use any special characters or the word “base” in the name of the incremental module.
+R-87247 The VNF Heat **MUST NOT** use any special characters or the
+word “base” in the name of the incremental module.
 
 -  <text>.y[a]ml
 
-R-94509 The VNF Heat **MUST** name the incremental module’s corresponding environment file to be
-identical to the incremental module with “.y[a]ml” replaced with “.env”.
+R-94509 The VNF Heat **MUST** name the incremental module’s
+corresponding environment file to be identical to the incremental
+module with “.y[a]ml” replaced with “.env”.
 
 To clearly identify the incremental module, it is recommended to use the
 following naming options for modules:
@@ -2030,16 +2114,17 @@ following naming options for modules:
 Cinder Volume Modules
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-R-82732 The VNF Heat **MUST** name the Cinder volume module file name to be the same as the
-corresponding module it is supporting (base module or incremental
-module) with “\_volume” appended.
+R-82732 The VNF Heat **MUST** name the Cinder volume module file name
+to be the same as the corresponding module it is supporting (base
+module or incremental module) with “\_volume” appended.
 
 -  <base module name>\_volume.y[a]ml
 
 -  <incremental module name>\_volume.y[a]ml
 
-R-31141 The VNF Heat **MUST** name the volume module’s corresponding environment file
-to be identical to the volume module with “.y[a]ml” replaced with “.env”.
+R-31141 The VNF Heat **MUST** name the volume module’s corresponding
+environment file to be identical to the volume module with “.y[a]ml”
+replaced with “.env”.
 
 Nested Heat file
 ~~~~~~~~~~~~~~~~~~
@@ -2057,9 +2142,9 @@ As noted above, <text> represents any alphanumeric string.
 Nested Heat files do not have corresponding environment files, per
 OpenStack specifications.
 
-R-18224 The VNF Heat **MUST** pass in as properties all parameter values associated with the
-nested heat file in the resource
-definition defined in the parent heat template.
+R-18224 The VNF Heat **MUST** pass in as properties all parameter values
+associated with the nested heat file in the resource definition defined
+in the parent heat template.
 
 ONAP Parameter Classifications Overview
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2089,7 +2174,8 @@ associated with the resource OS::Nova::Server.
 -  Both mandatory and optional (if specified) ONAP metadata parameter
    names must follow the ONAP metadata parameter naming convention.
 
-`Resource:  OS::Nova::Server – Metadata Parameters`_ provides more details on the metadata parameters.
+`Resource:  OS::Nova::Server – Metadata Parameters`_ provides more details on
+the metadata parameters.
 
 Instance specific parameters
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -2119,8 +2205,9 @@ prior to instantiation.)
    specified, they must adhere to the OpenStack specifications.
 
 -  The ONAP orchestration parameter names must follow the ONAP
-   orchestration parameter naming convention. `ONAP Resource ID and Parameter Naming Convention`_ provides
-   additional details.
+   orchestration parameter naming convention.
+   `ONAP Resource ID and Parameter Naming Convention`_
+   provides additional details.
 
 VNF Orchestration Parameters
 +++++++++++++++++++++++++++++
@@ -2140,15 +2227,17 @@ The per instance values are loaded into ONAP prior to VNF instantiation.
    specified, they must adhere to the OpenStack specifications.
 
 -  The VNF orchestration parameter names should follow the VNF
-   orchestration parameter naming convention. `ONAP Resource ID and Parameter Naming Convention`_ provides
-   additional details.
+   orchestration parameter naming convention.
+   `ONAP Resource ID and Parameter Naming Convention`_
+   provides additional details.
 
 Constant Parameters
 ~~~~~~~~~~~~~~~~~~~~~
 
 The constant parameters are parameters that remain constant across many
 VNF instances (e.g., image, flavor). The constant parameters are
-subdivided into two categories: **ONAP Constant Parameters** and **VNF Constant Parameters.**
+subdivided into two categories: **ONAP Constant Parameters** and
+**VNF Constant Parameters.**
 
 ONAP Constant Parameters
 ++++++++++++++++++++++++++
@@ -2164,7 +2253,9 @@ ONAP Constant Parameters
    they must adhere to the OpenStack specifications.
 
 -  The ONAP Constant Parameter names must follow the ONAP orchestration
-   parameter naming convention. `ONAP Resource ID and Parameter Naming Convention`_ provides additional details.
+   parameter naming convention.
+   `ONAP Resource ID and Parameter Naming Convention`_
+   provides additional details.
 
 VNF Constant Parameters
 ++++++++++++++++++++++++
@@ -2180,8 +2271,9 @@ VNF Constant Parameters
    they must adhere to the OpenStack specifications.
 
 -  The VNF Constant Parameters names should follow the ONAP
-   orchestration parameter naming convention. `ONAP Resource ID and Parameter Naming Convention`_ provides
-   additional details.
+   orchestration parameter naming convention.
+   `ONAP Resource ID and Parameter Naming Convention`_
+   provides additional details.
 
 Output Parameters
 ~~~~~~~~~~~~~~~~~~~
@@ -2238,8 +2330,8 @@ The volume template output parameters are only available for the module
    module (base or incremental) that the Cinder volume module is
    associated with.
 
--  R-07443 The VNF Heat **MUST** match the Output parameter name and type with the
-   input parameter name and type unless the Output parameter is of the
+-  R-07443 The VNF Heat **MUST** match the Output parameter name and type with
+   the input parameter name and type unless the Output parameter is of the
    type comma\_delimited\_list.
 
 -  If the Output parameter has a comma\_delimited\_list value (e.g., a
@@ -2308,8 +2400,8 @@ LCPs.
 
 An External Network may be a Neutron Network or a Contrail Network
 
-R-23983 The VNF **MUST** pass the external networks into the VNF Heat Orchestration
-Templates as parameters.
+R-23983 The VNF **MUST** pass the external networks into the VNF Heat
+Orchestration Templates as parameters.
 
 -  Neutron Network-id (UUID)
 
@@ -2318,14 +2410,17 @@ Templates as parameters.
 -  Contrail Network Fully Qualified Domain Name (FQDN)
 
 ONAP enforces a naming convention for parameters associated with
-external networks. `ONAP Resource ID and Parameter Naming Convention`_ provides additional details.
+external networks. `ONAP Resource ID and Parameter Naming Convention`_
+provides additional details.
 
 Parameter values associated with an external network will be generated
 and/or assigned by ONAP at orchestration time. Parameter values
 associated with an external network must not be enumerated in the
-environment file. `ONAP Resource ID and Parameter Naming Convention`_ provides additional details.
+environment file. `ONAP Resource ID and Parameter Naming Convention`_
+provides additional details.
 
-VNFs may use **Cloud assigned IP addresses** or **ONAP SDN-C assigned IP addresses**
+VNFs may use **Cloud assigned IP addresses** or
+**ONAP SDN-C assigned IP addresses**
 when attaching VMs to an external network
 
 -  A Cloud assigned IP address is assigned by OpenStack’s DHCP Service.
@@ -2353,15 +2448,15 @@ create the internal network. The internal network must be either a
 Neutron Network or a Contrail Network.
 
 R-86972 The VNF Heat **MUST** create internal networks in the Base
-Module, in the modular approach, with their resource IDs exposed as outputs (i.e., ONAP Base
-Module Output Parameters) for use by all incremental modules. If the
-Network resource ID is required in the base template, then a
-get\_resource must be used.
+Module, in the modular approach, with their resource IDs exposed as outputs
+(i.e., ONAP Base Module Output Parameters) for use by all incremental
+modules. If the Network resource ID is required in the base template,
+then a get\_resource must be used.
 
 R-68936 The VNF Heat **SHOULD** assign a unique
 {network-role} in the context of the VNF, when the internal network is
-created. `ONAP Resource ID and Parameter Naming Convention`_ provides additional
-details.
+created. `ONAP Resource ID and Parameter Naming Convention`_ provides
+additional details.
 
 VNFs may use **Cloud assigned IP addresses** or
 **predetermined static IPs** when attaching VMs to an internal network.
@@ -2383,7 +2478,9 @@ VNFs may use **Cloud assigned IP addresses** or
 
 ONAP does not programmatically enforce a naming convention for
 parameters for internal network. However, a naming convention is
-provided that must be followed. `ONAP Resource ID and Parameter Naming Convention`_ provides additional details.
+provided that must be followed.
+`ONAP Resource ID and Parameter Naming Convention`_
+provides additional details.
 
 ONAP Resource ID and Parameter Naming Convention
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2420,9 +2517,11 @@ The {vm-type} should not contain the string “\_int” or “int\_” or
 “\_int\_”. It may cause the Pre-Amsterdam VNF Validation Program (i.e.,
 ICE Project) process to produce erroneous error messages.
 
-R-32394 The VNF Heat **MUST** use the same case for {vm-type} for all parameter names in the VNF.
+R-32394 The VNF Heat **MUST** use the same case for {vm-type} for all
+parameter names in the VNF.
 
-R-46839 The VNF Heat **MUST** use the same case for {vm-type} for all Resource IDs in the VNF.
+R-46839 The VNF Heat **MUST** use the same case for {vm-type} for all
+Resource IDs in the VNF.
 
 It is recommended that the {vm-type} case in the parameter names matches
 the {vm-type} case in the Resource IDs.
@@ -2430,9 +2529,10 @@ the {vm-type} case in the Resource IDs.
 There are two exceptions to the above rules:
 
 1. R-05008 The VNF Heat **MUST NOT** be prefixed with a common
-   {vm-type} identifier for the six ONAP Metadata parameters. They are *vnf\_name*, *vnf\_id*,
-   *vf\_module\_id*, *vf\_module\_name, vm\_role*. The ONAP Metadata
-   parameters are described in `Resource:  OS::Nova::Server – Metadata Parameters`_.
+   {vm-type} identifier for the six ONAP Metadata parameters.
+   They are *vnf\_name*, *vnf\_id*, *vf\_module\_id*, *vf\_module\_name,
+   vm\_role*. The ONAP Metadata parameters are described in
+   `Resource:  OS::Nova::Server – Metadata Parameters`_.
 
 2. R-15422 The VNF Heat **MUST NOT** be prefixed with a common {vm-type}
    identifier the parameter referring to the OS::Nova::Server property
@@ -2443,17 +2543,18 @@ There are two exceptions to the above rules:
 
 The assignment of a {network-role} is discussed in `Networking`_.
 
-R-21330 The VNF Heat **MUST** include
-the {network-role} as part of the parameter name for any parameter that is associated with an external network.
+R-21330 The VNF Heat **MUST** include the {network-role} as part of the
+parameter name for any parameter that is associated with an external network.
 
-R-11168 The VNF Heat **MUST** include
-the {network-role} as part of the resource ID for any resource ID that is associated with an external network must.
+R-11168 The VNF Heat **MUST** include the {network-role} as part of the
+resource ID for any resource ID that is associated with an external network
+must.
 
-R-84322 The VNF Heat **MUST** include
-int\_{network-role} as part of the parameter name for any parameter that is associated with an internal network.
+R-84322 The VNF Heat **MUST** include int\_{network-role} as part of the
+parameter name for any parameter that is associated with an internal network.
 
-R-96983 The VNF Heat **MUST** include
-int\_{network-role} as part of the resource ID for any resource ID that is associated with an internal network.
+R-96983 The VNF Heat **MUST** include int\_{network-role} as part of the
+resource ID for any resource ID that is associated with an internal network.
 
 Note that {network-role} must not be a substring of {vm-type}. A
 substring of a string is another string that occurs "in". For example,
@@ -2465,10 +2566,11 @@ The {network-role} should not contain the string “\_int” or “int\_” or
 “\_int\_”. It may cause the Pre-Amsterdam VNF Validation Program (i.e.,
 ICE Project) process to produce erroneous error messages.
 
-R-58424 The VNF Heat **MUST** use the same case for {network-role} for all parameter names in the
-VNF.
+R-58424 The VNF Heat **MUST** use the same case for {network-role} for
+all parameter names in the VNF.
 
-R-21511 The VNF Heat **MUST** use the same case for {network-role} for all Resource IDs in the VNF.
+R-21511 The VNF Heat **MUST** use the same case for {network-role} for
+all Resource IDs in the VNF.
 
 It is recommended that the {network-role} case in the parameter names
 matches the {network-role} case in the Resource IDs.
@@ -2478,8 +2580,9 @@ Resource IDs
 
 Heat Orchestration Template resources are described in `resources`_
 
-R-59629 The VNF Heat **MUST** have unique resource IDs within the resources section of a Heat
-Orchestration Template. This is an OpenStack Requirement.
+R-59629 The VNF Heat **MUST** have unique resource IDs within the
+resources section of a Heat Orchestration Template. This is an
+OpenStack Requirement.
 
 R-43319 The VNF Heat **MUST** have unique resource IDs
 across all modules that compose the VNF,
@@ -2528,8 +2631,8 @@ than one network, the resource ID
 -  should contain the term “shared” and/or contain text that identifies
    the VNF.
 
-R-69287 The VNF Heat **MUST** use only alphanumeric characters and “\_” underscores in the
-resource ID. Special characters must not be used.
+R-69287 The VNF Heat **MUST** use only alphanumeric characters and “\_”
+underscores in the resource ID. Special characters must not be used.
 
 All {index} values must be zero based. That is, the {index} must start
 at zero and increment by one.
@@ -2537,60 +2640,63 @@ at zero and increment by one.
 The table below provides example OpenStack Heat resource ID for
 resources only associated with one {vm-type} and/or one network.
 
-+--------------------------------+------------------------------------------------------------+
-| Resource Type                  | Resource ID Format                                         |
-+================================+============================================================+
-| OS::Cinder::Volume             | {vm\_type}\_volume\_{index}                                |
-+--------------------------------+------------------------------------------------------------+
-| OS::Cinder::VolumeAttachment   | {vm\_type}\_volumeattachment\_{index}                      |
-+--------------------------------+------------------------------------------------------------+
-| OS::Heat::CloudConfig          | {vm\_type}\_RCC                                            |
-+--------------------------------+------------------------------------------------------------+
-| OS::Heat::MultipartMime        | {vm\_type}\_RMM                                            |
-+--------------------------------+------------------------------------------------------------+
-| OS::Heat::ResourceGroup        | {vm\_type}\_RRG                                            |
-+--------------------------------+------------------------------------------------------------+
-| OS::Heat::SoftwareConfig       | {vm\_type}\_RSC                                            |
-+--------------------------------+------------------------------------------------------------+
-| OS::Neutron::Port              | {vm\_type}\_{index}\_{network\_role}\_{index}\_port        |
-+--------------------------------+------------------------------------------------------------+
-|                                | {vm\_type}\_{index}\_int\_{network\_role}\_{index}\_port   |
-+--------------------------------+------------------------------------------------------------+
-| OS::Neutron::SecurityGroup     | {vm\_type}\_RSG                                            |
-+--------------------------------+------------------------------------------------------------+
-| OS::Neutron::Subnet            | {network\_role}\_subnet\_{index}                           |
-+--------------------------------+------------------------------------------------------------+
-| OS::Nova::Server               | {vm\_type}\_{index}                                        |
-+--------------------------------+------------------------------------------------------------+
-| OS::Nova::ServerGroup          | {vm\_type}\_RSG                                            |
-+--------------------------------+------------------------------------------------------------+
-| OS::Swift::Container           | {vm\_type}\_RSwiftC                                        |
-+--------------------------------+------------------------------------------------------------+
++-----------------------------+--------------------------------------+
+| Resource Type               | Resource ID Format                   |
++=============================+======================================+
+| OS::Cinder::Volume          | {vm\_type}\_volume\_{index}          |
++-----------------------------+--------------------------------------+
+| OS::Cinder::VolumeAttachment| {vm\_type}\_volumeattachment\_{index}|
++-----------------------------+--------------------------------------+
+| OS::Heat::CloudConfig       | {vm\_type}\_RCC                      |
++-----------------------------+--------------------------------------+
+| OS::Heat::MultipartMime     | {vm\_type}\_RMM                      |
++-----------------------------+--------------------------------------+
+| OS::Heat::ResourceGroup     | {vm\_type}\_RRG                      |
++-----------------------------+--------------------------------------+
+| OS::Heat::SoftwareConfig    | {vm\_type}\_RSC                      |
++-----------------------------+--------------------------------------+
+| OS::Neutron::Port           | {vm\_type}\_{index}\                 |
+|                             | _{network\_role}\_{index}\_port      |
++-----------------------------+--------------------------------------+
+|                             | {vm\_type}\_{index}\                 |
+|                             | _int\_{network\_role}\_{index}\_port |
++-----------------------------+--------------------------------------+
+| OS::Neutron::SecurityGroup  | {vm\_type}\_RSG                      |
++-----------------------------+--------------------------------------+
+| OS::Neutron::Subnet         | {network\_role}\_subnet\_{index}     |
++-----------------------------+--------------------------------------+
+| OS::Nova::Server            | {vm\_type}\_{index}                  |
++-----------------------------+--------------------------------------+
+| OS::Nova::ServerGroup       | {vm\_type}\_RSG                      |
++-----------------------------+--------------------------------------+
+| OS::Swift::Container        | {vm\_type}\_RSwiftC                  |
++-----------------------------+--------------------------------------+
 
     Table 1: Example OpenStack Heat Resource ID
 
 The table below provides example Contrail Heat resource ID for resources
 only associated with one {vm-type} and/or one network.
 
-+-------------------------------------------+---------------------------------------------+
-| Resource Type                             | Resource ID Format                          |
-+===========================================+=============================================+
-| OS::ContrailV2::InstanceIp                | {vm\_type}\_{index}\_{network\_role}\_RII   |
-+-------------------------------------------+---------------------------------------------+
-| OS::ContrailV2::InterfaceRouteTable       | {network\_role}\_RIRT                       |
-+-------------------------------------------+---------------------------------------------+
-| OS::ContrailV2::NetworkIpam               | {network\_role}\_RNI                        |
-+-------------------------------------------+---------------------------------------------+
-| OS::ContrailV2::PortTuple                 | {vm\_type}\_RPT                             |
-+-------------------------------------------+---------------------------------------------+
-| OS::ContrailV2::ServiceHealthCheck        | {vm\_type}\_RSHC\_{LEFT\|RIGHT}             |
-+-------------------------------------------+---------------------------------------------+
-| OS::ContrailV2::ServiceTemplate           | {vm\_type}\_RST\_{index}                    |
-+-------------------------------------------+---------------------------------------------+
-| OS::ContrailV2::VirtualMachineInterface   | int\_{network\_role}\_RVMI                  |
-+-------------------------------------------+---------------------------------------------+
-| OS::ContrailV2::VirtualNetwork            | int\_{network\_role}\_RVN                   |
-+-------------------------------------------+---------------------------------------------+
++-------------------------------------------+---------------------------------+
+| Resource Type                             | Resource ID Format              |
++===========================================+=================================+
+| OS::ContrailV2::InstanceIp                | {vm\_type}\_{index}\            |
+|                                           | _{network\_role}\_RII           |
++-------------------------------------------+---------------------------------+
+| OS::ContrailV2::InterfaceRouteTable       | {network\_role}\_RIRT           |
++-------------------------------------------+---------------------------------+
+| OS::ContrailV2::NetworkIpam               | {network\_role}\_RNI            |
++-------------------------------------------+---------------------------------+
+| OS::ContrailV2::PortTuple                 | {vm\_type}\_RPT                 |
++-------------------------------------------+---------------------------------+
+| OS::ContrailV2::ServiceHealthCheck        | {vm\_type}\_RSHC\_{LEFT\|RIGHT} |
++-------------------------------------------+---------------------------------+
+| OS::ContrailV2::ServiceTemplate           | {vm\_type}\_RST\_{index}        |
++-------------------------------------------+---------------------------------+
+| OS::ContrailV2::VirtualMachineInterface   | int\_{network\_role}\_RVMI      |
++-------------------------------------------+---------------------------------+
+| OS::ContrailV2::VirtualNetwork            | int\_{network\_role}\_RVN       |
++-------------------------------------------+---------------------------------+
 
     Table 2: Example Contrail Heat resource ID
 
@@ -2618,21 +2724,27 @@ additional details.
 Note that the {vm\_type} must be identical across all four property
 parameters for a given OS::Nova::Server resource.
 
-+-----------------------------+-------------------------------+------------------+------------------------------+---------------------------------+
-| Resource OS::Nova::Server                                                                                                                       |
-+=============================+===============================+==================+==============================+=================================+
-| Property Name               | ONAP Parameter Name           | Parameter Type   | Parameter Value Generation   | ONAP Parameter Classification   |
-+-----------------------------+-------------------------------+------------------+------------------------------+---------------------------------+
-| image                       | {vm-type}\_image\_name        | string           | Environment File             | ONAP Constant                   |
-+-----------------------------+-------------------------------+------------------+------------------------------+---------------------------------+
-| flavor                      | {vm-type}\_flavor\_name       | string           | Environment File             | ONAP Constant                   |
-+-----------------------------+-------------------------------+------------------+------------------------------+---------------------------------+
-| name                        | {vm-type}\_name\_{index}      | string           | ONAP                         | ONAP Orchestration              |
-+-----------------------------+-------------------------------+------------------+------------------------------+---------------------------------+
-|                             | {vm-type}\_names              | CDL              | ONAP                         | ONAP Orchestration              |
-+-----------------------------+-------------------------------+------------------+------------------------------+---------------------------------+
-| availability\_zone          | availability\_zone\_{index}   | string           | ONAP                         | ONAP Orchestration              |
-+-----------------------------+-------------------------------+------------------+------------------------------+---------------------------------+
++----------------------------------------------------------------------------+
+| Resource OS::Nova::Server                                                  |
++--------------+----------------+----------+----------------+----------------+
+| Property Name| ONAP Parameter | Parameter| Parameter Value| ONAP Parameter |
+|              | Name           | Type     | Generation     | Classification |
++==============+================+==========+================+================+
+| image        | {vm-type}\     | string   | Environment    | ONAP           |
+|              | _image\_name   | string   | File           | Constant       |
++--------------+----------------+----------+----------------+----------------+
+| flavor       | {vm-type}\     | string   | Environment    | ONAP           |
+|              | _flavor\_name  |          | File           | Constant       |
++--------------+----------------+----------+----------------+----------------+
+| name         | {vm-type}\     | string   | ONAP           | ONAP           |
+|              | _name\_{index} |          |                | Orchestration  |
++--------------+----------------+----------+----------------+----------------+
+|              | {vm-type}\     | CDL      | ONAP           | ONAP           |
+|              | _names         |          |                | Orchestration  |
++--------------+----------------+----------+----------------+----------------+
+| availability\| availability\  | string   | ONAP           | ONAP           |
+| _zone        | _zone\_{index} |          |                | Orchestration  |
++--------------+----------------+----------+----------------+----------------+
 
 Table 3 Resource Property Parameter Names
 
@@ -2645,15 +2757,15 @@ parameter.
 The parameters must be named {vm-type}\_image\_name in the Heat
 Orchestration Template.
 
-R-71152 The VNF Heat **MUST** declare as type: string the parameter for property image.
+R-71152 The VNF Heat **MUST** declare as type: string the parameter
+for property image.
 
-R-91125 The VNF Heat **MUST** enumerate the parameter for property image in the Heat Orchestration Template
-environment file.
+R-91125 The VNF Heat **MUST** enumerate the parameter for property
+image in the Heat Orchestration Template environment file.
 
 R-57282 The VNF Heat **MUST** have a separate parameter for image for
-Each VM type (i.e., {vm-type})
-even if more than one {vm-type} shares the same image. This provides
-maximum clarity and flexibility.
+Each VM type (i.e., {vm-type}) even if more than one {vm-type} shares
+the same image. This provides maximum clarity and flexibility.
 
 *Example Parameter Definition*
 
@@ -2673,14 +2785,15 @@ parameter.
 The parameters must be named {vm-type}\_flavor\_name in the Heat
 Orchestration Template.
 
-R-50436 The VNF Heat **MUST** declare the parameter property for flavor as type: string.
+R-50436 The VNF Heat **MUST** declare the parameter property for
+flavor as type: string.
 
-R-69431 The VNF Heat **MUST** enumerate the parameter for property flavor in the Heat Orchestration Template
-environment file.
+R-69431 The VNF Heat **MUST** enumerate the parameter for property
+flavor in the Heat Orchestration Template environment file.
 
-R-40499 The VNF Heat **MUST** have a separate parameter for flavor for each VM type
-(i.e., {vm-type}) even if more than one {vm-type} shares the same flavor. This
-provides maximum clarity and flexibility.
+R-40499 The VNF Heat **MUST** have a separate parameter for flavor for each
+VM type (i.e., {vm-type}) even if more than one {vm-type} shares the same
+flavor. This provides maximum clarity and flexibility.
 
 *Example Parameter Definition*
 
@@ -2702,8 +2815,8 @@ The parameter value is provided to the Heat template by ONAP.
 R-22838 The VNF Heat **MUST NOT** enumerate the parameter for property name
 in the environment file.
 
-R-51430 The VNF Heat **MUST** declare the parameter for property name as type: string or type:
-comma\_delimited\_list
+R-51430 The VNF Heat **MUST** declare the parameter for property name as
+type: string or type: comma\_delimited\_list
 
 If the parameter is declared as type:string, the parameter must be named
 {vm-type}\_name\_{index}, where {index} is a numeric value that starts
@@ -2806,8 +2919,8 @@ Orchestration parameter.
 The parameter value is provided to the Heat template by ONAP. The
 parameter must not be enumerated in the environment file.
 
-R-98450 The VNF Heat **MUST** name the parameter availability\_zone\_{index} in the Heat
-Orchestration Template.
+R-98450 The VNF Heat **MUST** name the parameter availability\_zone\_{index}
+in the Heat Orchestration Template.
 
 R-13561 The VNF Heat **MUST** start the {index} at zero.
 
@@ -2906,8 +3019,8 @@ The resource OS::Nova::Server has an OpenStack optional property
 metadata. The metadata property is mandatory for ONAP Heat Orchestration
 Templates; it must be included.
 
-R-17020 The VNF Heat **MUST** include the following three mandatory metadata parameters for an
-OS::Nova::Server resource:
+R-17020 The VNF Heat **MUST** include the following three mandatory
+metadata parameters for an OS::Nova::Server resource:
 
 -  vnf\_id
 
@@ -2931,22 +3044,24 @@ parameter names must not change.
 The table below provides a summary. The sections that follow provides
 additional details.
 
-+---------------------------+------------------+----------------------+------------------------------+
-| Metadata Parameter Name   | Parameter Type   | Mandatory/Optional   | Parameter Value Generation   |
-+===========================+==================+======================+==============================+
-| vnf\_id                   | string           | Mandatory            | ONAP                         |
-+---------------------------+------------------+----------------------+------------------------------+
-| vf\_module\_id            | string           | Mandatory            | ONAP                         |
-+---------------------------+------------------+----------------------+------------------------------+
-| vnf\_name                 | string           | Mandatory            | ONAP                         |
-+---------------------------+------------------+----------------------+------------------------------+
-| vf\_module\_name          | string           | Optional             | ONAP                         |
-+---------------------------+------------------+----------------------+------------------------------+
-| vm\_role                  | string           | Optional             | YAML or Environment File     |
-+---------------------------+------------------+----------------------+------------------------------+
-+---------------------------+------------------+----------------------+------------------------------+
++-------------------+----------+-------------------+----------------+
+| Metadata Parameter| Parameter| Mandatory/Optional| Parameter Value|
+| Name              | Type     |                   | Generation     |
++===================+==========+===================+================+
+| vnf\_id           | string   | Mandatory         | ONAP           |
++-------------------+----------+-------------------+----------------+
+| vf\_module\_id    | string   | Mandatory         | ONAP           |
++-------------------+----------+-------------------+----------------+
+| vnf\_name         | string   | Mandatory         | ONAP           |
++-------------------+----------+-------------------+----------------+
+| vf\_module\_name  | string   | Optional          | ONAP           |
++-------------------+----------+-------------------+----------------+
+| vm\_role          | string   | Optional          | YAML or        |
+|                   |          |                   | Environment    |
+|                   |          |                   | File           |
++-------------------+----------+-------------------+----------------+
 
-    Table 4: ONAP Metadata
+Table 4: ONAP Metadata
 
 vnf\_id
 ~~~~~~~~~
@@ -2960,9 +3075,11 @@ Template at orchestration time.
 
 The parameter must be declared as type: string
 
-R-55218 The VNF Heat **MUST NOT** have parameter constraints defined for the OS::Nova::Server metadata parameter vnf\_id.
+R-55218 The VNF Heat **MUST NOT** have parameter constraints defined
+for the OS::Nova::Server metadata parameter vnf\_id.
 
-R-20856 The VNF Heat **MUST NOT** enumerate the OS::Nova::Server metadata parameter vnf\_id in environment file.
+R-20856 The VNF Heat **MUST NOT** enumerate the OS::Nova::Server
+metadata parameter vnf\_id in environment file.
 
 *Example Parameter Definition*
 
@@ -2985,9 +3102,11 @@ Heat Orchestration Template at orchestration time.
 
 The parameter must be declared as type: string
 
-R-98374 The VNF Heat **MUST NOT** have parameter constraints defined for the OS::Nova::Server metadata parameter vf\_module\_id.
+R-98374 The VNF Heat **MUST NOT** have parameter constraints
+defined for the OS::Nova::Server metadata parameter vf\_module\_id.
 
-R-72871 The VNF Heat **MUST NOT** enumerate the OS::Nova::Server metadata parameter vf\_module\_id in environment file.
+R-72871 The VNF Heat **MUST NOT** enumerate the OS::Nova::Server
+metadata parameter vf\_module\_id in environment file.
 
 *Example Parameter Definition*
 
@@ -3010,9 +3129,11 @@ time.
 
 The parameter must be declared as type: string
 
-R-44318 The VNF Heat **MUST NOT** have parameter constraints defined for the OS::Nova::Server metadata parameter vnf\_name.
+R-44318 The VNF Heat **MUST NOT** have parameter constraints defined
+for the OS::Nova::Server metadata parameter vnf\_name.
 
-R-36542 The VNF Heat **MUST NOT** enumerate the OS::Nova::Server metadata parameter vnf\_name in the environment file.
+R-36542 The VNF Heat **MUST NOT** enumerate the OS::Nova::Server
+metadata parameter vnf\_name in the environment file.
 
 *Example Parameter Definition*
 
@@ -3187,37 +3308,49 @@ When the parameter references an external network
 
 -  the parameter is classified as an ONAP Orchestration Parameter
 
-+----------------------------------------+-----------------------------------------------+--------------------------+
-| Property Name                          | ONAP Parameter Name                           | Parameter Type           |
-+========================================+===============================================+==========================+
-| network                                | {network-role}\_net\_id                       | string                   |
-+----------------------------------------+-----------------------------------------------+--------------------------+
-|                                        | {network-role}\_net\_name                     | string                   |
-+----------------------------------------+-----------------------------------------------+--------------------------+
-| fixed\_ips, ip\_address                | {vm-type}\_{network-role}\_ip\_{index}        | string                   |
-+----------------------------------------+-----------------------------------------------+--------------------------+
-|                                        | {vm-type}\_{network-role}\_ips                | comma\_delimited\_list   |
-+----------------------------------------+-----------------------------------------------+--------------------------+
-|                                        | {vm-type}\_{network-role}\_v6\_ip\_{index}    | string                   |
-+----------------------------------------+-----------------------------------------------+--------------------------+
-|                                        | {vm-type}\_{network-role}\_v6\_ips            | comma\_delimited\_list   |
-+----------------------------------------+-----------------------------------------------+--------------------------+
-| fixed\_ips, subnet                     | {network-role}\_subnet\_id                    | string                   |
-+----------------------------------------+-----------------------------------------------+--------------------------+
-|                                        | {network-role}\_v6\_subnet\_id                | string                   |
-+----------------------------------------+-----------------------------------------------+--------------------------+
-| allowed\_address\_pairs, ip\_address   | {vm-type}\_{network-role}\_floating\_ip       | string                   |
-+----------------------------------------+-----------------------------------------------+--------------------------+
-|                                        | {vm-type}\_{network-role}\_floating\_v6\_ip   | string                   |
-+----------------------------------------+-----------------------------------------------+--------------------------+
-|                                        | {vm-type}\_{network-role}\_ip\_{index}        | string                   |
-+----------------------------------------+-----------------------------------------------+--------------------------+
-|                                        | {vm-type}\_{network-role}\_ips                | comma\_delimited\_list   |
-+----------------------------------------+-----------------------------------------------+--------------------------+
-|                                        | {vm-type}\_{network-role}\_v6\_ip\_{index}    | string                   |
-+----------------------------------------+-----------------------------------------------+--------------------------+
-|                                        | {vm-type}\_{network-role}\_v6\_ips            | comma\_delimited\_list   |
-+----------------------------------------+-----------------------------------------------+--------------------------+
++----------------------+---------------------------+--------------------------+
+| Property Name        | ONAP Parameter Name       | Parameter Type           |
++======================+===========================+==========================+
+| network              | {network-role}\_net\_id   | string                   |
+|                      +---------------------------+--------------------------+
+|                      | {network-role}\_net\_name | string                   |
++----------------------+---------------------------+--------------------------+
+| fixed\_ips,          | {vm-type}\_{network-role}\| string                   |
+| ip\_address          | _ip\_{index}              |                          |
+|                      +---------------------------+--------------------------+
+|                      | {vm-type}\_{network-role}\| comma\_delimited\_list   |
+|                      | _ips                      |                          |
+|                      +---------------------------+--------------------------+
+|                      | {vm-type}\_{network-role}\| string                   |
+|                      | _v6\_ip\_{index}          |                          |
+|                      +---------------------------+--------------------------+
+|                      | {vm-type}\_{network-role}\| comma\_delimited\_list   |
+|                      | _v6\_ips                  |                          |
++----------------------+---------------------------+--------------------------+
+| fixed\_ips, subnet   | {network-role}\           | string                   |
+|                      | _subnet\_id               |                          |
+|                      +---------------------------+--------------------------+
+|                      | {network-role}\           | string                   |
+|                      | _v6\_subnet\_id           |                          |
++----------------------+---------------------------+--------------------------+
+| allowed\_address     | {vm-type}\_{network-role}\| string                   |
+| \_pairs, ip\_address | _floating\_ip             |                          |
+|                      +---------------------------+--------------------------+
+|                      | {vm-type}\_{network-role}\| string                   |
+|                      | _floating\_v6\_ip         |                          |
+|                      +---------------------------+--------------------------+
+|                      | {vm-type}\_{network-role}\| string                   |
+|                      | _ip\_{index}              |                          |
+|                      +---------------------------+--------------------------+
+|                      | {vm-type}\_{network-role}\| comma\_delimited\_list   |
+|                      | _ips                      |                          |
+|                      +---------------------------+--------------------------+
+|                      | {vm-type}\_{network-role}\| string                   |
+|                      | _v6\_ip\_{index}          |                          |
+|                      +---------------------------+--------------------------+
+|                      | {vm-type}\_{network-role}\| comma\_delimited\_list   |
+|                      | _v6\_ips                  |                          |
++----------------------+---------------------------+--------------------------+
 
 Table 5: OS::Neutron::Port Resource Property Parameters (External
 Networks)
@@ -3227,41 +3360,57 @@ Internal Networks
 
 When the parameter references an internal network
 
--  R-57576 The VNF Heat **MUST** contain int\_{network-role} in the parameter name.
+-  R-57576 The VNF Heat **MUST** contain int\_{network-role}
+   in the parameter name.
 
 -  the parameter may be enumerated in the environment file.
 
-+----------------------------------------+----------------------------------------------------+--------------------------+
-| Property                               | Parameter Name for Internal Networks               | Parameter Type           |
-+========================================+====================================================+==========================+
-| network                                | int\_{network-role}\_net\_id                       | string                   |
-+----------------------------------------+----------------------------------------------------+--------------------------+
-|                                        | int\_{network-role}\_net\_name                     | string                   |
-+----------------------------------------+----------------------------------------------------+--------------------------+
-| fixed\_ips, ip\_address                | {vm-type}\_int\_{network-role}\_ip\_{index}        | string                   |
-+----------------------------------------+----------------------------------------------------+--------------------------+
-|                                        | {vm-type}\_int\_{network-role}\_ips                | comma\_delimited\_list   |
-+----------------------------------------+----------------------------------------------------+--------------------------+
-|                                        | {vm-type}\_int\_{network-role}\_v6\_ip\_{index}    | string                   |
-+----------------------------------------+----------------------------------------------------+--------------------------+
-|                                        | {vm-type}\_int\_{network-role}\_v6\_ips            | comma\_delimited\_list   |
-+----------------------------------------+----------------------------------------------------+--------------------------+
-| fixed\_ips, subnet                     | int\_{network-role}\_subnet\_id                    | string                   |
-+----------------------------------------+----------------------------------------------------+--------------------------+
-|                                        | int\_{network-role}\_v6\_subnet\_id                | string                   |
-+----------------------------------------+----------------------------------------------------+--------------------------+
-| allowed\_address\_pairs, ip\_address   | {vm-type}\_int\_{network-role}\_floating\_ip       | string                   |
-+----------------------------------------+----------------------------------------------------+--------------------------+
-|                                        | {vm-type}\_int\_{network-role}\_floating\_v6\_ip   | string                   |
-+----------------------------------------+----------------------------------------------------+--------------------------+
-|                                        | {vm-type}\_int\_{network-role}\_ip\_{index}        | string                   |
-+----------------------------------------+----------------------------------------------------+--------------------------+
-|                                        | {vm-type}\_int\_{network-role}\_ips                | comma\_delimited\_list   |
-+----------------------------------------+----------------------------------------------------+--------------------------+
-|                                        | {vm-type}\_int\_{network-role}\_v6\_ip\_{index}    | string                   |
-+----------------------------------------+----------------------------------------------------+--------------------------+
-|                                        | {vm-type}\_int\_{network-role}\_v6\_ips            | comma\_delimited\_list   |
-+----------------------------------------+----------------------------------------------------+--------------------------+
++-------------------------+--------------------------------+-----------------+
+| Property                | Parameter Name for             | Parameter Type  |
+|                         | Internal Networks              |                 |
++=========================+================================+=================+
+| network                 | int\_{network-role}\           | string          |
+|                         | _net\_id                       |                 |
+|                         +--------------------------------+-----------------+
+|                         | int\_{network-role}\           | string          |
+|                         | _net\_name                     |                 |
++-------------------------+--------------------------------+-----------------+
+| fixed\_ips, ip\_address | {vm-type}\_int\_{network-role}\| string          |
+|                         | _ip\_{index}                   |                 |
+|                         +--------------------------------+-----------------+
+|                         | {vm-type}\_int\_{network-role}\| comma\          |
+|                         | _ips                           | _delimited\_list|
+|                         +--------------------------------+-----------------+
+|                         | {vm-type}\_int\_{network-role}\| string          |
+|                         | _v6\_ip\_{index}               |                 |
+|                         +--------------------------------+-----------------+
+|                         | {vm-type}\_int\_{network-role}\| comma\          |
+|                         | _v6\_ips                       | _delimited\_list|
++-------------------------+--------------------------------+-----------------+
+| fixed\_ips, subnet      | int\_{network-role}\           | string          |
+|                         | _subnet\_id                    |                 |
+|                         +--------------------------------+-----------------+
+|                         | int\_{network-role}\           | string          |
+|                         | _v6\_subnet\_id                |                 |
++-------------------------+--------------------------------+-----------------+
+| allowed\_address\_pairs,| {vm-type}\_int\_{network-role}\| string          |
+| ip\_address             | _floating\_ip                  |                 |
+|                         +--------------------------------+-----------------+
+|                         | {vm-type}\_int\_{network-role}\| string          |
+|                         | _floating\_v6\_ip              |                 |
+|                         +--------------------------------+-----------------+
+|                         | {vm-type}\_int\_{network-role}\| string          |
+|                         | _ip\_{index}                   |                 |
+|                         +--------------------------------+-----------------+
+|                         | {vm-type}\_int\_{network-role}\| comma\          |
+|                         | _ips                           | _delimited\_list|
+|                         +--------------------------------+-----------------+
+|                         | {vm-type}\_int\_{network-role}\| string          |
+|                         | _v6\_ip\_{index}               |                 |
+|                         +--------------------------------+-----------------+
+|                         | {vm-type}\_int\_{network-role}\| comma\          |
+|                         | _v6\_ips                       | _delimited\_list|
++-------------------------+--------------------------------+-----------------+
 
 Table 6: Port Resource Property Parameters (Internal Networks)
 
@@ -3276,8 +3425,8 @@ External Networks
 ++++++++++++++++++
 
 R-93272 The VNF Heat **MUST** adhere to the following parameter naming
-convention in the Heat Orchestration Template, when the parameter associated with the property network is referencing
-an “external” network:
+convention in the Heat Orchestration Template, when the parameter
+associated with the property network is referencing an “external” network:
 
 -  {network-role}\_net\_id for the Neutron network ID
 
@@ -3323,8 +3472,8 @@ Internal Networks
 ++++++++++++++++++
 
 R-65373 The VNF Heat **MUST**  adhere to the following parameter naming
-convention, when the parameter associated with the property network is referencing
-an “internal” network:
+convention, when the parameter associated with the property network is
+referencing an “internal” network:
 
 -  int\_{network-role}\_net\_id for the Neutron network ID
 
@@ -3370,9 +3519,10 @@ assigned IP addresses.
 Subnet of an External Networks
 +++++++++++++++++++++++++++++++
 
-R-47716 The VNF Heat **MUST** adhere to the following parameter naming convention
-for the property fixed\_ips and Map Property subnet\_id parameter,
-when the parameter is referencing a subnet of an “external” network.
+R-47716 The VNF Heat **MUST** adhere to the following parameter naming
+convention for the property fixed\_ips and Map Property subnet\_id
+parameter, when the parameter is referencing a subnet of an
+“external” network.
 
 -  {network-role}\_subnet\_id if the subnet is an IPv4 subnet
 
@@ -3500,8 +3650,9 @@ An IP address is assigned to a port on a VM (referenced by {vm-type})
 that is connected to an external network (referenced by {network-role})
 or internal network (referenced by int\_{network-role}).
 
-R-41177 The VNF Heat **MUST** include {vm-type} and {network-role} in the parameter name,
-when a SDN-C IP assignment is made to a port connected to an external network.
+R-41177 The VNF Heat **MUST** include {vm-type} and {network-role}
+in the parameter name, when a SDN-C IP assignment is made to a
+port connected to an external network.
 
 When a SDN-C IP assignment is made to a port connected to an internal
 network, the parameter name must contain {vm-type} and
@@ -3603,7 +3754,8 @@ The parameter must not be enumerated in the Heat environment file.
        type: string
        description: Fixed IPv6 assignment for {vm-type} VM {index} on the{network-role} network
 
-*Example: string parameters for IPv4 and IPv6 Address Assignments to an external network*
+*Example: string parameters for IPv4 and IPv6 Address Assignments
+to an external network*
 
 In this example, the {network-role} has been defined as “oam” to
 represent an oam network and the {vm-type} has been defined as “db” for
@@ -3753,7 +3905,8 @@ every VNF instance.
        type: string
        description: Fixed IPv6 assignment for {vm-type} VM {index} on the{network-role} network
 
-*Example: string parameters for IPv4 and IPv6 Address Assignments to an internal network*
+*Example: string parameters for IPv4 and IPv6 Address Assignments
+to an internal network*
 
 In this example, the {network-role} has been defined as oam\_int to
 represent an oam network internal to the vnf. The role oam\_int was
@@ -3898,9 +4051,9 @@ an oam network and the {vm-type} has been defined as db for database.
 Internal Networks
 +++++++++++++++++++
 
-R-16805 The VNF Heat **MUST** adhere to the following naming convention for the property
-allowed\_address\_pairs and Map Property ip\_address parameter
-when the parameter is referencing an “internal” network.
+R-16805 The VNF Heat **MUST** adhere to the following naming convention
+for the property allowed\_address\_pairs and Map Property ip\_address
+parameter when the parameter is referencing an “internal” network.
 
 -  {vm-type}\_int\_{network-role}\_floating\_ip for an IPv4 address
 
@@ -4035,7 +4188,8 @@ Resource Property “name”
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The parameter naming convention of the property name for the resource
-OS::Nova::Server has been defined in `Resource:  OS::Nova::Server – Metadata Parameters`_.
+OS::Nova::Server has been defined in
+`Resource:  OS::Nova::Server – Metadata Parameters`_.
 
 This section provides the requirements how the property name for non
 OS::Nova::Server resources must be defined when the property is used.
@@ -4122,7 +4276,8 @@ the only special characters supported are:
 ONAP Output Parameter Names
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-ONAP defines three types of Output Parameters as detailed in `Output Parameters`_.
+ONAP defines three types of Output Parameters as detailed in
+`Output Parameters`_.
 
 ONAP Base Module Output Parameters:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -4459,9 +4614,9 @@ The following rules apply to independent volume Heat templates:
 -  A single Cinder volume module must include all Cinder volumes
    needed by the Base/Incremental module.
 
--  R-79531 The VNF Heat **MUST** define “outputs” in the volume template for each Cinder volume
-   resource universally unique identifier (UUID) (i.e. ONAP Volume
-   Template Output Parameters).
+-  R-79531 The VNF Heat **MUST** define “outputs” in the volume
+   template for each Cinder volume resource universally unique
+   identifier (UUID) (i.e. ONAP Volume Template Output Parameters).
 
 -  The VNF Incremental Module or Base Module must define input
    parameters that match each Volume output parameter (i.e., ONAP Volume
@@ -4558,7 +4713,8 @@ environment file for a Base Module.
 R-35727 The VNF Heat **MUST** have a
 corresponding environment file for an Incremental module.
 
-R-22656 The VNF Heat **MUST** have a corresponding environment file for a Cinder Volume Module.
+R-22656 The VNF Heat **MUST** have a corresponding environment file
+for a Cinder Volume Module.
 
 A nested heat template must not have an environment file; OpenStack does
 not support it.
@@ -4568,9 +4724,10 @@ Orchestration Constants and VNF Orchestration Constants. These
 parameters are identical across all instances of a VNF type, and
 expected to change infrequently. The ONAP Orchestration Constants are
 associated with OS::Nova::Server image and flavor properties (See
-`Property: image`_ and `Property: flavor`_). Examples of VNF Orchestration Constants are the networking
-parameters associated with an internal network (e.g., private IP ranges)
-and Cinder volume sizes.
+`Property: image`_ and `Property: flavor`_). Examples of VNF
+Orchestration Constants are the networking parameters associated
+with an internal network (e.g., private IP ranges) and Cinder
+volume sizes.
 
 The environment file must not contain parameter values for parameters
 that are instance specific (ONAP Orchestration Parameters, VNF
@@ -4639,8 +4796,9 @@ be used.
 R-89868 The VNF Heat **MUST** have unique file names within the scope
 of the VNF for a nested heat yaml file.
 
-R-52530 The VNF Heat **MUST NOT** use a directory hierarchy for nested templates. All
-templates must be in a single, flat directory (per VNF).
+R-52530 The VNF Heat **MUST NOT** use a directory hierarchy for
+nested templates. All templates must be in a single, flat directory
+(per VNF).
 
 A nested heat template may be used by any module within a given VNF.
 
@@ -4649,8 +4807,9 @@ Note that:
 -  Constrains must not be defined for any parameter enumerated in a
    nested heat template.
 
--  R-11041 The VNF Heat **MUST** have the resource calling the nested yaml file pass
-   in as properties all parameters defined in nested yaml file.
+-  R-11041 The VNF Heat **MUST** have the resource calling the
+   nested yaml file pass in as properties all parameters defined
+   in nested yaml file.
 
 -  R-61183 The VNF Heat **MUST NOT** change the parameter names, when OS::Nova::Server metadata parameters are past into a nested heat
    template.
@@ -4878,9 +5037,9 @@ a VM on startup via the “personality” property.
 
 Support for Heat Files is subject to the following limitations:
 
-R-76718 The VNF Heat **MUST** reference the get\_files targets in Heat templates by file
-name, and the corresponding files should be delivered to ONAP along
-with the Heat templates.
+R-76718 The VNF Heat **MUST** reference the get\_files targets in
+Heat templates by file name, and the corresponding files should be
+delivered to ONAP along with the Heat templates.
 
 R-41888 The VNE Heat **MUST NOT** use URL-based file retrieval.
 
@@ -5145,19 +5304,21 @@ validated and tested.
 
 2. The VNF Provider supplies a vendor-specific VNFM driver in ONAP, which
 is a microservice providing a translation interface from VF-C to
-the vendor-specific VNFM. The interface definitions of vendor-specific VNFM adaptors are supplied by
-the VNF Providers themselves.
+the vendor-specific VNFM. The interface definitions of vendor-specific
+VNFM adaptors are supplied by the VNF Providers themselves.
 
 Creating Vendor-Specific VNFM Adaptor Microservices
 ------------------------------------------------------------------------------------------------
 
-VNFs can be managed by vendor-specific VNFMs. To add a vendor-specific VNFM to ONAP, a
-vendor-specific VNFM adaptor is added to ONAP implementing the interface of the vendor-specific VNFM.
+VNFs can be managed by vendor-specific VNFMs. To add a vendor-specific
+VNFM to ONAP, a vendor-specific VNFM adaptor is added to ONAP implementing
+the interface of the vendor-specific VNFM.
 
-A vendor-specific VNFM adaptor is a microservice with a unique name and an appointed
-port. When started up, the vendor-specific VNFM adaptor microservice is automatically registered to the
-Microservices Bus (MSB). The following RESTful example describes the scenario of
-registering a vendor-specific VNFM adaptor to MSB:
+A vendor-specific VNFM adaptor is a microservice with a unique name and
+an appointed port. When started up, the vendor-specific VNFM adaptor
+microservice is automatically registered to the Microservices Bus (MSB).
+The following RESTful example describes the scenario of registering a
+vendor-specific VNFM adaptor to MSB:
 
 .. code-block:: java
 

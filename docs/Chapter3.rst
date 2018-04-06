@@ -15,7 +15,8 @@
   efficiently within a cloud environment. Requirements cover design,
   resiliency, security, modularity and DevOps.
 - Chapter 5 describes the different data models the VNF/PNF provider
-  needs to understand.  There are currently 2 models described in this document:
+  needs to understand.  There are currently 2 models described in this
+  document:
 
     - The first model is the onboarding package data model. This is a TOSCA
       model that will describe how all the elements passed from the VNF/PNF

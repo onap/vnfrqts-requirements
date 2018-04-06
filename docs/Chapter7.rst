@@ -970,105 +970,242 @@ commands from ONAP.
 
 Table 8. ONAP Controller APIs and NETCONF Commands
 
-+---------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| **Action**          | **Description**                                                                                                                                                                                                                                                                  | **NETCONF Commands**                                                                                                                                                                                                          |
-+=====================+==================================================================================================================================================================================================================================================================================+===============================================================================================================================================================================================================================+
-| Action              | Queries ONAP Controller for the current state of a previously submitted runtime LCM (Lifecycle Management) action.                                                                                                                                                               | There is currently no way to check the request status in NETCONF so action status is managed internally by the ONAP controller.                                                                                               |
-|                     |                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                               |
-| Status              |                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                               |
-+---------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Audit, Sync         | Compare active (uploaded) configuration against the current configuration in the ONAP controller. Audit returns failure if different. Sync considers the active (uploaded) configuration as the current configuration.                                                           | The <get-config> operation is used to retrieve the running configuration from the VNF.                                                                                                                                        |
-+---------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Lock,               | Returns true when the given VNF has been locked.                                                                                                                                                                                                                                 | There is currently no way to query lock state in NETCONF so VNF locking and unlocking is managed internally by the ONAP controller.                                                                                           |
-|                     |                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                               |
-| Unlock,             |                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                               |
-|                     |                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                               |
-| CheckLock           |                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                               |
-+---------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Configure,          | Configure applies a post-instantiation configuration the target VNF or VNFC. ConfigModify updates only a subset of the total configuration parameters of a VNF.                                                                                                                  | The <edit-config> operation loads all or part of a specified configuration data set to the specified target database. If there is no <candidate/> database, then the target is the <running/> database. A <commit> follows.   |
-|                     |                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                               |
-| ConfigModify        |                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                               |
-+---------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Health              | Executes a VNF health check and returns the result. A health check is VNF-specific.                                                                                                                                                                                              | This command has no existing NETCONF RPC action.  It must be supported either by REST (see `VNF REST APIs`_) or using Ansible or Chef.                                                                                        |
-|                     |                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                               |
-| Check               |                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                               |
-+---------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| StartApplication,   | ONAP requests application to be started or stopped on the VNF. These actions do not need to be supported if (1) the application starts automatically after Configure or if the VM’s are started and (2) the application gracefully shuts down if the VM’s are stopped.           | These commands have no specific NETCONF RPC action.                                                                                                                                                                           |
-|                     |                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                               |
-| StopApplication     |                                                                                                                                                                                                                                                                                  | If applicable, these commands must be supported using Ansible or Chef (see Table 9 below).                                                                                                                                    |
-+---------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ConfigBackup,       | ONAP requests the VNF configuration parameters to be backed up or restored (replacing existing configuration parameters on the VNF).                                                                                                                                             | These commands have no specific NETCONF RPC action.                                                                                                                                                                           |
-|                     |                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                               |
-| ConfigRestore       |                                                                                                                                                                                                                                                                                  | They can be supported using Ansible or Chef (see Table 9 below).                                                                                                                                                              |
-+---------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++------------------+---------------------------------+------------------------+
+| **Action**       | **Description**                 | **NETCONF Commands**   |
++==================+=================================+========================+
+| Action           | Queries ONAP Controller for the | There is currently no  |
+| Status           | current state of a previously   | way to check the       |
+|                  | submitted runtime LCM (Lifecycle| request status in      |
+|                  | Management) action.             | NETCONF so action      |
+|                  |                                 | status is managed      |
+|                  |                                 | internally by the ONAP |
+|                  |                                 | controller.            |
++------------------+---------------------------------+------------------------+
+| Audit, Sync      | Compare active (uploaded)       | The <get-config>       |
+|                  | configuration against the       | operation is used to   |
+|                  | current configuration in the    | retrieve the running   |
+|                  | ONAP controller. Audit returns  | configuration from the |
+|                  | failure if different. Sync      | VNF.                   |
+|                  | considers the active (uploaded) |                        |
+|                  | configuration as the current    |                        |
+|                  | configuration.                  |                        |
++------------------+---------------------------------+------------------------+
+| Lock,            | Returns true when the given VNF | There is currently no  |
+| Unlock,          | has been locked.                | way to query lock state|
+| CheckLock        |                                 | in NETCONF so VNF      |
+|                  |                                 | locking and unlocking  |
+|                  |                                 | is managed internally  |
+|                  |                                 | by the ONAP controller.|
++------------------+---------------------------------+------------------------+
+| Configure,       | Configure applies a             | The <edit-config>      |
+| ConfigModify     | post-instantiation configuration| operation loads all or |
+|                  | the target VNF or VNFC.         | part of a specified    |
+|                  | ConfigModify updates only a     | configuration data set |
+|                  | subset of the total             | to the specified target|
+|                  | configuration parameters of a   | database. If there is  |
+|                  | VNF.                            | no <candidate/>        |
+|                  |                                 | database, then the     |
+|                  |                                 | target is the          |
+|                  |                                 | <running/> database. A |
+|                  |                                 | <commit> follows.      |
++------------------+---------------------------------+------------------------+
+| Health           | Executes a VNF health check and | This command has no    |
+| Check            | returns the result. A health    | existing NETCONF RPC   |
+|                  | check is VNF-specific.          | action.  It must be    |
+|                  |                                 | supported either by    |
+|                  |                                 | REST (see              |
+|                  |                                 | `VNF REST APIs`_) or   |
+|                  |                                 | using Ansible or Chef. |
++------------------+---------------------------------+------------------------+
+| StartApplication,| ONAP requests application to be | These commands have no |
+| StopApplication  | started or stopped on the VNF.  | specific NETCONF RPC   |
+|                  | These actions do not need to be | action.                |
+|                  | supported if (1) the application|                        |
+|                  | starts automatically after      |                        |
+|                  | Configure or if the VM’s are    |                        |
+|                  | started and (2) the application |                        |
+|                  | gracefully shuts down if the    |                        |
+|                  | VM’s are stopped.               |                        |
+|                  |                                 |                        |
+|                  |                                 | If applicable, these   |
+|                  |                                 | commands must be       |
+|                  |                                 | supported using Ansible|
+|                  |                                 | or Chef (see Table 9   |
+|                  |                                 | below).                |
++------------------+---------------------------------+------------------------+
+| ConfigBackup,    | ONAP requests the VNF           | These commands have no |
+| ConfigRestore    | configuration parameters to be  | specific NETCONF RPC   |
+|                  | backed up or restored (replacing| action.                |
+|                  | existing configuration          |                        |
+|                  | parameters on the VNF).         |                        |
+|                  |                                 |                        |
+|                  |                                 | They can be supported  |
+|                  |                                 | using Ansible or Chef  |
+|                  |                                 | (see Table 9 below).   |
++------------------+---------------------------------+------------------------+
 
 Table 9 lists the required Chef and Ansible support for commands from
 ONAP.
 
 Table 9. ONAP Controller APIs and Chef/Ansible Support
 
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| **Action**          | **Chef**                                                                                                                                                                                                                                                                                         | **Ansible**                                                                                                                                                                                                                                                                                 |
-+=====================+==================================================================================================================================================================================================================================================================================================+=============================================================================================================================================================================================================================================================================================+
-| Action              | Not needed. ActionStatus is managed internally by the ONAP controller.                                                                                                                                                                                                                           | Not needed. ActionStatus is managed internally by the ONAP controller.                                                                                                                                                                                                                      |
-|                     |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                                                             |
-| Status              |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                                                             |
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Audit, Sync         | VNF provider must provide any necessary roles, cookbooks, recipes to retrieve the running configuration from a VNF and place it in the respective Node Objects ‘PushJobOutput’ attribute of all nodes in NodeList when triggered by a chef-client run.                                           | VNF provider must provide an Ansible playbook to retrieve the running configuration from a VNF and place the output on the Ansible server in a manner aligned with playbook requirements listed in this document.                                                                           |
-|                     |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                                                             |
-|                     | The JSON file for this VNF action is required to set “PushJobFlag” to “True” and “GetOutputFlag” to “True”. The “Node” JSON dictionary must have the run list populated with the necessary sequence of roles, cookbooks, recipes.                                                                | The PlaybookName must be provided in the JSON file.                                                                                                                                                                                                                                         |
-|                     |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                                                             |
-|                     | The Environment and Node values should contain all appropriate configuration attributes.                                                                                                                                                                                                         | NodeList must list FQDNs of an example VNF on which to execute playbook.                                                                                                                                                                                                                    |
-|                     |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                                                             |
-|                     | NodeList must list sample FQDNs that are required to conduct a chef-client run for this VNF Action.                                                                                                                                                                                              |                                                                                                                                                                                                                                                                                             |
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Lock,               | Not needed. VNF locking and unlocking is managed internally by the ONAP controller.                                                                                                                                                                                                              | Not needed. VNF locking and unlocking is managed internally by the ONAP controller.                                                                                                                                                                                                         |
-|                     |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                                                             |
-| Unlock,             |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                                                             |
-|                     |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                                                             |
-| CheckLock           |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                                                             |
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Configure,          | VNF provider must provide any necessary roles, cookbooks, recipes to apply configuration attributes to the VNF when triggered by a chef-client run. All configurable attributes must be obtained from the Environment and Node objects on the Chef Server.                                       | VNF provider must provide an Ansible playbook that can configure the VNF with parameters supplied by the Ansible Server.                                                                                                                                                                    |
-|                     |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                                                             |
-| ConfigModify        | The JSON file for this VNF action should include all configurable attributes in the Environment and/or Node JSON dictionary.                                                                                                                                                                     | The PlaybookName must be provided in the JSON file.                                                                                                                                                                                                                                         |
-|                     |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                                                             |
-|                     | The “PushJobFlag” must be set to “True”.                                                                                                                                                                                                                                                         | The “EnvParameters” and/or “FileParameters” field values should be provided and contain all configurable parameters for the VNF.                                                                                                                                                            |
-|                     |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                                                             |
-|                     | The “Node” JSON dictionary must have the run list populated with necessary sequence of roles, cookbooks, recipes. This action is not expected to return an output.                                                                                                                               | NodeList must list FQDNs of an example VNF on which to execute playbook.                                                                                                                                                                                                                    |
-|                     |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                                                             |
-|                     | “GetOutputFlag” must be set to “False”.                                                                                                                                                                                                                                                          |                                                                                                                                                                                                                                                                                             |
-|                     |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                                                             |
-|                     | NodeList must list sample FQDNs that are required to conduct a chef-client run for this VNF Action.                                                                                                                                                                                              |                                                                                                                                                                                                                                                                                             |
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Health              | The VNF level HealthCheck run a check over the entire scope of the VNF (for more details, see `VNF REST APIs`_).  It can be supported either via a REST interface or with Chef roles, cookbooks, and recipes.                                                                                    | The VNF level HealthCheck run a check over the entire scope of the VNF (for more details, see `VNF REST APIs`_).  It can be supported either via a REST interface or with an Ansible playbook.                                                                                              |
-|                     |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                                                             |
-| Check               |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                                                             |
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| StartApplication,   | VNF provider must provide roles, cookbooks, recipes to start an application on the VNF when triggered by a chef-client run. If application does not start, the run must fail or raise an exception. If application is already started, or starts successfully, the run must finish successfully. | VNF provider must provide an Ansible playbook to start the application on the VNF. If application does not start, the playbook must indicate failure. If application is already started, or starts successfully, the playbook must finish successfully.                                     |
-|                     |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                                                             |
-| StopApplication     | For StopApplication, the application must be stopped gracefully (no loss of traffic).                                                                                                                                                                                                            | For StopApplication, the application must be stopped gracefully (no loss of traffic).                                                                                                                                                                                                       |
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ConfigBackup,       | VNF provider must provide roles, cookbooks, recipes to backup or restore the configuration parameters on the VNF when triggered by an ECOMP request.                                                                                                                                             | VNF provider must provide an Ansible playbook to backup or restore the configuration parameters on the VNF when triggered by an ECOMP request.                                                                                                                                              |
-|                     |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                                                             |
-|                     | When the ConfigBackup command is executed, the current VNF configuration parameters are copied over to the Ansible or Chef server (if there is an existing set of backed up parameters, they are overwritten). When the ConfigRestore command is executed, the VNF configuration parameters      | When the ConfigBackup command is executed, the current VNF configuration parameters are copied over to the Ansible or Chef server (if there is an existing set of backed up parameters, they are overwritten). When the ConfigRestore command is executed, the VNF configuration parameters |
-| ConfigRestore       | which are backed up on the Ansible or Chef server are applied to the VNF (replacing existing parameters). It can be assumed that the VNF is not in service when a ConfigRestore command is executed.                                                                                             | which are backed up on the Ansible or Chef server are applied to the VNF (replacing existing parameters). It can be assumed that the VNF is not in service when a ConfigRestore command is executed.                                                                                        |
-|                     |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                                                             |
-|                     | If either command fails, the run must fail or raise an exception.                                                                                                                                                                                                                                | If either command fails, the run must fail or raise an exception.                                                                                                                                                                                                                           |
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++------------------+------------------------------+---------------------------+
+| **Action**       | **Chef**                     | **Ansible**               |
++==================+==============================+===========================+
+| Action           | Not needed. ActionStatus is  | Not needed. ActionStatus  |
+| Status           | managed internally by the    | is managed internally by  |
+|                  | ONAP controller.             | the ONAP controller.      |
++------------------+------------------------------+---------------------------+
+| Audit, Sync      | VNF provider must provide any| VNF provider must provide |
+|                  | necessary roles, cookbooks,  | an Ansible playbook to    |
+|                  | recipes to retrieve the      | retrieve the running      |
+|                  | running configuration from a | configuration from a VNF  |
+|                  | VNF and place it in the      | and place the output on   |
+|                  | respective Node Objects      | the Ansible server in a   |
+|                  | ‘PushJobOutput’ attribute of | manner aligned with       |
+|                  | all nodes in NodeList when   | playbook requirements     |
+|                  | triggered by a chef-client   | listed in this document.  |
+|                  | run.                         |                           |
+|                  |                              |                           |
+|                  | The JSON file for this VNF   | The PlaybookName must be  |
+|                  | action is required to set    | provided in the JSON file.|
+|                  | “PushJobFlag” to “True” and  |                           |
+|                  | “GetOutputFlag” to “True”.   |                           |
+|                  | The “Node” JSON dictionary   |                           |
+|                  | must have the run list       |                           |
+|                  | populated with the necessary |                           |
+|                  | sequence of roles, cookbooks,|                           |
+|                  | recipes.                     |                           |
+|                  |                              |                           |
+|                  | The Environment and Node     | NodeList must list FQDNs  |
+|                  | values should contain all    | of an example VNF on which|
+|                  | appropriate configuration    | to execute playbook.      |
+|                  | attributes.                  |                           |
+|                  |                              |                           |
+|                  | NodeList must list sample    |                           |
+|                  | FQDNs that are required to   |                           |
+|                  | conduct a chef-client run for|                           |
+|                  | this VNF Action.             |                           |
++------------------+------------------------------+---------------------------+
+| Lock,            | Not needed. VNF locking and  | Not needed. VNF locking   |
+| Unlock,          | unlocking is managed         | and unlocking is managed  |
+| CheckLock        | internally by the ONAP       | internally by the ONAP    |
+|                  | controller.                  | controller.               |
++------------------+------------------------------+---------------------------+
+| Configure,       | VNF provider must provide any| VNF provider must provide |
+| ConfigModify     | necessary roles, cookbooks,  | an Ansible playbook that  |
+|                  | recipes to apply             | can configure the VNF with|
+|                  | configuration attributes to  | parameters supplied by the|
+|                  | the VNF when triggered by a  | Ansible Server.           |
+|                  | chef-client run. All         |                           |
+|                  | configurable attributes must |                           |
+|                  | be obtained from the         |                           |
+|                  | Environment and Node objects |                           |
+|                  | on the Chef Server.          |                           |
+|                  |                              |                           |
+|                  | The JSON file for this VNF   | The PlaybookName must be  |
+|                  | action should include all    | provided in the JSON file.|
+|                  | configurable attributes in   |                           |
+|                  | the Environment and/or Node  |                           |
+|                  | JSON dictionary.             |                           |
+|                  |                              |                           |
+|                  | The “PushJobFlag” must be set| The “EnvParameters” and/or|
+|                  | to “True”.                   | “FileParameters” field    |
+|                  |                              | values should be provided |
+|                  |                              | and contain all           |
+|                  |                              | configurable parameters   |
+|                  |                              | for the VNF.              |
+|                  |                              |                           |
+|                  | The “Node” JSON dictionary   | NodeList must list FQDNs  |
+|                  | must have the run list       | of an example VNF on which|
+|                  | populated with necessary     | to execute playbook.      |
+|                  | sequence of roles, cookbooks,|                           |
+|                  | recipes. This action is not  |                           |
+|                  | expected to return an output.|                           |
+|                  |                              |                           |
+|                  | “GetOutputFlag” must be set  |                           |
+|                  | to “False”.                  |                           |
+|                  |                              |                           |
+|                  | NodeList must list sample    |                           |
+|                  | FQDNs that are required to   |                           |
+|                  | conduct a chef-client run for|                           |
+|                  | this VNF Action.             |                           |
++------------------+------------------------------+---------------------------+
+| Health           | The VNF level HealthCheck run| The VNF level HealthCheck |
+| Check            | a check over the entire scope| run a check over the      |
+|                  | of the VNF (for more details,| entire scope of the VNF   |
+|                  | see `VNF REST APIs`_).  It   | (for more details, see    |
+|                  | can be supported either via a| `VNF REST APIs`_).  It can|
+|                  | REST interface or with Chef  | be supported either via a |
+|                  | roles, cookbooks, and        | REST interface or with an |
+|                  | recipes.                     | Ansible playbook.         |
++------------------+------------------------------+---------------------------+
+| StartApplication,| VNF provider must provide    | VNF provider must provide |
+|                  | roles, cookbooks, recipes to | an Ansible playbook to    |
+|                  | start an application on the  | start the application on  |
+|                  | VNF when triggered by a      | the VNF. If application   |
+|                  | chef-client run. If          | does not start, the       |
+|                  | application does not start,  | playbook must indicate    |
+|                  | the run must fail or raise an| failure. If application is|
+|                  | exception. If application is | already started, or starts|
+|                  | already started, or starts   | successfully, the playbook|
+|                  | successfully, the run must   | must finish successfully. |
+|                  | finish successfully.         |                           |
+|                  |                              |                           |
+| StopApplication  | For StopApplication, the     | For StopApplication, the  |
+|                  | application must be stopped  | application must be       |
+|                  | gracefully (no loss of       | stopped gracefully (no    |
+|                  | traffic).                    | loss of traffic).         |
++------------------+------------------------------+---------------------------+
+| ConfigBackup,    | VNF provider must provide    | VNF provider must provide |
+|                  | roles, cookbooks, recipes to | an Ansible playbook to    |
+|                  | backup or restore the        | backup or restore the     |
+|                  | configuration parameters on  | configuration parameters  |
+|                  | the VNF when triggered by an | on the VNF when triggered |
+|                  | ECOMP request.               | by an ECOMP request.      |
+|                  |                              |                           |
+|                  | When the ConfigBackup command| When the ConfigBackup     |
+|                  | is executed, the current VNF | command is executed, the  |
+|                  | configuration parameters are | current VNF configuration |
+|                  | copied over to the Ansible or| parameters are copied over|
+|                  | Chef server (if there is an  | to the Ansible or Chef    |
+|                  | existing set of backed up    | server (if there is an    |
+|                  | parameters, they are         | existing set of backed up |
+|                  | overwritten). When the       | parameters, they are      |
+|                  | ConfigRestore command is     | overwritten). When the    |
+|                  | executed, the VNF            | ConfigRestore command is  |
+|                  | configuration parameters     | executed, the VNF         |
+| ConfigRestore    | which are backed up on the   | configuration parameters  |
+|                  | Ansible or Chef server are   | which are backed up on the|
+|                  | applied to the VNF (replacing| Ansible or Chef server are|
+|                  | existing parameters). It can | applied to the VNF        |
+|                  | be assumed that the VNF is   | (replacing existing       |
+|                  | not in service when a        | parameters). It can be    |
+|                  | ConfigRestore command is     | assumed that the VNF is   |
+|                  | executed.                    | not in service when a     |
+|                  |                              | ConfigRestore command is  |
+|                  |                              | executed.                 |
+|                  |                              |                           |
+|                  | If either command fails, the | If either command fails,  |
+|                  | run must fail or raise an    | the run must fail or raise|
+|                  | exception.                   | an exception.             |
++------------------+------------------------------+---------------------------+
 
 For information purposes, the following ONAP controller functions are
 planned in the future:
 
 Table 10. Planned ONAP Controller Functions
 
-+------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Action           | Description                                                                                                                                                                     |
-+==================+=================================================================================================================================================================================+
-| UpgradeSoftware  | Upgrades the target VNF to a new software version.                                                                                                                              |
-+------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| QuiesceTraffic,  | Quiesces traffic (stops traffic gracefully) and resume traffic on the VNF.   These commands do not stop the application processes (which is done using StopApplication).        |
-| ResumeTraffic    |                                                                                                                                                                                 |
-+------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++------------------+-------------------------------------------------------+
+| Action           | Description                                           |
++==================+=======================================================+
+| UpgradeSoftware  | Upgrades the target VNF to a new software version.    |
++------------------+-------------------------------------------------------+
+| QuiesceTraffic,  | Quiesces traffic (stops traffic gracefully) and resume|
+| ResumeTraffic    | traffic on the VNF.   These commands do not stop the  |
+|                  | application processes (which is done using            |
+|                  | StopApplication).                                     |
++------------------+-------------------------------------------------------+
 
 
 Monitoring & Management

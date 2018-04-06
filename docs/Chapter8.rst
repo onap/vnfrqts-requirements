@@ -15,23 +15,71 @@ JSON file supporting Chef action.
 Table A1. Chef JSON File key value description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-+-------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------+-----------------------------------------------------------------------------------------------------------------------------------------+
-| **Field Name**    | **Description**                                                                                                                                                                                                                                                                                   | **Type**    | **Comment**                                                                                                                             |
-+===================+===================================================================================================================================================================================================================================================================================================+=============+=========================================================================================================================================+
-| Environment       | A JSON dictionary representing a Chef Environment object. If the VNF action requires loading or modifying Chef environment attributes associated with the VNF, all the relevant information must be provided in this JSON dictionary in a structure that conforms to a Chef Environment Object.   | Optional    | Depends on VNF action.                                                                                                                  |
-+-------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------+-----------------------------------------------------------------------------------------------------------------------------------------+
-| Node              | A JSON dictionary representing a Chef Node Object.                                                                                                                                                                                                                                                | Mandatory   |                                                                                                                                         |
-|                   |                                                                                                                                                                                                                                                                                                   |             |                                                                                                                                         |
-|                   | The Node JSON dictionary must include the run list to be triggered for the desired VNF action by the push job. It should also include any attributes that need to be configured on the Node Object as part of the VNF action.                                                                     |             |                                                                                                                                         |
-+-------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------+-----------------------------------------------------------------------------------------------------------------------------------------+
-| NodeList          | Array of FQDNs that correspond to the endpoints (VMs) of a VNF registered with the Chef Server that need to trigger a chef-client run as part of the desired VNF action.                                                                                                                          | Mandatory   |                                                                                                                                         |
-+-------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------+-----------------------------------------------------------------------------------------------------------------------------------------+
-| PushJobFlag       | This field indicates whether the VNF action requires a push Job. Push job object will be created by ONAP if required.                                                                                                                                                                             | Mandatory   | If set to “True”, ONAP will request a push job. Ignored otherwise.                                                                      |
-+-------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------+-----------------------------------------------------------------------------------------------------------------------------------------+
-| CallbackCapable   | This field indicates if the chef-client run invoked by push job corresponding to the VNF action is capable of posting results on a callback URL.                                                                                                                                                  | Optional    | If Chef cookbook is callback capable, VNF owner is required to set it to “True”. Ignored otherwise.                                     |
-+-------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------+-----------------------------------------------------------------------------------------------------------------------------------------+
-| GetOutputFlag     | Flag which indicates whether ONAP should retrieve output generated in a chef-client run from Node object attribute node[‘PushJobOutput’] for this VNF action (e.g., in Audit).                                                                                                                    | Mandatory   | ONAP will retrieve output from NodeObject attributes [‘PushJobOutput’] for all nodes in NodeList if set to “True”. Ignored otherwise.   |
-+-------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------+-----------------------------------------------------------------------------------------------------------------------------------------+
++----------------+--------------------------+---------+----------------------+
+| **Field Name** | **Description**          | **Type**| **Comment**          |
++================+==========================+=========+======================+
+| Environment    | A JSON dictionary        | Optional|Depends on VNF action.|
+|                | representing a Chef      |         |                      |
+|                | Environment object. If   |         |                      |
+|                | the VNF action requires  |         |                      |
+|                | loading or modifying Chef|         |                      |
+|                | environment attributes   |         |                      |
+|                | associated with the VNF, |         |                      |
+|                | all the relevant         |         |                      |
+|                | information must be      |         |                      |
+|                | provided in this JSON    |         |                      |
+|                | dictionary in a structure|         |                      |
+|                | that conforms to a Chef  |         |                      |
+|                | Environment Object.      |         |                      |
++----------------+--------------------------+---------+----------------------+
+| Node           | A JSON dictionary        |Mandatory|                      |
+|                | representing a Chef Node |         |                      |
+|                | Object.                  |         |                      |
+|                |                          |         |                      |
+|                | The Node JSON dictionary |         |                      |
+|                | must include the run list|         |                      |
+|                | to be triggered for the  |         |                      |
+|                | desired VNF action by the|         |                      |
+|                | push job. It should also |         |                      |
+|                | include any attributes   |         |                      |
+|                | that need to be          |         |                      |
+|                | configured on the Node   |         |                      |
+|                | Object as part of the VNF|         |                      |
+|                | action.                  |         |                      |
++----------------+--------------------------+---------+----------------------+
+| NodeList       | Array of FQDNs that      |Mandatory|                      |
+|                | correspond to the        |         |                      |
+|                | endpoints (VMs) of a VNF |         |                      |
+|                | registered with the Chef |         |                      |
+|                | Server that need to      |         |                      |
+|                | trigger a chef-client run|         |                      |
+|                | as part of the desired   |         |                      |
+|                | VNF action.              |         |                      |
++----------------+--------------------------+---------+----------------------+
+| PushJobFlag    | This field indicates     |Mandatory| If set to “True”,    |
+|                | whether the VNF action   |         | ONAP will request a  |
+|                | requires a push Job. Push|         | push job. Ignored    |
+|                | job object will be       |         | otherwise.           |
+|                | created by ONAP if       |         |                      |
+|                | required.                |         |                      |
++----------------+--------------------------+---------+----------------------+
+| CallbackCapable| This field indicates if  | Optional| If Chef cookbook is  |
+|                | the chef-client run      |         | callback capable, VNF|
+|                | invoked by push job      |         | owner is required to |
+|                | corresponding to the VNF |         | set it to “True”.    |
+|                | action is capable of     |         | Ignored otherwise.   |
+|                | posting results on a     |         |                      |
+|                | callback URL.            |         |                      |
++----------------+--------------------------+---------+----------------------+
+| GetOutputFlag  | Flag which indicates     |Mandatory| ONAP will retrieve   |
+|                | whether ONAP should      |         | output from          |
+|                | retrieve output generated|         | NodeObject attributes|
+|                | in a chef-client run from|         | [‘PushJobOutput’] for|
+|                | Node object attribute    |         | all nodes in NodeList|
+|                | node[‘PushJobOutput’] for|         | if set to “True”.    |
+|                | this VNF action (e.g., in|         | Ignored otherwise.   |
+|                | Audit).                  |         |                      |
++----------------+--------------------------+---------+----------------------+
 
 Chef Template example:
 
@@ -92,27 +140,42 @@ The following table describes the JSON dictionary to post in Callback.
 Table A2. JSON Dictionary to Post in Callback
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------+-------------------------------------------------------------+
-| **Key**         | **Description**                                                                                                                                                                                           | **Type**    | **Comment**                                                 |
-+=================+===========================================================================================================================================================================================================+=============+=============================================================+
-| RequestId       | A unique string associated with the original request by ONAP. This key-value pair will be provided by ONAP in the environment of the push job request and must be returned as part of the POST message.   | Mandatory   |                                                             |
-+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------+-------------------------------------------------------------+
-| StatusCode      | An integer that must be set to                                                                                                                                                                            | Mandatory   |                                                             |
-|                 |                                                                                                                                                                                                           |             |                                                             |
-|                 | 200 if chef-client run on the node finished successfully                                                                                                                                                  |             |                                                             |
-|                 |                                                                                                                                                                                                           |             |                                                             |
-|                 | 500 otherwise.                                                                                                                                                                                            |             |                                                             |
-+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------+-------------------------------------------------------------+
-| StatusMessage   | A string which must be set to                                                                                                                                                                             | Mandatory   |                                                             |
-|                 |                                                                                                                                                                                                           |             |                                                             |
-|                 | ‘SUCCESS’ if StatusCode was 200                                                                                                                                                                           |             |                                                             |
-|                 |                                                                                                                                                                                                           |             |                                                             |
-|                 | Appropriate error message otherwise.                                                                                                                                                                      |             |                                                             |
-+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------+-------------------------------------------------------------+
-| Name            | A string which corresponds to the name of the node where push job is run. It is required that the value be retrieved from the node object attributes (where it is always defined).                        | Mandatory   |                                                             |
-+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------+-------------------------------------------------------------+
-| PushJobOutput   | Any output from the chef-client run that needs to be returned to ONAP.                                                                                                                                    | Optional    | Depends on VNF action. If empty, it must not be included.   |
-+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------+-------------------------------------------------------------+
++--------------+----------------------------+---------+-----------------------+
+| **Key**      | **Description**            | **Type**| **Comment**           |
++==============+============================+=========+=======================+
+| RequestId    | A unique string associated |Mandatory|                       |
+|              | with the original request  |         |                       |
+|              | by ONAP. This key-value    |         |                       |
+|              | pair will be provided by   |         |                       |
+|              | ONAP in the environment of |         |                       |
+|              | the push job request and   |         |                       |
+|              | must be returned as part of|         |                       |
+|              | the POST message.          |         |                       |
++--------------+----------------------------+---------+-----------------------+
+| StatusCode   | An integer that must be set|Mandatory|                       |
+|              | to 200 if chef-client run  |         |                       |
+|              | on the node finished       |         |                       |
+|              | successfully 500 otherwise.|         |                       |
++--------------+----------------------------+---------+-----------------------+
+| StatusMessage| A string which must be set |Mandatory|                       |
+|              | to ‘SUCCESS’ if StatusCode |         |                       |
+|              | was 200                    |         |                       |
+|              |                            |         |                       |
+|              | Appropriate error message  |         |                       |
+|              | otherwise.                 |         |                       |
++--------------+----------------------------+---------+-----------------------+
+| Name         | A string which corresponds |Mandatory|                       |
+|              | to the name of the node    |         |                       |
+|              | where push job is run. It  |         |                       |
+|              | is required that the value |         |                       |
+|              | be retrieved from the node |         |                       |
+|              | object attributes (where it|         |                       |
+|              | is always defined).        |         |                       |
++--------------+----------------------------+---------+-----------------------+
+| PushJobOutput| Any output from the        |Optional | Depends on VNF action.|
+|              | chef-client run that needs |         | If empty, it must not |
+|              | to be returned to ONAP.    |         | be included.          |
++--------------+----------------------------+---------+-----------------------+
 
 Ansible JSON Key Value Description
 -------------------------------------------------------------
@@ -123,21 +186,60 @@ JSON file supporting Ansible action.
 Table B1. Ansible JSON File key value description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-+------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------+---------------------------------------------------------------------+
-| **Field Name**   | **Description**                                                                                                                                                                                                                                                                            | **Type**    | **Comment**                                                         |
-+==================+============================================================================================================================================================================================================================================================================================+=============+=====================================================================+
-| PlaybookName     | VNF providor must list name of the playbook used to execute the VNF action.                                                                                                                                                                                                                | Mandatory   |                                                                     |
-+------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------+---------------------------------------------------------------------+
-| Action           | Name of VNF action.                                                                                                                                                                                                                                                                        | Optional    |                                                                     |
-+------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------+---------------------------------------------------------------------+
-| EnvParameters    | A JSON dictionary which should list key value pairs to be passed to the Ansible playbook. These values would correspond to instance specific parameters that a playbook may need to execute an action.                                                                                     | Optional    | Depends on the VNF action.                                          |
-+------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------+---------------------------------------------------------------------+
-| NodeList         | A JSON array of FQDNs that the playbook must be executed on.                                                                                                                                                                                                                               | Optional    | If not provided, playbook will be executed on the Ansible Server.   |
-+------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------+---------------------------------------------------------------------+
-| FileParameters   | A JSON dictionary where keys are filenames and values are contents of files. The Ansible Server will utilize this feature to generate files with keys as filenames and values as content. This attribute can be used to generate files that a playbook may require as part of execution.   | Optional    | Depends on the VNF action and playbook design.                      |
-+------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------+---------------------------------------------------------------------+
-| Timeout          | Time (in seconds) that a playbook is expected to take to finish execution for the VNF. If playbook execution time exceeds this value, Ansible Server will terminate the playbook process.                                                                                                  | Optional    |                                                                     |
-+------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------+---------------------------------------------------------------------+
++---------------+----------------------+---------+----------------------------+
+| **Field Name**| **Description**      | **Type**| **Comment**                |
++===============+======================+=========+============================+
+| PlaybookName  | VNF providor must    |Mandatory|                            |
+|               | list name of the     |         |                            |
+|               | playbook used to     |         |                            |
+|               | execute the VNF      |         |                            |
+|               | action.              |         |                            |
++---------------+----------------------+---------+----------------------------+
+| Action        | Name of VNF action.  | Optional|                            |
++---------------+----------------------+---------+----------------------------+
+| EnvParameters | A JSON dictionary    | Optional| Depends on the VNF action. |
+|               | which should list key|         |                            |
+|               | value pairs to be    |         |                            |
+|               | passed to the Ansible|         |                            |
+|               | playbook. These      |         |                            |
+|               | values would         |         |                            |
+|               | correspond to        |         |                            |
+|               | instance specific    |         |                            |
+|               | parameters that a    |         |                            |
+|               | playbook may need to |         |                            |
+|               | execute an action.   |         |                            |
++---------------+----------------------+---------+----------------------------+
+| NodeList      | A JSON array of FQDNs| Optional| If not provided, playbook  |
+|               | that the playbook    |         | will be executed on the    |
+|               | must be executed on. |         | Ansible Server.            |
++---------------+----------------------+---------+----------------------------+
+| FileParameters| A JSON dictionary    | Optional| Depends on the VNF action  |
+|               | where keys are       |         | and playbook design.       |
+|               | filenames and values |         |                            |
+|               | are contents of      |         |                            |
+|               | files. The Ansible   |         |                            |
+|               | Server will utilize  |         |                            |
+|               | this feature to      |         |                            |
+|               | generate files with  |         |                            |
+|               | keys as filenames and|         |                            |
+|               | values as content.   |         |                            |
+|               | This attribute can be|         |                            |
+|               | used to generate     |         |                            |
+|               | files that a playbook|         |                            |
+|               | may require as part  |         |                            |
+|               | of execution.        |         |                            |
++---------------+----------------------+---------+----------------------------+
+| Timeout       | Time (in seconds)    | Optional|                            |
+|               | that a playbook is   |         |                            |
+|               | expected to take to  |         |                            |
+|               | finish execution for |         |                            |
+|               | the VNF. If playbook |         |                            |
+|               | execution time       |         |                            |
+|               | exceeds this value,  |         |                            |
+|               | Ansible Server will  |         |                            |
+|               | terminate the        |         |                            |
+|               | playbook process.    |         |                            |
++---------------+----------------------+---------+----------------------------+
 
 Ansible JSON file example:
 
@@ -182,21 +284,40 @@ Table C1 defines the required and optional fields for licenses.
 Table C1. Required Fields for General Information
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-+---------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+-------------+
-| **Field Name**                              | **Description**                                                                                                                                                                                                                                                                                           | **Data Type**     | **Type**    |
-+=============================================+===========================================================================================================================================================================================================================================================================================================+===================+=============+
-| VNF Provider Name                           | The name of the VNF provider.                                                                                                                                                                                                                                                                             | String            | Mandatory   |
-+---------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+-------------+
-| VNF Provider Product                        | The name of the product to which this agreement applies.                                                                                                                                                                                                                                                  | String            | Mandatory   |
-|                                             |                                                                                                                                                                                                                                                                                                           |                   |             |
-|                                             | Note: a contract/agreement may apply to more than one VNF provider product. In that case, provide the metadata for each product separately.                                                                                                                                                               |                   |             |
-+---------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+-------------+
-| VNF Provider Product Description            | A general description of VNF provider software product.                                                                                                                                                                                                                                                   | String            | Optional    |
-+---------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+-------------+
-| Export Control Classification Number (ECCN) | ECCNs are 5-character alpha-numeric designations used on the Commerce Control List (CCL) to identify dual-use items for export control purposes. An ECCN categorizes items based on the nature of the product, i.e. type of commodity, software, or technology and its respective technical parameters.   | String            | Mandatory   |
-+---------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+-------------+
-| Reporting Requirements                      | A list of any reporting requirements on the usage of the software product.                                                                                                                                                                                                                                | List of strings   | Optional    |
-+---------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+-------------+
++---------------+-----------------------------------+--------------+----------+
+| **Field Name**| **Description**                   | **Data Type**| **Type** |
++===============+===================================+==============+==========+
+| VNF Provider  | The name of the VNF provider.     | String       | Mandatory|
+| Name          |                                   |              |          |
++---------------+-----------------------------------+--------------+----------+
+| VNF Provider  | The name of the product to which  | String       | Mandatory|
+| Product       | this agreement applies.           |              |          |
+|               |                                   |              |          |
+|               | Note: a contract/agreement may    |              |          |
+|               | apply to more than one VNF        |              |          |
+|               | provider product. In that case,   |              |          |
+|               | provide the metadata for each     |              |          |
+|               | product separately.               |              |          |
++---------------+-----------------------------------+--------------+----------+
+| VNF Provider  | A general description of VNF      | String       | Optional |
+| Product       | provider software product.        |              |          |
+| Description   |                                   |              |          |
++---------------+-----------------------------------+--------------+----------+
+| Export Control| ECCNs are 5-character             | String       | Mandatory|
+| Classification| alpha-numeric designations used on|              |          |
+| Number (ECCN) | the Commerce Control List (CCL) to|              |          |
+|               | identify dual-use items for export|              |          |
+|               | control purposes. An ECCN         |              |          |
+|               | categorizes items based on the    |              |          |
+|               | nature of the product, i.e. type  |              |          |
+|               | of commodity, software, or        |              |          |
+|               | technology and its respective     |              |          |
+|               | technical parameters.             |              |          |
++---------------+-----------------------------------+--------------+----------+
+| Reporting     | A list of any reporting           | List of      | Optional |
+| Requirements  | requirements on the usage of the  | strings      |          |
+|               | software product.                 |              |          |
++---------------+-----------------------------------+--------------+----------+
 
 1. Entitlements
 
@@ -211,33 +332,57 @@ following fields:
 Table C2. Required Fields for Entitlements
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-+---------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+---------------+
-| **Field Name**                                          | **Description**                                                                                                                                                                       | **Data Type**     | **Type**      |
-+=========================================================+=======================================================================================================================================================================================+===================+===============+
-| VNF Provider Part Number / Manufacture Reference Number | Identifier for the entitlement as described by the VNF provider in their price list / catalog / contract.                                                                             | String            | Mandatory     |
-+---------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+---------------+
-| Description                                             | Verbiage that describes the entitlement.                                                                                                                                              | String            | Optional      |
-+---------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+---------------+
-| Entitlement Identifier                                  | Each entitlement defined must be identified by a unique value (e.g., numbered 1, 2, 3….)                                                                                              | String            | Mandatory     |
-+---------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+---------------+
-| Minimum Order Requirement                               | The minimum number of entitlements that need to be purchased. For example, the entitlements must be purchased in a block of 100. If no minimum is required, the value will be zero.   | Number            | Mandatory     |
-+---------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+---------------+
-| Unique Reporting Requirements                           | A list of any reporting requirements on the usage of the software product. (e.g.: quarterly usage reports are required)                                                               | List of Strings   | Optional      |
-+---------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+---------------+
-| License Type                                            | Type of license applicable to the software product. (e.g.: fixed-term, perpetual, trial, subscription.)                                                                               | String            | Mandatory     |
-+---------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+---------------+
-| License Duration                                        | Valid values:                                                                                                                                                                         | String            | Conditional   |
-|                                                         |                                                                                                                                                                                       |                   |               |
-|                                                         | **year**, **quarter**, **month**, **day**.                                                                                                                                            |                   |               |
-|                                                         |                                                                                                                                                                                       |                   |               |
-|                                                         | Not applicable when license type is Perpetual.                                                                                                                                        |                   |               |
-+---------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+---------------+
-| License Duration Quantification                         | Number of years, quarters, months, or days for which the license is valid.                                                                                                            | Number            | Conditional   |
-|                                                         |                                                                                                                                                                                       |                   |               |
-|                                                         | Not applicable when license type is Perpetual.                                                                                                                                        |                   |               |
-+---------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+---------------+
-| Limits                                                  | see section C.4 for possible values                                                                                                                                                   | List              | Optional      |
-+---------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+---------------+
++---------------+-----------------------------------+-------------+-----------+
+| **Field Name**| **Description**                   |**Data Type**| **Type**  |
++===============+===================================+=============+===========+
+| VNF Provider  | Identifier for the entitlement as | String      | Mandatory |
+| Part Number / | described by the VNF provider in  |             |           |
+| Manufacture   | their price list / catalog /      |             |           |
+| Reference     | contract.                         |             |           |
+| Number        |                                   |             |           |
++---------------+-----------------------------------+-------------+-----------+
+| Description   | Verbiage that describes the       | String      | Optional  |
+|               | entitlement                       |             |           |
++---------------+-----------------------------------+-------------+-----------+
+| Entitlement   | Each entitlement defined must be  | String      | Mandatory |
+| Identifier    | identified by a unique value (e.g.|             |           |
+|               | numbered 1, 2, 3….)               |             |           |
++---------------+-----------------------------------+-------------+-----------+
+| Minimum Order | The minimum number of entitlements| Number      | Mandatory |
+| Requirement   | that need to be purchased.        |             |           |
+|               | For example, the entitlements must|             |           |
+|               | be purchased in a block of 100. If|             |           |
+|               | no minimum is required, the value |             |           |
+|               | will be zero.                     |             |           |
++---------------+-----------------------------------+-------------+-----------+
+| Unique        | A list of any reporting           | List of     | Optional  |
+| Reporting     | requirements on the usage of the  | Strings     |           |
+| Requirements  | software product. (e.g.: quarterly|             |           |
+|               | usage reports are required)       |             |           |
++---------------+-----------------------------------+-------------+-----------+
+| License Type  | Type of license applicable to the | String      | Mandatory |
+|               | software product. (e.g.:          |             |           |
+|               | fixed-term, perpetual, trial,     |             |           |
+|               | subscription.)                    |             |           |
++---------------+-----------------------------------+-------------+-----------+
+| License       | Valid values:                     | String      |Conditional|
+| Duration      |                                   |             |           |
+|               | **year**, **quarter**, **month**, |             |           |
+|               | **day**.                          |             |           |
+|               |                                   |             |           |
+|               | Not applicable when license type  |             |           |
+|               | is Perpetual.                     |             |           |
++---------------+-----------------------------------+-------------+-----------+
+| License       | Number of years, quarters, months,| Number      |Conditional|
+| Duration      | or days for which the license is  |             |           |
+| Quantification| valid.                            |             |           |
+|               |                                   |             |           |
+|               | Not applicable when license type  |             |           |
+|               | is Perpetual.                     |             |           |
++---------------+-----------------------------------+-------------+-----------+
+| Limits        | see section C.4 for possible      | List        | Optional  |
+|               | values                            |             |           |
++---------------+-----------------------------------+-------------+-----------+
 
 1. License Keys
 
@@ -252,25 +397,37 @@ be defined; each one consists of the following fields:
 Table C3. Required Fields for License Keys
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-+--------------------------+---------------------------------------------------------------------------------------------------------------+-----------------+-------------+
-| **Field Name**           | **Description**                                                                                               | **Data Type**   | **Type**    |
-+==========================+===============================================================================================================+=================+=============+
-| Description              | Verbiage that describes the license key                                                                       | String          | Mandatory   |
-+--------------------------+---------------------------------------------------------------------------------------------------------------+-----------------+-------------+
-| License Key Identifier   | Each license key defined must be identified by a unique value (e.g., numbered 1, 2, 3….)                      | String          | Mandatory   |
-+--------------------------+---------------------------------------------------------------------------------------------------------------+-----------------+-------------+
-| Key Function             | Lifecycle stage (e.g., Instantiation or Activation) at which the license key is applied to the software.      | String          | Optional    |
-+--------------------------+---------------------------------------------------------------------------------------------------------------+-----------------+-------------+
-| License Key Type         | Valid values:                                                                                                 | String          | Mandatory   |
-|                          |                                                                                                               |                 |             |
-|                          | **Universal, Unique**                                                                                         |                 |             |
-|                          |                                                                                                               |                 |             |
-|                          | **Universal** - a single license key value that may be used with any number of instances of the software.     |                 |             |
-|                          |                                                                                                               |                 |             |
-|                          | **Unique**- a unique license key value is required for each instance of the software.                         |                 |             |
-+--------------------------+---------------------------------------------------------------------------------------------------------------+-----------------+-------------+
-| Limits                   | see section C.4 for possible values                                                                           | List            | Optional    |
-+--------------------------+---------------------------------------------------------------------------------------------------------------+-----------------+-------------+
++---------------+-----------------------------------+--------------+----------+
+| **Field Name**| **Description**                   | **Data Type**| **Type** |
++===============+===================================+==============+==========+
+| Description   | Verbiage that describes the       | String       | Mandatory|
+|               | license key                       |              |          |
++---------------+-----------------------------------+--------------+----------+
+| License Key   | Each license key defined must be  | String       | Mandatory|
+| Identifier    | identified by a unique value      |              |          |
+|               | (e.g., numbered 1, 2, 3….)        |              |          |
++---------------+-----------------------------------+--------------+----------+
+| Key Function  | Lifecycle stage (e.g.,            | String       | Optional |
+|               | Instantiation or Activation) at   |              |          |
+|               | which the license key is applied  |              |          |
+|               | to the software.                  |              |          |
++---------------+-----------------------------------+--------------+----------+
+| License Key   | Valid values:                     | String       | Mandatory|
+| Type          |                                   |              |          |
+|               | **Universal, Unique**             |              |          |
+|               |                                   |              |          |
+|               | **Universal** - a single license  |              |          |
+|               | key value that may be used with   |              |          |
+|               | any number of instances of the    |              |          |
+|               | software.                         |              |          |
+|               |                                   |              |          |
+|               | **Unique**- a unique license key  |              |          |
+|               | value is required for each        |              |          |
+|               | instance of the software.         |              |          |
++---------------+-----------------------------------+--------------+----------+
+| Limits        | see section C.4 for possible      | List         | Optional |
+|               | values                            |              |          |
++---------------+-----------------------------------+--------------+----------+
 
 1. Entitlement and License Key Limits
 
@@ -318,31 +475,42 @@ example:
 Table C4. Required Fields for Location
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-+------------------------+---------------------------------------------------------------------------------------------------------------------+------------------+-------------+
-| **Field Name**         | **Description**                                                                                                     | **Data Type**    | **Type**    |
-+========================+=====================================================================================================================+==================+=============+
-| Limit Identifier       | Each limit defined for an entitlement or license key must be identified by a unique value (e.g., numbered 1,2,3…)   | String           | Mandatory   |
-+------------------------+---------------------------------------------------------------------------------------------------------------------+------------------+-------------+
-| Limit Description      | Verbiage describing the limit.                                                                                      | String           | Mandatory   |
-+------------------------+---------------------------------------------------------------------------------------------------------------------+------------------+-------------+
-| Limit Behavior         | Description of the actions taken when the limit boundaries are reached.                                             | String           | Mandatory   |
-+------------------------+---------------------------------------------------------------------------------------------------------------------+------------------+-------------+
-| Limit Category         | Valid value: **location**                                                                                           | String           | Mandatory   |
-+------------------------+---------------------------------------------------------------------------------------------------------------------+------------------+-------------+
-| Limit Type             | Valid values: **city, county, state, country, region, MSA, BTA, CLLI**                                              | String           | Mandatory   |
-+------------------------+---------------------------------------------------------------------------------------------------------------------+------------------+-------------+
-| Limit List             | List of locations where the VNF provider Product can be used or needs to be restricted from use                     | List of String   | Mandatory   |
-+------------------------+---------------------------------------------------------------------------------------------------------------------+------------------+-------------+
-| Limit Set Type         | Indicates if the list is an inclusion or exclusion.                                                                 | String           | Mandatory   |
-|                        |                                                                                                                     |                  |             |
-|                        | Valid Values:                                                                                                       |                  |             |
-|                        |                                                                                                                     |                  |             |
-|                        | **Allowed**                                                                                                         |                  |             |
-|                        |                                                                                                                     |                  |             |
-|                        | **Not allowed**                                                                                                     |                  |             |
-+------------------------+---------------------------------------------------------------------------------------------------------------------+------------------+-------------+
-| Limit Quantification   | The quantity (amount) the limit expresses.                                                                          | Number           | Optional    |
-+------------------------+---------------------------------------------------------------------------------------------------------------------+------------------+-------------+
++------------------+--------------------------------+--------------+----------+
+| **Field Name**   | **Description**                | **Data Type**| **Type** |
++==================+================================+==============+==========+
+| Limit Identifier | Each limit defined for an      | String       | Mandatory|
+|                  | entitlement or license key must|              |          |
+|                  | be identified by a unique value|              |          |
+|                  | (e.g., numbered 1,2,3…)        |              |          |
++------------------+--------------------------------+--------------+----------+
+| Limit Description| Verbiage describing the limit. | String       | Mandatory|
++------------------+--------------------------------+--------------+----------+
+| Limit Behavior   | Description of the actions     | String       | Mandatory|
+|                  | taken when the limit boundaries|              |          |
+|                  | are reached.                   |              |          |
++------------------+--------------------------------+--------------+----------+
+| Limit Category   | Valid value: **location**      | String       | Mandatory|
++------------------+--------------------------------+--------------+----------+
+| Limit Type       | Valid values: **city, county,  | String       | Mandatory|
+|                  | state, country, region, MSA,   |              |          |
+|                  | BTA, CLLI**                    |              |          |
++------------------+--------------------------------+--------------+----------+
+| Limit List       | List of locations where the VNF| List of      | Mandatory|
+|                  | provider Product can be used or| String       |          |
+|                  | needs to be restricted from use|              |          |
++------------------+--------------------------------+--------------+----------+
+| Limit Set Type   | Indicates if the list is an    | String       | Mandatory|
+|                  | inclusion or exclusion.        |              |          |
+|                  |                                |              |          |
+|                  | Valid Values:                  |              |          |
+|                  |                                |              |          |
+|                  | **Allowed**                    |              |          |
+|                  |                                |              |          |
+|                  | **Not allowed**                |              |          |
++------------------+--------------------------------+--------------+----------+
+| Limit            | The quantity (amount) the limit| Number       | Optional |
+| Quantification   | expresses.                     |              |          |
++------------------+--------------------------------+--------------+----------+
 
 1. Time
 
@@ -355,31 +523,51 @@ Limit on the length of time the software may be used. For example:
 Table C5. Required Fields for Time
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-+------------------------+-------------------------------------------------------------------------------------------------------------------------------+------------------+---------------+
-| **Field Name**         | **Description**                                                                                                               | **Data Type**    | **Type**      |
-+========================+===============================================================================================================================+==================+===============+
-| Limit Identifier       | Each limit defined for an entitlement or license key must be identified by a unique value (e.g., numbered)                    | String           | Mandatory     |
-+------------------------+-------------------------------------------------------------------------------------------------------------------------------+------------------+---------------+
-| Limit Description      | Verbiage describing the limit.                                                                                                | String           | Mandatory     |
-+------------------------+-------------------------------------------------------------------------------------------------------------------------------+------------------+---------------+
-| Limit Behavior         | Description of the actions taken when the limit boundaries are reached.                                                       | String           | Mandatory     |
-|                        |                                                                                                                               |                  |               |
-|                        | The limit behavior may also describe when a time limit takes effect. (e.g., key is valid for 1 year from date of purchase).   |                  |               |
-+------------------------+-------------------------------------------------------------------------------------------------------------------------------+------------------+---------------+
-| Limit Category         | Valid value: **time**                                                                                                         | String           | Mandatory     |
-+------------------------+-------------------------------------------------------------------------------------------------------------------------------+------------------+---------------+
-| Limit Type             | Valid values: **duration, date**                                                                                              | String           | Mandatory     |
-+------------------------+-------------------------------------------------------------------------------------------------------------------------------+------------------+---------------+
-| Limit List             | List of times for which the VNF Provider Product can be used or needs to be restricted from use                               | List of String   | Mandatory     |
-+------------------------+-------------------------------------------------------------------------------------------------------------------------------+------------------+---------------+
-| Duration Units         | Required when limit type is duration. Valid values: **perpetual, year, quarter, month, day, minute, second, millisecond**     | String           | Conditional   |
-+------------------------+-------------------------------------------------------------------------------------------------------------------------------+------------------+---------------+
-| Limit Quantification   | The quantity (amount) the limit expresses.                                                                                    | Number           | Optional      |
-+------------------------+-------------------------------------------------------------------------------------------------------------------------------+------------------+---------------+
-| Start Date             | Required when limit type is date.                                                                                             | Date             | Optional      |
-+------------------------+-------------------------------------------------------------------------------------------------------------------------------+------------------+---------------+
-| End Date               | May be used when limit type is date.                                                                                          | Date             | Optional      |
-+------------------------+-------------------------------------------------------------------------------------------------------------------------------+------------------+---------------+
++------------------+-------------------------------+--------------+-----------+
+| **Field Name**   | **Description**               | **Data Type**| **Type**  |
++==================+===============================+==============+===========+
+| Limit Identifier | Each limit defined for an     | String       | Mandatory |
+|                  | entitlement or license key    |              |           |
+|                  | must be identified by a unique|              |           |
+|                  | value (e.g., numbered)        |              |           |
++------------------+-------------------------------+--------------+-----------+
+| Limit Description| Verbiage describing the limit.| String       | Mandatory |
++------------------+-------------------------------+--------------+-----------+
+| Limit Behavior   | Description of the actions    | String       | Mandatory |
+|                  | taken when the limit          |              |           |
+|                  | boundaries are reached.       |              |           |
+|                  |                               |              |           |
+|                  | The limit behavior may also   |              |           |
+|                  | describe when a time limit    |              |           |
+|                  | takes effect. (e.g., key is   |              |           |
+|                  | valid for 1 year from date of |              |           |
+|                  | purchase).                    |              |           |
++------------------+-------------------------------+--------------+-----------+
+| Limit Category   | Valid value: **time**         | String       | Mandatory |
++------------------+-------------------------------+--------------+-----------+
+| Limit Type       | Valid values:                 | String       | Mandatory |
+|                  | **duration, date**            |              |           |
++------------------+-------------------------------+--------------+-----------+
+| Limit List       | List of times for which the   | List of      | Mandatory |
+|                  | VNF Provider Product can be   | String       |           |
+|                  | used or needs to be restricted|              |           |
+|                  | from use                      |              |           |
++------------------+-------------------------------+--------------+-----------+
+| Duration Units   | Required when limit type is   | String       |Conditional|
+|                  | duration. Valid values:       |              |           |
+|                  | **perpetual, year, quarter,   |              |           |
+|                  | month, day, minute, second,   |              |           |
+|                  | millisecond**                 |              |           |
++------------------+-------------------------------+--------------+-----------+
+| Limit            | The quantity (amount) the     | Number       | Optional  |
+| Quantification   | limit expresses.              |              |           |
++------------------+-------------------------------+--------------+-----------+
+| Start Date       | Required when limit type is   | Date         | Optional  |
+|                  | date.                         |              |           |
++------------------+-------------------------------+--------------+-----------+
+| End Date         | May be used when limit type is| Date         | Optional  |
+|                  | date.                         |              |           |
++------------------+-------------------------------+--------------+-----------+
 
 1. Usage
 
@@ -398,31 +586,42 @@ Limits based on how the software is used. For example:
 Table C6. Required Fields for Usage
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-+------------------------+--------------------------------------------------------------------------------------------------------------+------------------+-------------+
-| **Field Name**         | **Description**                                                                                              | **Data Type**    | **Type**    |
-+========================+==============================================================================================================+==================+=============+
-| Limit Identifier       | Each limit defined for an entitlement or license key must be identified by a unique value (e.g., numbered)   | String           | Mandatory   |
-+------------------------+--------------------------------------------------------------------------------------------------------------+------------------+-------------+
-| Limit Description      | Verbiage describing the limit.                                                                               | String           | Mandatory   |
-+------------------------+--------------------------------------------------------------------------------------------------------------+------------------+-------------+
-| Limit Behavior         | Description of the actions taken when the limit boundaries are reached.                                      | String           | Mandatory   |
-+------------------------+--------------------------------------------------------------------------------------------------------------+------------------+-------------+
-| Limit Category         | Valid value: **usages**                                                                                      | String           | Mandatory   |
-+------------------------+--------------------------------------------------------------------------------------------------------------+------------------+-------------+
-| Limit Type             | Valid values: **feature, environment, processor, version**                                                   | String           | Mandatory   |
-+------------------------+--------------------------------------------------------------------------------------------------------------+------------------+-------------+
-| Limit List             | List of usage limits (e.g., test, development, vm, core, R1.2.1, R1.3.5…)                                    | List of String   | Mandatory   |
-+------------------------+--------------------------------------------------------------------------------------------------------------+------------------+-------------+
-| Limit Set Type         | Indicates if the list is an inclusion or exclusion.                                                          | String           | Mandatory   |
-|                        |                                                                                                              |                  |             |
-|                        | Valid Values:                                                                                                |                  |             |
-|                        |                                                                                                              |                  |             |
-|                        | **Allowed**                                                                                                  |                  |             |
-|                        |                                                                                                              |                  |             |
-|                        | **Not allowed**                                                                                              |                  |             |
-+------------------------+--------------------------------------------------------------------------------------------------------------+------------------+-------------+
-| Limit Quantification   | The quantity (amount) the limit expresses.                                                                   | Number           | Optional    |
-+------------------------+--------------------------------------------------------------------------------------------------------------+------------------+-------------+
++------------------+-------------------------------+---------------+----------+
+| **Field Name**   | **Description**               | **Data Type** | **Type** |
++==================+===============================+===============+==========+
+| Limit Identifier | Each limit defined for an     | String        | Mandatory|
+|                  | entitlement or license key    |               |          |
+|                  | must be identified by a unique|               |          |
+|                  | value (e.g., numbered)        |               |          |
++------------------+-------------------------------+---------------+----------+
+| Limit Description| Verbiage describing the limit.| String        | Mandatory|
++------------------+-------------------------------+---------------+----------+
+| Limit Behavior   | Description of the actions    | String        | Mandatory|
+|                  | taken when the limit          |               |          |
+|                  | boundaries are reached.       |               |          |
++------------------+-------------------------------+---------------+----------+
+| Limit Category   | Valid value: **usages**       | String        | Mandatory|
++------------------+-------------------------------+---------------+----------+
+| Limit Type       | Valid values: **feature,      | String        | Mandatory|
+|                  | environment, processor,       |               |          |
+|                  | version**                     |               |          |
++------------------+-------------------------------+---------------+----------+
+| Limit List       | List of usage limits (e.g.,   | List of String| Mandatory|
+|                  | test, development, vm, core,  |               |          |
+|                  | R1.2.1, R1.3.5…)              |               |          |
++------------------+-------------------------------+---------------+----------+
+| Limit Set Type   | Indicates if the list is an   | String        | Mandatory|
+|                  | inclusion or exclusion.       |               |          |
+|                  |                               |               |          |
+|                  | Valid Values:                 |               |          |
+|                  |                               |               |          |
+|                  | **Allowed**                   |               |          |
+|                  |                               |               |          |
+|                  | **Not allowed**               |               |          |
++------------------+-------------------------------+---------------+----------+
+| Limit            | The quantity (amount) the     | Number        | Optional |
+| Quantification   | limit expresses.              |               |          |
++------------------+-------------------------------+---------------+----------+
 
 1. Entity
 
@@ -436,31 +635,43 @@ make use of the software. For example:
 Table C7. Required Fields for Entity
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-+------------------------+--------------------------------------------------------------------------------------------------------------+------------------+-------------+
-| **Field Name**         | **Description**                                                                                              | **Data Type**    | **Type**    |
-+========================+==============================================================================================================+==================+=============+
-| Limit Identifier       | Each limit defined for an entitlement or license key must be identified by a unique value (e.g., numbered)   | String           | Mandatory   |
-+------------------------+--------------------------------------------------------------------------------------------------------------+------------------+-------------+
-| Limit Description      | Verbiage describing the limit.                                                                               | String           | Mandatory   |
-+------------------------+--------------------------------------------------------------------------------------------------------------+------------------+-------------+
-| Limit Behavior         | Description of the actions taken when the limit boundaries are reached.                                      | String           | Mandatory   |
-+------------------------+--------------------------------------------------------------------------------------------------------------+------------------+-------------+
-| Limit Category         | Valid value: **entity**                                                                                      | String           | Mandatory   |
-+------------------------+--------------------------------------------------------------------------------------------------------------+------------------+-------------+
-| Limit Type             | Valid values: **product line, organization, internal customer, external customer**                           | String           | Mandatory   |
-+------------------------+--------------------------------------------------------------------------------------------------------------+------------------+-------------+
-| Limit List             | List of entities for which the VNF Provider Product can be used or needs to be restricted from use           | List of String   | Mandatory   |
-+------------------------+--------------------------------------------------------------------------------------------------------------+------------------+-------------+
-| Limit Set Type         | Indicates if the list is an inclusion or exclusion.                                                          | String           | Mandatory   |
-|                        |                                                                                                              |                  |             |
-|                        | Valid Values:                                                                                                |                  |             |
-|                        |                                                                                                              |                  |             |
-|                        | **Allowed**                                                                                                  |                  |             |
-|                        |                                                                                                              |                  |             |
-|                        | **Not allowed**                                                                                              |                  |             |
-+------------------------+--------------------------------------------------------------------------------------------------------------+------------------+-------------+
-| Limit Quantification   | The quantity (amount) the limit expresses.                                                                   | Number           | Optional    |
-+------------------------+--------------------------------------------------------------------------------------------------------------+------------------+-------------+
++------------------+--------------------------------+--------------+----------+
+| **Field Name**   | **Description**                |**Data Type** | **Type** |
++==================+================================+==============+==========+
+| Limit Identifier | Each limit defined for an      | String       | Mandatory|
+|                  | entitlement or license key must|              |          |
+|                  | be identified by a unique value|              |          |
+|                  | (e.g., numbered)               |              |          |
++------------------+--------------------------------+--------------+----------+
+| Limit Description| Verbiage describing the limit. | String       | Mandatory|
++------------------+--------------------------------+--------------+----------+
+| Limit Behavior   | Description of the actions     | String       | Mandatory|
+|                  | taken when the limit boundaries|              |          |
+|                  | are reached.                   |              |          |
++------------------+--------------------------------+--------------+----------+
+| Limit Category   | Valid value: **entity**        | String       | Mandatory|
++------------------+--------------------------------+--------------+----------+
+| Limit Type       | Valid values: **product line,  | String       | Mandatory|
+|                  | organization, internal         |              |          |
+|                  | customer, external customer**  |              |          |
++------------------+--------------------------------+--------------+----------+
+| Limit List       | List of entities for which the |List of String| Mandatory|
+|                  | VNF Provider Product can be    |              |          |
+|                  | used or needs to be restricted |              |          |
+|                  | from use                       |              |          |
++------------------+--------------------------------+--------------+----------+
+| Limit Set Type   | Indicates if the list is an    | String       | Mandatory|
+|                  | inclusion or exclusion.        |              |          |
+|                  |                                |              |          |
+|                  | Valid Values:                  |              |          |
+|                  |                                |              |          |
+|                  | **Allowed**                    |              |          |
+|                  |                                |              |          |
+|                  | **Not allowed**                |              |          |
++------------------+--------------------------------+--------------+----------+
+| Limit            | The quantity (amount) the limit| Number       | Optional |
+| Quantification   | expresses.                     |              |          |
++------------------+--------------------------------+--------------+----------+
 
 1. Amount
 
@@ -479,45 +690,76 @@ interval (day, month, quarter, year, etc.).
 Table C8. Required Fields for Amount
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-+------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+-------------+
-| **Field Name**         | **Description**                                                                                                                                                                                                                                                | **Data Type**   | **Type**    |
-+========================+================================================================================================================================================================================================================================================================+=================+=============+
-| Limit Identifier       | Each limit defined for an entitlement or license key must be identified by a unique value (e.g., numbered)                                                                                                                                                     | String          | Mandatory   |
-+------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+-------------+
-| Limit Description      | Verbiage describing the limit.                                                                                                                                                                                                                                 | String          | Mandatory   |
-+------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+-------------+
-| Limit Behavior         | Description of the actions taken when the limit boundaries are reached.                                                                                                                                                                                        | String          | Mandatory   |
-+------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+-------------+
-| Limit Category         | Valid value: **amount**                                                                                                                                                                                                                                        | String          | Mandatory   |
-+------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+-------------+
-| Limit Type             | Valid values: **trunk, user, subscriber, session, token, transactions, seats, KB, MB, TB, GB**                                                                                                                                                                 | String          | Mandatory   |
-+------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+-------------+
-| Type of Utilization    | Is the limit relative to utilization of the functions of the software or relative to utilization of other resources?                                                                                                                                           | String          | Mandatory   |
-|                        |                                                                                                                                                                                                                                                                |                 |             |
-|                        | Valid values:                                                                                                                                                                                                                                                  |                 |             |
-|                        |                                                                                                                                                                                                                                                                |                 |             |
-|                        | -  **software functions**                                                                                                                                                                                                                                      |                 |             |
-|                        |                                                                                                                                                                                                                                                                |                 |             |
-|                        | -  **other resources**                                                                                                                                                                                                                                         |                 |             |
-+------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+-------------+
-| Limit Quantification   | The quantity (amount) the limit expresses.                                                                                                                                                                                                                     | Number          | Optional    |
-+------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+-------------+
-| Aggregation Function   | Valid values: **peak, average**                                                                                                                                                                                                                                | String          | Optional    |
-+------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+-------------+
-| Aggregation Interval   | Time period over which the aggregation is done (e.g., average sessions per quarter). Required when an Aggregation Function is specified.                                                                                                                       | String          | Optional    |
-|                        |                                                                                                                                                                                                                                                                |                 |             |
-|                        | Valid values: **day, month, quarter, year, minute, second, millisecond**                                                                                                                                                                                       |                 |             |
-+------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+-------------+
-| Aggregation Scope      | Is the limit quantity applicable to a single entitlement or license key (each separately)? Or may the limit quantity be combined with others of the same type (resulting in limit amount that is the sum of all the purchased entitlements or license keys)?   | String          | Optional    |
-|                        |                                                                                                                                                                                                                                                                |                 |             |
-|                        | Valid values:                                                                                                                                                                                                                                                  |                 |             |
-|                        |                                                                                                                                                                                                                                                                |                 |             |
-|                        | -  **single**                                                                                                                                                                                                                                                  |                 |             |
-|                        |                                                                                                                                                                                                                                                                |                 |             |
-|                        | -  **combined**                                                                                                                                                                                                                                                |                 |             |
-+------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+-------------+
-| Type of User           | Describes the types of users of the functionality offered by the software (e.g., authorized, named). This field is included when Limit Type is user.                                                                                                           | String          | Optional    |
-+------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+-------------+
++------------------+---------------------------------+-------------+----------+
+| **Field Name**   | **Description**                 |**Data Type**| **Type** |
++==================+=================================+=============+==========+
+| Limit Identifier | Each limit defined for an       | String      | Mandatory|
+|                  | entitlement or license key must |             |          |
+|                  | be identified by a unique value |             |          |
+|                  | (e.g., numbered)                |             |          |
++------------------+---------------------------------+-------------+----------+
+| Limit Description| Verbiage describing the limit.  | String      | Mandatory|
++------------------+---------------------------------+-------------+----------+
+| Limit Behavior   | Description of the actions taken| String      | Mandatory|
+|                  | when the limit boundaries are   |             |          |
+|                  | reached.                        |             |          |
++------------------+---------------------------------+-------------+----------+
+| Limit Category   | Valid value: **amount**         | String      | Mandatory|
++------------------+---------------------------------+-------------+----------+
+| Limit Type       | Valid values: **trunk, user,    | String      | Mandatory|
+|                  | subscriber, session, token,     |             |          |
+|                  | transactions, seats, KB, MB, TB,|             |          |
+|                  | GB**                            |             |          |
++------------------+---------------------------------+-------------+----------+
+| Type of          | Is the limit relative to        | String      | Mandatory|
+| Utilization      | utilization of the functions of |             |          |
+|                  | the software or relative to     |             |          |
+|                  | utilization of other resources? |             |          |
+|                  |                                 |             |          |
+|                  | Valid values:                   |             |          |
+|                  |                                 |             |          |
+|                  | -  **software functions**       |             |          |
+|                  |                                 |             |          |
+|                  | -  **other resources**          |             |          |
++------------------+---------------------------------+-------------+----------+
+| Limit            | The quantity (amount) the limit | Number      | Optional |
+| Quantification   | expresses.                      |             |          |
++------------------+---------------------------------+-------------+----------+
+| Aggregation      | Valid values: **peak, average** | String      | Optional |
+| Function         |                                 |             |          |
++------------------+---------------------------------+-------------+----------+
+| Aggregation      | Time period over which the      | String      | Optional |
+| Interval         | aggregation is done (e.g.,      |             |          |
+|                  | average sessions per quarter).  |             |          |
+|                  | Required when an Aggregation    |             |          |
+|                  | Function is specified.          |             |          |
+|                  |                                 |             |          |
+|                  | Valid values: **day, month,     |             |          |
+|                  | quarter, year, minute, second,  |             |          |
+|                  | millisecond**                   |             |          |
++------------------+---------------------------------+-------------+----------+
+| Aggregation      | Is the limit quantity applicable| String      | Optional |
+| Scope            | to a single entitlement or      |             |          |
+|                  | license key (each separately)?  |             |          |
+|                  | Or may the limit quantity be    |             |          |
+|                  | combined with others of the same|             |          |
+|                  | type (resulting in limit amount |             |          |
+|                  | that is the sum of all the      |             |          |
+|                  | purchased entitlements or       |             |          |
+|                  | license keys)?                  |             |          |
+|                  |                                 |             |          |
+|                  | Valid values:                   |             |          |
+|                  |                                 |             |          |
+|                  | -  **single**                   |             |          |
+|                  |                                 |             |          |
+|                  | -  **combined**                 |             |          |
++------------------+---------------------------------+-------------+----------+
+| Type of User     | Describes the types of users of | String      | Optional |
+|                  | the functionality offered by the|             |          |
+|                  | software (e.g., authorized,     |             |          |
+|                  | named). This field is included  |             |          |
+|                  | when Limit Type is user.        |             |          |
++------------------+---------------------------------+-------------+----------+
 
 TOSCA model
 -----------------------------
@@ -594,7 +836,8 @@ Table D2. TOSCA CSAR structure
 
 This section defines the requirements around the CSAR structure.
 
-The table below describes the numbered requirements for CSAR structure as agreed with SDC. The format of the CSAR is specified in SOL004.
+The table below describes the numbered requirements for CSAR structure as
+agreed with SDC. The format of the CSAR is specified in SOL004.
 
 +------------+-------------------------------------+--------------------------+
 | Requirement| Description                         | CSAR artifact directory  |
@@ -785,7 +1028,8 @@ R-15671: The VNF **MUST NOT** provide public or unrestricted access to any
 data without the permission of the data owner. All data classification and
 access controls must be followed.
 
-R-39342: The VNF **MUST**, if not using the NCSP’s IDAM API, comply with "password changes (includes default passwords)" policy. Products
+R-39342: The VNF **MUST**, if not using the NCSP’s IDAM API, comply with
+"password changes (includes default passwords)" policy. Products
 will support password aging, syntax and other credential management
 practices on a configurable basis.
 
