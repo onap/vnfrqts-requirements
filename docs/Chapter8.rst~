@@ -525,11 +525,11 @@ TOSCA model
 Table D1. ONAP Resource DM TOSCA/YAML constructs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Standard TOSCA/YAML definitions agreed by VNF SDK Modeling team to be used by
+Standard TOSCA/YAML definitions agreed by VNF SDK Modeling team to be used by 
 VNF vendors to create a standard VNF descriptor.
 
-All definitions are summarized in the table below based on the agreed ONAP
-Resource DM TOSCA/YAML constructs for Beijing. Their syntax is specified in
+All definitions are summarized in the table below based on the agreed ONAP 
+Resource DM TOSCA/YAML constructs for Beijing. Their syntax is specified in 
 ETSI GS NFV-SOL001 stable draft for VNF-D.
 
 +------------+------------------------------+---------------------------------+
