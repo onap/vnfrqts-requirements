@@ -1155,8 +1155,6 @@ R-01382: The VNF **MUST** allow the entire configuration of the VNF to
 be retrieved via NETCONF's <get-config> and <edit-config>, independently
 of whether it was configured via NETCONF or other mechanisms.
 
-R-98929: The VNF **MAY** have a single endpoint.
-
 R-48356: The VNF **MUST** fully exploit exception handling to the extent
 that resources (e.g., threads and memory) are released when no longer
 needed regardless of programming language.
@@ -1211,9 +1209,6 @@ use at deployment time. After that the address(es) may be changed
 through ONAP-defined policies delivered from ONAP to the VNF using
 PUTs to a RESTful API, in the same way that other controls over data
 reporting will be controlled by policy.
-
-R-07879: The VNF Package **MUST** include all relevant playbooks to
-ONAP to be loaded on the Ansible Server.
 
 R-57855: The VNF **MUST** support hitless staggered/rolling deployments
 between its redundant instances to allow "soak-time/burn in/slow roll"
@@ -1450,9 +1445,6 @@ Validate that any input file has a correct and valid Multipurpose Internet
 Mail Extensions (MIME) type. Input files should be tested for spoofed MIME
 types.
 
-R-23823: The VNF Package **MUST** include appropriate credentials so that
-ONAP can interact with the Chef Server.
-
 R-24359: The VNF **MUST** provide the capability of testing the validity
 of a digital certificate by validating the date the certificate is being
 used is within the validity period for the certificate.
@@ -1533,9 +1525,6 @@ false positives.
 
 R-94525: The VNF **MUST** log connections to a network listener of the
 resource.
-
-R-85428: The VNF **MUST** meet the same guidelines as Chef Server
-hosted by ONAP.
 
 R-26371: The VNF **MUST** detect connectivity failure for inter VNFC instance
 and intra/inter VNF and re-establish connectivity automatically to maintain
@@ -1674,9 +1663,6 @@ all of the VNF Event Records supported. The artifact should include reference
 to the specific release of the VNF Event Stream Common Event Data Model
 document it is based on. (e.g., `VES Event Listener <https://github.com/att/evel-test-collector/tree/master/docs/att_interface_definition>`__)
 
-R-77786: The VNF Package **MUST** include all relevant cookbooks to be loaded
-on the ONAP Chef Server.
-
 R-54373: The VNF **MUST** have Python >= 2.7 on the endpoint VM(s) of a
 VNF on which an Ansible playbook will be executed.
 
@@ -1684,9 +1670,6 @@ R-60106: The VNF **MUST** implement the protocol operation:
 **get(filter)** - Retrieve (a filtered subset of) the running configuration
 and device state information. This should include the list of VNF supported
 schemas.
-
-R-35305: The VNF **MUST** meet the same guidelines as the Ansible Server
-hosted by ONAP.
 
 R-95864: The VNF **MUST** use commercial tools that comply with X.509
 standards and produce x.509 compliant keys for public/private key generation.
@@ -1885,9 +1868,6 @@ on non-volatile memory.
 
 R-48470: The VNF **MUST** support Real-time detection and notification
 of security events.
-
-R-91681: The VNF **MUST** meet the ONAP Ansible Server API Interface
-requirements.
 
 R-41825: The VNF **MUST** activate security alarms automatically when the
 following event is detected: configurable number of consecutive unsuccessful
