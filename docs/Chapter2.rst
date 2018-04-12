@@ -16,6 +16,8 @@
 - Scope of the ONAP versions/release and future functionality
 - The VNF Requirements should include support for the functionality of the
   ONAP E-E use cases.
+- These requirements apply to VNFs at both ONAP Design-Time and ONAP Run-Time.
+- Network Service Descriptions are beyond the scope of these requirements.
 
 References
 -----------------------
