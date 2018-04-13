@@ -1705,7 +1705,7 @@ Asynchronous and Synchronous Data Delivery
   as those requests are received, as a synchronous response.
 * R-34660 The xNF **MUST** use the RESTCONF/NETCONF framework used by
   the ONAP configuration subsystem for synchronous communication.
-* R-86585 The VNF **MUST** use the YANG configuration models and RESTCONF
+* R-86586 The VNF **MUST** use the YANG configuration models and RESTCONF
   [RFC8040] (https://tools.ietf.org/html/rfc8040).
 * R-11240 The xNF **MUST** respond with content encoded in JSON, as
   described in the RESTCONF specification. This way the encoding of a
