@@ -10,6 +10,15 @@
   and OpenECOMP requirements.
 - Requirements are identified as either MUST, MUST NOT, SHOULD, SHOULD NOT,
   or MAY as defined in RFC 2119.
+- Requirements should be targeted to a restricted set of nouns related
+  to VNFs and within the control of the VNF provider. The current list
+  of VNF Requirement targets is:
+
+    - The VNF
+    - The VNFC
+    - The VNF Provider
+    - The VNF Heat
+    - The VNF Package
 - Chapter 4 contains the VNF/PNF requirements involving the design and
   development of VNFs/PNFs. These requirements help VNFs/PNFs operate
   efficiently within a cloud environment. Requirements cover design,
