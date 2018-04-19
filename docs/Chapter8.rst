@@ -1,4 +1,4 @@
-﻿.. This work is licensed under a Creative Commons Attribution 4.0 International License.
+.. This work is licensed under a Creative Commons Attribution 4.0 International License.
 .. http://creativecommons.org/licenses/by/4.0
 .. Copyright 2017 AT&T Intellectual Property.  All rights reserved.
 
@@ -189,29 +189,40 @@ Table B1. Ansible JSON File key value description
 +---------------+----------------------+---------+----------------------------+
 | **Field Name**| **Description**      | **Type**| **Comment**                |
 +===============+======================+=========+============================+
-| PlaybookName  | VNF providor must    |Mandatory|                            |
-|               | list name of the     |         |                            |
-|               | playbook used to     |         |                            |
-|               | execute the VNF      |         |                            |
-|               | action.              |         |                            |
+| PlaybookName  | VNF providor must    |Mandatory|Currently following         |
+|               | list name of the     |         |Ansible standard            |
+|               | playbook relative    |         |naming, where main          |
+|               | path used to         |         |playbook is always          |
+|               | execute the VNF      |         |named site.yml, and         |
+|               | action.              |         |directory name where        |
+|               |                      |         |this main playbook resides, |
+|               |                      |         |is named after the          |
+|               |                      |         |command/action playbook     |
+|               |                      |         |performs, in lower case,    |
+|               |                      |         |example, configure.         |
 +---------------+----------------------+---------+----------------------------+
 | Action        | Name of VNF action.  | Optional|                            |
 +---------------+----------------------+---------+----------------------------+
-| EnvParameters | A JSON dictionary    | Optional| Depends on the VNF action. |
+| EnvParameters | A JSON dictionary    | Optional|Depends on the VNF action.  |
 |               | which should list key|         |                            |
-|               | value pairs to be    |         |                            |
-|               | passed to the Ansible|         |                            |
-|               | playbook. These      |         |                            |
-|               | values would         |         |                            |
-|               | correspond to        |         |                            |
-|               | instance specific    |         |                            |
-|               | parameters that a    |         |                            |
-|               | playbook may need to |         |                            |
+|               | value pairs to be    |         |Attribute names (variable   |
+|               | passed to the Ansible|         |names) passed to Ansible    |
+|               | playbook. These      |         |shall follow Ansible valid  |
+|               | values would         |         |variable names: “Variable   |
+|               | correspond to        |         |names should be letters,    |
+|               | instance specific    |         |numbers, and underscores.   |
+|               | parameters that a    |         |Variables should always     |
+|               | playbook may need to |         |start with a letter.”       |
 |               | execute an action.   |         |                            |
 +---------------+----------------------+---------+----------------------------+
-| NodeList      | A JSON array of FQDNs| Optional| If not provided, playbook  |
-|               | that the playbook    |         | will be executed on the    |
-|               | must be executed on. |         | Ansible Server.            |
+| NodeList      |Ansible inventory     | Optional|If not provided, pre-loaded |
+|               |hosts file with       |         |(VNF) inventory hosts       |
+|               |VNF groups and        |         |file must exist in the      |
+|               |respective IP         |         |Ansible Server otherwise    |
+|               |addresses or DNS      |         |request fails.              |
+|               |supported FQDNs       |         |                            |
+|               |that the playbook must|         |                            |
+|               |be executed against.  |         |                            |
 +---------------+----------------------+---------+----------------------------+
 | FileParameters| A JSON dictionary    | Optional| Depends on the VNF action  |
 |               | where keys are       |         | and playbook design.       |
@@ -247,7 +258,7 @@ Ansible JSON file example:
 
       “Action”:”Configure”,
 
-      "PlaybookName": "Ansible\_configure.yml",
+      "PlaybookName": "<VNFCode>/<Version>/ansible/configure/site.yml",
 
       "NodeList": ["test1.vnf\_b.onap.com", “test2.vnf\_b.onap.com”],
 
@@ -264,10 +275,11 @@ In the above example, the Ansible Server will:
 a. Process the “FileParameters” dictionary and generate a file named
    ‘config.txt’ with contents set to the value of the ‘config.txt’ key.
 
-b. Execute the playbook named ‘Ansible\_configure.yml’ on nodes with
-   FQDNs test1.vnf\_b.onap.com and test2.vnf\_b.onap.com respectively
-   while providing the following key value pairs to the playbook:
+b. Execute the playbook named ‘<VNFCode>/<Version>/ansible/configure/site.yml’
+   on nodes with    FQDNs test1.vnf\_b.onap.com and test2.vnf\_b.onap.com
+   respectively while providing the following key value pairs to the playbook:
    Retry=3, Wait=5, ConfigFile=config.txt
+
 
 c. If execution time of the playbook exceeds 60 secs (across all hosts),
    it will be terminated.
@@ -866,6 +878,7 @@ agreed with SDC. The format of the CSAR is specified in SOL004.
 | R-77707    | CSAR Manifest file - SOL004         | ROOT\                    |
 |            |                                     | \\MainServiceTemplate.mf |
 +------------+-------------------------------------+--------------------------+
+
 
 Requirement List
 --------------------------------
@@ -1959,7 +1972,7 @@ Resource: OS::Nova::Server – Metadata Parameters.
 
 R-15422 The VNF Heat **MUST NOT** be prefixed with a common {vm-type}
 identifier the parameter referring to the OS::Nova::Server property
-availability\_zone. availability\_zone is described in
+availability\_zone. availability\_zone is described in 
 Property: ailability_zone.
 
 R-21330 The VNF Heat **MUST** include the {network-role} as part of the
@@ -2671,6 +2684,11 @@ to pull YANG model over session.
 R-25238 The xNF PACKAGE **MUST** validated YANG code using the open
 source pyang [3]_ program using the following commands:
 
+ code-block:: python
+
+ pyang --verbose --strict <YANG-file-name(s)>
+ echo $!
+
 R-63953 The xNF **MUST** have the echo command return a zero value
 otherwise the validation has failed
 
@@ -2756,9 +2774,9 @@ R-72184 The xNF **MUST** have routable FQDNs for all the endpoints
 with the Chef Server.  As part of invoking xNF actions, ONAP will
 trigger push jobs against FQDNs of endpoints for a xNF, if required.
 
-R-47068 The xNF **MAY** expose a single endpoint that is
+R-47068 The xNF **MAY** expose a single endpo
+t that is
 responsible for all functionality.
-
 R-67114 The xNF **MUST** be installed with:
 
 - Chef-Client >= 12.0
@@ -2834,10 +2852,10 @@ Ansible server for the endpoint VM(s) and comply with the Network
 Cloud Service Provider guidelines for authentication and access.
 
 R-82018 The VNF **MUST** load the Ansible Server SSH public key onto VNF
-VM(s) as part of instantiation. This will allow the Ansible Server
-to authenticate to perform post-instantiation configuration without
-manual intervention and without requiring specific VNF login IDs and
-passwords.
+VM(s) as part
+of instantiation. This will allow the Ansible Server to authenticate
+to perform post-instantiation configuration without manual intervention
+and without requiring specific VNF login IDs and passwords.
 
 R-92866 The VNF **MUST** include as part of post-instantiation
 configuration done by Ansible Playbooks the removal/update of SSH
@@ -2851,10 +2869,11 @@ by Ansible are regenerated/updated.
 R-40293 The xNF **MUST** make available playbooks that conform
 to the ONAP requirement.
 
-R-49396 The xNF **MUST** support each ONAP (APPC) xNF action by
-invocation of **one** playbook [7]_. The playbook will be responsible
-for executing all necessary tasks (as well as calling other playbooks)
-to complete the request.
+R-49396 The xNF **MUST** support each ONAP (APPC) xNF action
+by invocation of **one** playbook [7]_. The playbook will be responsible
+for executing
+all necessary tasks (as well as calling other playbooks) to complete
+the request.
 
 R-33280 The xNF **MUST NOT** use any instance specific parameters
 in a playbook.
@@ -2905,9 +2924,9 @@ R-51910 The xNF **MUST** provide all telemetry (e.g., fault event
 records, syslog records, performance records etc.) to ONAP using the
 model, format and mechanisms described in this section.
 
-R-19624 The xNF **MUST** encode and serialize content delivered to
-ONAP using JSON (RFC 7159) plain text format. High-volume data is to
-be encoded and serialized using `Avro <http://avro.apache.org/>`_,
+R-19624 The xNF **MUST** encode and serialize content delivered to 
+ONAP using JSON (RFC 7159) plain text format. High-volume data is to 
+be encoded and serialized using `Avro <http://avro.apache.org/>`_, 
 where the Avro [6]_ data format are described using JSON.
 
 - JSON plain text format is preferred for moderate volume data sets
@@ -3048,7 +3067,11 @@ regular procedures for securing access and delivery.
 Ansible Playbook Examples
 -----------------------------------------------
 
-The following sections contain examples of Ansible playbook contents
+
+Ansible Playbook Examples
+-----------------------------------------------
+
+The following sections contain examples of Ansible playbooks
 which follow the guidelines.
 
 Guidelines for Playbooks to properly integrate with APPC
@@ -3065,32 +3088,45 @@ vfdb9904v VNF instance:
 
  $ pwd
  /storage/vfdb/V16.1/ansible/configure
- $ ansible-playbook -i ../inventory/vfdb9904v/hosts site.yml --extra-vars "vnf_instance=vfdb9904v"
+ $ ansible-playbook -i ../inventory/vfdb9904vhosts site.yml --extra-vars "vnf_instance=vfdb9904v"
+ 
+ NOTE: To preserve Ansible inventory/group_vars capability, that makes
+ group_vars contents global variables available to all playbooks, when they
+ reside in the inventory directory, guidelines are being updated to name the
+ VNF inventory hosts file as (a flat file) <VNFName>hosts, stored in the
+ inventory directory, not a subdirectory under inventory. In the above
+ example: vfdb9904vhosts (removed / VNF name and hosts vfdb9904/vhosts)
 
 Example of corresponding APPC API Call from ONAP – Ansible Server
 Specifications:
 
-An example POST for requesting execution of configure Playbook:
+An example of a curl request simulating a Rest API POST requesting execution
+of configure Playbook (using playbook relative path):
 
 .. code-block:: none
 
- {"Id": "10", "PlaybookName":
- "/storage/vfdb/latest/ansible/configure/site.yml", "NodeList":
- ["vfdb9904v"], "Timeout": 60, "EnvParameters": {"Retry": 3, "Wait": 5},
- "LocalParameters": {"vfdb9904v": {"T_true": 10, "T_false": 5,
- "T_nfo": 5}}}
+ curl -u APIUser:APIPassword -H "Content-type:application/json" -X POST
+ -d '{"Id": "8412", "PlaybookName": "vfdb/V5.x.x/ansible/configure/site.yml",
+ "Timeout":"600", "EnvParameters": { "vnf_instance": "vfdb9904v" }}' 
+ http://ansible.server.com:5000/Dispatch
 
+Rest API GET request to obtain response/results for prior request (same Id as POST request above): 
+
+.. code-block:: none
+
+ curl -u APIUser:APIPassword -H 'Content-type: application/json' -X GET
+ 'http://ansible.server.com:5000/Dispatch/?Id=8412&Type=GetResult'
+ 
 Comments:
 
 -  An ID number is assigned to each request. This ID number is used to
    track request down to completion and provide status to APPC when
    requested.
 
--  Playbook Name provided in the request (full path in this case)
+-  Playbook Name relative path provided in the request as PlaybookName
 
--  Playbook path (in this example provided as part of playbook name as
-   full path) or, later in a separate variable, playbook root directory
-   needs to be part of APPC template.
+-  Ansible Server Rest API is aware of playbook’s root directory which may
+   vary from instance to instance or Ansible Server cluster to cluster.
 
 Ansible Playbooks will use the VNF instance name (passed using
 --extra-vars "vnf\_instance=vfdb9904v") to identify other default values
@@ -3099,14 +3135,13 @@ above:
 
 .. code-block:: none
 
- $ ansible-playbook -i ../inventory/vfdb9904v/hosts site.yml --extra-vars "vnf_instance=vfdb9904v"
+ $ ansible-playbook -i ../inventory/vfdb9904vhosts site.yml --extra-vars "vnf_instance=vfdb9904v"
 
-SSH key info (name/path), used to authenticate with the VNF VMs, is one
-of the attributes stored in the Ansible Server inventory hosts file for
-the VNF instance and later will be passed down by APPC, in the inventory
-hosts file, to the Ansible Server as part of the request. Here hosts
-file to run ansible-playbook listed in this example above (IP addresses
-were scrubbed):
+Each Ansible Server or cluster is assigned its own identification to be used
+to authenticate to VNF VMs using Ansible Server or cluster specific set of
+SSH keys that may be rotated regularly. Here hosts file, no longer referencing
+file with SSH key credentials, to run ansible-playbook listed in this example
+above (IP addresses were scrubbed):
 
 .. code-block:: none
 
@@ -3115,12 +3150,12 @@ were scrubbed):
  localhost ansible_connection=local
 
  [oam]
- 1xx.2yy.zzz.109 ansible_ssh_private_key_file=/storage/.ssh/Kilo-SSH-Key.pem
- 1xx.2yy.zzz.110 ansible_ssh_private_key_file=/storage/.ssh/Kilo-SSH-Key.pem
+ 1xx.2yy.zzz.109
+ 1xx.2yy.zzz.110
 
  [rdb]
- 1xx.2yy.zzz.105 ansible_ssh_private_key_file=/storage/.ssh/Kilo-SSH-Key.pem
- 1xx.2yy.zzz.106 ansible_ssh_private_key_file=/storage/.ssh/Kilo-SSH-Key.pem
+ 1xx.2yy.zzz.105
+ 1xx.2yy.zzz.106
 
 NOTE: APPC requests to run Playbooks/Cookbooks are specific to a VNF,
 but could be more limited to one VM or one type of VM by the request
@@ -3129,15 +3164,22 @@ entire platform must be orchestrated by MSO in order to execute requests
 via APPC which then invoke VNF level playbooks. Playbooks that impact
 more than a single VNF are not the current focus of these guidelines.
 
-And here the scrubbed default arguments for this VNF instance:
+Since last release of these guidelines, based on recent learnings,
+moving VNF Type global variables under inventory/group_vars files, this
+way variables and respective values are available to all playbooks without
+being explicitly referenced though an include statement. Also creating
+templates that are VNF Type specific, but moving away from static files
+that are VNF instance specific, working to obtain VNF instance specific
+from other sources, inventory database, etc.
+
+And here the scrubbed default arguments for this VNF instance(originated
+from previously re-factored playbooks now being phased out):
 
 .. code-block:: none
 
  vnf_instance=vfdb9904v
 
  $ more ../vars/vfdb9904v/default_args.yml
- vnf_provider_network_network: d69fea03-xxx-yyy-zzz-nnnnnnnnnnnn
- vnf_provider_network_subnet: a07f6a3d-xxxx-yyy-zzz-ssssssssssss
  vm_config_oam_vnfc_name: vfdb9904vm001oam001
  vm_config_oam_hostname: vfdb9904vm001
  vm_config_oam_provider_ip_address: 1xx.2yy.zzz.109
@@ -3161,7 +3203,7 @@ by underscore:
 Parameters like VNF names, VNFC names, OA&M IP addresses, after
 February, 2018 ONAP release, will be extracted from A&AI by APPC and
 then passed down to Ansible Server, as part of APPC request through REST
-API. In the meantime, these VNF instance specific required values, will
+API. In the meantime, VNF instance specific required values, will
 be stored on VNF instance directory, default arguments file and will be
 used as defaults. For parameterized playbooks attribute-value pairs
 passed down by APPC to Ansible Server always take precedence over
@@ -3171,7 +3213,8 @@ template or VNF instance specific defaults stored in defaults file(s).
 
  $ pwd
  /storage/vfdb/latest/ansible
-
+ Again, originated from previously re-factored playbooks now being phased out:
+ 
  $ more vars/vfdb9904v/default_args.yml
 
  vm_config_oam1_vnfc_name: vfdb9904vm001oam001
@@ -3202,8 +3245,8 @@ One of the first tasks on the Ansible Playbooks is to combine the VNF
 type generic template, derived from ENV files in CSAR or other files,
 with these default values stored on the Ansible Server, together with
 the overriding parameters passed down from APPC, to create the VNF
-instance specific set of attribute-value pairs to be used for the run in
-YAML format. Here is an excerpt from such a file that should look
+instance specific set of attribute-value pairs to be used for the run, in
+INI format. Here is an excerpt from such a file that should look
 somewhat similar to ENV files:
 
 .. code-block:: none
@@ -3211,19 +3254,12 @@ somewhat similar to ENV files:
  $ more tmp/vfdb9904v/all.yml
 
  deployment_prefix: vfdb9904v
- vm_config:
- oam1: { vnfc_name: vfdb9904vm001oam001, hostname: vfdb9904vm001, provider_ip_address: 1xx.2yy.zzz.109, private_ip_address: 192.168.10.107 }
- oam2: { vnfc_name: vfdb9904vm002oam001, hostname: vfdb9904vm002, provider_ip_address: 1xx.2yy.zzz.110, private_ip_address: 192.168.10.108 }
- rdb1: { vnfc_name: vfdb9904vm003rdb001, hostname: vfdb9904vm003, provider_ip_address: 1xx.2yy.zzz.105, private_ip_address: 192.168.10.109 }
- rdb2: { vnfc_name: vfdb9904vm004rdb001, hostname: vfdb9904vm004, provider_ip_address: 1xx.2yy.zzz.106, private_ip_address: 192.168.10.110 }
- rdb3: { vnfc_name: vfdb9904vm005rdb001, hostname: vfdb9904vm005, provider_ip_address: 1xx.2yy.zzz.xxx, private_ip_address: 192.168.10.111 }
- rdb4: { vnfc_name: vfdb9904vm006rdb001, hostname: vfdb9904vm006, provider_ip_address: 1xx.2yy.zzz.yyy, private_ip_address: 192.168.10.112 }
+ 
  …
  timezone: Etc/UTC
  …
  template_version: '2014-10-16'
  stack_name: vfdb9904v
- key_name: ONAPkilo-keypair
  c3dbtype: OAM
  stackName: vfdb9904v
  juno_base: true
@@ -3247,24 +3283,24 @@ Ansible Playbooks – Notes On Artifacts Required to Run Playbooks
 
 Inventory hosts file: should be VNF instance specific.
 
-Default variables: should be VNF instance specific/
+Default variables: should be VNF instance specific.
 
 NOTE: Some playbooks may rely on inventory directory contents to target
 the collection of VNFs in the Services Platform supported through
 Ansible.
 
 Playbooks and paths to referenced files: Playbooks shall not use
-absolute paths for file include entries (variables or playbooks) or
+absolute paths in include or import entries (variables or playbooks) or
 other types of references.
 
-For this to work properly when running playbooks, the directory where
-the playbook resides shall be the current directory.
+For this to work properly, when running playbooks, the directory where
+the main playbook resides shall be the current directory.
 
-Playbook includes use paths relative to the main playbook directory when
-necessary.
+Playbook imports, when used, shall use paths relative to the main
+playbook directory.
 
 Root directory named ansible - Any files provided with playbooks,
-included or referenced by playbooks, shall reside under the ansible
+included, imported, or referenced by playbooks, shall reside under the ansible
 playbooks (root) directory, containing all playbook subdirectories, or
 below that ansible root directory, in other subdirectories to support
 on-boarding and portability of VNF collection of playbooks and related
@@ -3284,9 +3320,9 @@ ansible/inventory/<VNF\_instance\_name>/hosts
 Example of inventory hosts file path, relative to ansible playbooks root
 directory (playbooks\_dir): ansible/inventory/vnfx0001v/hosts
 
-Designing for a shared environment, concurrently running playbooks,
+**Designing for a shared environment, concurrently running multiple playbooks,
 targeting multiple VNF instances – default argument variables for
-specific VNF instances:
+specific VNF instances:**
 
 Files containing attribute name value pairs (variable name and default
 values), referenced/included by playbooks – Files containing VNF
@@ -3294,8 +3330,8 @@ instance specific default values – in a later APPC release, some or all
 the default attribute value pairs contained in the defaults file, may be
 passed down by APPC, to the Ansible Server, overriding these defaults:
 
-Following the same approach for inventory hosts files, files
-referenced/included by playbooks containing default values,
+VNF instance specific files
+referenced/included by playbooks, containing default values, example,
 default\_args.yml, shall be stored under a directory with VNF instance
 name on the path.
 
@@ -3303,11 +3339,23 @@ Example:
 
 ansible/vars/<VNF\_instance\_name>/default\_args.yml
 
+Example of include statement:
+
+- include_vars: ../vars/{{ vnf_instance }}/default_args.yml
+
+Again, this was originated from previously re-factored playbooks, now being
+phased out, to move away from having to create VNF instance specific files
+with VNF instance default variables. Moving to extract these values from
+inventory databases and provide them to Ansible Server as part of the APPC
+request, but may be used in a transition from having everything stored in the
+Ansible Server to APPC extracting and providing VNF instance specific
+attribute-value pairs to the Ansible Server as part of the request.
+
 Files containing attribute name value pairs (variable name and default
 values), referenced/included by playbooks – created dynamically by
 playbooks:
 
-Following the same approach for inventory hosts files, to avoid
+To avoid
 overwrites or collisions of multiple concurrently running VNF instance
 requests, files created dynamically by playbooks, based on VNF generic
 templates, combined with default values and arguments passed down by
@@ -3321,17 +3369,18 @@ tmp/<VNF\_instance\_name>/all.yml
 Files containing site specific (Openstack location non-instance
 specific) attribute name value pairs, like NTP server and DNS server’s
 IP addresses and other parameters, referenced/included by playbooks, not
-VNF specific – Could/should be stored under vars directory, in a
-subdirectory named after the string used to identify the site (nyc1,
+VNF specific – Could/should be stored under inventory/group_vars directory,
+in a subdirectory named after the string used to identify the site (nyc1,
 lax2,…).
 
 Examples:
 
-ansible/vars/<Site>/default\_args.yml
+ansible/inventory/group_vars/<Site>
 
-ansible/vars/nyc1/default\_args.yml
+ansible/inventory/group_vars/nyc1
 
-ansible/vars/lax2/default\_args.yml
+ansible/inventory/group_vars/lax2
+
 
 \ **Ansible Server Design - Directory Structure**
 
@@ -3340,21 +3389,22 @@ definitions:
 
 **VNF type a.k.a VNF Function Code** - Based on current Services
 Platform naming convention, each Virtual Network Function is assigned a
-4 character string (example vfdb), they are the first 4 characters on
-the VNF instance name, which is 9 characters long. VNF instance name in
+4 character string (example vfdb), these are 4 characters in
+the VNF instance name, followed by (4) numbers, ending in a "v", but the 
+naming convention is evolving. VNF instance name in
 some cases corresponds to the stack name for the VNF when VNF instance
 is built based on a single module, single stack. Example of VNF instance
 name: vfdb9904v. All VNF performing this function, running the same
-software, coming from the same VNF provider will start with the same 4
-characters, in this example, vfdb.
+software, coming from the same VNF provider will have the same 4
+characters in the VNF instance name, in this example, vfdb.
+
+NOTE: New naming convention includes a prefix indicating geographical
+location where VNF is instantiated.
 
 VNF type, determined through these 4 characters, is also known as VNF
 Function Code and is assigned by inventory team. All Services Platform
 VNF Function Codes can be found in inventory database and/or A&AI as
 well as Services Platform Network Design Documents.
-
-NOTE: Current Services Platform naming convention is undergoing changes
-to include geographical location to the VNF names.
 
 Version – As in VNF software version is the release of the software
 running on the VNF for which the playbooks were developed. VNF
@@ -3362,26 +3412,30 @@ configuration steps may change from release to release and this
 <Version> in the path will allow the Ansible Server to host playbooks
 associated with each software release. And run the playbooks that match
 the software release running on each VNF instance. APPC initially will
-not support playbook versioning only latest playbook is supported.
+not support playbook versioning only latest playbook is supported or a hard
+coded version that later should become a variable to allow multiple
+actively in use playbook versions according to VNF release.
 
 Playbook Function - Is a name associated with a life cycle management
 task(s) performed by the playbook(s) stored in this directory. It should
 clearly identify the type of action(s) performed by the main playbook
 and possibly other playbooks stored in this same directory. Ideally,
-playbook function would match APPC corresponding function that executes
-the main playbook in this directory. Following Ansible Naming standards
-main playbook is usually named site.yml. There can be other playbooks on
-the same directory that use a subset of the roles used by the main
-playbook site.yml. Examples of Playbook Function directory names:
+playbook function would match APPC corresponding command or function that
+is performed by the main playbook in this directory. Following Ansible naming
+standards main playbook is usually named site.yml. There can be other
+playbooks on the same directory that use a subset of the roles used by the
+main playbook site.yml. Examples of Playbook Function directory names:
 
 -  configure – Contains post-instantiation (bulk) configuration
    playbooks, roles,…
 
 -  healthcheck – Contains VNF health check playbook(s), roles,…
 
--  stop – Contains VNF application stop playbook(s), roles,…
+-  stop – Contains VNF application stop  (stopApplication) playbook(s),
+   roles,…
 
--  start – Contains VNF application start playbook(s), roles,…
+-  start – Contains VNF application start (startApplication) playbook(s),
+   roles,…
 
 Directory structure to allow hosting multiple version sets of playbooks,
 for the same VNF type, to be hosted in the runtime environment on the
@@ -3391,42 +3445,48 @@ Ansible Playbooks – Function directory and main playbook:
 
 .. code-block:: none
 
- /storage/<VNF type>/<Version>/ansible/<Playbook Function>/site.yml
+ <VNF type>/<Version>/ansible/<Playbook Function>/site.yml
 
 Example – Post-instantiation (bulk) configuration –APPC Function -
 Configure:
 
 .. code-block:: none
 
- /storage/<VNF type>/<Version>/ansible/configure/site.yml
+ <VNF type>/<Version>/ansible/configure/site.yml
+ 
+Example – Post-instantiation (bulk) configuration –APPC Function – Configure – VNF software version 16.1:
+
+.. code-block:: none
+
+ vfdb/V16.1/ansible/configure/site.yml 
 
 Example – Health-check –APPC Function - HealthCheck:
 
 .. code-block:: none
 
- /storage/<VNF type>/<Version>/ansible/healthcheck/site.yml
+ <VNF type>/<Version>/ansible/healthcheck/site.yml
 
 OR (Function directory name does not need to match APPC function name)
 
 .. code-block:: none
 
- /storage/<VNF type>/<Version>/ansible/check/site.yml
+ <VNF type>/<Version>/ansible/check/site.yml
 
 Ansible Directories for other artifacts – VNF inventory hosts file -
 Required:
 
 .. code-block:: none
 
- /storage/<VNF type>/<Version>/ansible/inventory/<VNF instance name>/hosts
+ <VNF type>/<Version>/ansible/inventory/<VNF instance name>hosts
 
-Ansible Directories for other artifacts – VNF inventory hosts file –
-Required:
+Ansible Directories for other artifacts – VNF instance specific default
+arguments – Optional:
 
 .. code-block:: none
 
- /storage/<VNF type>/<Version>/ansible/vars/<VNF instance name>/default\_args.yml
+ <VNF type>/<Version>/ansible/group_vars/<VNF instance name>
 
-NOTE: This requirement is expected to be deprecated in part in the
+NOTE: This requirement is expected to be deprecated all or in part in the
 future, for automated actions, once APPC can pass down all VNF specific
 arguments for each action. Requirement remains while manual actions are
 to be supported. Other automated inventory management mechanisms may be
@@ -3438,7 +3498,7 @@ Optional:
 
 .. code-block:: none
 
- /storage/<VNF type>/<Version>/ansible/groups/<VNF instance name>/common\_groups.yml
+ <VNF type>/<Version>/ansible/inventory/group_vars/<VNF instance name>
 
 NOTE: Default groups will be created based on VNFC type, 3 characters,
 on VNFC name. Example: “oam”, “rdb”, “dbs”, “man”, “iox”, “app”,…
@@ -3448,7 +3508,7 @@ Optional – Example – License file:
 
 .. code-block:: none
 
- /storage/<VNF type>/<Version>/ansible/<Other directory(s)>
+ <VNF type>/<Version>/ansible/<Other directory(s)>
 
 CAUTION: On referenced files used/required by playbooks.
 
@@ -3461,16 +3521,15 @@ CAUTION: On referenced files used/required by playbooks.
 -  Any references to files, on includes or other playbook entries, shall
    use relative paths.
 
--  This is the ansible (root directory) directory referenced on this
-   note:
+-  This is the ansible (root) directory referenced on this
+   note (Ansible Server mount point not included):
 
 .. code-block:: none
 
-     /storage/<VNF type>/<Version>/ansible/
+     <VNF type>/<Version>/ansible/
 
 There will be a soft link to the latest set of Ansible Playbooks for
-each VNF type and this is the default set of playbooks that are executed
-unless a different release is specified in APPC request.
+each VNF type.
 
 VNF type directories use A&AI inventory VNF function code. Ansible
 Playbooks will be stored on a Cinder Volume mounted on the Ansible
@@ -3499,7 +3558,8 @@ Once playbooks are developed following the guidelines listed in prior
 section(s), playbooks need to be on-boarded onto Ansible Server(s). In
 the future, they’ll be on-boarded and distributed through ONAP, at least
 that is the proposed plan, but for now they need to be uploaded
-manually.
+manually. There is work in progress to use a Git as the playbook
+repository to store and track playbooks by version, version control.
 
 These are the basic steps to on-board playbooks manually onto the
 Ansible Server.
@@ -3508,7 +3568,8 @@ Ansible Server.
    artifacts.
 
 2. Create full directory (using –p option below) to store Ansible
-   Playbooks and other artifacts under /storage file system.
+   Playbooks and other artifacts under /storage (or other configured)
+   file system.
 
    a. Includes VNF type using VNF function code 4 characters under
       /storage.
@@ -3540,30 +3601,30 @@ Ansible Server.
      unzip …
      bunzip ..
 
-5. Create directory for VNF (VMs) inventory hosts file with all VMs and
+5. Create VNF inventory hosts file with all VMs and
    OA&M IP addresses for all VNF instances with known OA&M IP addresses
    for respective VMs, example:
 
 .. code-block:: none
 
-    $ mkdir –p inventory/vfdb9904v
+    $ mkdir inventory
 
-    $ touch inventory/vfdb9904v/hosts
+    $ touch inventory/vfdb9904vhosts
 
-    $ cat inventory/vfdb9904v/hosts
+    $ cat inventory/vfdb9904vhosts
 
     [host]
     localhost ansible\_connection=local
 
     [oam]
-    1xx.2yy.zzz.109 ansible\_ssh\_private\_key\_file=/storage/.ssh/Kilo-SSH-Key.pem
-    1xx.2yy.zzz.110 ansible\_ssh\_private\_key\_file=/storage/.ssh/Kilo-SSH-Key.pem
+    1xx.2yy.zzz.109
+    1xx.2yy.zzz.110
 
     [rdb]
-    1xx.2yy.zzz.105 ansible\_ssh\_private\_key\_file=/storage/.ssh/Kilo-SSH-Key.pem
-    1xx.2yy.zzz.106 ansible\_ssh\_private\_key\_file=/storage/.ssh/Kilo-SSH-Key.pem
+    1xx.2yy.zzz.105
+    1xx.2yy.zzz.106
 
-6. Create directory to hold default arguments for each VNF instance,
+6. (Optional, being deprecated) Create directory to hold default arguments for each VNF instance,
    example:
 
 .. code-block:: none
@@ -3601,17 +3662,111 @@ NOTE: Please note names in this file shall use underscore “\_” not dots
 7. Perform some basic playbook validation running with “--check” option,
    running dummy playbooks or other.
 
-8. Upload any SSH keys referenced on hosts file to appropriate
-   directory.
+NOTE: Each Ansible Server or cluster of Ansible Server will have its own
+credentials to authenticate to VNF VMs. Ansible Server SSH public key(s)
+have to be loaded onto VNF VMs during instantiation or other way before
+Ansible Server can access VNF VMs and run playbooks. HOT templates used
+by heat to instantiate VNFs to be configured by these Ansible Servers running
+playbooks shall include the same SSH public key and load them onto VNF VM(s)
+as part of instantiation.
 
-NOTE: HOT templates used by Heat to instantiate VNF configured by these
-playbooks shall include the same SSH key to be installed as part of
-instantiation.
+Other non-vendor specific playbook tasks need to be incorporated in overall
+post-instantiation configuration playbook. Alternative is for company
+developed playbooks to be uploaded and executed, after VNF vendor provided
+playbooks are run.
 
-Other non-VNF provider specific playbook tasks need to be incorporated on
-overall post-instantiation configuration playbooks or company Playbooks
-need to be uploaded and executed after VNF provided or internally
-developed playbooks for the VNF.
+**A couple of playbooks used for proof-of-concept testing as examples:**
+
+UpgradePreCheck:
+
+.. code-block:: none
+
+ $ pwd
+ /storage/comx/V5.3.1.3/ansible/upgradeprecheck
+ 
+ $ more site.yml
+ ---
+
+ - import_playbook: ../common/create_vars.yml
+ - import_playbook: ../common/create_hosts.yml
+
+ - name: upgrade software pre check
+   hosts: oam,dbs,cpm
+   gather_facts: no
+   become: true
+   become_method: sudo
+   become_user: root
+   max_fail_percentage: 0
+   any_errors_fatal: True
+   roles:
+     - precheck
+   tags: precheck
+
+ $ more roles/precheck/tasks/main.yml
+ ---
+
+ - include_vars: /tmp/{{ vnf_instance }}/all.yml
+
+ - name: get software version installed on vnf
+   shell: grep "^SW_VERSION =" /vendor/software/config/param_common.cfg | grep -c "{{ existing_software_version }}"
+   register: version_line
+   ignore_errors: yes
+
+ - name: send msg when matches expected version
+   debug:  msg="*** OK *** VNF software release matches (old) release to be upgraded."
+    verbosity=1
+   when: version_line.stdout.find('1') != -1
+
+ # send warning message and failure when release is not a match
+ - fail:
+     msg="*** WARNING *** VNF software release does not match expected (pre-upgrade) release."
+   when: (version_line | failed) or version_line.stdout.find('1') == -1
+
+
+UpgradePostCheck:
+
+.. code-block:: none
+
+ $ pwd
+ /storage/comx/V5.3.1.3/ansible/upgradepostcheck
+ 
+ $ more site.yml
+ --- 
+ 
+ - import_playbook: ../common/create_vars.yml
+ - import_playbook: ../common/create_hosts.yml
+
+ - name: upgrade software post check 
+   hosts: oam,dbs,cpm
+   gather_facts: no
+   become: true
+   become_method: sudo
+   become_user: root
+   max_fail_percentage: 0
+   any_errors_fatal: True
+   roles:
+     - postcheck
+   tags: postcheck
+
+ $ more roles/postcheck/tasks/main.yml
+ ---
+
+ - include_vars: /tmp/{{ vnf_instance }}/all.yml
+
+ - name: get post upgrade software version installed on vnf
+   shell: grep "^SW_VERSION =" /vendor/software/config/param_common.cfg | grep -c "{{ new_software_version }}"
+   register: version_line
+   ignore_errors: yes
+
+ - name: send msg when matches expected version
+   debug:  msg="*** OK *** VNF software release matches new release."
+     verbosity=1
+   when: version_line.stdout.find('1') != -1
+
+ # send warning message and failure when release is not a match
+ - fail:
+     msg="*** WARNING *** VNF software release does not match expected new (post-upgrade) release."
+   when: (version_line | failed) or version_line.stdout.find('1') == -1
 
 
 .. [1]
