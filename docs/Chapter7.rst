@@ -91,7 +91,7 @@ and GS NFV IFA011 V0.3.0 (2015-10) - Network Functions Virtualization
 Resource Description
 ^^^^^^^^^^^^^^^^^^^^^^
 
-* R-77707 The VNF provider **MUST** include a Manifest File that
+* R-77707 The xNF provider **MUST** include a Manifest File that
   contains a list of all the components in the VNF package.
 * R-66070 The xNF Package **MUST** include xNF Identification Data to
   uniquely identify the resource for a given xNF provider. The identification
@@ -253,7 +253,7 @@ Compute, Network, and Storage Requirements
 
 * R-26881 The xNF provider **MUST** provide the binaries and images
   needed to instantiate the xNF (xNF and VNFC images).
-* R-96634 The VNF provider **MUST** describe scaling capabilities
+* R-96634 The xNF provider **MUST** describe scaling capabilities
   to manage scaling characteristics of the VNF.
 
 
@@ -956,7 +956,7 @@ Ansible Client Requirements
 * R-35401 The xNF **MUST** support SSH and allow SSH access by the
   Ansible server for the endpoint VM(s) and comply with the Network
   Cloud Service Provider guidelines for authentication and access.
-* R-82018 The VNF **MUST** load the Ansible Server SSH public key onto VNF
+* R-82018 The xNF **MUST** load the Ansible Server SSH public key onto VNF
   VM(s) as part
   of instantiation. This will allow the Ansible Server to authenticate
   to perform post-instantiation configuration without manual intervention
@@ -967,11 +967,12 @@ Ansible Client Requirements
  of SSH public keys, SSH public keys loaded during (heat) instantiation shall
  be preserved and not removed by (heat) embedded (userdata) scripts.
 
-* R-92866 The VNF **MUST** include as part of post-instantiation
-  configuration done by Ansible Playbooks the removal/update of SSH
-  public keys loaded through instantiation to support Ansible. This may
-  include download and install of new SSH public keys.
-* R-91745 The VNF **MUST** update the Ansible Server and other entities
+* R-92866 The xNF **MUST** include as part of post-instantiation configuration
+  done by Ansible Playbooks the removal/update of the SSH public key from
+  /root/.ssh/authorized_keys, and  update of SSH keys loaded through
+  instantiation to support Ansible. This may include download and install of
+  new SSH keys and new mechanized IDs. 
+* R-91745 The xNF **MUST** update the Ansible Server and other entities
   storing and using the SSH keys for authentication when the SSH keys used
   by Ansible are regenerated/updated.
 
@@ -1031,7 +1032,7 @@ will be considered to have failed.
  re-instantiate VNF VMs and then re-run playbook(s)). Backing up updated
  files also recommended to support rollback when soft rollback is feasible.
 
-* R-58301 The VNF **SHOULD NOT** use playbooks that make requests to
+* R-58301 The xNF **SHOULD NOT** use playbooks that make requests to
   Cloud resources e.g. Openstack (nova, neutron, glance, heat, etc.);
   therefore, there is no use for Cloud specific variables like Openstack
   UUIDs in Ansible Playbooks.
@@ -1045,12 +1046,12 @@ will be considered to have failed.
  action requests to APPC; these are triggered as a response to an event
  or correlated events published to Event Bus.
 
-* R-02651 The VNF **SHOULD** use the Ansible backup feature to save a
+* R-02651 The xNF **SHOULD** use the Ansible backup feature to save a
   copy of configuration files before implementing changes to support
   operations such as backing out of software upgrades, configuration
   changes or other work as this will help backing out of configuration
   changes when needed.
-* R-43353 The VNF **MUST** return control from Ansible Playbooks only
+* R-43353 The xNF **MUST** return control from Ansible Playbooks only
   after tasks are fully complete, signaling that the playbook completed
   all tasks. When starting services, return control only after all services
   are up. This is critical for workflows where the next steps are dependent
@@ -1733,7 +1734,7 @@ of bulk files.
   only one collector address for a xNF. In this case, the network will
   promptly resolve connectivity problems caused by a collector or network
   failure transparently to the xNF.
-* R-81777 The VNF **MUST** be configured with initial address(es) to use
+* R-81777 The xNF **MUST** be configured with initial address(es) to use
   at deployment time. Subsequently, address(es) may be changed through
   ONAP-defined policies delivered from ONAP to the VNF using PUTs to a
   RESTful API, in the same manner that other controls over data reporting
@@ -1768,7 +1769,7 @@ Asynchronous and Synchronous Data Delivery
   as those requests are received, as a synchronous response.
 * R-34660 The xNF **MUST** use the RESTCONF/NETCONF framework used by
   the ONAP configuration subsystem for synchronous communication.
-* R-86585 The VNF **MUST** use the YANG configuration models and RESTCONF
+* R-86585 The xNF **MUST** use the YANG configuration models and RESTCONF
   [RFC8040] (https://tools.ietf.org/html/rfc8040).
 * R-11240 The xNF **MUST** respond with content encoded in JSON, as
   described in the RESTCONF specification. This way the encoding of a
