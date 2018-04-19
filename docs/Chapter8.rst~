@@ -3621,7 +3621,7 @@ Ansible Server.
 
 6. (Optional, being deprecated) Create directory to hold default
 arguments for each VNF instance,
-example:
+   example:
 
 .. code-block:: none
 
