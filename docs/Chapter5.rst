@@ -2129,15 +2129,15 @@ replaced with “.env”.
 Nested Heat file
 ~~~~~~~~~~~~~~~~~~
 
-There is no explicit naming convention for nested Heat files with the
-following exceptions; the name should contain “nest”.
-
-R-76057 The VNF Heat **MUST NOT** use special characters
-or the word “base” in the file name for the nested template.
-
-As noted above, <text> represents any alphanumeric string.
-
--  <text>.y[a]m
+The file name of a nested heat file must be in the format “<text>.y[a]ml”
+ 
+The file name of a nested heat file must contain only alphanumeric 
+characters and underscores ("_")
+ 
+R-76057 The file name of a nested heat file must not contain the word “base”.
+ 
+The file name of a nested heat file must not be of the format “{vm-type}.y[a]ml” 
+where {vm-type} is defined in the Heat Orchestration Template.
 
 Nested Heat files do not have corresponding environment files, per
 OpenStack specifications.
