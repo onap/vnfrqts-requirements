@@ -17,7 +17,7 @@
     - The VNF
     - The VNFC
     - The VNF Provider
-    - The VNF Heat
+    - The VNF Heat Orchestration Template
     - The VNF Package
 - Chapter 4 contains the VNF/PNF requirements involving the design and
   development of VNFs/PNFs. These requirements help VNFs/PNFs operate
