@@ -131,6 +131,10 @@ All Layer Redundancy Requirements
 * R-36843 The VNF **MUST** support the ability of the VNFC to be deployable
   in multi-zoned cloud sites to allow for site support in the event of cloud
   zone failure or upgrades.
+* R-00098 The VNF **MUST NOT** impact the ability of the VNF to provide
+  service/function due to a single container restart.
+* R-79952 The VNF **SHOULD** support container snapshots if not for rebuild
+  and evacuate for rollback or back out mechanism.
 
 Minimize Cross Data-Center Traffic
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -186,6 +190,16 @@ Application Resilient Error Handling Requirements
   service continuity.
 * R-36792 The VNF **MUST** automatically retry/resubmit failed requests
   made by the software to its downstream system to increase the success rate.
+* R-70013 The VNF **MUST NOT** require any manual steps to get it ready for
+  service after a container rebuild.
+* R-65515 The VNF **MUST** provide a mechanism and tool to start VNF
+  containers (VMs) without impacting service or service quality assuming
+  another VNF in same or other geographical location is processing service
+  requests.
+* R-94978 The VNF **MUST** provide a mechanism and tool to perform a graceful
+  shutdown of all the containers (VMs) in the VNF without impacting service
+  or service quality assuming another VNF in same or other geographical
+  location can take over traffic and process service requests.
 
 
 System Resource Optimization
@@ -1369,3 +1383,4 @@ Note:
 
 .. [2]
    Not currently supported in ONAP release 1
+

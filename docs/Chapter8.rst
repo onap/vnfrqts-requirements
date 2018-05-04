@@ -988,6 +988,12 @@ R-36843 The VNF **MUST** support the ability of the VNFC to be deployable
 in multi-zoned cloud sites to allow for site support in the event of cloud
 zone failure or upgrades.
 
+R-00098 The VNF **MUST NOT** impact the ability of the VNF to provide
+service/function due to a single container restart.
+
+R-79952 The VNF **SHOULD** support container snapshots if not for rebuild
+and evacuate for rollback or back out mechanism.
+
 R-92935 The VNF **SHOULD** minimize the propagation of state information
 across multiple data centers to avoid cross data center traffic.
 
@@ -1026,6 +1032,19 @@ service continuity.
 
 R-36792 The VNF **MUST** automatically retry/resubmit failed requests
 made by the software to its downstream system to increase the success rate.
+
+R-70013 The VNF **MUST NOT** require any manual steps to get it ready for
+service after a container rebuild.
+
+R-65515 The VNF **MUST** provide a mechanism and tool to start VNF
+containers (VMs) without impacting service or service quality assuming
+another VNF in same or other geographical location is processing service
+requests.
+
+R-94978 The VNF **MUST** provide a mechanism and tool to perform a graceful
+shutdown of all the containers (VMs) in the VNF without impacting service
+or service quality assuming another VNF in same or other geographical
+location can take over traffic and process service requests.
 
 R-22059 The VNF **MUST NOT** execute long running tasks (e.g., IO,
 database, network operations, service calls) in a critical section
@@ -2522,6 +2541,18 @@ command.
 R-65641 The xNF **MUST** support ONAP Controller’s **UpgradeBackOut**
 command.
 
+R-11790 The VNF **MUST** support ONAP Controller’s
+**Restart (stop/start or reboot)** command.
+
+R-56218 The VNF **MUST** support ONAP Controller’s Migrate command that
+moves container (VM) from a live Physical Server / Compute Node to
+another live Physical Server / Compute Node.
+  
+R-38001 The VNF MUST support ONAP Controller’s **Rebuild** command.
+
+R-76901 VNF MUST support a container rebuild mechanism based on existing
+image (e.g. Glance image in Openstack environment) or a snapshot.
+
 R-41430 The xNF **MUST** support ONAP Controller’s **HealthCheck**
 command.
 
@@ -3806,4 +3837,5 @@ UpgradePostCheck:
 
 .. [7]
    Multiple ONAP actions may map to one playbook.
+
 

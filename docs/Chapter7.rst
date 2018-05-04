@@ -464,6 +464,39 @@ failed).
 * R-65641 The xNF **MUST** support ONAP Controller’s **UpgradeBackOut**
   command.
 
+Virtual Function - Container Recovery Requirements
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+As part of life cycle management, for Cloud environment, VNFs need to
+support a set of basic recovery capabilities to maintain the health
+and extend the life of the VNF, eliminating and reducing the frequency
+that an entire VNF needs to be rebuilt or re-instantiated to recover one
+or more of its containers. For instance, a VNF in an Openstack environment
+is composed of one or more containers called VMs (Virtual Machines). During
+the life of a VNF it is expected that Cloud infrastructure hardware will
+fail or they would need to be taken down for maintenance or hardware and
+software upgrades (e.g. firmware upgrades, HostOS (Hypervisor), power
+maintenance, power outages, etc.) To deal with such life cycle events
+without having to rebuild entire VNFs or even entire sites these basic
+recovery capabilities of individual containers, Virtual Machines or other,
+must be supported.
+
+* R-11790 The VNF **MUST** support ONAP Controller’s
+  **Restart (stop/start or reboot)** command.
+* R-56218 The VNF **MUST** support ONAP Controller’s Migrate command that
+  moves container (VM) from a live Physical Server / Compute Node to
+  another live Physical Server / Compute Node.
+  
+NOTE: Container migrations MUST be transparent to the VNF and no more
+intrusive than a stop, followed by some down time for the migration to
+be performed from one Compute Node / Physical Server to another, followed
+by a start of the same VM with same configuration on the new Compute 
+Node / Physical Server.
+  
+* R-38001 The VNF MUST support ONAP Controller’s **Rebuild** command.
+* R-76901 VNF MUST support a container rebuild mechanism based on existing
+  image (e.g. Glance image in Openstack environment) or a snapshot.
+  
 HealthCheck and Failure Related Commands
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -1853,3 +1886,4 @@ Security
 .. |image3| image:: Protocol_Buffers_Driven_Model.png
       :width: 4.74in
       :height: 3.3in
+
