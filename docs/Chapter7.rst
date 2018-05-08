@@ -716,7 +716,7 @@ NETCONF Server Requirements
 The following requirements provides the Yang models that suppliers must
 conform, and those where applicable, that suppliers need to use.
 
-* R-28545 The xNF **MUST** conform its YANG model to RFC 6060,
+* R-28545 The xNF **MUST** conform its YANG model to RFC 6020,
   “YANG - A Data Modeling Language for the Network Configuration
   Protocol (NETCONF)”
 * R-29967 The xNF **MUST** conform its YANG model to RFC 6022,

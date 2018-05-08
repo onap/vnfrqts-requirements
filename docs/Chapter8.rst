@@ -2750,7 +2750,7 @@ change, rollback configurations using each configuration data element,
 query each state (non-configuration) data element, execute each YANG
 RPC, and receive data through each notification statement.
 
-R-28545 The xNF **MUST** conform its YANG model to RFC 6060,
+R-28545 The xNF **MUST** conform its YANG model to RFC 6020,
 “YANG - A Data Modeling Language for the Network Configuration
 Protocol (NETCONF)”
 
