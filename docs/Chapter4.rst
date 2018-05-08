@@ -1367,7 +1367,7 @@ Second, the VNF provider should provide the VNF Rest API to integrate with
 the GVNFM if needed. The VNF Rest API is aligned to the ETSI IFA
 document.
 
-Third, the TOSCA model supports the EPA feature.
+Third, the TOSCA model supports the HPA feature.
 
 Note:
 

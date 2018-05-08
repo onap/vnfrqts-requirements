@@ -23,7 +23,7 @@ Network Cloud. It has the following features:
 2. VNF TOSCA template is aligned to the newest TOSCA protocol, “Working
    Draft 04-Revision 06”.
 
-3. VNF TOSCA template supports EPA features, such as NUMA, Hyper
+3. VNF TOSCA template supports HPA features, such as NUMA, Hyper
    Threading, SRIOV， etc.
 
 Intended Audience
@@ -192,7 +192,7 @@ specification [TOSCA-Simple-Profile-NFV-v1.0] for NFV VNFD.
 +====================================================================+
 +--------------------------------------------------------------------+
 
-EPA Requirements
+HPA Requirements
 ^^^^^^^^^^^^^^^^^^
 
 1. SR-IOV Passthrought
