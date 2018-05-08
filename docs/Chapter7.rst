@@ -152,7 +152,7 @@ Configuration Management via Chef
 * R-18525 The xNF provider **MUST** provide a JSON file for each
   supported action for the xNF.  The JSON file must contain key value
   pairs with all relevant values populated with sample data that illustrates
-  its usage. The fields and their description are defined in Appendix A.
+  its usage. The fields and their description are defined in Tables A1 and A2 in the Appendix.
 
  Note: Chef support in ONAP is not currently available and planned for 4Q 2017.
 
@@ -164,7 +164,7 @@ Configuration Management via Ansible
 * R-16777 The xNF provider **MUST** provide a JSON file for each
   supported action for the xNF.  The JSON file must contain key value
   pairs with all relevant values populated with sample data that illustrates
-  its usage. The fields and their description are defined in Appendix B.
+  its usage. The fields and their description are defined in Table B1 in the Appendix.
 
 * R-46567 The xNF Package **MUST** include configuration scripts
   for boot sequence and configuration.
@@ -313,8 +313,8 @@ Licensing Requirements
   onboarding the xNF into the ONAP environment and automating processes
   for putting the licenses into use and managing the full lifecycle of
   the licenses. The details of this license model are described in
-  Appendix C. Note: License metadata support in ONAP is not currently
-  available and planned for 1Q 2018.
+  Tables C1 to C8 in the Appendix. Note: License metadata support in 
+  ONAP is not currently available and planned for 1Q 2018.
 
 Configuration Management
 ---------------------------------------------------
@@ -716,7 +716,7 @@ NETCONF Server Requirements
 The following requirements provides the Yang models that suppliers must
 conform, and those where applicable, that suppliers need to use.
 
-* R-28545 The xNF **MUST** conform its YANG model to RFC 6020,
+* R-28545 The xNF **MUST** conform its YANG model to RFC 6060,
   “YANG - A Data Modeling Language for the Network Configuration
   Protocol (NETCONF)”
 * R-29967 The xNF **MUST** conform its YANG model to RFC 6022,
