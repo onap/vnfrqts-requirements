@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a93c517_729d6209",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 1640,
+      "author": {
+        "id": 1697
+      },
+      "writtenOn": "2018-05-09T13:48:30Z",
+      "side": 0,
+      "message": "is there a reason why we removed R-43125? This would have been one of those requirements that were identified as being tested",
+      "range": {
+        "startLine": 1640,
+        "startChar": 2,
+        "endLine": 1640,
+        "endChar": 10
+      },
+      "revId": "df34f5a369873cecfddcb865f834e7e76148475f",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}

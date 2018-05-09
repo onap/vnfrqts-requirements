@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a93c517_528626ba",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 1689,
+      "author": {
+        "id": 1697
+      },
+      "writtenOn": "2018-05-09T13:48:30Z",
+      "side": 1,
+      "message": "it appears that R-27078 is duplicating R-25265",
+      "range": {
+        "startLine": 1689,
+        "startChar": 4,
+        "endLine": 1689,
+        "endChar": 5
+      },
+      "revId": "10c75f104f2317d1cd1042e603c09898b5aa54d3",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
