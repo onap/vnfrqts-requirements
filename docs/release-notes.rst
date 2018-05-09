@@ -3,8 +3,8 @@
 .. Copyright 2017 AT&T Intellectual Property.  All rights reserved.
 
 
-VNF Requirements Release Notes
-================================
+Release Notes
+=============
 
 Version: 2.0.0
 ------------------------
