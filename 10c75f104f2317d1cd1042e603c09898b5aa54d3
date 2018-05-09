@@ -22,6 +22,30 @@
       "revId": "10c75f104f2317d1cd1042e603c09898b5aa54d3",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_fdb6233d",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 1689,
+      "author": {
+        "id": 3013
+      },
+      "writtenOn": "2018-05-09T14:22:08Z",
+      "side": 1,
+      "message": "Yes, looks like there are several duplicates. Are there rules about IDs appearing multiple times in the document? If not I will consolidate the duplicates to each only use one ID.",
+      "parentUuid": "5a93c517_528626ba",
+      "range": {
+        "startLine": 1689,
+        "startChar": 4,
+        "endLine": 1689,
+        "endChar": 5
+      },
+      "revId": "10c75f104f2317d1cd1042e603c09898b5aa54d3",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
