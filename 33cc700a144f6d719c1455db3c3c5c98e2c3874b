@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a93c517_009836be",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 9
+      },
+      "lineNbr": 1628,
+      "author": {
+        "id": 451
+      },
+      "writtenOn": "2018-05-15T13:47:21Z",
+      "side": 1,
+      "message": "This requirement was not identified as being new in VNFRQTS-215. Its not good practice to do this to add new requirements not specified in the Jira issue. \nIn this case it not an issue, as the Heat Orchestration template specification requires YAML, so this is a redundant requirement. \nIf you want a requirement here it you should really specify what valid YAML means. Specification compliance is the issue here, i.e. do we support all HOT versions or just a subset?",
+      "range": {
+        "startLine": 1628,
+        "startChar": 0,
+        "endLine": 1628,
+        "endChar": 11
+      },
+      "revId": "33cc700a144f6d719c1455db3c3c5c98e2c3874b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_40db9e4e",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 9
+      },
+      "lineNbr": 1643,
+      "author": {
+        "id": 451
+      },
+      "writtenOn": "2018-05-15T13:47:21Z",
+      "side": 1,
+      "message": "Again removal of R-43125, was not highlighted in Jira issue, which it should.\nAgain in this case it not an issue as YAML specification requires indentation, so was is a redundant requirement.",
+      "range": {
+        "startLine": 1643,
+        "startChar": 2,
+        "endLine": 1643,
+        "endChar": 12
+      },
+      "revId": "33cc700a144f6d719c1455db3c3c5c98e2c3874b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
