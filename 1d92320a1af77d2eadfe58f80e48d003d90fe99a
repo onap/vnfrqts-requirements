@@ -528,6 +528,29 @@
       "revId": "1d92320a1af77d2eadfe58f80e48d003d90fe99a",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_26b45c81",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 2424,
+      "author": {
+        "id": 451
+      },
+      "writtenOn": "2018-05-21T14:52:52Z",
+      "side": 1,
+      "message": "This may be a problem for existing VNFs.\n In scenario where the VNF provider may wish to support the optional to manually deploy and scale as an optional use case, it would be complicated to scale manually using modular templates since the incremental template needs several resource IDs from the base template.\n  The original motivation  for avoiding ‘heat stack-update’ support originates from a bug that existed in early OpenStack releases, which could cause existing resources to be replaced at scaling. It shouldn\u0027t be applicable anymore. Also looking forward using HOT ResourceGroup (which is used when scaling with heat stack-update) is similar to how could design K8s templates using ReplicaSet/StatefulSet.",
+      "range": {
+        "startLine": 2422,
+        "startChar": 0,
+        "endLine": 2424,
+        "endChar": 19
+      },
+      "revId": "1d92320a1af77d2eadfe58f80e48d003d90fe99a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
