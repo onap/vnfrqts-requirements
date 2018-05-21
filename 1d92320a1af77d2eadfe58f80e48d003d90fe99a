@@ -1,0 +1,533 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a93c517_c3a48a4d",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 451
+      },
+      "writtenOn": "2018-05-21T13:35:19Z",
+      "side": 1,
+      "message": "Spelling anti-affinity",
+      "range": {
+        "startLine": 126,
+        "startChar": 15,
+        "endLine": 126,
+        "endChar": 27
+      },
+      "revId": "1d92320a1af77d2eadfe58f80e48d003d90fe99a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_6361f610",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 451
+      },
+      "writtenOn": "2018-05-21T13:35:19Z",
+      "side": 1,
+      "message": "Spelling Pass through",
+      "range": {
+        "startLine": 198,
+        "startChar": 10,
+        "endLine": 198,
+        "endChar": 22
+      },
+      "revId": "1d92320a1af77d2eadfe58f80e48d003d90fe99a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_83668228",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 451
+      },
+      "writtenOn": "2018-05-21T13:35:19Z",
+      "side": 1,
+      "message": "Spelling hugepages",
+      "range": {
+        "startLine": 269,
+        "startChar": 0,
+        "endLine": 269,
+        "endChar": 10
+      },
+      "revId": "1d92320a1af77d2eadfe58f80e48d003d90fe99a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_a3a7fe4f",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 767,
+      "author": {
+        "id": 451
+      },
+      "writtenOn": "2018-05-21T13:35:19Z",
+      "side": 1,
+      "message": "Spelling should be false",
+      "range": {
+        "startLine": 767,
+        "startChar": 11,
+        "endLine": 767,
+        "endChar": 16
+      },
+      "revId": "1d92320a1af77d2eadfe58f80e48d003d90fe99a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_c371ea0d",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 1652,
+      "author": {
+        "id": 451
+      },
+      "writtenOn": "2018-05-21T13:35:19Z",
+      "side": 1,
+      "message": "Does this mean all Heat template versions are supported?",
+      "range": {
+        "startLine": 1650,
+        "startChar": 0,
+        "endLine": 1652,
+        "endChar": 70
+      },
+      "revId": "1d92320a1af77d2eadfe58f80e48d003d90fe99a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_435dda78",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 1757,
+      "author": {
+        "id": 451
+      },
+      "writtenOn": "2018-05-21T13:35:19Z",
+      "side": 1,
+      "message": "These are requirements specified in the HOT specification and not specific to ONAP",
+      "range": {
+        "startLine": 1745,
+        "startChar": 0,
+        "endLine": 1757,
+        "endChar": 54
+      },
+      "revId": "1d92320a1af77d2eadfe58f80e48d003d90fe99a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_034fd2bf",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 1763,
+      "author": {
+        "id": 451
+      },
+      "writtenOn": "2018-05-21T13:35:19Z",
+      "side": 1,
+      "message": "This is a redundant requirement. You are stating an optional parameter is optional",
+      "range": {
+        "startLine": 1762,
+        "startChar": 0,
+        "endLine": 1763,
+        "endChar": 50
+      },
+      "revId": "1d92320a1af77d2eadfe58f80e48d003d90fe99a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_83ca0219",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 1782,
+      "author": {
+        "id": 451
+      },
+      "writtenOn": "2018-05-21T13:35:19Z",
+      "side": 1,
+      "message": "Recommend rewording \nR-26124 If a VNF Heat Orchestration Template parameter\nrequires a default value, it **MUST** be enumerated in the environment file.",
+      "range": {
+        "startLine": 1781,
+        "startChar": 0,
+        "endLine": 1782,
+        "endChar": 71
+      },
+      "revId": "1d92320a1af77d2eadfe58f80e48d003d90fe99a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_23cf6e2b",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 1792,
+      "author": {
+        "id": 451
+      },
+      "writtenOn": "2018-05-21T13:35:19Z",
+      "side": 1,
+      "message": "This is a redundant requirement. You are stating an optional parameter is optional",
+      "range": {
+        "startLine": 1791,
+        "startChar": 0,
+        "endLine": 1792,
+        "endChar": 48
+      },
+      "revId": "1d92320a1af77d2eadfe58f80e48d003d90fe99a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_e3d8a6f2",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 1823,
+      "author": {
+        "id": 451
+      },
+      "writtenOn": "2018-05-21T13:35:19Z",
+      "side": 1,
+      "message": "Missing bold emphasis on MUST NOT. What if the nested parameter is a number? R-88863 requires I must use range",
+      "range": {
+        "startLine": 1822,
+        "startChar": 0,
+        "endLine": 1823,
+        "endChar": 57
+      },
+      "revId": "1d92320a1af77d2eadfe58f80e48d003d90fe99a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_a3e29e9e",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 1902,
+      "author": {
+        "id": 451
+      },
+      "writtenOn": "2018-05-21T13:35:19Z",
+      "side": 1,
+      "message": "This is a redundant requirement. You are stating an optional parameter is optional",
+      "range": {
+        "startLine": 1901,
+        "startChar": 0,
+        "endLine": 1902,
+        "endChar": 43
+      },
+      "revId": "1d92320a1af77d2eadfe58f80e48d003d90fe99a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_c3dfaad5",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 1920,
+      "author": {
+        "id": 451
+      },
+      "writtenOn": "2018-05-21T13:35:19Z",
+      "side": 1,
+      "message": "This is not a requirement, you can\u0027t say MAY or MAY NOT in a requirement.",
+      "range": {
+        "startLine": 1919,
+        "startChar": 0,
+        "endLine": 1920,
+        "endChar": 58
+      },
+      "revId": "1d92320a1af77d2eadfe58f80e48d003d90fe99a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_63ec9693",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 1958,
+      "author": {
+        "id": 451
+      },
+      "writtenOn": "2018-05-21T13:35:19Z",
+      "side": 1,
+      "message": "Again a HOT Specification restriction",
+      "range": {
+        "startLine": 1956,
+        "startChar": 0,
+        "endLine": 1958,
+        "endChar": 33
+      },
+      "revId": "1d92320a1af77d2eadfe58f80e48d003d90fe99a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_83f1a26c",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 2017,
+      "author": {
+        "id": 451
+      },
+      "writtenOn": "2018-05-21T13:35:19Z",
+      "side": 1,
+      "message": "spelling Resouce -\u003e Resource",
+      "range": {
+        "startLine": 2017,
+        "startChar": 44,
+        "endLine": 2017,
+        "endChar": 51
+      },
+      "revId": "1d92320a1af77d2eadfe58f80e48d003d90fe99a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_23e68eb1",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 2023,
+      "author": {
+        "id": 451
+      },
+      "writtenOn": "2018-05-21T13:35:19Z",
+      "side": 1,
+      "message": "spelling Resouce -\u003e Resource",
+      "range": {
+        "startLine": 2023,
+        "startChar": 44,
+        "endLine": 2023,
+        "endChar": 51
+      },
+      "revId": "1d92320a1af77d2eadfe58f80e48d003d90fe99a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_e3ff4634",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 2024,
+      "author": {
+        "id": 451
+      },
+      "writtenOn": "2018-05-21T13:35:19Z",
+      "side": 1,
+      "message": "Redundant requirements, states an optional parameter can be optionally used",
+      "range": {
+        "startLine": 2016,
+        "startChar": 0,
+        "endLine": 2024,
+        "endChar": 39
+      },
+      "revId": "1d92320a1af77d2eadfe58f80e48d003d90fe99a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_03fd923b",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 2029,
+      "author": {
+        "id": 451
+      },
+      "writtenOn": "2018-05-21T13:35:19Z",
+      "side": 1,
+      "message": "spelling Resource",
+      "range": {
+        "startLine": 2029,
+        "startChar": 46,
+        "endLine": 2029,
+        "endChar": 53
+      },
+      "revId": "1d92320a1af77d2eadfe58f80e48d003d90fe99a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_c3f6ca5d",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 2030,
+      "author": {
+        "id": 451
+      },
+      "writtenOn": "2018-05-21T13:35:19Z",
+      "side": 1,
+      "message": "Redundant requirement, states an optional parameter can be optionally used",
+      "range": {
+        "startLine": 2029,
+        "startChar": 0,
+        "endLine": 2030,
+        "endChar": 49
+      },
+      "revId": "1d92320a1af77d2eadfe58f80e48d003d90fe99a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_a3f93e50",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 2043,
+      "author": {
+        "id": 451
+      },
+      "writtenOn": "2018-05-21T13:35:19Z",
+      "side": 1,
+      "message": "spelling Resource",
+      "range": {
+        "startLine": 2043,
+        "startChar": 46,
+        "endLine": 2043,
+        "endChar": 53
+      },
+      "revId": "1d92320a1af77d2eadfe58f80e48d003d90fe99a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_63933601",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 2044,
+      "author": {
+        "id": 451
+      },
+      "writtenOn": "2018-05-21T13:35:19Z",
+      "side": 1,
+      "message": "Redundant requirement, states an optional parameter can be optionally used",
+      "range": {
+        "startLine": 2043,
+        "startChar": 0,
+        "endLine": 2044,
+        "endChar": 37
+      },
+      "revId": "1d92320a1af77d2eadfe58f80e48d003d90fe99a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_8398c21c",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 2092,
+      "author": {
+        "id": 451
+      },
+      "writtenOn": "2018-05-21T13:35:19Z",
+      "side": 1,
+      "message": "This is not a requirement, you can\u0027t say MAY or MAY NOT in a requirement.",
+      "range": {
+        "startLine": 2091,
+        "startChar": 0,
+        "endLine": 2092,
+        "endChar": 68
+      },
+      "revId": "1d92320a1af77d2eadfe58f80e48d003d90fe99a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_239d2e0b",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 2118,
+      "author": {
+        "id": 451
+      },
+      "writtenOn": "2018-05-21T13:35:19Z",
+      "side": 1,
+      "message": "Redundant requirements, states an optional parameter can be optionally used",
+      "range": {
+        "startLine": 2098,
+        "startChar": 0,
+        "endLine": 2118,
+        "endChar": 71
+      },
+      "revId": "1d92320a1af77d2eadfe58f80e48d003d90fe99a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_e38666ba",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 2384,
+      "author": {
+        "id": 451
+      },
+      "writtenOn": "2018-05-21T13:35:19Z",
+      "side": 1,
+      "message": "Sure it a case of \nR-89913 A VNF’s Heat Orchestration Template’s Cinder Volume Module  **MUST** containbe the UUID(s) of the Cinder Volumes created in template as one of the Output Parameters.\n\nAs it is written you cannot have any other output parameters from the Cinder Volume Module. Is that the intention?",
+      "range": {
+        "startLine": 2383,
+        "startChar": 0,
+        "endLine": 2384,
+        "endChar": 79
+      },
+      "revId": "1d92320a1af77d2eadfe58f80e48d003d90fe99a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
