@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a93c517_ddff8b34",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 1741,
+      "author": {
+        "id": 451
+      },
+      "writtenOn": "2018-05-21T13:35:19Z",
+      "side": 1,
+      "message": "Typo - should be \"type\"",
+      "range": {
+        "startLine": 1741,
+        "startChar": 56,
+        "endLine": 1741,
+        "endChar": 58
+      },
+      "revId": "06275d5ee5874fb5a4ee3ccc24e2060cd35dfcc9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
