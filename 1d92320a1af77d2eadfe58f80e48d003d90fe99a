@@ -117,6 +117,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_0c0e1f33",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 1652,
+      "author": {
+        "id": 4055
+      },
+      "writtenOn": "2018-05-22T17:02:39Z",
+      "side": 1,
+      "message": "the text and requirements in heat_template_version below addresses this question.  It is dependent on the OpenStack version that the Cloud is supporting.",
+      "parentUuid": "5a93c517_c371ea0d",
+      "range": {
+        "startLine": 1650,
+        "startChar": 0,
+        "endLine": 1652,
+        "endChar": 70
+      },
+      "revId": "1d92320a1af77d2eadfe58f80e48d003d90fe99a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_435dda78",
         "filename": "docs/Chapter5.rst",
         "patchSetId": 5
@@ -128,6 +152,30 @@
       "writtenOn": "2018-05-21T13:35:19Z",
       "side": 1,
       "message": "These are requirements specified in the HOT specification and not specific to ONAP",
+      "range": {
+        "startLine": 1745,
+        "startChar": 0,
+        "endLine": 1757,
+        "endChar": 54
+      },
+      "revId": "1d92320a1af77d2eadfe58f80e48d003d90fe99a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_4c23c7a7",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 1757,
+      "author": {
+        "id": 4055
+      },
+      "writtenOn": "2018-05-22T17:02:39Z",
+      "side": 1,
+      "message": "You statement is correct.  There is a VVP test that validates this requirement.  The requirement could be removed, but then the linkage to the VVP test would be lost.",
+      "parentUuid": "5a93c517_435dda78",
       "range": {
         "startLine": 1745,
         "startChar": 0,
@@ -163,6 +211,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_8c50ef0b",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 1763,
+      "author": {
+        "id": 4055
+      },
+      "writtenOn": "2018-05-22T17:02:39Z",
+      "side": 1,
+      "message": "Both label and description are OpenStack optional attributes.  VVP requires (MUST) the description.  VVP does not require the label.  The purpose of R-32094 is to reflect that VVP does not enforce the presence of label.",
+      "parentUuid": "5a93c517_034fd2bf",
+      "range": {
+        "startLine": 1762,
+        "startChar": 0,
+        "endLine": 1763,
+        "endChar": 50
+      },
+      "revId": "1d92320a1af77d2eadfe58f80e48d003d90fe99a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_83ca0219",
         "filename": "docs/Chapter5.rst",
         "patchSetId": 5
@@ -174,6 +246,30 @@
       "writtenOn": "2018-05-21T13:35:19Z",
       "side": 1,
       "message": "Recommend rewording \nR-26124 If a VNF Heat Orchestration Template parameter\nrequires a default value, it **MUST** be enumerated in the environment file.",
+      "range": {
+        "startLine": 1781,
+        "startChar": 0,
+        "endLine": 1782,
+        "endChar": 71
+      },
+      "revId": "1d92320a1af77d2eadfe58f80e48d003d90fe99a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_4c5ae72b",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 1782,
+      "author": {
+        "id": 4055
+      },
+      "writtenOn": "2018-05-22T17:02:39Z",
+      "side": 1,
+      "message": "ok.  Will reword as suggested.",
+      "parentUuid": "5a93c517_83ca0219",
       "range": {
         "startLine": 1781,
         "startChar": 0,
@@ -209,6 +305,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_ec3e53b9",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 1792,
+      "author": {
+        "id": 4055
+      },
+      "writtenOn": "2018-05-22T17:02:39Z",
+      "side": 1,
+      "message": "Same comment as provided in label.  It is to reflect that VVP is not enforcing the presence of this attribute.",
+      "parentUuid": "5a93c517_23cf6e2b",
+      "range": {
+        "startLine": 1791,
+        "startChar": 0,
+        "endLine": 1792,
+        "endChar": 48
+      },
+      "revId": "1d92320a1af77d2eadfe58f80e48d003d90fe99a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_e3d8a6f2",
         "filename": "docs/Chapter5.rst",
         "patchSetId": 5
@@ -220,6 +340,30 @@
       "writtenOn": "2018-05-21T13:35:19Z",
       "side": 1,
       "message": "Missing bold emphasis on MUST NOT. What if the nested parameter is a number? R-88863 requires I must use range",
+      "range": {
+        "startLine": 1822,
+        "startChar": 0,
+        "endLine": 1823,
+        "endChar": 57
+      },
+      "revId": "1d92320a1af77d2eadfe58f80e48d003d90fe99a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_cc459744",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 1823,
+      "author": {
+        "id": 4055
+      },
+      "writtenOn": "2018-05-22T17:02:39Z",
+      "side": 1,
+      "message": "a number parameter in a nested yaml file must not have constraints.  A nested yaml can be called by many Heat Orchestration Templates in the VNF, each having different range constraints.  The parameter in the nested yaml file would need to be the min/max of all parameters.  Also, constraints are being enforced by the \"parent\" file.",
+      "parentUuid": "5a93c517_e3d8a6f2",
       "range": {
         "startLine": 1822,
         "startChar": 0,
@@ -255,6 +399,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_8c778f9f",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 1902,
+      "author": {
+        "id": 4055
+      },
+      "writtenOn": "2018-05-22T17:02:39Z",
+      "side": 1,
+      "message": "Same comment that was provided for label.",
+      "parentUuid": "5a93c517_a3e29e9e",
+      "range": {
+        "startLine": 1901,
+        "startChar": 0,
+        "endLine": 1902,
+        "endChar": 43
+      },
+      "revId": "1d92320a1af77d2eadfe58f80e48d003d90fe99a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_c3dfaad5",
         "filename": "docs/Chapter5.rst",
         "patchSetId": 5
@@ -278,6 +446,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_2c6c3bd0",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 1920,
+      "author": {
+        "id": 4055
+      },
+      "writtenOn": "2018-05-22T17:02:39Z",
+      "side": 1,
+      "message": "will remove \"MAY NOT\"",
+      "parentUuid": "5a93c517_c3dfaad5",
+      "range": {
+        "startLine": 1919,
+        "startChar": 0,
+        "endLine": 1920,
+        "endChar": 58
+      },
+      "revId": "1d92320a1af77d2eadfe58f80e48d003d90fe99a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_63ec9693",
         "filename": "docs/Chapter5.rst",
         "patchSetId": 5
@@ -289,6 +481,30 @@
       "writtenOn": "2018-05-21T13:35:19Z",
       "side": 1,
       "message": "Again a HOT Specification restriction",
+      "range": {
+        "startLine": 1956,
+        "startChar": 0,
+        "endLine": 1958,
+        "endChar": 33
+      },
+      "revId": "1d92320a1af77d2eadfe58f80e48d003d90fe99a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_2ca3db01",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 1958,
+      "author": {
+        "id": 4055
+      },
+      "writtenOn": "2018-05-22T17:02:39Z",
+      "side": 1,
+      "message": "I am not aware of this requirement in the Heat Spec.  Resource IDs allow colons \":\".  Can you please provide a pointer to the Spec.  thanks.",
+      "parentUuid": "5a93c517_63ec9693",
       "range": {
         "startLine": 1956,
         "startChar": 0,
@@ -370,6 +586,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_8cec6f2b",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 2024,
+      "author": {
+        "id": 4055
+      },
+      "writtenOn": "2018-05-22T17:02:39Z",
+      "side": 1,
+      "message": "VVP validation enforcement is different than the Heat specification.  VVP requires description, which is optional.  VVP does not require this attribute.  The goal was to provide linkage to VVP validations.",
+      "parentUuid": "5a93c517_e3ff4634",
+      "range": {
+        "startLine": 2016,
+        "startChar": 0,
+        "endLine": 2024,
+        "endChar": 39
+      },
+      "revId": "1d92320a1af77d2eadfe58f80e48d003d90fe99a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_03fd923b",
         "filename": "docs/Chapter5.rst",
         "patchSetId": 5
@@ -404,6 +644,30 @@
       "writtenOn": "2018-05-21T13:35:19Z",
       "side": 1,
       "message": "Redundant requirement, states an optional parameter can be optionally used",
+      "range": {
+        "startLine": 2029,
+        "startChar": 0,
+        "endLine": 2030,
+        "endChar": 49
+      },
+      "revId": "1d92320a1af77d2eadfe58f80e48d003d90fe99a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_4cf667fb",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 2030,
+      "author": {
+        "id": 4055
+      },
+      "writtenOn": "2018-05-22T17:02:39Z",
+      "side": 1,
+      "message": "VVP validation enforcement is different than the Heat specification.  VVP requires description, which is optional.  VVP does not require this attribute.  The goal was to provide linkage to VVP validations.",
+      "parentUuid": "5a93c517_c3f6ca5d",
       "range": {
         "startLine": 2029,
         "startChar": 0,
@@ -462,6 +726,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_ecdad378",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 2044,
+      "author": {
+        "id": 4055
+      },
+      "writtenOn": "2018-05-22T17:02:39Z",
+      "side": 1,
+      "message": "VVP validation enforcement is different than the Heat specification.  VVP requires description, which is optional.  VVP does not require this attribute.  The goal was to provide linkage to VVP validations.",
+      "parentUuid": "5a93c517_63933601",
+      "range": {
+        "startLine": 2043,
+        "startChar": 0,
+        "endLine": 2044,
+        "endChar": 37
+      },
+      "revId": "1d92320a1af77d2eadfe58f80e48d003d90fe99a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_8398c21c",
         "filename": "docs/Chapter5.rst",
         "patchSetId": 5
@@ -473,6 +761,30 @@
       "writtenOn": "2018-05-21T13:35:19Z",
       "side": 1,
       "message": "This is not a requirement, you can\u0027t say MAY or MAY NOT in a requirement.",
+      "range": {
+        "startLine": 2091,
+        "startChar": 0,
+        "endLine": 2092,
+        "endChar": 68
+      },
+      "revId": "1d92320a1af77d2eadfe58f80e48d003d90fe99a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_0caa9fd2",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 2092,
+      "author": {
+        "id": 4055
+      },
+      "writtenOn": "2018-05-22T17:02:39Z",
+      "side": 1,
+      "message": "will remove MAY NOT",
+      "parentUuid": "5a93c517_8398c21c",
       "range": {
         "startLine": 2091,
         "startChar": 0,
@@ -508,6 +820,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_0cd85f7e",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 2118,
+      "author": {
+        "id": 4055
+      },
+      "writtenOn": "2018-05-22T17:02:39Z",
+      "side": 1,
+      "message": "VVP validation enforcement is different than the Heat specification.  VVP does not require this attribute.  The goal was to provide linkage to VVP validations.",
+      "parentUuid": "5a93c517_239d2e0b",
+      "range": {
+        "startLine": 2098,
+        "startChar": 0,
+        "endLine": 2118,
+        "endChar": 71
+      },
+      "revId": "1d92320a1af77d2eadfe58f80e48d003d90fe99a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_e38666ba",
         "filename": "docs/Chapter5.rst",
         "patchSetId": 5
@@ -531,6 +867,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_2c3f5b89",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 2384,
+      "author": {
+        "id": 4055
+      },
+      "writtenOn": "2018-05-22T17:02:39Z",
+      "side": 1,
+      "message": "It MUST be the UUIDs of the Cinder Volume.  Other parameter outputs maybe declared.  This will be updated.",
+      "parentUuid": "5a93c517_e38666ba",
+      "range": {
+        "startLine": 2383,
+        "startChar": 0,
+        "endLine": 2384,
+        "endChar": 79
+      },
+      "revId": "1d92320a1af77d2eadfe58f80e48d003d90fe99a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_26b45c81",
         "filename": "docs/Chapter5.rst",
         "patchSetId": 5
@@ -542,6 +902,30 @@
       "writtenOn": "2018-05-21T14:52:52Z",
       "side": 1,
       "message": "This may be a problem for existing VNFs.\n In scenario where the VNF provider may wish to support the optional to manually deploy and scale as an optional use case, it would be complicated to scale manually using modular templates since the incremental template needs several resource IDs from the base template.\n  The original motivation  for avoiding ‘heat stack-update’ support originates from a bug that existed in early OpenStack releases, which could cause existing resources to be replaced at scaling. It shouldn\u0027t be applicable anymore. Also looking forward using HOT ResourceGroup (which is used when scaling with heat stack-update) is similar to how could design K8s templates using ReplicaSet/StatefulSet.",
+      "range": {
+        "startLine": 2422,
+        "startChar": 0,
+        "endLine": 2424,
+        "endChar": 19
+      },
+      "revId": "1d92320a1af77d2eadfe58f80e48d003d90fe99a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_ccb3574c",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 2424,
+      "author": {
+        "id": 4055
+      },
+      "writtenOn": "2018-05-22T17:02:39Z",
+      "side": 1,
+      "message": "ONAP does not provide the capability to perform a heat stack-update for scaling.  There are projects/use cases for VNF scaling.  If/when ONAP implementation changes, the guidelines will be updated.",
+      "parentUuid": "5a93c517_26b45c81",
       "range": {
         "startLine": 2422,
         "startChar": 0,
