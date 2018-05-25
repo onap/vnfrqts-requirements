@@ -12,7 +12,7 @@
   developer needs to know to operate and be compliant with ONAP.
 - Requirements that are not applicable to VNF/PNF providers such as those
   that applicable to service providers are not included in this document.
-- These requirements are applicable to the Amsterdam release of ONAP.
+- These requirements are applicable to the current release of ONAP.
 - Scope of the ONAP versions/release and future functionality
 - The VNF Requirements should include support for the functionality of the
   ONAP E-E use cases.
