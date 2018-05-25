@@ -656,8 +656,6 @@ Identity and Access Management Requirements
   Applications for the implementation of OAuth 2.0 Authorization
   Code Grant and Client Credentials Grant, as the standard interface
   for a VNF.
-* R-86455 The VNF **SHOULD** support hosting connectors for OS
-  Level and Application Access.
 * R-48080 The VNF **SHOULD** support SCEP (Simple Certificate
   Enrollment Protocol).
 
