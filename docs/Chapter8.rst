@@ -56,7 +56,7 @@ Table A1. Chef JSON File key value description
 |                | as part of the desired   |         |                      |
 |                | VNF action.              |         |                      |
 +----------------+--------------------------+---------+----------------------+
-| PushJobFlag    | This field indicates     |Mandatory| If set to “True”,    |
+| PushJobFlag    | This field indicates     |Mandatory| If set to â€œTrueâ€�,    |
 |                | whether the VNF action   |         | ONAP will request a  |
 |                | requires a push Job. Push|         | push job. Ignored    |
 |                | job object will be       |         | otherwise.           |
@@ -66,7 +66,7 @@ Table A1. Chef JSON File key value description
 | CallbackCapable| This field indicates if  | Optional| If Chef cookbook is  |
 |                | the chef-client run      |         | callback capable, VNF|
 |                | invoked by push job      |         | owner is required to |
-|                | corresponding to the VNF |         | set it to “True”.    |
+|                | corresponding to the VNF |         | set it to â€œTrueâ€�.    |
 |                | action is capable of     |         | Ignored otherwise.   |
 |                | posting results on a     |         |                      |
 |                | callback URL.            |         |                      |
@@ -74,9 +74,9 @@ Table A1. Chef JSON File key value description
 | GetOutputFlag  | Flag which indicates     |Mandatory| ONAP will retrieve   |
 |                | whether ONAP should      |         | output from          |
 |                | retrieve output generated|         | NodeObject attributes|
-|                | in a chef-client run from|         | [‘PushJobOutput’] for|
+|                | in a chef-client run from|         | [â€˜PushJobOutputâ€™] for|
 |                | Node object attribute    |         | all nodes in NodeList|
-|                | node[‘PushJobOutput’] for|         | if set to “True”.    |
+|                | node[â€˜PushJobOutputâ€™] for|         | if set to â€œTrueâ€�.    |
 |                | this VNF action (e.g., in|         | Ignored otherwise.   |
 |                | Audit).                  |         |                      |
 +----------------+--------------------------+---------+----------------------+
@@ -85,39 +85,39 @@ Chef Template example:
 
 .. code-block:: chef
 
- “Environment”:{
+ â€œEnvironmentâ€�:{
       "name": "HAR",
       "description": "VNF Chef environment for HAR",
       "json\_class": "Chef::Environment",
       "chef\_type": "environment",
       "default\_attributes": { },
       "override\_attributes": {
-            “Retry\_Time”:”50”,
-            “MemCache”: “1024”,
-            “Database\_IP”:”10.10.1.5”
+            â€œRetry\_Timeâ€�:â€�50â€�,
+            â€œMemCacheâ€�: â€œ1024â€�,
+            â€œDatabase\_IPâ€�:â€�10.10.1.5â€�
       },
  }
  }
- “Node”: {
-      “name” : “signal.network.com “
+ â€œNodeâ€�: {
+      â€œnameâ€� : â€œsignal.network.com â€œ
       "chef\_type": "node",
       "json\_class": "Chef::Node",
       "attributes": {
-            “IPAddress1”: “192.168.1.2”,
-            “IPAddress2”:”135.16.162.5”,
-            “MyRole”:”BE”
+            â€œIPAddress1â€�: â€œ192.168.1.2â€�,
+            â€œIPAddress2â€�:â€�135.16.162.5â€�,
+            â€œMyRoleâ€�:â€�BEâ€�
       },
       "override": {},
       "default": {},
-      “normal”:{},
-      “automatic”:{},
-      “chef\_environment” : “\_default”
+      â€œnormalâ€�:{},
+      â€œautomaticâ€�:{},
+      â€œchef\_environmentâ€� : â€œ\_defaultâ€�
       "run\_list": [ "configure\_signal" ]
       },
-      “NodeList”:[“node1.vnf\_a.onap.com”, “node2.vnf\_a.onap.com”],
-      “PushJobFlag”: “True”
-      “CallbackCapable”:True
-      “GetOutputFlag” : “False”
+      â€œNodeListâ€�:[â€œnode1.vnf\_a.onap.comâ€�, â€œnode2.vnf\_a.onap.comâ€�],
+      â€œPushJobFlagâ€�: â€œTrueâ€�
+      â€œCallbackCapableâ€�:True
+      â€œGetOutputFlagâ€� : â€œFalseâ€�
  }
 
 The example JSON file provided by the VNF provider for each VNF action will be
@@ -129,8 +129,8 @@ Some points worth noting regarding the JSON fields:
 a. The JSON file must be created for each action for each VNF.
 
 b. If a VNF action involves multiple endpoints (VMs) of a VNF, ONAP will
-   replicate the “Node” JSON dictionary in the template and post it to
-   each FQDN (i.e., endpoint) in the NodeList after setting the “name”
+   replicate the â€œNodeâ€� JSON dictionary in the template and post it to
+   each FQDN (i.e., endpoint) in the NodeList after setting the â€œnameâ€�
    field in the Node object to be the respective FQDN [1]_. Hence, it
    is required that all end points (VMs) of a VNF involved in a VNF
    action support the same set of Node Object attributes.
@@ -158,7 +158,7 @@ Table A2. JSON Dictionary to Post in Callback
 |              | successfully 500 otherwise.|         |                       |
 +--------------+----------------------------+---------+-----------------------+
 | StatusMessage| A string which must be set |Mandatory|                       |
-|              | to ‘SUCCESS’ if StatusCode |         |                       |
+|              | to â€˜SUCCESSâ€™ if StatusCode |         |                       |
 |              | was 200                    |         |                       |
 |              |                            |         |                       |
 |              | Appropriate error message  |         |                       |
@@ -208,11 +208,11 @@ Table B1. Ansible JSON File key value description
 |               | value pairs to be    |         |Attribute names (variable   |
 |               | passed to the Ansible|         |names) passed to Ansible    |
 |               | playbook. These      |         |shall follow Ansible valid  |
-|               | values would         |         |variable names: “Variable   |
+|               | values would         |         |variable names: â€œVariable   |
 |               | correspond to        |         |names should be letters,    |
 |               | instance specific    |         |numbers, and underscores.   |
 |               | parameters that a    |         |Variables should always     |
-|               | playbook may need to |         |start with a letter.”       |
+|               | playbook may need to |         |start with a letter.â€�       |
 |               | execute an action.   |         |                            |
 +---------------+----------------------+---------+----------------------------+
 | NodeList      |Ansible inventory     | Optional|If not provided, pre-loaded |
@@ -256,26 +256,26 @@ Ansible JSON file example:
 
 {
 
-      “Action”:”Configure”,
+      â€œActionâ€�:â€�Configureâ€�,
 
       "PlaybookName": "<VNFCode>/<Version>/ansible/configure/site.yml",
 
-      "NodeList": ["test1.vnf\_b.onap.com", “test2.vnf\_b.onap.com”],
+      "NodeList": ["test1.vnf\_b.onap.com", â€œtest2.vnf\_b.onap.comâ€�],
 
       "Timeout": 60,
 
-      "EnvParameters": {"Retry": 3, "Wait": 5, “ConfigFile”:”config.txt”},
+      "EnvParameters": {"Retry": 3, "Wait": 5, â€œConfigFileâ€�:â€�config.txtâ€�},
 
-      “FileParameters”:{“config.txt”:”db\_ip=10.1.1.1, sip\_timer=10000”}
+      â€œFileParametersâ€�:{â€œconfig.txtâ€�:â€�db\_ip=10.1.1.1, sip\_timer=10000â€�}
 
 }
 
 In the above example, the Ansible Server will:
 
-a. Process the “FileParameters” dictionary and generate a file named
-   ‘config.txt’ with contents set to the value of the ‘config.txt’ key.
+a. Process the â€œFileParametersâ€� dictionary and generate a file named
+   â€˜config.txtâ€™ with contents set to the value of the â€˜config.txtâ€™ key.
 
-b. Execute the playbook named ‘<VNFCode>/<Version>/ansible/configure/site.yml’
+b. Execute the playbook named â€˜<VNFCode>/<Version>/ansible/configure/site.ymlâ€™
    on nodes with    FQDNs test1.vnf\_b.onap.com and test2.vnf\_b.onap.com
    respectively while providing the following key value pairs to the playbook:
    Retry=3, Wait=5, ConfigFile=config.txt
@@ -358,7 +358,7 @@ Table C2. Required Fields for Entitlements
 +---------------+-----------------------------------+-------------+-----------+
 | Entitlement   | Each entitlement defined must be  | String      | Mandatory |
 | Identifier    | identified by a unique value (e.g.|             |           |
-|               | numbered 1, 2, 3….)               |             |           |
+|               | numbered 1, 2, 3â€¦.)               |             |           |
 +---------------+-----------------------------------+-------------+-----------+
 | Minimum Order | The minimum number of entitlements| Number      | Mandatory |
 | Requirement   | that need to be purchased.        |             |           |
@@ -417,7 +417,7 @@ Table C3. Required Fields for License Keys
 +---------------+-----------------------------------+--------------+----------+
 | License Key   | Each license key defined must be  | String       | Mandatory|
 | Identifier    | identified by a unique value      |              |          |
-|               | (e.g., numbered 1, 2, 3….)        |              |          |
+|               | (e.g., numbered 1, 2, 3â€¦.)        |              |          |
 +---------------+-----------------------------------+--------------+----------+
 | Key Function  | Lifecycle stage (e.g.,            | String       | Optional |
 |               | Instantiation or Activation) at   |              |          |
@@ -493,7 +493,7 @@ Table C4. Required Fields for Location
 | Limit Identifier | Each limit defined for an      | String       | Mandatory|
 |                  | entitlement or license key must|              |          |
 |                  | be identified by a unique value|              |          |
-|                  | (e.g., numbered 1,2,3…)        |              |          |
+|                  | (e.g., numbered 1,2,3â€¦)        |              |          |
 +------------------+--------------------------------+--------------+----------+
 | Limit Description| Verbiage describing the limit. | String       | Mandatory|
 +------------------+--------------------------------+--------------+----------+
@@ -589,7 +589,7 @@ Limits based on how the software is used. For example:
    software supports
 
 -  use is limited to a certain environment (e.g., test, development,
-   production…)
+   productionâ€¦)
 
 -  use is limited by processor (vm, cpu, core)
 
@@ -620,7 +620,7 @@ Table C6. Required Fields for Usage
 +------------------+-------------------------------+---------------+----------+
 | Limit List       | List of usage limits (e.g.,   | List of String| Mandatory|
 |                  | test, development, vm, core,  |               |          |
-|                  | R1.2.1, R1.3.5…)              |               |          |
+|                  | R1.2.1, R1.3.5â€¦)              |               |          |
 +------------------+-------------------------------+---------------+----------+
 | Limit Set Type   | Indicates if the list is an   | String        | Mandatory|
 |                  | inclusion or exclusion.       |               |          |
@@ -939,11 +939,11 @@ execution environment)
 R-99656 The VNF **MUST** NOT terminate stable sessions if a VNFC
 instance fails.
 
-R-84473 The VNF **MUST** enable DPDK in the guest OS for VNF’s requiring
+R-84473 The VNF **MUST** enable DPDK in the guest OS for VNFâ€™s requiring
 high packets/sec performance.  High packet throughput is defined as greater
 than 500K packets/sec.
 
-R-54430 The VNF **MUST** use the NCSP’s supported library and compute
+R-54430 The VNF **MUST** use the NCSPâ€™s supported library and compute
 flavor that supports DPDK to optimize network efficiency if using DPDK. [5]_
 
 R-18864 The VNF **MUST** NOT use technologies that bypass virtualization
@@ -1078,7 +1078,7 @@ connections, etc.) within the VNF application so that resources
 are not being created and destroyed resulting in resource management
 overhead.
 
-R-55345 The VNF **SHOULD** use techniques such as “lazy loading” when
+R-55345 The VNF **SHOULD** use techniques such as â€œlazy loadingâ€� when
 initialization includes loading catalogues and/or lists which can grow
 over time, so that the VNF startup time does not grow at a rate
 proportional to that of the list.
@@ -1193,8 +1193,8 @@ VNF Security
 ~~~~~~~~~~~~~~
 
 R-23740 The VNF **MUST** accommodate the security principle of
-“least privilege” during development, implementation and operation.
-The importance of “least privilege” cannot be overstated and must be
+â€œleast privilegeâ€� during development, implementation and operation.
+The importance of â€œleast privilegeâ€� cannot be overstated and must be
 observed in all aspects of VNF development and not limited to security.
 This is applicable to all sections of this document.
 
@@ -1203,7 +1203,7 @@ services (e.g., restricting access to certain ports or applications).
 
 R-85633 The VNF **MUST** implement Data Storage Encryption
 (database/disk encryption) for Sensitive Personal Information (SPI)
-and other subscriber identifiable data. Note: subscriber’s SPI/data
+and other subscriber identifiable data. Note: subscriberâ€™s SPI/data
 must be encrypted at rest, and other subscriber identifiable data
 should be encrypted at rest. Other data protection requirements exist
 and should be well understood by the developer.
@@ -1259,36 +1259,36 @@ R-69649 The VNF **MUST** have all vulnerabilities patched as soon
 as possible. Patching shall be controlled via change control process
 with vulnerabilities disclosed along with mitigation recommendations.
 
-R-78010 The VNF **MUST** use the NCSP’s IDAM API for Identification,
+R-78010 The VNF **MUST** use the NCSPâ€™s IDAM API for Identification,
 authentication and access control of customer or VNF application users.
 
-R-42681 The VNF **MUST** use the NCSP’s IDAM API or comply with
-the requirements if not using the NCSP’s IDAM API, for identification,
+R-42681 The VNF **MUST** use the NCSPâ€™s IDAM API or comply with
+the requirements if not using the NCSPâ€™s IDAM API, for identification,
 authentication and access control of OA&M and other system level
 functions.
 
-R-68589 The VNF **MUST**, if not using the NCSP’s IDAM API, support
+R-68589 The VNF **MUST**, if not using the NCSPâ€™s IDAM API, support
 User-IDs and passwords to uniquely identify the user/application. VNF
 needs to have appropriate connectors to the Identity, Authentication
 and Authorization systems that enables access at OS, Database and
 Application levels as appropriate.
 
-R-52085 The VNF **MUST**, if not using the NCSP’s IDAM API, provide
+R-52085 The VNF **MUST**, if not using the NCSPâ€™s IDAM API, provide
 the ability to support Multi-Factor Authentication (e.g., 1st factor =
 Software token on device (RSA SecureID); 2nd factor = User Name+Password,
 etc.) for the users.
 
-R-98391 The VNF **MUST**, if not using the NCSP’s IDAM API, support
+R-98391 The VNF **MUST**, if not using the NCSPâ€™s IDAM API, support
 Role-Based Access Control to permit/limit the user/application to
 performing specific activities.
 
-R-63217 The VNF **MUST**, if not using the NCSP’s IDAM API, support
-logging via ONAP for a historical view of “who did what and when”.
+R-63217 The VNF **MUST**, if not using the NCSPâ€™s IDAM API, support
+logging via ONAP for a historical view of â€œwho did what and whenâ€�.
 
-R-62498 The VNF **MUST**, if not using the NCSP’s IDAM API, encrypt
+R-62498 The VNF **MUST**, if not using the NCSPâ€™s IDAM API, encrypt
 OA&M access (e.g., SSH, SFTP).
 
-R-79107 The VNF **MUST**, if not using the NCSP’s IDAM API, enforce
+R-79107 The VNF **MUST**, if not using the NCSPâ€™s IDAM API, enforce
 a configurable maximum number of Login attempts policy for the users.
 VNF provider must comply with "terminate idle sessions" policy.
 Interactive sessions must be terminated, or a secure, locking screensaver
@@ -1296,13 +1296,13 @@ must be activated requiring authentication, after a configurable period
 of inactivity. The system-based inactivity timeout for the enterprise
 identity and access management system must also be configurable.
 
-R-35144 The VNF **MUST**, if not using the NCSP’s IDAM API, comply
-with the NCSP’s credential management policy.
+R-35144 The VNF **MUST**, if not using the NCSPâ€™s IDAM API, comply
+with the NCSPâ€™s credential management policy.
 
-R-75041 The VNF **MUST**, if not using the NCSP’s IDAM API, expire
+R-75041 The VNF **MUST**, if not using the NCSPâ€™s IDAM API, expire
 passwords at regular configurable intervals.
 
-R-46908 The VNF **MUST**, if not using the NCSP’s IDAM API, comply
+R-46908 The VNF **MUST**, if not using the NCSPâ€™s IDAM API, comply
 with "password complexity" policy. When passwords are used, they shall
 be complex and shall at least meet the following password construction
 requirements: (1) be a minimum configurable number of characters in
@@ -1315,22 +1315,22 @@ characters that may have command functions, and (6) new passwords must
 not contain sequences of three or more characters from the previous
 password.
 
-R-39342 The VNF **MUST**, if not using the NCSP’s IDAM API, comply
+R-39342 The VNF **MUST**, if not using the NCSPâ€™s IDAM API, comply
 with "password changes (includes default passwords)" policy. Products
 will support password aging, syntax and other credential management
 practices on a configurable basis.
 
-R-40521 The VNF **MUST**, if not using the NCSP’s IDAM API, support
+R-40521 The VNF **MUST**, if not using the NCSPâ€™s IDAM API, support
 use of common third party authentication and authorization tools such
 as TACACS+, RADIUS.
 
-R-41994 The VNF **MUST**, if not using the NCSP’s IDAM API, comply
+R-41994 The VNF **MUST**, if not using the NCSPâ€™s IDAM API, comply
 with "No Self-Signed Certificates" policy. Self-signed certificates
 must be used for encryption only, using specified and approved
 encryption protocols such as TLS 1.2 or higher or equivalent security
 protocols such as IPSec, AES.
 
-R-23135 The VNF **MUST**, if not using the NCSP’s IDAM API,
+R-23135 The VNF **MUST**, if not using the NCSPâ€™s IDAM API,
 authenticate system to system communications where one system
 accesses the resources of another system, and must never conceal
 individual accountability.
@@ -1405,7 +1405,7 @@ must login with an account with admin privileges in a way that
 uniquely identifies the individual performing the function.
 
 R-85028 The VNF **MUST** authenticate system to system access and
-do not conceal a VNF provider user’s individual accountability for
+do not conceal a VNF provider userâ€™s individual accountability for
 transactions.
 
 R-80335 The VNF **MUST** make visible a Warning Notice: A formal
@@ -1579,21 +1579,21 @@ inherent privilege level of users.
 R-94525 The VNF **MUST** log connections to a network listener of the
 resource.
 
-R-31614 The VNF **MUST** log the field “event type” in the security
+R-31614 The VNF **MUST** log the field â€œevent typeâ€� in the security
 audit logs.
 
-R-97445 The VNF **MUST** log the field “date/time” in the security
+R-97445 The VNF **MUST** log the field â€œdate/timeâ€� in the security
 audit logs.
 
-R-25547 The VNF **MUST** log the field “protocol” in the security audit logs.
+R-25547 The VNF **MUST** log the field â€œprotocolâ€� in the security audit logs.
 
-R-06413 The VNF **MUST** log the field “service or program used for
-access” in the security audit logs.
+R-06413 The VNF **MUST** log the field â€œservice or program used for
+accessâ€� in the security audit logs.
 
-R-15325 The VNF **MUST** log the field “success/failure” in the
+R-15325 The VNF **MUST** log the field â€œsuccess/failureâ€� in the
 security audit logs.
 
-R-89474 The VNF **MUST** log the field “Login ID” in the security audit logs.
+R-89474 The VNF **MUST** log the field â€œLogin IDâ€� in the security audit logs.
 
 R-04982 The VNF **MUST NOT** include an authentication credential,
 e.g., password, in the security audit logs, even if encrypted.
@@ -1618,19 +1618,19 @@ R-74958 The VNF **MUST** activate security alarms automatically when
 the following event is detected: unsuccessful attempts to gain permissions
 or assume the identity of another user
 
-R-15884 The VNF **MUST** include the field “date” in the Security alarms
+R-15884 The VNF **MUST** include the field â€œdateâ€� in the Security alarms
 (where applicable and technically feasible).
 
-R-23957 The VNF **MUST** include the field “time” in the Security alarms
+R-23957 The VNF **MUST** include the field â€œtimeâ€� in the Security alarms
 (where applicable and technically feasible).
 
-R-71842 The VNF **MUST** include the field “service or program used for
-access” in the Security alarms (where applicable and technically feasible).
+R-71842 The VNF **MUST** include the field â€œservice or program used for
+accessâ€� in the Security alarms (where applicable and technically feasible).
 
-R-57617 The VNF **MUST** include the field “success/failure” in the
+R-57617 The VNF **MUST** include the field â€œsuccess/failureâ€� in the
 Security alarms (where applicable and technically feasible).
 
-R-99730 The VNF **MUST** include the field “Login ID” in the Security
+R-99730 The VNF **MUST** include the field â€œLogin IDâ€� in the Security
 alarms (where applicable and technically feasible).
 
 R-29705 The VNF **MUST** restrict changing the criticality level of a
@@ -1644,7 +1644,7 @@ abuse detection.
 R-21819 The VNF **MUST** support requests for information from law
 enforcement and government agencies.
 
-R-56786 The VNF **MUST** implement “Closed Loop” automatic implementation
+R-56786 The VNF **MUST** implement â€œClosed Loopâ€� automatic implementation
 (without human intervention) for Known Threats with detection rate in low
 false positives.
 
@@ -1746,14 +1746,14 @@ certificate has not been revoked.
 
 R-75343 The VNF **MUST** provide the capability of testing the
 validity of a digital certificate by recognizing the identity represented
-by the certificate — the "distinguished name".
+by the certificate â€” the "distinguished name".
 
 VNF Modularity
 ~~~~~~~~~~~~~~~~~~
 
-R-37028 The VNF **MUST** be composed of one “base” module.
+R-37028 The VNF **MUST** be composed of one â€œbaseâ€� module.
 
-R-41215 The VNF **MAY** have zero to many “incremental” modules.
+R-41215 The VNF **MAY** have zero to many â€œincrementalâ€� modules.
 
 R-20974 The VNF **MUST** deploy the base module first, prior to
 the incremental modules.
@@ -1890,7 +1890,7 @@ environment file:
 
 - parameters:
 
-R-19473 The VNF Heat **MUST** include “base” in the filename for the
+R-19473 The VNF Heat **MUST** include â€œbaseâ€� in the filename for the
 base module.
 
 R-81339 The VNF Heat **MUST** match one of the following options for
@@ -1901,32 +1901,32 @@ the base module file name:
 - base.y[a]ml
 - <text>\_base\_<text>.y[a]ml
 
-R-91342 The VNF Heat **MUST** name the base module’s corresponding
-environment file to be identical to the base module with “.y[a]ml”
-replaced with “.env”.
+R-91342 The VNF Heat **MUST** name the base moduleâ€™s corresponding
+environment file to be identical to the base module with â€œ.y[a]mlâ€�
+replaced with â€œ.envâ€�.
 
 R-87247 The VNF Heat **MUST NOT** use any special characters or the
-word “base” in the name of the incremental module.
+word â€œbaseâ€� in the name of the incremental module.
 
 - <text>.y[a]ml
 
-R-94509 The VNF Heat **MUST** name the incremental module’s
+R-94509 The VNF Heat **MUST** name the incremental moduleâ€™s
 corresponding environment file to be identical to the incremental
-module with “.y[a]ml” replaced with “.env”.
+module with â€œ.y[a]mlâ€� replaced with â€œ.envâ€�.
 
 R-82732 The VNF Heat **MUST** name the Cinder volume module file name
 to be the same as the corresponding module it is supporting (base
-module or incremental module) with “\_volume” appended.
+module or incremental module) with â€œ\_volumeâ€� appended.
 
 - <base module name>\_volume.y[a]ml
 - <incremental module name>\_volume.y[a]ml
 
-R-31141 The VNF Heat **MUST** name the volume module’s corresponding
-environment file to be identical to the volume module with “.y[a]ml”
-replaced with “.env”.
+R-31141 The VNF Heat **MUST** name the volume moduleâ€™s corresponding
+environment file to be identical to the volume module with â€œ.y[a]mlâ€�
+replaced with â€œ.envâ€�.
 
 R-76057 The VNF Heat **MUST NOT** use special characters
-or the word “base” in the file name for the nested template.
+or the word â€œbaseâ€� in the file name for the nested template.
 
 R-18224 The VNF Heat **MUST** pass in as properties all parameter values
 associated with the nested heat file in the resource definition defined
@@ -1984,7 +1984,7 @@ R-05008 The VNF Heat **MUST NOT** be prefixed with a common
 {vm-type} identifier for the six ONAP Metadata parameters.
 They are *vnf\_name*, *vnf\_id*, *vf\_module\_id*, *vf\_module\_name*,
 *vm\_role*. The ONAP Metadata parameters are described in
-Resource: OS::Nova::Server – Metadata Parameters.
+Resource: OS::Nova::Server â€“ Metadata Parameters.
 
 R-15422 The VNF Heat **MUST NOT** be prefixed with a common {vm-type}
 identifier the parameter referring to the OS::Nova::Server property
@@ -2050,7 +2050,7 @@ internal network.
   int\_{network-role}. An underscore will separate the three values
   (i.e., {vm-type}\_{index}\_int\_{network-role}).
 
-R-69287 The VNF Heat **MUST** use only alphanumeric characters and “\_”
+R-69287 The VNF Heat **MUST** use only alphanumeric characters and â€œ\_â€�
 underscores in the resource ID. Special characters must not be used.
 
 R-71152 The VNF Heat **MUST** declare as type: string the parameter
@@ -2120,14 +2120,14 @@ in the parameter name.
 
 R-93272 The VNF Heat **MUST** adhere to the following parameter naming
 convention in the Heat Orchestration Template, when the parameter
-associated with the property network is referencing an “external” network:
+associated with the property network is referencing an â€œexternalâ€� network:
 
 - {network-role}\_net\_id for the Neutron network ID
 - {network-role}\_net\_name for the network name in OpenStack
 
 R-65373 The VNF Heat **MUST**  adhere to the following parameter naming
 convention, when the parameter associated with the property network is
-referencing an “internal” network:
+referencing an â€œinternalâ€� network:
 
 - int\_{network-role}\_net\_id for the Neutron network ID
 - int\_{network-role}\_net\_name for the network name in OpenStack
@@ -2135,14 +2135,14 @@ referencing an “internal” network:
 R-47716 The VNF Heat **MUST** adhere to the following parameter naming
 convention for the property fixed\_ips and Map Property subnet\_id
 parameter, when the parameter is referencing a subnet of an
-“external” network.
+â€œexternalâ€� network.
 
 - {network-role}\_subnet\_id if the subnet is an IPv4 subnet
 - {network-role}\_v6\_subnet\_id if the subnet is an IPv6 subnet
 
 R-20106 The VNF Heat **MUST** adhere to the following naming convention for
 the property fixed\_ips and Map Property subnet\_id parameter,
-when the parameter is referencing the subnet of an “internal” network:
+when the parameter is referencing the subnet of an â€œinternalâ€� network:
 
 - int\_{network-role}\_subnet\_id if the subnet is an IPv4 subnet
 - int\_{network-role}\_v6\_subnet\_id if the subnet is an IPv6 subnet
@@ -2185,14 +2185,14 @@ is declared type: string:
 R-61282 The VNF Heat **MUST**
 adhere to the following naming convention for the property
 allowed\_address\_pairs and Map Property ip\_address parameter,
-when the parameter is referencing an “external” network:
+when the parameter is referencing an â€œexternalâ€� network:
 
 - {vm-type}\_{network-role}\_floating\_ip for an IPv4 address
 - {vm-type}\_{network-role}\_floating\_v6\_ip for an IPv6 address
 
 R-16805 The VNF Heat **MUST** adhere to the following naming convention
 for the property allowed\_address\_pairs and Map Property ip\_address
-parameter when the parameter is referencing an “internal” network.
+parameter when the parameter is referencing an â€œinternalâ€� network.
 
 - {vm-type}\_int\_{network-role}\_floating\_ip for an IPv4 address
 - {vm-type}\_int\_{network-role}\_floating\_v6\_ip for an IPv6 address
@@ -2206,7 +2206,7 @@ in a Heat Orchestration Template.
 R-47788 The VNF Heat **MUST** have a 1:1 scope of a cinder volume module,
 when it exists, with the Base Module or Incremental Module
 
-R-79531 The VNF Heat **MUST** define “outputs” in the volume
+R-79531 The VNF Heat **MUST** define â€œoutputsâ€� in the volume
 template for each Cinder volume resource universally unique
 identifier (UUID) (i.e. ONAP Volume Template Output Parameters).
 
@@ -2464,7 +2464,7 @@ R-40827 The xNF provider **MUST** enumerate all of the open
 source licenses their xNF(s) incorporate.
 
 R-97293 The xNF provider **MUST NOT** require audits of
-Service Provider’s business.
+Service Providerâ€™s business.
 
 R-44569 The xNF provider **MUST NOT** require additional
 infrastructure such as a xNF provider license server for xNF provider
@@ -2475,7 +2475,7 @@ purposes to allow automated scale up/down by the management system.
 
 R-27511 The VNF provider **MUST** provide the ability to scale
 up a VNF provider supplied product during growth and scale down a
-VNF provider supplied product during decline without “real-time”
+VNF provider supplied product during decline without â€œreal-timeâ€�
 restrictions based upon VNF provider permissions.
 
 R-85991 The xNF provider **MUST** provide a universal license key
@@ -2498,59 +2498,59 @@ Tables C1 to C8 in the Appendix. Note: License metadata support in
 Configuration Management
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-R-20741 The xNF **MUST** support ONAP Controller’s **Configure** command.
+R-20741 The xNF **MUST** support ONAP Controllerâ€™s **Configure** command.
 
-R-19366 The xNF **MUST** support ONAP Controller’s **ConfigModify** command.
+R-19366 The xNF **MUST** support ONAP Controllerâ€™s **ConfigModify** command.
 
-R-32981 The xNF **MUST** support ONAP Controller’s **ConfigBackup** command.
+R-32981 The xNF **MUST** support ONAP Controllerâ€™s **ConfigBackup** command.
 
-R-48247 The xNF **MUST** support ONAP Controller’s **ConfigRestore** command.
+R-48247 The xNF **MUST** support ONAP Controllerâ€™s **ConfigRestore** command.
 
-R-94084 The xNF **MUST** support ONAP Controller’s **ConfigScaleOut**
+R-94084 The xNF **MUST** support ONAP Controllerâ€™s **ConfigScaleOut**
 command.
 
-R-56385 The xNF **MUST** support ONAP Controller’s **Audit** command.
+R-56385 The xNF **MUST** support ONAP Controllerâ€™s **Audit** command.
 
-R-12706 The xNF **MUST** support ONAP Controller’s **QuiesceTraffic**
+R-12706 The xNF **MUST** support ONAP Controllerâ€™s **QuiesceTraffic**
 command.
 
-R-07251 The xNF **MUST** support ONAP Controller’s **ResumeTraffic**
+R-07251 The xNF **MUST** support ONAP Controllerâ€™s **ResumeTraffic**
 command.
 
-R-83146 The xNF **MUST** support ONAP Controller’s **StopApplication**
+R-83146 The xNF **MUST** support ONAP Controllerâ€™s **StopApplication**
 command.
 
-R-82811 The xNF **MUST** support ONAP Controller’s **StartApplication**
+R-82811 The xNF **MUST** support ONAP Controllerâ€™s **StartApplication**
 command.
 
-R-19922 The xNF **MUST** support ONAP Controller’s **UpgradePrecheck**
+R-19922 The xNF **MUST** support ONAP Controllerâ€™s **UpgradePrecheck**
 command.
 
-R-49466 The xNF **MUST** support ONAP Controller’s **UpgradeSoftware**
+R-49466 The xNF **MUST** support ONAP Controllerâ€™s **UpgradeSoftware**
 command.
 
-R-45856 The xNF **MUST** support ONAP Controller’s **UpgradePostCheck**
+R-45856 The xNF **MUST** support ONAP Controllerâ€™s **UpgradePostCheck**
 command.
 
-R-97343 The xNF **MUST** support ONAP Controller’s **UpgradeBackup**
+R-97343 The xNF **MUST** support ONAP Controllerâ€™s **UpgradeBackup**
 command.
 
-R-65641 The xNF **MUST** support ONAP Controller’s **UpgradeBackOut**
+R-65641 The xNF **MUST** support ONAP Controllerâ€™s **UpgradeBackOut**
 command.
 
-R-11790 The VNF **MUST** support ONAP Controller’s
+R-11790 The VNF **MUST** support ONAP Controllerâ€™s
 **Restart (stop/start or reboot)** command.
 
-R-56218 The VNF **MUST** support ONAP Controller’s Migrate command that
+R-56218 The VNF **MUST** support ONAP Controllerâ€™s Migrate command that
 moves container (VM) from a live Physical Server / Compute Node to
 another live Physical Server / Compute Node.
   
-R-38001 The VNF MUST support ONAP Controller’s **Rebuild** command.
+R-38001 The VNF MUST support ONAP Controllerâ€™s **Rebuild** command.
 
 R-76901 VNF MUST support a container rebuild mechanism based on existing
 image (e.g. Glance image in Openstack environment) or a snapshot.
 
-R-41430 The xNF **MUST** support ONAP Controller’s **HealthCheck**
+R-41430 The xNF **MUST** support ONAP Controllerâ€™s **HealthCheck**
 command.
 
 R-88026 The xNF **MUST** include a NETCONF server enabling
@@ -2732,9 +2732,6 @@ R-60656 The xNF **MUST** support sub tree filtering.
 
 R-80898 The xNF **MUST** support heartbeat via a <get> with null filter.
 
-R-06617 The xNF **MUST** support get-schema (ietf-netconf-monitoring)
-to pull YANG model over session.
-
 R-25238 The xNF PACKAGE **MUST** validated YANG code using the open
 source pyang [3]_ program using the following commands:
 
@@ -2748,59 +2745,59 @@ query each state (non-configuration) data element, execute each YANG
 RPC, and receive data through each notification statement.
 
 R-28545 The xNF **MUST** conform its YANG model to RFC 6060,
-“YANG - A Data Modeling Language for the Network Configuration
-Protocol (NETCONF)”
+â€œYANG - A Data Modeling Language for the Network Configuration
+Protocol (NETCONF)â€�
 
 R-29967 The xNF **MUST** conform its YANG model to RFC 6022,
-“YANG module for NETCONF monitoring”.
+â€œYANG module for NETCONF monitoringâ€�.
 
 R-22700 The xNF **MUST** conform its YANG model to RFC 6470,
-“NETCONF Base Notifications”.
+â€œNETCONF Base Notificationsâ€�.
 
 R-10353 The xNF **MUST** conform its YANG model to RFC 6244,
-“An Architecture for Network Management Using NETCONF and YANG”.
+â€œAn Architecture for Network Management Using NETCONF and YANGâ€�.
 
 R-53317 The xNF **MUST** conform its YANG model to RFC 6087,
-“Guidelines for Authors and Reviewers of YANG Data Model Documents”.
+â€œGuidelines for Authors and Reviewers of YANG Data Model Documentsâ€�.
 
 R-33955 The xNF **SHOULD** conform its YANG model to RFC 6991,
-“Common YANG Data Types”.
+â€œCommon YANG Data Typesâ€�.
 
 R-22946 The xNF **SHOULD** conform its YANG model to RFC 6536,
-“NETCONF Access Control Model”.
+â€œNETCONF Access Control Modelâ€�.
 
 R-10129 The xNF **SHOULD** conform its YANG model to RFC 7223,
-“A YANG Data Model for Interface Management”.
+â€œA YANG Data Model for Interface Managementâ€�.
 
 R-12271 The xNF **SHOULD** conform its YANG model to RFC 7223,
-“IANA Interface Type YANG Module”.
+â€œIANA Interface Type YANG Moduleâ€�.
 
 R-49036 The xNF **SHOULD** conform its YANG model to RFC 7277,
-“A YANG Data Model for IP Management”.
+â€œA YANG Data Model for IP Managementâ€�.
 
 R-87564 The xNF **SHOULD** conform its YANG model to RFC 7317,
-“A YANG Data Model for System Management”.
+â€œA YANG Data Model for System Managementâ€�.
 
 R-24269 The xNF **SHOULD** conform its YANG model to RFC 7407,
-“A YANG Data Model for SNMP Configuration”.
+â€œA YANG Data Model for SNMP Configurationâ€�.
 
 R-33946 The xNF **MUST** conform to the NETCONF RFC 4741,
-“NETCONF Configuration Protocol”.
+â€œNETCONF Configuration Protocolâ€�.
 
 R-04158 The xNF **MUST** conform to the NETCONF RFC 4742,
-“Using the NETCONF Configuration Protocol over Secure Shell (SSH)”.
+â€œUsing the NETCONF Configuration Protocol over Secure Shell (SSH)â€�.
 
 R-13800 The xNF **MUST** conform to the NETCONF RFC 5277,
-“NETCONF Event Notification”.
+â€œNETCONF Event Notificationâ€�.
 
 R-01334 The xNF **MUST** conform to the NETCONF RFC 5717,
-“Partial Lock Remote Procedure Call”.
+â€œPartial Lock Remote Procedure Callâ€�.
 
 R-08134 The xNF **MUST** conform to the NETCONF RFC 6241,
-“NETCONF Configuration Protocol”.
+â€œNETCONF Configuration Protocolâ€�.
 
 R-78282 The xNF **MUST** conform to the NETCONF RFC 6242,
-“Using the Network Configuration Protocol over Secure Shell”.
+â€œUsing the Network Configuration Protocol over Secure Shellâ€�.
 
 R-31809 The xNF **MUST** support the HealthCheck RPC. The HealthCheck
 RPC executes a xNF Provider-defined xNF HealthCheck over the scope of
@@ -2854,12 +2851,12 @@ chef-client run encounters any critical errors/failures when
 executing a xNF action.
 
 R-44013 The xNF **MUST** populate an attribute, defined as node
-[‘PushJobOutput’] with the desired output on all nodes in the push job
+[â€˜PushJobOutputâ€™] with the desired output on all nodes in the push job
 that execute chef-client run if the xNF action requires the output of a
 chef-client run be made available (e.g., get running configuration).
 
 R-30654 The xNF Package **MUST** have appropriate cookbooks that are
-designed to automatically ‘rollback’ to the original state in case of
+designed to automatically â€˜rollbackâ€™ to the original state in case of
 any errors for actions that change state of the xNF (e.g., configure).
 
 R-65755 The xNF **SHOULD** support callback URLs to return information
@@ -2921,7 +2918,7 @@ the Ansible Server API, unless they are bundled with playbooks, example,
 generic templates.
 
 R-43253 The xNF **MUST** use playbooks designed to allow Ansible
-Server to infer failure or success based on the “PLAY_RECAP” capability.
+Server to infer failure or success based on the â€œPLAY_RECAPâ€� capability.
 NOTE: There are cases where playbooks need to interpret results of a task
 and then determine success or failure and return result accordingly
 (failure for failed tasks).
@@ -2932,11 +2929,11 @@ of a xNF action (e.g., audit), a playbook is required to return any
 xNF information. The text files must be written in the same directory as
 the one from which the playbook is being executed. A text file must be
 created for the xNF playbook run targets/affects, with the name
-‘<VNFname>_results.txt’ into which any desired output from each
+â€˜<VNFname>_results.txtâ€™ into which any desired output from each
 respective VM/xNF must be written.
 
 R-51442 The xNF **SHOULD** use playbooks that are designed to
-automatically ‘rollback’ to the original state in case of any errors
+automatically â€˜rollbackâ€™ to the original state in case of any errors
 for actions that change state of the xNF (e.g., configure).
 
 R-58301 The xNF **SHOULD NOT** use playbooks that make requests to
@@ -3004,7 +3001,7 @@ Note:
   summarized statistically over a time interval, or computed as a KPI, with
   the summary or KPI being delivered.
 - We expect the reporting frequency to be configurable depending
-  on the virtual network function’s needs for management. For example,
+  on the virtual network functionâ€™s needs for management. For example,
   Service Provider may choose to vary the frequency of collection between
   normal and trouble-shooting scenarios.
 - Decisions about the frequency of data reporting will affect the
@@ -3089,8 +3086,8 @@ configuration model for the xNF by returning the requested data elements.
 R-43327 The xNF **SHOULD** use `Modeling JSON text with YANG
 <https://tools.ietf.org/html/rfc7951>`_, If YANG models need to be
 translated to and from JSON[RFC7951]. YANG configuration and content can
-be represented via JSON, consistent with Avro, as described in “Encoding
-and Serialization” section.
+be represented via JSON, consistent with Avro, as described in â€œEncoding
+and Serializationâ€� section.
 
 R-42366 The xNF **MUST** support secure connections and transports such as
 Transport Layer Security (TLS) protocol
@@ -3137,7 +3134,7 @@ vfdb9904v VNF instance:
  inventory directory, not a subdirectory under inventory. In the above
  example: vfdb9904vhosts (removed / VNF name and hosts vfdb9904/vhosts)
 
-Example of corresponding APPC API Call from ONAP – Ansible Server
+Example of corresponding APPC API Call from ONAP â€“ Ansible Server
 Specifications:
 
 An example of a curl request simulating a Rest API POST requesting execution
@@ -3166,7 +3163,7 @@ Comments:
 
 -  Playbook Name relative path provided in the request as PlaybookName
 
--  Ansible Server Rest API is aware of playbook’s root directory which may
+-  Ansible Server Rest API is aware of playbookâ€™s root directory which may
    vary from instance to instance or Ansible Server cluster to cluster.
 
 Ansible Playbooks will use the VNF instance name (passed using
@@ -3224,7 +3221,7 @@ from previously re-factored playbooks now being phased out):
  vm_config_oam_vnfc_name: vfdb9904vm001oam001
  vm_config_oam_hostname: vfdb9904vm001
  vm_config_oam_provider_ip_address: 1xx.2yy.zzz.109
- …
+ â€¦
 
 IMPORTANT: The APPC and default file attribute name for
 vm\_config\_oam\_vnfc\_name, as an example, is derived from vm\_config
@@ -3239,7 +3236,7 @@ by underscore:
  vm_config_oam_hostname }}, provider_ip_address: {{
  vm_config_oam_provider_ip_address }
  },
- …
+ â€¦
 
 Parameters like VNF names, VNFC names, OA&M IP addresses, after
 February, 2018 ONAP release, will be extracted from A&AI by APPC and
@@ -3295,15 +3292,15 @@ somewhat similar to ENV files:
  $ more tmp/vfdb9904v/all.yml
 
  deployment_prefix: vfdb9904v
- …
+ â€¦
  timezone: Etc/UTC
- …
+ â€¦
  template_version: '2014-10-16'
  stack_name: vfdb9904v
  c3dbtype: OAM
  stackName: vfdb9904v
  juno_base: true
- …
+ â€¦
 
 # logins list contain 'login name', 'login group', 'login password'
 
@@ -3318,7 +3315,7 @@ somewhat similar to ENV files:
 NOTE: Arguments passed by APPC to Ansible Server to run a playbook take
 precedence over any defaults stored in Ansible Server.
 
-Ansible Playbooks – Notes On Artifacts Required to Run Playbooks
+Ansible Playbooks â€“ Notes On Artifacts Required to Run Playbooks
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Inventory hosts file: should be VNF instance specific.
@@ -3347,7 +3344,7 @@ on-boarding and portability of VNF collection of playbooks and related
 artifacts.
 
 Designing for a shared environment, concurrently running playbooks,
-targeting multiple VNF instances – inventory hosts file:
+targeting multiple VNF instances â€“ inventory hosts file:
 
 To avoid inventory hosts file overwrites or collisions between multiple
 concurrently running VNF instance requests, chosen approach is for each
@@ -3361,12 +3358,12 @@ Example of inventory hosts file path, relative to ansible playbooks root
 directory (playbooks\_dir): ansible/inventory/vnfx0001v/hosts
 
 **Designing for a shared environment, concurrently running multiple playbooks,
-targeting multiple VNF instances – default argument variables for
+targeting multiple VNF instances â€“ default argument variables for
 specific VNF instances:**
 
 Files containing attribute name value pairs (variable name and default
-values), referenced/included by playbooks – Files containing VNF
-instance specific default values – in a later APPC release, some or all
+values), referenced/included by playbooks â€“ Files containing VNF
+instance specific default values â€“ in a later APPC release, some or all
 the default attribute value pairs contained in the defaults file, may be
 passed down by APPC, to the Ansible Server, overriding these defaults:
 
@@ -3392,7 +3389,7 @@ Ansible Server to APPC extracting and providing VNF instance specific
 attribute-value pairs to the Ansible Server as part of the request.
 
 Files containing attribute name value pairs (variable name and default
-values), referenced/included by playbooks – created dynamically by
+values), referenced/included by playbooks â€“ created dynamically by
 playbooks:
 
 To avoid
@@ -3407,11 +3404,11 @@ Example:
 tmp/<VNF\_instance\_name>/all.yml
 
 Files containing site specific (Openstack location non-instance
-specific) attribute name value pairs, like NTP server and DNS server’s
+specific) attribute name value pairs, like NTP server and DNS serverâ€™s
 IP addresses and other parameters, referenced/included by playbooks, not
-VNF specific – Could/should be stored under inventory/group_vars directory,
+VNF specific â€“ Could/should be stored under inventory/group_vars directory,
 in a subdirectory named after the string used to identify the site (nyc1,
-lax2,…).
+lax2,â€¦).
 
 Examples:
 
@@ -3446,7 +3443,7 @@ Function Code and is assigned by inventory team. All Services Platform
 VNF Function Codes can be found in inventory database and/or A&AI as
 well as Services Platform Network Design Documents.
 
-Version – As in VNF software version is the release of the software
+Version â€“ As in VNF software version is the release of the software
 running on the VNF for which the playbooks were developed. VNF
 configuration steps may change from release to release and this
 <Version> in the path will allow the Ansible Server to host playbooks
@@ -3466,42 +3463,42 @@ standards main playbook is usually named site.yml. There can be other
 playbooks on the same directory that use a subset of the roles used by the
 main playbook site.yml. Examples of Playbook Function directory names:
 
--  configure – Contains post-instantiation (bulk) configuration
-   playbooks, roles,…
+-  configure â€“ Contains post-instantiation (bulk) configuration
+   playbooks, roles,â€¦
 
--  healthcheck – Contains VNF health check playbook(s), roles,…
+-  healthcheck â€“ Contains VNF health check playbook(s), roles,â€¦
 
--  stop – Contains VNF application stop  (stopApplication) playbook(s),
-   roles,…
+-  stop â€“ Contains VNF application stop  (stopApplication) playbook(s),
+   roles,â€¦
 
--  start – Contains VNF application start (startApplication) playbook(s),
-   roles,…
+-  start â€“ Contains VNF application start (startApplication) playbook(s),
+   roles,â€¦
 
 Directory structure to allow hosting multiple version sets of playbooks,
 for the same VNF type, to be hosted in the runtime environment on the
 Ansible Servers. Generic directory structure:
 
-Ansible Playbooks – Function directory and main playbook:
+Ansible Playbooks â€“ Function directory and main playbook:
 
 .. code-block:: none
 
  <VNF type>/<Version>/ansible/<Playbook Function>/site.yml
 
-Example – Post-instantiation (bulk) configuration –APPC Function -
+Example â€“ Post-instantiation (bulk) configuration â€“APPC Function -
 Configure:
 
 .. code-block:: none
 
  <VNF type>/<Version>/ansible/configure/site.yml
 
-Example – Post-instantiation (bulk) configuration –APPC Function
-– Configure – VNF software version 16.1:
+Example â€“ Post-instantiation (bulk) configuration â€“APPC Function
+â€“ Configure â€“ VNF software version 16.1:
 
 .. code-block:: none
 
  vfdb/V16.1/ansible/configure/site.yml
 
-Example – Health-check –APPC Function - HealthCheck:
+Example â€“ Health-check â€“APPC Function - HealthCheck:
 
 .. code-block:: none
 
@@ -3513,15 +3510,15 @@ OR (Function directory name does not need to match APPC function name)
 
  <VNF type>/<Version>/ansible/check/site.yml
 
-Ansible Directories for other artifacts – VNF inventory hosts file -
+Ansible Directories for other artifacts â€“ VNF inventory hosts file -
 Required:
 
 .. code-block:: none
 
  <VNF type>/<Version>/ansible/inventory/<VNF instance name>hosts
 
-Ansible Directories for other artifacts – VNF instance specific default
-arguments – Optional:
+Ansible Directories for other artifacts â€“ VNF instance specific default
+arguments â€“ Optional:
 
 .. code-block:: none
 
@@ -3534,7 +3531,7 @@ to be supported. Other automated inventory management mechanisms may be
 considered in the future, Ansible supports many automated inventory
 management mechanisms/tools/solutions.
 
-Ansible Directories for other artifacts – VNF (special) groups –
+Ansible Directories for other artifacts â€“ VNF (special) groups â€“
 Optional:
 
 .. code-block:: none
@@ -3542,10 +3539,10 @@ Optional:
  <VNF type>/<Version>/ansible/inventory/group_vars/<VNF instance name>
 
 NOTE: Default groups will be created based on VNFC type, 3 characters,
-on VNFC name. Example: “oam”, “rdb”, “dbs”, “man”, “iox”, “app”,…
+on VNFC name. Example: â€œoamâ€�, â€œrdbâ€�, â€œdbsâ€�, â€œmanâ€�, â€œioxâ€�, â€œappâ€�,â€¦
 
-Ansible Directories for other artifacts – VNF (special) other files –
-Optional – Example – License file:
+Ansible Directories for other artifacts â€“ VNF (special) other files â€“
+Optional â€“ Example â€“ License file:
 
 .. code-block:: none
 
@@ -3576,10 +3573,10 @@ VNF type directories use A&AI inventory VNF function code. Ansible
 Playbooks will be stored on a Cinder Volume mounted on the Ansible
 Servers as /storage. Example:
 
-/storage/vfdb/latest/ansible – This soft link point to the latest set of
+/storage/vfdb/latest/ansible â€“ This soft link point to the latest set of
 playbooks (or the only set)
 
-/storage/vfdb/V16.1/ansible – Root directory for database VNF Ansible
+/storage/vfdb/V16.1/ansible â€“ Root directory for database VNF Ansible
 Playbooks for release 16.1
 
 CAUTION: To support this directory structure as the repository to store
@@ -3593,11 +3590,11 @@ VM(s) as specified in the request.
 ONAP APPC REST API to Ansible Server is documented separately and can be
 found under ONAP (onap.org).
 
-**Ansible Server – On-boarding Ansible Playbooks**
+**Ansible Server â€“ On-boarding Ansible Playbooks**
 
 Once playbooks are developed following the guidelines listed in prior
 section(s), playbooks need to be on-boarded onto Ansible Server(s). In
-the future, they’ll be on-boarded and distributed through ONAP, at least
+the future, theyâ€™ll be on-boarded and distributed through ONAP, at least
 that is the proposed plan, but for now they need to be uploaded
 manually. There is work in progress to use a Git as the playbook
 repository to store and track playbooks by version, version control.
@@ -3608,14 +3605,14 @@ Ansible Server.
 1. Upload CSAR, zip, or tar file containing VNF playbooks and related
    artifacts.
 
-2. Create full directory (using –p option below) to store Ansible
+2. Create full directory (using â€“p option below) to store Ansible
    Playbooks and other artifacts under /storage (or other configured)
    file system.
 
    a. Includes VNF type using VNF function code 4 characters under
       /storage.
 
-   b. Includes VNF “Version” directory as part of the path to store
+   b. Includes VNF â€œVersionâ€� directory as part of the path to store
       playbooks for this VNF version.
 
    c. Include generic ansible root directory. Creating full directory
@@ -3623,7 +3620,7 @@ Ansible Server.
 
 .. code-block:: none
 
-     $ mkdir –p /storage/vfdb/V16.1/ansible**/**
+     $ mkdir â€“p /storage/vfdb/V16.1/ansible**/**
 
 3. Make this directory (VNF ansible root directory) current directory
    for next few steps:
@@ -3639,7 +3636,7 @@ Ansible Server.
 .. code-block:: none
 
      tar xvf ..
-     unzip …
+     unzip â€¦
      bunzip ..
 
 5. Create VNF inventory hosts file with all VMs and
@@ -3671,7 +3668,7 @@ example:
 
 .. code-block:: none
 
-   $ mkdir –p vars/vfdb9904v
+   $ mkdir â€“p vars/vfdb9904v
    $ touch vars/vfdb9904v/default\_args.yml
    $ cat vars/vfdb9904v/default\_args.yml
    vm\_config\_oam1\_vnfc\_name: vfdb9904vm001oam001
@@ -3698,10 +3695,10 @@ example:
    vm\_config\_rdb4\_hostname: vfdb9904vm006
    vm\_config\_rdb4\_provider\_ip\_address: 1xx.2yy.zzz.yyy
 
-NOTE: Please note names in this file shall use underscore “\_” not dots
-“.” or dashes “-“.
+NOTE: Please note names in this file shall use underscore â€œ\_â€� not dots
+â€œ.â€� or dashes â€œ-â€œ.
 
-7. Perform some basic playbook validation running with “--check” option,
+7. Perform some basic playbook validation running with â€œ--checkâ€� option,
    running dummy playbooks or other.
 
 NOTE: Each Ansible Server or cluster of Ansible Server will have its own
@@ -3812,7 +3809,7 @@ UpgradePostCheck:
 
 
 .. [1]
-   The “name” field is a mandatory field in a valid Chef Node Object
+   The â€œnameâ€� field is a mandatory field in a valid Chef Node Object
    JSON dictionary.
 
 .. [2]
@@ -3826,7 +3823,7 @@ UpgradePostCheck:
    ONAP for the desired action.
 
 .. [5]
-   Refer to NCSP’s Network Cloud specification
+   Refer to NCSPâ€™s Network Cloud specification
 
 .. [6]
    This option is not currently supported in ONAP and it is currently
