@@ -1,0 +1,510 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a93c517_0d18461d",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 2578,
+      "author": {
+        "id": 451
+      },
+      "writtenOn": "2018-05-29T09:50:28Z",
+      "side": 1,
+      "message": "WHat is meant by identical ip configuration? Same subnet mask?",
+      "range": {
+        "startLine": 2578,
+        "startChar": 10,
+        "endLine": 2578,
+        "endChar": 44
+      },
+      "revId": "3966b6f5e1c16993e81113be83d6be36f77139c3",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_0dfa8643",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 2602,
+      "author": {
+        "id": 451
+      },
+      "writtenOn": "2018-05-29T09:50:28Z",
+      "side": 1,
+      "message": "Check your formatting this should be \u0027int_\u0027 and \u0027_int_\u0027 . Remove the underline underneath int. Be careful as underscore is a reST directive for Amonymous link",
+      "range": {
+        "startLine": 2601,
+        "startChar": 58,
+        "endLine": 2602,
+        "endChar": 11
+      },
+      "revId": "3966b6f5e1c16993e81113be83d6be36f77139c3",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_cd933eff",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 2605,
+      "author": {
+        "id": 451
+      },
+      "writtenOn": "2018-05-29T09:50:28Z",
+      "side": 1,
+      "message": "Is this an ONAP restriction, you talk about pre-Amsterdam. But Amsterdam is the first ONAP release.",
+      "range": {
+        "startLine": 2604,
+        "startChar": 0,
+        "endLine": 2605,
+        "endChar": 28
+      },
+      "revId": "3966b6f5e1c16993e81113be83d6be36f77139c3",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_ed987a1d",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 2635,
+      "author": {
+        "id": 451
+      },
+      "writtenOn": "2018-05-29T09:50:28Z",
+      "side": 1,
+      "message": "Fix formatting around underscore usage",
+      "range": {
+        "startLine": 2634,
+        "startChar": 12,
+        "endLine": 2635,
+        "endChar": 19
+      },
+      "revId": "3966b6f5e1c16993e81113be83d6be36f77139c3",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_8d9d360d",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 2640,
+      "author": {
+        "id": 451
+      },
+      "writtenOn": "2018-05-29T09:50:28Z",
+      "side": 1,
+      "message": "Fix formatting around underscore usage",
+      "range": {
+        "startLine": 2639,
+        "startChar": 1,
+        "endLine": 2640,
+        "endChar": 8
+      },
+      "revId": "3966b6f5e1c16993e81113be83d6be36f77139c3",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_4d872eb7",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 2645,
+      "author": {
+        "id": 451
+      },
+      "writtenOn": "2018-05-29T09:50:28Z",
+      "side": 1,
+      "message": "Fix formatting around underscore usage",
+      "range": {
+        "startLine": 2645,
+        "startChar": 19,
+        "endLine": 2645,
+        "endChar": 36
+      },
+      "revId": "3966b6f5e1c16993e81113be83d6be36f77139c3",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_6d846ab1",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 2648,
+      "author": {
+        "id": 451
+      },
+      "writtenOn": "2018-05-29T09:50:28Z",
+      "side": 1,
+      "message": "Is this really an ONAP restriction as it refers to problems to pre-Amsterdam ?",
+      "range": {
+        "startLine": 2647,
+        "startChar": 1,
+        "endLine": 2648,
+        "endChar": 43
+      },
+      "revId": "3966b6f5e1c16993e81113be83d6be36f77139c3",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_0d9126f1",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 2689,
+      "author": {
+        "id": 451
+      },
+      "writtenOn": "2018-05-29T09:50:28Z",
+      "side": 1,
+      "message": "Fix formatting around underscore usage",
+      "range": {
+        "startLine": 2689,
+        "startChar": 1,
+        "endLine": 2689,
+        "endChar": 5
+      },
+      "revId": "3966b6f5e1c16993e81113be83d6be36f77139c3",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_2d8e62d1",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 2706,
+      "author": {
+        "id": 451
+      },
+      "writtenOn": "2018-05-29T09:50:28Z",
+      "side": 1,
+      "message": "Fix formatting around underscore usage",
+      "range": {
+        "startLine": 2706,
+        "startChar": 44,
+        "endLine": 2706,
+        "endChar": 52
+      },
+      "revId": "3966b6f5e1c16993e81113be83d6be36f77139c3",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_cdba5e71",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 2708,
+      "author": {
+        "id": 451
+      },
+      "writtenOn": "2018-05-29T09:50:28Z",
+      "side": 1,
+      "message": "Fix formatting around underscore usage",
+      "range": {
+        "startLine": 2708,
+        "startChar": 45,
+        "endLine": 2708,
+        "endChar": 51
+      },
+      "revId": "3966b6f5e1c16993e81113be83d6be36f77139c3",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_edbf1a5f",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 2711,
+      "author": {
+        "id": 451
+      },
+      "writtenOn": "2018-05-29T09:50:28Z",
+      "side": 1,
+      "message": "Fix formatting around underscore usage",
+      "range": {
+        "startLine": 2711,
+        "startChar": 20,
+        "endLine": 2711,
+        "endChar": 69
+      },
+      "revId": "3966b6f5e1c16993e81113be83d6be36f77139c3",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_8db45683",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 2714,
+      "author": {
+        "id": 451
+      },
+      "writtenOn": "2018-05-29T09:50:28Z",
+      "side": 1,
+      "message": "Fix formatting around underscore usage",
+      "range": {
+        "startLine": 2714,
+        "startChar": 2,
+        "endLine": 2714,
+        "endChar": 9
+      },
+      "revId": "3966b6f5e1c16993e81113be83d6be36f77139c3",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_4dae4e31",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 2719,
+      "author": {
+        "id": 451
+      },
+      "writtenOn": "2018-05-29T09:50:28Z",
+      "side": 1,
+      "message": "Change to **MUST NOT**",
+      "range": {
+        "startLine": 2719,
+        "startChar": 33,
+        "endLine": 2719,
+        "endChar": 46
+      },
+      "revId": "3966b6f5e1c16993e81113be83d6be36f77139c3",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_adb9127b",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 2720,
+      "author": {
+        "id": 451
+      },
+      "writtenOn": "2018-05-29T09:50:28Z",
+      "side": 1,
+      "message": "Fix formatting around underscore usage",
+      "range": {
+        "startLine": 2720,
+        "startChar": 24,
+        "endLine": 2720,
+        "endChar": 30
+      },
+      "revId": "3966b6f5e1c16993e81113be83d6be36f77139c3",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_0da8461f",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 2745,
+      "author": {
+        "id": 451
+      },
+      "writtenOn": "2018-05-29T09:50:28Z",
+      "side": 1,
+      "message": "Fix formatting around underscore usage. Comment applies to whole table",
+      "range": {
+        "startLine": 2745,
+        "startChar": 42,
+        "endLine": 2745,
+        "endChar": 50
+      },
+      "revId": "3966b6f5e1c16993e81113be83d6be36f77139c3",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_cd61fe12",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 2898,
+      "author": {
+        "id": 451
+      },
+      "writtenOn": "2018-05-29T09:50:28Z",
+      "side": 1,
+      "message": "The terminology in this table is not consistent with the one above. Use either MUST or Mandatory in both tables to ensure consistency and avoid confusion",
+      "range": {
+        "startLine": 2893,
+        "startChar": 0,
+        "endLine": 2898,
+        "endChar": 13
+      },
+      "revId": "3966b6f5e1c16993e81113be83d6be36f77139c3",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_6d59ca5a",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 2904,
+      "author": {
+        "id": 451
+      },
+      "writtenOn": "2018-05-29T09:50:28Z",
+      "side": 1,
+      "message": "Fix formatting around underscore usage. Comment applies to whole table",
+      "range": {
+        "startLine": 2904,
+        "startChar": 53,
+        "endLine": 2904,
+        "endChar": 56
+      },
+      "revId": "3966b6f5e1c16993e81113be83d6be36f77139c3",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_8d6bf6f0",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 3070,
+      "author": {
+        "id": 451
+      },
+      "writtenOn": "2018-05-29T09:50:28Z",
+      "side": 1,
+      "message": "Are these naming conventions in this table MUST or SHOULD?",
+      "range": {
+        "startLine": 3069,
+        "startChar": 0,
+        "endLine": 3070,
+        "endChar": 26
+      },
+      "revId": "3966b6f5e1c16993e81113be83d6be36f77139c3",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_ed663a29",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 3079,
+      "author": {
+        "id": 451
+      },
+      "writtenOn": "2018-05-29T09:50:28Z",
+      "side": 1,
+      "message": "Fix formatting around underscore usage",
+      "range": {
+        "startLine": 3079,
+        "startChar": 26,
+        "endLine": 3079,
+        "endChar": 32
+      },
+      "revId": "3966b6f5e1c16993e81113be83d6be36f77139c3",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_0d56062b",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 3081,
+      "author": {
+        "id": 451
+      },
+      "writtenOn": "2018-05-29T09:50:28Z",
+      "side": 1,
+      "message": "Fix formatting around underscore usage",
+      "range": {
+        "startLine": 3081,
+        "startChar": 30,
+        "endLine": 3081,
+        "endChar": 61
+      },
+      "revId": "3966b6f5e1c16993e81113be83d6be36f77139c3",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_4d75eeca",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 3151,
+      "author": {
+        "id": 451
+      },
+      "writtenOn": "2018-05-29T09:50:28Z",
+      "side": 1,
+      "message": "fix formating",
+      "range": {
+        "startLine": 3151,
+        "startChar": 10,
+        "endLine": 3151,
+        "endChar": 16
+      },
+      "revId": "3966b6f5e1c16993e81113be83d6be36f77139c3",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_0d7fe6ac",
+        "filename": "docs/Chapter5.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 3266,
+      "author": {
+        "id": 451
+      },
+      "writtenOn": "2018-05-29T09:50:28Z",
+      "side": 1,
+      "message": "fix formatting",
+      "range": {
+        "startLine": 3266,
+        "startChar": 39,
+        "endLine": 3266,
+        "endChar": 56
+      },
+      "revId": "3966b6f5e1c16993e81113be83d6be36f77139c3",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
