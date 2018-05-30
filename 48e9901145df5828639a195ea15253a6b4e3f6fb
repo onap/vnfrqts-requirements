@@ -1,0 +1,8 @@
+Verified+1: ONAP Jobbuilder <onap-jobbuilder@jenkins.onap.org>
+Code-Review+1: Andrei Kojukhov <andreik@amdocs.com>
+Code-Review+2: Steven Wright <sw3588@att.com>
+Submitted-by: Steven Wright <sw3588@att.com>
+Submitted-at: Wed, 30 May 2018 16:36:19 +0000
+Reviewed-on: https://gerrit.onap.org/r/49409
+Project: vnfrqts/requirements
+Branch: refs/heads/master
