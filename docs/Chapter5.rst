@@ -2617,263 +2617,526 @@ associated with these two properties:
 Resource: OS::Nova::Server – Metadata Parameters
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The resource OS::Nova::Server has an OpenStack optional property
-metadata. The metadata property is mandatory for ONAP Heat Orchestration
-Templates; it must be included.
+The OS::Nova::Server Resource property metadata is an optional 
+OpenStack property.
+The table below summarizes the mandatory and optional metadata 
+supported by ONAP.
 
-R-17020 The VNF Heat Orchestration Template **MUST** include the following three mandatory
-metadata parameters for an OS::Nova::Server resource:
+The sections that follow provides the requirements associated with each
+metadata parameter.  
 
--  vnf\_id
+.. csv-table:: **Table 5 OS::Nova::Server Mandatory and Optional Metadata**
+   :header: Metadata Parameter Name, Parameter Type, Required, Parameter Value Provided to Heat
+   :align: center 
+   :widths: auto
 
--  vf\_module\_id
-
--  vnf\_name
-
-ONAP allows the following three optional metadata parameters for an
-OS::Nova::Server resource. They may be included
-
--  vm\_role
-
--  vf\_module\_name
-
-Note that the metadata parameters do not and must not contain {vm-type}
-in their name.
-
-When Metadata parameters are past into a nested heat template, the
-parameter names must not change.
-
-The table below provides a summary. The sections that follow provides
-additional details.
-
-+-------------------+----------+-------------------+----------------+
-| Metadata Parameter| Parameter| Mandatory/Optional| Parameter Value|
-| Name              | Type     |                   | Generation     |
-+===================+==========+===================+================+
-| vnf\_id           | string   | Mandatory         | ONAP           |
-+-------------------+----------+-------------------+----------------+
-| vf\_module\_id    | string   | Mandatory         | ONAP           |
-+-------------------+----------+-------------------+----------------+
-| vnf\_name         | string   | Mandatory         | ONAP           |
-+-------------------+----------+-------------------+----------------+
-| vf\_module\_name  | string   | Optional          | ONAP           |
-+-------------------+----------+-------------------+----------------+
-| vm\_role          | string   | Optional          | YAML or        |
-|                   |          |                   | Environment    |
-|                   |          |                   | File           |
-+-------------------+----------+-------------------+----------------+
-
-Table 4: ONAP Metadata
+   vnf_id, string, **MUST**, ONAP           
+   vf_module_id, string, **MUST**, ONAP           
+   vnf_name, string, **MUST**, ONAP           
+   vf_module_name, string, **SHOULD**, ONAP           
+   vm_role, string, **MAY**, YAML or Environment File
+   vf_module_index, string, **MAY**, ONAP           
+   workload_context, string, **SHOULD**, ONAP           
+   environment_context, string, **SHOULD**, ONAP    
 
 vnf\_id
 +++++++
 
-The vnf\_id parameter is mandatory; it must be included in the Heat
-Orchestration Template.
-
-The vnf\_id parameter value will be supplied by ONAP. ONAP generates the
-UUID that is the vnf\_id and supplies it to the Heat Orchestration
+The OS::Nova::Server Resource metadata map value parameter 'vnf_id'
+is an ONAP generated UUID that identifies the VNF.  The value 
+is provided by ONAP to the VNF's Heat Orchestration
 Template at orchestration time.
 
-The parameter must be declared as type: string
+R-37437 A VNF’s Heat Orchestration Template’s OS::Nova::Server 
+Resource **MUST** contain the metadata map value parameter ‘vnf_id’.
 
-R-55218 The VNF Heat Orchestration Template **MUST NOT** have parameter constraints defined
-for the OS::Nova::Server metadata parameter vnf\_id.
+R-07507 A VNF’s Heat Orchestration Template’s OS::Nova::Server 
+Resource metadata map value parameter ‘vnf_id’ **MUST** be declared 
+as type: ‘string’.
 
-R-20856 The VNF Heat Orchestration Template **MUST NOT** enumerate the OS::Nova::Server
-metadata parameter vnf\_id in environment file.
+R-55218 A VNF’s Heat Orchestration Template’s OS::Nova::Server 
+Resource metadata map value parameter ‘vnf_id’ **MUST NOT** have 
+parameter contraints defined.
 
-*Example Parameter Definition*
+R-20856 A VNF’s Heat Orchestration Template’s OS::Nova::Server 
+Resource metadata map value parameter ‘vnf_id’ **MUST NOT** be 
+enumerated in the Heat Orchestration Template’s environment file.
 
-.. code-block:: yaml
+R-44491 If a VNF’s Heat Orchestration Template’s OS::Nova::Server 
+Resource metadata map value parameter ‘vnf_id’ is passed into a 
+Nested YAML file, the parameter name ‘vnf_id’ **MUST NOT** change.
 
- parameters:
-     vnf_id:
-         type: string
-         description: Unique ID for this VNF instance
+
+*Example 'vnf_id' Parameter Definition*
+
+.. code-block:: python
+
+  parameters:
+
+    vnf_id:
+      type: string
+      description: Unique ID for this VNF instance
 
 vf\_module\_id
 ++++++++++++++
 
-The vf\_module\_id parameter is mandatory; it must be included in the
-Heat Orchestration Template.
+The OS::Nova::Server Resource metadata map value parameter 'vf\_module\_id'
+is an ONAP generated UUID that identifies the VF Module (e.g., Heat 
+Orchestration Template).  The value 
+is provided by ONAP to the VNF's Heat Orchestration
+Template at orchestration time.
 
-The vf\_module\_id parameter value will be supplied by ONAP. ONAP
-generates the UUID that is the vf\_module\_id and supplies it to the
-Heat Orchestration Template at orchestration time.
+R-71493 A VNF’s Heat Orchestration Template’s OS::Nova::Server 
+Resource **MUST** contain the metadata map value parameter 
+‘vf\_module\_id’.
 
-The parameter must be declared as type: string
+R-82134 A VNF’s Heat Orchestration Template’s OS::Nova::Server 
+Resource metadata map value parameter ‘vf\_module\_id’ **MUST** 
+be declared as type: ‘string’.
 
-R-98374 The VNF Heat Orchestration Template **MUST NOT** have parameter constraints
-defined for the OS::Nova::Server metadata parameter vf\_module\_id.
+R-98374 A VNF’s Heat Orchestration Template’s OS::Nova::Server 
+Resource metadata map value parameter ‘vf\_module\_id’ **MUST NOT** 
+have parameter contraints defined.
 
-R-72871 The VNF Heat Orchestration Template **MUST NOT** enumerate the OS::Nova::Server
-metadata parameter vf\_module\_id in environment file.
+R-72871 A VNF’s Heat Orchestration Template’s OS::Nova::Server 
+Resource metadata map value parameter ‘vf\_module\_id’ **MUST NOT** 
+be enumerated in the Heat Orchestration Template’s environment file.
 
-*Example Parameter Definition*
+R-86237 If a VNF’s Heat Orchestration Template’s OS::Nova::Server 
+Resource metadata map value parameter ‘vf_module_id’ is passed 
+into a Nested YAML file, the parameter name ‘vf\_module\_id’ 
+**MUST NOT** change.
 
-.. code-block:: yaml
+*Example 'vf\_module\_id' Parameter Definition*
 
- parameters:
-     vnf_module_id:
-         type: string
-         description: Unique ID for this VNF module instance
+.. code-block:: python
+
+  parameters:
+
+    vnf_module_id:
+      type: string
+      description: Unique ID for this VNF module instance
+
 
 vnf\_name
 +++++++++
 
-The vnf\_name parameter is mandatory; it must be included in the Heat
-Orchestration Template.
-
-The vnf\_name parameter value will be generated and/or assigned by ONAP
-and supplied to the Heat Orchestration Template by ONAP at orchestration
-time.
-
+The OS::Nova::Server Resource metadata map value parameter 'vnf_name'
+is the ONAP generated alphanumeric name of the deployed VNF instance.
+The value 
+is provided by ONAP to the VNF's Heat Orchestration
+Template at orchestration time.
 The parameter must be declared as type: string
 
-R-44318 The VNF Heat Orchestration Template **MUST NOT** have parameter constraints defined
-for the OS::Nova::Server metadata parameter vnf\_name.
+R-72483 A VNF’s Heat Orchestration Template’s OS::Nova::Server 
+Resource **MUST** contain the metadata map value parameter 
+‘vnf_name’.
 
-R-36542 The VNF Heat Orchestration Template **MUST NOT** enumerate the OS::Nova::Server
-metadata parameter vnf\_name in the environment file.
+R-62428 A VNF’s Heat Orchestration Template’s OS::Nova::Server 
+Resource metadata map value parameter ‘vnf_name’ **MUST** be 
+declared as type: ‘string’.
 
-*Example Parameter Definition*
+R-44318 A VNF’s Heat Orchestration Template’s OS::Nova::Server 
+Resource metadata map value parameter ‘vnf_name’ **MUST NOT** have 
+parameter contraints defined.
 
-.. code-block:: yaml
+R-36542 A VNF’s Heat Orchestration Template’s OS::Nova::Server 
+Resource metadata map value parameter ‘vnf_name’ **MUST NOT** be 
+enumerated in the Heat Orchestration Template’s environment file.
 
- parameters:
-     vnf_name:
-         type: string
-         description: Unique name for this VNF instance
+R-16576 If a VNF’s Heat Orchestration Template’s OS::Nova::Server 
+Resource metadata map value parameter ‘vnf_name’ is passed into a 
+Nested YAML file, the parameter name ‘vnf_name’ **MUST NOT** change.
+
+*Example 'vnf_name' Parameter Definition*
+
+.. code-block:: python
+
+  parameters:
+
+    vnf_name:
+      type: string
+      description: Unique name for this VNF instance
 
 vf\_module\_name
 ++++++++++++++++
 
-The vf\_module\_name parameter is optional; it may be included in the
-Heat Orchestration Template.
+The OS::Nova::Server Resource metadata map value parameter 'vf_module_name'
+is the deployment name of the heat stack created (e.g., <STACK_NAME>) from the
+VNF's Heat Orchestration template  
+in the command 'Heat stack-create' 
+(e.g., 'Heat stack-create [-f <FILE>] [-e <FILE>] <STACK_NAME>'). 
+The 'vf_module_name' (e.g., <STACK_NAME> is specified as 
+part of the orchestration process.
 
-The vf\_module\_name parameter is the name of the name of the Heat stack
-(e.g., <STACK\_NAME>) in the command “Heat stack-create” (e.g., Heat
-stack-create [-f <FILE>] [-e <FILE>] <STACK\_NAME>). The <STACK\_NAME>
-needs to be specified as part of the orchestration process.
+R-68023 A VNF’s Heat Orchestration Template’s OS::Nova::Server 
+Resource **SHOULD** contain the metadata map value parameter 
+‘vf\_module\_name’.
 
-The parameter must be declared as type: string
+R-39067 A VNF’s Heat Orchestration Template’s OS::Nova::Server 
+Resource metadata map value parameter ‘vf\_module\_name’ **MUST** 
+be declared as type: ‘string’.
 
-Parameter constraints must not be defined.
+R-15480 A VNF’s Heat Orchestration Template’s OS::Nova::Server 
+Resource metadata map value parameter ‘vf\_module\_name’ 
+**MUST NOT** have parameter contraints defined.
 
-The parameter must not be enumerated in the Heat environment file.
+R-80374 A VNF’s Heat Orchestration Template’s OS::Nova::Server 
+Resource metadata map value parameter ‘vf\_module\_name’ 
+**MUST NOT** be enumerated in the Heat Orchestration Template’s 
+environment file.
 
-*Example Parameter Definition*
+R-49177 If a VNF’s Heat Orchestration Template’s OS::Nova::Server 
+Resource metadata map value parameter ‘vf\_module\_name’ is passed 
+into a Nested YAML file, the parameter name ‘vf\_module\_name’ 
+**MUST NOT** change.
 
-.. code-block:: yaml
+*Example 'vf_module_name' Parameter Definition*
 
- parameters:
-     vf_module_name:
-         type: string
-         description: Unique name for this VNF Module instance
+.. code-block:: python
+
+  parameters:
+
+    vf_module_name:
+      type: string
+      description: Unique name for this VNF Module instance
 
 vm\_role
 ++++++++
 
-The vm\_role parameter is optional; it may be included in the Heat
-Orchestration Template.
+The OS::Nova::Server Resource metadata map value parameter 'vm-role'
+is a metadata tag that describes the role of the Virtual Machine.  
+The 'vm_role' is stored in ONAP's A&AI module and is
+available for use by other ONAP components and/or north bound systems.
 
-Any roles tagged to the VMs via metadata will be stored in ONAP’s A&AI
-system and available for use by other ONAP components and/or north bound
-systems.
+R-85328 A VNF’s Heat Orchestration Template’s OS::Nova::Server 
+Resource **MAY** contain the metadata map value parameter ‘vm_role’.
 
-The vm\_role values must be either
+R-95430 A VNF’s Heat Orchestration Template’s OS::Nova::Server 
+Resource metadata map value parameter ‘vm_role’ **MUST** be 
+declared as type: ‘string’.
 
--  hard-coded into the Heat Orchestration Template or
+R-67597 A VNF’s Heat Orchestration Template’s OS::Nova::Server 
+Resource metadata map value parameter ‘vm_role’ **MUST NOT** have 
+parameter contraints defined.
 
--  enumerated in the environment file.
+R-46823 A VNF’s Heat Orchestration Template’s OS::Nova::Server 
+Resource metadata map value parameter ‘vnf_name’ **MUST** be 
+either
 
-Defining the vm\_role as the {vm-type} is a recommended convention
+ - enumerated in the VNF’s Heat Orchestration 
+   Template’s environment file.
 
-The parameter must be declared as type: string
+ - hard coded in the VNF’s Heat Orchestration
+   Template’s OS::Nova::Resource metadata property.
 
-Parameter constraints must not be defined.
+Defining the 'vm_role' as the '{vm-type}' is a recommended convention
 
-*Example Parameter Definition*
+R-86476 If a VNF’s Heat Orchestration Template’s OS::Nova::Server 
+Resource metadata map value parameter ‘vm_role’ value **MUST only** 
+contain alphanumeric characters and underscores ‘_’.
 
-.. code-block:: yaml
+R-70757 If a VNF’s Heat Orchestration Template’s OS::Nova::Server 
+Resource metadata map value parameter ‘vm_role’ is passed into a 
+Nested YAML file, the parameter name ‘vm_role’ **MUST NOT** change.
 
- parameters:
-     vm_role:
-         type: string
-         description: Unique role for this VM
 
-*Example Resource Definition: Hard Coded*
+*Example 'vm_role' Parameter Definition*
 
-In this example, the {vm-role} is hard coded in the Heat Orchestration
-Template.
+.. code-block:: python
 
-.. code-block:: yaml
+  parameters:
 
- resources:
-   dns_servers:
-     type: OS::Nova::Server
-     properties:
-       . . . .
-       metadata:
-         vm_role: lb
-
-*Example Resource Definition: get\_param*
-
-In this example, the {vm-role} is enumerated in the environment file.
-
-.. code-block:: yaml
-
- resources:
-   dns_servers:
-     type: OS::Nova::Server
-     properties:
-       . . . .
-       metadata:
-         vm_role: { get_param: vm_role }
-
-Example
-+++++++
-
-The example below depicts part of a Heat Orchestration Template that
-uses the five of the OS::Nova::Server metadata parameter discussed in
-this section. The {vm-type} has been defined as lb for load balancer.
-
-.. code-block:: yaml
-
- parameters:
-    lb_name_0
-       type: string
-       description: VM Name for lb VM 0
-    vnf_name:
-       type: string
-       description: Unique name for this VNF instance
-    vnf_id:
-       type: string
-       description: Unique ID for this VNF instance
-    vf_module_name:
-       type: string
-       description: Unique name for this VNF Module instance
-    vf_module_id:
-       type: string
-       description: Unique ID for this VNF Module instance
     vm_role:
-       type: string
-       description: Unique role for this VM
+      type: string
+      description: Unique role for this VM
 
- resources:
+*Example: 'vm-role' Definition: Hard Coded in 
+OS::Nova::Resource metadata property*
 
-    lb_vm_0:
-       type: OS::Nova::Server
-       properties:
-       name: { get_param: lb_name_0 }
-       ...
-       metadata:
+.. code-block:: python
+
+  resources:
+
+    dns_server_0
+      type: OS::Nova::Server
+      properties:
+        . . . .
+        metadata:
+          vm_role: dns
+
+*Example 'vm-role' Definition: Defined in Environment file
+and retrieved via 'get_param'*
+
+.. code-block:: python
+
+  resources:
+
+    dns_server_0:
+      type: OS::Nova::Server
+      properties:
+        . . . .
+        metadata:
+          vm_role: { get_param: vm_role }
+
+Example vnf_id, vf_module_id, vnf_name, vf_module_name, vm_role
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+The example below depicts part of a Heat Orchestration Template 
+that uses the five of the OS::Nova::Server metadata parameter 
+discussed in this section. The {vm-type} has been defined as lb 
+for load balancer.
+
+.. code-block:: python
+
+  parameters:
+    lb_name_0
+      type: string
+      description: VM Name for lb VM 0
+    vnf_name:
+      type: string
+      description: Unique name for this VNF instance
+    vnf_id:
+      type: string
+      description: Unique ID for this VNF instance
+    vf_module_name:
+      type: string
+      description: Unique name for this VNF Module instance
+    vf_module_id:
+      type: string
+      description: Unique ID for this VNF Module instance
+    vm_role:
+      type: string
+      description: Unique role for this VM
+  resources:
+    lb_server_0:
+      type: OS::Nova::Server
+      properties:
+        name: { get_param: lb_name_0 }
+        ...
+        metadata:
           vnf_name: { get_param: vnf_name }
           vnf_id: { get_param: vnf_id }
           vf_module_name: { get_param: vf_module_name }
           vf_module_id: { get_param: vf_module_id }
           vm_role: lb
+
+vf\_module\_index
++++++++++++++++++
+
+R-50816 A VNF’s Heat Orchestration Template’s OS::Nova::Server 
+Resource **MAY** contain the metadata map value parameter 
+‘vf\_module\_index’.
+
+R-54340 A VNF’s Heat Orchestration Template’s OS::Nova::Server 
+Resource metadata map value parameter ‘vf\_module\_index’ **MUST** be 
+declared as type: ‘number’.
+
+R-09811 A VNF’s Heat Orchestration Template’s OS::Nova::Server 
+Resource metadata map value parameter ‘vf\_module\_index’ **MUST NOT** 
+have parameter contraints defined.
+
+R-37039 A VNF’s Heat Orchestration Template’s OS::Nova::Server 
+Resource metadata map value parameter ‘vf\_module\_index’ **MUST NOT** 
+be enumerated in the Heat Orchestration Template’s environment file.
+
+R-22441 If a VNF’s Heat Orchestration Template’s OS::Nova::Server 
+Resource metadata map value parameter ‘vf\_module\_index’ is passed 
+into a Nested YAML file, the parameter name ‘vf\_module\_index’ 
+**MUST NOT** change.
+
+R-55306 If a VNF’s Heat Orchestration Template’s OS::Nova::Server 
+Resource metadata map value parameter ‘vf\_module\_index’ **MUST NOT** be 
+used in a VNF’s Volume Template; it is not supported.
+
+The vf_module_index parameter indicates which instance of the module is being 
+deployed into the VNF.
+This parameter may be used in cases where multiple instances of the same 
+incremental module may be instantiated for scaling purposes. The index
+can be used in the Heat Orchestration Template for indexing into a 
+pseudo-constant array parameter when unique values are required for each 
+module instance, e.g., for fixed private IP addresses on VM types.
+
+The vf_module_index will start at 0 for the first instance of a module
+type. Subsequent instances of the same module type will receive the
+lowest unused index. This means that indexes will be reused if a module
+is deleted and re-added. As an example, if three copies of a module are
+deployed with vf_module_index values of 0, 1, and 2 then subsequently
+the second one is deleted (index 1), and then re-added, index 1 will be
+reused.
+
+*Example*
+
+In this example, the {vm-type} has been defined as oam_vm to represent
+an OAM VM. An incremental heat module is used to deploy the OAM VM. The
+OAM VM attaches to an internal control network which has a
+{network-role} of ctrl. A maximum of four OAM VMs can be deployed. The
+environment file contains the four IP addresses that each successive OAM
+VM will be assigned. The vf_module_index is used as the index to
+determine the IP assignment.
+
+Environment File
+
+.. code-block:: python
+
+  parameters:
+    oam_vm_int_ctrl_ips: 10.10.10.1,10.10.10.2,10.10.10.3,10.10.10.4
+
+YAML File
+
+.. code-block:: python
+
+  parameters:
+    vf_module_index:
+      type: number
+      description: Unique index for this VNF Module instance
+    oam_vm_name_0:
+      type: string
+      description: VM Name for lb VM 0
+    int_ctrl_net_id:
+      type: string
+      description: Neutron UUID for the internal control network
+    oam_vm_int_ctrl_ips:
+      type: comma_delimited_list
+      description: Fixed IP assignments for oam VMs on the internal control
+      network
+  resources:
+    oam_vm_server_0:
+      type: OS::Nova::Server
+      properties:
+        name: { get_param: oam_vm_name_0 }
+        networks:
+          - port: { get_resource: oam_vm_0_int_ctrl_port_0 }
+        . . .
+        metadata:
+          vf_module_index: { get_param: vf_module_index }
+    oam_vm_0_int_ctrl_port_0:
+      type: OS::Neutron::Port
+      properties:
+        network: { get_param: int_ctrl_net_id }
+        fixed_ips: [ { “ip_address”: {get_param: [ oam_vm_int_ctrl_ips, { get_param, vf_module_index]}}}]
+
+workload_context
+++++++++++++++++
+
+R-47061 A VNF’s Heat Orchestration Template’s OS::Nova::Server 
+Resource **SHOULD** contain the metadata map value parameter 
+‘workload_context’.
+
+R-74978 A VNF’s Heat Orchestration Template’s OS::Nova::Server 
+Resource metadata map value parameter ‘workload_context’ **MUST** be 
+declared as type: ‘string’.
+
+R-34055 A VNF’s Heat Orchestration Template’s OS::Nova::Server 
+Resource metadata map value parameter ‘workload_context’ **MUST NOT** 
+have parameter contraints defined.
+
+R-02691 A VNF’s Heat Orchestration Template’s OS::Nova::Server 
+Resource metadata map value parameter ‘workload_context’ **MUST NOT** 
+be enumerated in the Heat Orchestration Template’s environment file.
+
+R-75202 If a VNF’s Heat Orchestration Template’s OS::Nova::Server 
+Resource metadata map value parameter ‘workload_context’ is passed 
+into a Nested YAML file, the parameter name ‘workload_context’ 
+**MUST NOT** change.
+
+The 'workload_context' parameter value will be chosen by the Service Model
+Distribution context client in VID and will be supplied to the 
+Heat Orchestration Template by ONAP at orchestration time.
+
+*Example Parameter Definition*
+
+.. code-block:: python
+
+  parameters:
+    workload_context:
+      type: string
+      description: Workload Context for this VNF instance
+
+
+*Example OS::Nova::Server with metadata*
+
+.. code-block:: python
+
+  resources:
+    . . .
+
+    {vm-type}_server_{index}:
+       type: OS::Nova::Server
+       properties:
+         name:
+         flavor:
+         image:
+        ... 
+       metadata:
+          vnf_name: { get_param: vnf_name }
+          vnf_id: { get_param: vnf_id }
+          vf_module_name: { get_param: vf_module_name }
+          vf_module_id: { get_param: vf_module_id }
+          workload_context: {get_param: workload_context}
+
+environment_context
++++++++++++++++++++
+
+R-88536 A VNF’s Heat Orchestration Template’s OS::Nova::Server 
+Resource **SHOULD** contain the metadata map value parameter 
+‘environment_context’.
+
+R-20308 A VNF’s Heat Orchestration Template’s OS::Nova::Server 
+Resource metadata map value parameter ‘environment_context’ **MUST** 
+be declared as type: ‘string’.
+
+R-56183 A VNF’s Heat Orchestration Template’s OS::Nova::Server 
+Resource metadata map value parameter ‘environment_context’ **MUST NOT** 
+have parameter contraints defined.
+
+R-13194 A VNF’s Heat Orchestration Template’s OS::Nova::Server 
+Resource metadata map value parameter ‘environment_context’ **MUST NOT** 
+be enumerated in the Heat Orchestration Template’s environment file.
+
+R-62954 If a VNF’s Heat Orchestration Template’s OS::Nova::Server 
+Resource metadata map value parameter ‘environment_context’ is 
+passed into a Nested YAML file, the parameter name 
+‘environment_context’ **MUST NOT** change.
+
+The 'environment_context' parameter value will be defined by the 
+service designer as part of the service model during the SDC 
+on-boarding process and will be supplied to the Heat Orchestration 
+Template by ONAP at orchestration time.  
+
+
+*Example Parameter Definition*
+
+.. code-block:: python
+
+  parameters:
+    environment_context:
+      type: string
+      description: Environment Context for this VNF instance
+
+
+*Example OS::Nova::Server with metadata*
+
+.. code-block:: python
+
+  resources:
+    . . .
+
+    {vm-type}_server_{index}:
+       type: OS::Nova::Server
+       properties:
+         name:
+         flavor:
+         image:
+        ... 
+       metadata:
+          vnf_name: { get_param: vnf_name }
+          vnf_id: { get_param: vnf_id }
+          vf_module_name: { get_param: vf_module_name }
+          vf_module_id: { get_param: vf_module_id }
+          workload_context: {get_param: workload_context}
+          environment_context: {get_param: environment_context }
+
 
 Resource: OS::Neutron::Port - Parameters
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
