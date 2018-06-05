@@ -51,3 +51,16 @@ IETF Specifications:
   Suite 117, Fremont, California 94538, USA; Phone: +1-510-492-4080,
   Fax: +1-510-492-4001.
 
+Submitting Feedback
+------------------------------------
+To report issues on this document, please perform one of the following steps:
+
+    1. Log a JIRA defect against the document within the VNF Requirements
+       (VNFRQTS) project at https://jira.onap.org/projects/VNFRQTS.
+       Note: This will require a Linux Foundation ID to login to JIRA.
+    2. Send an email to onap-discuss@lists.onap.org with subject line
+       starting with the tag [vnfrqts]. Note: This will require subscribing
+       to the onap-discuss email discussion list. Refer to the following
+       instructions to subscribe to the mail list:
+       https://wiki.onap.org/display/DW/Mailing+Lists
+
