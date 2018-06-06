@@ -3,8 +3,8 @@
 .. Copyright 2017 AT&T Intellectual Property.  All rights reserved.
 
 
-**Introduction**
-====================
+Introduction
+============
 - These requirements are specific to the current release of ONAP.
   It is the initial release of requirements based on a merge of the Open-O
   and OpenECOMP requirements.

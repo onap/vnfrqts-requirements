@@ -3,11 +3,11 @@
 .. Copyright 2017 AT&T Intellectual Property.  All rights reserved.
 
 
-**VNF Modeling Requirements**
-=====================================
+VNF Modeling Requirements
+=========================
 
 TOSCA YAML
---------------------------
+----------
 
 
 Introduction

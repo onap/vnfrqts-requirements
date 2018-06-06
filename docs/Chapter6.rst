@@ -3,8 +3,8 @@
 .. Copyright 2017 AT&T Intellectual Property.  All rights reserved.
 
 
-**Infrastructure Requirements**
-=====================================
+Infrastructure Requirements
+===========================
 
 This Amsterdam release of the requirements is targeted for those
 implementations that consist of Network Clouds: Vanilla OpenStack

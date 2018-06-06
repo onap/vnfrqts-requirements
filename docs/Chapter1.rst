@@ -3,8 +3,8 @@
 .. Copyright 2017 AT&T Intellectual Property.  All rights reserved.
 
 
-**Purpose**
-==============
+Purpose
+=======
 - The purpose of these requirements is to accelerate adoption of xNF best
   practices which will increase innovation, minimize customization needed to
   onboard xNFs as well as reduce implementation complexity, time and cost

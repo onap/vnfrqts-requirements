@@ -3,8 +3,8 @@
 .. Copyright 2017 AT&T Intellectual Property.  All rights reserved.
 
 
-**Appendix**
-===============
+Appendix
+========
 
 Chef JSON Key Value Description
 -------------------------------------

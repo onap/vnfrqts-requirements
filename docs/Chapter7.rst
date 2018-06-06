@@ -3,8 +3,8 @@
 .. Copyright 2017 AT&T Intellectual Property.  All rights reserved.
 
 
-**ONAP Management Requirements**
-=====================================
+ONAP Management Requirements
+============================
 
 The ONAP platform is the part of the larger Network Function
 Virtualization/Software Defined Network (NFV/SDN) ecosystem that

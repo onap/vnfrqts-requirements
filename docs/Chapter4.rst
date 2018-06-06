@@ -3,11 +3,11 @@
 .. Copyright 2017 AT&T Intellectual Property.  All rights reserved.
 
 
-**VNF Development Requirements**
-====================================
+VNF Development Requirements
+============================
 
 VNF Design
---------------------
+----------
 
 Services are composed of VNFs and common components and are designed to
 be agnostic of the location to leverage capacity where it exists in the

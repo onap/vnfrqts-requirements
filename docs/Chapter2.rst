@@ -3,8 +3,8 @@
 .. Copyright 2017 AT&T Intellectual Property.  All rights reserved.
 
 
-**Scope**
-============
+Scope
+=====
 - The audience for this document are xNF providers, NCSPs and other
   interested 3rd parties who need to know the design, build and lifecycle
   management requirements for xNFs to be compliant with ONAP.
