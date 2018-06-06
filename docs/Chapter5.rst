@@ -3151,671 +3151,858 @@ Four properties of the resource OS::Neutron::Port that must follow the
 ONAP parameter naming convention. The four properties are:
 
 1. network
+2. fixed_ips, ip_address
+3. fixed_ips, subnet_id or fixed_ips, subnet
+ * Note that in many examples in this document fixed_ips, subnet_id is used.
+4. allowed_address_pairs, ip_address
 
-2. fixed\_ips, ip\_address
+Below is a generic example. Note that for some parameters
+comma_delimited_list are supported in addition to String.
 
-3. fixed\_ips, subnet\_id
+.. code-block:: python
 
-4. allowed\_address\_pairs, ip\_address
+  resources:
+
+  ...
+
+  <resource ID>:
+    type: OS::Neutron::Port
+    properties:
+      allowed_address_pairs: [{"ip_address": String, "mac_address": String},
+      {"ip_address": String, "mac_address": String}, ...]
+      fixed_ips: [{"ip_address": String, "subnet_id": String, "subnet":
+      String}, {"ip_address": String, "subnet_id": String, "subnet": String},
+      ...]
+      network: String
 
 The parameters associated with these properties may reference an
 external network or internal network. External networks and internal
 networks are defined in `Networking`_.
 
-External Networks
-_________________
+When the OS::Neutron::Port is attaching to an external network, all
+property values are parameters that are retrieved via the intrinsic
+function 'get_param'.
 
-When the parameter references an external network
+When the OS::Neutron::Port is attaching to an internal network, a
+property value maybe retrieved via the intrinsic
+function 'get_param', 'get_resource', or 'get_attr'.
 
--  R-72050 The VNF Heat Orchestration Template **MUST** contain {network-role} in the parameter name
+This will be described in the forth coming sections.
 
--  the parameter must not be enumerated in the Heat environment file
+Items to Note
+_____________
 
--  the parameter is classified as an ONAP Orchestration Parameter
+A network (internal or external) may contain one or or more subnets.
 
-+----------------------+---------------------------+--------------------------+
-| Property Name        | ONAP Parameter Name       | Parameter Type           |
-+======================+===========================+==========================+
-| network              | {network-role}\_net\_id   | string                   |
-|                      +---------------------------+--------------------------+
-|                      | {network-role}\_net\_name | string                   |
-+----------------------+---------------------------+--------------------------+
-| fixed\_ips,          | {vm-type}\_{network-role}\| string                   |
-| ip\_address          | _ip\_{index}              |                          |
-|                      +---------------------------+--------------------------+
-|                      | {vm-type}\_{network-role}\| comma\_delimited\_list   |
-|                      | _ips                      |                          |
-|                      +---------------------------+--------------------------+
-|                      | {vm-type}\_{network-role}\| string                   |
-|                      | _v6\_ip\_{index}          |                          |
-|                      +---------------------------+--------------------------+
-|                      | {vm-type}\_{network-role}\| comma\_delimited\_list   |
-|                      | _v6\_ips                  |                          |
-+----------------------+---------------------------+--------------------------+
-| fixed\_ips, subnet   | {network-role}\           | string                   |
-|                      | _subnet\_id               |                          |
-|                      +---------------------------+--------------------------+
-|                      | {network-role}\           | string                   |
-|                      | _v6\_subnet\_id           |                          |
-+----------------------+---------------------------+--------------------------+
-| allowed\_address     | {vm-type}\_{network-role}\| string                   |
-| \_pairs, ip\_address | _floating\_ip             |                          |
-|                      +---------------------------+--------------------------+
-|                      | {vm-type}\_{network-role}\| string                   |
-|                      | _floating\_v6\_ip         |                          |
-|                      +---------------------------+--------------------------+
-|                      | {vm-type}\_{network-role}\| string                   |
-|                      | _ip\_{index}              |                          |
-|                      +---------------------------+--------------------------+
-|                      | {vm-type}\_{network-role}\| comma\_delimited\_list   |
-|                      | _ips                      |                          |
-|                      +---------------------------+--------------------------+
-|                      | {vm-type}\_{network-role}\| string                   |
-|                      | _v6\_ip\_{index}          |                          |
-|                      +---------------------------+--------------------------+
-|                      | {vm-type}\_{network-role}\| comma\_delimited\_list   |
-|                      | _v6\_ips                  |                          |
-+----------------------+---------------------------+--------------------------+
+A VNF can have one or more ports connected to the same network.
 
-Table 5: OS::Neutron::Port Resource Property Parameters (External
-Networks)
+A port can have one or more IP addresses assigned.
 
-Internal Networks
-_________________
+The IP address assignments can be IPv4 addresses and/or IPv6 addresses.
 
-When the parameter references an internal network
+The IP addresses assignments for a unique external network **MUST**
+be all Cloud Assigned addresses OR **MUST** be all ONAP
+SDN-C assigned IP addresses.
 
--  R-57576 The VNF Heat Orchestration Template **MUST** contain int\_{network-role}
-   in the parameter name.
+If the IP addresses are Cloud Assigned, all the IPv4 Addresses **MUST**
+be from
+the same subnet and all the IPv6 Addresses **MUST** be from the
+same subnet.
 
--  the parameter may be enumerated in the environment file.
+If the IP addresses are ONAP SDN-C assigned,
+the IPv4 Addresses **MAY**
+be from
+different subnets and the IPv6 Addresses **MAY** be from different
+subnets.
 
-+-------------------------+--------------------------------+-----------------+
-| Property                | Parameter Name for             | Parameter Type  |
-|                         | Internal Networks              |                 |
-+=========================+================================+=================+
-| network                 | int\_{network-role}\           | string          |
-|                         | _net\_id                       |                 |
-|                         +--------------------------------+-----------------+
-|                         | int\_{network-role}\           | string          |
-|                         | _net\_name                     |                 |
-+-------------------------+--------------------------------+-----------------+
-| fixed\_ips, ip\_address | {vm-type}\_int\_{network-role}\| string          |
-|                         | _ip\_{index}                   |                 |
-|                         +--------------------------------+-----------------+
-|                         | {vm-type}\_int\_{network-role}\| comma\          |
-|                         | _ips                           | _delimited\_list|
-|                         +--------------------------------+-----------------+
-|                         | {vm-type}\_int\_{network-role}\| string          |
-|                         | _v6\_ip\_{index}               |                 |
-|                         +--------------------------------+-----------------+
-|                         | {vm-type}\_int\_{network-role}\| comma\          |
-|                         | _v6\_ips                       | _delimited\_list|
-+-------------------------+--------------------------------+-----------------+
-| fixed\_ips, subnet      | int\_{network-role}\           | string          |
-|                         | _subnet\_id                    |                 |
-|                         +--------------------------------+-----------------+
-|                         | int\_{network-role}\           | string          |
-|                         | _v6\_subnet\_id                |                 |
-+-------------------------+--------------------------------+-----------------+
-| allowed\_address\_pairs,| {vm-type}\_int\_{network-role}\| string          |
-| ip\_address             | _floating\_ip                  |                 |
-|                         +--------------------------------+-----------------+
-|                         | {vm-type}\_int\_{network-role}\| string          |
-|                         | _floating\_v6\_ip              |                 |
-|                         +--------------------------------+-----------------+
-|                         | {vm-type}\_int\_{network-role}\| string          |
-|                         | _ip\_{index}                   |                 |
-|                         +--------------------------------+-----------------+
-|                         | {vm-type}\_int\_{network-role}\| comma\          |
-|                         | _ips                           | _delimited\_list|
-|                         +--------------------------------+-----------------+
-|                         | {vm-type}\_int\_{network-role}\| string          |
-|                         | _v6\_ip\_{index}               |                 |
-|                         +--------------------------------+-----------------+
-|                         | {vm-type}\_int\_{network-role}\| comma\          |
-|                         | _v6\_ips                       | _delimited\_list|
-+-------------------------+--------------------------------+-----------------+
+If a VNF's Port is attached to an external network the IP addresses **MAY**
+either be assigned by
+ 1. ONAP's SDN-Controller (SDN-C)
+ 2. Cloud Assigned by OpenStack’s DHCP Service
 
-Table 6: Port Resource Property Parameters (Internal Networks)
+If a VNF's Port is attached to an external network and the port's IP addresses
+are assigned by ONAP's SDN-Controller, the 'OS::Neutron::Port' Resource's
+ * property 'fixed_ips' map property 'ip_address' **MUST** be used
+ * property 'fixed_ips' map property 'subnet'/'subnet_id'
+   **MUST NOT** be used
+
+If a VNF's Port is attached to an external network and the port's IP addresses
+are Cloud Assigned by OpenStack’s DHCP Service,
+the 'OS::Neutron::Port' Resource's
+ * property 'fixed_ips' map property 'ip_address' **MUST NOT** be used
+ * property fixed_ips' map property 'subnet'/'subnet_id' **MAY** be used
+
+If a VNF's Port is attached to an internal network and the port's IP addresses
+are assigned by the VNF's Heat Orchestration Template
+(i.e., enumerated in the Heat Orchestration Template's environment file),
+the 'OS::Neutron::Port' Resource's
+ * property 'fixed_ips' map property 'ip_address' **MUST** be used
+ * property 'fixed_ips' map property 'subnet'/'subnet_id'
+   **MUST NOT** be used
+
+If a VNF's Port is attached to an internal network and the port's IP addresses
+are Cloud Assigned by OpenStack’s DHCP Service,
+the 'OS::Neutron::Port' Resource's
+ * property 'fixed_ips' map property 'ip_address' **MUST NOT** be used
+ * property 'fixed_ips' map property 'subnet'/'subnet_id'
+   **MAY** be used
+
+If a VNF's Heat Orchestration Template 'OS::Neutron::Port' Resource property
+'fixed_ips' map property 'ip_address' is specified, then the
+'fixed_ips' map property 'subnet'/'subnet_id' **MUST NOT**
+be specified.
+
+If a VNF's Heat Orchestration Template 'OS::Neutron::Port' Resource property
+'fixed_ips' map property 'subnet'/'subnet_id' is specified, then the
+'fixed_ips' map property 'ip_address' **MUST NOT**
+be specified.
+
+.. csv-table:: **Table 4 OS::Nova::Server Resource Property Parameter Naming Convention**
+   :header: Resource,Property,Parameter Type,Parameter Name,Parameter Value Provided to Heat
+   :align: center
+   :widths: auto
+
+   OS::Nova::Server, image, string, {vm-type}_image_name, Environment File
 
 Property: network
 +++++++++++++++++
 
-The property networks in the resource OS::Neutron::Port must be
-referenced by Neutron Network ID, a UUID value, or by the network name
-defined in OpenStack.
+The Resource 'OS::Neutron::Port' property 'network' determines what network
+the port is attached to.
 
-External Networks
-_________________
 
-R-93272 The VNF Heat Orchestration Template **MUST** adhere to the following parameter naming
-convention in the Heat Orchestration Template, when the parameter
-associated with the property network is referencing an “external” network:
+R-18008 The VNF’s Heat Orchestration Template’s Resource ‘OS::Neutron::Port’
+property ‘network’ parameter **MUST** be declared as type: ‘string’.
 
--  {network-role}\_net\_id for the Neutron network ID
+R-62983 When the VNF’s Heat Orchestration Template’s Resource ‘OS::Neutron::Port’
+is attaching to an external network, the ‘network’ parameter name **MUST**
 
--  {network-role}\_net\_name for the network name in OpenStack
+- follow the naming convention ‘{network-role}_net_id’ if the Neutron
+  network UUID value is used to reference the network
+- follow the naming convention ‘{network-role}_net_name’ if the OpenStack
+  network name is used to reference the network.
 
-The parameter must be declared as type: string
+where ‘{network-role}’ is the network-role of the external network and
+a ‘get_param’ **MUST** be used as the intrinsic function.
 
-The parameter must not be enumerated in the Heat environment file.
+R-86182 When the VNF’s Heat Orchestration Template’s Resource ‘OS::Neutron::Port’
+is attaching to an internal network, and the internal network is created in a different
+Heat Orchestration Template than the ‘OS::Neutron::Port’, the ‘network’
+parameter name **MUST**
 
-*Example Parameter Definition*
+- follow the naming convention ‘int\_{network-role}_net_id’ if the Neutron
+  network UUID value is used to reference the network
+- follow the naming convention ‘int\_{network-role}_net_name’ if the
+  OpenStack network name in is used to reference the network.
 
-.. code-block:: yaml
+where ‘{network-role}’ is the network-role of the internal network and a ‘get_param’ **MUST** be used as the intrinsic function.
 
- parameters:
-     {network-role}_net_id:
-         type: string
-         description: Neutron UUID for the {network-role} network
-     {network-role}_net_name:
-         type: string
-         description: Neutron name for the {network-role} network
+In Requirement R-86182, the internal network is created in the VNF's
+Base Module (Heat Orchestration Template) and the parameter name is
+declared in the Base Module's outputs' section.
+The output parameter name will be declared as a parameter in the
+'parameters' section of the incremental module.
 
-*Example: One Cloud Assigned IP Address (DHCP) assigned to a network
-that has only one subnet*
+R-93177 When the VNF’s Heat Orchestration Template’s Resource ‘OS::Neutron::Port’
+is attaching to an internal network, and the internal network is created in the same Heat
+Orchestration Template than the ‘OS::Neutron::Port’, the ‘network’
+parameter name **MUST** obtain the UUID of the internal network by using
+the intrinsic function ‘get_resource’ or ‘get_attr’ and referencing the
+Resource ID of the internal network.
 
-In this example, the {network-role} has been defined as oam to represent
-an oam network and the {vm-type} has been defined as lb for load
-balancer. The Cloud Assigned IP Address uses the OpenStack DHCP service
-to assign IP addresses.
+R-29872 The VNF’s Heat Orchestration Template’s Resource ‘OS::Nova::Server’
+property ‘network’ parameter **MUST NOT** be enumerated in the Heat
+Orchestration Template’s Environment File.
 
-.. code-block:: yaml
+The parameter values for external networks are provided by ONAP
+to the VNF's Heat Orchestration Template at orchestration time.
 
- parameters:
+The parameter values for internal networks created in the VNF's Base Module
+Heat Orchestration Template
+are provided to the VNF's Incremental Module Heat Orchestration Template
+at orchestration time.
+
+*Example Parameter Definition of External Networks*
+
+.. code-block:: python
+
+  parameters:
+
+    {network-role}_net_id:
+      type: string
+      description: Neutron UUID for the external {network-role} network
+
+    {network-role}_net_name:
+      type: string
+      description: Neutron name for the external {network-role} network
+
+
+*Example Parameter Definition of Internal Networks in an Incremental Module*
+
+.. code-block:: python
+
+  parameters:
+
+    int_{network-role}_net_id:
+      type: string
+      description: Neutron UUID for the internal int_{network-role} network
+
+    int_{network-role}_net_name:
+      type: string
+      description: Neutron name for the internal int_{network-role} network
+
+Property: fixed_ips, Map Property: ip_address
++++++++++++++++++++++++++++++++++++++++++++++
+
+The resource 'OS::Neutron::Port' property 'fixed_ips'
+map property 'ip_address'
+is used to assign one IPv4 or IPv6
+addresses to port.
+
+One 'OS::Neutron::Port' resource may assign one or more
+IPv4 and/or IPv6 addresses.
+
+R-34037 The VNF’s Heat Orchestration Template’s resource ‘OS::Neutron::Port’
+property ‘fixed_ips’ map property ‘ip_address’ parameter **MUST** be declared as
+either type ‘string’ or type ‘comma_delimited_list’.
+
+R-40971 When the VNF’s Heat Orchestration Template’s Resource
+‘OS::Neutron::Port’ is attaching to an external network, and an IPv4 address is
+assigned using the property
+‘fixed_ips’ map property ‘ip_address’ and the parameter type is defined
+as a string, the parameter name **MUST** follow the naming
+convention ‘{vm-type}_{network-role}\_ip\_{index}’, where
+
+- ‘{vm-type}’ is the {vm-type} associated with the OS::Nova::Server
+- ‘{network-role}’ is the {network-role} of the external network
+- the value for {index} must start at zero (0) and increment by one
+
+R-39841 The VNF’s Heat Orchestration Template’s Resource ‘OS::Neutron::Port’
+property ‘fixed_ips’ map property ‘ip_address’ parameter
+‘{vm-type}_{network-role}\_ip\_{index}’ **MUST NOT** be enumerated in the
+VNF’s Heat Orchestration Template’s Environment File.
+
+ONAP's SDN-Controller assigns the IP Address and ONAP provides
+the value at orchestration to the Heat Orchestration Template.
+
+*Example External Network IPv4 Address string Parameter Definition*
+
+.. code-block:: python
+
+  parameters:
+
+    {vm-type}_{network-role}_ip_{index}:
+      type: string
+      description: Fixed IPv4 assignment for {vm-type} VM {index} on the{network-role} network
+
+R-04697 When the VNF’s Heat Orchestration Template’s Resource ‘OS::Neutron::Port’
+is attaching to an external network, and an IPv4 address is assigned using
+the property ‘fixed_ips’ map property ‘ip_address’ and the parameter type
+is defined as a comma_delimited_list, the parameter name **MUST** follow the
+naming convention ‘{vm-type}_{network-role}_ips’, where
+
+- ‘{vm-type}’ is the {vm-type} associated with the OS::Nova::Server
+- ‘{network-role}’ is the {network-role} of the external network
+
+R-98905 The VNF’s Heat Orchestration Template’s Resource ‘OS::Neutron::Port’
+property ‘fixed_ips’ map property ‘ip_address’ parameter
+‘{vm-type}_{network-role}_ips’ **MUST NOT** be enumerated in the VNF’s
+Heat Orchestration Template’s Environment File.
+
+ONAP's SDN-Controller assigns the IP Address and ONAP provides
+the value at orchestration to the Heat Orchestration Template.
+
+*Example External Network IPv4 Address comma_delimited_list
+Parameter Definition*
+
+.. code-block:: python
+
+  parameters:
+
+    {vm-type}_{network-role}_ips:
+      type: comma_delimited_list
+      description: Fixed IPv4 assignments for {vm-type} VMs on the {network-role} network
+
+R-71577 When the VNF’s Heat Orchestration Template’s Resource
+‘OS::Neutron::Port’ is attaching to an external network, and an IPv6 address
+is assigned using the property ‘fixed_ips’ map property ‘ip_address’ and
+the parameter type is defined as a string, the parameter name **MUST** follow
+the naming convention ‘{vm-type}_{network-role}\_v6\_ip\_{index}’, where
+
+- ‘{vm-type}’ is the {vm-type} associated with the OS::Nova::Server
+- ‘{network-role}’ is the {network-role} of the external network
+- the value for {index} must start at zero (0) and increment by one
+
+
+R-87123 The VNF’s Heat Orchestration Template’s Resource
+‘OS::Neutron::Port’ property ‘fixed_ips’ map property ‘ip_address’
+parameter ‘{vm-type}_{network-role}\_v6\_ip\_{index}’ **MUST NOT** be enumerated
+in the VNF’s Heat Orchestration Template’s Environment File.
+
+ONAP's SDN-Controller assigns the IP Address and ONAP provides
+the value at orchestration to the Heat Orchestration Template.
+
+*Example External Network IPv6 Address string Parameter Definition*
+
+.. code-block:: python
+
+  parameters:
+
+    {vm-type}_{network-role}_v6_ip_{index}:
+      type: string
+      description: Fixed IPv6 assignment for {vm-type} VM {index} on the {network-role} network
+
+R-23503 When the VNF’s Heat Orchestration Template’s Resource
+‘OS::Neutron::Port’ is attaching to an external network, and an IPv6
+address is assigned using the property ‘fixed_ips’ map property ‘ip_address’
+and the parameter type is defined as a comma_delimited_list, the parameter
+name **MUST** follow the naming convention ‘{vm-type}_{network-role}_v6_ips’, where
+
+- ‘{vm-type}’ is the {vm-type} associated with the OS::Nova::Server
+- ‘{network-role}’ is the {network-role} of the external network
+
+R-93030 The VNF’s Heat Orchestration Template’s Resource
+‘OS::Neutron::Port’ property ‘fixed_ips’ map property ‘ip_address’
+parameter ‘{vm-type}_{network-role}_v6_ips’ **MUST NOT** be enumerated in the
+VNF’s Heat Orchestration Template’s Environment File.
+
+ONAP's SDN-Controller assigns the IP Address and ECOMP provides
+the value at orchestration to the Heat Orchestration Template.
+
+*Example External Network IPv6 Address comma_delimited_list Parameter
+Definition*
+
+.. code-block:: python
+
+  parameters:
+
+    {vm-type}_{network-role}_v6_ips:
+      type: comma_delimited_list
+      description: Fixed IPv6 assignments for {vm-type} VMs on the {network-role} network
+
+R-78380 When the VNF’s Heat Orchestration Template’s Resource
+‘OS::Neutron::Port’ is attaching to an internal network, and an IPv4 address
+is assigned using the property ‘fixed_ips’ map property ‘ip_address’ and
+the parameter type is defined as a string, the parameter name **MUST** follow
+the naming convention ‘{vm-type}\_int\_{network-role}\_ip\_{index}’, where
+
+- ‘{vm-type}’ is the {vm-type} associated with the OS::Nova::Server
+- ‘{network-role}’ is the {network-role} of the internal network
+- the value for {index} must start at zero (0) and increment by one
+
+R-28795 The VNF’s Heat Orchestration Template’s Resource
+‘OS::Neutron::Port’ property ‘fixed_ips’ map property ‘ip_address’
+parameter ‘{vm-type}\_int\_{network-role}\_ip\_{index}’ **MUST** be enumerated
+in the VNF’s Heat Orchestration Template’s Environment File.
+
+The IP address is local to the VNF's internal network and is (re)used
+in every VNF spin up, thus the constant value is declared in the VNF's
+Heat Orchestration Template's Environment File.
+
+*Example Internal Network IPv4 Address string Parameter Definition*
+
+.. code-block:: python
+
+  parameters:
+
+    {vm-type}_int_{network-role}_ip_{index}:
+      type: string
+      description: Fixed IPv4 assignment for {vm-type} VM {index} on the int_{network-role} network
+
+R-85235 When the VNF’s Heat Orchestration Template’s Resource
+‘OS::Neutron::Port’ is attaching to an internal network, and an IPv4
+address is assigned using the property ‘fixed_ips’ map property ‘ip_address’
+and the parameter type is defined as a comma_delimited_list, the parameter
+name **MUST** follow the naming convention ‘{vm-type}\_int\_{network-role}_ips’, where
+
+- ‘{vm-type}’ is the {vm-type} associated with the OS::Nova::Server
+- ‘{network-role}’ is the {network-role} of the internal network
+
+R-90206 The VNF’s Heat Orchestration Template’s Resource
+‘OS::Neutron::Port’ property ‘fixed_ips’ map property ‘ip_address’
+parameter ‘{vm-type}\_int\_{network-role}_int_ips’ **MUST** be enumerated in
+the VNF’s Heat Orchestration Template’s Environment File.
+
+The IP address is local to the VNF's internal network and is (re)used
+in every VNF spin up, thus the constant value is declared in the VNF's
+Heat Orchestration Template's Environment File.
+
+.. code-block:: python
+
+  parameters:
+
+    {vm-type}_int_{network-role}_ips:
+      type: comma_delimited_list
+      description: Fixed IPv4 assignments for {vm-type} VMs on the int_{network-role} network
+
+R-27818 When the VNF’s Heat Orchestration Template’s Resource
+‘OS::Neutron::Port’ is attaching to an internal network, and an IPv6 address
+is assigned using the property ‘fixed_ips’ map property ‘ip_address’ and
+the parameter type is defined as a string, the parameter name **MUST** follow
+the naming convention ‘{vm-type}\_int\_{network-role}\_v6\_ip\_{index}’, where
+
+- ‘{vm-type}’ is the {vm-type} associated with the OS::Nova::Server
+- ‘{network-role}’ is the {network-role} of the internal network
+- the value for {index} must start at zero (0) and increment by one
+
+R-97201 The VNF’s Heat Orchestration Template’s Resource
+‘OS::Neutron::Port’ property ‘fixed_ips’ map property ‘ip_address’
+parameter ‘{vm-type}\_int\_{network-role}\_v6\_ip\_{index}’ **MUST** be enumerated
+in the VNF’s Heat Orchestration Template’s Environment File.
+
+The IP address is local to the VNF's internal network and is (re)used
+in every VNF spin up, thus the constant value is declared in the VNF's
+Heat Orchestration Template's Environment File.
+
+*Example Internal Network IPv6 Address string Parameter Definition*
+
+.. code-block:: python
+
+  parameters:
+
+    {vm-type}_int_{network-role}_v6_ip_{index}:
+      type: string
+      description: Fixed IPv6 assignment for {vm-type} VM {index} on the int_{network-role} network
+
+R-29765 When the VNF’s Heat Orchestration Template’s Resource
+‘OS::Neutron::Port’ is attaching to an internal network, and an IPv6
+address is assigned using the property ‘fixed_ips’ map property ‘ip_address’
+and the parameter type is defined as a comma_delimited_list, the parameter
+name **MUST** follow the naming convention ‘{vm-type}\_int\_{network-role}_v6_ips’, where
+
+- ‘{vm-type}’ is the {vm-type} associated with the OS::Nova::Server
+- ‘{network-role}’ is the {network-role} of the internal network
+
+*Example Internal Network IPv6 Address comma_delimited_list Parameter
+Definition*
+
+.. code-block:: python
+
+  parameters:
+
+    {vm-type}_int_{network-role}_v6_ips:
+      type: comma_delimited_list
+      description: Fixed IPv6 assignments for {vm-type} VMs on the int_{network-role} network
+
+R-98569 The VNF’s Heat Orchestration Template’s Resource
+‘OS::Neutron::Port’ property ‘fixed_ips’ map property ‘ip_address’
+parameter ‘{vm-type}\_int\_{network-role}_v6_ips’ **MUST** be enumerated in
+the VNF’s Heat Orchestration Template’s Environment File.
+
+The IP address is local to the VNF's internal network and is (re)used
+in every VNF spin up, thus the constant value is declared in the VNF's
+Heat Orchestration Template's Environment File.
+
+R-62590 The VNF’s Heat Orchestration Template’s Resource
+‘OS::Neutron::Port’ property ‘fixed_ips’ map property ‘ip_address’
+parameter associated with an external network, i.e.,
+
+- {vm-type}_{network-role}\_ip\_{index}
+- {vm-type}_{network-role}\_ip\_v6\_{index}
+- {vm-type}_{network-role}_ips
+- {vm-type}_{network-role}_v6_ips
+
+**MUST NOT** be enumerated in the Heat Orchestration Template’s Environment File.
+ONAP provides the IP address assignments at orchestration time.
+
+R-93496 The VNF’s Heat Orchestration Template’s Resource
+‘OS::Neutron::Port’ property ‘fixed_ips’ map property ‘ip_address’
+parameter associated with an internal network, i.e.,
+
+- {vm-type}\_int\_{network-role}\_ip\_{index}
+- {vm-type}\_int\_{network-role}\_ip\_v6\_{index}
+- {vm-type}\_int\_{network-role}_ips
+- {vm-type}\_int\_{network-role}_v6_ips
+
+**MUST** be enumerated in the Heat Orchestration Template’s Environment
+File and IP addresses **MUST** be assigned.
+
+Summary Table
+_____________
+
+.. csv-table:: **Table # OS::Neutron::Port Property fixed_ips map property ip_address Parameter Naming Convention**
+   :header: Resource,Property,Map Property,Network Type,IP Address,Parameter Type,Parameter Name, Environment File
+   :align: center
+   :widths: auto
+
+   OS::Neutron::Port, fixed_ips, ip_address, external, IPv4, string, {vm-type}_{network-role}_ip_{index}, NO
+   OS::Neutron::Port, fixed_ips, ip_address, external, IPv4, comma_delimited_list, {vm-type}_{network-role}_ips, NO
+   OS::Neutron::Port, fixed_ips, ip_address, external, IPv6, string, {vm-type}_{network-role}_v6_ip_{index}, NO
+   OS::Neutron::Port, fixed_ips, ip_address, external, IPv6, comma_delimited_list, {vm-type}_{network-role}_v6_ips, NO
+   OS::Neutron::Port, fixed_ips, ip_address, internal, IPv4, string, {vm-type}_int_{network-role}_ip_{index}, YES
+   OS::Neutron::Port, fixed_ips, ip_address, internal, IPv4, comma_delimited_list, {vm-type}_int_{network-role}_ips, YES
+   OS::Neutron::Port, fixed_ips, ip_address, internal, IPv6, string, {vm-type}_int_{network-role}_v6_ip_{index}, YES
+   OS::Neutron::Port, fixed_ips, ip_address, internal, IPv6, comma_delimited_list, {vm-type}_int_{network-role}_v6_ips, YES
+
+
+Examples
+________
+
+*Example: comma_delimited_list parameters for IPv4 and IPv6 Address
+Assignments to an external network*
+
+In this example, the '{network-role}' has been defined as 'oam' to represent
+an oam network and the '{vm-type}' has been defined as 'db' for database.
+
+.. code-block:: python
+
+  parameters:
     oam_net_id:
-       type: string
-       description: Neutron UUID for the oam network
+      type: string
+      description: Neutron UUID for a oam network
+    db_oam_ips:
+      type: comma_delimited_list
+      description: Fixed IPv4 assignments for db VMs on the oam network
+    db_oam_v6_ips:
+      type: comma_delimited_list
+      description: Fixed IPv6 assignments for db VMs on the oam network
+  resources:
+    db_0_oam_port_0:
+      type: OS::Neutron::Port
+      properties:
+        network: { get_param: oam_net_id }
+        fixed_ips: [ { “ip_address”: {get_param: [ db_oam_ips, 0 ]}}, {
+        “ip_address”: {get_param: [ db_oam_v6_ips, 0 ]}}]
+    db_1_oam_port_0:
+      type: OS::Neutron::Port
+      properties:
+        network: { get_param: oam_net_id }
+        fixed_ips:
+          - “ip_address”: {get_param: [ db_oam_ips, 1 ]}
+          - “ip_address”: {get_param: [ db_oam_v6_ips, 1 ]}
 
- resources:
-    lb_port_1:
-       type: OS::Neutron::Port
-       network: { get_param: oam_net_id }
+*Example: string parameters for IPv4 and IPv6 Address Assignments to an
+external network*
 
-Internal Networks
-_________________
+In this example, the '{network-role}' has been defined as 'oam' to
+represent an oam network and the '{vm-type}' has been defined as 'db' for
+database.
 
-R-65373 The VNF Heat Orchestration Template **MUST**  adhere to the following parameter naming
-convention, when the parameter associated with the property network is
-referencing an “internal” network:
+.. code-block:: python
 
--  int\_{network-role}\_net\_id for the Neutron network ID
+  parameters:
+    oam_net_id:
+      type: string
+      description: Neutron UUID for an OAM network
+    db_oam_ip_0:
+      type: string
+      description: Fixed IPv4 assignment for db VM 0 on the OAM network
+    db_oam_ip_1:
+      type: string
+      description: Fixed IPv4 assignment for db VM 1 on the OAM network
+    db_oam_v6_ip_0:
+      type: string
+      description: Fixed IPv6 assignment for db VM 0 on the OAM network
+    db_oam_v6_ip_1:
+      type: string
+      description: Fixed IPv6 assignment for db VM 1 on the OAM network
+  resources:
+    db_0_oam_port_0:
+      type: OS::Neutron::Port
+      properties:
+        network: { get_param: oam_net_id }
+        fixed_ips: [ { “ip_address”: {get_param: db_oam_ip_0}}, { “ip_address”: {get_param: db_oam_v6_ip_0 ]}}]
+    db_1_oam_port_0:
+      type: OS::Neutron::Port
+      properties:
+        network: { get_param: oam_net_id }
+        fixed_ips:
+          - “ip_address”: {get_param: db_oam_ip_1}}]
+          - “ip_address”: {get_param: db_oam_v6_ip_1}}]
 
--  int\_{network-role}\_net\_name for the network name in OpenStack
 
-The parameter must be declared as type: string
+*Example: comma_delimited_list parameters for IPv4 and IPv6 Address
+Assignments to an internal network*
 
-The assumption is that internal networks are created in the base module.
-The Neutron Network ID will be passed as an output parameter (e.g., ONAP
-Base Module Output Parameter) to the incremental modules. In the
-incremental modules, it will be defined as input parameter.
+In this example, the '{network-role}' has been defined as 'ctrl' to
+represent an ctrl network internal to the vnf.
+The '{vm-type}' has been defined as 'db' for
+database.
 
-*Example Parameter Definition*
+.. code-block:: python
 
-.. code-block:: yaml
+  parameters:
+    int_ctrl_net_id:
+      type: string
+      description: Neutron UUID for the ctrl internal network
+    db_int_ctrl_ips:
+      type: comma_delimited_list
+      description: Fixed IPv4 assignments for db VMs on the ctrl internal
+      network
+    db_int_ctrl_v6_ips:
+      type: comma_delimited_list
+      description: Fixed IPv6 assignments for db VMs on the ctrl internal
+      network
+  resources:
+    db_0_int_ctrl_port_0:
+      type: OS::Neutron::Port
+      properties:
+        network: { get_param: int_ctrl_net_id }
+        fixed_ips: [ { “ip_address”: {get_param: [ db_int_ctrl_ips, 0 ]}}, {
+        “ip_address”: {get_param: [ db_int_ctrl_v6_ips, 0 ]}}]
+    db_1_int_ctrl_port_0:
+      type: OS::Neutron::Port
+      properties:
+        network: { get_param: int_ctrl_net_id }
+        fixed_ips:
+        - “ip_address”: {get_param: [ db_int_ctrl_ips, 1 ]}
+        - “ip_address”: {get_param: [ db_int_ctrl_v6_ips, 1 ]}
 
- parameters:
-     int_{network-role}_net_id:
-         type: string
-         description: Neutron UUID for the {network-role} network
-     int_{network-role}_net_name:
-         type: string
-         description: Neutron name for the {network-role} network
+
+*Example: string parameters for IPv4 and IPv6 Address Assignments to an
+internal network*
+
+In this example, the int_{network-role} has been defined as
+int_ctrl to represent a control network internal to the vnf.
+The {vm-type} has been defined as db for database.
+
+.. code-block:: python
+
+  parameters:
+    int_ctrl_net_id:
+      type: string
+      description: Neutron UUID for an OAM internal network
+    db_int_ctrl_ip_0:
+      type: string
+      description: Fixed IPv4 assignment for db VM on the oam_int network
+    db_int_ctrl_ip_1:
+      type: string
+      description: Fixed IPv4 assignment for db VM 1 on the oam_int network
+    db_int_ctrl_v6_ip_0:
+      type: string
+      description: Fixed IPv6 assignment for db VM 0 on the oam_int network
+    db_int_ctrl_v6_ip_1:
+      type: string
+      description: Fixed IPv6 assignment for db VM 1 on the oam_int network
+  resources:
+    db_0_int_ctrl_port_0:
+      type: OS::Neutron::Port
+      properties:
+        network: { get_param: int_oam_int_net_id }
+        fixed_ips: [ { “ip_address”: {get_param: db_oam_int_ip_0}}, {
+        “ip_address”: {get_param: db_oam_int_v6_ip_0 ]}}]
+    db_1_int_ctrl_port_0:
+      type: OS::Neutron::Port
+      properties:
+        network: { get_param: int_oam_int_net_id }
+        fixed_ips:
+          - “ip_address”: {get_param: db_oam_int_ip_1}}]
+          - “ip_address”: {get_param: db_oam_int_v6_ip_1}}]
+
 
 Property: fixed\_ips, Map Property: subnet\_id
 ++++++++++++++++++++++++++++++++++++++++++++++
 
-The property fixed\_ips is used to assign IPs to a port. The Map
-Property subnet\_id specifies the subnet the IP is assigned from.
+The resource 'OS::Neutron::Port' property 'fixed_ips' map
+property 'subnet'/'subnet_id' is used when a
+port is requesting an IP assignment via
+OpenStack’s DHCP Service (i.e., Cloud Assigned).
 
-The property fixed\_ips and Map Property subnet\_id must be used if a
-Cloud (i.e., DHCP) IP address assignment is being requested and the
-Cloud IP address assignment is targeted at a specific subnet when two or
-more subnets exist.
+The IP address assignment will be made from the specified subnet.
 
-The property fixed\_ips and Map Property subnet\_id should not be used
-if all IP assignments are fixed, or if the Cloud IP address assignment
-does not target a specific subnet or there is only one subnet.
+Specifying the subnet is not required; it is optional.
 
-Note that DHCP assignment of IP addresses is also referred to as cloud
-assigned IP addresses.
+If the network (external or internal) that the port is attaching
+to only contains one subnet, specifying the subnet is
+superfluous.  The IP address will be assigned from the one existing
+subnet.
 
-Subnet of an External Networks
-______________________________
+If the network (external or internal) that the port is attaching
+to contains two or more subnets, specifying the subnet in the
+'fixed_ips' map property 'subnet'/'subnet_id' determines which
+subnet the IP address will be assigned from.
 
-R-47716 The VNF Heat Orchestration Template **MUST** adhere to the following parameter naming
-convention for the property fixed\_ips and Map Property subnet\_id
-parameter, when the parameter is referencing a subnet of an
-“external” network.
+If the network (external or internal) that the port is attaching
+to contains two or more subnets, and the subnet is not is not
+specified, OpenStack will randomly(?) determine which subnet
+the IP address will be assigned from.
 
--  {network-role}\_subnet\_id if the subnet is an IPv4 subnet
+The property fixed_ips is used to assign IPs to a port. The Map Property
+subnet_id specifies the subnet the IP is assigned from.
 
--  {network-role}\_v6\_subnet\_id if the subnet is an IPv6 subnet
+R-38236 The VNF’s Heat Orchestration Template’s resource
+‘OS::Neutron::Port’ property ‘fixed_ips’ map property
+‘subnet’/’subnet_id’ parameter **MUST** be declared type ‘string’.
 
-The parameter must be declared as type: string
+R-62802 When the VNF’s Heat Orchestration Template’s resource
+‘OS::Neutron::Port’ is attaching to an external network, and an IPv4
+address is being Cloud Assigned by OpenStack’s DHCP Service and the
+external network IPv4 subnet is to be specified using the property
+‘fixed_ips’ map property ‘subnet’/’subnet_id’, the parameter **MUST**
+follow the naming convention ‘{network-role}_subnet_id’, where
+‘{network-role}’ is the network role of the network.
 
-The parameter must not be enumerated in the Heat environment file.
+R-83677 The VNF’s Heat Orchestration Template’s Resource
+‘OS::Neutron::Port’ property ‘fixed_ips’ map property
+subnet’/’subnet_id’ parameter ‘{network-role}_subnet_id’
+**MUST NOT** be enumerated in the VNF’s Heat Orchestration Template’s
+Environment File.
+
+ONAP's SDN-Controller provides the network's subnet's UUID
+value at orchestration to the Heat Orchestration Template.
 
 *Example Parameter Definition*
 
-.. code-block:: yaml
+.. code-block:: python
 
- parameters:
-     {network-role}_subnet_id:
-         type: string
-         description: Neutron subnet UUID for the {network-role} network
+  parameters:
 
-     {network-role}_v6_subnet_id:
-         type: string
-         description: Neutron subnet UUID for the {network-role} network
+    {network-role}_subnet_id:
+      type: string
+      description: Neutron IPv4 subnet UUID for the {network-role} network
+
+R-15287 When the VNF’s Heat Orchestration Template’s resource
+‘OS::Neutron::Port’ is attaching to an external network, and an IPv6
+address is being Cloud Assigned by OpenStack’s DHCP Service and the
+external network IPv6 subnet is to be specified using the property
+‘fixed_ips’ map property ‘subnet’/’subnet_id’, the parameter **MUST**
+follow the naming convention ‘{network-role}_subnet_v6_id’, where
+‘{network-role}’ is the network role of the network.
+
+R-80829 The VNF’s Heat Orchestration Template’s Resource
+‘OS::Neutron::Port’ property ‘fixed_ips’ map property
+subnet’/’subnet_id’ parameter ‘{network-role}_subnet_v6_id’
+**MUST NOT** be enumerated in the VNF’s Heat Orchestration Template’s
+Environment File.
+
+ONAP's SDN-Controller provides the network's subnet's UUID
+value at orchestration to the Heat Orchestration Template.
+
+*Example Parameter Definition*
+
+.. code-block:: python
+
+  parameters:
+
+    {network-role}_v6_subnet_id:
+      type: string
+      description: Neutron IPv6 subnet UUID for the {network-role} network
+
 
 *Example: One Cloud Assigned IPv4 Address (DHCP) assigned to a network
-that has two or more subnets subnet:*
+that has two or more IPv4 subnets*
 
-In this example, the {network-role} has been defined as oam to represent
-an oam network and the {vm-type} has been defined as lb for load
+In this example, the '{network-role}' has been defined as 'oam' to represent
+an oam network and the '{vm-type}' has been defined as 'lb' for load
 balancer. The Cloud Assigned IP Address uses the OpenStack DHCP service
 to assign IP addresses.
 
-.. code-block:: yaml
+.. code-block:: python
 
- parameters:
+  parameters:
     oam_net_id:
-       type: string
-       description: Neutron UUID for the oam network
-
+      type: string
+      description: Neutron UUID for the oam network
     oam_subnet_id:
-       type: string
-       description: Neutron subnet UUID for the oam network
-
- resources:
-    lb_port_1:
-       type: OS::Neutron::Port
-       network: { get_param: oam_net_id }
-    fixed_ips:
-      - subnet_id: { get_param: oam_subnet_id }
+      type: string
+      description: Neutron IPv4 subnet UUID for the oam network
+  resources:
+    lb_0_oam_port_0:
+      type: OS::Neutron::Port
+        parameters:
+          network: { get_param: oam_net_id }
+          fixed_ips:
+            - subnet_id: { get_param: oam_subnet_id }
 
 *Example: One Cloud Assigned IPv4 address and one Cloud Assigned IPv6
 address assigned to a network that has at least one IPv4 subnet and one
 IPv6 subnet*
 
-In this example, the {network-role} has been defined as oam to represent
-an oam network and the {vm-type} has been defined as lb for load
+In this example, the '{network-role}' has been defined as 'oam' to represent
+an oam network and the '{vm-type}' has been defined as 'lb' for load
 balancer.
 
-.. code-block:: yaml
+.. code-block:: python
 
- parameters:
+  parameters:
     oam_net_id:
-       type: string
-       description: Neutron UUID for the oam network
-
+      type: string
+      description: Neutron UUID for the oam network
     oam_subnet_id:
-       type: string
-       description: Neutron subnet UUID for the oam network
-
+      type: string
+      description: Neutron IPv4 subnet UUID for the oam network
     oam_v6_subnet_id:
-       type: string
-       description: Neutron subnet UUID for the oam network
+      type: string
+      description: Neutron IPv6 subnet UUID for the oam network
+  resources:
+    lb_0_oam_port_0:
+      type: OS::Neutron::Port
+      properties:
+        network: { get_param: oam_net_id }
+        fixed_ips:
+          - subnet_id: { get_param: oam_subnet_id }
+          - subnet_id: { get_param: oam_v6_subnet_id }
 
- resources:
-    lb_port_1:
-       type: OS::Neutron::Port
-       properties:
-          network: { get_param: oam_net_id }
-          fixed_ips:
-           - subnet_id: { get_param: oam_subnet_id }
-           - subnet_id: { get_param: oam_v6_subnet_id }
+R-84123 When
 
-Internal Networks
-_________________
+- the VNF’s Heat Orchestration Template’s resource ‘OS::Neutron::Port’
+  in an Incremental Module is attaching to an internal network
+  that is created in the Base Module, AND
+- an IPv4 address is being Cloud Assigned by OpenStack’s DHCP Service AND
+- the internal network IPv4 subnet is to be specified using the
+  property ‘fixed_ips’ map property ‘subnet’/’subnet_id’,
 
-R-20106 The VNF Heat Orchestration Template **MUST** adhere to the following naming convention for
-the property fixed\_ips and Map Property subnet\_id parameter,
-when the parameter is referencing the subnet of an “internal” network:
+the parameter **MUST** follow the naming convention
+‘int\_{network-role}_subnet_id’, where ‘{network-role}’ is the
+network role of the internal network
 
--  int\_{network-role}\_subnet\_id if the subnet is an IPv4 subnet
+- Note that the parameter **MUST** be defined as an ‘output’ parameter in
+  the base module.
 
--  int\_{network-role}\_v6\_subnet\_id if the subnet is an IPv6 subnet
-
-The parameter must be declared as type: string
+R-69634 The VNF’s Heat Orchestration Template’s Resource
+‘OS::Neutron::Port’ property ‘fixed_ips’ map property
+subnet’/’subnet_id’ parameter ‘int\_{network-role}_subnet_id’
+**MUST NOT** be enumerated in the VNF’s Heat Orchestration Template’s
+Environment File.
 
 The assumption is that internal networks are created in the base module.
 The Neutron subnet network ID will be passed as an output parameter
-(e.g., ONAP Base Module Output Parameter) to the incremental modules. In
-the incremental modules, it will be defined as input parameter.
+(e.g., ECOMP Base Module Output Parameter) to the incremental modules.
+In the incremental modules, the output parameter name will be defined as
+input parameter.
 
 *Example Parameter Definition*
 
-.. code-block:: yaml
+.. code-block:: python
 
- parameters:
-     int_{network-role}_subnet_id:
-        type: string
-         description: Neutron subnet UUID for the {network-role} network
+  parameters:
 
-     int_{network-role}_v6_subnet_id:
-         type: string
-         description: Neutron subnet UUID for the {network-role} network
+    int_{network-role}_subnet_id:
+      type: string
+      description: Neutron IPv4 subnet UUID for the int_{network-role} network
 
-Property: fixed\_ips, Map Property: ip\_address
-+++++++++++++++++++++++++++++++++++++++++++++++
+R-76160 When
 
-The property fixed\_ips is used to assign IPs to a port. The Map
-Property ip\_address specifies the IP address to be assigned to the
-port.
+- the VNF’s Heat Orchestration Template’s resource
+  ‘OS::Neutron::Port’ in an Incremental Module is attaching to an
+  internal network that is created in the Base Module, AND
+- an IPv6 address is being Cloud Assigned by OpenStack’s DHCP Service AND
+- the internal network IPv6 subnet is to be specified using the property
+  ‘fixed_ips’ map property ‘subnet’/’subnet_id’,
 
-The property fixed\_ips and Map Property ip\_address must be used when
-statically assigning one or more IP addresses to a port. This is also
-referred to as ONAP SDN-C IP address assignment. ONAP’s SDN-C provides
-the IP address assignment.
+the parameter **MUST** follow the naming convention
+‘int\_{network-role}_v6_subnet_id’, where ‘{network-role}’
+is the network role of the internal network
 
-An IP address is assigned to a port on a VM (referenced by {vm-type})
-that is connected to an external network (referenced by {network-role})
-or internal network (referenced by int\_{network-role}).
+- Note that the parameter **MUST** be defined as an ‘output’ parameter in
+  the base module.
 
-R-41177 The VNF Heat Orchestration Template **MUST** include {vm-type} and {network-role}
-in the parameter name, when a SDN-C IP assignment is made to a
-port connected to an external network.
-
-When a SDN-C IP assignment is made to a port connected to an internal
-network, the parameter name must contain {vm-type} and
-int\_{network-role}.
-
-IP Address Assignments on External Networks
-___________________________________________
-
-When the property fixed\_ips and Map Property ip\_address is used to
-assign IP addresses to an external network, the parameter name is
-dependent on the parameter type (comma\_delimited\_list or string) and
-IP address type (IPv4 or IPv6).
-
-R-84898 The VNF Heat Orchestration Template **MUST** adhere to the following naming convention,
-when the parameter for property fixed\_ips and Map Property ip\_address
-is declared type: comma\_delimited\_list:
-
--  {vm-type}\_{network-role}\_ips for IPv4 address
-
--  {vm-type}\_{network-role}\_v6\_ips for IPv6 address
-
-Each element in the IP list should be assigned to successive instances
-of {vm-type} on {network-role}.
-
-The parameter must not be enumerated in the Heat environment file.
+R-22288 The VNF’s Heat Orchestration Template’s Resource
+‘OS::Neutron::Port’ property ‘fixed_ips’ map property
+‘subnet’/’subnet_id’ parameter ‘int\_{network-role}_v6_subnet_id’
+**MUST NOT** be enumerated in the VNF’s Heat Orchestration Template’s
+Environment File.
 
 *Example Parameter Definition*
 
-.. code-block:: yaml
+.. code-block:: python
 
- parameters:
+  parameters:
 
-    {vm-type}_{network-role}_ips:
-       type: comma_delimited_list
-       description: Fixed IPv4 assignments for {vm-type} VMs on the {Network-role} network
+    int_{network-role}_v6_subnet_id:
+      type: string
+      description: Neutron subnet UUID for the int_{network-role} network
 
-    {vm-type}_{network-role}_v6_ips:
-       type: comma_delimited_list
-       description: Fixed IPv6 assignments for {vm-type} VMs on the {network-role} network
-
-*Example: comma\_delimited\_list parameters for IPv4 and IPv6 Address
-Assignments to an external network*
-
-In this example, the {network-role} has been defined as oam to represent
-an oam network and the {vm-type} has been defined as db for database.
-
-.. code-block:: yaml
-
- parameters:
-    oam_net_id:
-       type: string
-       description: Neutron UUID for a oam network
-
-    db_oam_ips:
-       type: comma_delimited_list
-       description: Fixed IPv4 assignments for db VMs on the oam network
-
-    db_oam_v6_ips:
-       type: comma_delimited_list
-       description: Fixed IPv6 assignments for db VMs on the oam network
-
- resources:
-    db_0_port_1:
-       type: OS::Neutron::Port
-       network: { get_param: oam_net_id }
-       fixed_ips: [ { “ip_address”: {get_param: [ db_oam_ips, 0 ]}}, {“ip_address”: {get_param: [ db_oam_v6_ips, 0 ]}}]
-
-    db_1_port_1:
-       type: OS::Neutron::Port
-       properties:
-       network: { get_param: oam_net_id }
-       fixed_ips:
-          - “ip_address”: {get_param: [ db_oam_ips, 1 ]}
-          - “ip_address”: {get_param: [ db_oam_v6_ips, 1 ]}
-
-R-34960 The VNF Heat Orchestration Template **MUST** adhere to the following
-naming convention,
-when the parameter for property fixed\_ips and Map Property ip\_address
-is declared type: string:
-
--  {vm-type}\_{network-role}\_ip\_{index} for an IPv4 address
-
--  {vm-type}\_{network-role}\_v6\_ip\_{index} for an IPv6 address
-
-The value for {index} must start at zero (0) and increment by one.
-
-The parameter must not be enumerated in the Heat environment file.
-
-*Example Parameter Definition*
-
-.. code-block:: yaml
-
- parameters:
-    {vm-type}_{network-role}_ip_{index}:
-       type: string
-       description: Fixed IPv4 assignment for {vm-type} VM {index} on the{network-role} network
-
-    {vm-type}_{network-role}_v6_ip_{index}:
-       type: string
-       description: Fixed IPv6 assignment for {vm-type} VM {index} on the{network-role} network
-
-*Example: string parameters for IPv4 and IPv6 Address Assignments
-to an external network*
-
-In this example, the {network-role} has been defined as “oam” to
-represent an oam network and the {vm-type} has been defined as “db” for
-database.
-
-.. code-block:: yaml
-
- parameters:
-    oam_net_id:
-    type: string
-    description: Neutron UUID for an OAM network
-
- db_oam_ip_0:
-    type: string
-    description: Fixed IPv4 assignment for db VM 0 on the OAM network
-
- db_oam_ip_1:
-    type: string
-    description: Fixed IPv4 assignment for db VM 1 on the OAM network
-
- db_oam_v6_ip_0:
-    type: string
-    description: Fixed IPv6 assignment for db VM 0 on the OAM network
-
- db_oam_v6_ip_1:
-    type: string
-    description: Fixed IPv6 assignment for db VM 1 on the OAM network
-
- resources:
-    db_0_port_1:
-       type: OS::Neutron::Port
-       properties:
-          network: { get_param: oam_net_id }
-          fixed_ips: [ { “ip_address”: {get_param: db_oam_ip_0}}, {“ip_address”: {get_param: db_oam_v6_ip_0 ]}}]
-
-    db_1_port_1:
-       type: OS::Neutron::Port
-       properties:
-          network: { get_param: oam_net_id }
-          fixed_ips:
-             - “ip_address”: {get_param: db_oam_ip_1}}]
-             - “ip_address”: {get_param: db_oam_v6_ip_1}}]
-
-IP Address Assignment on Internal Networks
-__________________________________________
-
-When the property fixed\_ips and Map Property ip\_address is used to
-assign IP addresses to an internal network, the parameter name is
-dependent on the parameter type (comma\_delimited\_list or string) and
-IP address type (IPv4 or IPv6).
-
-R-62584 The VNF Heat Orchestration Template **MUST** adhere to
-the following naming convention,
-when the parameter for property fixed\_ips and Map Property ip\_address
-is declared type: comma\_delimited\_list:
-
--  {vm-type}\_int\_{network-role}\_ips for IPv4 address
-
--  {vm-type}\_int\_{network-role}\_v6\_ips for IPv6 address
-
-Each element in the IP list should be assigned to successive instances
-of {vm-type} on {network-role}.
-
-The parameter must be enumerated in the Heat environment file. Since an
-internal network is local to the VNF, IP addresses can be re-used at
-every VNF instance.
-
-*Example Parameter Definition*
-
-.. code-block:: yaml
-
- parameters:
-
-    {vm-type}_int_{network-role}_ips:
-       type: comma_delimited_list
-       description: Fixed IPv4 assignments for {vm-type} VMs on the int_{network-role} network
-
-    {vm-type}_int_{network-role}_v6_ips:
-       type: comma_delimited_list
-       description: Fixed IPv6 assignments for {vm-type} VMs on the int_{network-role} network
-
-*Example: comma\_delimited\_list parameters for IPv4 and IPv6 Address
-Assignments to an internal network*
-
-In this example, the {network-role} has been defined as oam\_int to
-represent an oam network internal to the vnf. The role oam\_int was
-picked to differentiate from an external oam network with a
-{network-role} of oam. The {vm-type} has been defined as db for
-database.
-
-.. code-block:: yaml
-
- parameters:
-    int_oam_int_net_id:
-       type: string
-       description: Neutron UUID for the oam internal network
-
-    db_int_oam_int_ips:
-       type: comma_delimited_list
-       description: Fixed IPv4 assignments for db VMs on the oam internal network
-
-    db_int_oam_int_v6_ips:
-       type: comma_delimited_list
-       description: Fixed IPv6 assignments for db VMs on the oam internal network
-
- resources:
-    db_0_port_1:
-       type: OS::Neutron::Port
-       properties:
-       network: { get_param: int_oam_int_net_id }
-       fixed_ips: [ { “ip_address”: {get_param: [ db_int_oam_int_ips, 0]}}, { “ip_address”: {get_param: [ db_int_oam_int_v6_ips, 0 ]}}]
-
-    db_1_port_1:
-       type: OS::Neutron::Port
-       properties:
-       network: { get_param: int_oam_int_net_id }
-       fixed_ips:
-          - “ip_address”: {get_param: [ db_int_oam_int_ips, 1 ]}
-          - “ip_address”: {get_param: [ db_int_oam_int_v6_ips, 1 ]}
-
-R-29256 The VNF Heat Orchestration Template **MUST** must adhere to the following
-naming convention,
-when the parameter for property fixed\_ips and Map Property ip\_address
-is declared type: string:
-
--  {vm-type}\_int\_{network-role}\_ip\_{index} for an IPv4 address
-
--  {vm-type}\_int\_{network-role}\_v6\_ip\_{index} for an IPv6 address
-
-The value for {index} must start at zero (0) and increment by one.
-
-The parameter must be enumerated in the Heat environment file. Since an
-internal network is local to the VNF, IP addresses can be re-used at
-every VNF instance.
-
-*Example Parameter Definition*
-
-.. code-block:: yaml
-
- parameters:
-
-    {vm-type}_int_{network-role}_ip_{index}:
-       type: string
-       description: Fixed IPv4 assignment for {vm-type} VM {index} on the{network-role} network
-
-    {vm-type}_int_{network-role}_v6_ip_{index}:
-       type: string
-       description: Fixed IPv6 assignment for {vm-type} VM {index} on the{network-role} network
-
-*Example: string parameters for IPv4 and IPv6 Address Assignments
-to an internal network*
-
-In this example, the {network-role} has been defined as oam\_int to
-represent an oam network internal to the vnf. The role oam\_int was
-picked to differentiate from an external oam network with a
-{network-role} of oam. The {vm-type} has been defined as db for
-database.
-
-.. code-block:: yaml
-
- parameters:
-    int_oam_int_net_id:
-       type: string
-       description: Neutron UUID for an OAM internal network
-
-    db_oam_int_ip_0:
-       type: string
-       description: Fixed IPv4 assignment for db VM on the oam_int network
-
-    db_oam_int_ip_1:
-       type: string
-       description: Fixed IPv4 assignment for db VM 1 on the oam_int network
-
-    db_oam_int_v6_ip_0:
-       type: string
-       description: Fixed IPv6 assignment for db VM 0 on the oam_int network
-
-    db_oam_int_v6_ip_1:
-       type: string
-       description: Fixed IPv6 assignment for db VM 1 on the oam_int network
-
- resources:
-    db_0_port_0:
-       type: OS::Neutron::Port
-       properties:
-          network: { get_param: int_oam_int_net_id }
-          fixed_ips: [ { “ip_address”: {get_param: db_oam_int_ip_0}}, {“ip_address”: {get_param: db_oam_int_v6_ip_0 ]}}]
-
-    db_1_port_0:
-       type: OS::Neutron::Port
-       properties:
-          network: { get_param: int_oam_int_net_id }
-          fixed_ips:
-             - “ip_address”: {get_param: db_oam_int_ip_1}}]
-             - “ip_address”: {get_param: db_oam_int_v6_ip_1}}]
 
 Property: allowed\_address\_pairs, Map Property: ip\_address
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
