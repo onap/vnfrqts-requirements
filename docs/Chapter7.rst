@@ -694,8 +694,6 @@ NETCONF Server Requirements
   the supplied YANG code and associated NETCONF servers.
 * R-60656 The xNF **MUST** support sub tree filtering.
 * R-80898 The xNF **MUST** support heartbeat via a <get> with null filter.
-* R-06617 The xNF **MUST** support get-schema (ietf-netconf-monitoring)
-  to pull YANG model over session.
 * R-25238 The xNF PACKAGE **MUST** validated YANG code using the open
   source pyang [1]_ program using the following commands:
 
