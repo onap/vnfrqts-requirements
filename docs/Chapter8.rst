@@ -3272,9 +3272,6 @@ R-58358 The xNF **MUST** implement the **:with-defaults** capability
 R-59610 The xNF **MUST** implement the data model discovery and
 download as defined in [RFC6022].
 
-R-87662 The xNF **SHOULD** implement the NETCONF Event Notifications
-[RFC5277].
-
 R-93443 The xNF **MUST** define all data models in YANG [RFC6020],
 and the mapping to NETCONF shall follow the rules defined in this RFC.
 
