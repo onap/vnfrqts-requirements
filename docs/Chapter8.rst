@@ -3355,9 +3355,6 @@ R-28545 The xNF **MUST** conform its YANG model to RFC 6060,
 “YANG - A Data Modeling Language for the Network Configuration
 Protocol (NETCONF)”
 
-R-29967 The xNF **MUST** conform its YANG model to RFC 6022,
-“YANG module for NETCONF monitoring”.
-
 R-22700 The xNF **MUST** conform its YANG model to RFC 6470,
 “NETCONF Base Notifications”.
 
