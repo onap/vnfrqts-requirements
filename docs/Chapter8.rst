@@ -3383,7 +3383,8 @@ R-87564 The xNF **SHOULD** conform its YANG model to RFC 7317,
 “A YANG Data Model for System Management”.
 
 R-24269 The xNF **SHOULD** conform its YANG model to RFC 7407,
-“A YANG Data Model for SNMP Configuration”.
+“A YANG Data Model for SNMP Configuration”, if Netconf used to
+configure SNMP engine.
 
 R-33946 The xNF **MUST** conform to the NETCONF RFC 4741,
 “NETCONF Configuration Protocol”.
