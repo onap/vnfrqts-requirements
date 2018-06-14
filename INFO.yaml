@@ -1,0 +1,51 @@
+---
+project: 'vnfrqts-requirements'
+project_creation_date: '2017-06-29'
+lifecycle_state: 'Incubation'
+project_lead: &onap_releng_ptl
+    name: 'Steven Wright'
+    email: 'sw3588@att.com'
+    id: 'wombat123'
+    company: 'ATT'
+    timezone: 'America/Atlanta'
+primary_contact: *onap_releng_ptl
+issue_tracking:
+    type: 'jira'
+    url: 'https://jira.onap.org/projects/VNFRQTS'
+    key: 'VNFRQTS'
+meetings:
+    - type: 'zoom'
+      agenda: 'https://wiki.onap.org/display/DW/VNF+Requirements+Project'
+      url: 'https://wiki.onap.org/pages/viewpage.action?pageId=8225130'
+      server: 'n/a'
+      channel: 'n/a'
+      repeats: 'weekly'
+      time: '13:00 UTC'
+committers:
+    - <<: *onap_releng_ptl
+    - name: 'wenyao guan'
+      email: 'guanwenyao@chinamobile.com'
+      company: 'China Mobile'
+      id: 'guanwenyao'
+      timezone: 'Asia/Shanghai'
+    - name: 'Hagop Bozawglanian'
+      email: 'hb755d@att.com'
+      company: 'ATT'
+      id: 'hb755d'
+      timezone: 'Asia/Los Angeles'
+    - name: 'Herb Patten'
+      email: 'hp1256@att.com'
+      company: 'ATT'
+      id: 'hp1256'
+      timezone: ''
+    - name: 'shitao li'
+      email: 'lishitao@huawei.com'
+      company: 'Huawei'
+      id: 'lishitao'
+      timezone: 'Asia/Shanghai'
+tsc:
+    approval: 'https://lists.onap.org/pipermail/onap-tsc'
+    changes:
+        - type: 'Addition'
+          name: 'Hagop Bozawglanian'
+          link: 'https://lists.onap.org/pipermail/onap-tsc/2018-June/004978.html'
