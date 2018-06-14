@@ -2726,9 +2726,25 @@ R-62590 The VNF’s Heat Orchestration Template’s Resource
 ‘OS::Neutron::Port’ property ‘fixed_ips’ map property ‘ip_address’
 parameter associated with an external network, i.e.,
 
+- {vm-type}_{network-role}\_ip\_{index}
+- {vm-type}_{network-role}\_ip\_v6\_{index}
+- {vm-type}_{network-role}_ips
+- {vm-type}_{network-role}_v6_ips
+
+**MUST NOT** be enumerated in the Heat Orchestration Template’s Environment File.
+ONAP provides the IP address assignments at orchestration time.
+
 R-93496 The VNF’s Heat Orchestration Template’s Resource
 ‘OS::Neutron::Port’ property ‘fixed_ips’ map property ‘ip_address’
 parameter associated with an internal network, i.e.,
+
+- {vm-type}\_int\_{network-role}\_ip\_{index}
+- {vm-type}\_int\_{network-role}\_ip\_v6\_{index}
+- {vm-type}\_int\_{network-role}_ips
+- {vm-type}\_int\_{network-role}_v6_ips
+
+**MUST** be enumerated in the Heat Orchestration Template’s Environment
+File and IP addresses **MUST** be assigned.
 
 R-38236 The VNF’s Heat Orchestration Template’s resource
 ‘OS::Neutron::Port’ property ‘fixed_ips’ map property
