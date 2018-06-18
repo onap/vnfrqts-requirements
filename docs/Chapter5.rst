@@ -827,7 +827,8 @@ This section contains general Heat Orchestration Template guidelines.
 YAML Format
 ~~~~~~~~~~~
 
-R-95303 A VNF's Heat Orchestration Template **MUST** be defined using valid YAML.
+R-95303 A VNF's Heat Orchestration Template **MUST** be defined
+using valid YAML.
 
 YAML (YAML Ain't
 Markup Language) is a human friendly data serialization standard for all
@@ -844,7 +845,8 @@ YAML rules include:
 
  - You must indent your properties and lists with 1 or more spaces
 
- - All Resource IDs and resource property parameters are case-sensitive. (e.g., "ThIs", is not the same as "thiS")
+ - All Resource IDs and resource property parameters are
+   case-sensitive. (e.g., "ThIs", is not the same as "thiS")
 
 Heat Orchestration Template Structure
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1028,7 +1030,8 @@ The constraints block of a parameter definition defines additional
 validation constraints that apply to the value of the parameter.
 The parameter values provided in the VNF Heat Orchestration Template
 are validated against the constraints at instantiation time.
-The stack creation fails if the parameter value doesn’t comply to the constraints.
+The stack creation fails if the parameter value doesn’t comply to
+the constraints.
 
 The constraints are defined as a list with the following syntax
 
@@ -1266,7 +1269,8 @@ in the Newton release of OpenStack.
 outputs
 +++++++
 
-R-36982 A VNF’s Heat Orchestration template **MAY** contain the “outputs:” section.
+R-36982 A VNF’s Heat Orchestration template **MAY**
+contain the “outputs:” section.
 
 This section allows for specifying output parameters
 available to users once the template has been instantiated. If the
@@ -1323,8 +1327,9 @@ for merging parameters and parameter defaults from the environment file.
 R-67231 A VNF’s Heat Orchestration template’s Environment File’s **MUST NOT**
 contain the “resource_registry:” section.
 
-ONAP implementation does not support the Environment File resource_registry
-section. The resource_registry section allows for the definition of custom resources.
+ONAP implementation does not support the Environment File
+resource_registry section. The resource_registry section
+allows for the definition of custom resources.
 
 
 SDC Treatment of Environment Files
@@ -1761,10 +1766,10 @@ This section provides the ONAP naming requirements for
 {vm-type}
 ~~~~~~~~~
 
-R-01455 When a VNF's Heat Orchestration Template creates a Virtual Machine  (i.e., 'OS::Nova::Server'),
-each 'class' of VMs **MUST** be assigned a VNF unique
-'{vm-type}'; where 'class' defines VMs that **MUST** have the following
-identical characteristics:
+R-01455 When a VNF's Heat Orchestration Template creates a
+Virtual Machine  (i.e., 'OS::Nova::Server'), each 'class' of VMs
+**MUST** be assigned a VNF unique '{vm-type}'; where 'class'
+defines VMs that **MUST** have the following identical characteristics:
 
       1.) OS::Nova::Server property flavor value
 
@@ -1824,8 +1829,9 @@ Resource property parameter names **SHOULD** match the case of
 
 The assignment of a {network-role} is discussed in `Networking`_.
 
-R-21330 A VNF’s Heat Orchestration Template’s Resource property parameter
-that is associated with external network **MUST** include the ‘{network-role}’’ as part of the parameter name
+R-21330 A VNF’s Heat Orchestration Template’s Resource property
+parameter that is associated with external network **MUST**
+include the ‘{network-role}’’ as part of the parameter name
 
 R-11168 A VNF's Heat Orchestration Template's Resource ID that is
 associated with an external network **MUST** include the
@@ -1910,7 +1916,8 @@ with a single '{vm-type}' and a single internal network, the Resource ID
 - the '{vm-type}' **MUST** appear before the 'int\_{network-role}' and
   **MUST** be separated by an underscore '_'
 
-   - (e.g., '{vm-type}\_int\_{network-role}', '{vm-type}_{index}\_int\_{network-role}')
+   - (e.g., '{vm-type}\_int\_{network-role}',
+     '{vm-type}_{index}\_int\_{network-role}')
 
 - note that an '{index}' value **MAY** separate the '{vm-type}' and the
   'int\_{network-role}' and when this occurs underscores **MUST** separate
@@ -1940,154 +1947,168 @@ followed, no deviations are permitted. Resource ID formats that are marked
 SHOULD should be followed. However, deviations are permissible to meet
 the needs of the VNF’s Heat Orchestration Template.
 
-+------------------------------+-----------------------------------------------------------------+------------------------------------+-------------------------+
-|        Resource Type         |                        Resource ID Format                       |            Requirements            |          Notes          |
-|                              |                                                                 |                                    |                         |
-+==============================+=================================================================+====================================+=========================+
-| OS::Cinder::Volume           | {vm-type}\_volume\_{index}                                      | **SHOULD**                         |                         |
-|                              |                                                                 |                                    |                         |
-+------------------------------+-----------------------------------------------------------------+------------------------------------+-------------------------+
-| OS::Cinder::VolumeAttachment | {vm-type}\_volumeattachment\_{index}                            | **SHOULD**                         |                         |
-+------------------------------+-----------------------------------------------------------------+------------------------------------+-------------------------+
-| OS::Heat::CloudConfig        | {vm-type}_RCC                                                   | **SHOULD**                         |                         |
-+------------------------------+-----------------------------------------------------------------+------------------------------------+-------------------------+
-| OS::Heat::MultipartMime      | {vm-type}_RMM                                                   | **SHOULD**                         |                         |
-|                              |                                                                 |                                    |                         |
-+------------------------------+-----------------------------------------------------------------+------------------------------------+-------------------------+
-| OS::Heat::ResourceGroup      | {vm-type}_RRG                                                   | **SHOULD**                         |                         |
-|                              |                                                                 |                                    |                         |
-+------------------------------+-----------------------------------------------------------------+------------------------------------+-------------------------+
-|                              |                                                                 |                                    |                         |
-|                              |                                                                 |                                    |                         |
-|                              |                                                                 |                                    | Resource ID for the     |
-|                              | {vm-type}_{index}\_subint\_{network-role}_                      | **MUST** for subinterface creation | OS::Heat::ResourceGroup |
-|                              | port\_{index}_subinterfaces                                     |                                    | that creates            |
-|                              |                                                                 |                                    | subinterfaces           |
-+------------------------------+-----------------------------------------------------------------+------------------------------------+-------------------------+
-| OS::Heat::SoftwareConfig     | {vm-type}_RSC                                                   | **SHOULD**                         |                         |
-|                              |                                                                 |                                    |                         |
-+------------------------------+-----------------------------------------------------------------+------------------------------------+-------------------------+
-| OS::Neutron::Port            | {vm-type}_{vm-type-index}_{network-role}\_port\_{port-index}    | **MUST**                           | Resource ID for port    |
-|                              |                                                                 |                                    | connecting to an        |
-|                              |                                                                 |                                    | external network. The   |
-|                              |                                                                 |                                    | {vm-type-index}         |
-|                              |                                                                 |                                    | is the                  |
-|                              |                                                                 |                                    | instance of the         |
-|                              |                                                                 |                                    | {vm_type}. The          |
-|                              |                                                                 |                                    | {port-index}            |
-|                              |                                                                 |                                    | is the                  |
-|                              |                                                                 |                                    | instance of the         |
-|                              |                                                                 |                                    | “port” on the           |
-|                              |                                                                 |                                    | {vm-type}. There is     |
-|                              |                                                                 |                                    | no index after          |
-|                              |                                                                 |                                    | {network_role} since    |
-|                              |                                                                 |                                    | since {network-role}    |
-|                              |                                                                 |                                    | is unque to the VNF,    |
-|                              |                                                                 |                                    | there should            |
-|                              |                                                                 |                                    | only be one instance.   |
-+------------------------------+-----------------------------------------------------------------+------------------------------------+-------------------------+
-|                              | {vm-type}_{index}\_int\_{network-role}\_port\_{index}           |                                    | Resource ID for port    |
-|                              |                                                                 | **MUST**                           | connecting to an        |
-|                              |                                                                 |                                    | internal network. The   |
-|                              |                                                                 |                                    | {index} that follows    |
-|                              |                                                                 |                                    | {vm-type} is the        |
-|                              |                                                                 |                                    | instance of the         |
-|                              |                                                                 |                                    | {vm_type}. The          |
-|                              |                                                                 |                                    | {index} that follows    |
-|                              |                                                                 |                                    | “port” is the           |
-|                              |                                                                 |                                    | instance of the         |
-|                              |                                                                 |                                    | “port” on the           |
-|                              |                                                                 |                                    | {vm-type}. There is     |
-|                              |                                                                 |                                    | no index after          |
-|                              |                                                                 |                                    | {network_role} since    |
-|                              |                                                                 |                                    | since {network-role}    |
-|                              |                                                                 |                                    | is unque to the AIC     |
-|                              |                                                                 |                                    | LCP; there should       |
-|                              |                                                                 |                                    | only be one instance.   |
-+------------------------------+-----------------------------------------------------------------+------------------------------------+-------------------------+
-|                              | Reserve_Port\_{vm-type}_{network-role}\_floating_ip\_{index}    |                                    | Resource ID for a       |
-|                              |                                                                 | **MUST**                           | reserve port that is    |
-|                              |                                                                 |                                    | used for an             |
-|                              |                                                                 |                                    | allowed_address_pair.   |
-|                              | Reserve_Port\_{vm-type}_{network-role}\_floating_v6_ip\_{index} |                                    | See Section 5.6.5.5     |
-|                              |                                                                 |                                    | for additional          |
-|                              |                                                                 |                                    | details.                |
-|                              |                                                                 |                                    |                         |
-|                              |                                                                 |                                    | There is no {index}     |
-|                              |                                                                 |                                    | that follows            |
-|                              |                                                                 |                                    | {vm-type}               |
-+------------------------------+-----------------------------------------------------------------+------------------------------------+-------------------------+
-| OS::Neutron::SecurityGroup   | {vm-type}_Sec_Grp                                               |                                    | Security Group          |
-|                              |                                                                 | **SHOULD**                         | applicable to one       |
-|                              |                                                                 |                                    | {vm-type} and more      |
-|                              |                                                                 |                                    | than one network        |
-|                              |                                                                 |                                    | (internal and/or        |
-|                              |                                                                 |                                    | external)               |
-+------------------------------+-----------------------------------------------------------------+------------------------------------+-------------------------+
-|                              | {network-role}_Sec_Grp                                          |                                    | Security Group          |
-|                              |                                                                 | **SHOULD**                         | applicable to more      |
-|                              |                                                                 |                                    | than one {vm-type}      |
-|                              |                                                                 |                                    | and one external        |
-|                              |                                                                 |                                    | network                 |
-+------------------------------+-----------------------------------------------------------------+------------------------------------+-------------------------+
-|                              | int\_{network-role}_Sec_Grp                                     |                                    | Security Group          |
-|                              |                                                                 | **SHOULD**                         | applicable to more      |
-|                              |                                                                 |                                    | than one {vm-type}      |
-|                              |                                                                 |                                    | and one internal        |
-|                              |                                                                 |                                    | network                 |
-+------------------------------+-----------------------------------------------------------------+------------------------------------+-------------------------+
-|                              | {vm-type}_{network-role}_Sec_Grp                                |                                    | Security Group          |
-|                              |                                                                 | **SHOULD**                         | applicable to one       |
-|                              |                                                                 |                                    | {vm-type} and one       |
-|                              |                                                                 |                                    | external network        |
-+------------------------------+-----------------------------------------------------------------+------------------------------------+-------------------------+
-|                              | {vm-type}\_int\_{network-role}_Sec_Grp                          |                                    | Security Group          |
-|                              |                                                                 | **SHOULD**                         | applicable to one       |
-|                              |                                                                 |                                    | {vm-type} and one       |
-|                              |                                                                 |                                    | internal network        |
-+------------------------------+-----------------------------------------------------------------+------------------------------------+-------------------------+
-|                              | Shared_Sec_Grp                                                  |                                    | Security Group          |
-|                              |                                                                 | **SHOULD**                         | applicable to more      |
-|                              |                                                                 |                                    | than one {vm-type}      |
-|                              |                                                                 |                                    | and more than one       |
-|                              |                                                                 |                                    | network (internal       |
-|                              |                                                                 |                                    | and/or external)        |
-+------------------------------+-----------------------------------------------------------------+------------------------------------+-------------------------+
-| OS::Neutron::Subnet          | int\_{network-role}\_subnet\_{index}                            |                                    | VNF Heat                |
-|                              |                                                                 | **MUST**                           | Orchestration           |
-|                              |                                                                 |                                    | Templates can only      |
-|                              |                                                                 |                                    | create internal         |
-|                              |                                                                 |                                    | networks.               |
-+------------------------------+-----------------------------------------------------------------+------------------------------------+-------------------------+
-| OS::Neutron::Net             | int\_{network-role}\_network                                    |                                    | VNF Heat                |
-|                              |                                                                 | **MUST**                           | Orchestration           |
-|                              |                                                                 |                                    | Templates can only      |
-|                              |                                                                 |                                    | create internal         |
-|                              |                                                                 |                                    | networks. There is no   |
-|                              |                                                                 |                                    | {index} because         |
-|                              |                                                                 |                                    | {nework-role} should    |
-|                              |                                                                 |                                    | be unique.              |
-|                              |                                                                 |                                    |                         |
-+------------------------------+-----------------------------------------------------------------+------------------------------------+-------------------------+
-| OS::Nova::Keypair            | {vm-type}\_keypair\_{index}                                     | **SHOULD**                         | Key Pair applicable to  |
-|                              |                                                                 |                                    | one {vm-type}           |
-+------------------------------+-----------------------------------------------------------------+------------------------------------+-------------------------+
-|                              | {vnf-type}_keypair                                              | **SHOULD**                         | Key Pair applicable     |
-|                              |                                                                 |                                    | to all {vm-type} in the |
-|                              |                                                                 |                                    | VNF                     |
-+------------------------------+-----------------------------------------------------------------+------------------------------------+-------------------------+
-| OS::Nova::Server             | {vm-type}\_server\_{index}                                      | Mandatory                          |                         |
-|                              |                                                                 |                                    |                         |
-+------------------------------+-----------------------------------------------------------------+------------------------------------+-------------------------+
-| OS::Nova::ServerGroup        | {vm-type}_RSG                                                   | **SHOULD**                         | Both formats are        |
-|                              |                                                                 |                                    | valid.                  |
-+------------------------------+-----------------------------------------------------------------+------------------------------------+-------------------------+
-|                              | {vm-type}_Server_Grp                                            | **SHOULD**                         |                         |
-+------------------------------+-----------------------------------------------------------------+------------------------------------+-------------------------+
-|                              | {vm-type}_ServerGroup                                           | **SHOULD**                         |                         |
-+------------------------------+-----------------------------------------------------------------+------------------------------------+-------------------------+
-| OS::Swift::Container         | {vm-type}_RSwiftC                                               | **SHOULD**                         |                         |
-+------------------------------+-----------------------------------------------------------------+------------------------------------+-------------------------+
++-----------------+-------------------------+-------------+------------------+
+|Resource Type    |Resource ID Format       | Requirements| Notes            |
+|                 |                         |             |                  |
++=================+=========================+=============+==================+
+| OS::Cinder::    | {vm-type}\_volume\      | **SHOULD**  |                  |
+| Volume          | _{index}                |             |                  |
++-----------------+-------------------------+-------------+------------------+
+| OS::Cinder::    | {vm-type}\              | **SHOULD**  |                  |
+| VolumeAttachment| _volumeattachment\      |             |                  |
+|                 | _{index}                |             |                  |
++-----------------+-------------------------+-------------+------------------+
+| OS::Heat::      | {vm-type}_RCC           | **SHOULD**  |                  |
+| CloudConfig     |                         |             |                  |
++-----------------+-------------------------+-------------+------------------+
+| OS::Heat::      | {vm-type}_RMM           | **SHOULD**  |                  |
+| MultipartMime   |                         |             |                  |
++-----------------+-------------------------+-------------+------------------+
+| OS::Heat::      | {vm-type}_RRG           | **SHOULD**  |                  |
+| ResourceGroup   |                         |             |                  |
++-----------------+-------------------------+-------------+------------------+
+|                 | {vm-type}\_{index}\     | **MUST** for| Resource ID for  |
+|                 | _subint\_{network-role}\| subinterface| the OS::Heat::   |
+|                 | _port\_{index}\         | creation    | ResourceGroup    |
+|                 | _subinterfaces          |             | that creates     |
+|                 |                         |             | subinterfaces    |
++-----------------+-------------------------+-------------+------------------+
+| OS::Heat::      | {vm-type}_RSC           | **SHOULD**  |                  |
+| SoftwareConfig  |                         |             |                  |
++-----------------+-------------------------+-------------+------------------+
+| OS::Neutron::   | {vm-type}\              | **MUST**    | Resource ID for  |
+| Port            | _{vm-type-index}\       |             | port connecting  |
+|                 | _{network-role}\_port\  |             | to an external   |
+|                 | _{port-index}           |             | network. The     |
+|                 |                         |             | {vm-type-index}  |
+|                 |                         |             | is the instance  |
+|                 |                         |             | of the {vm_type}.|
+|                 |                         |             | The {port-index} |
+|                 |                         |             | is the instance  |
+|                 |                         |             | of the “port” on |
+|                 |                         |             | the {vm-type}.   |
+|                 |                         |             | There is no index|
+|                 |                         |             | after            |
+|                 |                         |             | {network_role}   |
+|                 |                         |             | since            |
+|                 |                         |             | {network-role} is|
+|                 |                         |             | unique to the    |
+|                 |                         |             | VNF, there should|
+|                 |                         |             | only be one      |
+|                 |                         |             | instance.        |
++-----------------+-------------------------+-------------+------------------+
+|                 | {vm-type}\_{index}\_int\| **MUST**    | Resource ID for  |
+|                 | _{network-role}\_port\  |             | port connecting  |
+|                 | _{index}                |             | to an internal   |
+|                 |                         |             | network. The     |
+|                 |                         |             | {index} that     |
+|                 |                         |             | follows {vm-type}|
+|                 |                         |             | is the instance  |
+|                 |                         |             | of the {vm_type}.|
+|                 |                         |             | The {index} that |
+|                 |                         |             | follows “port” is|
+|                 |                         |             | the instance of  |
+|                 |                         |             | the “port” on the|
+|                 |                         |             | {vm-type}. There |
+|                 |                         |             | is no index after|
+|                 |                         |             | {network_role}   |
+|                 |                         |             | since            |
+|                 |                         |             | {network-role} is|
+|                 |                         |             | unque to the AIC |
+|                 |                         |             | LCP; there should|
+|                 |                         |             | only be one      |
+|                 |                         |             | instance.        |
++-----------------+-------------------------+-------------+------------------+
+|                 | Reserve_Port\_{vm-type}\|             | Resource ID for a|
+|                 | _{network-role}\        | **MUST**    | reserve port that|
+|                 | _floating_ip\_{index}   |             | is used for an   |
+|                 |                         |             | allowed_address  |
+|                 | Reserve_Port\_{vm-type}\|             | \_pair. See      |
+|                 | _{network-role}\        |             | Section 5.6.5.5  |
+|                 | _floating_v6_ip\        |             | for additional   |
+|                 | _{index}                |             | details.         |
+|                 |                         |             |                  |
+|                 |                         |             | There is no      |
+|                 |                         |             | {index} that     |
+|                 |                         |             | follows {vm-type}|
++-----------------+-------------------------+-------------+------------------+
+| OS::Neutron::   | {vm-type}\_Sec\_Grp     | **SHOULD**  | Security Group   |
+| SecurityGroup   |                         |             | applicable to one|
+|                 |                         |             | {vm-type} and    |
+|                 |                         |             | more than one    |
+|                 |                         |             | network (internal|
+|                 |                         |             | and/or external) |
++-----------------+-------------------------+-------------+------------------+
+|                 | {network-role}\_Sec\_Grp| **SHOULD**  | Security Group   |
+|                 |                         |             | applicable to    |
+|                 |                         |             | more than one    |
+|                 |                         |             | {vm-type} and one|
+|                 |                         |             | external network |
++-----------------+-------------------------+-------------+------------------+
+|                 | int\_{network-role}\    | **SHOULD**  | Security Group   |
+|                 | _Sec\_Grp               |             | applicable to    |
+|                 |                         |             | more than one    |
+|                 |                         |             | {vm-type} and one|
+|                 |                         |             | internal network |
++-----------------+-------------------------+-------------+------------------+
+|                 | {vm-type}\              | **SHOULD**  | Security Group   |
+|                 | _{network-role}\_Sec\   |             | applicable to one|
+|                 | _Grp                    |             | {vm-type} and one|
+|                 |                         |             | external network |
++-----------------+-------------------------+-------------+------------------+
+|                 | {vm-type}\_int\         | **SHOULD**  | Security Group   |
+|                 | _{network-role}\_Sec\   |             | applicable to one|
+|                 | _Grp                    |             | {vm-type} and one|
+|                 |                         |             | internal network |
++-----------------+-------------------------+-------------+------------------+
+|                 | Shared\_Sec\_Grp        | **SHOULD**  | Security Group   |
+|                 |                         |             | applicable to    |
+|                 |                         |             | more than one    |
+|                 |                         |             | {vm-type} and    |
+|                 |                         |             | more than one    |
+|                 |                         |             | network (internal|
+|                 |                         |             | and/or external) |
++-----------------+-------------------------+-------------+------------------+
+| OS::Neutron::   | int\_{network-role}\    | **MUST**    | VNF Heat         |
+| Subnet          | _subnet\_{index}        |             | Orchestration    |
+|                 |                         |             | Templates can    |
+|                 |                         |             | only create      |
+|                 |                         |             | internal         |
+|                 |                         |             | networks.        |
++-----------------+-------------------------+-------------+------------------+
+| OS::Neutron::Net| int\_{network-role}\    | **MUST**    | VNF Heat         |
+|                 | _network                |             | Orchestration    |
+|                 |                         |             | Templates can    |
+|                 |                         |             | only create      |
+|                 |                         |             | internal         |
+|                 |                         |             | networks. There  |
+|                 |                         |             | is no {index}    |
+|                 |                         |             | because          |
+|                 |                         |             | {nework-role}    |
+|                 |                         |             |should be unique. |
++-----------------+-------------------------+-------------+------------------+
+| OS::Nova::      | {vm-type}\_keypair\     | **SHOULD**  | Key Pair         |
+| Keypair         | _{index}                |             | applicable to one|
+|                 |                         |             | a{vm-type}       |
++-----------------+-------------------------+-------------+------------------+
+|                 | {vnf-type}_keypair      | **SHOULD**  | Key Pair         |
+|                 |                         |             | applicable to all|
+|                 |                         |             | {vm-type} in the |
+|                 |                         |             | VNF              |
++-----------------+-------------------------+-------------+------------------+
+| OS::Nova::Server| {vm-type}\_server\      | Mandatory   |                  |
+|                 | _{index}                |             |                  |
++-----------------+-------------------------+-------------+------------------+
+| OS::Nova::      | {vm-type}_RSG           | **SHOULD**  | Both formats are |
+| ServerGroup     |                         |             | valid.           |
++-----------------+-------------------------+-------------+------------------+
+|                 | {vm-type}_Server_Grp    | **SHOULD**  |                  |
++-----------------+-------------------------+-------------+------------------+
+|                 | {vm-type}_ServerGroup   | **SHOULD**  |                  |
++-----------------+-------------------------+-------------+------------------+
+| OS::Swift::     | {vm-type}\_RSwiftC      | **SHOULD**  |                  |
+| Container       |                         |             |                  |
++-----------------+-------------------------+-------------+------------------+
 
 
     Table 2: Example OpenStack Heat Resource ID
@@ -2099,134 +2120,135 @@ The table below provides Resource ID Formats for Contrail heat resources.
    However, deviations in the Resource ID format that is shown is
    permitted.
 
-+-----------------+--------------------------------------------------------------------------+-----------------+-----------------+---+
-|     Resource    |                               Resource ID                                |   Mandatory /   |      Notes      |   |
-|       Type      |                                  Format                                  |     Optional    |                 |   |
-+=================+==========================================================================+=================+=================+===+
-| OS::ContrailV2: | {vm-type}_{index}_{network-role}\_vmi\_{index}\_IP\_{index}              | **MUST** –      | The {index}     |   |
-| :InstanceIp     |                                                                          | IPv4 address on | that follows    |   |
-|                 |                                                                          | vmi external    | {vm-type} is    |   |
-|                 |                                                                          | network         | the instance of |   |
-|                 |                                                                          |                 | the {vm_type}.  |   |
-|                 |                                                                          |                 | The {index}     |   |
-|                 |                                                                          |                 | that follows    |   |
-|                 |                                                                          |                 | “vmi” is the    |   |
-|                 |                                                                          |                 | instance of the |   |
-|                 |                                                                          |                 | “vmi” on the    |   |
-|                 |                                                                          |                 | {vm-type}.      |   |
-|                 |                                                                          |                 | There is no     |   |
-|                 |                                                                          |                 | index after     |   |
-|                 |                                                                          |                 | {network_role}  |   |
-|                 |                                                                          |                 | since since     |   |
-|                 |                                                                          |                 | {network-role}  |   |
-|                 |                                                                          |                 | is unque. The   |   |
-|                 |                                                                          |                 | {index} that    |   |
-|                 |                                                                          |                 | follows the     |   |
-|                 |                                                                          |                 | “IP” is the     |   |
-|                 |                                                                          |                 | instance of the |   |
-|                 |                                                                          |                 | “IP” on the     |   |
-|                 |                                                                          |                 | “vmi”           |   |
-+-----------------+--------------------------------------------------------------------------+-----------------+-----------------+---+
-|                 | {vm-type}_{index}_{network-role}\_vmi\_{index}\_v6\_IP\_{index}          | **MUST** –      |                 |   |
-|                 |                                                                          | IPv6 address on |                 |   |
-|                 |                                                                          | vmi external    |                 |   |
-|                 |                                                                          | network         |                 |   |
-+-----------------+--------------------------------------------------------------------------+-----------------+-----------------+---+
-|                 | {vm-type}_{index}\_int\_{network-role}\_vmi\_{index}\_IP\_{index}        | **MUST** –      |                 |   |
-|                 |                                                                          | IPv4 address on |                 |   |
-|                 |                                                                          | vmi internal    |                 |   |
-|                 |                                                                          | network         |                 |   |
-+-----------------+--------------------------------------------------------------------------+-----------------+-----------------+---+
-|                 | {vm-type}_{index}\_int\_{network-role}\_vmi\_{index}\_v6\_IP\_{index}    | **MUST** –      |                 |   |
-|                 |                                                                          | IPv6 address on |                 |   |
-|                 |                                                                          | vmi internal    |                 |   |
-|                 |                                                                          | network         |                 |   |
-|                 |                                                                          |                 |                 |   |
-+-----------------+--------------------------------------------------------------------------+-----------------+-----------------+---+
-|                 | {vm-type}_{index}\_subint\_{network-role}\_vmi\_{index}\_IP\_{index}     | **MUST** –      |                 |   |
-|                 |                                                                          | IPv4 address on |                 |   |
-|                 |                                                                          | sub-interface   |                 |   |
-|                 |                                                                          | vmi external    |                 |   |
-|                 |                                                                          | network         |                 |   |
-+-----------------+--------------------------------------------------------------------------+-----------------+-----------------+---+
-|                 | {vm-type}_{index}\_subint\_{network-role}\_vmi\_{index}\_v6\_IP\_{index} | **MUST** –      |                 |   |
-|                 |                                                                          | IPv6 address on |                 |   |
-|                 |                                                                          | sub-interface   |                 |   |
-|                 |                                                                          | vmi external    |                 |   |
-|                 |                                                                          | network         |                 |   |
-+-----------------+--------------------------------------------------------------------------+-----------------+-----------------+---+
-| OS::ContrailV2: | {network-role}_RIRT                                                      | **MAY**         |                 |   |
-| :InterfaceRoute |                                                                          |                 |                 |   |
-| Table           |                                                                          |                 |                 |   |
-+-----------------+--------------------------------------------------------------------------+-----------------+-----------------+---+
-| OS::ContrailV2: | {network-role}_RNI                                                       | **MAY**         |                 |   |
-| :NetworkIpam    |                                                                          |                 |                 |   |
-+-----------------+--------------------------------------------------------------------------+-----------------+-----------------+---+
-| OS::ContrailV2: | {vm-type}_RPT                                                            | **MAY**         |                 |   |
-| :PortTuple      |                                                                          |                 |                 |   |
-+-----------------+--------------------------------------------------------------------------+-----------------+-----------------+---+
-| OS::ContrailV2: | {vm-type}\_RSHC\_{LEFT/RIGHT}                                            | **MAY**         |                 |   |
-| :ServiceHealthC |                                                                          |                 |                 |   |
-| heck            |                                                                          |                 |                 |   |
-+-----------------+--------------------------------------------------------------------------+-----------------+-----------------+---+
-| OS::ContrailV2: | {vm-type}\_RST\_{index}                                                  | **MAY**         |                 |   |
-| :ServiceTemplat |                                                                          |                 |                 |   |
-| e               |                                                                          |                 |                 |   |
-+-----------------+--------------------------------------------------------------------------+-----------------+-----------------+---+
-| OS::ContrailV2: | {vm-type}\_{index}\_{network-role}\_vmi\_{index}                         | **MUST** - vmi  | Resource ID for |   |
-| :VirtualMachine |                                                                          | attached to an  | virtual machine |   |
-| Interface       |                                                                          | external        | interface (vmi) |   |
-|                 |                                                                          | network         | connecting to   |   |
-|                 |                                                                          |                 | an external     |   |
-|                 |                                                                          |                 | network. The    |   |
-|                 |                                                                          |                 | {index} that    |   |
-|                 |                                                                          |                 | follows         |   |
-|                 |                                                                          |                 | {vm-type} is    |   |
-|                 |                                                                          |                 | the instance of |   |
-|                 |                                                                          |                 | the {vm_type}.  |   |
-|                 |                                                                          |                 | The {index}     |   |
-|                 |                                                                          |                 | that follows    |   |
-|                 |                                                                          |                 | “vmi” is the    |   |
-|                 |                                                                          |                 | instance of the |   |
-|                 |                                                                          |                 | “vmi” on the    |   |
-|                 |                                                                          |                 | {vm-type}.      |   |
-|                 |                                                                          |                 | There is no     |   |
-|                 |                                                                          |                 | index after     |   |
-|                 |                                                                          |                 | {network_role}  |   |
-|                 |                                                                          |                 | since since     |   |
-|                 |                                                                          |                 | {network-role}  |   |
-|                 |                                                                          |                 | is unque to the |   |
-|                 |                                                                          |                 | AIC LCP; there  |   |
-|                 |                                                                          |                 | should only be  |   |
-|                 |                                                                          |                 | one instance.   |   |
-+-----------------+--------------------------------------------------------------------------+-----------------+-----------------+---+
-|                 | {vm-type}_{index}\_int\_{network-role}\_vmi\_{index}                     | **MUST** - vmi  |                 |   |
-|                 |                                                                          | attached to an  |                 |   |
-|                 |                                                                          | internal        |                 |   |
-|                 |                                                                          | network         |                 |   |
-+-----------------+--------------------------------------------------------------------------+-----------------+-----------------+---+
-|                 | {vm-type}_{index}\_subint\_{network-role}\_vmi\_{index}                  | **MUST** - vmi  |                 |   |
-|                 |                                                                          | attached to a   |                 |   |
-|                 |                                                                          | sub-interface   |                 |   |
-|                 |                                                                          | network         |                 |   |
-+-----------------+--------------------------------------------------------------------------+-----------------+-----------------+---+
-| OS::ContrailV2: | int\_{network-role}\_RVN                                                 | **MAY**         | VNF Heat        |   |
-| :VirtualNetwork |                                                                          |                 | Orchestration   |   |
-|                 |                                                                          |                 | Templates can   |   |
-|                 |                                                                          |                 | only create     |   |
-|                 |                                                                          |                 | internal        |   |
-|                 |                                                                          |                 | networks. There |   |
-|                 |                                                                          |                 | is no {index}   |   |
-|                 |                                                                          |                 | because         |   |
-|                 |                                                                          |                 | {nework-role}   |   |
-|                 |                                                                          |                 | should be       |   |
-|                 |                                                                          |                 | unique. Both    |   |
-|                 |                                                                          |                 | formats are     |   |
-|                 |                                                                          |                 | valid.          |   |
-+-----------------+--------------------------------------------------------------------------+-----------------+-----------------+---+
-|                 | int\_{network-role}\_network                                             | **MAY**         |                 |   |
-|                 |                                                                          |                 |                 |   |
-+-----------------+--------------------------------------------------------------------------+-----------------+-----------------+---+
++-----------------+---------------------+-----------------+-----------------+
+|     Resource    | Resource ID         |   Mandatory /   |      Notes      |
+|       Type      | Format              |     Optional    |                 |
++=================+=====================+=================+=================+
+| OS::ContrailV2: | {vm-type}\_{index}\ | **MUST** –      | The {index}     |
+| :InstanceIp     | _{network-role}\    | IPv4 address on | that follows    |
+|                 | _vmi\_{index}\      | vmi external    | {vm-type} is    |
+|                 | _IP\_{index}        | network         | the instance of |
+|                 |                     |                 | the {vm_type}.  |
+|                 |                     |                 | The {index}     |
+|                 |                     |                 | that follows    |
+|                 |                     |                 | “vmi” is the    |
+|                 |                     |                 | instance of the |
+|                 |                     |                 | “vmi” on the    |
+|                 |                     |                 | {vm-type}.      |
+|                 |                     |                 | There is no     |
+|                 |                     |                 | index after     |
+|                 |                     |                 | {network_role}  |
+|                 |                     |                 | since since     |
+|                 |                     |                 | {network-role}  |
+|                 |                     |                 | is unque. The   |
+|                 |                     |                 | {index} that    |
+|                 |                     |                 | follows the     |
+|                 |                     |                 | “IP” is the     |
+|                 |                     |                 | instance of the |
+|                 |                     |                 | “IP” on the     |
+|                 |                     |                 | “vmi”           |
++-----------------+---------------------+-----------------+-----------------+
+|                 | {vm-type}\_{index}\ | **MUST** –      |                 |
+|                 | _{network-role}\    | IPv6 address on |                 |
+|                 | _vmi\_{index}\_v6\  | vmi external    |                 |
+|                 | _IP\_{index}        | network         |                 |
++-----------------+---------------------+-----------------+-----------------+
+|                 | {vm-type}\_{index}\ | **MUST** –      |                 |
+|                 | _int\               | IPv4 address on |                 |
+|                 | _{network-role}\    | vmi internal    |                 |
+|                 | _vmi\_{index}\_IP\  | network         |                 |
+|                 | _{index}            |                 |                 |
++-----------------+---------------------+-----------------+-----------------+
+|                 | {vm-type}\_{index}\ | **MUST** –      |                 |
+|                 | _int\               | IPv6 address on |                 |
+|                 | _{network-role}\    | vmi internal    |                 |
+|                 | _vmi\_{index}\_v6\  | network         |                 |
+|                 | _IP\_{index}        |                 |                 |
++-----------------+---------------------+-----------------+-----------------+
+|                 | {vm-type}\_{index}\ | **MUST** –      |                 |
+|                 | _subint\            | IPv4 address on |                 |
+|                 | _{network-role}\    | sub-interface   |                 |
+|                 | _vmi\_{index}\_IP\  | vmi external    |                 |
+|                 | _{index}            | network         |                 |
++-----------------+---------------------+-----------------+-----------------+
+|                 | {vm-type}\_{index}\ | **MUST** –      |                 |
+|                 | _subint\            | IPv6 address on |                 |
+|                 | _{network-role}\    | sub-interface   |                 |
+|                 | _vmi\_{index}\_v6\  | vmi external    |                 |
+|                 | _IP\_{index}        | network         |                 |
++-----------------+---------------------+-----------------+-----------------+
+| OS::ContrailV2: | {network-role}\_RIRT| **MAY**         |                 |
+| :InterfaceRoute |                     |                 |                 |
+| Table           |                     |                 |                 |
++-----------------+---------------------+-----------------+-----------------+
+| OS::ContrailV2: | {network-role}\_RNI | **MAY**         |                 |
+| :NetworkIpam    |                     |                 |                 |
++-----------------+---------------------+-----------------+-----------------+
+| OS::ContrailV2: | {vm-type}\_RPT      | **MAY**         |                 |
+| :PortTuple      |                     |                 |                 |
++-----------------+---------------------+-----------------+-----------------+
+| OS::ContrailV2: | {vm-type}\_RSHC\    | **MAY**         |                 |
+| :ServiceHealthC | _{LEFT/RIGHT}       |                 |                 |
+| heck            |                     |                 |                 |
++-----------------+---------------------+-----------------+-----------------+
+| OS::ContrailV2: | {vm-type}\_RST\     | **MAY**         |                 |
+| :ServiceTemplat | _{index}            |                 |                 |
+| e               |                     |                 |                 |
++-----------------+---------------------+-----------------+-----------------+
+| OS::ContrailV2: | {vm-type}\_{index}\ | **MUST** - vmi  | Resource ID for |
+| :VirtualMachine | _{network-role}\    | attached to an  | virtual machine |
+| Interface       | _vmi\_{index}       | external        | interface (vmi) |
+|                 |                     | network         | connecting to   |
+|                 |                     |                 | an external     |
+|                 |                     |                 | network. The    |
+|                 |                     |                 | {index} that    |
+|                 |                     |                 | follows         |
+|                 |                     |                 | {vm-type} is    |
+|                 |                     |                 | the instance of |
+|                 |                     |                 | the {vm_type}.  |
+|                 |                     |                 | The {index}     |
+|                 |                     |                 | that follows    |
+|                 |                     |                 | “vmi” is the    |
+|                 |                     |                 | instance of the |
+|                 |                     |                 | “vmi” on the    |
+|                 |                     |                 | {vm-type}.      |
+|                 |                     |                 | There is no     |
+|                 |                     |                 | index after     |
+|                 |                     |                 | {network_role}  |
+|                 |                     |                 | since since     |
+|                 |                     |                 | {network-role}  |
+|                 |                     |                 | is unque to the |
+|                 |                     |                 | AIC LCP; there  |
+|                 |                     |                 | should only be  |
+|                 |                     |                 | one instance.   |
++-----------------+---------------------+-----------------+-----------------+
+|                 | {vm-type}\_{index}\ | **MUST** - vmi  |                 |
+|                 | _int\               | attached to an  |                 |
+|                 | _{network-role}\    | internal        |                 |
+|                 | _vmi\_{index}       | network         |                 |
++-----------------+---------------------+-----------------+-----------------+
+|                 | {vm-type}\_{index}\ | **MUST** - vmi  |                 |
+|                 | _subint\            | attached to a   |                 |
+|                 | _{network-role}\    | sub-interface   |                 |
+|                 | _vmi\_{index}       | network         |                 |
++-----------------+---------------------+-----------------+-----------------+
+| OS::ContrailV2: | int\_{network-role}\| **MAY**         | VNF Heat        |
+| :VirtualNetwork | _RVN                |                 | Orchestration   |
+|                 |                     |                 | Templates can   |
+|                 |                     |                 | only create     |
+|                 |                     |                 | internal        |
+|                 |                     |                 | networks. There |
+|                 |                     |                 | is no {index}   |
+|                 |                     |                 | because         |
+|                 |                     |                 | {nework-role}   |
+|                 |                     |                 | should be       |
+|                 |                     |                 | unique. Both    |
+|                 |                     |                 | formats are     |
+|                 |                     |                 | valid.          |
++-----------------+---------------------+-----------------+-----------------+
+|                 | int\_{network-role}\| **MAY**         |                 |
+|                 | _network            |                 |                 |
++-----------------+---------------------+-----------------+-----------------+
 
     Table 3: Example Contrail Heat resource ID
 
@@ -2450,9 +2472,10 @@ In this example, the {vm-type} has been defined as “lb” for load balancer.
 Contrail Issue with Values for OS::Nova::Server Property Name
 _____________________________________________________________
 
-R-44271 The VNF's Heat Orchestration Template's Resource 'OS::Nova::Server' property
-'name' parameter value **SHOULD NOT** contain special characters
-since the Contrail GUI has a limitation displaying special characters.
+R-44271 The VNF's Heat Orchestration Template's Resource
+'OS::Nova::Server' property 'name' parameter value **SHOULD NOT**
+contain special characters since the Contrail GUI has a limitation
+displaying special characters.
 
 However, if special characters must be used, the only special characters
 supported are:
@@ -3153,7 +3176,9 @@ ONAP parameter naming convention. The four properties are:
 1. network
 2. fixed_ips, ip_address
 3. fixed_ips, subnet_id or fixed_ips, subnet
+
  * Note that in many examples in this document fixed_ips, subnet_id is used.
+
 4. allowed_address_pairs, ip_address
 
 Below is a generic example. Note that for some parameters
@@ -3217,18 +3242,20 @@ subnets.
 
 If a VNF's Port is attached to an external network the IP addresses **MAY**
 either be assigned by
+
  1. ONAP's SDN-Controller (SDN-C)
  2. Cloud Assigned by OpenStack’s DHCP Service
 
 If a VNF's Port is attached to an external network and the port's IP addresses
 are assigned by ONAP's SDN-Controller, the 'OS::Neutron::Port' Resource's
+
  * property 'fixed_ips' map property 'ip_address' **MUST** be used
- * property 'fixed_ips' map property 'subnet'/'subnet_id'
-   **MUST NOT** be used
+ * property 'fixed_ips' map property 'subnet'/'subnet_id' **MUST NOT** be used
 
 If a VNF's Port is attached to an external network and the port's IP addresses
 are Cloud Assigned by OpenStack’s DHCP Service,
 the 'OS::Neutron::Port' Resource's
+
  * property 'fixed_ips' map property 'ip_address' **MUST NOT** be used
  * property fixed_ips' map property 'subnet'/'subnet_id' **MAY** be used
 
@@ -3236,6 +3263,7 @@ If a VNF's Port is attached to an internal network and the port's IP addresses
 are assigned by the VNF's Heat Orchestration Template
 (i.e., enumerated in the Heat Orchestration Template's environment file),
 the 'OS::Neutron::Port' Resource's
+
  * property 'fixed_ips' map property 'ip_address' **MUST** be used
  * property 'fixed_ips' map property 'subnet'/'subnet_id'
    **MUST NOT** be used
@@ -3243,9 +3271,9 @@ the 'OS::Neutron::Port' Resource's
 If a VNF's Port is attached to an internal network and the port's IP addresses
 are Cloud Assigned by OpenStack’s DHCP Service,
 the 'OS::Neutron::Port' Resource's
+
  * property 'fixed_ips' map property 'ip_address' **MUST NOT** be used
- * property 'fixed_ips' map property 'subnet'/'subnet_id'
-   **MAY** be used
+ * property 'fixed_ips' map property 'subnet'/'subnet_id' **MAY** be used
 
 If a VNF's Heat Orchestration Template 'OS::Neutron::Port' Resource property
 'fixed_ips' map property 'ip_address' is specified, then the
@@ -3274,8 +3302,9 @@ the port is attached to.
 R-18008 The VNF’s Heat Orchestration Template’s Resource ‘OS::Neutron::Port’
 property ‘network’ parameter **MUST** be declared as type: ‘string’.
 
-R-62983 When the VNF’s Heat Orchestration Template’s Resource ‘OS::Neutron::Port’
-is attaching to an external network, the ‘network’ parameter name **MUST**
+R-62983 When the VNF’s Heat Orchestration Template’s
+Resource ‘OS::Neutron::Port’ is attaching to an external network,
+the ‘network’ parameter name **MUST**
 
 - follow the naming convention ‘{network-role}_net_id’ if the Neutron
   network UUID value is used to reference the network
@@ -3285,8 +3314,9 @@ is attaching to an external network, the ‘network’ parameter name **MUST**
 where ‘{network-role}’ is the network-role of the external network and
 a ‘get_param’ **MUST** be used as the intrinsic function.
 
-R-86182 When the VNF’s Heat Orchestration Template’s Resource ‘OS::Neutron::Port’
-is attaching to an internal network, and the internal network is created in a different
+R-86182 When the VNF’s Heat Orchestration Template’s
+Resource ‘OS::Neutron::Port’ is attaching to an internal network,
+and the internal network is created in a different
 Heat Orchestration Template than the ‘OS::Neutron::Port’, the ‘network’
 parameter name **MUST**
 
@@ -3295,7 +3325,8 @@ parameter name **MUST**
 - follow the naming convention ‘int\_{network-role}_net_name’ if the
   OpenStack network name in is used to reference the network.
 
-where ‘{network-role}’ is the network-role of the internal network and a ‘get_param’ **MUST** be used as the intrinsic function.
+where ‘{network-role}’ is the network-role of the internal network
+and a ‘get_param’ **MUST** be used as the intrinsic function.
 
 In Requirement R-86182, the internal network is created in the VNF's
 Base Module (Heat Orchestration Template) and the parameter name is
@@ -3303,12 +3334,13 @@ declared in the Base Module's outputs' section.
 The output parameter name will be declared as a parameter in the
 'parameters' section of the incremental module.
 
-R-93177 When the VNF’s Heat Orchestration Template’s Resource ‘OS::Neutron::Port’
-is attaching to an internal network, and the internal network is created in the same Heat
+R-93177 When the VNF’s Heat Orchestration Template’s
+Resource ‘OS::Neutron::Port’ is attaching to an internal
+network, and the internal network is created in the same Heat
 Orchestration Template than the ‘OS::Neutron::Port’, the ‘network’
-parameter name **MUST** obtain the UUID of the internal network by using
-the intrinsic function ‘get_resource’ or ‘get_attr’ and referencing the
-Resource ID of the internal network.
+parameter name **MUST** obtain the UUID of the internal network
+by using the intrinsic function ‘get_resource’ or ‘get_attr’
+and referencing the Resource ID of the internal network.
 
 R-29872 The VNF’s Heat Orchestration Template’s Resource ‘OS::Nova::Server’
 property ‘network’ parameter **MUST NOT** be enumerated in the Heat
@@ -3363,8 +3395,8 @@ One 'OS::Neutron::Port' resource may assign one or more
 IPv4 and/or IPv6 addresses.
 
 R-34037 The VNF’s Heat Orchestration Template’s resource ‘OS::Neutron::Port’
-property ‘fixed_ips’ map property ‘ip_address’ parameter **MUST** be declared as
-either type ‘string’ or type ‘comma_delimited_list’.
+property ‘fixed_ips’ map property ‘ip_address’ parameter **MUST**
+be declared as either type ‘string’ or type ‘comma_delimited_list’.
 
 R-40971 When the VNF’s Heat Orchestration Template’s Resource
 ‘OS::Neutron::Port’ is attaching to an external network, and an IPv4 address is
@@ -3395,11 +3427,13 @@ the value at orchestration to the Heat Orchestration Template.
       type: string
       description: Fixed IPv4 assignment for {vm-type} VM {index} on the{network-role} network
 
-R-04697 When the VNF’s Heat Orchestration Template’s Resource ‘OS::Neutron::Port’
-is attaching to an external network, and an IPv4 address is assigned using
-the property ‘fixed_ips’ map property ‘ip_address’ and the parameter type
-is defined as a comma_delimited_list, the parameter name **MUST** follow the
-naming convention ‘{vm-type}_{network-role}_ips’, where
+R-04697 When the VNF’s Heat Orchestration Template’s
+Resource ‘OS::Neutron::Port’ is attaching to an external
+network, and an IPv4 address is assigned using the property
+‘fixed_ips’ map property ‘ip_address’ and the parameter type
+is defined as a comma_delimited_list, the parameter name **MUST**
+follow the naming convention ‘{vm-type}_{network-role}_ips’,
+where
 
 - ‘{vm-type}’ is the {vm-type} associated with the OS::Nova::Server
 - ‘{network-role}’ is the {network-role} of the external network
@@ -3436,8 +3470,9 @@ the naming convention ‘{vm-type}_{network-role}\_v6\_ip\_{index}’, where
 
 R-87123 The VNF’s Heat Orchestration Template’s Resource
 ‘OS::Neutron::Port’ property ‘fixed_ips’ map property ‘ip_address’
-parameter ‘{vm-type}_{network-role}\_v6\_ip\_{index}’ **MUST NOT** be enumerated
-in the VNF’s Heat Orchestration Template’s Environment File.
+parameter ‘{vm-type}_{network-role}\_v6\_ip\_{index}’
+**MUST NOT** be enumerated in the VNF’s Heat Orchestration
+Template’s Environment File.
 
 ONAP's SDN-Controller assigns the IP Address and ONAP provides
 the value at orchestration to the Heat Orchestration Template.
@@ -3456,7 +3491,8 @@ R-23503 When the VNF’s Heat Orchestration Template’s Resource
 ‘OS::Neutron::Port’ is attaching to an external network, and an IPv6
 address is assigned using the property ‘fixed_ips’ map property ‘ip_address’
 and the parameter type is defined as a comma_delimited_list, the parameter
-name **MUST** follow the naming convention ‘{vm-type}_{network-role}_v6_ips’, where
+name **MUST** follow the naming convention
+‘{vm-type}_{network-role}_v6_ips’, where
 
 - ‘{vm-type}’ is the {vm-type} associated with the OS::Nova::Server
 - ‘{network-role}’ is the {network-role} of the external network
@@ -3513,7 +3549,8 @@ R-85235 When the VNF’s Heat Orchestration Template’s Resource
 ‘OS::Neutron::Port’ is attaching to an internal network, and an IPv4
 address is assigned using the property ‘fixed_ips’ map property ‘ip_address’
 and the parameter type is defined as a comma_delimited_list, the parameter
-name **MUST** follow the naming convention ‘{vm-type}\_int\_{network-role}_ips’, where
+name **MUST** follow the naming convention
+‘{vm-type}\_int\_{network-role}_ips’, where
 
 - ‘{vm-type}’ is the {vm-type} associated with the OS::Nova::Server
 - ‘{network-role}’ is the {network-role} of the internal network
@@ -3547,8 +3584,9 @@ the naming convention ‘{vm-type}\_int\_{network-role}\_v6\_ip\_{index}’, whe
 
 R-97201 The VNF’s Heat Orchestration Template’s Resource
 ‘OS::Neutron::Port’ property ‘fixed_ips’ map property ‘ip_address’
-parameter ‘{vm-type}\_int\_{network-role}\_v6\_ip\_{index}’ **MUST** be enumerated
-in the VNF’s Heat Orchestration Template’s Environment File.
+parameter ‘{vm-type}\_int\_{network-role}\_v6\_ip\_{index}’
+**MUST** be enumerated in the VNF’s Heat Orchestration
+Template’s Environment File.
 
 The IP address is local to the VNF's internal network and is (re)used
 in every VNF spin up, thus the constant value is declared in the VNF's
@@ -3568,7 +3606,8 @@ R-29765 When the VNF’s Heat Orchestration Template’s Resource
 ‘OS::Neutron::Port’ is attaching to an internal network, and an IPv6
 address is assigned using the property ‘fixed_ips’ map property ‘ip_address’
 and the parameter type is defined as a comma_delimited_list, the parameter
-name **MUST** follow the naming convention ‘{vm-type}\_int\_{network-role}_v6_ips’, where
+name **MUST** follow the naming convention
+‘{vm-type}\_int\_{network-role}_v6_ips’, where
 
 - ‘{vm-type}’ is the {vm-type} associated with the OS::Nova::Server
 - ‘{network-role}’ is the {network-role} of the internal network
@@ -3602,8 +3641,9 @@ parameter associated with an external network, i.e.,
 - {vm-type}_{network-role}_ips
 - {vm-type}_{network-role}_v6_ips
 
-**MUST NOT** be enumerated in the Heat Orchestration Template’s Environment File.
-ONAP provides the IP address assignments at orchestration time.
+**MUST NOT** be enumerated in the Heat Orchestration Template’s
+Environment File. ONAP provides the IP address assignments at
+orchestration time.
 
 R-93496 The VNF’s Heat Orchestration Template’s Resource
 ‘OS::Neutron::Port’ property ‘fixed_ips’ map property ‘ip_address’
@@ -4103,9 +4143,10 @@ an oam network and the {vm-type} has been defined as db for database.
 Internal Networks
 _________________
 
-R-16805 The VNF Heat Orchestration Template **MUST** adhere to the following naming convention
-for the property allowed\_address\_pairs and Map Property ip\_address
-parameter when the parameter is referencing an “internal” network.
+R-16805 The VNF Heat Orchestration Template **MUST** adhere to the
+following naming convention for the property allowed\_address\_pairs
+and Map Property ip\_address parameter when the parameter is
+referencing an “internal” network.
 
 -  {vm-type}\_int\_{network-role}\_floating\_ip for an IPv4 address
 
@@ -4130,7 +4171,7 @@ The parameter must be enumerated in the Heat environment file.
        description: VIP for {vm-type} VMs on the int_{network-role} network
 
 Multiple allowed\_address\_pairs for a {vm-type} / {network-role} combination
-__________________________________________________________________
+______________________________________________________________________________
 
 The parameter {vm-type}\_{network-role}\_floating\_ip provides only one
 allowed address pair IPv4 address per {vm-type} and {network-role} pair.
@@ -4248,11 +4289,11 @@ OS::Nova::Server resources must be defined when the property is used.
 Not all resources require the property name (e.g., it is optional) and
 some resources do not support the property.
 
-R-85734 The VNF Heat Orchestration Template **MUST** use the intrinsic function str\_replace
-in conjunction with the ONAP supplied metadata parameter
-vnf\_name to generate a unique value,
-when the property name for a non OS::Nova::Server resources is defined
-in a Heat Orchestration Template.
+R-85734 The VNF Heat Orchestration Template **MUST** use the
+intrinsic function str\_replace in conjunction with the ONAP
+supplied metadata parameter vnf\_name to generate a unique
+value, when the property name for a non OS::Nova::Server
+resources is defined in a Heat Orchestration Template.
 
 This prevents the enumeration of a
 unique value for the property name in a per instance environment file.
@@ -4524,7 +4565,7 @@ virtual\_network\_refs references a contrail network FQDN.
        - get_param: fw_sec_grp_id
 
 Interface Route Table Prefixes for Contrail InterfaceRoute Table
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 The parameter associated with the resource
 OS::ContrailV2::InterfaceRouteTable property
@@ -4652,8 +4693,9 @@ module. Use of separate volume modules is optional. A Cinder volume may
 be embedded within the Base Module or Incremental Module if persistence
 is not required.
 
-R-47788 The VNF Heat Orchestration Template **MUST** have a 1:1 scope of a cinder volume module,
-when it exists, with the Base Module or Incremental Module
+R-47788 The VNF Heat Orchestration Template **MUST** have a 1:1
+scope of a cinder volume module, when it exists, with the
+Base Module or Incremental Module
 
 A single volume module must create only the volumes
 required by a single Incremental module or Base module.
@@ -4666,9 +4708,10 @@ The following rules apply to independent volume Heat templates:
 -  A single Cinder volume module must include all Cinder volumes
    needed by the Base/Incremental module.
 
--  R-79531 The VNF Heat Orchestration Template **MUST** define “outputs” in the volume
-   template for each Cinder volume resource universally unique
-   identifier (UUID) (i.e. ONAP Volume Template Output Parameters).
+-  R-79531 The VNF Heat Orchestration Template **MUST** define
+   “outputs” in the volume template for each Cinder volume
+   resource universally unique identifier (UUID) (i.e. ONAP
+   Volume Template Output Parameters).
 
 -  The VNF Incremental Module or Base Module must define input
    parameters that match each Volume output parameter (i.e., ONAP Volume
@@ -4765,8 +4808,8 @@ environment file for a Base Module.
 R-35727 The VNF Heat Orchestration Template **MUST** have a
 corresponding environment file for an Incremental module.
 
-R-22656 The VNF Heat Orchestration Template **MUST** have a corresponding environment file
-for a Cinder Volume Module.
+R-22656 The VNF Heat Orchestration Template **MUST** have a
+corresponding environment file for a Cinder Volume Module.
 
 A nested heat template must not have an environment file; OpenStack does
 not support it.
@@ -4845,12 +4888,12 @@ Nested heat templates must be referenced by file name. The use of
 resource\_registry in the environment file is not supported and must not
 be used.
 
-R-89868 The VNF Heat Orchestration Template **MUST** have unique file names within the scope
-of the VNF for a nested heat yaml file.
+R-89868 The VNF Heat Orchestration Template **MUST** have unique
+file names within the scope of the VNF for a nested heat yaml file.
 
-R-52530 The VNF Heat Orchestration Template **MUST NOT** use a directory hierarchy for
-nested templates. All templates must be in a single, flat directory
-(per VNF).
+R-52530 The VNF Heat Orchestration Template **MUST NOT** use a
+directory hierarchy for nested templates. All templates must
+be in a single, flat directory (per VNF).
 
 A nested heat template may be used by any module within a given VNF.
 
@@ -4859,12 +4902,13 @@ Note that:
 -  Constrains must not be defined for any parameter enumerated in a
    nested heat template.
 
--  R-11041 The VNF Heat Orchestration Template **MUST** have the resource calling the
-   nested yaml file pass in as properties all parameters defined
-   in nested yaml file.
+-  R-11041 The VNF Heat Orchestration Template **MUST** have the
+   resource calling the nested yaml file pass in as properties
+   all parameters defined in nested yaml file.
 
--  R-61183 The VNF Heat Orchestration Template **MUST NOT** change the parameter names, when OS::Nova::Server metadata parameters are past into a nested heat
-   template.
+-  R-61183 The VNF Heat Orchestration Template **MUST NOT**
+   change the parameter names, when OS::Nova::Server metadata
+   parameters are past into a nested heat template.
 
 -  With nested templates, outputs are required to expose any resource
    properties of the child templates to the parent template. Those would
@@ -5089,17 +5133,19 @@ a VM on startup via the “personality” property.
 
 Support for Heat Files is subject to the following limitations:
 
-R-76718 The VNF Heat Orchestration Template **MUST** reference the get\_files targets in
-Heat templates by file name, and the corresponding files should be
-delivered to ONAP along with the Heat templates.
+R-76718 The VNF Heat Orchestration Template **MUST** reference
+the get\_files targets in Heat templates by file name, and the
+corresponding files should be delivered to ONAP along with the
+Heat templates.
 
 R-41888 The VNE Heat **MUST NOT** use URL-based file retrieval.
 
-R-62177 The VNF Heat Orchestration Template **MUST** have unique file names for the included
-files within the scope of the VNF.
+R-62177 The VNF Heat Orchestration Template **MUST** have unique
+file names for the included files within the scope of the VNF.
 
-R-87848 The VNF Heat Orchestration Template **MUST** have all included files in a single, flat
-directory per VNF. ONAP does not support a directory hierarchy.
+R-87848 The VNF Heat Orchestration Template **MUST** have all
+included files in a single, flat directory per VNF. ONAP does
+not support a directory hierarchy.
 
 -  Included files may be used by all Modules within a given VNF.
 
