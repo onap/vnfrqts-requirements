@@ -63,7 +63,7 @@ Version: 2.0.0
         - More information on the new header structure is available on `Headers <https://wiki.onap.org/display/DW/VNF+Requirement+Updated+Header+Structure>`_
 
 **Other**
-	NA
+    NA
 
 Version: 1.0.0
 --------------
@@ -106,8 +106,9 @@ Version: 1.0.0
     - Initial release - none
 
 **Other**
-	NA
+    NA
 
 ===========
 
 End of Release Notes
+

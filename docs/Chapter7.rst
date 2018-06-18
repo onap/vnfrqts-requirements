@@ -152,7 +152,8 @@ Configuration Management via Chef
 * R-18525 The xNF provider **MUST** provide a JSON file for each
   supported action for the xNF.  The JSON file must contain key value
   pairs with all relevant values populated with sample data that illustrates
-  its usage. The fields and their description are defined in Tables A1 and A2 in the Appendix.
+  its usage. The fields and their description are defined in Tables A1
+  and A2 in the Appendix.
 
  Note: Chef support in ONAP is not currently available and planned for 4Q 2017.
 
@@ -164,7 +165,8 @@ Configuration Management via Ansible
 * R-16777 The xNF provider **MUST** provide a JSON file for each
   supported action for the xNF.  The JSON file must contain key value
   pairs with all relevant values populated with sample data that illustrates
-  its usage. The fields and their description are defined in Table B1 in the Appendix.
+  its usage. The fields and their description are defined in Table B1
+  in the Appendix.
 
 * R-46567 The xNF Package **MUST** include configuration scripts
   for boot sequence and configuration.
@@ -313,7 +315,7 @@ Licensing Requirements
   onboarding the xNF into the ONAP environment and automating processes
   for putting the licenses into use and managing the full lifecycle of
   the licenses. The details of this license model are described in
-  Tables C1 to C8 in the Appendix. Note: License metadata support in 
+  Tables C1 to C8 in the Appendix. Note: License metadata support in
   ONAP is not currently available and planned for 1Q 2018.
 
 Configuration Management
@@ -486,17 +488,17 @@ must be supported.
 * R-56218 The VNF **MUST** support ONAP Controller’s Migrate command that
   moves container (VM) from a live Physical Server / Compute Node to
   another live Physical Server / Compute Node.
-  
+
 NOTE: Container migrations MUST be transparent to the VNF and no more
 intrusive than a stop, followed by some down time for the migration to
 be performed from one Compute Node / Physical Server to another, followed
-by a start of the same VM with same configuration on the new Compute 
+by a start of the same VM with same configuration on the new Compute
 Node / Physical Server.
-  
+
 * R-38001 The VNF MUST support ONAP Controller’s **Rebuild** command.
 * R-76901 VNF MUST support a container rebuild mechanism based on existing
   image (e.g. Glance image in Openstack environment) or a snapshot.
-  
+
 HealthCheck and Failure Related Commands
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -1861,9 +1863,6 @@ Security
 .. [5]
    This option is not currently supported in ONAP and it is currently
    under consideration.
-
-.. [6]
-   https://wiki.opnfv.org/display/PROJ/VNF+Event+Stream
 
 .. |image0| image:: Data_Model_For_Event_Records.png
       :width: 7in
