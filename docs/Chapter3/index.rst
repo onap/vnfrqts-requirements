@@ -5,6 +5,7 @@
 
 Introduction
 ============
+
 - These requirements are specific to the current release of ONAP.
   It is the initial release of requirements based on a merge of the Open-O
   and OpenECOMP requirements.
@@ -42,4 +43,3 @@ Introduction
   formats. It also contains a list of the requirements that are listed
   in the other chapters as well as examples and models that are referenced
   throughout the rest of the chapters.
-

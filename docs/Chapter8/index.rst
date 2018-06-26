@@ -3,18 +3,15 @@
 .. Copyright 2017 AT&T Intellectual Property.  All rights reserved.
 
 
-VNF Requirements Documentation
-------------------------------
+Appendix
+========
 
 .. toctree::
     :maxdepth: 2
-    :numbered:
 
-    Chapter1/index
-    Chapter2/index
-    Chapter3/index
-    Chapter4/index
-    Chapter5/index
-    Chapter6/index
-    Chapter7/index
-    Chapter8/index
+    Chef-JSON-Key-Value-Description
+    Ansible-JSON-Key-Value-Description
+    VNF-License-Information-Guidelines
+    TOSCA-model
+    Requirement-List
+    Ansible-Playbook-Examples
