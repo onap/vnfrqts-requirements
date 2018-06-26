@@ -5,6 +5,7 @@
 
 Scope
 =====
+
 - The audience for this document are xNF providers, NCSPs and other
   interested 3rd parties who need to know the design, build and lifecycle
   management requirements for xNFs to be compliant with ONAP.
@@ -63,4 +64,3 @@ To report issues on this document, please perform one of the following steps:
        to the onap-discuss email discussion list. Refer to the following
        instructions to subscribe to the mail list:
        https://wiki.onap.org/display/DW/Mailing+Lists
-

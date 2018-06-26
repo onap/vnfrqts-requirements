@@ -3,18 +3,15 @@
 .. Copyright 2017 AT&T Intellectual Property.  All rights reserved.
 
 
-VNF Requirements Documentation
-------------------------------
+VNF Development Requirements
+============================
 
 .. toctree::
     :maxdepth: 2
-    :numbered:
 
-    Chapter1/index
-    Chapter2/index
-    Chapter3/index
-    Chapter4/index
-    Chapter5/index
-    Chapter6/index
-    Chapter7/index
-    Chapter8/index
+    Design
+    Resiliency
+    Security
+    Modularity
+    Devops
+    Develop-Steps
