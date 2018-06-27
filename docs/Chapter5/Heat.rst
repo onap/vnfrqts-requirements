@@ -40,7 +40,7 @@ Heat Orchestration template structure follows the following format,
 as defined by OpenStack at
 https://docs.openstack.org/developer/heat/template_guide/hot_spec.html
 
-.. code-block:: python
+.. code-block:: yaml
 
   heat_template_version: <date>
 
@@ -90,7 +90,7 @@ R-35414 A VNF Heat Orchestration's template **MUST**
 contain the section "parameters:".
 
 
-.. code-block:: python
+.. code-block:: yaml
 
   parameters:
 
@@ -125,6 +125,9 @@ for the OS::Nova::Server resource property availability_zone.
 R-91273 A VNF Heat Orchestration’s template’s parameter for
 the OS::Nova::Server resource property availability_zone
 **MAY NOT** be used in any OS::Nova::Resource.
+
+That is, the parameter associated with the property 'availability_zone'
+maybe declared but not used in a resource.
 
 <param name>
 ____________
@@ -220,7 +223,7 @@ the constraints.
 
 The constraints are defined as a list with the following syntax
 
-.. code-block:: python
+.. code-block:: yaml
 
   constraints:
 
@@ -252,7 +255,7 @@ range: The range constraint applies to parameters of type: number.
 It defines a lower and upper limit for the numeric value of the
 parameter. The syntax of the range constraint is
 
-.. code-block:: python
+.. code-block:: yaml
 
     range: { min: <lower limit>, max: <upper limit> }
 
@@ -269,7 +272,7 @@ values for a parameter. At deployment time, the user-provided value
 for the respective parameter must match one of the elements of the
 list. The syntax of the allowed_values constraint is
 
-.. code-block:: python
+.. code-block:: yaml
 
     allowed_values: [ <value>, <value>, ... ]
 
@@ -312,7 +315,7 @@ R-40551 A VNF's Heat Orchestration Template's Nested YAML files
 Each resource is defined as a
 separate block in the resources section with the following syntax.
 
-.. code-block:: python
+.. code-block:: yaml
 
   resources:
 
@@ -551,11 +554,13 @@ modules of the VNF and are referred to as “\ *VNF Modules*\ ”.
 During orchestration, these modules are
 deployed incrementally to create the complete VNF.
 
-R-33132 A VNF’s Heat Orchestration Template **MAY** be 1.) Base Module
-Heat Orchestration Template (also referred to as a Base Module), 2.)
-Incremental Module Heat Orchestration Template (referred to as an Incremental
-Module), or 3.) a Cinder Volume Module Heat Orchestration Template
-(referred to as Cinder Volume Module).
+R-33132 A VNF’s Heat Orchestration Template **MAY** be
+   * a Base Module Heat Orchestration Template
+     (also referred to as a Base Module)
+   * an Incremental Module Heat Orchestration Template
+     (referred to as an Incremental Module)
+   * a Cinder Volume Module Heat Orchestration Template
+     (referred to as Cinder Volume Module).
 
 R-37028 The VNF **MUST** be composed of one “base” module.
 
@@ -652,15 +657,24 @@ R-56438 A VNF’s Heat Orchestration Template’s Nested YAML file extension
 R-74304 A VNF’s Heat Orchestration Template’s Environment file extension
 **MUST** be in the lower case format ‘.env’.
 
+R-99646 A VNF's YAML files (i.e, Heat Orchestration Template files and
+Nested files) **MUST** have a unique name in the scope of the VNF.
+
+
 Base Modules
 ++++++++++++
 
 R-81339 A VNF Heat Orchestration Template’s Base Module file name **MUST**
 include ‘base’ in the filename and **MUST** match one of the following four
-formats: 1.) ‘base_<text>.y[a]ml’, 2.) ‘<text>_base.y[a]ml’, 3.)
-‘base.y[a]ml’, or 4.) ‘<text>_base_<text>’.y[a]ml; where ‘base’ is case
-insensitive and where ‘<text>’ **MUST** contain only alphanumeric characters
-and underscores ‘_’ and **MUST NOT** contain the case insensitive word ‘base’.
+formats:
+   * ‘base_<text>.y[a]ml’
+   * ‘<text>_base.y[a]ml’
+   * ‘base.y[a]ml’
+   * ‘<text>_base_<text>’.y[a]ml
+where ‘base’ is case insensitive and where ‘<text>’
+**MUST** contain only alphanumeric characters
+and underscores ‘_’ and **MUST NOT** contain the case
+insensitive word ‘base’.
 
 R-91342  A VNF Heat Orchestration Template’s Base Module’s Environment File
 **MUST** be named identical to the VNF Heat Orchestration Template’s Base
@@ -706,6 +720,10 @@ R-76057 A VNF Heat Orchestration Template’s Nested YAML file name **MUST**
 contain only alphanumeric characters and underscores ‘_’ and **MUST NOT**
 contain the case insensitive word ‘base’.
 
+R-70276 A VNF HEAT's Orchestration Nested Template's YAML file
+name **MUST NOT** be in the format '{vm-type}.y[a]ml' where
+'{vm-type}' is defined in the Heat Orchestration Template.
+
 Examples include
 
  -  <text>.y[a]ml
@@ -720,11 +738,6 @@ Examples include
 
 VNF Heat Orchestration Template's Nested YAML file does not have a
 corresponding environment files, per OpenStack specifications.
-
-R-18224 The VNF Heat Orchestration Template **MUST** pass in as properties
-all parameter values
-associated with the nested heat file in the resource definition defined
-in the parent heat template.
 
 Output Parameters
 ~~~~~~~~~~~~~~~~~
@@ -825,10 +838,6 @@ Scope of a Heat Orchestration Template
 R-59482 A VNF’s Heat Orchestration Template **MUST NOT** be VNF instance
 specific or Cloud site specific
 
-R-56750 A VNF’s Heat Orchestration Template’s parameter values that are
-constant across all deployments **MUST** be declared in a Heat Orchestration
-Template Environment File.
-
 ONAP provides the instance specific parameter values to the Heat
 Orchestration Template at orchestration time.
 
@@ -861,11 +870,15 @@ independently of VNFs.
 R-00606 A VNF **MAY** be connected to zero, one or more than one external
 networks.
 
-R-57424 A VNF’s port connected to an external network **MUST** connect the
-port to VMs in another VNF and/or an external gateway and/or external router.
+R-57424 A VNF's port connected to an external network **MUST**
+use the port for the purpose of reaching VMs in another VNF
+and/or an external gateway and/or external router. A VNF's port
+connected to an external network **MAY** use the port for
+the purpose of reaching VMs in the same VNF.
 
-R-29865 A VNF’s port connected to an external network **MUST NOT** connect
-the port to VMs in the same VNF.
+R-29865 When a VNF connects to an external network, a network role,
+referred to as the '{network-role}' **MUST** be assigned to the
+external network for use in the VNF's Heat Orchestration Template.
 
 R-69014 When a VNF connects to an external network, a network role, referred
 to as the ‘{network-role}’ **MUST** be assigned to the external network
@@ -878,6 +891,34 @@ the VNF for use in the VNF’s Heat Orchestration Template.
 R-83015 A VNF’s ‘{network-role}’ assigned to an external network **MUST**
 be different than the ‘{network-role}’ assigned to the VNF’s internal
 networks, if internal networks exist.
+
+R-99794 An external network **MUST** have one subnet.  An external network
+**MAY** have more than one subnet.
+
+Note that this document refers to **'{network-role}'** which in reality
+is the **'{network-role-tag}'**.  The value of the
+'{network-role}' / '{network-role-tag}'
+is determined by the designer of the VNF's Heat Orchestration Template and
+there is no requirement for '{network-role}' / '{network-role-tag}'
+uniqueness across Heat Orchestration Templates for
+different VNFs.
+
+When an external network is created by ONAP, the network is assigned a
+'{network-role}'.  The '{network-role}' of the network is not required to
+match the '{network-role}' of the VNF Heat Orchestration Template.
+
+For example, the VNF Heat Orchestration Template can assign a '{network-role}'
+of 'oam' to a network which attaches to an external network with a
+'{network-role}' of 'oam_protected_1' .
+
+When the Heat Orchestration Template is on-boarded into ONAP
+  * each '{network-role}' value in the Heat Orchestration Template
+    is mapped to the '{network-role-tag}' in the ONAP
+    data structure.
+  * each OS::Neutron::Port is associated with the external network it is
+    connecting to, thus creating the VNF Heat Orchestration Template
+    '{network-role}' / '{network-role-tag}' to external network '{network-role}'
+    mapping.
 
 ONAP enforces a naming convention for parameters associated with
 external networks. `ONAP Resource ID and Parameter Naming Convention`_
@@ -921,6 +962,9 @@ the VNF for use in the VNF’s Heat Orchestration Template.
 R-69874 A VNF’s ‘{network-role}’ assigned to an internal network **MUST**
 be different than the ‘{network-role}’ assigned to the VNF’s external
 networks.
+
+R-16241 A VNF's internal network **MUST** have one subnet.
+A VNF's internal network **MAY** have more than one subnet.
 
 R-34726 If a VNF’s port is connected to an internal network and the port
 is created in the same Heat Orchestration Template as the internal network,
@@ -996,8 +1040,8 @@ or '\_int\_'.
 R-48067 A VNF's Heat Orchestration Template's {vm-type} **MUST NOT** be a
 substring of {network-role}.
 
-It may cause the Pre-Amsterdam VNF Validation Program (i.e.,
-ICE Project) process to produce erroneous error messages.
+It may cause the VNF Validation Program validation-scripts project
+to produce erroneous error messages.
 
 R-32394 A VNF’s Heat Orchestration Template’s use of ‘{vm-type}’
 in all Resource property parameter names **MUST** be the same case.
@@ -1123,335 +1167,560 @@ R-11690 When a VNF’s Heat Orchestration Template’s Resource ID contains
 an {index} value (e.g. multiple VMs of same {vm-type}), the ‘{index}’
 **MUST** start at zero and increment by one.
 
-The table below provides example OpenStack Heat resource ID for
-resources only associated with one {vm-type} and/or one network.
+OpenStack Heat Resources Resource ID Naming Convention
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The Requirements column states if the Resource ID Format MUST be followed
-or SHOULD be followed. Resource ID formats that are marked MUST must be
-followed, no deviations are permitted. Resource ID formats that are marked
-SHOULD should be followed. However, deviations are permissible to meet
-the needs of the VNF’s Heat Orchestration Template.
+Some OpenStack Heat Resources Resource IDs
+have mandatory or suggested naming conventions.  They are provided
+in the following sections.
 
-+-----------------+-------------------------+-------------+------------------+
-|Resource Type    |Resource ID Format       | Requirements| Notes            |
-|                 |                         |             |                  |
-+=================+=========================+=============+==================+
-| OS::Cinder::    | {vm-type}\_volume\      | **SHOULD**  |                  |
-| Volume          | _{index}                |             |                  |
-+-----------------+-------------------------+-------------+------------------+
-| OS::Cinder::    | {vm-type}\              | **SHOULD**  |                  |
-| VolumeAttachment| _volumeattachment\      |             |                  |
-|                 | _{index}                |             |                  |
-+-----------------+-------------------------+-------------+------------------+
-| OS::Heat::      | {vm-type}_RCC           | **SHOULD**  |                  |
-| CloudConfig     |                         |             |                  |
-+-----------------+-------------------------+-------------+------------------+
-| OS::Heat::      | {vm-type}_RMM           | **SHOULD**  |                  |
-| MultipartMime   |                         |             |                  |
-+-----------------+-------------------------+-------------+------------------+
-| OS::Heat::      | {vm-type}_RRG           | **SHOULD**  |                  |
-| ResourceGroup   |                         |             |                  |
-+-----------------+-------------------------+-------------+------------------+
-|                 | {vm-type}\_{index}\     | **MUST** for| Resource ID for  |
-|                 | _subint\_{network-role}\| subinterface| the OS::Heat::   |
-|                 | _port\_{index}\         | creation    | ResourceGroup    |
-|                 | _subinterfaces          |             | that creates     |
-|                 |                         |             | subinterfaces    |
-+-----------------+-------------------------+-------------+------------------+
-| OS::Heat::      | {vm-type}_RSC           | **SHOULD**  |                  |
-| SoftwareConfig  |                         |             |                  |
-+-----------------+-------------------------+-------------+------------------+
-| OS::Neutron::   | {vm-type}\              | **MUST**    | Resource ID for  |
-| Port            | _{vm-type-index}\       |             | port connecting  |
-|                 | _{network-role}\_port\  |             | to an external   |
-|                 | _{port-index}           |             | network. The     |
-|                 |                         |             | {vm-type-index}  |
-|                 |                         |             | is the instance  |
-|                 |                         |             | of the {vm_type}.|
-|                 |                         |             | The {port-index} |
-|                 |                         |             | is the instance  |
-|                 |                         |             | of the “port” on |
-|                 |                         |             | the {vm-type}.   |
-|                 |                         |             | There is no index|
-|                 |                         |             | after            |
-|                 |                         |             | {network_role}   |
-|                 |                         |             | since            |
-|                 |                         |             | {network-role} is|
-|                 |                         |             | unique to the    |
-|                 |                         |             | VNF, there should|
-|                 |                         |             | only be one      |
-|                 |                         |             | instance.        |
-+-----------------+-------------------------+-------------+------------------+
-|                 | {vm-type}\_{index}\_int\| **MUST**    | Resource ID for  |
-|                 | _{network-role}\_port\  |             | port connecting  |
-|                 | _{index}                |             | to an internal   |
-|                 |                         |             | network. The     |
-|                 |                         |             | {index} that     |
-|                 |                         |             | follows {vm-type}|
-|                 |                         |             | is the instance  |
-|                 |                         |             | of the {vm_type}.|
-|                 |                         |             | The {index} that |
-|                 |                         |             | follows “port” is|
-|                 |                         |             | the instance of  |
-|                 |                         |             | the “port” on the|
-|                 |                         |             | {vm-type}. There |
-|                 |                         |             | is no index after|
-|                 |                         |             | {network_role}   |
-|                 |                         |             | since            |
-|                 |                         |             | {network-role} is|
-|                 |                         |             | unque to the AIC |
-|                 |                         |             | LCP; there should|
-|                 |                         |             | only be one      |
-|                 |                         |             | instance.        |
-+-----------------+-------------------------+-------------+------------------+
-|                 | Reserve_Port\_{vm-type}\|             | Resource ID for a|
-|                 | _{network-role}\        | **MUST**    | reserve port that|
-|                 | _floating_ip\_{index}   |             | is used for an   |
-|                 |                         |             | allowed_address  |
-|                 | Reserve_Port\_{vm-type}\|             | \_pair. See      |
-|                 | _{network-role}\        |             | Section 5.6.5.5  |
-|                 | _floating_v6_ip\        |             | for additional   |
-|                 | _{index}                |             | details.         |
-|                 |                         |             |                  |
-|                 |                         |             | There is no      |
-|                 |                         |             | {index} that     |
-|                 |                         |             | follows {vm-type}|
-+-----------------+-------------------------+-------------+------------------+
-| OS::Neutron::   | {vm-type}\_Sec\_Grp     | **SHOULD**  | Security Group   |
-| SecurityGroup   |                         |             | applicable to one|
-|                 |                         |             | {vm-type} and    |
-|                 |                         |             | more than one    |
-|                 |                         |             | network (internal|
-|                 |                         |             | and/or external) |
-+-----------------+-------------------------+-------------+------------------+
-|                 | {network-role}\_Sec\_Grp| **SHOULD**  | Security Group   |
-|                 |                         |             | applicable to    |
-|                 |                         |             | more than one    |
-|                 |                         |             | {vm-type} and one|
-|                 |                         |             | external network |
-+-----------------+-------------------------+-------------+------------------+
-|                 | int\_{network-role}\    | **SHOULD**  | Security Group   |
-|                 | _Sec\_Grp               |             | applicable to    |
-|                 |                         |             | more than one    |
-|                 |                         |             | {vm-type} and one|
-|                 |                         |             | internal network |
-+-----------------+-------------------------+-------------+------------------+
-|                 | {vm-type}\              | **SHOULD**  | Security Group   |
-|                 | _{network-role}\_Sec\   |             | applicable to one|
-|                 | _Grp                    |             | {vm-type} and one|
-|                 |                         |             | external network |
-+-----------------+-------------------------+-------------+------------------+
-|                 | {vm-type}\_int\         | **SHOULD**  | Security Group   |
-|                 | _{network-role}\_Sec\   |             | applicable to one|
-|                 | _Grp                    |             | {vm-type} and one|
-|                 |                         |             | internal network |
-+-----------------+-------------------------+-------------+------------------+
-|                 | Shared\_Sec\_Grp        | **SHOULD**  | Security Group   |
-|                 |                         |             | applicable to    |
-|                 |                         |             | more than one    |
-|                 |                         |             | {vm-type} and    |
-|                 |                         |             | more than one    |
-|                 |                         |             | network (internal|
-|                 |                         |             | and/or external) |
-+-----------------+-------------------------+-------------+------------------+
-| OS::Neutron::   | int\_{network-role}\    | **MUST**    | VNF Heat         |
-| Subnet          | _subnet\_{index}        |             | Orchestration    |
-|                 |                         |             | Templates can    |
-|                 |                         |             | only create      |
-|                 |                         |             | internal         |
-|                 |                         |             | networks.        |
-+-----------------+-------------------------+-------------+------------------+
-| OS::Neutron::Net| int\_{network-role}\    | **MUST**    | VNF Heat         |
-|                 | _network                |             | Orchestration    |
-|                 |                         |             | Templates can    |
-|                 |                         |             | only create      |
-|                 |                         |             | internal         |
-|                 |                         |             | networks. There  |
-|                 |                         |             | is no {index}    |
-|                 |                         |             | because          |
-|                 |                         |             | {nework-role}    |
-|                 |                         |             |should be unique. |
-+-----------------+-------------------------+-------------+------------------+
-| OS::Nova::      | {vm-type}\_keypair\     | **SHOULD**  | Key Pair         |
-| Keypair         | _{index}                |             | applicable to one|
-|                 |                         |             | a{vm-type}       |
-+-----------------+-------------------------+-------------+------------------+
-|                 | {vnf-type}_keypair      | **SHOULD**  | Key Pair         |
-|                 |                         |             | applicable to all|
-|                 |                         |             | {vm-type} in the |
-|                 |                         |             | VNF              |
-+-----------------+-------------------------+-------------+------------------+
-| OS::Nova::Server| {vm-type}\_server\      | Mandatory   |                  |
-|                 | _{index}                |             |                  |
-+-----------------+-------------------------+-------------+------------------+
-| OS::Nova::      | {vm-type}_RSG           | **SHOULD**  | Both formats are |
-| ServerGroup     |                         |             | valid.           |
-+-----------------+-------------------------+-------------+------------------+
-|                 | {vm-type}_Server_Grp    | **SHOULD**  |                  |
-+-----------------+-------------------------+-------------+------------------+
-|                 | {vm-type}_ServerGroup   | **SHOULD**  |                  |
-+-----------------+-------------------------+-------------+------------------+
-| OS::Swift::     | {vm-type}\_RSwiftC      | **SHOULD**  |                  |
-| Container       |                         |             |                  |
-+-----------------+-------------------------+-------------+------------------+
+OS::Cinder::Volume
+__________________
+
+R-87004 A VNF's Heat Orchestration Template's Resource
+OS::Cinder::Volume Resource ID **SHOULD** use the naming convention
+   * {vm-type}_volume_{index}
+where
+   * {vm-type} is the vm-type
+   * {index} starts at zero and increments by one
+
+OS::Cinder::VolumeAttachment
+____________________________
+
+R-86497 A VNF's Heat Orchestration Template's Resource
+OS::Cinder::VolumeAttachment Resource ID **SHOULD** use the naming convention
+   * {vm-type}_volume_attachment_{index}
+where
+   * {vm-type} is the vm-type
+   * {index} starts at zero and increments by one
+
+OS::Heat::CloudConfig
+_____________________
+
+R-04747 A VNF's Heat Orchestration Template's Resource
+'OS::Heat::CloudConfig' Resource ID **MUST** contain the '{vm-type}'.
+
+R-20319 A VNF's Heat Orchestration Template's Resource 'OS::Heat::CloudConfig'
+Resource ID **MAY** use the naming convention
+   * {vm-type}_RCC
+where
+   * {vm-type} is the vm-type
+   * 'RCC' signifies that it is the Resource Cloud Config
+
+OS::Heat::MultipartMime
+_______________________
+
+R-30804 A VNF's Heat Orchestration Template's Resource
+'OS::Heat::MultipartMime' Resource ID **MUST** contain the '{vm-type}'.
+
+R-18202 A VNF's Heat Orchestration Template's Resource
+'OS::Heat::MultipartMime' Resource ID **MAY** use the naming convention
+   * {vm-type}_RMM
+where
+   * {vm-type} is the vm-type
+   * 'RMM' signifies that it is the Resource Multipart Mime
+
+OS::Heat::ResourceGroup
+_______________________
+
+There is only a mandatory naming convention for a 'OS::Heat::ResourceGroup'
+that is is creating sub-interfaces.
+
+R-64197 A VNF's Heat Orchestration Template's Resource
+OS::Heat::ResourceGroup Resource ID that creates sub-interfaces **MUST**
+use the naming convention
+   * {vm-type}_{vm-type_index}_subint_{network-role}_port_{port-index}_subinterfaces
+where
+   * {vm-type} is the vm-type
+   * {vm-type_index} is the instance of the {vm-type}
+   * {network-role} is the network-role of the networks
+     that the sub-interfaces attach to
+   * {port-index} is the instance of the the port on the vm-type
+     attached to the network of {network-role}
+
+OS::Heat::SoftwareConfig
+________________________
+
+R-08975 A VNF's Heat Orchestration Template's Resource
+'OS::Heat::SoftwareConfig' Resource ID **MUST** contain the '{vm-type}'.
+
+R-03656 A VNF's Heat Orchestration Template's Resource
+'OS::Heat::SoftwareConfig' Resource ID **MAY** use the naming convention
+   * {vm-type}_RSC
+where
+   * {vm-type} is the vm-type
+   * 'RSC' signifies that it is the Resource Software Config
+
+OS::Neutron::Net
+________________
+
+R-25720 A VNF's Heat Orchestration Template's Resource
+OS::Neutron::Net Resource ID **MUST** use the naming convention
+   * int_{network-role}_network
+
+VNF Heat Orchestration Templates can only create internal networks.
+There is no {index} after {network-role} because {network-role}
+**MUST** be unique in the scope of the VNF's
+Heat Orchestration Template.
+
+OS::Neutron::Port
+_________________
+
+R-20453 A VNF's Heat Orchestration Template's Resource
+OS::Neutron::Port that is attaching to an external network Resource ID
+**MUST** use the naming convention
+   * {vm-type}_{vm-type_index}_{network-role}_port_{port-index}
+where
+   * {vm-type} is the vm-type
+   * {vm-type_index} is the instance of the {vm-type}
+   * {network-role} is the network-role of the network
+     that the port is attached to
+   * {port-index} is the instance of the the port on the vm-type
+     attached to the network of {network-role}
+
+R-26351 A VNF's Heat Orchestration Template's Resource
+OS::Neutron::Port that is attaching to an internal network Resource ID
+**MUST** use the naming convention
+   * {vm-type}_{vm-type_index}_int_{network-role}_port_{port-index}
+where
+   * {vm-type} is the vm-type
+   * {vm-type_index} is the instance of the {vm-type}
+   * {network-role} is the network-role of the network
+     that the port is attached to
+   * {port-index} is the instance of the the port on the vm-type
+     attached to the network of {network-role}
+
+R-27469 A VNF's Heat Orchestration Template's Resource
+OS::Neutron::Port that is creating a *Reserve Port* with an IPv4 address
+Resource ID **MUST** use the naming convention
+   * reserve_port_{vm-type}_{network-role}_floating_ip_{index}
+where
+   * {vm-type} is the vm-type
+   * {network-role} is the network-role of the network
+     that the port is attached to
+   * {index} is the instance of the IPv4 *Reserve Port*
+     for the vm-type attached to the network of {network-role}
+
+R-68520 A VNF's Heat Orchestration Template's Resource OS::Neutron::Port
+that is creating a *Reserve Port* with an IPv6 address Resource ID
+**MUST** use the naming convention
+   * reserve_port_{vm-type}_{network-role}_floating_v6_ip_{index}
+where
+   * {vm-type} is the vm-type
+   * {network-role} is the network-role of the network
+     that the port is attached to
+   * {index} is the instance of the IPv6 *Reserve Port*
+     for the vm-type attached to the network of {network-role}
+
+OS::Neutron::SecurityGroup
+__________________________
+
+R-08775 A VNF's Heat Orchestration Template's Resource
+OS::Neutron::SecurityGroup that is applicable to one {vm-type} and
+more than one network (internal and/or external) Resource ID
+**SHOULD** use the naming convention
+   * {vm-type}_security_group
+where
+   * {vm-type} is the vm-type
+
+R-03595 A VNF's Heat Orchestration Template's Resource
+OS::Neutron::SecurityGroup that is applicable to more than
+one {vm-type} and one external network Resource ID **SHOULD**
+use the naming convention
+   * {network-role}_security_group
+where
+   * {network-role} is the network-role
+
+R-73213 A VNF's Heat Orchestration Template's Resource
+OS::Neutron::SecurityGroup that is applicable to more than
+one {vm-type} and one internal network Resource ID **SHOULD**
+use the naming convention
+   * int_{network-role}_security_group
+where
+   * {network-role} is the network-role
+
+R-17334 A VNF's Heat Orchestration Template's Resource
+OS::Neutron::SecurityGroup that is applicable to one {vm-type}
+and one external network Resource ID **SHOULD** use the naming convention
+   * {vm-type}_{network-role}_security_group
+where
+   * {vm-type} is the vm-type
+   * {network-role} is the network-role
+
+R-14198 A VNF's Heat Orchestration Template's Resource
+OS::Neutron::SecurityGroup that is applicable to one {vm-type}
+and one internal network Resource ID **SHOULD** use the naming convention
+   * {vm-type}_int_{network-role}_security_group
+where
+   * {vm-type} is the vm-type
+   * {network-role} is the network-role
+
+R-30005 A VNF's Heat Orchestration Template's Resource
+OS::Neutron::SecurityGroup that is applicable to more than one
+{vm-type} and more than one network (internal and/or external)
+Resource ID **MAY** use the naming convention
+   * shared_security_group
+or
+   * {vnf-type}_security_group
+where
+   * {vnf-type} describes the VNF
 
 
-    Table 2: Example OpenStack Heat Resource ID
+OS::Neutron::Subnet
+___________________
 
-The table below provides Resource ID Formats for Contrail heat resources.
- - The Resource ID formats that are marked mandatory must be followed.
-   No deviations are permitted.
- - The Resource ID formats that are marked optional should be followed.
-   However, deviations in the Resource ID format that is shown is
-   permitted.
+R-59434 A VNF's Heat Orchestration Template's Resource
+OS::Neutron::Subnet Resource ID **SHOULD** use the naming convention
+   * int_{network-role}_subnet_{index}
+where
+   * {network-role} is the network-role
+   * {index} is the {index} of the subnet of the network
 
-+-----------------+---------------------+-----------------+-----------------+
-|     Resource    | Resource ID         |   Mandatory /   |      Notes      |
-|       Type      | Format              |     Optional    |                 |
-+=================+=====================+=================+=================+
-| OS::ContrailV2: | {vm-type}\_{index}\ | **MUST** –      | The {index}     |
-| :InstanceIp     | _{network-role}\    | IPv4 address on | that follows    |
-|                 | _vmi\_{index}\      | vmi external    | {vm-type} is    |
-|                 | _IP\_{index}        | network         | the instance of |
-|                 |                     |                 | the {vm_type}.  |
-|                 |                     |                 | The {index}     |
-|                 |                     |                 | that follows    |
-|                 |                     |                 | “vmi” is the    |
-|                 |                     |                 | instance of the |
-|                 |                     |                 | “vmi” on the    |
-|                 |                     |                 | {vm-type}.      |
-|                 |                     |                 | There is no     |
-|                 |                     |                 | index after     |
-|                 |                     |                 | {network_role}  |
-|                 |                     |                 | since since     |
-|                 |                     |                 | {network-role}  |
-|                 |                     |                 | is unque. The   |
-|                 |                     |                 | {index} that    |
-|                 |                     |                 | follows the     |
-|                 |                     |                 | “IP” is the     |
-|                 |                     |                 | instance of the |
-|                 |                     |                 | “IP” on the     |
-|                 |                     |                 | “vmi”           |
-+-----------------+---------------------+-----------------+-----------------+
-|                 | {vm-type}\_{index}\ | **MUST** –      |                 |
-|                 | _{network-role}\    | IPv6 address on |                 |
-|                 | _vmi\_{index}\_v6\  | vmi external    |                 |
-|                 | _IP\_{index}        | network         |                 |
-+-----------------+---------------------+-----------------+-----------------+
-|                 | {vm-type}\_{index}\ | **MUST** –      |                 |
-|                 | _int\               | IPv4 address on |                 |
-|                 | _{network-role}\    | vmi internal    |                 |
-|                 | _vmi\_{index}\_IP\  | network         |                 |
-|                 | _{index}            |                 |                 |
-+-----------------+---------------------+-----------------+-----------------+
-|                 | {vm-type}\_{index}\ | **MUST** –      |                 |
-|                 | _int\               | IPv6 address on |                 |
-|                 | _{network-role}\    | vmi internal    |                 |
-|                 | _vmi\_{index}\_v6\  | network         |                 |
-|                 | _IP\_{index}        |                 |                 |
-+-----------------+---------------------+-----------------+-----------------+
-|                 | {vm-type}\_{index}\ | **MUST** –      |                 |
-|                 | _subint\            | IPv4 address on |                 |
-|                 | _{network-role}\    | sub-interface   |                 |
-|                 | _vmi\_{index}\_IP\  | vmi external    |                 |
-|                 | _{index}            | network         |                 |
-+-----------------+---------------------+-----------------+-----------------+
-|                 | {vm-type}\_{index}\ | **MUST** –      |                 |
-|                 | _subint\            | IPv6 address on |                 |
-|                 | _{network-role}\    | sub-interface   |                 |
-|                 | _vmi\_{index}\_v6\  | vmi external    |                 |
-|                 | _IP\_{index}        | network         |                 |
-+-----------------+---------------------+-----------------+-----------------+
-| OS::ContrailV2: | {network-role}\_RIRT| **MAY**         |                 |
-| :InterfaceRoute |                     |                 |                 |
-| Table           |                     |                 |                 |
-+-----------------+---------------------+-----------------+-----------------+
-| OS::ContrailV2: | {network-role}\_RNI | **MAY**         |                 |
-| :NetworkIpam    |                     |                 |                 |
-+-----------------+---------------------+-----------------+-----------------+
-| OS::ContrailV2: | {vm-type}\_RPT      | **MAY**         |                 |
-| :PortTuple      |                     |                 |                 |
-+-----------------+---------------------+-----------------+-----------------+
-| OS::ContrailV2: | {vm-type}\_RSHC\    | **MAY**         |                 |
-| :ServiceHealthC | _{LEFT/RIGHT}       |                 |                 |
-| heck            |                     |                 |                 |
-+-----------------+---------------------+-----------------+-----------------+
-| OS::ContrailV2: | {vm-type}\_RST\     | **MAY**         |                 |
-| :ServiceTemplat | _{index}            |                 |                 |
-| e               |                     |                 |                 |
-+-----------------+---------------------+-----------------+-----------------+
-| OS::ContrailV2: | {vm-type}\_{index}\ | **MUST** - vmi  | Resource ID for |
-| :VirtualMachine | _{network-role}\    | attached to an  | virtual machine |
-| Interface       | _vmi\_{index}       | external        | interface (vmi) |
-|                 |                     | network         | connecting to   |
-|                 |                     |                 | an external     |
-|                 |                     |                 | network. The    |
-|                 |                     |                 | {index} that    |
-|                 |                     |                 | follows         |
-|                 |                     |                 | {vm-type} is    |
-|                 |                     |                 | the instance of |
-|                 |                     |                 | the {vm_type}.  |
-|                 |                     |                 | The {index}     |
-|                 |                     |                 | that follows    |
-|                 |                     |                 | “vmi” is the    |
-|                 |                     |                 | instance of the |
-|                 |                     |                 | “vmi” on the    |
-|                 |                     |                 | {vm-type}.      |
-|                 |                     |                 | There is no     |
-|                 |                     |                 | index after     |
-|                 |                     |                 | {network_role}  |
-|                 |                     |                 | since since     |
-|                 |                     |                 | {network-role}  |
-|                 |                     |                 | is unque to the |
-|                 |                     |                 | AIC LCP; there  |
-|                 |                     |                 | should only be  |
-|                 |                     |                 | one instance.   |
-+-----------------+---------------------+-----------------+-----------------+
-|                 | {vm-type}\_{index}\ | **MUST** - vmi  |                 |
-|                 | _int\               | attached to an  |                 |
-|                 | _{network-role}\    | internal        |                 |
-|                 | _vmi\_{index}       | network         |                 |
-+-----------------+---------------------+-----------------+-----------------+
-|                 | {vm-type}\_{index}\ | **MUST** - vmi  |                 |
-|                 | _subint\            | attached to a   |                 |
-|                 | _{network-role}\    | sub-interface   |                 |
-|                 | _vmi\_{index}       | network         |                 |
-+-----------------+---------------------+-----------------+-----------------+
-| OS::ContrailV2: | int\_{network-role}\| **MAY**         | VNF Heat        |
-| :VirtualNetwork | _RVN                |                 | Orchestration   |
-|                 |                     |                 | Templates can   |
-|                 |                     |                 | only create     |
-|                 |                     |                 | internal        |
-|                 |                     |                 | networks. There |
-|                 |                     |                 | is no {index}   |
-|                 |                     |                 | because         |
-|                 |                     |                 | {nework-role}   |
-|                 |                     |                 | should be       |
-|                 |                     |                 | unique. Both    |
-|                 |                     |                 | formats are     |
-|                 |                     |                 | valid.          |
-+-----------------+---------------------+-----------------+-----------------+
-|                 | int\_{network-role}\| **MAY**         |                 |
-|                 | _network            |                 |                 |
-+-----------------+---------------------+-----------------+-----------------+
+OS::Nova::Keypair
+_________________
 
-    Table 3: Example Contrail Heat resource ID
+R-24997 A VNF's Heat Orchestration Template's Resource
+OS::Nova::Keypair applies to one {vm-type} Resource ID **SHOULD**
+use the naming convention
+   * {vm-type}_keypair_{index}
+where
+   * {network-role} is the network-role
+   * {index} is the {index} of the keypair
 
-There is a use case where the template filename is used as the type: as
-shown in the example below.  There is no suggested Resource ID naming
-convention for this use case.
+R-65516 A VNF's Heat Orchestration Template's Resource OS::Nova::Keypair
+applies to all Virtual Machines in the the VNF, the Resource ID **SHOULD**
+use the naming convention
+   * {vnf-type}_keypair
+where
+   * {vnf-type} describes the VNF
 
-Example:  Template Filename used as the type:
 
-.. code-block:: python
+OS::Nova::Server
+________________
 
-  heat_template_version: 2015-04-30
+R-29751 A VNF's Heat Orchestration Template's Resource OS::Nova::Server
+Resource ID **MUST** use the naming convention
+   * {vm-type}_server_{index}
+where
+   * {vm-type} is the vm-type
+   * {index} is the index
 
-  resources:
-    <Resource ID>:
-      type: file.yaml
-      properties:
-        ...
+
+OS::Nova::ServerGroup
+_____________________
+
+R-15189 A VNF's Heat Orchestration Template's Resource OS::Nova::ServerGroup
+Resource ID **MAY** use the naming convention
+   * {vm-type}_RSG
+or
+   * {vm-type}_Server_Grp
+or
+   * {vm-type}_ServerGroup
+or
+   * {vm-type}_servergroup
+
+
+Contrail Heat Resources Resource ID Naming Convention
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Some Contrail Heat Resources Resource IDs
+have mandatory or suggested naming conventions.  They are provided
+in the following sections.
+
+
+OS::ContrailV2::InstanceIp
+__________________________
+
+R-53310 A VNF's Heat Orchestration Template's Resource
+'OS::ContrailV2::InstanceIp'
+that is configuring an
+IPv4 Address
+on a port attached to an
+external network
+Resource ID **MUST**
+use the naming convention
+   *  {vm-type}_{vm-type_index}_{network-role}_vmi_{vmi_index}_IP_{index}
+where
+   * {vm-type} is the vm-type
+   * {vm-type_index} is the instance of the {vm-type}
+   * {network-role} is the network-role of the network
+     that the port is attached to
+   * {vmi_index} is the instance of the the virtual machine interface
+     (e.g., port)  on the vm-type
+     attached to the network of {network-role}
+   * 'IP' signifies that an IPv4 address is being configured
+   * {index} is the index of the IPv4 address
+
+R-46128 A VNF's Heat Orchestration Template's Resource
+'OS::ContrailV2::InstanceIp'
+that is configuring an
+IPv6 Address
+on a port attached to an
+external network
+Resource ID **MUST**
+use the naming convention
+   *  {vm-type}_{vm-type_index}_{network-role}_vmi_{vmi_index}_v6_IP_{index}
+where
+   * {vm-type} is the vm-type
+   * {vm-type_index} is the instance of the {vm-type}
+   * {network-role} is the network-role of the network
+     that the port is attached to
+   * {vmi_index} is the instance of the the virtual machine interface
+     (e.g., port)  on the vm-type
+     attached to the network of {network-role}
+   * 'v6_IP' signifies that an IPv6 address is being configured
+   * {index} is the index of the IPv6 address
+
+R-62187 A VNF's Heat Orchestration Template's Resource
+'OS::ContrailV2::InstanceIp'
+that is configuring an
+IPv4 Address
+on a port attached to an
+internal network
+Resource ID **MUST**
+use the naming convention
+   *  {vm-type}_{vm-type_index}_int_{network-role}_vmi_{vmi_index}_IP_{index}
+where
+   * {vm-type} is the vm-type
+   * {vm-type_index} is the instance of the {vm-type}
+   * {network-role} is the network-role of the network
+     that the port is attached to
+   * {vmi_index} is the instance of the the virtual machine interface
+     (e.g., port)  on the vm-type
+     attached to the network of {network-role}
+   * 'IP' signifies that an IPv4 address is being configured
+   * {index} is the index of the IPv4 address
+
+R-87563 A VNF's Heat Orchestration Template's Resource
+'OS::ContrailV2::InstanceIp'
+that is configuring an
+IPv6 Address
+on a port attached to an
+internal network
+Resource ID **MUST**
+use the naming convention
+   *  {vm-type}_{vm-type_index}_int_{network-role}_vmi_{vmi_index}_v6_IP_{index}
+where
+   * {vm-type} is the vm-type
+   * {vm-type_index} is the instance of the {vm-type}
+   * {network-role} is the network-role of the network
+     that the port is attached to
+   * {vmi_index} is the instance of the the virtual machine interface
+     (e.g., port)  on the vm-type
+     attached to the network of {network-role}
+   * 'v6_IP' signifies that an IPv6 address is being configured
+   * {index} is the index of the IPv6 address
+
+R-20947 A VNF's Heat Orchestration Template's Resource
+'OS::ContrailV2::InstanceIp'
+that is configuring an
+IPv4 Address
+on a sub-interface port attached to a
+sub-interface network
+Resource ID **MUST**
+use the naming convention
+   *  {vm-type}_{vm-type_index}_subint_{network-role}_vmi_{vmi_index}_IP_{index}
+where
+   * {vm-type} is the vm-type
+   * {vm-type_index} is the instance of the {vm-type}
+   * {network-role} is the network-role of the network
+     that the port is attached to
+   * {vmi_index} is the instance of the the virtual machine interface
+     (e.g., port)  on the vm-type
+     attached to the network of {network-role}
+   * 'IP' signifies that an IPv4 address is being configured
+   * {index} is the index of the IPv4 address
+
+R-88540 A VNF's Heat Orchestration Template's Resource
+'OS::ContrailV2::InstanceIp'
+that is configuring an
+IPv6 Address
+on a sub-interface port attached to a
+sub-interface network
+Resource ID **MUST**
+use the naming convention
+   *  {vm-type}_{vm-type_index}_subint_{network-role}_vmi_{vmi_index}_v6_IP_{index}
+where
+   * {vm-type} is the vm-type
+   * {vm-type_index} is the instance of the {vm-type}
+   * {network-role} is the network-role of the network
+     that the port is attached to
+   * {vmi_index} is the instance of the the virtual machine interface
+     (e.g., port)  on the vm-type
+     attached to the network of {network-role}
+   * 'v6_IP' signifies that an IPv6 address is being configured
+   * {index} is the index of the IPv6 address
+
+
+OS::ContrailV2::InterfaceRouteTable
+___________________________________
+
+R-81214 A VNF's Heat Orchestration Template's Resource
+'OS::ContrailV2::InterfaceRouteTable'
+Resource ID
+**MUST**
+contain the '{network-role}'.
+
+R-28189 A VNF's Heat Orchestration Template's Resource
+'OS::ContrailV2::InterfaceRouteTable'
+Resource ID
+**MAY**
+use the naming convention
+   * {network-role}_RIRT
+where
+   * {network-role} is the network-role
+   * 'RIRT' signifies that it is the Resource Interface Route Table
+
+
+OS::ContrailV2::NetworkIpam
+___________________________
+
+R-30753 A VNF's Heat Orchestration Template's Resource
+'OS::ContrailV2::NetworkIpam'
+Resource ID
+**MUST**
+contain the '{network-role}'.
+
+R-81979 A VNF's Heat Orchestration Template's Resource
+'OS::ContrailV2::NetworkIpam'
+Resource ID
+**MAY**
+use the naming convention
+   * {network-role}_RNI
+where
+   * {network-role} is the network-role
+   * 'RNI' signifies that it is the Resource Network IPAM
+
+OS::ContrailV2::PortTuple
+_________________________
+
+R-20065 A VNF's Heat Orchestration Template's Resource
+'OS::ContrailV2::PortTuple'
+Resource ID
+**MUST**
+contain the '{vm-type}'.
+
+R-84457 A VNF's Heat Orchestration Template's Resource
+'OS::ContrailV2::PortTuple'
+Resource ID
+**MAY**
+use the naming convention
+   * {vm-type}_RPT
+where
+   * {vm-type} is the vm-type
+   * 'RPT' signifies that it is the Resource Port Tuple
+
+
+OS::ContrailV2::ServiceHealthCheck
+__________________________________
+
+R-76014 A VNF's Heat Orchestration Template's Resource
+'OS::ContrailV2::ServiceHealthCheck'
+Resource ID
+**MUST**
+contain the '{vm-type}'.
+
+R-65618 A VNF's Heat Orchestration Template's Resource
+'OS::ContrailV2::ServiceHealthCheck'
+Resource ID
+**MAY**
+use the naming convention
+   * {vm-type}\_RSHC\_{LEFT|RIGHT}
+where
+   * {vm-type} is the vm-type
+   * 'RSHC' signifies that it is the Resource Service Health Check
+   * 'LEFT' is used if the Service Health Check is on the left interface
+   * 'RIGHT' is used if the Service Health Check is on the right interface
+
+
+OS::ContrailV2::ServiceTemplate
+_______________________________
+
+
+R-16437 A VNF's Heat Orchestration Template's Resource
+'OS::ContrailV2::ServiceTemplate'
+Resource ID
+**MUST**
+contain the '{vm-type}'.
+
+R-14447 A VNF's Heat Orchestration Template's Resource
+'OS::ContrailV2::ServiceTemplate'
+Resource ID
+**MAY**
+use the naming convention
+   * {vm-type}_RST_{index}
+where
+   * {vm-type} is the vm-type
+   * 'RST' signifies that it is the Resource Service Template
+   * '{index}' is is the index
+
+OS::ContrailV2::VirtualMachineInterface
+_______________________________________
+
+R-96253 A VNF's Heat Orchestration Template's Resource
+OS::ContrailV2::VirtualMachineInterface
+that is attaching to an external network
+Resource ID
+**MUST**
+use the naming convention
+   * {vm-type}_{vm-type_index}_{network-role}_vmi_{vmi_index}
+where
+   * {vm-type} is the vm-type
+   * {vm-type_index} is the instance of the {vm-type}
+   * {network-role} is the network-role of the network
+     that the port (i.e. virtual machine interface) is attached to
+   * {vmi_index} is the instance of the the vmi on the vm-type
+     attached to the network of {network-role}
+
+R-50468 A VNF's Heat Orchestration Template's Resource
+OS::ContrailV2::VirtualMachineInterface
+that is attaching to an internal network
+Resource ID
+**MUST**
+use the naming convention
+   * {vm-type}_{vm-type_index}_int_{network-role}_vmi_{vmi_index}
+where
+   * {vm-type} is the vm-type
+   * {vm-type_index} is the instance of the {vm-type}
+   * {network-role} is the network-role of the network
+     that the port (i.e. virtual machine interface) is attached to
+   * {vmi_index} is the instance of the the vmi on the vm-type
+     attached to the network of {network-role}
+
+R-54458 A VNF's Heat Orchestration Template's Resource
+OS::ContrailV2::VirtualMachineInterface
+that is attaching to a sub-interface network
+Resource ID
+**MUST**
+use the naming convention
+   * {vm-type}_{vm-type_index}_subint_{network-role}_vmi_{vmi_index}
+where
+   * {vm-type} is the vm-type
+   * {vm-type_index} is the instance of the {vm-type}
+   * {network-role} is the network-role of the network
+     that the port (i.e. virtual machine interface) is attached to
+   * {vmi_index} is the instance of the the vmi on the vm-type
+     attached to the network of {network-role}
+
+OS::ContrailV2::VirtualNetwork
+______________________________
+
+R-99110 A VNF's Heat Orchestration Template's Resource
+OS::ContrailV2::VirtualNetwork
+Resource ID
+**MUST**
+use the naming convention
+   * 'int_{network-role}_network'
+or
+   * 'int_{network-role}_RVN' where RVN represents Resource Virtual Network
+
+VNF Heat Orchestration Templates can only create internal networks.
+There is no {index} after {network-role} because {network-role}
+**MUST** be unique in the scope of the VNF's
+Heat Orchestration Template.
+
+Note that the first option is preferred.
+
 
 Resource: OS::Nova::Server - Parameters
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1471,9 +1740,9 @@ convention. The four properties are:
 
 4. availability\_zone
 
-Requirement R-01455 defines how the ‘{vm-type]’ is defined.
+Requirement R-01455 defines how the '{vm-type}' is defined.
 
-Requirement R-82481 defines how the ‘{vm-type} is used.’
+Requirement R-82481 defines how the '{vm-type}' is used.
 
 The table below provides a summary. The sections that follow provides
 the detailed requirements.
@@ -1587,7 +1856,7 @@ minimize the number of unique parameters defined in the template.
 
 *Example: Parameter Definition*
 
-.. code-block:: python
+.. code-block:: yaml
 
   parameters:
 
@@ -1603,7 +1872,7 @@ minimize the number of unique parameters defined in the template.
 
 In this example, the {vm-type} has been defined as “lb” for load balancer.
 
-.. code-block:: python
+.. code-block:: yaml
 
   parameters:
 
@@ -1628,7 +1897,7 @@ In this example, the {vm-type} has been defined as “lb” for load balancer.
 
 In this example, the {vm-type} has been defined as “lb” for load balancer.
 
-.. code-block:: python
+.. code-block:: yaml
 
   parameters:
 
@@ -1689,7 +1958,7 @@ be enumerated in the Heat Orchestration Template’s Environment File.
 
 Example Parameter Definition
 
-.. code-block:: python
+.. code-block:: yaml
 
   parameters:
     availability_zone_{index}:
@@ -1717,7 +1986,7 @@ Machines (OS::Nova::Server) are created: two dns servers with
 Note that the parameter associated with the property name is a
 comma_delimited_list for dns and a string for oam.
 
-.. code-block:: python
+.. code-block:: yaml
 
   parameters:
 
@@ -1877,7 +2146,7 @@ Nested YAML file, the parameter name ‘vnf_id’ **MUST NOT** change.
 
 *Example 'vnf_id' Parameter Definition*
 
-.. code-block:: python
+.. code-block:: yaml
 
   parameters:
 
@@ -1917,7 +2186,7 @@ into a Nested YAML file, the parameter name ‘vf\_module\_id’
 
 *Example 'vf\_module\_id' Parameter Definition*
 
-.. code-block:: python
+.. code-block:: yaml
 
   parameters:
 
@@ -1958,7 +2227,7 @@ Nested YAML file, the parameter name ‘vnf_name’ **MUST NOT** change.
 
 *Example 'vnf_name' Parameter Definition*
 
-.. code-block:: python
+.. code-block:: yaml
 
   parameters:
 
@@ -2001,7 +2270,7 @@ into a Nested YAML file, the parameter name ‘vf\_module\_name’
 
 *Example 'vf_module_name' Parameter Definition*
 
-.. code-block:: python
+.. code-block:: yaml
 
   parameters:
 
@@ -2051,7 +2320,7 @@ Nested YAML file, the parameter name ‘vm_role’ **MUST NOT** change.
 
 *Example 'vm_role' Parameter Definition*
 
-.. code-block:: python
+.. code-block:: yaml
 
   parameters:
 
@@ -2062,7 +2331,7 @@ Nested YAML file, the parameter name ‘vm_role’ **MUST NOT** change.
 *Example: 'vm-role' Definition: Hard Coded in
 OS::Nova::Resource metadata property*
 
-.. code-block:: python
+.. code-block:: yaml
 
   resources:
 
@@ -2076,7 +2345,7 @@ OS::Nova::Resource metadata property*
 *Example 'vm-role' Definition: Defined in Environment file
 and retrieved via 'get_param'*
 
-.. code-block:: python
+.. code-block:: yaml
 
   resources:
 
@@ -2095,7 +2364,7 @@ that uses the five of the OS::Nova::Server metadata parameter
 discussed in this section. The {vm-type} has been defined as lb
 for load balancer.
 
-.. code-block:: python
+.. code-block:: yaml
 
   parameters:
     lb_name_0
@@ -2185,14 +2454,14 @@ determine the IP assignment.
 
 Environment File
 
-.. code-block:: python
+.. code-block:: yaml
 
   parameters:
     oam_vm_int_ctrl_ips: 10.10.10.1,10.10.10.2,10.10.10.3,10.10.10.4
 
 YAML File
 
-.. code-block:: python
+.. code-block:: yaml
 
   parameters:
     vf_module_index:
@@ -2254,7 +2523,7 @@ Heat Orchestration Template by ONAP at orchestration time.
 
 *Example Parameter Definition*
 
-.. code-block:: python
+.. code-block:: yaml
 
   parameters:
     workload_context:
@@ -2264,7 +2533,7 @@ Heat Orchestration Template by ONAP at orchestration time.
 
 *Example OS::Nova::Server with metadata*
 
-.. code-block:: python
+.. code-block:: yaml
 
   resources:
     . . .
@@ -2315,7 +2584,7 @@ Template by ONAP at orchestration time.
 
 *Example Parameter Definition*
 
-.. code-block:: python
+.. code-block:: yaml
 
   parameters:
     environment_context:
@@ -2325,7 +2594,7 @@ Template by ONAP at orchestration time.
 
 *Example OS::Nova::Server with metadata*
 
-.. code-block:: python
+.. code-block:: yaml
 
   resources:
     . . .
@@ -2369,7 +2638,7 @@ ONAP parameter naming convention. The four properties are:
 Below is a generic example. Note that for some parameters
 comma_delimited_list are supported in addition to String.
 
-.. code-block:: python
+.. code-block:: yaml
 
   resources:
 
@@ -2385,8 +2654,8 @@ comma_delimited_list are supported in addition to String.
       ...]
       network: String
 
-The parameters associated with these properties may reference an
-external network or internal network. External networks and internal
+The values associated with these properties may reference an external
+network or internal network. External networks and internal
 networks are defined in `Networking`_.
 
 When the OS::Neutron::Port is attaching to an external network, all
@@ -2402,80 +2671,54 @@ This will be described in the forth coming sections.
 Items to Note
 _____________
 
-A network (internal or external) may contain one or or more subnets.
+R-93272 A VNF **MAY** have one or more ports connected to a unique
+external network.  All VNF ports connected
+to the unique external network **MUST** have Cloud Assigned IP Addresses
+or **MUST** have ONAP SDN-C assigned IP addresses.
 
-A VNF can have one or more ports connected to the same network.
+R-13841 A VNF **MAY** have one or more ports connected to a unique
+internal network.  All VNF ports connected
+to the unique internal network **MUST** have Cloud Assigned IP Addresses
+or **MUST** have statically assigned IP addresses.
 
-A port can have one or more IP addresses assigned.
-
-The IP address assignments can be IPv4 addresses and/or IPv6 addresses.
-
-The IP addresses assignments for a unique external network **MUST**
-be all Cloud Assigned addresses OR **MUST** be all ONAP
-SDN-C assigned IP addresses.
-
-If the IP addresses are Cloud Assigned, all the IPv4 Addresses **MUST**
-be from
+R-07577 If the VNF's ports connected to a unique network (internal or external)
+and the port's IP addresses are Cloud Assigned IP Addresses,
+all the IPv4 Addresses **MUST** be from
 the same subnet and all the IPv6 Addresses **MUST** be from the
 same subnet.
 
-If the IP addresses are ONAP SDN-C assigned,
-the IPv4 Addresses **MAY**
-be from
+R-45602 If a VNF's Port is attached to a network (internal or external)
+and the port's IP addresses are Cloud Assigned by OpenStack's DHCP
+Service, the 'OS::Neutron::Port' Resource's
+   * property 'fixed_ips' map property 'ip_address' **MUST NOT** be used
+   * property 'fixed_ips' map property 'subnet'/'subnet_id' **MAY** be used
+
+R-63956 If the VNF's ports connected to a unique external network
+and the port's IP addresses are ONAP SDN-C assigned IP Addresses,
+the IPv4 Addresses **MAY** be from
 different subnets and the IPv6 Addresses **MAY** be from different
 subnets.
 
-If a VNF's Port is attached to an external network the IP addresses **MAY**
-either be assigned by
-
- 1. ONAP's SDN-Controller (SDN-C)
- 2. Cloud Assigned by OpenStack’s DHCP Service
-
-If a VNF's Port is attached to an external network and the port's IP addresses
-are assigned by ONAP's SDN-Controller, the 'OS::Neutron::Port' Resource's
-
- * property 'fixed_ips' map property 'ip_address' **MUST** be used
- * property 'fixed_ips' map property 'subnet'/'subnet_id' **MUST NOT** be used
-
-If a VNF's Port is attached to an external network and the port's IP addresses
-are Cloud Assigned by OpenStack’s DHCP Service,
+R-48880 If a VNF's Port is attached to an external network and the port's
+IP addresses are assigned by ONAP's SDN-Controller,
 the 'OS::Neutron::Port' Resource's
+   * property 'fixed_ips' map property 'ip_address' **MUST** be used
+   * property 'fixed_ips' map property 'subnet'/'subnet_id' **MUST NOT** be used
 
- * property 'fixed_ips' map property 'ip_address' **MUST NOT** be used
- * property fixed_ips' map property 'subnet'/'subnet_id' **MAY** be used
+R-18001 If the VNF's ports connected to a unique internal network
+and the port's IP addresses are statically assigned IP Addresses,
+the IPv4 Addresses **MAY** be from
+different subnets and the IPv6 Addresses **MAY** be from different
+subnets.
 
-If a VNF's Port is attached to an internal network and the port's IP addresses
-are assigned by the VNF's Heat Orchestration Template
-(i.e., enumerated in the Heat Orchestration Template's environment file),
-the 'OS::Neutron::Port' Resource's
+R-70964 If a VNF's Port is attached to an internal network and the port's
+IP addresses are statically assigned by the VNF's Heat Orchestration\
+Template (i.e., enumerated in the Heat Orchestration Template's
+environment file), the 'OS::Neutron::Port' Resource's
+   * property 'fixed_ips' map property 'ip_address' **MUST** be used
+   * property 'fixed_ips' map property 'subnet'/'subnet_id'
+     **MUST NOT** be used
 
- * property 'fixed_ips' map property 'ip_address' **MUST** be used
- * property 'fixed_ips' map property 'subnet'/'subnet_id'
-   **MUST NOT** be used
-
-If a VNF's Port is attached to an internal network and the port's IP addresses
-are Cloud Assigned by OpenStack’s DHCP Service,
-the 'OS::Neutron::Port' Resource's
-
- * property 'fixed_ips' map property 'ip_address' **MUST NOT** be used
- * property 'fixed_ips' map property 'subnet'/'subnet_id' **MAY** be used
-
-If a VNF's Heat Orchestration Template 'OS::Neutron::Port' Resource property
-'fixed_ips' map property 'ip_address' is specified, then the
-'fixed_ips' map property 'subnet'/'subnet_id' **MUST NOT**
-be specified.
-
-If a VNF's Heat Orchestration Template 'OS::Neutron::Port' Resource property
-'fixed_ips' map property 'subnet'/'subnet_id' is specified, then the
-'fixed_ips' map property 'ip_address' **MUST NOT**
-be specified.
-
-.. csv-table:: **Table 4 OS::Nova::Server Resource Property Parameter Naming Convention**
-   :header: Resource,Property,Parameter Type,Parameter Name,Parameter Value Provided to Heat
-   :align: center
-   :widths: auto
-
-   OS::Nova::Server, image, string, {vm-type}_image_name, Environment File
 
 Property: network
 +++++++++++++++++
@@ -2541,7 +2784,7 @@ at orchestration time.
 
 *Example Parameter Definition of External Networks*
 
-.. code-block:: python
+.. code-block:: yaml
 
   parameters:
 
@@ -2556,7 +2799,7 @@ at orchestration time.
 
 *Example Parameter Definition of Internal Networks in an Incremental Module*
 
-.. code-block:: python
+.. code-block:: yaml
 
   parameters:
 
@@ -2588,11 +2831,12 @@ R-40971 When the VNF’s Heat Orchestration Template’s Resource
 assigned using the property
 ‘fixed_ips’ map property ‘ip_address’ and the parameter type is defined
 as a string, the parameter name **MUST** follow the naming
-convention ‘{vm-type}_{network-role}\_ip\_{index}’, where
-
-- ‘{vm-type}’ is the {vm-type} associated with the OS::Nova::Server
-- ‘{network-role}’ is the {network-role} of the external network
-- the value for {index} must start at zero (0) and increment by one
+convention
+   * ‘{vm-type}_{network-role}\_ip\_{index}’
+where
+   * ‘{vm-type}’ is the {vm-type} associated with the OS::Nova::Server
+   * ‘{network-role}’ is the {network-role} of the external network
+   * the value for {index} must start at zero (0) and increment by one
 
 R-39841 The VNF’s Heat Orchestration Template’s Resource ‘OS::Neutron::Port’
 property ‘fixed_ips’ map property ‘ip_address’ parameter
@@ -2604,7 +2848,7 @@ the value at orchestration to the Heat Orchestration Template.
 
 *Example External Network IPv4 Address string Parameter Definition*
 
-.. code-block:: python
+.. code-block:: yaml
 
   parameters:
 
@@ -2617,11 +2861,11 @@ Resource ‘OS::Neutron::Port’ is attaching to an external
 network, and an IPv4 address is assigned using the property
 ‘fixed_ips’ map property ‘ip_address’ and the parameter type
 is defined as a comma_delimited_list, the parameter name **MUST**
-follow the naming convention ‘{vm-type}_{network-role}_ips’,
+follow the naming convention
+   * ‘{vm-type}_{network-role}_ips’,
 where
-
-- ‘{vm-type}’ is the {vm-type} associated with the OS::Nova::Server
-- ‘{network-role}’ is the {network-role} of the external network
+   * ‘{vm-type}’ is the {vm-type} associated with the OS::Nova::Server
+   * ‘{network-role}’ is the {network-role} of the external network
 
 R-98905 The VNF’s Heat Orchestration Template’s Resource ‘OS::Neutron::Port’
 property ‘fixed_ips’ map property ‘ip_address’ parameter
@@ -2634,7 +2878,7 @@ the value at orchestration to the Heat Orchestration Template.
 *Example External Network IPv4 Address comma_delimited_list
 Parameter Definition*
 
-.. code-block:: python
+.. code-block:: yaml
 
   parameters:
 
@@ -2646,11 +2890,12 @@ R-71577 When the VNF’s Heat Orchestration Template’s Resource
 ‘OS::Neutron::Port’ is attaching to an external network, and an IPv6 address
 is assigned using the property ‘fixed_ips’ map property ‘ip_address’ and
 the parameter type is defined as a string, the parameter name **MUST** follow
-the naming convention ‘{vm-type}_{network-role}\_v6\_ip\_{index}’, where
-
-- ‘{vm-type}’ is the {vm-type} associated with the OS::Nova::Server
-- ‘{network-role}’ is the {network-role} of the external network
-- the value for {index} must start at zero (0) and increment by one
+the naming convention
+   * ‘{vm-type}_{network-role}\_v6\_ip\_{index}’
+where
+   * ‘{vm-type}’ is the {vm-type} associated with the OS::Nova::Server
+   * ‘{network-role}’ is the {network-role} of the external network
+   * the value for {index} must start at zero (0) and increment by one
 
 
 R-87123 The VNF’s Heat Orchestration Template’s Resource
@@ -2664,7 +2909,7 @@ the value at orchestration to the Heat Orchestration Template.
 
 *Example External Network IPv6 Address string Parameter Definition*
 
-.. code-block:: python
+.. code-block:: yaml
 
   parameters:
 
@@ -2677,23 +2922,23 @@ R-23503 When the VNF’s Heat Orchestration Template’s Resource
 address is assigned using the property ‘fixed_ips’ map property ‘ip_address’
 and the parameter type is defined as a comma_delimited_list, the parameter
 name **MUST** follow the naming convention
-‘{vm-type}_{network-role}_v6_ips’, where
-
-- ‘{vm-type}’ is the {vm-type} associated with the OS::Nova::Server
-- ‘{network-role}’ is the {network-role} of the external network
+   * ‘{vm-type}_{network-role}_v6_ips’
+where
+   * ‘{vm-type}’ is the {vm-type} associated with the OS::Nova::Server
+   * ‘{network-role}’ is the {network-role} of the external network
 
 R-93030 The VNF’s Heat Orchestration Template’s Resource
 ‘OS::Neutron::Port’ property ‘fixed_ips’ map property ‘ip_address’
 parameter ‘{vm-type}_{network-role}_v6_ips’ **MUST NOT** be enumerated in the
 VNF’s Heat Orchestration Template’s Environment File.
 
-ONAP's SDN-Controller assigns the IP Address and ECOMP provides
+ONAP's SDN-Controller assigns the IP Address and ONAP provides
 the value at orchestration to the Heat Orchestration Template.
 
 *Example External Network IPv6 Address comma_delimited_list Parameter
 Definition*
 
-.. code-block:: python
+.. code-block:: yaml
 
   parameters:
 
@@ -2705,11 +2950,12 @@ R-78380 When the VNF’s Heat Orchestration Template’s Resource
 ‘OS::Neutron::Port’ is attaching to an internal network, and an IPv4 address
 is assigned using the property ‘fixed_ips’ map property ‘ip_address’ and
 the parameter type is defined as a string, the parameter name **MUST** follow
-the naming convention ‘{vm-type}\_int\_{network-role}\_ip\_{index}’, where
-
-- ‘{vm-type}’ is the {vm-type} associated with the OS::Nova::Server
-- ‘{network-role}’ is the {network-role} of the internal network
-- the value for {index} must start at zero (0) and increment by one
+the naming convention
+   * '{vm-type}\_int\_{network-role}\_ip\_{index}'
+where
+   * '{vm-type}' is the {vm-type} associated with the OS::Nova::Server
+   * '{network-role}' is the {network-role} of the internal network
+   * the value for {index} must start at zero (0) and increment by one
 
 R-28795 The VNF’s Heat Orchestration Template’s Resource
 ‘OS::Neutron::Port’ property ‘fixed_ips’ map property ‘ip_address’
@@ -2722,7 +2968,7 @@ Heat Orchestration Template's Environment File.
 
 *Example Internal Network IPv4 Address string Parameter Definition*
 
-.. code-block:: python
+.. code-block:: yaml
 
   parameters:
 
@@ -2735,10 +2981,10 @@ R-85235 When the VNF’s Heat Orchestration Template’s Resource
 address is assigned using the property ‘fixed_ips’ map property ‘ip_address’
 and the parameter type is defined as a comma_delimited_list, the parameter
 name **MUST** follow the naming convention
-‘{vm-type}\_int\_{network-role}_ips’, where
-
-- ‘{vm-type}’ is the {vm-type} associated with the OS::Nova::Server
-- ‘{network-role}’ is the {network-role} of the internal network
+   * ‘{vm-type}\_int\_{network-role}_ips’
+where
+   * ‘{vm-type}’ is the {vm-type} associated with the OS::Nova::Server
+   * ‘{network-role}’ is the {network-role} of the internal network
 
 R-90206 The VNF’s Heat Orchestration Template’s Resource
 ‘OS::Neutron::Port’ property ‘fixed_ips’ map property ‘ip_address’
@@ -2749,7 +2995,7 @@ The IP address is local to the VNF's internal network and is (re)used
 in every VNF spin up, thus the constant value is declared in the VNF's
 Heat Orchestration Template's Environment File.
 
-.. code-block:: python
+.. code-block:: yaml
 
   parameters:
 
@@ -2761,11 +3007,12 @@ R-27818 When the VNF’s Heat Orchestration Template’s Resource
 ‘OS::Neutron::Port’ is attaching to an internal network, and an IPv6 address
 is assigned using the property ‘fixed_ips’ map property ‘ip_address’ and
 the parameter type is defined as a string, the parameter name **MUST** follow
-the naming convention ‘{vm-type}\_int\_{network-role}\_v6\_ip\_{index}’, where
-
-- ‘{vm-type}’ is the {vm-type} associated with the OS::Nova::Server
-- ‘{network-role}’ is the {network-role} of the internal network
-- the value for {index} must start at zero (0) and increment by one
+the naming convention
+   * ‘{vm-type}\_int\_{network-role}\_v6\_ip\_{index}’
+where
+   * ‘{vm-type}’ is the {vm-type} associated with the OS::Nova::Server
+   * ‘{network-role}’ is the {network-role} of the internal network
+   * the value for {index} must start at zero (0) and increment by one
 
 R-97201 The VNF’s Heat Orchestration Template’s Resource
 ‘OS::Neutron::Port’ property ‘fixed_ips’ map property ‘ip_address’
@@ -2779,7 +3026,7 @@ Heat Orchestration Template's Environment File.
 
 *Example Internal Network IPv6 Address string Parameter Definition*
 
-.. code-block:: python
+.. code-block:: yaml
 
   parameters:
 
@@ -2792,15 +3039,15 @@ R-29765 When the VNF’s Heat Orchestration Template’s Resource
 address is assigned using the property ‘fixed_ips’ map property ‘ip_address’
 and the parameter type is defined as a comma_delimited_list, the parameter
 name **MUST** follow the naming convention
-‘{vm-type}\_int\_{network-role}_v6_ips’, where
-
-- ‘{vm-type}’ is the {vm-type} associated with the OS::Nova::Server
-- ‘{network-role}’ is the {network-role} of the internal network
+   * ‘{vm-type}\_int\_{network-role}_v6_ips’
+where
+   * ‘{vm-type}’ is the {vm-type} associated with the OS::Nova::Server
+   * ‘{network-role}’ is the {network-role} of the internal network
 
 *Example Internal Network IPv6 Address comma_delimited_list Parameter
 Definition*
 
-.. code-block:: python
+.. code-block:: yaml
 
   parameters:
 
@@ -2869,7 +3116,7 @@ Assignments to an external network*
 In this example, the '{network-role}' has been defined as 'oam' to represent
 an oam network and the '{vm-type}' has been defined as 'db' for database.
 
-.. code-block:: python
+.. code-block:: yaml
 
   parameters:
     oam_net_id:
@@ -2903,7 +3150,7 @@ In this example, the '{network-role}' has been defined as 'oam' to
 represent an oam network and the '{vm-type}' has been defined as 'db' for
 database.
 
-.. code-block:: python
+.. code-block:: yaml
 
   parameters:
     oam_net_id:
@@ -2944,7 +3191,7 @@ represent an ctrl network internal to the vnf.
 The '{vm-type}' has been defined as 'db' for
 database.
 
-.. code-block:: python
+.. code-block:: yaml
 
   parameters:
     int_ctrl_net_id:
@@ -2981,7 +3228,7 @@ In this example, the int\_{network-role} has been defined as
 int_ctrl to represent a control network internal to the vnf.
 The {vm-type} has been defined as db for database.
 
-.. code-block:: python
+.. code-block:: yaml
 
   parameters:
     int_ctrl_net_id:
@@ -3054,8 +3301,10 @@ R-62802 When the VNF’s Heat Orchestration Template’s resource
 address is being Cloud Assigned by OpenStack’s DHCP Service and the
 external network IPv4 subnet is to be specified using the property
 ‘fixed_ips’ map property ‘subnet’/’subnet_id’, the parameter **MUST**
-follow the naming convention ‘{network-role}_subnet_id’, where
-‘{network-role}’ is the network role of the network.
+follow the naming convention
+   * ‘{network-role}_subnet_id’
+where
+   * ‘{network-role}’ is the network role of the network.
 
 R-83677 The VNF’s Heat Orchestration Template’s Resource
 ‘OS::Neutron::Port’ property ‘fixed_ips’ map property
@@ -3068,7 +3317,7 @@ value at orchestration to the Heat Orchestration Template.
 
 *Example Parameter Definition*
 
-.. code-block:: python
+.. code-block:: yaml
 
   parameters:
 
@@ -3081,8 +3330,10 @@ R-15287 When the VNF’s Heat Orchestration Template’s resource
 address is being Cloud Assigned by OpenStack’s DHCP Service and the
 external network IPv6 subnet is to be specified using the property
 ‘fixed_ips’ map property ‘subnet’/’subnet_id’, the parameter **MUST**
-follow the naming convention ‘{network-role}_subnet_v6_id’, where
-‘{network-role}’ is the network role of the network.
+follow the naming convention
+   * ‘{network-role}_subnet_v6_id’
+where
+   * ‘{network-role}’ is the network role of the network.
 
 R-80829 The VNF’s Heat Orchestration Template’s Resource
 ‘OS::Neutron::Port’ property ‘fixed_ips’ map property
@@ -3095,7 +3346,7 @@ value at orchestration to the Heat Orchestration Template.
 
 *Example Parameter Definition*
 
-.. code-block:: python
+.. code-block:: yaml
 
   parameters:
 
@@ -3112,7 +3363,7 @@ an oam network and the '{vm-type}' has been defined as 'lb' for load
 balancer. The Cloud Assigned IP Address uses the OpenStack DHCP service
 to assign IP addresses.
 
-.. code-block:: python
+.. code-block:: yaml
 
   parameters:
     oam_net_id:
@@ -3137,7 +3388,7 @@ In this example, the '{network-role}' has been defined as 'oam' to represent
 an oam network and the '{vm-type}' has been defined as 'lb' for load
 balancer.
 
-.. code-block:: python
+.. code-block:: yaml
 
   parameters:
     oam_net_id:
@@ -3168,8 +3419,9 @@ R-84123 When
   property ‘fixed_ips’ map property ‘subnet’/’subnet_id’,
 
 the parameter **MUST** follow the naming convention
-‘int\_{network-role}_subnet_id’, where ‘{network-role}’ is the
-network role of the internal network
+   * ‘int\_{network-role}_subnet_id’
+where
+   * ‘{network-role}’ is the network role of the internal network
 
 - Note that the parameter **MUST** be defined as an ‘output’ parameter in
   the base module.
@@ -3182,13 +3434,13 @@ Environment File.
 
 The assumption is that internal networks are created in the base module.
 The Neutron subnet network ID will be passed as an output parameter
-(e.g., ECOMP Base Module Output Parameter) to the incremental modules.
+(e.g., ONAP Base Module Output Parameter) to the incremental modules.
 In the incremental modules, the output parameter name will be defined as
 input parameter.
 
 *Example Parameter Definition*
 
-.. code-block:: python
+.. code-block:: yaml
 
   parameters:
 
@@ -3206,8 +3458,9 @@ R-76160 When
   ‘fixed_ips’ map property ‘subnet’/’subnet_id’,
 
 the parameter **MUST** follow the naming convention
-‘int\_{network-role}_v6_subnet_id’, where ‘{network-role}’
-is the network role of the internal network
+   * ‘int\_{network-role}_v6_subnet_id’
+where
+   * ‘{network-role}’ is the network role of the internal network
 
 - Note that the parameter **MUST** be defined as an ‘output’ parameter in
   the base module.
@@ -3220,7 +3473,7 @@ Environment File.
 
 *Example Parameter Definition*
 
-.. code-block:: python
+.. code-block:: yaml
 
   parameters:
 
@@ -3232,63 +3485,183 @@ Environment File.
 Property: allowed\_address\_pairs, Map Property: ip\_address
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The property allowed\_address\_pairs in the resource OS::Neutron::Port
-allows the user to specify a mac\_address and/or ip\_address that will
+The property 'allowed_address_pairs' in the resource 'OS::Neutron::Port'
+allows the user to specify a mac_address and/or ip_address that will
 pass through a port regardless of subnet. This enables the use of
-protocols such as VRRP, which floats an IP address between two instances
-to enable fast data plane failover. The map property ip\_address
-specifies the IP address.
+protocols, such as VRRP, which allow for a Virtual IP (VIP) address
+to be shared among two or more ports, with one designated as the master
+and the others as backups. In case the master fails,
+the Virtual IP address is mapped to a backup's IP address and
+the backup becomes the master.
 
-The allowed\_address\_pairs is an optional property. It is not required.
+Note that the management of the VIP IP addresses (i.e. transferring
+ownership between active and standby VMs) is the responsibility of
+the VNF application.
 
-An ONAP Heat Orchestration Template allows the assignment of one IPv4
-address allowed\_address\_pairs and/or one IPv6 address to a {vm-type}
-and {network-role}/int\_{network-role} combination.
+R-62300 If a VNF has two or more ports that require a Virtual IP Address (VIP),
+a VNF's Heat Orchestration Template's Resource 'OS::Neutron::Port' property
+'allowed_address_pairs' map property 'ip_address' parameter **MUST** be used.
 
-An ONAP Heat Orchestration Template allows the assignment of one IPv6
-address allowed\_address\_pairs and/or one IPv6 address to a {vm-type}
-and {network-role}/int\_{network-role} combination.
+The 'allowed_address_pairs' is an optional property. It is not required.
 
-Note that the management of these IP addresses (i.e. transferring
-ownership between active and standby VMs) is the responsibility of the
-application itself.
+ONAP automation supports the assignment of VIP addresses
+for external networks. ONAP support the assignment of one IPv4 VIP address
+and/or one IPv6 VIP address to a set of ports associated with a
+'{vm-type}' and '{network-role}'.
 
-Note that these parameters are **not** intended to represent Neutron
-“Floating IP” resources, for which OpenStack manages a pool of public IP
-addresses that are mapped to specific VM ports. In that case, the
-individual VMs are not even aware of the public IPs, and all assignment
-of public IPs to VMs is via OpenStack commands. ONAP does not support
-Neutron-style Floating IPs.
+If a VNF requires more than one IPv4 VIP address
+and/or more than one IPv6 VIP address to a set of ports associated with a
+'{vm-type}' and '{network-role}', there are "manual" work-around
+procedures that can be utilized.
 
-External Networks
-_________________
+VIP Assignment, External Networks, Supported by Automation
+__________________________________________________________
 
-R-61282 The VNF Heat Orchestration Template **MUST**
-adhere to the following naming convention for the property
-allowed\_address\_pairs and Map Property ip\_address parameter,
-when the parameter is referencing an “external” network:
 
--  {vm-type}\_{network-role}\_floating\_ip for an IPv4 address
+R-91810 If a VNF requires ONAP to assign a Virtual IP (VIP) Address to
+ports connected an external network, the port
+**MUST NOT** have more than one IPv4 VIP address.
 
--  {vm-type}\_{network-role}\_floating\_v6\_ip for an IPv6 address
+R-41956 If a VNF requires ONAP to assign a Virtual IP (VIP) Address to
+ports connected an external network, the port
+**MUST NOT** have more than one IPv6 VIP address.
 
-The parameter must be declared as type: string
+R-10754 If a VNF has two or more ports that
+attach to an external network that require a Virtual IP Address (VIP),
+and the VNF requires ONAP automation to assign the IP address,
+all the Virtual Machines using the VIP address **MUST**
+be instantiated in the same Base Module Heat Orchestration Template
+or in the same Incremental Module Heat Orchestration Template.
 
-The parameter must not be enumerated in the Heat environment file.
+
+R-98748 The VNF's Heat Orchestration Template's Resource
+'OS::Neutron::Port' property 'allowed_address_pairs'
+map property 'ip_address' parameter
+**MUST** be declared as type 'string'.
+
+
+R-41492 When the VNF's Heat Orchestration Template's Resource
+'OS::Neutron::Port' is attaching to an external network,
+and an IPv4 Virtual IP (VIP)
+address is assigned via ONAP automation
+using the property 'allowed_address_pairs'
+map property 'ip_address' and
+the parameter name **MUST** follow the
+naming convention
+
+   * '{vm-type}_{network-role}_floating_ip'
+
+where
+
+   * '{vm-type}' is the {vm-type} associated with the OS::Nova::Server
+   * '{network-role}' is the {network-role} of the external network
+
+And the parameter **MUST** be declared as type 'string'.
+
+R-83412 The VNF's Heat Orchestration Template's Resource
+'OS::Neutron::Port' property 'allowed_address_pairs'
+map property 'ip_address' parameter
+'{vm-type}_{network-role}_floating_ip'
+**MUST NOT** be enumerated in the
+VNF's Heat Orchestration Template's Environment File.
 
 *Example Parameter Definition*
 
 .. code-block:: yaml
 
- parameters:
+  parameters:
 
     {vm-type}_{network-role}_floating_ip:
-       type: string
-       description: VIP for {vm-type} VMs on the {network-role} network
+      type: string
+      description: IPv4 VIP for {vm-type} VMs on the {network-role} network
+
+
+
+R-35735 When the VNF's Heat Orchestration Template's Resource
+'OS::Neutron::Port' is attaching to an external network,
+and an IPv6 Virtual IP (VIP)
+address is assigned via ONAP automation
+using the property 'allowed_address_pairs'
+map property 'ip_address',
+the parameter name **MUST** follow the
+naming convention
+
+   * '{vm-type}_{network-role}_v6_floating_ip'
+
+where
+
+   * '{vm-type}' is the {vm-type} associated with the OS::Nova::Server
+   * '{network-role}' is the {network-role} of the external network
+
+And the parameter **MUST** be declared as type 'string'.
+
+
+
+R-83418 The VNF's Heat Orchestration Template's Resource
+'OS::Neutron::Port' property 'allowed_address_pairs'
+map property 'ip_address' parameter
+'{vm-type}_{network-role}_floating_v6_ip'
+**MUST NOT** be enumerated in the
+VNF's Heat Orchestration Template's Environment File.
+
+*Example Parameter Definition*
+
+.. code-block:: yaml
+
+  parameters:
 
     {vm-type}_{network-role}_floating_v6_ip:
-       type: string
-       description: VIP for {vm-type} VMs on the {network-role} network
+      type: string
+      description: VIP for {vm-type} VMs on the {network-role} network
+
+Note that these parameters are **not** intended to represent an OpenStack
+"Floating IP", for which OpenStack manages a pool of public IP
+addresses that are mapped to specific VM ports. In that case, the
+individual VMs are not even aware of the public IPs, and all assignment
+of public IPs to VMs is via OpenStack commands. ONAP does not support
+Neutron-style Floating IPs.  That is, ONAP does not support the
+resources 'OS::Neutron::FloatingIP'
+and 'OS::Neutron::FloatingIPAssociation'.
+
+R-05257 A VNF's Heat Orchestration Template's **MUST NOT**
+contain the Resource 'OS::Neutron::FloatingIP'.
+
+R-76449 A VNF's Heat Orchestration Template's **MUST NOT**
+contain the Resource 'OS::Neutron::FloatingIPAssociation'.
+
+The Floating IP functions as a NAT.  They are allocated within
+Openstack, and always "terminate" within the Openstack infrastructure.
+When Openstack receives packets on a Floating IP, the packets will
+be forwarded to the
+Port that has been mapped to the Floating IP, using the private address of the
+port.  The VM never sees or knows about the Openstack Floating IP.
+The process to use is:
+  - User allocates a floating IP from the Openstack pool.
+  - User ‘attaches’ that floating IP to one of the VM ports.
+If there is a high-availability VNF that wants to "float" the IP to a
+different VM, it requires a Neutron command to request Openstack to ‘attach’
+the floating IP to a different VM port.
+The pool of such addresses is managed by Openstack infrastructure.
+Users cannot create new ones, they can only choose from those in the pool.
+The pool is typically global (i.e. any user/tenant can grab them).
+
+Allowed address pairs are for more typical Linux-level "virtual IPs".
+They are additional IP addresses that are advertised by some port on the VM,
+in addition to the primary private IP address.  Typically in a
+high-availability VNF, an additional IP is assigned and will float between
+VMs (e.g., via some health-check app that will plumb the IP on one or other
+VM).  In order for this to work, the actual packets must be addressed to that
+IP address (and the allowed_ip_address list will let it pass through
+to the VM).  This generally requires provider network access
+(i.e. direct access to a data center network for the VMs), such that these
+IPs can pass through all of the virtual routers.
+Contrail also provides the enhanced networking that allows routing of such
+additional IPs.
+
+Floating IPs are not used in ONAP due to the NAT-ting nature of the IPs,
+the inability to reserve such IPs for specific use, the need to manage them
+via Openstack commands (i.e. a HA VNF would require direct access to
+Openstack to ‘float’ such an IP from one VM to another).
 
 *Example:*
 
@@ -3297,79 +3670,68 @@ an oam network and the {vm-type} has been defined as db for database.
 
 .. code-block:: yaml
 
- parameters:
+  parameters:
     oam_net_id:
-       type: string
-       description: Neutron UUID for the oam network
-
+      type: string
+      description: Neutron UUID for the oam network
     db_oam_ips:
-       type: comma_delimited_list
-       description: Fixed IPs for db VMs on the oam network
-
+      type: comma_delimited_list
+      description: Fixed IPs for db VMs on the oam network
     db_oam_floating_ip:
-       type: string
-       description: VIP IP for db VMs on the oam network
-
- resources:
-    db_0_port_0:
-       type: OS::Neutron::Port
-       properties:
+      type: string
+      description: VIP IP for db VMs on the oam network
+  resources:
+    db_0_oam_port_0:
+      type: OS::Neutron::Port
+      properties:
+        network: { get_param: oam_net_id }
+        fixed_ips: [ { "ip_address": {get_param: [db_oam_ips,0] }}]
+        allowed_address_pairs: [ { "ip_address": {get_param:
+        db_oam_floating_ip}}]
+    db_1_oam_port_0:
+      type: OS::Neutron::Port
+        properties:
           network: { get_param: oam_net_id }
-          fixed_ips: [ { “ip_address”: {get_param: [db_oam_ips,0] }}]
-          allowed_address_pairs: [ { “ip_address”: {get_param: db_oam_floating_ip}}]
+          fixed_ips: [ { "ip_address": {get_param: [db_oam_ips,1] }}]
+          allowed_address_pairs: [ { "ip_address": {get_param:
+          db_oam_floating_ip}}]
 
-    db_1_port_0:
-       type: OS::Neutron::Port
-       properties:
-          network: { get_param: oam_net_id }
-          fixed_ips: [ { “ip_address”: {get_param: [db_oam_ips,1] }}]
-          allowed_address_pairs: [ { “ip_address”: {get_param: db_oam_floating_ip}}]
 
-Internal Networks
-_________________
+VIP Assignment, External Networks, Additional Options
+_____________________________________________________
 
-R-16805 The VNF Heat Orchestration Template **MUST** adhere to the
-following naming convention for the property allowed\_address\_pairs
-and Map Property ip\_address parameter when the parameter is
-referencing an “internal” network.
+The parameter {'vm-type}_{network-role}_floating_ip' allows for only one
+allowed address pair IPv4 address per '{vm-type}' and '{network-role}'
+combination.
 
--  {vm-type}\_int\_{network-role}\_floating\_ip for an IPv4 address
-
--  {vm-type}\_int\_{network-role}\_floating\_v6\_ip for an IPv6 address
-
-The parameter must be declared as type: string
-
-The parameter must be enumerated in the Heat environment file.
-
-*Example Parameter Definition*
-
-.. code-block:: yaml
-
- parameters:
-
-    {vm-type}_int_{network-role}_floating_ip:
-       type: string
-       description: VIP for {vm-type} VMs on the int_{network-role} network
-
-    {vm-type}_int_{network-role}_floating_v6_ip:
-       type: string
-       description: VIP for {vm-type} VMs on the int_{network-role} network
-
-Multiple allowed\_address\_pairs for a {vm-type} / {network-role} combination
-______________________________________________________________________________
-
-The parameter {vm-type}\_{network-role}\_floating\_ip provides only one
-allowed address pair IPv4 address per {vm-type} and {network-role} pair.
-
-The parameter {vm-type}\_{network-role}\_floating\_v6\_ip provides only
-one allowed address pair IPv6 address per {vm-type} and {network-role}
-pair.
+The parameter '{vm-type}_{network-role}_floating_v6_ip' allows for only one
+allowed address pair IPv6 address per '{vm-type}' and '{network-role}'
+combination.
 
 If there is a need for multiple allowed address pair IPs for a given
-{vm-type} and {network-role} combination within a VNF, then the
-parameter names defined for the property fixed\_ips and Map Property
-ip\_address should be used with the allowed\_address\_pairs property.
-The examples below illustrate this.
+{vm-type} and {network-role} combination within a VNF, there are two
+options.
+
+**Option One**
+
+If there is a need for multiple allowed address pair IPs for a given
+'{vm-type}' and '{network-role}' combination within a VNF, then the
+parameter names defined for the Property 'fixed_ips' Map Property
+'ip_address' should be used or the Property 'allowed_address_pairs'
+Map Property 'ip_address'. The
+parameter names are provided in the table below.
+
+.. csv-table:: **Table 5 OS::Neutron::Port Property allowed_address_pairs map property ip_address Parameter Naming Convention**
+   :header: IP Address,Parameter Type,Parameter Name
+   :align: center
+   :widths: auto
+
+   IPv4, string, {vm-type}_{network-role}_ip_{index}
+   IPv4, comma_delimited_list, {vm-type}_{network-role}_ips
+   IPv6, string, {vm-type}_{network-role}_v6_ip_{index}
+   IPv6, comma_delimited_list, {vm-type}_{network-role}_v6_ips
+
+The examples below illustrate this concept.
 
 *Example: A VNF has four load balancers. Each pair has a unique VIP.*
 
@@ -3378,51 +3740,51 @@ one VIP. The {network-role} has been defined as oam to represent an oam
 network and the {vm-type} has been defined as admin for an
 administrative VM.
 
-Pair 1: Resources admin\_0\_port\_0 and admin\_1\_port\_0 share a unique
-VIP, [admin\_oam\_ips,2]
+Pair 1: Resources admin_0_port_0 and admin_1_port_0 share a unique VIP,
+[admin_oam_ips,2]
 
-Pair 2: Resources admin\_2\_port\_0 and admin\_3\_port\_0 share a unique
-VIP, [admin\_oam\_ips,5]
+Pair 2: Resources admin_2_port_0 and admin_3_port_0 share a unique VIP,
+[admin_oam_ips,5]
 
 .. code-block:: yaml
 
- parameters:
+  parameters:
     oam_net_id:
-       type: string
-       description: Neutron UUID for the oam network
+      type: string
+      description: Neutron UUID for the oam network
     admin_oam_ips:
-       type: comma_delimited_list
-       description: Fixed IP assignments for admin VMs on the oam network
+      type: comma_delimited_list
+      description: Fixed IP assignments for admin VMs on the oam network
 
- resources:
-
-    admin_0_port_0:
-       type: OS::Neutron::Port
-       properties:
-          network: { get_param: oam_net_id }
-          fixed_ips: [ { “ip_address”: {get_param: [admin_oam_ips,0] }}]
-          allowed_address_pairs: [{ “ip_address”: {get_param: [admin_oam_ips,2] }}]
-
-    admin_1_port_0:
-       type: OS::Neutron::Port
-       properties:
-          network: { get_param: oam_net_id }
-          fixed_ips: [ { “ip_address”: {get_param: [admin_oam_ips,1] }}]
-          allowed_address_pairs: [{ “ip_address”: {get_param:  [admin_oam_ips,2] }}]
-
-    admin_2_port_0:
-       type: OS::Neutron::Port
-       properties:
-          network: { get_param: oam_net_id }
-          fixed_ips: [ { “ip_address”: {get_param: [admin_oam_ips,3] }}]
-          allowed_address_pairs: [{ “ip_address”: {get_param: [admin_oam_ips,5] }}]
-
-    admin_3_port_0:
-       type: OS::Neutron::Port
-       properties:
-          network: { get_param: oam_net_id }
-          fixed_ips: [ { “ip_address”: {get_param: [admin_oam_ips,4] }}]
-          allowed_address_pairs: [{ “ip_address”: {get_param:  [admin_oam_ips,5] }}]
+  resources:
+    admin_0_oam_port_0:
+      type: OS::Neutron::Port
+      properties:
+        network: { get_param: oam_net_id }
+        fixed_ips: [ { "ip_address": {get_param: [admin_oam_ips,0] }}]
+        allowed_address_pairs: [{ "ip_address": {get_param: [admin_oam_ips,2]
+        }}]
+    admin_1_oam_port_0:
+      type: OS::Neutron::Port
+      properties:
+        network: { get_param: oam_net_id }
+        fixed_ips: [ { "ip_address": {get_param: [admin_oam_ips,1] }}]
+        allowed_address_pairs: [{ "ip_address": {get_param: [admin_oam_ips,2]
+      }}]
+    admin_2_oam_port_0:
+      type: OS::Neutron::Port
+      properties:
+        network: { get_param: oam_net_id }
+        fixed_ips: [ { "ip_address": {get_param: [admin_oam_ips,3] }}]
+        allowed_address_pairs: [{ "ip_address": {get_param: [admin_oam_ips,5]
+        }}]
+    admin_3_oam_port_0:
+      type: OS::Neutron::Port
+      properties:
+        network: { get_param: oam_net_id }
+        fixed_ips: [ { "ip_address": {get_param: [admin_oam_ips,4] }}]
+        allowed_address_pairs: [{ "ip_address": {get_param: [admin_oam_ips,5]
+        }}]
 
 *Example: A VNF has two load balancers. The pair of load balancers share
 two VIPs.*
@@ -3433,34 +3795,231 @@ network and the {vm-type} has been defined as lb for a load balancer VM.
 
 .. code-block:: yaml
 
- resources:
-    lb_0_port_0:
-       type: OS::Neutron::Port
-       properties:
-          network: { get_param: oam_net_id }
-          fixed_ips: [ { “ip_address”: {get_param: [lb_oam_ips,0] }}]
-          allowed_address_pairs: [{ "ip_address": {get_param: [lb_oam_ips,2]}, {get_param: [lb_oam_ips,3] }}]
-
-    lb_1_port_0:
-       type: OS::Neutron::Port
-       properties:
-          network: { get_param: oam_net_id }
-          fixed_ips: [ { “ip_address”: {get_param: [lb_oam_ips,1] }}]
-          allowed_address_pairs: [{ "ip_address": {get_param: [lb_oam_ips,2]}, {get_param: [lb_oam_ips,3] }}]
+  resources:
+    lb_0_oam_port_0:
+      type: OS::Neutron::Port
+      properties:
+        network: { get_param: oam_net_id }
+        fixed_ips: [ { "ip_address": {get_param: [lb_oam_ips,0] }}]
+        allowed_address_pairs: [{ "ip_address": {get_param: [lb_oam_ips,2] },
+        {get_param: [lb_oam_ips,3] }}]
+    lb_1_oam_port_0:
+      type: OS::Neutron::Port
+      properties:
+        network: { get_param: oam_net_id }
+        fixed_ips: [ { "ip_address": {get_param: [lb_oam_ips,1] }}]
+        allowed_address_pairs: [{ "ip_address": {get_param: [lb_oam_ips,2] },
+        {get_param: [lb_oam_ips,3] }}]
 
 As a general rule, provide the fixed IPs for the VMs indexed first in
 the CDL and then the VIPs as shown in the examples above.
 
-ONAP SDN-C Assignment of allowed\_address\_pair IP Addresses
+**Option Two**
+
+If there is a need for multiple allowed address pair IPs for a given
+'{vm-type}' and '{network-role}' combination within a VNF, then the
+parameter names defined for the table below can be used.
+
+**Resource OS::Neutron::Port**
+
+Table 6: Multiple allowed_address_pairs Option 2A
+
+.. csv-table:: **Table 6 OS::Neutron::Port Property allowed_address_pairs map property ip_address Parameter Naming Convention**
+   :header: IP Address,Parameter Type,Parameter Name
+   :align: center
+   :widths: auto
+
+   IPv4, string, {vm-type}_{network-role}_vip_{index}
+   IPv4, comma_delimited_list, {vm-type}_{network-role}_vips
+   IPv6, string, {vm-type}_{network-role}_v6_vip_{index}
+   IPv6, comma_delimited_list, {vm-type}_{network-role}_v6_vips
+
+
+If there is a need for multiple allowed address pair IPs for a given
+'{vm-type}' and '{network-role}' combination within a VNF and the need to
+differentiate the VIPs for different traffic types (e.g., 911 VIP,
+fail-over VIP), then the parameter names defined for the table below can
+be used.
+
+**Resource OS::Neutron::Port**
+
+Table 7: Multiple allowed_address_pairs Option 2B
+
+.. csv-table:: **Table 7 OS::Neutron::Port Property allowed_address_pairs map property ip_address Parameter Naming Convention**
+   :header: IP Address,Parameter Type,Parameter Name
+   :align: center
+   :widths: auto
+
+   IPv4, string, {vm-type}_{network-role}_{vip_type}_vip
+   IPv4, comma_delimited_list, {vm-type}_{network-role}_{vip_type}_vips
+   IPv6, string, {vm-type}_{network-role}_{vip_type}_v6_vip
+   IPv6, comma_delimited_list, {vm-type}_{network-role}_{vip_type}_v6_vips
+
+Internal Networks
+_________________
+
+ONAP defines an internal network in relation to
+the VNF and not with regard to the Network Cloud site. Internal
+networks may also be referred to as "intra-VNF" networks or "private"
+networks. An internal network only connects VMs in a single VNF. It
+must not connect to other VNFs or an external (to the cloud) gateway or an
+external (to the cloud) router.
+
+ONAP internal networks should be created in the base module.
+
+As previously mentioned,
+ports that connect to an internal network are assigned IP addresses
+via one of two methods
+ * Method 1: Cloud assigned by OpenStack's DHCP Service
+ * Method 2: Statically assigned.  That is, predetermined by the VNF designer
+   and are specified in the VNF's Heat Orchestration Template's
+   Environment File
+
+If Cloud assigned IP addressing is being used, output statements
+are created in the base module.
+
+If static assigned IP addressing is being used, the  IP addresses
+are defined in the environment file.
+
+
+  * {vm-type}_int_{network-role}_floating_ip
+  * {vm-type}_int_{network-role}_floating_v6_ip
+
+  * {vm-type}_int_{network-role}_vip_{index}
+  * {vm-type}_int_{network-role}_vips
+  * {vm-type}_int_{network-role}_v6_vip_{index}
+  * {vm-type}_int_{network-role}_v6_vips
+
+
+  * {vm-type}_int_{network-role}_{vip_type}_vip
+  * {vm-type}_int_{network-role}_{vip_type}_vips
+  * {vm-type}_int_{network-role}_{vip_type}_v6_vip
+  * {vm-type}_int_{network-role}_{vip_type}_v6_vips
+
+
+
+*Example Parameter Definition*
+
+.. code-block:: yaml
+
+  parameters:
+    {vm-type}_int_{network-role}_floating_ip:
+      type: string
+      description: VIP for {vm-type} VMs on the int_{network-role} network
+
+    {vm-type}_int_{network-role}_floating_v6_ip:
+      type: string
+      description: VIP for {vm-type} VMs on the int_{network-role} network
+
+
+
+
+allowed_address_pair IP Addresses Required in more than one module
 __________________________________________________________________
 
-The following items must be taken into consideration when designing Heat
-Orchestration Templates that expect ONAP’s SDN-C to assign
-allowed\_address\_pair IP addresses via automation.
+If the IP address {vm-type}_{network-role}_floating_ip and/or
+{vm-type}_{network-role}_floating_v6_ip must be used in more than module in the
+VNF, the parameter values must be defined as output values in the base module with
+output names: {vm-type}_{network-role}_shared_vip or
+{vm-type}_{network-role}_v6_shared_vip
 
-The VMs must be of the same {vm-type}.
+.. code-block:: yaml
 
-The VMs must be created in the same module (base or incremental).
+  outputs:
+    {vm-type}_{network-role}_shared_vip:
+      description:
+      value: { get_param: {vm-type}_{network-role}_floating_ip }
+
+    {vm-type}_{network-role}_v6_shared_vip:
+      description:
+      value: { get_param: {vm-type}_{network-role}_v6_floating_ip }
+
+The output parameters must be defined as input parameter in the
+incremental modules that require the IP addresses. When defining the
+allowed_address_pairs: in the OS::Neutron::Port, it should be as
+follows:
+
+.. code-block:: yaml
+
+  allowed_address_pairs: [ { "ip_address": {get_param:
+  {vm-type}_{network-role}_shared_vip }}, { "ip_address": {get_param:
+  {vm-type}_{network-role}_v6_shared_vip }}]
+
+Reserve Port Concept
+____________________
+
+A "Reserve Port" is an OS::Neutron::Port that fixed_ips, ip_address
+property is assigned one or more IP addresses that are used as Virtual
+IP (VIP) Addresses (i.e., allowed_address_pairs) on other ports.
+
+A "Reserve Port" is never attached to a Virtual Machine
+(OS::Nova::Server). The reserve port ensures that the intended
+allowed_address_pair IP address is not inadvertently assigned as a
+fixed_ips to a OS::Neutron::Port that is attached OS::Nova::Server and
+thus causing routing issues.
+
+A VNF may have one or more "Reserve Ports". A reserve port maybe created
+in the base module or an incremental module. If created in the base
+module, parameters may be defined in the outputs: section of the base
+template so the IP Address assigned to the reserve port maybe assigned
+to the allowed_address_pair property of an OS::Neutron::Port in one or
+more incremental modules.
+
+The parameter name of the IP address used in the "Reserve Port" depends
+on the allowed_address_pair "option" utilized by the VNF.
+
+When creating a Reserve Port, if only one allowed_address_pair is configured
+on a port, then the parameter name depends upon the IP addresses type
+(IPv4 or IPv6) and network type (internal or external).
+The valid parameter names are:
+  * {vm-type}_{network-role}_floating_ip
+  * {vm-type}_{network-role}_floating_v6_ip
+  * {vm-type}_int_{network-role}_floating_ip
+  * {vm-type}_int_{network-role}_floating_v6_ip
+
+When creating a Reserve Port, if more than one (e.g., multiple)
+allowed_address_pair is configured on a port, then the parameter name depends
+upon the IP addresses type (IPv4 or IPv6) and network type
+(internal or external) and the option being used.  The valid parameter
+names are:
+
+  * {vm-type}_{network-role}_ip_{index}
+  * {vm-type}_{network-role}_ips
+  * {vm-type}_{network-role}_v6_ip_{index}
+  * {vm-type}_{network-role}_v6_ips
+  * {vm-type}_{network-role}_vip_{index}
+  * {vm-type}_{network-role}_vips
+  * {vm-type}_{network-role}_v6_vip_{index}
+  * {vm-type}_{network-role}_v6_vips
+  * {vm-type}_{network-role}_{vip-type}_vip
+  * {vm-type}_{network-role}_v6_{vip-type}_vip
+  * {vm-type}_{network-role}_{vip-type}_vips
+  * {vm-type}_{network-role}_v6_{vip-type}_vips
+
+*Example IPv4 Reserve Port Definition: one allowed_address_pair
+configured on a port*
+
+.. code-block:: yaml
+
+  Reserve_Port_{vm-type}_{network-role}_floating_ip_{index}:
+    type: OS::Neutron::Port
+    properties:
+      network: { get_param: {network-role}_net_id }
+      fixed_ips:
+        - ip_address : { get_param: {vm-type}_{network-role}_floating_ip }
+
+*Example IPv6 Reserve Port Definition: one allowed_address_pair
+configured on a port*
+
+.. code-block:: yaml
+
+  Reserve_Port_{vm-type}_{network-role}_floating_v6_ip_{index}:
+    type: OS::Neutron::Port
+    properties:
+      network: { get_param: {network-role}_net_id }
+      fixed_ips:
+        - ip_address : { get_param: {vm-type}_{network-role}_floating_v6_ip }
+
 
 Resource Property “name”
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -3474,82 +4033,106 @@ OS::Nova::Server resources must be defined when the property is used.
 Not all resources require the property name (e.g., it is optional) and
 some resources do not support the property.
 
-R-85734 The VNF Heat Orchestration Template **MUST** use the
-intrinsic function str\_replace in conjunction with the ONAP
-supplied metadata parameter vnf\_name to generate a unique
-value, when the property name for a non OS::Nova::Server
-resources is defined in a Heat Orchestration Template.
+R-85734 If a VNF's Heat Orchestration Template contains the property 'name'
+for a non 'OS::Nova::Server' resource, the intrinsic function
+'str_replace' **MUST** be used in conjunction with the ONAP
+supplied metadata parameter 'vnf_name' to generate a unique value.
 
 This prevents the enumeration of a
 unique value for the property name in a per instance environment file.
 
-Note that
+R-99812 A value for VNF's Heat Orchestration Template's property 'name'
+for a non 'OS::Nova::Server' resource **MUST NOT** be declared
+in the VNF's Heat Orchestration Template's Environment File.
 
--  In most cases, only the use of the metadata value vnf\_name is
-   required to create a unique property name
+In most cases the use of the metadata value 'vnf_name' is required to create a
+unique property name.  If this will not provide a unique value,
+additional options include:
 
--  the Heat Orchestration Template pseudo parameter 'OS::stack\_name’
-   may also be used in the str\_replace construct to generate a unique
-   name when the vnf\_name does not provide uniqueness
+ - Using the Heat Orchestration Template pseudo parameter
+   'OS::stack_name' in the str_replace construct
+ - Resources created in a nested heat file invoked by an
+   'OS::Heat::ResourceGroup' can use the 'index' to construct a unique name
 
-*Example: Property* name *for resource* OS::Neutron::SecurityGroup
+R-32408 If a VNF's Heat Orchestration Template property 'name'
+for a non 'OS::Nova::Server' resource uses the intrinsic function
+'str_replace' in conjunction with the ONAP
+supplied metadata parameter 'vnf_name' and does not create
+a unique value, additional data **MUST** be used in the
+'str_replace' to create a unique value, such as 'OS::stack_name'
+and/or the 'OS::Heat::ResourceGroup' 'index'.
 
-.. code-block:: yaml
-
- resources:
-   DNS_SECURITY_GROUP:
-     type: OS::Neutron::SecurityGroup
-     properties:
-       description: vDNS security group
-       name:
-         str_replace:
-           template: VNF_NAME_sec_grp_DNS
-           params:
-             VNF_NAME: {get_param: vnf_name}
-       rules: [. . . . .
-              ]
-
-*Example: Property name for resource* OS::Cinder::Volume
+*Example: Property 'name' for resource 'OS::Neutron::SecurityGroup'*
 
 .. code-block:: yaml
 
- resources:
-   DNS_Cinder_Volume:
-     type: OS::Cinder::Volume
-     properties:
-       description: Cinder Volume
-       name:
-         str_replace:
-           template: VNF_NAME_STACK_NAME_dns_volume
-           params:
-             VNF_NAME: {get_param: vnf_name}
-             STACK_NAME: { get_param: 'OS::stack_name' }
-       . . . .
+  resources:
+    DNS_SECURITY_GROUP:
+      type: OS::Neutron::SecurityGroup
+      properties:
+        description: vDNS security group
+        name:
+          str_replace:
+            template: VNF_NAME_sec_grp_DNS
+            params:
+              VNF_NAME: {get_param: vnf_name}
+        rules: [. . . . .]
+
+*Example: Property 'name' for resource 'OS::Cinder::Volume'*
+
+.. code-block:: yaml
+
+  resources:
+    dns_volume_0:
+      type: OS::Cinder::Volume
+      properties:
+        description: Cinder Volume
+        name:
+          str_replace:
+            template: VNF_NAME_STACK_NAME_dns_volume
+            params:
+              VNF_NAME: {get_param: vnf_name}
+              STACK_NAME: { get_param: 'OS::stack_name' }
+  . . . .
+
+*Example: Property 'name' for resource 'OS::Cinder::Volume' invoked by a
+'OS::Heat::ResourceGroup'*
+
+.. code-block:: yaml
+
+  resources:
+    dns_volume_0:
+      type: OS::Cinder::Volume
+      properties:
+        description: Cinder Volume
+        name:
+          str_replace:
+              template: VNF_NAME_STACK_NAME_dns_volume_INDEX
+              params:
+                  VNF_NAME: { get_param: vnf_name }
+                  STACK_NAME: { get_param: 'OS::stack_name' }
+                  INDEX: { get_param: index }
+  . . . .
 
 Contrail Issue with Values for the Property Name
 ++++++++++++++++++++++++++++++++++++++++++++++++
 
-The Contrail GUI has a limitation displaying special characters. The
-issue is documented in
-https://bugs.launchpad.net/juniperopenstack/+bug/1590710. It is
-recommended that special characters be avoided. However, if special
-characters must be used, note that for the following resources:
+R-84517 The Contrail GUI has a limitation displaying special characters.
+The issue is documented in
+https://bugs.launchpad.net/juniperopenstack/+bug/1590710.
+It is recommended that special **SHOULD** characters be avoided.
+However, if special characters must be used, note that for
+the following resources:
 
--  Virtual Machine
+   * Virtual Machine
+   * Virtual Network
+   * Port
+   * Security Group
+   * Policies
+   * IPAM Creation
 
--  Virtual Network
-
--  Port
-
--  Security Group
-
--  Policies
-
--  IPAM Creation
-
-the only special characters supported are:
-
-- “ ! $ ‘ ( ) = ~ ^ \| @ \` { } [ ] > , . \_
+the only special characters supported
+are - \" ! $\ \ ' ( ) = ~ ^ | @ ` { } [ ] > , . _"
 
 ONAP Output Parameter Names
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -3561,14 +4144,17 @@ ONAP Base Module Output Parameters:
 +++++++++++++++++++++++++++++++++++
 
 ONAP Base Module Output Parameters do not have an explicit naming
-convention. The parameter name must contain {vm-type} and {network-role}
+convention.
+
+R-97726 A VNF's Heat Orchestration Template's Base Module Output
+Parameter names **MUST** contain {vm-type} and/or {network-role}
 when appropriate.
 
 ONAP Volume Template Output Parameters:
 +++++++++++++++++++++++++++++++++++++++
 
-ONAP Base Module Output Parameters do not have an explicit naming
-convention. The parameter name must contain {vm-type} when appropriate.
+R-88524 A VNF's Heat Orchestration Template's Volume Template
+Output Parameter names **MUST** contain {vm-type} when appropriate.
 
 Predefined Output Parameters
 ++++++++++++++++++++++++++++
@@ -3586,108 +4172,128 @@ of this interface must be captured and inventoried by ONAP. The IP
 address might be a VIP if the VNF contains an HA pair of management VMs,
 or may be a single IP address assigned to one VM.
 
-The Heat template may define either (or both) of the following Output
-parameters to identify the management IP address.
+R-47874 A VNF **MAY** have
 
--  oam\_management\_v4\_address
+   * Only an IPv4 OAM Management IP Address
+   * Only an IPv6 OAM Management IP Address
+   * Both a IPv4 and IPv6 OAM Management IP Addresses
 
--  oam\_management\_v6\_address
+R-18683 If a VNF has one IPv4 OAM Management IP Address and the
+IP Address needs to be inventoried in ONAP's A&AI
+database, an output parameter **MUST** be declared in only one of the
+VNF's Heat Orchestration Templates and the parameter **MUST** be named
+'oam_management_v4_address'.
 
-*Notes*:
+R-94669 If a VNF has one IPv6 OAM Management IP Address and the
+IP Address needs to be inventoried in ONAP's A&AI
+database, an output parameter **MUST** be declared in only one of the
+VNF's Heat Orchestration Templates and the parameter **MUST** be named
+'oam_management_v6_address'.
 
--  The use of this output parameters are optional.
+The OAM Management IP Address maybe assigned either via
+  *  ONAP SDN-C
+  *  DHCP
 
--  The Management IP Address should be defined only once per VNF, so it
-   must only appear in one Module template
-
--  If a fixed IP for the admin VM is passed as an input parameter, it
-   may be echoed in the output parameters. In this case, a IPv4 and/or
-   IPv6 parameter must be defined in the parameter section of the YAML
-   Heat template. The parameter maybe named oam\_management\_v4\_address
-   and/or oam\_management\_v6\_address or may be named differently.
-
--  If the IP for the admin VM is obtained via DHCP, it may be obtained
-   from the resource attributes. In this case,
-   oam\_management\_v4\_address and/or oam\_management\_v6\_address must
-   not be defined in the parameter section of the YAML Heat template.
-
-*Example: SDN-C Assigned IP Address echoed as*
-oam\_management\_v4\_address
+R-56287 If the VNF's OAM Management IP Address is assigned by ONAP SDN-C and
+assigned in the VNF's Heat Orchestration Template's via a heat resource
+'OS::Neutron::Port' property 'fixed_ips' map property
+'ip_adress' parameter (e.g., '{vm-type}_{network-role}_ip_{index}',
+'{vm-type}_{network-role}_v6_ip_{index}')
+and the OAM IP Address is required to be inventoried in ONAP AAI,
+then the parameter **MUST** be echoed in an output statement.
 
 .. code-block:: yaml
 
- parameters:
-    admin_oam_ip_0:
-       type: string
-       description: Fixed IPv4 assignment for admin VM 0 on the OAM network
-    . . .
-
- resources:
-    admin_oam_net_0_port:
-       type: OS::Neutron::Port
-       properties:
-          name:
-             str_replace:
-                template: VNF_NAME_admin_oam_net_0_port
-                params:
-                   VNF_NAME: {get_param: vnf_name}
-          network: { get_param: oam_net_id }
-          fixed_ips: [{ "ip_address": { get_param: admin_oam_ip_0 }}]
-          security_groups: [{ get_param: security_group }]
-
-    admin_server:
-       type: OS::Nova::Server
-       properties:
-          name: { get_param: admin_names }
-          image: { get_param: admin_image_name }
-          flavor: { get_param: admin_flavor_name }
-          availability_zone: { get_param: availability_zone_0 }
-          networks:
-             - port: { get_resource: admin_oam_net_0_port }
-          metadata:
-             vnf_id: { get_param: vnf_id }
-             vf_module_id: { get_param: vf_module_id }
-             vnf_name: {get_param: vnf_name }
-    Outputs:
+   outputs:
        oam_management_v4_address:
-       value: {get_param: admin_oam_ip_0 }
+         value: {get_param: {vm-type}_{network-role}_ip_{index} }
+       oam_management_v6_address:
+         value: {get_param: {vm-type}_{network-role}_v6_ip_{index} }
 
-*Example: Cloud Assigned IP Address output as*
-oam\_management\_v4\_address
+*Example: ONAP SDN-C Assigned IP Address echoed as
+oam_management_v4_address*
 
 .. code-block:: yaml
 
- parameters:
-    . . .
- resources:
-   admin_oam_net_0_port:
-     type: OS::Neutron::Port
-     properties:
-       name:
-         str_replace:
-           template: VNF_NAME_admin_oam_net_0_port
-           params:
-             VNF_NAME: {get_param: vnf_name}
-       network: { get_param: oam_net_id }
-       security_groups: [{ get_param: security_group }]
+  parameters:
+    admin_oam_ip_0:
+      type: string
+      description: Fixed IPv4 assignment for admin VM 0 on the OAM network
+  . . .
+  resources:
+    admin_0_oam_port_0:
+      type: OS::Neutron::Port
+      properties:
+        name:
+          str_replace:
+            template: VNF_NAME_admin_oam_port_0
+            params:
+              VNF_NAME: {get_param: vnf_name}
+        network: { get_param: oam_net_id }
+        fixed_ips: [{ "ip_address": { get_param: admin_oam_ip_0 }}]
+        security_groups: [{ get_param: security_group }]
+    admin_server_0:
+      type: OS::Nova::Server
+      properties:
+        name: { get_param: admin_names }
+        image: { get_param: admin_image_name }
+        flavor: { get_param: admin_flavor_name }
+        availability_zone: { get_param: availability_zone_0 }
+      networks:
+        - port: { get_resource: admin_0_oam_net_port_0 }
+      metadata:
+        vnf_id: { get_param: vnf_id }
+        vf_module_id: { get_param: vf_module_id }
+        vnf_name: {get_param: vnf_name }
+  outputs:
+      oam_management_v4_address:
+        value: {get_param: admin_oam_ip_0 }
 
-   admin_server:
-     type: OS::Nova::Server
-     properties:
-       name: { get_param: admin_names }
-       image: { get_param: admin_image_name }
-       flavor: { get_param: admin_flavor_name }
-       availability_zone: { get_param: availability_zone_0 }
-       networks:
-         - port: { get_resource: admin_oam_net_0_port }
-       metadata:
-         vnf_id: { get_param: vnf_id }
-         vf_module_id: { get_param: vf_module_id }
-         vnf_name: {get_param: vnf_name }
 
- Outputs:
-   oam_management_v4_address:
-   value: {get_attr: [admin_server, networks, {get_param: oam_net_id}, 0] }
+R-48987 If the VNF's OAM Management IP Address is Cloud assigned and
+and the OAM IP Address is required to be inventoried in ONAP AAI,
+then the parameter **MUST** be obtained by the resource 'OS::Neutron::Port'
+attribute 'ip_address'.
+
+.. code-block:: yaml
+
+   outputs:
+       oam_management_v4_address:
+         value: {get_attr: [ {OS::Neutron Port Resource ID}, fixed_ips, 0, ip_address] }
+
+*Example: Cloud Assigned IP Address output as oam_management_v4_address*
+
+.. code-block:: yaml
+
+  parameters:
+  . . .
+  resources:
+    admin_0_oam_port_0:
+      type: OS::Neutron::Port
+      properties:
+        name:
+          str_replace:
+            template: VNF_NAME_admin_oam_0_port
+            params:
+              VNF_NAME: {get_param: vnf_name}
+        network: { get_param: oam_net_id }
+        security_groups: [{ get_param: security_group }]
+    admin_server_0:
+      type: OS::Nova::Server
+      properties:
+        name: { get_param: admin_name_0 }
+        image: { get_param: admin_image_name }
+        flavor: { get_param: admin_flavor_name }
+        availability_zone: { get_param: availability_zone_0 }
+        networks:
+          - port: { get_resource: admin_0_oam_port_0 }
+        metadata:
+          vnf_id: { get_param: vnf_id }
+          vf_module_id: { get_param: vf_module_id }
+          vnf_name: {get_param: vnf_name }
+  outputs:
+    oam_management_v4_address:
+      value: {get_attr: [admin_0_oam_port_0, fixed_ips, 0, ip_address] }
 
 Contrail Resource Parameters
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -3705,24 +4311,32 @@ using the network FQDN.
 External Networks
 _________________
 
-When the parameter associated with the Contrail Network is referencing
-an “external” network, the parameter must adhere to the following naming
-convention in the Heat Orchestration Template
+R-02164 When a VNF's Heat Orchestration Template's Contrail resource
+has a property that
+references an external network that requires the network's
+Fully Qualified Domain Name (FQDN), the property parameter
+   * **MUST** follow the format '{network-role}_net_fqdn'
+   * **MUST** be declared as type 'string'
+   * **MUST NOT** be enumerated in the NF's Heat Orchestration Template's
+     Environment File
 
--  {network-role}\_net\_fqdn
+R-73228 A VNF's Heat Orchestration Template's parameter
+'{network-role}_net_fqdn'
+**MUST** be declared as type 'string'.
 
-The parameter must be declared as type: string
-
-The parameter must not be enumerated in the Heat environment file.
+R-92193 A VNF's Heat Orchestration Template's parameter
+'{network-role}_net_fqdn'
+**MUST NOT** be enumerated in the VNF's Heat Orchestration Template's
+Environment File.
 
 *Example: Parameter declaration*
 
 .. code-block:: yaml
 
- parameters:
+  parameters:
     {network-role}_net_fqdn:
-       type: string
-       description: Contrail FQDN for the {network-role} network
+      type: string
+      description: Contrail FQDN for the {network-role} network
 
 *Example: Contrail Resource OS::ContrailV2::VirtualMachineInterface
 Reference to a Network FQDN.*
@@ -3730,140 +4344,449 @@ Reference to a Network FQDN.*
 In this example, the {network-role} has been defined as oam to represent
 an oam network and the {vm-type} has been defined as fw for firewall.
 The Contrail resource OS::ContrailV2::VirtualMachineInterface property
-virtual\_network\_refs references a contrail network FQDN.
+virtual_network_refs references a contrail network FQDN.
 
 .. code-block:: yaml
 
- FW_OAM_VMI:
-   type: OS::ContrailV2::VirtualMachineInterface
-   properties:
-     name:
-       str_replace:
-         template: VM_NAME_virtual_machine_interface_1
-         params:
-           VM_NAME: { get_param: fw_name_0 }
-     virtual_machine_interface_properties:
-       virtual_machine_interface_properties_service_interface_type: { get_param: oam_protected_interface_type }
-     virtual_network_refs:
-       - get_param: oam_net_fqdn
-     security_group_refs:
-       - get_param: fw_sec_grp_id
+  fw_0_oam_vmi_0:
+    type: OS::ContrailV2::VirtualMachineInterface
+    properties:
+      name:
+        str_replace:
+          template: VM_NAME_virtual_machine_interface_1
+          params:
+            VM_NAME: { get_param: fw_name_0 }
+      virtual_machine_interface_properties:
+        virtual_machine_interface_properties_service_interface_type: {
+        get_param: oam_protected_interface_type }
+      virtual_network_refs:
+        - get_param: oam_net_fqdn
+      security_group_refs:
+        - get_param: fw_sec_grp_id
+
 
 Interface Route Table Prefixes for Contrail InterfaceRoute Table
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The parameter associated with the resource
-OS::ContrailV2::InterfaceRouteTable property
-interface\_route\_table\_routes, map property
-interface\_route\_table\_routes\_route\_prefix is an ONAP Orchestration
-Parameter.
+R-28222 If a VNF's Heat Orchestration Template
+'OS::ContrailV2::InterfaceRouteTable' resource
+'interface_route_table_routes' property
+'interface_route_table_routes_route' map property parameter name
+**MUST** follow the format
+   * {vm-type}_{network-role}_route_prefixes
 
-The parameters must be named {vm-type}\_{network-role}\_route\_prefixes
-in the Heat Orchestration Template.
+R-19756 If a VNF's Heat Orchestration Template
+OS::ContrailV2::InterfaceRouteTable resource
+'interface_route_table_routes' property
+'interface_route_table_routes_route' map property parameter
+'{vm-type}_{network-role}_route_prefixes'
+**MUST** be defined as type 'json'.
 
-The parameter must be declared as type: json
+R-76682 If a VNF's Heat Orchestration Template
+OS::ContrailV2::InterfaceRouteTable resource
+'interface_route_table_routes' property
+'interface_route_table_routes_route' map property parameter
+'{vm-type}_{network-role}_route_prefixes'
+**MUST NOT** be enumerated in the VNF's Heat Orchestration Template's
+Environment File.
 
-The parameter supports IP addresses in the format:
+The parameter '{vm-type}_{network-role}_route_prefixes'
+supports IP addresses in the format:
 
 1. Host IP Address (e.g., 10.10.10.10)
 
 2. CIDR Notation format (e.g., 10.0.0.0/28)
 
-The parameter must not be enumerated in the Heat environment file.
 
 *Example Parameter Definition*
 
-.. code-block:: yaml
+.. code-block:: python
 
- parameters:
+  parameters:
     {vm-type}_{network-role}_route_prefixes:
-       type: json
-       description: JSON list of Contrail Interface Route Table route prefixes
+      type: json
+      description: JSON list of Contrail Interface Route Table route prefixes
 
 *Example:*
 
 .. code-block:: yaml
 
- parameters:
-   vnf_name:
-     type: string
-     description: Unique name for this VF instance
-   fw_int_fw_route_prefixes:
-     type: json
-     description: prefix for the ServiceInstance InterfaceRouteTable
-   int_fw_dns_trusted_interface_type:
-     type: string
-     description: service_interface_type for ServiceInstance
+  parameters:
+    vnf_name:
+      type: string
+      description: Unique name for this VF instance
+    fw_oam_route_prefixes:
+      type: json
+      description: prefix for the ServiceInstance InterfaceRouteTable
+    int_fw_dns_trusted_interface_type:
+      type: string
+      description: service_interface_type for ServiceInstance
 
- <resource name>:
-   type: OS::ContrailV2::InterfaceRouteTable
-   depends_on: [*resource name of* *OS::ContrailV2::ServiceInstance*]
-   properties:
-     name:
-       str_replace:
-         template: VNF_NAME_interface_route_table
-         params:
-           VNF_NAME: { get_param: vnf_name }
-     interface_route_table_routes:
-       interface_route_table_routes_route: { get_param: fw_int_fw_route_prefixes }
-     service_instance_refs:
-       - get_resource: < *resource name of* *OS::ContrailV2::ServiceInstance* >
-     service_instance_refs_data:
-       - service_instance_refs_data_interface_type: { get_param: int_fw_interface_type }
+  resources:
+    <resource name>:
+      type: OS::ContrailV2::InterfaceRouteTable
+      depends_on: [resource name of OS::ContrailV2::ServiceInstance]
+      properties:
+        name:
+          str_replace:
+            template: VNF_NAME_interface_route_table
+            params:
+              VNF_NAME: { get_param: vnf_name }
+        interface_route_table_routes:
+          interface_route_table_routes_route: { get_param: fw_oam_route_prefixes }
+        service_instance_refs:
+          - get_resource: <resource name of OS::ContrailV2::ServiceInstance>
+        service_instance_refs_data:
+          - service_instance_refs_data_interface_type: { get_param: oam_interface_type }
 
-Parameter Names in Contrail Resources
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Resource OS::ContrailV2::InstanceIp
++++++++++++++++++++++++++++++++++++
 
-Contrail Heat resource properties will use, when appropriate, the same
-naming convention as OpenStack Heat resources. For example, the resource
-OS::ContrailV2::InstanceIp has two properties that the parameter naming
-convention is identical to properties in OS::Neutron::Port.
+The Contrail resource OS::ContrailV2::InstanceIp has two properties
+that parameters **MUST** follow an explicit naming convention.  The
+properties are 'instance_ip_address' and 'subnet_uuid'.
+
+*Example OS::ContrailV2::InstanceIp Resource*
+
+.. code-block:: yaml
+
+  <resource ID>:
+    type: OS::ContrailV2::InstanceIp
+    properties:
+      name: { get_param: name }
+      fq_name: { get_param: fq_name }
+      display_name: { get_param: display_name }
+      secondary_ip_tracking_ip:
+        {
+          secondary_ip_tracking_ip_ip_prefix: { get_param: secondary_ip_tracking_ip_ip_prefix },
+          secondary_ip_tracking_ip_ip_prefix_len: { get_param: secondary_ip_tracking_ip_ip_prefix_len },
+        }
+      instance_ip_address: { get_param: instance_ip_address }
+      instance_ip_mode: { get_param: instance_ip_mode }
+      subnet_uuid: { get_param: subnet_uuid }
+      instance_ip_family: { get_param: instance_ip_family }
+      annotations:
+        {
+          annotations_key_value_pair:
+            [{
+              annotations_key_value_pair_key: { get_param: annotations_key_value_pair_key },
+              annotations_key_value_pair_value: { get_param: annotations_key_value_pair_value },
+            }],
+        }
+      instance_ip_local_ip: { get_param: instance_ip_local_ip }
+      instance_ip_secondary: { get_param: instance_ip_secondary }
+      physical_router_refs: [{ get_param: physical_router_refs }]
+      virtual_machine_interface_refs: [{ get_param: virtual_machine_interface_refs }]
+      virtual_network_refs: [{ get_param: virtual_network_refs }]
+
+Resource OS::ContrailV2::InstanceIp Property instance_ip_address
+________________________________________________________________
+
+A VNF's Heat Orchestration Templates resource 'OS::ContrailV2::InstanceIp'
+property 'instance_ip_address' parameter
+**MUST** follow the same requirements
+that apply to the resource 'OS::Neutron' property 'fixed_ips' map
+property 'ip_address' parameter.
+
 
 *Example: Contrail Resource OS::ContrailV2::InstanceIp, Property
-instance\_ip\_address*
+instance_ip_address*
 
-The property instance\_ip\_address uses the same parameter naming
-convention as the property fixed\_ips and Map Property ip\_address in
+The property instance_ip_address uses the same parameter naming
+convention as the property fixed_ips and Map Property ip_address in
 OS::Neutron::Port. The resource is assigning an ONAP SDN-C Assigned IP
-Address. The {network-role} has been defined as oam\_protected to
+Address. The {network-role} has been defined as oam_protected to
 represent an oam protected network and the {vm-type} has been defined as
 fw for firewall.
 
 .. code-block:: yaml
 
- CMD_FW_OAM_PROTECTED_RII:
-   type: OS::ContrailV2::InstanceIp
-   depends_on:
-     - FW_OAM_PROTECTED_RVMI
-   properties:
-     virtual_machine_interface_refs:
-       - get_resource: FW_OAM_PROTECTED_RVMI
-     virtual_network_refs:
-       - get_param: oam_protected_net_fqdn
-     instance_ip_address: { get_param: [fw_oam_protected_ips, get_param: index ] }
+  fw_0_oam_protected_vmi_0_IP_0:
+    type: OS::ContrailV2::InstanceIp
+    depends_on:
+      - fw_0_oam_protected_vmi_0
+    properties:
+      virtual_machine_interface_refs:
+        - get_resource: fw_0_oam_protected_vmi_0
+      virtual_network_refs:
+        - get_param: oam_protected_net_fqdn
+      instance_ip_address: { get_param: [fw_oam_protected_ips, get_param: index ] }
+
+Resource OS::ContrailV2::InstanceIp Property subnet_uuid
+________________________________________________________________
+
+A VNF's Heat Orchestration Templates resource 'OS::ContrailV2::InstanceIp'
+property 'subnet_uuid' parameter
+**MUST** follow the same requirements
+that apply to the resource 'OS::Neutron' property 'fixed_ips' map
+property 'subnet'/'subnet_id' parameter.
 
 *Example: Contrail Resource OS::ContrailV2::InstanceIp, Property
-subnet\_uuid*
+subnet_uuid*
 
-The property instance\_ip\_address uses the same parameter naming
-convention as the property fixed\_ips and Map Property subnet\_id in
+The property instance_ip_address uses the same parameter naming
+convention as the property fixed_ips and Map Property subnet_id in
 OS::Neutron::Port. The resource is assigning a Cloud Assigned IP
-Address. The {network-role} has been defined as “oam\_protected” to
+Address. The {network-role} has been defined as "oam_protected" to
 represent an oam protected network and the {vm-type} has been defined as
-“fw” for firewall.
+"fw" for firewall.
 
 .. code-block:: yaml
 
- CMD_FW_SGI_PROTECTED_RII:
-   type: OS::ContrailV2::InstanceIp
-   depends_on:
-     - FW_OAM_PROTECTED_RVMI
-   properties:
-     virtual_machine_interface_refs:
-       - get_resource: FW_OAM_PROTECTED_RVMI
-     virtual_network_refs:
-       - get_param: oam_protected_net_fqdn
-     subnet_uuid: { get_param: oam_protected_subnet_id }
+  fw_0_oam_protected_vmi_0_IP_0:
+    type: OS::ContrailV2::InstanceIp
+    depends_on:
+    - fw_0_oam_protected_vmi_0
+    properties:
+      virtual_machine_interface_refs:
+        - get_resource: fw_0_oam_protected_vmi_0
+      virtual_network_refs:
+        - get_param: oam_protected_net_fqdn
+      subnet_uuid: { get_param: oam_protected_subnet_id }
+
+OS::ContrailV2::VirtualMachineInterface Property virtual_machine_interface_allowed_address_pairs
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+A VNF's Heat Orchestration Templates resource
+'OS::ContrailV2::VirtualMachineInterface' map property,
+virtual_machine_interface_allowed_address_pairs,
+virtual_machine_interface_allowed_address_pairs_allowed_address_pair,
+virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip,
+virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip_ip_prefix
+parameter **MUST** follow the same requirements that apply to the
+resource 'OS::Neutron::Port' property
+'allowed_address_pairs', map property 'ip_address' parameter.
+
+*Example OS::ContrailV2::VirtualMachineInterface*
+
+.. code-block:: python
+
+  <resource ID>:
+    type: OS::ContrailV2::VirtualMachineInterface
+    properties:
+      name: { get_param: name }
+      fq_name: { get_param: fq_name }
+      ecmp_hashing_include_fields:
+        {
+          ecmp_hashing_include_fields_hashing_configured: { get_param: ecmp_hashing_include_fields_hashing_configured },
+          ecmp_hashing_include_fields_source_ip: { get_param: ecmp_hashing_include_fields_source_ip },
+          ecmp_hashing_include_fields_destination_ip: { get_param: ecmp_hashing_include_fields_destination_ip },
+          ecmp_hashing_include_fields_ip_protocol: { get_param: ecmp_hashing_include_fields_ip_protocol },
+          ecmp_hashing_include_fields_source_port: { get_param: ecmp_hashing_include_fields_source_port },
+          ecmp_hashing_include_fields_destination_port: { get_param: ecmp_hashing_include_fields_destination_port },
+        }
+      virtual_machine_interface_host_routes:
+        {
+          virtual_machine_interface_host_routes_route:
+            [{
+              virtual_machine_interface_host_routes_route_prefix: { get_param: virtual_machine_interface_host_routes_route_prefix },
+              virtual_machine_interface_host_routes_route_next_hop: { get_param: virtual_machine_interface_host_routes_route_next_hop },
+              virtual_machine_interface_host_routes_route_next_hop_type: { get_param: virtual_machine_interface_host_routes_route_next_hop_type },
+              virtual_machine_interface_host_routes_route_community_attributes:
+                {
+                  virtual_machine_interface_host_routes_route_community_attributes_community_attribute: [{ get_param: virtual_machine_interface_host_routes_route_community_attributes_community_attribute }],
+                },
+            }],
+        }
+      virtual_machine_interface_mac_addresses:
+        {
+          virtual_machine_interface_mac_addresses_mac_address: [{ get_param: virtual_machine_interface_mac_addresses_mac_address }],
+        }
+      virtual_machine_interface_dhcp_option_list:
+        {
+          virtual_machine_interface_dhcp_option_list_dhcp_option:
+            [{
+              virtual_machine_interface_dhcp_option_list_dhcp_option_dhcp_option_name: { get_param: virtual_machine_interface_dhcp_option_list_dhcp_option_dhcp_option_name },
+              virtual_machine_interface_dhcp_option_list_dhcp_option_dhcp_option_value: { get_param: virtual_machine_interface_dhcp_option_list_dhcp_option_dhcp_option_value },
+              virtual_machine_interface_dhcp_option_list_dhcp_option_dhcp_option_value_bytes: { get_param: virtual_machine_interface_dhcp_option_list_dhcp_option_dhcp_option_value_bytes },
+            }],
+        }
+      virtual_machine_interface_bindings:
+        {
+          virtual_machine_interface_bindings_key_value_pair:
+            [{
+              virtual_machine_interface_bindings_key_value_pair_key: { get_param: virtual_machine_interface_bindings_key_value_pair_key },
+              virtual_machine_interface_bindings_key_value_pair_value: { get_param: virtual_machine_interface_bindings_key_value_pair_value },
+            }],
+        }
+      virtual_machine_interface_disable_policy: { get_param: virtual_machine_interface_disable_policy }
+      virtual_machine_interface_allowed_address_pairs:
+        {
+          virtual_machine_interface_allowed_address_pairs_allowed_address_pair:
+            [{
+              virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip:
+                {
+                  virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip_ip_prefix: { get_param: virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip_ip_prefix },
+                  virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip_ip_prefix_len: { get_param: virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip_ip_prefix_len },
+                },
+              virtual_machine_interface_allowed_address_pairs_allowed_address_pair_mac: { get_param: virtual_machine_interface_allowed_address_pairs_allowed_address_pair_mac },
+              virtual_machine_interface_allowed_address_pairs_allowed_address_pair_address_mode: { get_param: virtual_machine_interface_allowed_address_pairs_allowed_address_pair_address_mode },
+            }],
+        }
+      annotations:
+        {
+          annotations_key_value_pair:
+            [{
+              annotations_key_value_pair_key: { get_param: annotations_key_value_pair_key },
+              annotations_key_value_pair_value: { get_param: annotations_key_value_pair_value },
+            }],
+        }
+      virtual_machine_interface_fat_flow_protocols:
+        {
+          virtual_machine_interface_fat_flow_protocols_fat_flow_protocol:
+            [{
+              virtual_machine_interface_fat_flow_protocols_fat_flow_protocol_protocol: { get_param: virtual_machine_interface_fat_flow_protocols_fat_flow_protocol_protocol },
+              virtual_machine_interface_fat_flow_protocols_fat_flow_protocol_port: { get_param: virtual_machine_interface_fat_flow_protocols_fat_flow_protocol_port },
+            }],
+        }
+      virtual_machine_interface_device_owner: { get_param: virtual_machine_interface_device_owner }
+      port_security_enabled: { get_param: port_security_enabled }
+      virtual_machine_interface_properties:
+        {
+          virtual_machine_interface_properties_service_interface_type: { get_param: virtual_machine_interface_properties_service_interface_type },
+          virtual_machine_interface_properties_interface_mirror:
+            {
+              virtual_machine_interface_properties_interface_mirror_traffic_direction: { get_param: virtual_machine_interface_properties_interface_mirror_traffic_direction },
+              virtual_machine_interface_properties_interface_mirror_mirror_to:
+                {
+                  virtual_machine_interface_properties_interface_mirror_mirror_to_analyzer_name: { get_param: virtual_machine_interface_properties_interface_mirror_mirror_to_analyzer_name },
+                  virtual_machine_interface_properties_interface_mirror_mirror_to_encapsulation: { get_param: virtual_machine_interface_properties_interface_mirror_mirror_to_encapsulation },
+                  virtual_machine_interface_properties_interface_mirror_mirror_to_analyzer_ip_address: { get_param: virtual_machine_interface_properties_interface_mirror_mirror_to_analyzer_ip_address },
+                  virtual_machine_interface_properties_interface_mirror_mirror_to_analyzer_mac_address: { get_param: virtual_machine_interface_properties_interface_mirror_mirror_to_analyzer_mac_address },
+                  virtual_machine_interface_properties_interface_mirror_mirror_to_routing_instance: { get_param: virtual_machine_interface_properties_interface_mirror_mirror_to_routing_instance },
+                  virtual_machine_interface_properties_interface_mirror_mirror_to_udp_port: { get_param: virtual_machine_interface_properties_interface_mirror_mirror_to_udp_port },
+                  virtual_machine_interface_properties_interface_mirror_mirror_to_juniper_header: { get_param: virtual_machine_interface_properties_interface_mirror_mirror_to_juniper_header },
+                  virtual_machine_interface_properties_interface_mirror_mirror_to_nh_mode: { get_param: virtual_machine_interface_properties_interface_mirror_mirror_to_nh_mode },
+                  virtual_machine_interface_properties_interface_mirror_mirror_to_static_nh_header:
+                    {
+                      virtual_machine_interface_properties_interface_mirror_mirror_to_static_nh_header_vtep_dst_ip_address: { get_param: virtual_machine_interface_properties_interface_mirror_mirror_to_static_nh_header_vtep_dst_ip_address },
+                      virtual_machine_interface_properties_interface_mirror_mirror_to_static_nh_header_vtep_dst_mac_address: { get_param: virtual_machine_interface_properties_interface_mirror_mirror_to_static_nh_header_vtep_dst_mac_address },
+                      virtual_machine_interface_properties_interface_mirror_mirror_to_static_nh_header_vni: { get_param: virtual_machine_interface_properties_interface_mirror_mirror_to_static_nh_header_vni },
+                    },
+                },
+            },
+          virtual_machine_interface_properties_local_preference: { get_param: virtual_machine_interface_properties_local_preference },
+          virtual_machine_interface_properties_sub_interface_vlan_tag: { get_param: virtual_machine_interface_properties_sub_interface_vlan_tag },
+        }
+      display_name: { get_param: display_name }
+      service_health_check_refs: [{ get_param: service_health_check_refs }]
+      routing_instance_refs: [{ get_param: routing_instance_refs }]
+      routing_instance_refs_data:
+        [{
+          routing_instance_refs_data_direction: { get_param: routing_instance_refs_data_direction },
+          routing_instance_refs_data_vlan_tag: { get_param: routing_instance_refs_data_vlan_tag },
+          routing_instance_refs_data_src_mac: { get_param: routing_instance_refs_data_src_mac },
+          routing_instance_refs_data_dst_mac: { get_param: routing_instance_refs_data_dst_mac },
+          routing_instance_refs_data_mpls_label: { get_param: routing_instance_refs_data_mpls_label },
+          routing_instance_refs_data_service_chain_address: { get_param: routing_instance_refs_data_service_chain_address },
+          routing_instance_refs_data_ipv6_service_chain_address: { get_param: routing_instance_refs_data_ipv6_service_chain_address },
+          routing_instance_refs_data_protocol: { get_param: routing_instance_refs_data_protocol },
+        }]
+      security_group_refs: [{ get_param: security_group_refs }]
+      physical_interface_refs: [{ get_param: physical_interface_refs }]
+      port_tuple_refs: [{ get_param: port_tuple_refs }]
+      interface_route_table_refs: [{ get_param: interface_route_table_refs }]
+      virtual_machine_interface_refs: [{ get_param: virtual_machine_interface_refs }]
+      virtual_network_refs: [{ get_param: virtual_network_refs }]
+      virtual_machine_refs: [{ get_param: virtual_machine_refs }]
+      qos_config_refs: [{ get_param: qos_config_refs }]
+      virtual_machine: { get_param: virtual_machine }
+      project: { get_param: project }
+
+
+
+Suggested Naming Convention for Common Parameters
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Many VNFs use the parameters in the table below are used in user_data.
+The table below provides a suggested naming convention for these common
+parameters.
+
+Netmask
++++++++
+
+.. csv-table:: **Table 8: Suggested Naming Convention for Common Parameters:  Netmask**
+   :header: Parameter Name,Parameter Type,Notes
+   :align: center
+   :widths: auto
+
+   {network-role}_subnet_<index>_netmask, string,
+   int_<network-role>_subnet_<index>_netmask, string,
+   {network-role}_v6_subnet_<index>_netmask , string,
+   int_{network-role}_v6_subnet_<index>_netmask, string,
+
+CIDR
+++++
+
+.. csv-table:: **Table 9: Suggested Naming Convention for Common Parameters:  CIDR**
+   :header: Parameter Name,Parameter Type,Notes
+   :align: center
+   :widths: auto
+
+   <network-role>_subnet_<index>_cidr, string,
+   int_<network-role>_subnet_<index>_cidr, string,
+   <network-role>_v6_subnet_<index>_cidr, string,
+   int_<network-role>_v6_subnet_<index>_cidr, string,
+
+Default Gateway
++++++++++++++++
+
+.. csv-table:: **Table 10: Suggested Naming Convention for Common Parameters:  Default Gateway**
+   :header: Parameter Name,Parameter Type,Notes
+   :align: center
+   :widths: auto
+
+   {network-role}_subnet_<index>_default_gateway, string,
+   {network-role}_v6_subnet_<index>_default_gateway, string,
+
+DCAE Collector IP Address
++++++++++++++++++++++++++
+
+.. csv-table:: **Table 11: Suggested Naming Convention for Common Parameters:  DCAE Collector Address**
+   :header: Parameter Name,Parameter Type,Notes
+   :align: center
+   :widths: auto
+
+   dcae_collector_ip_<index>, string,
+   dcae_collector_v6_ip_<index>, string,
+
+NTP Server IP Address
++++++++++++++++++++++
+
+.. csv-table:: **Table 12: Suggested Naming Convention for Common Parameters:  NTP Server IP Address**
+   :header: Parameter Name,Parameter Type,Notes
+   :align: center
+   :widths: auto
+
+   ntp_ip_<index>, string,
+   ntp_v6_ip_<index>, string,
+
+DNS
++++
+
+.. csv-table:: **Table 13: Suggested Naming Convention for Common Parameters:  DNS**
+   :header: Parameter Name,Parameter Type,Notes
+   :align: center
+   :widths: auto
+
+   dns_{network-role}_ip_<index>, string,
+   dns_{network-role}_v6_ip_<index>, string,
+
+Security Group
+++++++++++++++
+
+.. csv-table:: **Table 14: Suggested Naming Convention for Common Parameters:  Security Group**
+   :header: Parameter Name,Parameter Type,Notes
+   :align: center
+   :widths: auto
+
+   {vm-type}_security_group, string, Security Group applicable to one {vm-type} and more than one network (internal and/or external)
+   {network-role}_security_group, string, Security Group applicable to more than one {vm-type} and one external network
+   int_{network-role}_security_group, string, Security Group applicable to more than one {vm-type} and one internal network
+   {vm-type}_{network-role}_security_group, string, Security Group applicable to one {vm-type} and one external network
+   {vm-type}_int_{network-role}_security_group, string, Security Group applicable to one {vm-type} and one internal network
+   shared_security_group, string, Security Group applicable to more than one {vm-type} and more than one network (internal and/or external)
 
 Cinder Volume Templates
 ^^^^^^^^^^^^^^^^^^^^^^^^
