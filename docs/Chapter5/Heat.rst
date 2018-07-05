@@ -122,7 +122,7 @@ R-90279 A VNF Heat Orchestration's template's parameter **MUST**
 be used in a resource with the exception of the parameters
 for the OS::Nova::Server resource property availability_zone.
 
-R-91273 A VNF Heat Orchestration’s template’s parameter for
+R-91273 A VNF Heat Orchestration's template's parameter for
 the OS::Nova::Server resource property availability_zone
 **MAY NOT** be used in any OS::Nova::Resource.
 
@@ -141,10 +141,10 @@ alphanumeric characters and underscores ('_').
 type
 ____
 
-R-36772 A VNF’s Heat Orchestration Template’s parameter
-**MUST** include the attribute “type:”.
+R-36772 A VNF's Heat Orchestration Template's parameter
+**MUST** include the attribute "type:".
 
-R-11441 A VNF’s Heat Orchestration Template’s parameter
+R-11441 A VNF's Heat Orchestration Template's parameter
 type **MUST** be one of the following values: "string",
 "number", "json", "comma_delimited_list" or "boolean".
 
@@ -160,7 +160,7 @@ ___________
 R-44001 A VNF's Heat Orchestration Template parameter
 declaration **MUST** contain the attribute "description".
 
-Note that the parameter attribute “description:” is an
+Note that the parameter attribute "description:" is an
 OpenStack optional attribute that provides a description
 of the parameter. ONAP implementation requires this attribute.
 
@@ -173,7 +173,7 @@ declaration **MUST** not contain the default attribute.
 R-26124 If a VNF Heat Orchestration Template parameter
 requires a default value, it **MUST** be enumerated in the environment file.
 
-Note that the parameter attribute “default:” is an OpenStack
+Note that the parameter attribute "default:" is an OpenStack
 optional attribute that declares the default value of the
 parameter. ONAP implementation prohibits the use of this attribute.
 
@@ -199,16 +199,16 @@ R-88863 A VNF's Heat Orchestration Template's parameter defined as
 type "number" **MUST** have a parameter constraint of "range" or
 "allowed_values" defined.
 
-R-40518 A VNF's Heat Orchestration Template’s parameter defined as
+R-40518 A VNF's Heat Orchestration Template's parameter defined as
 type "string" **MAY** have a parameter constraint defined.
 
-R-96227 A VNF's Heat Orchestration Template’s parameter defined as
+R-96227 A VNF's Heat Orchestration Template's parameter defined as
 type "json" **MAY** have a parameter constraint defined.
 
-R-79817 A VNF's Heat Orchestration Template’s parameter defined as
+R-79817 A VNF's Heat Orchestration Template's parameter defined as
 type "comma_delimited_list" **MAY** have a parameter constraint defined.
 
-R-06613 A VNF's Heat Orchestration Template’s parameter defined as
+R-06613 A VNF's Heat Orchestration Template's parameter defined as
 type "boolean" **MAY** have a parameter constraint defined.
 
 R-00011 A VNF's Heat Orchestration Template's Nested YAML files
@@ -218,7 +218,7 @@ The constraints block of a parameter definition defines additional
 validation constraints that apply to the value of the parameter.
 The parameter values provided in the VNF Heat Orchestration Template
 are validated against the constraints at instantiation time.
-The stack creation fails if the parameter value doesn’t comply to
+The stack creation fails if the parameter value doesn't comply to
 the constraints.
 
 The constraints are defined as a list with the following syntax
@@ -291,7 +291,7 @@ list. The syntax of the allowed_values constraint is
 immutable
 _________
 
-R-22589 A VNF’s Heat Orchestration Template parameter declaration
+R-22589 A VNF's Heat Orchestration Template parameter declaration
 **MAY** contain the attribute "immutable:".
 
 The parameter attribute \"immutable:\" is an OpenStack optional
@@ -370,10 +370,10 @@ OS::Nova::Server or OS::Neutron::Port.
 The resource attribute \"type:\" may specify a VNF HEAT
 Orchestration Template Nested YAML file.
 
-R-53952 A VNF’s Heat Orchestration Template’s Resource
+R-53952 A VNF's Heat Orchestration Template's Resource
 **MUST NOT** reference a HTTP-based resource definitions.
 
-R-71699 A VNF’s Heat Orchestration Template’s Resource
+R-71699 A VNF's Heat Orchestration Template's Resource
 **MUST NOT** reference a HTTP-based Nested YAML file.
 
 properties
@@ -407,20 +407,20 @@ attribute.
 See `OpenStack documentation <https://docs.openstack.org/developer/heat/template_guide/hot_spec.html#hot-spec-resources-dependencies>`__
 for additional details.
 
-R-46968 VNF’s Heat Orchestration Template’s Resource **MAY**
-declare the attribute “depends_on:”.
+R-46968 VNF's Heat Orchestration Template's Resource **MAY**
+declare the attribute "depends_on:".
 
 update_policy
 _____________
 
-R-63137 VNF’s Heat Orchestration Template’s Resource **MAY**
-declare the attribute “update_policy:”.
+R-63137 VNF's Heat Orchestration Template's Resource **MAY**
+declare the attribute "update_policy:".
 
 deletion_policy
 _______________
 
-R-43740 A VNF’s Heat Orchestration Template’s Resource
-**MAY** declare the attribute “deletion_policy:”.
+R-43740 A VNF's Heat Orchestration Template's Resource
+**MAY** declare the attribute "deletion_policy:".
 
 If specified, the \"deletion_policy:\" attribute for resources
 allows values 'Delete', 'Retain', and 'Snapshot'.
@@ -433,8 +433,8 @@ deleting a resource from the stack.
 external_id
 ___________
 
-R-78569 A VNF’s Heat Orchestration Template’s Resouce **MAY**
-declare the attribute “external_id:”.
+R-78569 A VNF's Heat Orchestration Template's Resouce **MAY**
+declare the attribute "external_id:".
 
 This attribute allows for specifying the resource_id for an
 existing external (to the stack) resource. External resources
@@ -443,7 +443,7 @@ depend on external resource. This attribute is optional.
 Note: when this is specified, properties will not be used for
 building the resource and the resource is not managed by Heat.
 This is not possible to update that attribute. Also,
-resource won’t be deleted by heat when stack is deleted.
+resource won't be deleted by heat when stack is deleted.
 
 
 condition
@@ -457,8 +457,8 @@ in the Newton release of OpenStack.
 outputs
 +++++++
 
-R-36982 A VNF’s Heat Orchestration template **MAY**
-contain the “outputs:” section.
+R-36982 A VNF's Heat Orchestration template **MAY**
+contain the "outputs:" section.
 
 This section allows for specifying output parameters
 available to users once the template has been instantiated. If the
@@ -482,38 +482,38 @@ R-03324 The VNF Heat Orchestration Template **MUST** contain the
 "parameters" section in the
 environment file
 
-R-68198 A VNF’s Heat Orchestration template’s Environment File’s
-“parameters:” section **MAY** enumerate parameters.
+R-68198 A VNF's Heat Orchestration template's Environment File's
+"parameters:" section **MAY** enumerate parameters.
 
 ONAP implementation requires the parameters section in the
 environmental file to be declared. The parameters section
 contains a list of key/value pairs.
 
-R-59930 A VNF’s Heat Orchestration template’s Environment
-File’s **MAY** contain the “parameter_defaults:” section.
+R-59930 A VNF's Heat Orchestration template's Environment
+File's **MAY** contain the "parameter_defaults:" section.
 
-The “parameter_defaults:” section contains default parameters
+The "parameter_defaults:" section contains default parameters
 that are passed to all template resources.
 
-R-46096 A VNF’s Heat Orchestration template’s Environment File’s
-**MAY** contain the “encrypted_parameters:” section.
+R-46096 A VNF's Heat Orchestration template's Environment File's
+**MAY** contain the "encrypted_parameters:" section.
 
-The “encrypted_parameters:” section contains a list of encrypted parameters.
+The "encrypted_parameters:" section contains a list of encrypted parameters.
 
-R-24893 A VNF’s Heat Orchestration template’s Environment File’s
-**MAY** contain the “event_sinks:” section.
+R-24893 A VNF's Heat Orchestration template's Environment File's
+**MAY** contain the "event_sinks:" section.
 
-The “event_sinks:” section contains the list of endpoints that would
+The "event_sinks:" section contains the list of endpoints that would
 receive stack events.
 
-R-42685 A VNF’s Heat Orchestration template’s Environment File’s
-**MAY** contain the “parameter_merge_strategies:” section.
+R-42685 A VNF's Heat Orchestration template's Environment File's
+**MAY** contain the "parameter_merge_strategies:" section.
 
-The “parameter_merge_strategies:” section provides the merge strategies
+The "parameter_merge_strategies:" section provides the merge strategies
 for merging parameters and parameter defaults from the environment file.
 
-R-67231 A VNF’s Heat Orchestration template’s Environment File’s **MUST NOT**
-contain the “resource_registry:” section.
+R-67231 A VNF's Heat Orchestration template's Environment File's **MUST NOT**
+contain the "resource_registry:" section.
 
 ONAP implementation does not support the Environment File
 resource_registry section. The resource_registry section
@@ -550,11 +550,12 @@ R-69663 A VNF **MAY** be composed from one or more Heat Orchestration
 Templates, each of which represents a subset of the overall VNF.
 
 The Heat Orchestration Templates can be thought of a components or
-modules of the VNF and are referred to as “\ *VNF Modules*\ ”.
+modules of the VNF and are referred to as "\ *VNF Modules*\ ".
 During orchestration, these modules are
 deployed incrementally to create the complete VNF.
 
-R-33132 A VNF’s Heat Orchestration Template **MAY** be
+R-33132 A VNF's Heat Orchestration Template **MAY** be
+
    * a Base Module Heat Orchestration Template
      (also referred to as a Base Module)
    * an Incremental Module Heat Orchestration Template
@@ -562,34 +563,34 @@ R-33132 A VNF’s Heat Orchestration Template **MAY** be
    * a Cinder Volume Module Heat Orchestration Template
      (referred to as Cinder Volume Module).
 
-R-37028 The VNF **MUST** be composed of one “base” module.
+R-37028 The VNF **MUST** be composed of one "base" module.
 
 R-13196 A VNF **MAY** be composed of zero to many Incremental Modules
 
 R-20974 The VNF **MUST** deploy the base module first, prior to
 the incremental modules.
 
-R-28980 A VNF’s incremental module **MAY** be used for initial VNF
+R-28980 A VNF's incremental module **MAY** be used for initial VNF
 deployment only.
 
-R-86926 A VNF’s incremental module **MAY** be used for scale out only.
+R-86926 A VNF's incremental module **MAY** be used for scale out only.
 
-A VNF’s Incremental Module that is used for scale out is deployed
+A VNF's Incremental Module that is used for scale out is deployed
 sometime after initial VNF deployment to add capacity.
 
-R-91497 A VNF’s incremental module **MAY** be used for both deployment
+R-91497 A VNF's incremental module **MAY** be used for both deployment
 and scale out.
 
-R-68122 A VNF’s incremental module **MAY** be deployed more than once,
+R-68122 A VNF's incremental module **MAY** be deployed more than once,
 either during initial VNF deployment and/or scale out.
 
-R-46119 A VNF’s Heat Orchestration Template’s Resource OS::Heat::CinderVolume
+R-46119 A VNF's Heat Orchestration Template's Resource OS::Heat::CinderVolume
 **MAY** be defined in a Base Module.
 
-R-90748 A VNF’s Heat Orchestration Template’s Resource OS::Cinder::Volume
+R-90748 A VNF's Heat Orchestration Template's Resource OS::Heat::CinderVolume
 **MAY** be defined in an Incremental Module.
 
-R-03251 A VNF’s Heat Orchestration Template’s Resource OS::Cinder::Volume
+R-03251 A VNF's Heat Orchestration Template's Resource OS::Heat::CinderVolume
 **MAY** be defined in a Cinder Volume Module.
 
 ONAP also supports the concept of an optional, independently deployed Cinder
@@ -599,7 +600,7 @@ Volume Module. This allows the volume to persist after a Virtual Machine
 on another instance (e.g., during a failover activity).
 
 R-11200 The VNF **MUST** keep the scope of a Cinder volume module, when it
-exists, to be 1:1 with the VNF Base Module or Incremental Module
+exists, to be 1:1 with the VNF Base Module or Incremental Module.
 
 It is strongly recommended that Cinder Volumes be created in a Cinder Volume
 Module.
@@ -623,11 +624,11 @@ Nested Heat Orchestration Templates Overview
 ONAP supports nested Heat Orchestration Templates per OpenStack
 specifications.
 
-R-36582 A VNF’s Base Module **MAY** utilize nested heat.
+R-36582 A VNF's Base Module **MAY** utilize nested heat.
 
-R-56721 A VNF’s Incremental Module **MAY** utilize nested heat.
+R-56721 A VNF's Incremental Module **MAY** utilize nested heat.
 
-R-30395 A VNF’s Cinder Volume Module **MAY** utilize nested heat.
+R-30395 A VNF's Cinder Volume Module **MAY** utilize nested heat.
 
 Nested templates may be suitable for larger VNFs that contain many
 repeated instances of the same VM type(s). A common usage pattern is to
@@ -646,16 +647,16 @@ files, the following Heat file naming convention must be utilized.
 
 In the examples below, <text> represents any alphanumeric string that
 must not contain any special characters and must not contain the word
-“base”.
+"base".
 
-R-87485 A VNF’s Heat Orchestration Template’s file extension **MUST**
-be in the lower case format ‘.yaml’ or ‘.yml’.
+R-87485 A VNF's Heat Orchestration Template's file extension **MUST**
+be in the lower case format '.yaml' or '.yml'.
 
-R-56438 A VNF’s Heat Orchestration Template’s Nested YAML file extension
-**MUST** be in the lower case format ‘.yaml’ or ‘.yml’.
+R-56438 A VNF's Heat Orchestration Template's Nested YAML file extension
+**MUST** be in the lower case format '.yaml' or '.yml'.
 
-R-74304 A VNF’s Heat Orchestration Template’s Environment file extension
-**MUST** be in the lower case format ‘.env’.
+R-74304 A VNF's Heat Orchestration Template's Environment file extension
+**MUST** be in the lower case format '.env'.
 
 R-99646 A VNF's YAML files (i.e, Heat Orchestration Template files and
 Nested files) **MUST** have a unique name in the scope of the VNF.
@@ -664,32 +665,34 @@ Nested files) **MUST** have a unique name in the scope of the VNF.
 Base Modules
 ++++++++++++
 
-R-81339 A VNF Heat Orchestration Template’s Base Module file name **MUST**
-include ‘base’ in the filename and **MUST** match one of the following four
+R-81339 A VNF Heat Orchestration Template's Base Module file name **MUST**
+include 'base' in the filename and **MUST** match one of the following four
 formats:
-   * ‘base_<text>.y[a]ml’
-   * ‘<text>_base.y[a]ml’
-   * ‘base.y[a]ml’
-   * ‘<text>_base_<text>’.y[a]ml
-where ‘base’ is case insensitive and where ‘<text>’
-**MUST** contain only alphanumeric characters
-and underscores ‘_’ and **MUST NOT** contain the case
-insensitive word ‘base’.
 
-R-91342  A VNF Heat Orchestration Template’s Base Module’s Environment File
-**MUST** be named identical to the VNF Heat Orchestration Template’s Base
-Module with ‘.y[a]ml’ replaced with ‘.env’.
+   * 'base_<text>.y[a]ml'
+   * '<text>_base.y[a]ml'
+   * 'base.y[a]ml'
+   * '<text>_base_<text>'.y[a]ml
+
+where 'base' is case insensitive and where '<text>'
+**MUST** contain only alphanumeric characters
+and underscores '_' and **MUST NOT** contain the case
+insensitive word 'base'.
+
+R-91342  A VNF Heat Orchestration Template's Base Module's Environment File
+**MUST** be named identical to the VNF Heat Orchestration Template's Base
+Module with '.y[a]ml' replaced with '.env'.
 
 Incremental Modules
 +++++++++++++++++++
 
-R-87247 A VNF Heat Orchestration Template’s Incremental Module file name
-**MUST** contain only alphanumeric characters and underscores ‘_’ and
-**MUST NOT** contain the case insensitive word ‘base’.
+R-87247 A VNF Heat Orchestration Template's Incremental Module file name
+**MUST** contain only alphanumeric characters and underscores '_' and
+**MUST NOT** contain the case insensitive word 'base'.
 
-R-94509 A VNF Heat Orchestration Template’s Incremental Module’s Environment
-File **MUST** be named identical to the VNF Heat Orchestration Template’s
-Incremental Module with ‘.y[a]ml’ replaced with ‘.env’.
+R-94509 A VNF Heat Orchestration Template's Incremental Module's Environment
+File **MUST** be named identical to the VNF Heat Orchestration Template's
+Incremental Module with '.y[a]ml' replaced with '.env'.
 
 To clearly identify the incremental module, it is recommended to use the
 following naming options for modules:
@@ -705,20 +708,20 @@ following naming options for modules:
 Cinder Volume Modules
 +++++++++++++++++++++
 
-R-82732 A VNF Heat Orchestration Template’s Cinder Volume Module **MUST** be
+R-82732 A VNF Heat Orchestration Template's Cinder Volume Module **MUST** be
 named identical to the base or incremental module it is supporting with
-‘_volume appended’
+'_volume appended'
 
-R-31141 A VNF Heat Orchestration Template’s Cinder Volume Module’s Environment
-File **MUST** be named identical to the VNF Heat Orchestration Template’s
-Cinder Volume Module with .y[a]ml replaced with ‘.env’.
+R-31141 A VNF Heat Orchestration Template's Cinder Volume Module's Environment
+File **MUST** be named identical to the VNF Heat Orchestration Template's
+Cinder Volume Module with .y[a]ml replaced with '.env'.
 
 Nested Heat file
 ++++++++++++++++
 
-R-76057 A VNF Heat Orchestration Template’s Nested YAML file name **MUST**
-contain only alphanumeric characters and underscores ‘_’ and **MUST NOT**
-contain the case insensitive word ‘base’.
+R-76057 A VNF Heat Orchestration Template's Nested YAML file name **MUST**
+contain only alphanumeric characters and underscores '_' and **MUST NOT**
+contain the case insensitive word 'base'.
 
 R-70276 A VNF HEAT's Orchestration Nested Template's YAML file
 name **MUST NOT** be in the format '{vm-type}.y[a]ml' where
@@ -764,20 +767,20 @@ A Base Module Output Parameter may be used as an input parameter in any
 incremental module in the VNF.  Note that the parameter is not
 available to other VNFs.
 
-R-52753 VNF’s Heat Orchestration Template’s Base Module’s output parameter’s
-name and type **MUST** match the VNF’s Heat Orchestration Template’s
-incremental Module’s name and type unless the output parameter is of type
-‘comma_delimited_list’, then the corresponding input parameter **MUST**
-be declared as type ‘json’.
+R-52753 VNF's Heat Orchestration Template's Base Module's output parameter's
+name and type **MUST** match the VNF's Heat Orchestration Template's
+incremental Module's name and type unless the output parameter is of type
+'comma_delimited_list', then the corresponding input parameter **MUST**
+be declared as type 'json'.
 
 If the Output parameter has a comma_delimited_list value (e.g., a collection
 of UUIDs from a Resource Group), then the corresponding input parameter
 must be declared as type json and not a comma_delimited_list, which is
 actually a string value with embedded commas.
 
-R-22608 When a VNF’s Heat Orchestration Template’s Base Module’s output
+R-22608 When a VNF's Heat Orchestration Template's Base Module's output
 parameter is declared as an input parameter in an Incremental Module,
-the parameter attribute ‘constraints:’ **MUST NOT** be declared.
+the parameter attribute 'constraints:' **MUST NOT** be declared.
 
 Additional details on ONAP Base Module Output Parameters are provided in
 `ONAP Output Parameter Names`_ and ONAP VNF Modularity.
@@ -785,23 +788,23 @@ Additional details on ONAP Base Module Output Parameters are provided in
 ONAP Volume Module Output Parameters
 ++++++++++++++++++++++++++++++++++++
 
-R-89913 A VNF’s Heat Orchestration Template’s Cinder Volume Module Output
+R-89913 A VNF's Heat Orchestration Template's Cinder Volume Module Output
 Parameter(s) **MUST** include the UUID(s) of the Cinder Volumes created in
 template, while other Output Parameters **MAY** be included.
 
-A VNF’s Heat Orchestration Template’s Cinder Volume Module Output Parameter(s)
+A VNF's Heat Orchestration Template's Cinder Volume Module Output Parameter(s)
 are only available for the module (base or incremental) that the volume
 template is associated with.
 
-R-07443 A VNF’s Heat Orchestration Templates’ Cinder Volume Module Output
-Parameter’s name and type **MUST** match the input parameter name and type
+R-07443 A VNF's Heat Orchestration Templates' Cinder Volume Module Output
+Parameter's name and type **MUST** match the input parameter name and type
 in the corresponding Base Module or Incremental Module unless the Output
-Parameter is of the type ‘comma_delimited_list’, then the corresponding input
-parameter **MUST** be declared as type ‘json’.
+Parameter is of the type 'comma\_delimited\_list', then the corresponding input
+parameter **MUST** be declared as type 'json'.
 
 If the Output parameter has a comma_delimited_list value (e.g., a collection
 of UUIDs from a Resource Group), then the corresponding input parameter must
-be declared as type json and not a comma_delimited_list, which is actually a
+be declared as type json and not a comma\_delimited\_list, which is actually a
 string value with embedded commas.
 
 R-20547 When an ONAP Volume Module Output Parameter is declared as an input
@@ -826,7 +829,7 @@ ONAP does not support the use of heat stack-update command for scaling
 (growth/de-growth).
 
 R-39349 A VNF Heat Orchestration Template **MUST NOT** be designed to
-utilize the OpenStack ‘heat stack-update’ command for scaling
+utilize the OpenStack 'heat stack-update' command for scaling
 (growth/de-growth).
 
 R-43413 A VNF **MUST** utilize a modular Heat Orchestration Template
@@ -835,13 +838,13 @@ design to support scaling (growth/de-growth).
 Scope of a Heat Orchestration Template
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-R-59482 A VNF’s Heat Orchestration Template **MUST NOT** be VNF instance
+R-59482 A VNF's Heat Orchestration Template **MUST NOT** be VNF instance
 specific or Cloud site specific
 
 ONAP provides the instance specific parameter values to the Heat
 Orchestration Template at orchestration time.
 
-R-01896 A VNF’s Heat Orchestration Template’s parameter values that are
+R-01896 A VNF's Heat Orchestration Template's parameter values that are
 constant across all deployments **MUST** be declared in a Heat Orchestration
 Template Environment File.
 
@@ -855,12 +858,12 @@ External Networks
 
 ONAP defines an external network in relation to the VNF and not with regard
 to the Network Cloud site. External networks may also be referred to as
-“inter-VNF” networks.  An external network must connect VMs in a VNF to
+"inter-VNF" networks.  An external network must connect VMs in a VNF to
 VMs in another VNF or an external gateway or external router.
 
 An External Network may be a Neutron Network or a Contrail Network.
 
-R-16968 A VNF’s Heat Orchestration Templates **MUST NOT** include heat
+R-16968 A VNF's Heat Orchestration Templates **MUST NOT** include heat
 resources to create external networks.
 
 External networks must be orchestrated separately, independent of the VNF.
@@ -881,15 +884,15 @@ referred to as the '{network-role}' **MUST** be assigned to the
 external network for use in the VNF's Heat Orchestration Template.
 
 R-69014 When a VNF connects to an external network, a network role, referred
-to as the ‘{network-role}’ **MUST** be assigned to the external network
-for use in the VNF’s Heat Orchestration Template.
+to as the '{network-role}' **MUST** be assigned to the external network
+for use in the VNF's Heat Orchestration Template.
 
 R-05201 When a VNF connects to two or more external networks, each external
-network **MUST** be assigned a unique ‘{network-role}’ in the context of
-the VNF for use in the VNF’s Heat Orchestration Template.
+network **MUST** be assigned a unique '{network-role}' in the context of
+the VNF for use in the VNF's Heat Orchestration Template.
 
-R-83015 A VNF’s ‘{network-role}’ assigned to an external network **MUST**
-be different than the ‘{network-role}’ assigned to the VNF’s internal
+R-83015 A VNF's '{network-role}' assigned to an external network **MUST**
+be different than the '{network-role}' assigned to the VNF's internal
 networks, if internal networks exist.
 
 R-99794 An external network **MUST** have one subnet.  An external network
@@ -929,7 +932,7 @@ Internal Networks
 
 ONAP defines an internal network in relation to the VNF and not with
 regard to the Network Cloud site. Internal networks may also be referred
-to as “intra-VNF” networks or “private” networks. An internal network
+to as "intra-VNF" networks or "private" networks. An internal network
 only connects VMs in a single VNF; it must not connect to other VNFs
 or an external gateway or router
 
@@ -938,44 +941,44 @@ R-87096 A VNF **MAY** contain zero, one or more than one internal networks.
 R-35666 If a VNF has an internal network, the VNF Heat Orchestration
 Template **MUST** include the heat resources to create the internal network.
 
-R-86972 A VNF **SHOULD** create the internal network in the VNF’s Heat
+R-86972 A VNF **SHOULD** create the internal network in the VNF's Heat
 Orchestration Template Base Module.
 
 An Internal Network may be created using Neutron Heat Resources and/or
 Contrail Heat Resources.
 
-R-52425 A VNF’s port connected to an internal network **MUST** connect
+R-52425 A VNF's port connected to an internal network **MUST** connect
 the port to VMs in the same VNF.
 
-R-46461 A VNF’s port connected to an internal network **MUST NOT** connect
+R-46461 A VNF's port connected to an internal network **MUST NOT** connect
 the port to VMs in another VNF and/or an external gateway and/or
 external router.
 
 R-68936 When a VNF creates an internal network, a network role, referred to
-as the ‘{network-role}’ **MUST** be assigned to the internal network for
-use in the VNF’s Heat Orchestration Template.
+as the '{network-role}' **MUST** be assigned to the internal network for
+use in the VNF's Heat Orchestration Template.
 
 R-32025 When a VNF creates two or more internal networks, each internal
-network **MUST** be assigned a unique ‘{network-role}’ in the context of
-the VNF for use in the VNF’s Heat Orchestration Template.
+network **MUST** be assigned a unique '{network-role}' in the context of
+the VNF for use in the VNF's Heat Orchestration Template.
 
-R-69874 A VNF’s ‘{network-role}’ assigned to an internal network **MUST**
-be different than the ‘{network-role}’ assigned to the VNF’s external
+R-69874 A VNF's '{network-role}' assigned to an internal network **MUST**
+be different than the '{network-role}' assigned to the VNF's external
 networks.
 
 R-16241 A VNF's internal network **MUST** have one subnet.
 A VNF's internal network **MAY** have more than one subnet.
 
-R-34726 If a VNF’s port is connected to an internal network and the port
+R-34726 If a VNF's port is connected to an internal network and the port
 is created in the same Heat Orchestration Template as the internal network,
-then the port resource **MUST** use a ‘get_resource’ to obtain
+then the port resource **MUST** use a 'get_resource' to obtain
 the network UUID.
 
-R-22688  If a VNF’s port is connected to an internal network and the
+R-22688  If a VNF's port is connected to an internal network and the
 port is created in an Incremental Module and the internal network is created
 in the Base Module then the UUID of the internal network **MUST** be exposed
-as a parameter in the ‘outputs:’ section of the Base Module and the port
-resource **MUST** use a ‘get_param’ to obtain the network UUID.
+as a parameter in the 'outputs:' section of the Base Module and the port
+resource **MUST** use a 'get_param' to obtain the network UUID.
 
 ONAP does not programmatically enforce a naming convention for
 parameters for internal network. However, a naming convention is
@@ -1028,13 +1031,13 @@ exceptions:
      be prefixed with a common '{vm-type}' identifier.
 
 
-R-66729 A VNF’s Heat Orchestration Template’s Resource that is
+R-66729 A VNF's Heat Orchestration Template's Resource that is
 associated with a unique Virtual Machine type **MUST** include
-‘{vm-type}’ as part of the resource ID.
+'{vm-type}' as part of the resource ID.
 
 R-98407 A VNF's Heat Orchestration Template's '{vm-type}' **MUST** contain
 only alphanumeric characters and/or underscores '_' and
-**MUST NOT** contain any of the following strings: '_int' or 'int\_'
+**MUST NOT** contain any of the following strings: '\_int' or 'int\_'
 or '\_int\_'.
 
 R-48067 A VNF's Heat Orchestration Template's {vm-type} **MUST NOT** be a
@@ -1043,24 +1046,24 @@ substring of {network-role}.
 It may cause the VNF Validation Program validation-scripts project
 to produce erroneous error messages.
 
-R-32394 A VNF’s Heat Orchestration Template’s use of ‘{vm-type}’
+R-32394 A VNF's Heat Orchestration Template's use of '{vm-type}'
 in all Resource property parameter names **MUST** be the same case.
 
-R-46839 A VNF’s Heat Orchestration Template’s use of
-‘{vm-type}’ in all Resource IDs **MUST** be the same case.
+R-46839 A VNF's Heat Orchestration Template's use of
+'{vm-type}' in all Resource IDs **MUST** be the same case.
 
-R-36687 A VNF’s Heat Orchestration Template’s ‘{vm-type}’ case in
+R-36687 A VNF's Heat Orchestration Template's '{vm-type}' case in
 Resource property parameter names **SHOULD** match the case of
-‘{vm-type}’ in Resource IDs and vice versa.
+'{vm-type}' in Resource IDs and vice versa.
 
 {network-role}
 ~~~~~~~~~~~~~~
 
 The assignment of a {network-role} is discussed in `Networking`_.
 
-R-21330 A VNF’s Heat Orchestration Template’s Resource property
+R-21330 A VNF's Heat Orchestration Template's Resource property
 parameter that is associated with external network **MUST**
-include the ‘{network-role}’’ as part of the parameter name
+include the '{network-role}' as part of the parameter name
 
 R-11168 A VNF's Heat Orchestration Template's Resource ID that is
 associated with an external network **MUST** include the
@@ -1079,32 +1082,32 @@ associated with an internal network **MUST** include
 R-26506 A VNF's Heat Orchestration Template's '{network-role}'
 **MUST** contain only alphanumeric characters and/or
 underscores '_' and **MUST NOT** contain any of the following
-strings: '_int' or 'int\_' or '\_int\_'.
+strings: '\_int' or 'int\_' or '\_int\_'.
 
-R-00977 A VNF’s Heat Orchestration Template’s ‘{network-role}’
-**MUST NOT** be a substring of ‘{vm-type}’.
+R-00977 A VNF's Heat Orchestration Template's '{network-role}'
+**MUST NOT** be a substring of '{vm-type}'.
 
-For example, if a VNF has a ‘{vm-type}’ of ‘oam’ and a
-‘{network-role}’ of ‘oam_protected’ would be a violation of the requirement.
+For example, if a VNF has a '{vm-type}' of 'oam' and a
+'{network-role}' of 'oam\_protected' would be a violation of the requirement.
 
-R-58424 A VNF’s Heat Orchestration Template’s use of ‘{network-role}’
+R-58424 A VNF's Heat Orchestration Template's use of '{network-role}'
 in all Resource property parameter names **MUST** be the same case
 
-R-21511 A VNF’s Heat Orchestration Template’s use of ‘{network-role}’
+R-21511 A VNF's Heat Orchestration Template's use of '{network-role}'
 in all Resource IDs **MUST** be the same case.
 
-R-86588 A VNF’s Heat Orchestration Template’s ‘{network-role}’ case
+R-86588 A VNF's Heat Orchestration Template's '{network-role}' case
 in Resource property parameter names **SHOULD** match the case
-of ‘{network-role}’ in Resource IDs and vice versa.
+of '{network-role}' in Resource IDs and vice versa.
 
 Resource IDs
 ~~~~~~~~~~~~
 
-Requirement R-75141 states a VNF’s Heat Orchestration Template’s
+Requirement R-75141 states a VNF's Heat Orchestration Template's
 resource name (i.e., <resource ID>) MUST only contain alphanumeric
-characters and underscores (‘_’).*
+characters and underscores ('_').*
 
-Requirement R-16447 states a VNF’s <resource ID> MUST be unique
+Requirement R-16447 states a VNF's <resource ID> MUST be unique
 across all Heat Orchestration Templates and all HEAT Orchestration
 Template Nested YAML files that are used to create the VNF.
 
@@ -1114,16 +1117,16 @@ Orchestration Templates the compose the VNF.
 
 Heat Orchestration Template resources are described in `resources`_
 
-R-54517 When a VNF’s Heat Orchestration Template’s resource is associated
-with a single ‘{vm-type}’, the Resource ID **MUST** contain the ‘{vm-type}’.
+R-54517 When a VNF's Heat Orchestration Template's resource is associated
+with a single '{vm-type}', the Resource ID **MUST** contain the '{vm-type}'.
 
-R-96482 When a VNF’s Heat Orchestration Template’s resource is associated
+R-96482 When a VNF's Heat Orchestration Template's resource is associated
 with a single external network, the Resource ID MUST contain the text
-‘{network-role}’.
+'{network-role}'.
 
-R-98138 When a VNF’s Heat Orchestration Template’s resource is associated
+R-98138 When a VNF's Heat Orchestration Template's resource is associated
 with a single internal network, the Resource ID MUST contain the text
-‘int\_{network-role}’.
+'int\_{network-role}'.
 
 R-82115 When a VNF's Heat Orchestration Template's resource is associated
 with a single '{vm-type}' and a single external network, the Resource
@@ -1132,11 +1135,15 @@ ID text **MUST** contain both the '{vm-type}' and the '{network-role}'
 - the '{vm-type}' **MUST** appear before the '{network-role}' and **MUST**
   be separated by an underscore '_'
 
-   - e.g., '{vm-type}_{network-role}', '{vm-type}_{index}_{network-role}'
+   - e.g., '{vm-type}\_{network-role}', '{vm-type}\_{index}\_{network-role}'
 
 - note that an '{index}' value **MAY** separate the '{vm-type}' and the
   '{network-role}' and when this occurs underscores **MUST** separate the
   three values.
+
+Note that an '{index}' value may separate the '{vm-type}' and the
+'{network-role}'. An underscore must separate the three values
+(e.g., {vm-type}_{index}_{network-role}).
 
 R-82551 When a VNF's Heat Orchestration Template's resource is associated
 with a single '{vm-type}' and a single internal network, the Resource ID
@@ -1152,19 +1159,23 @@ with a single '{vm-type}' and a single internal network, the Resource ID
   'int\_{network-role}' and when this occurs underscores **MUST** separate
   the three values.
 
-R-67793 When a VNF’s Heat Orchestration Template’s resource is associated
-with more than one ‘{vm-type}’ and/or more than one internal and/or
-external network, the Resource ID **MUST NOT** contain the ‘{vm-type}’
-and/or ‘{network-role}’/’int\_{network-role}’. It also should contain the
-term ‘shared’ and/or contain text that identifies the VNF
+Note that an '{index}' value may separate the '{vm-type}' and the
+'int_{network-role}'. An underscore will separate the three values
+(e.g., {vm-type}_{index}_int_{network-role}).
 
-R-27970 When a VNF’s Heat Orchestration Template’s resource is associated
-with more than one ‘{vm-type}’ and/or more than one internal and/or
-external network, the Resource ID **MAY** contain the term ‘shared’
+R-67793 When a VNF's Heat Orchestration Template's resource is associated
+with more than one '{vm-type}' and/or more than one internal and/or
+external network, the Resource ID **MUST NOT** contain the '{vm-type}'
+and/or '{network-role}'/'int\_{network-role}'. It also should contain the
+term 'shared' and/or contain text that identifies the VNF.
+
+R-27970 When a VNF's Heat Orchestration Template's resource is associated
+with more than one '{vm-type}' and/or more than one internal and/or
+external network, the Resource ID **MAY** contain the term 'shared'
 and/or **MAY** contain text that identifies the VNF.
 
-R-11690 When a VNF’s Heat Orchestration Template’s Resource ID contains
-an {index} value (e.g. multiple VMs of same {vm-type}), the ‘{index}’
+R-11690 When a VNF's Heat Orchestration Template's Resource ID contains
+an {index} value (e.g. multiple VMs of same {vm-type}), the '{index}'
 **MUST** start at zero and increment by one.
 
 OpenStack Heat Resources Resource ID Naming Convention
@@ -1179,8 +1190,11 @@ __________________
 
 R-87004 A VNF's Heat Orchestration Template's Resource
 OS::Cinder::Volume Resource ID **SHOULD** use the naming convention
-   * {vm-type}_volume_{index}
+
+   * {vm-type}\_volume\_{index}
+
 where
+
    * {vm-type} is the vm-type
    * {index} starts at zero and increments by one
 
@@ -1189,8 +1203,11 @@ ____________________________
 
 R-86497 A VNF's Heat Orchestration Template's Resource
 OS::Cinder::VolumeAttachment Resource ID **SHOULD** use the naming convention
-   * {vm-type}_volume_attachment_{index}
+
+   * {vm-type}\_volume\_attachment_{index}
+
 where
+
    * {vm-type} is the vm-type
    * {index} starts at zero and increments by one
 
@@ -1202,8 +1219,11 @@ R-04747 A VNF's Heat Orchestration Template's Resource
 
 R-20319 A VNF's Heat Orchestration Template's Resource 'OS::Heat::CloudConfig'
 Resource ID **MAY** use the naming convention
-   * {vm-type}_RCC
+
+   * {vm-type}\_RCC
+
 where
+
    * {vm-type} is the vm-type
    * 'RCC' signifies that it is the Resource Cloud Config
 
@@ -1215,8 +1235,11 @@ R-30804 A VNF's Heat Orchestration Template's Resource
 
 R-18202 A VNF's Heat Orchestration Template's Resource
 'OS::Heat::MultipartMime' Resource ID **MAY** use the naming convention
-   * {vm-type}_RMM
+
+   * {vm-type}\_RMM
+
 where
+
    * {vm-type} is the vm-type
    * 'RMM' signifies that it is the Resource Multipart Mime
 
@@ -1229,8 +1252,12 @@ that is is creating sub-interfaces.
 R-64197 A VNF's Heat Orchestration Template's Resource
 OS::Heat::ResourceGroup Resource ID that creates sub-interfaces **MUST**
 use the naming convention
-   * {vm-type}_{vm-type_index}_subint_{network-role}_port_{port-index}_subinterfaces
+
+   * {vm-type}\_{vm-type_index}\_subint_{network-role}\_port_\
+     {port-index}\_subinterfaces
+
 where
+
    * {vm-type} is the vm-type
    * {vm-type_index} is the instance of the {vm-type}
    * {network-role} is the network-role of the networks
@@ -1246,8 +1273,11 @@ R-08975 A VNF's Heat Orchestration Template's Resource
 
 R-03656 A VNF's Heat Orchestration Template's Resource
 'OS::Heat::SoftwareConfig' Resource ID **MAY** use the naming convention
-   * {vm-type}_RSC
+
+   * {vm-type}\_RSC
+
 where
+
    * {vm-type} is the vm-type
    * 'RSC' signifies that it is the Resource Software Config
 
@@ -1256,7 +1286,8 @@ ________________
 
 R-25720 A VNF's Heat Orchestration Template's Resource
 OS::Neutron::Net Resource ID **MUST** use the naming convention
-   * int_{network-role}_network
+
+   * int\_{network-role}\_network
 
 VNF Heat Orchestration Templates can only create internal networks.
 There is no {index} after {network-role} because {network-role}
@@ -1269,8 +1300,11 @@ _________________
 R-20453 A VNF's Heat Orchestration Template's Resource
 OS::Neutron::Port that is attaching to an external network Resource ID
 **MUST** use the naming convention
-   * {vm-type}_{vm-type_index}_{network-role}_port_{port-index}
+
+   * {vm-type}\_{vm-type_index}\_{network-role}\_port\_{port-index}
+
 where
+
    * {vm-type} is the vm-type
    * {vm-type_index} is the instance of the {vm-type}
    * {network-role} is the network-role of the network
@@ -1281,8 +1315,11 @@ where
 R-26351 A VNF's Heat Orchestration Template's Resource
 OS::Neutron::Port that is attaching to an internal network Resource ID
 **MUST** use the naming convention
-   * {vm-type}_{vm-type_index}_int_{network-role}_port_{port-index}
+
+   * {vm-type}\_{vm-type_index}\_int\_{network-role}\_port\_{port-index}
+
 where
+
    * {vm-type} is the vm-type
    * {vm-type_index} is the instance of the {vm-type}
    * {network-role} is the network-role of the network
@@ -1293,8 +1330,11 @@ where
 R-27469 A VNF's Heat Orchestration Template's Resource
 OS::Neutron::Port that is creating a *Reserve Port* with an IPv4 address
 Resource ID **MUST** use the naming convention
-   * reserve_port_{vm-type}_{network-role}_floating_ip_{index}
+
+   * reserve\_port\_{vm-type}\_{network-role}\_floating\_ip\_{index}
+
 where
+
    * {vm-type} is the vm-type
    * {network-role} is the network-role of the network
      that the port is attached to
@@ -1304,8 +1344,12 @@ where
 R-68520 A VNF's Heat Orchestration Template's Resource OS::Neutron::Port
 that is creating a *Reserve Port* with an IPv6 address Resource ID
 **MUST** use the naming convention
-   * reserve_port_{vm-type}_{network-role}_floating_v6_ip_{index}
+
+   * reserve\_port\_{vm-type}\_{network-role}\_floating
+     \_v6\_ip\_{index}
+
 where
+
    * {vm-type} is the vm-type
    * {network-role} is the network-role of the network
      that the port is attached to
@@ -1319,39 +1363,54 @@ R-08775 A VNF's Heat Orchestration Template's Resource
 OS::Neutron::SecurityGroup that is applicable to one {vm-type} and
 more than one network (internal and/or external) Resource ID
 **SHOULD** use the naming convention
-   * {vm-type}_security_group
+
+   * {vm-type}\_security\_group
+
 where
+
    * {vm-type} is the vm-type
 
 R-03595 A VNF's Heat Orchestration Template's Resource
 OS::Neutron::SecurityGroup that is applicable to more than
 one {vm-type} and one external network Resource ID **SHOULD**
 use the naming convention
-   * {network-role}_security_group
+
+   * {network-role}\_security\_group
+
 where
+
    * {network-role} is the network-role
 
 R-73213 A VNF's Heat Orchestration Template's Resource
 OS::Neutron::SecurityGroup that is applicable to more than
 one {vm-type} and one internal network Resource ID **SHOULD**
 use the naming convention
-   * int_{network-role}_security_group
+
+   * int\_{network-role}\_security\_group
+
 where
+
    * {network-role} is the network-role
 
 R-17334 A VNF's Heat Orchestration Template's Resource
 OS::Neutron::SecurityGroup that is applicable to one {vm-type}
 and one external network Resource ID **SHOULD** use the naming convention
-   * {vm-type}_{network-role}_security_group
+
+   * {vm-type}\_{network-role}\_security\_group
+
 where
+
    * {vm-type} is the vm-type
    * {network-role} is the network-role
 
 R-14198 A VNF's Heat Orchestration Template's Resource
 OS::Neutron::SecurityGroup that is applicable to one {vm-type}
 and one internal network Resource ID **SHOULD** use the naming convention
-   * {vm-type}_int_{network-role}_security_group
+
+   * {vm-type}\_int\_{network-role}\_security\_group
+
 where
+
    * {vm-type} is the vm-type
    * {network-role} is the network-role
 
@@ -1359,10 +1418,15 @@ R-30005 A VNF's Heat Orchestration Template's Resource
 OS::Neutron::SecurityGroup that is applicable to more than one
 {vm-type} and more than one network (internal and/or external)
 Resource ID **MAY** use the naming convention
+
    * shared_security_group
+
 or
-   * {vnf-type}_security_group
+
+   * {vnf-type}\_security\_group
+
 where
+
    * {vnf-type} describes the VNF
 
 
@@ -1371,8 +1435,11 @@ ___________________
 
 R-59434 A VNF's Heat Orchestration Template's Resource
 OS::Neutron::Subnet Resource ID **SHOULD** use the naming convention
-   * int_{network-role}_subnet_{index}
+
+   * int\_{network-role}\_subnet\_{index}
+
 where
+
    * {network-role} is the network-role
    * {index} is the {index} of the subnet of the network
 
@@ -1382,16 +1449,22 @@ _________________
 R-24997 A VNF's Heat Orchestration Template's Resource
 OS::Nova::Keypair applies to one {vm-type} Resource ID **SHOULD**
 use the naming convention
-   * {vm-type}_keypair_{index}
+
+   * {vm-type}\_keypair\_{index}
+
 where
+
    * {network-role} is the network-role
    * {index} is the {index} of the keypair
 
 R-65516 A VNF's Heat Orchestration Template's Resource OS::Nova::Keypair
 applies to all Virtual Machines in the the VNF, the Resource ID **SHOULD**
 use the naming convention
-   * {vnf-type}_keypair
+
+   * {vnf-type}\_keypair
+
 where
+
    * {vnf-type} describes the VNF
 
 
@@ -1400,8 +1473,11 @@ ________________
 
 R-29751 A VNF's Heat Orchestration Template's Resource OS::Nova::Server
 Resource ID **MUST** use the naming convention
-   * {vm-type}_server_{index}
+
+   * {vm-type}\_server\_{index}
+
 where
+
    * {vm-type} is the vm-type
    * {index} is the index
 
@@ -1411,20 +1487,27 @@ _____________________
 
 R-15189 A VNF's Heat Orchestration Template's Resource OS::Nova::ServerGroup
 Resource ID **MAY** use the naming convention
-   * {vm-type}_RSG
+
+   * {vm-type}\_RSG
+
 or
-   * {vm-type}_Server_Grp
+
+   * {vm-type}\_Server\_Grp
+
 or
-   * {vm-type}_ServerGroup
+
+   * {vm-type}\_ServerGroup
+
 or
-   * {vm-type}_servergroup
+
+   * {vm-type}\_servergroup
 
 
 Contrail Heat Resources Resource ID Naming Convention
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Some Contrail Heat Resources Resource IDs
-have mandatory or suggested naming conventions.  They are provided
+have mandatory or suggested naming conventions. They are provided
 in the following sections.
 
 
@@ -1432,17 +1515,17 @@ OS::ContrailV2::InstanceIp
 __________________________
 
 R-53310 A VNF's Heat Orchestration Template's Resource
-'OS::ContrailV2::InstanceIp'
-that is configuring an
-IPv4 Address
-on a port attached to an
-external network
-Resource ID **MUST**
+'OS::ContrailV2::InstanceIp' that is configuring an IPv4 Address
+on a port attached to an external network Resource ID **MUST**
 use the naming convention
-   *  {vm-type}_{vm-type_index}_{network-role}_vmi_{vmi_index}_IP_{index}
+
+   *  {vm-type}\_{vm-type\_index}\_{network-role}\_vmi
+      \_{vmi\_index}\_IP\_{index}
+
 where
+
    * {vm-type} is the vm-type
-   * {vm-type_index} is the instance of the {vm-type}
+   * {vm-type\_index} is the instance of the {vm-type}
    * {network-role} is the network-role of the network
      that the port is attached to
    * {vmi_index} is the instance of the the virtual machine interface
@@ -1452,37 +1535,37 @@ where
    * {index} is the index of the IPv4 address
 
 R-46128 A VNF's Heat Orchestration Template's Resource
-'OS::ContrailV2::InstanceIp'
-that is configuring an
-IPv6 Address
-on a port attached to an
-external network
-Resource ID **MUST**
-use the naming convention
-   *  {vm-type}_{vm-type_index}_{network-role}_vmi_{vmi_index}_v6_IP_{index}
+'OS::ContrailV2::InstanceIp' that is configuring an
+IPv6 Address on a port attached to an external network
+Resource ID **MUST** use the naming convention
+
+   *  {vm-type}\_{vm-type\_index}\_{network-role}\_vmi
+      \_{vmi\_index}\_v6\_IP\_{index}
+
 where
+
    * {vm-type} is the vm-type
-   * {vm-type_index} is the instance of the {vm-type}
+   * {vm-type\_index} is the instance of the {vm-type}
    * {network-role} is the network-role of the network
      that the port is attached to
-   * {vmi_index} is the instance of the the virtual machine interface
+   * {vmi\_index} is the instance of the the virtual machine interface
      (e.g., port)  on the vm-type
      attached to the network of {network-role}
-   * 'v6_IP' signifies that an IPv6 address is being configured
+   * 'v6\_IP' signifies that an IPv6 address is being configured
    * {index} is the index of the IPv6 address
 
 R-62187 A VNF's Heat Orchestration Template's Resource
-'OS::ContrailV2::InstanceIp'
-that is configuring an
-IPv4 Address
-on a port attached to an
-internal network
-Resource ID **MUST**
-use the naming convention
-   *  {vm-type}_{vm-type_index}_int_{network-role}_vmi_{vmi_index}_IP_{index}
+'OS::ContrailV2::InstanceIp' that is configuring an
+IPv4 Address on a port attached to an internal network
+Resource ID **MUST** use the naming convention
+
+   *  {vm-type}\_{vm-type\_index}\_int\_{network-role}
+      \_vmi\_{vmi\_index}\_IP\_{index}
+
 where
+
    * {vm-type} is the vm-type
-   * {vm-type_index} is the instance of the {vm-type}
+   * {vm-type\_index} is the instance of the {vm-type}
    * {network-role} is the network-role of the network
      that the port is attached to
    * {vmi_index} is the instance of the the virtual machine interface
@@ -1492,82 +1575,80 @@ where
    * {index} is the index of the IPv4 address
 
 R-87563 A VNF's Heat Orchestration Template's Resource
-'OS::ContrailV2::InstanceIp'
-that is configuring an
-IPv6 Address
-on a port attached to an
-internal network
-Resource ID **MUST**
-use the naming convention
-   *  {vm-type}_{vm-type_index}_int_{network-role}_vmi_{vmi_index}_v6_IP_{index}
+'OS::ContrailV2::InstanceIp' that is configuring an
+IPv6 Address on a port attached to an internal network
+Resource ID **MUST** use the naming convention
+
+   *  {vm-type}\_{vm-type\_index}\_int\_{network-role}
+      \_vmi\_{vmi\_index}\_v6\_IP\_{index}
+
 where
+
    * {vm-type} is the vm-type
-   * {vm-type_index} is the instance of the {vm-type}
+   * {vm-type\_index} is the instance of the {vm-type}
    * {network-role} is the network-role of the network
      that the port is attached to
-   * {vmi_index} is the instance of the the virtual machine interface
-     (e.g., port)  on the vm-type
+   * {vmi\_index} is the instance of the the virtual machine
+     interface (e.g., port)  on the vm-type
      attached to the network of {network-role}
-   * 'v6_IP' signifies that an IPv6 address is being configured
+   * 'v6\_IP' signifies that an IPv6 address is being configured
    * {index} is the index of the IPv6 address
 
 R-20947 A VNF's Heat Orchestration Template's Resource
-'OS::ContrailV2::InstanceIp'
-that is configuring an
-IPv4 Address
-on a sub-interface port attached to a
-sub-interface network
-Resource ID **MUST**
-use the naming convention
-   *  {vm-type}_{vm-type_index}_subint_{network-role}_vmi_{vmi_index}_IP_{index}
+'OS::ContrailV2::InstanceIp' that is configuring an IPv4 Address
+on a sub-interface port attached to a sub-interface network
+Resource ID **MUST** use the naming convention
+
+   *  {vm-type}\_{vm-type\_index}\_subint\_{network-role}
+      \_vmi\_{vmi\_index}\_IP\_{index}
+
 where
+
    * {vm-type} is the vm-type
-   * {vm-type_index} is the instance of the {vm-type}
+   * {vm-type\_index} is the instance of the {vm-type}
    * {network-role} is the network-role of the network
      that the port is attached to
-   * {vmi_index} is the instance of the the virtual machine interface
-     (e.g., port)  on the vm-type
+   * {vmi\_index} is the instance of the the virtual machine
+     interface (e.g., port)  on the vm-type
      attached to the network of {network-role}
    * 'IP' signifies that an IPv4 address is being configured
    * {index} is the index of the IPv4 address
 
 R-88540 A VNF's Heat Orchestration Template's Resource
-'OS::ContrailV2::InstanceIp'
-that is configuring an
-IPv6 Address
-on a sub-interface port attached to a
-sub-interface network
-Resource ID **MUST**
-use the naming convention
-   *  {vm-type}_{vm-type_index}_subint_{network-role}_vmi_{vmi_index}_v6_IP_{index}
+'OS::ContrailV2::InstanceIp' that is configuring an IPv6 Address
+on a sub-interface port attached to a sub-interface network
+Resource ID **MUST** use the naming convention
+
+   *  {vm-type}\_{vm-type\_index}\_subint\_{network-role}
+      \_vmi\_{vmi\_index}\_v6\_IP\_{index}
+
 where
+
    * {vm-type} is the vm-type
-   * {vm-type_index} is the instance of the {vm-type}
+   * {vm-type\_index} is the instance of the {vm-type}
    * {network-role} is the network-role of the network
      that the port is attached to
-   * {vmi_index} is the instance of the the virtual machine interface
+   * {vmi\_index} is the instance of the the virtual machine interface
      (e.g., port)  on the vm-type
      attached to the network of {network-role}
-   * 'v6_IP' signifies that an IPv6 address is being configured
+   * 'v6\_IP' signifies that an IPv6 address is being configured
    * {index} is the index of the IPv6 address
-
 
 OS::ContrailV2::InterfaceRouteTable
 ___________________________________
 
 R-81214 A VNF's Heat Orchestration Template's Resource
-'OS::ContrailV2::InterfaceRouteTable'
-Resource ID
-**MUST**
+'OS::ContrailV2::InterfaceRouteTable' Resource ID **MUST**
 contain the '{network-role}'.
 
 R-28189 A VNF's Heat Orchestration Template's Resource
-'OS::ContrailV2::InterfaceRouteTable'
-Resource ID
-**MAY**
+'OS::ContrailV2::InterfaceRouteTable' Resource ID **MAY**
 use the naming convention
-   * {network-role}_RIRT
+
+   * {network-role}\_RIRT
+
 where
+
    * {network-role} is the network-role
    * 'RIRT' signifies that it is the Resource Interface Route Table
 
@@ -1576,18 +1657,17 @@ OS::ContrailV2::NetworkIpam
 ___________________________
 
 R-30753 A VNF's Heat Orchestration Template's Resource
-'OS::ContrailV2::NetworkIpam'
-Resource ID
-**MUST**
+'OS::ContrailV2::NetworkIpam' Resource ID **MUST**
 contain the '{network-role}'.
 
 R-81979 A VNF's Heat Orchestration Template's Resource
-'OS::ContrailV2::NetworkIpam'
-Resource ID
-**MAY**
+'OS::ContrailV2::NetworkIpam' Resource ID **MAY**
 use the naming convention
-   * {network-role}_RNI
+
+   * {network-role}\_RNI
+
 where
+
    * {network-role} is the network-role
    * 'RNI' signifies that it is the Resource Network IPAM
 
@@ -1595,18 +1675,17 @@ OS::ContrailV2::PortTuple
 _________________________
 
 R-20065 A VNF's Heat Orchestration Template's Resource
-'OS::ContrailV2::PortTuple'
-Resource ID
-**MUST**
+'OS::ContrailV2::PortTuple' Resource ID **MUST**
 contain the '{vm-type}'.
 
 R-84457 A VNF's Heat Orchestration Template's Resource
-'OS::ContrailV2::PortTuple'
-Resource ID
-**MAY**
+'OS::ContrailV2::PortTuple' Resource ID **MAY**
 use the naming convention
-   * {vm-type}_RPT
+
+   * {vm-type}\_RPT
+
 where
+
    * {vm-type} is the vm-type
    * 'RPT' signifies that it is the Resource Port Tuple
 
@@ -1615,18 +1694,17 @@ OS::ContrailV2::ServiceHealthCheck
 __________________________________
 
 R-76014 A VNF's Heat Orchestration Template's Resource
-'OS::ContrailV2::ServiceHealthCheck'
-Resource ID
-**MUST**
+'OS::ContrailV2::ServiceHealthCheck' Resource ID **MUST**
 contain the '{vm-type}'.
 
 R-65618 A VNF's Heat Orchestration Template's Resource
-'OS::ContrailV2::ServiceHealthCheck'
-Resource ID
-**MAY**
-use the naming convention
+'OS::ContrailV2::ServiceHealthCheck' Resource ID
+**MAY** use the naming convention
+
    * {vm-type}\_RSHC\_{LEFT|RIGHT}
+
 where
+
    * {vm-type} is the vm-type
    * 'RSHC' signifies that it is the Resource Service Health Check
    * 'LEFT' is used if the Service Health Check is on the left interface
@@ -1638,18 +1716,17 @@ _______________________________
 
 
 R-16437 A VNF's Heat Orchestration Template's Resource
-'OS::ContrailV2::ServiceTemplate'
-Resource ID
-**MUST**
+'OS::ContrailV2::ServiceTemplate' Resource ID **MUST**
 contain the '{vm-type}'.
 
 R-14447 A VNF's Heat Orchestration Template's Resource
-'OS::ContrailV2::ServiceTemplate'
-Resource ID
-**MAY**
+'OS::ContrailV2::ServiceTemplate' Resource ID **MAY**
 use the naming convention
-   * {vm-type}_RST_{index}
+
+   * {vm-type}\_RST\_{index}
+
 where
+
    * {vm-type} is the vm-type
    * 'RST' signifies that it is the Resource Service Template
    * '{index}' is is the index
@@ -1658,61 +1735,64 @@ OS::ContrailV2::VirtualMachineInterface
 _______________________________________
 
 R-96253 A VNF's Heat Orchestration Template's Resource
-OS::ContrailV2::VirtualMachineInterface
-that is attaching to an external network
-Resource ID
-**MUST**
+OS::ContrailV2::VirtualMachineInterface that is attaching
+to an external network Resource ID **MUST**
 use the naming convention
-   * {vm-type}_{vm-type_index}_{network-role}_vmi_{vmi_index}
+
+   * {vm-type}\_{vm-type\_index}\_{network-role}
+     \_vmi\_{vmi\_index}
+
 where
+
    * {vm-type} is the vm-type
-   * {vm-type_index} is the instance of the {vm-type}
+   * {vm-type\_index} is the instance of the {vm-type}
    * {network-role} is the network-role of the network
      that the port (i.e. virtual machine interface) is attached to
-   * {vmi_index} is the instance of the the vmi on the vm-type
+   * {vmi\_index} is the instance of the the vmi on the vm-type
      attached to the network of {network-role}
 
 R-50468 A VNF's Heat Orchestration Template's Resource
-OS::ContrailV2::VirtualMachineInterface
-that is attaching to an internal network
-Resource ID
-**MUST**
-use the naming convention
-   * {vm-type}_{vm-type_index}_int_{network-role}_vmi_{vmi_index}
+OS::ContrailV2::VirtualMachineInterface that is attaching
+to an internal network Resource ID **MUST** use the naming convention
+
+   * {vm-type}\_{vm-type\_index}\_int\_{network-role}\_vmi\_{vmi\_index}
+
 where
+
    * {vm-type} is the vm-type
-   * {vm-type_index} is the instance of the {vm-type}
+   * {vm-type\_index} is the instance of the {vm-type}
    * {network-role} is the network-role of the network
      that the port (i.e. virtual machine interface) is attached to
-   * {vmi_index} is the instance of the the vmi on the vm-type
+   * {vmi\_index} is the instance of the the vmi on the vm-type
      attached to the network of {network-role}
 
 R-54458 A VNF's Heat Orchestration Template's Resource
-OS::ContrailV2::VirtualMachineInterface
-that is attaching to a sub-interface network
-Resource ID
-**MUST**
-use the naming convention
-   * {vm-type}_{vm-type_index}_subint_{network-role}_vmi_{vmi_index}
+OS::ContrailV2::VirtualMachineInterface that is attaching to
+a sub-interface network Resource ID **MUST** use the naming convention
+
+   * {vm-type}\_{vm-type\_index}\_subint\_{network-role}\_vmi\_{vmi\_index}
+
 where
+
    * {vm-type} is the vm-type
-   * {vm-type_index} is the instance of the {vm-type}
+   * {vm-type\_index} is the instance of the {vm-type}
    * {network-role} is the network-role of the network
      that the port (i.e. virtual machine interface) is attached to
-   * {vmi_index} is the instance of the the vmi on the vm-type
+   * {vmi\_index} is the instance of the the vmi on the vm-type
      attached to the network of {network-role}
 
 OS::ContrailV2::VirtualNetwork
 ______________________________
 
 R-99110 A VNF's Heat Orchestration Template's Resource
-OS::ContrailV2::VirtualNetwork
-Resource ID
-**MUST**
+OS::ContrailV2::VirtualNetwork Resource ID **MUST**
 use the naming convention
-   * 'int_{network-role}_network'
+
+   * 'int\_{network-role}\_network'
+
 or
-   * 'int_{network-role}_RVN' where RVN represents Resource Virtual Network
+
+   * 'int\_{network-role}\_RVN' where RVN represents Resource Virtual Network
 
 VNF Heat Orchestration Templates can only create internal networks.
 There is no {index} after {network-role} because {network-role}
@@ -1721,7 +1801,6 @@ Heat Orchestration Template.
 
 Note that the first option is preferred.
 
-
 Resource: OS::Nova::Server - Parameters
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -1729,8 +1808,8 @@ The resource OS::Nova::Server manages the running virtual machine (VM)
 instance within an OpenStack cloud. (See
 https://docs.openstack.org/developer/heat/template_guide/openstack.html#OS::Nova::Server.)
 
-Four properties of this resource must follow the ONAP parameter naming
-convention. The four properties are:
+The following four properties of the OS::Nova::Server must follow
+the ONAP parameter naming convention. The four properties are:
 
 1. image
 
@@ -1752,31 +1831,31 @@ the detailed requirements.
    :align: center
    :widths: auto
 
-   image, string, {vm-type}\_image\_name, Environment File
-   flavor, string, {vm-type}\_flavor\_name, Environment File
-   name, string, {vm-type}\_name\_{index}, ONAP
-   name, CDL, {vm-type}_names, ONAP
-   availability_zone, string, availability\_zone\_{index}, ONAP
+   OS::Nova::Server, image, string, {vm-type}\_image\_name, Environment File
+   OS::Nova::Server, flavor, string, {vm-type}\_flavor\_name, Environment File
+   OS::Nova::Server, name, string, {vm-type}\_name\_{index}, ONAP
+   OS::Nova::Server, name, CDL, {vm-type}\_names, ONAP
+   OS::Nova::Server, availability\_zone, string, availability\_zone\_{index}, ONAP
 
 Property: image
 +++++++++++++++
 
-R-71152 The VNF’s Heat Orchestration Template’s Resource
-‘OS::Nova::Server’ property ‘image’ parameter **MUST** be declared as
-type: ‘string’.
+R-71152 The VNF's Heat Orchestration Template's Resource
+'OS::Nova::Server' property 'image' parameter **MUST** be declared as
+type: 'string'.
 
-R-58670 The VNF’s Heat Orchestration Template’s Resource
-‘OS::Nova::Server’ property ‘image’ parameter name **MUST** follow the
-naming convention ‘{vm-type}_image_name’.
+R-58670 The VNF's Heat Orchestration Template's Resource
+'OS::Nova::Server' property 'image' parameter name **MUST** follow the
+naming convention '{vm-type}\_image\_name'.
 
-R-91125 The VNF’s Heat Orchestration Template’s Resource
-‘OS::Nova::Server’ property ‘image’ parameter **MUST** be enumerated in
-the Heat Orchestration Template’s Environment File and a value **MUST** be
+R-91125 The VNF's Heat Orchestration Template's Resource
+'OS::Nova::Server' property 'image' parameter **MUST** be enumerated in
+the Heat Orchestration Template's Environment File and a value **MUST** be
 assigned.
 
-R-57282 Each VNF’s Heat Orchestration Template’s ‘{vm-type}’
-**MUST** have a unique parameter name for the ‘OS::Nova::Server’
-property ‘image’ even if more than one {vm-type} shares the same image.
+R-57282 Each VNF's Heat Orchestration Template's '{vm-type}'
+**MUST** have a unique parameter name for the 'OS::Nova::Server'
+property 'image' even if more than one {vm-type} shares the same image.
 
 *Example Parameter Definition*
 
@@ -1790,22 +1869,22 @@ property ‘image’ even if more than one {vm-type} shares the same image.
 Property: flavor
 ++++++++++++++++
 
-R-50436 The VNF’s Heat Orchestration Template’s Resource
-‘OS::Nova::Server’ property ‘flavor’ parameter **MUST** be declared as
-type: ‘string’.
+R-50436 The VNF's Heat Orchestration Template's Resource
+'OS::Nova::Server' property 'flavor' parameter **MUST** be declared as
+type: 'string'.
 
-R-45188 The VNF’s Heat Orchestration Template’s Resource
-‘OS::Nova::Server’ property ‘flavor’ parameter name **MUST** follow the
-naming convention ‘{vm-type}_flavor_name’.
+R-45188 The VNF's Heat Orchestration Template's Resource
+'OS::Nova::Server' property 'flavor' parameter name **MUST** follow the
+naming convention '{vm-type}\_flavor\_name'.
 
-R-69431 The VNF’s Heat Orchestration Template’s Resource
-‘OS::Nova::Server’ property ‘flavor’ parameter **MUST** be enumerated in the
-Heat Orchestration Template’s Environment File and a value **MUST** be
+R-69431 The VNF's Heat Orchestration Template's Resource
+'OS::Nova::Server' property 'flavor' parameter **MUST** be enumerated in the
+Heat Orchestration Template's Environment File and a value **MUST** be
 assigned.
 
-R-40499 Each VNF’s Heat Orchestration Template’s ‘{vm-type}’ **MUST**
-have a unique parameter name for the ‘OS::Nova::Server’ property
-‘flavor’ even if more than one {vm-type} shares the same flavor.
+R-40499 Each VNF's Heat Orchestration Template's '{vm-type}' **MUST**
+have a unique parameter name for the 'OS::Nova::Server' property
+'flavor' even if more than one {vm-type} shares the same flavor.
 
 *Example Parameter Definition*
 
@@ -1819,38 +1898,38 @@ have a unique parameter name for the ‘OS::Nova::Server’ property
 Property: Name
 ++++++++++++++
 
-R-51430 The VNF’s Heat Orchestration Template’s Resource
-‘OS::Nova::Server’ property ‘name’ parameter **MUST** be declared as
-either type ‘string’ or type ‘comma_delimited_list”.
+R-51430 The VNF's Heat Orchestration Template's Resource
+'OS::Nova::Server' property 'name' parameter **MUST** be declared as
+either type 'string' or type 'comma\_delimited\_list".
 
-R-54171 When the VNF’s Heat Orchestration Template’s Resource
-‘OS::Nova::Server’ property ‘name’ parameter is defined as a ‘string’,
+R-54171 When the VNF's Heat Orchestration Template's Resource
+'OS::Nova::Server' property 'name' parameter is defined as a 'string',
 the parameter name **MUST** follow the naming convention
-‘{vm-type}\_name\_{index}’, where {index} is a numeric value that starts
+'{vm-type}\_name\_{index}', where {index} is a numeric value that starts
 at zero and increments by one.
 
-R-40899 When the VNF’s Heat Orchestration Template’s Resource
-‘OS::Nova::Server’ property ‘name’ parameter is defined as a ‘string’,
-a parameter **MUST** be declared for each ‘OS::Nova::Server’ resource
-associated with the ‘{vm-type}’.
+R-40899 When the VNF's Heat Orchestration Template's Resource
+'OS::Nova::Server' property 'name' parameter is defined as a 'string',
+a parameter **MUST** be declared for each 'OS::Nova::Server' resource
+associated with the '{vm-type}'.
 
-R-87817 When the VNF’s Heat Orchestration Template’s Resource
-‘OS::Nova::Server’ property ‘name’ parameter is defined as a
-‘comma_delimited_list’, the parameter name **MUST** follow the naming
-convention ‘{vm-type}_names’.
+R-87817 When the VNF's Heat Orchestration Template's Resource
+'OS::Nova::Server' property 'name' parameter is defined as a
+'comma\_delimited\_list', the parameter name **MUST** follow the naming
+convention '{vm-type}\_names'.
 
-R-85800 When the VNF’s Heat Orchestration Template’s Resource
-‘OS::Nova::Server’ property ‘name’ parameter is defined as a
-‘comma_delimited_list’, a parameter **MUST** be delcared once for all
-‘OS::Nova::Server’ resources associated with the ‘{vm-type}’.
+R-85800 When the VNF's Heat Orchestration Template's Resource
+'OS::Nova::Server' property 'name' parameter is defined as a
+'comma\_delimited\_list', a parameter **MUST** be delcared once for all
+'OS::Nova::Server' resources associated with the '{vm-type}'.
 
-R-22838 The VNF’s Heat Orchestration Template’s Resource
-‘OS::Nova::Server’ property ‘name’ parameter **MUST NOT** be enumerated
-in the Heat Orchestration Template’s Environment File.
+R-22838 The VNF's Heat Orchestration Template's Resource
+'OS::Nova::Server' property 'name' parameter **MUST NOT** be enumerated
+in the Heat Orchestration Template's Environment File.
 
-If a VNF’s Heat Orchestration Template’s contains more than three
-OS::Nova::Server resources of a given {vm-type}, the comma_delimited_list
-form of the parameter name (i.e., ‘{vm-type}_names’) should be used to
+If a VNF's Heat Orchestration Template's contains more than three
+OS::Nova::Server resources of a given {vm-type}, the comma\_delimited\_list
+form of the parameter name (i.e., '{vm-type}\_names') should be used to
 minimize the number of unique parameters defined in the template.
 
 
@@ -1868,9 +1947,9 @@ minimize the number of unique parameters defined in the template.
     type: string
     description: VM Name for {vm-type} VM {index}
 
-*Example: comma_delimited_list*
+*Example: comma\_delimited\_list*
 
-In this example, the {vm-type} has been defined as “lb” for load balancer.
+In this example, the {vm-type} has been defined as "lb" for load balancer.
 
 .. code-block:: yaml
 
@@ -1895,7 +1974,7 @@ In this example, the {vm-type} has been defined as “lb” for load balancer.
 
 *Example: fixed-index*
 
-In this example, the {vm-type} has been defined as “lb” for load balancer.
+In this example, the {vm-type} has been defined as "lb" for load balancer.
 
 .. code-block:: yaml
 
@@ -1940,21 +2019,21 @@ supported are:
 Property: availability\_zone
 ++++++++++++++++++++++++++++
 
-R-98450 The VNF’s Heat Orchestration Template’s Resource
-‘OS::Nova::Server’ property ‘availability_zone’ parameter name
-**MUST** follow the naming convention ‘availability\_zone\_{index}’
-where the ‘{index}’ **MUST** start at zero and increment by one.
+R-98450 The VNF's Heat Orchestration Template's Resource
+'OS::Nova::Server' property 'availability\_zone' parameter name
+**MUST** follow the naming convention 'availability\_zone\_{index}'
+where the '{index}' **MUST** start at zero and increment by one.
 
-R-23311 The VNF’s Heat Orchestration Template’s Resource
-‘OS::Nova::Server’ property ‘availability_zone’ parameter **MUST**
-be declared as type: ‘string’.
+R-23311 The VNF's Heat Orchestration Template's Resource
+'OS::Nova::Server' property 'availability\_zone' parameter **MUST**
+be declared as type: 'string'.
 
-The parameter must not be declared as type ‘comma_delimited_list’,
+The parameter must not be declared as type 'comma\_delimited\_list',
 ONAP does not support it.
 
-R-59568  The VNF’s Heat Orchestration Template’s Resource
-‘OS::Nova::Server’ property ‘availability_zone’ parameter **MUST NOT**
-be enumerated in the Heat Orchestration Template’s Environment File.
+R-59568  The VNF's Heat Orchestration Template's Resource
+'OS::Nova::Server' property 'availability_zone' parameter **MUST NOT**
+be enumerated in the Heat Orchestration Template's Environment File.
 
 Example Parameter Definition
 
@@ -1965,13 +2044,13 @@ Example Parameter Definition
       type: string
       description: availability zone {index} name
 
-Requirement R-90279 states that a VNF Heat Orchestration’s template’s
+Requirement R-90279 states that a VNF Heat Orchestration's template's
 parameter MUST be used in a resource with the exception of the parameters
 for the OS::Nova::Server resource property availability_zone.
 
-R-01359 A VNF’s Heat Orchstration Template that contains an
-‘OS::Nova:Server’ Resource **MAY** define a parameter for the property
-‘availability_zone’ that is not utilized in any ‘OS::Nova::Server’
+R-01359 A VNF's Heat Orchstration Template that contains an
+'OS::Nova:Server' Resource **MAY** define a parameter for the property
+'availability_zone' that is not utilized in any 'OS::Nova::Server'
 resources in the Heat Orchestration Template.
 
 Example
@@ -1982,7 +2061,7 @@ uses the four OS::Nova::Server properties discussed in this section.
 
 In the Heat Orchestration Template below, four Virtual
 Machines (OS::Nova::Server) are created: two dns servers with
-{vm-type} set to “dns” and two oam servers with {vm-type} set to “oam”.
+{vm-type} set to "dns" and two oam servers with {vm-type} set to "oam".
 Note that the parameter associated with the property name is a
 comma_delimited_list for dns and a string for oam.
 
@@ -2071,21 +2150,21 @@ comma_delimited_list for dns and a string for oam.
 Boot Options
 ++++++++++++
 
-R-99798 A VNF’s Heat Orchestration Template’s Virtual Machine
+R-99798 A VNF's Heat Orchestration Template's Virtual Machine
 (i.e., OS::Nova::Server Resource) **MAY** boot from an image or **MAY**
 boot from a Cinder Volume.
 
-R-83706 When a VNF’s Heat Orchestration Template’s Virtual Machine
-(i.e., ‘OS::Nova::Server’ Resource) boots from an image, the
-‘OS::Nova::Server’ resource property ‘image’ **MUST** be used.
+R-83706 When a VNF's Heat Orchestration Template's Virtual Machine
+(i.e., 'OS::Nova::Server' Resource) boots from an image, the
+'OS::Nova::Server' resource property 'image' **MUST** be used.
 
 The requirements associated with
 the 'image' property are detailed in `Property: image`_
 
-R-69588 When a VNF’s Heat Orchestration Template’s Virtual Machine
-(i.e., ‘OS::Nova::Server’ Resource) boots from Cinder Volume, the
-‘OS::Nova::Server’ resource property ‘block_device_mapping’ or
-‘block_device_mapping_v2’ **MUST** be used.
+R-69588 When a VNF's Heat Orchestration Template's Virtual Machine
+(i.e., 'OS::Nova::Server' Resource) boots from Cinder Volume, the
+'OS::Nova::Server' resource property 'block_device_mapping' or
+'block_device_mapping_v2' **MUST** be used.
 
 There are currently no heat guidelines
 associated with these two properties:
@@ -2124,24 +2203,24 @@ is an ONAP generated UUID that identifies the VNF.  The value
 is provided by ONAP to the VNF's Heat Orchestration
 Template at orchestration time.
 
-R-37437 A VNF’s Heat Orchestration Template’s OS::Nova::Server
-Resource **MUST** contain the metadata map value parameter ‘vnf_id’.
+R-37437 A VNF's Heat Orchestration Template's OS::Nova::Server
+Resource **MUST** contain the metadata map value parameter 'vnf_id'.
 
-R-07507 A VNF’s Heat Orchestration Template’s OS::Nova::Server
-Resource metadata map value parameter ‘vnf_id’ **MUST** be declared
-as type: ‘string’.
+R-07507 A VNF's Heat Orchestration Template's OS::Nova::Server
+Resource metadata map value parameter 'vnf_id' **MUST** be declared
+as type: 'string'.
 
-R-55218 A VNF’s Heat Orchestration Template’s OS::Nova::Server
-Resource metadata map value parameter ‘vnf_id’ **MUST NOT** have
+R-55218 A VNF's Heat Orchestration Template's OS::Nova::Server
+Resource metadata map value parameter 'vnf_id' **MUST NOT** have
 parameter contraints defined.
 
-R-20856 A VNF’s Heat Orchestration Template’s OS::Nova::Server
-Resource metadata map value parameter ‘vnf_id’ **MUST NOT** be
-enumerated in the Heat Orchestration Template’s environment file.
+R-20856 A VNF's Heat Orchestration Template's OS::Nova::Server
+Resource metadata map value parameter 'vnf_id' **MUST NOT** be
+enumerated in the Heat Orchestration Template's environment file.
 
-R-44491 If a VNF’s Heat Orchestration Template’s OS::Nova::Server
-Resource metadata map value parameter ‘vnf_id’ is passed into a
-Nested YAML file, the parameter name ‘vnf_id’ **MUST NOT** change.
+R-44491 If a VNF's Heat Orchestration Template's OS::Nova::Server
+Resource metadata map value parameter 'vnf_id' is passed into a
+Nested YAML file, the parameter name 'vnf_id' **MUST NOT** change.
 
 
 *Example 'vnf_id' Parameter Definition*
@@ -2163,25 +2242,25 @@ Orchestration Template).  The value
 is provided by ONAP to the VNF's Heat Orchestration
 Template at orchestration time.
 
-R-71493 A VNF’s Heat Orchestration Template’s OS::Nova::Server
+R-71493 A VNF's Heat Orchestration Template's OS::Nova::Server
 Resource **MUST** contain the metadata map value parameter
-‘vf\_module\_id’.
+'vf\_module\_id'.
 
-R-82134 A VNF’s Heat Orchestration Template’s OS::Nova::Server
-Resource metadata map value parameter ‘vf\_module\_id’ **MUST**
-be declared as type: ‘string’.
+R-82134 A VNF's Heat Orchestration Template's OS::Nova::Server
+Resource metadata map value parameter 'vf\_module\_id' **MUST**
+be declared as type: 'string'.
 
-R-98374 A VNF’s Heat Orchestration Template’s OS::Nova::Server
-Resource metadata map value parameter ‘vf\_module\_id’ **MUST NOT**
+R-98374 A VNF's Heat Orchestration Template's OS::Nova::Server
+Resource metadata map value parameter 'vf\_module\_id' **MUST NOT**
 have parameter contraints defined.
 
-R-72871 A VNF’s Heat Orchestration Template’s OS::Nova::Server
-Resource metadata map value parameter ‘vf\_module\_id’ **MUST NOT**
-be enumerated in the Heat Orchestration Template’s environment file.
+R-72871 A VNF's Heat Orchestration Template's OS::Nova::Server
+Resource metadata map value parameter 'vf\_module\_id' **MUST NOT**
+be enumerated in the Heat Orchestration Template's environment file.
 
-R-86237 If a VNF’s Heat Orchestration Template’s OS::Nova::Server
-Resource metadata map value parameter ‘vf_module_id’ is passed
-into a Nested YAML file, the parameter name ‘vf\_module\_id’
+R-86237 If a VNF's Heat Orchestration Template's OS::Nova::Server
+Resource metadata map value parameter 'vf\_module\_id' is passed
+into a Nested YAML file, the parameter name 'vf\_module\_id'
 **MUST NOT** change.
 
 *Example 'vf\_module\_id' Parameter Definition*
@@ -2205,27 +2284,27 @@ is provided by ONAP to the VNF's Heat Orchestration
 Template at orchestration time.
 The parameter must be declared as type: string
 
-R-72483 A VNF’s Heat Orchestration Template’s OS::Nova::Server
+R-72483 A VNF's Heat Orchestration Template's OS::Nova::Server
 Resource **MUST** contain the metadata map value parameter
-‘vnf_name’.
+'vnf\_name'.
 
-R-62428 A VNF’s Heat Orchestration Template’s OS::Nova::Server
-Resource metadata map value parameter ‘vnf_name’ **MUST** be
-declared as type: ‘string’.
+R-62428 A VNF's Heat Orchestration Template's OS::Nova::Server
+Resource metadata map value parameter 'vnf_name' **MUST** be
+declared as type: 'string'.
 
-R-44318 A VNF’s Heat Orchestration Template’s OS::Nova::Server
-Resource metadata map value parameter ‘vnf_name’ **MUST NOT** have
+R-44318 A VNF's Heat Orchestration Template's OS::Nova::Server
+Resource metadata map value parameter 'vnf\_name' **MUST NOT** have
 parameter contraints defined.
 
-R-36542 A VNF’s Heat Orchestration Template’s OS::Nova::Server
-Resource metadata map value parameter ‘vnf_name’ **MUST NOT** be
-enumerated in the Heat Orchestration Template’s environment file.
+R-36542 A VNF's Heat Orchestration Template's OS::Nova::Server
+Resource metadata map value parameter 'vnf\_name' **MUST NOT** be
+enumerated in the Heat Orchestration Template's environment file.
 
-R-16576 If a VNF’s Heat Orchestration Template’s OS::Nova::Server
-Resource metadata map value parameter ‘vnf_name’ is passed into a
-Nested YAML file, the parameter name ‘vnf_name’ **MUST NOT** change.
+R-16576 If a VNF's Heat Orchestration Template's OS::Nova::Server
+Resource metadata map value parameter 'vnf\_name' is passed into a
+Nested YAML file, the parameter name 'vnf\_name' **MUST NOT** change.
 
-*Example 'vnf_name' Parameter Definition*
+*Example 'vnf\_name' Parameter Definition*
 
 .. code-block:: yaml
 
@@ -2246,26 +2325,26 @@ in the command 'Heat stack-create'
 The 'vf_module_name' (e.g., <STACK_NAME> is specified as
 part of the orchestration process.
 
-R-68023 A VNF’s Heat Orchestration Template’s OS::Nova::Server
+R-68023 A VNF's Heat Orchestration Template's OS::Nova::Server
 Resource **SHOULD** contain the metadata map value parameter
-‘vf\_module\_name’.
+'vf\_module\_name'.
 
-R-39067 A VNF’s Heat Orchestration Template’s OS::Nova::Server
-Resource metadata map value parameter ‘vf\_module\_name’ **MUST**
-be declared as type: ‘string’.
+R-39067 A VNF's Heat Orchestration Template's OS::Nova::Server
+Resource metadata map value parameter 'vf\_module\_name' **MUST**
+be declared as type: 'string'.
 
-R-15480 A VNF’s Heat Orchestration Template’s OS::Nova::Server
-Resource metadata map value parameter ‘vf\_module\_name’
+R-15480 A VNF's Heat Orchestration Template's OS::Nova::Server
+Resource metadata map value parameter 'vf\_module\_name'
 **MUST NOT** have parameter contraints defined.
 
-R-80374 A VNF’s Heat Orchestration Template’s OS::Nova::Server
-Resource metadata map value parameter ‘vf\_module\_name’
-**MUST NOT** be enumerated in the Heat Orchestration Template’s
+R-80374 A VNF's Heat Orchestration Template's OS::Nova::Server
+Resource metadata map value parameter 'vf\_module\_name'
+**MUST NOT** be enumerated in the Heat Orchestration Template's
 environment file.
 
-R-49177 If a VNF’s Heat Orchestration Template’s OS::Nova::Server
-Resource metadata map value parameter ‘vf\_module\_name’ is passed
-into a Nested YAML file, the parameter name ‘vf\_module\_name’
+R-49177 If a VNF's Heat Orchestration Template's OS::Nova::Server
+Resource metadata map value parameter 'vf\_module\_name' is passed
+into a Nested YAML file, the parameter name 'vf\_module\_name'
 **MUST NOT** change.
 
 *Example 'vf_module_name' Parameter Definition*
@@ -2283,42 +2362,42 @@ vm\_role
 
 The OS::Nova::Server Resource metadata map value parameter 'vm-role'
 is a metadata tag that describes the role of the Virtual Machine.
-The 'vm_role' is stored in ONAP's A&AI module and is
+The 'vm\_role' is stored in ONAP's A&AI module and is
 available for use by other ONAP components and/or north bound systems.
 
-R-85328 A VNF’s Heat Orchestration Template’s OS::Nova::Server
-Resource **MAY** contain the metadata map value parameter ‘vm_role’.
+R-85328 A VNF's Heat Orchestration Template's OS::Nova::Server
+Resource **MAY** contain the metadata map value parameter 'vm\_role'.
 
-R-95430 A VNF’s Heat Orchestration Template’s OS::Nova::Server
-Resource metadata map value parameter ‘vm_role’ **MUST** be
-declared as type: ‘string’.
+R-95430 A VNF's Heat Orchestration Template's OS::Nova::Server
+Resource metadata map value parameter 'vm\_role' **MUST** be
+declared as type: 'string'.
 
-R-67597 A VNF’s Heat Orchestration Template’s OS::Nova::Server
-Resource metadata map value parameter ‘vm_role’ **MUST NOT** have
+R-67597 A VNF's Heat Orchestration Template's OS::Nova::Server
+Resource metadata map value parameter 'vm\_role' **MUST NOT** have
 parameter contraints defined.
 
-R-46823 A VNF’s Heat Orchestration Template’s OS::Nova::Server
-Resource metadata map value parameter ‘vnf_name’ **MUST** be
+R-46823 A VNF's Heat Orchestration Template's OS::Nova::Server
+Resource metadata map value parameter 'vnf\_name' **MUST** be
 either
 
- - enumerated in the VNF’s Heat Orchestration
-   Template’s environment file.
+ - enumerated in the VNF's Heat Orchestration
+   Template's environment file.
 
- - hard coded in the VNF’s Heat Orchestration
-   Template’s OS::Nova::Resource metadata property.
+ - hard coded in the VNF's Heat Orchestration
+   Template's OS::Nova::Resource metadata property.
 
 Defining the 'vm_role' as the '{vm-type}' is a recommended convention
 
-R-86476 If a VNF’s Heat Orchestration Template’s OS::Nova::Server
-Resource metadata map value parameter ‘vm_role’ value **MUST only**
-contain alphanumeric characters and underscores ‘_’.
+R-86476 If a VNF's Heat Orchestration Template's OS::Nova::Server
+Resource metadata map value parameter 'vm\_role' value **MUST only**
+contain alphanumeric characters and underscores '_'.
 
-R-70757 If a VNF’s Heat Orchestration Template’s OS::Nova::Server
-Resource metadata map value parameter ‘vm_role’ is passed into a
-Nested YAML file, the parameter name ‘vm_role’ **MUST NOT** change.
+R-70757 If a VNF's Heat Orchestration Template's OS::Nova::Server
+Resource metadata map value parameter 'vm\_role' is passed into a
+Nested YAML file, the parameter name 'vm\_role' **MUST NOT** change.
 
 
-*Example 'vm_role' Parameter Definition*
+*Example 'vm\_role' Parameter Definition*
 
 .. code-block:: yaml
 
@@ -2401,32 +2480,32 @@ for load balancer.
 vf\_module\_index
 +++++++++++++++++
 
-R-50816 A VNF’s Heat Orchestration Template’s OS::Nova::Server
+R-50816 A VNF's Heat Orchestration Template's OS::Nova::Server
 Resource **MAY** contain the metadata map value parameter
-‘vf\_module\_index’.
+'vf\_module\_index'.
 
-R-54340 A VNF’s Heat Orchestration Template’s OS::Nova::Server
-Resource metadata map value parameter ‘vf\_module\_index’ **MUST** be
-declared as type: ‘number’.
+R-54340 A VNF's Heat Orchestration Template's OS::Nova::Server
+Resource metadata map value parameter 'vf\_module\_index' **MUST** be
+declared as type: 'number'.
 
-R-09811 A VNF’s Heat Orchestration Template’s OS::Nova::Server
-Resource metadata map value parameter ‘vf\_module\_index’ **MUST NOT**
+R-09811 A VNF's Heat Orchestration Template's OS::Nova::Server
+Resource metadata map value parameter 'vf\_module\_index' **MUST NOT**
 have parameter contraints defined.
 
-R-37039 A VNF’s Heat Orchestration Template’s OS::Nova::Server
-Resource metadata map value parameter ‘vf\_module\_index’ **MUST NOT**
-be enumerated in the Heat Orchestration Template’s environment file.
+R-37039 A VNF's Heat Orchestration Template's OS::Nova::Server
+Resource metadata map value parameter 'vf\_module\_index' **MUST NOT**
+be enumerated in the Heat Orchestration Template's environment file.
 
-R-22441 If a VNF’s Heat Orchestration Template’s OS::Nova::Server
-Resource metadata map value parameter ‘vf\_module\_index’ is passed
-into a Nested YAML file, the parameter name ‘vf\_module\_index’
+R-22441 If a VNF's Heat Orchestration Template's OS::Nova::Server
+Resource metadata map value parameter 'vf\_module\_index' is passed
+into a Nested YAML file, the parameter name 'vf\_module\_index'
 **MUST NOT** change.
 
-R-55306 If a VNF’s Heat Orchestration Template’s OS::Nova::Server
-Resource metadata map value parameter ‘vf\_module\_index’ **MUST NOT** be
-used in a VNF’s Volume Template; it is not supported.
+R-55306 If a VNF's Heat Orchestration Template's OS::Nova::Server
+Resource metadata map value parameter 'vf\_module\_index' **MUST NOT** be
+used in a VNF's Volume Template; it is not supported.
 
-The vf_module_index parameter indicates which instance of the module is being
+The vf\_module_index parameter indicates which instance of the module is being
 deployed into the VNF.
 This parameter may be used in cases where multiple instances of the same
 incremental module may be instantiated for scaling purposes. The index
@@ -2434,22 +2513,22 @@ can be used in the Heat Orchestration Template for indexing into a
 pseudo-constant array parameter when unique values are required for each
 module instance, e.g., for fixed private IP addresses on VM types.
 
-The vf_module_index will start at 0 for the first instance of a module
+The vf\_module\_index will start at 0 for the first instance of a module
 type. Subsequent instances of the same module type will receive the
 lowest unused index. This means that indexes will be reused if a module
 is deleted and re-added. As an example, if three copies of a module are
-deployed with vf_module_index values of 0, 1, and 2 then subsequently
+deployed with vf\_module\_index values of 0, 1, and 2 then subsequently
 the second one is deleted (index 1), and then re-added, index 1 will be
 reused.
 
 *Example*
 
-In this example, the {vm-type} has been defined as oam_vm to represent
+In this example, the {vm-type} has been defined as oam\_vm to represent
 an OAM VM. An incremental heat module is used to deploy the OAM VM. The
 OAM VM attaches to an internal control network which has a
 {network-role} of ctrl. A maximum of four OAM VMs can be deployed. The
 environment file contains the four IP addresses that each successive OAM
-VM will be assigned. The vf_module_index is used as the index to
+VM will be assigned. The vf\_module\_index is used as the index to
 determine the IP assignment.
 
 Environment File
@@ -2491,33 +2570,33 @@ YAML File
       type: OS::Neutron::Port
       properties:
         network: { get_param: int_ctrl_net_id }
-        fixed_ips: [ { “ip_address”: {get_param: [ oam_vm_int_ctrl_ips, { get_param, vf_module_index]}}}]
+        fixed_ips: [ { "ip_address": {get_param: [ oam_vm_int_ctrl_ips, { get_param, vf_module_index]}}}]
 
-workload_context
-++++++++++++++++
+workload\_context
+++++++++++++++++++
 
-R-47061 A VNF’s Heat Orchestration Template’s OS::Nova::Server
+R-47061 A VNF's Heat Orchestration Template's OS::Nova::Server
 Resource **SHOULD** contain the metadata map value parameter
-‘workload_context’.
+'workload\_context'.
 
-R-74978 A VNF’s Heat Orchestration Template’s OS::Nova::Server
-Resource metadata map value parameter ‘workload_context’ **MUST** be
-declared as type: ‘string’.
+R-74978 A VNF's Heat Orchestration Template's OS::Nova::Server
+Resource metadata map value parameter 'workload\_context' **MUST** be
+declared as type: 'string'.
 
-R-34055 A VNF’s Heat Orchestration Template’s OS::Nova::Server
-Resource metadata map value parameter ‘workload_context’ **MUST NOT**
+R-34055 A VNF's Heat Orchestration Template's OS::Nova::Server
+Resource metadata map value parameter 'workload\_context' **MUST NOT**
 have parameter contraints defined.
 
-R-02691 A VNF’s Heat Orchestration Template’s OS::Nova::Server
-Resource metadata map value parameter ‘workload_context’ **MUST NOT**
-be enumerated in the Heat Orchestration Template’s environment file.
+R-02691 A VNF's Heat Orchestration Template's OS::Nova::Server
+Resource metadata map value parameter 'workload\_context' **MUST NOT**
+be enumerated in the Heat Orchestration Template's environment file.
 
-R-75202 If a VNF’s Heat Orchestration Template’s OS::Nova::Server
-Resource metadata map value parameter ‘workload_context’ is passed
-into a Nested YAML file, the parameter name ‘workload_context’
+R-75202 If a VNF's Heat Orchestration Template's OS::Nova::Server
+Resource metadata map value parameter 'workload\_context' is passed
+into a Nested YAML file, the parameter name 'workload\_context'
 **MUST NOT** change.
 
-The 'workload_context' parameter value will be chosen by the Service Model
+The 'workload\_context' parameter value will be chosen by the Service Model
 Distribution context client in VID and will be supplied to the
 Heat Orchestration Template by ONAP at orchestration time.
 
@@ -2552,31 +2631,31 @@ Heat Orchestration Template by ONAP at orchestration time.
           vf_module_id: { get_param: vf_module_id }
           workload_context: {get_param: workload_context}
 
-environment_context
-+++++++++++++++++++
+environment\_context
+++++++++++++++++++++++
 
-R-88536 A VNF’s Heat Orchestration Template’s OS::Nova::Server
+R-88536 A VNF's Heat Orchestration Template's OS::Nova::Server
 Resource **SHOULD** contain the metadata map value parameter
-‘environment_context’.
+'environment\_context'.
 
-R-20308 A VNF’s Heat Orchestration Template’s OS::Nova::Server
-Resource metadata map value parameter ‘environment_context’ **MUST**
-be declared as type: ‘string’.
+R-20308 A VNF's Heat Orchestration Template's OS::Nova::Server
+Resource metadata map value parameter 'environment\_context' **MUST**
+be declared as type: 'string'.
 
-R-56183 A VNF’s Heat Orchestration Template’s OS::Nova::Server
-Resource metadata map value parameter ‘environment_context’ **MUST NOT**
+R-56183 A VNF's Heat Orchestration Template's OS::Nova::Server
+Resource metadata map value parameter 'environment\_context' **MUST NOT**
 have parameter contraints defined.
 
-R-13194 A VNF’s Heat Orchestration Template’s OS::Nova::Server
-Resource metadata map value parameter ‘environment_context’ **MUST NOT**
-be enumerated in the Heat Orchestration Template’s environment file.
+R-13194 A VNF's Heat Orchestration Template's OS::Nova::Server
+Resource metadata map value parameter 'environment\_context' **MUST NOT**
+be enumerated in the Heat Orchestration Template's environment file.
 
-R-62954 If a VNF’s Heat Orchestration Template’s OS::Nova::Server
-Resource metadata map value parameter ‘environment_context’ is
+R-62954 If a VNF's Heat Orchestration Template's OS::Nova::Server
+Resource metadata map value parameter 'environment\_context' is
 passed into a Nested YAML file, the parameter name
-‘environment_context’ **MUST NOT** change.
+'environment\_context' **MUST NOT** change.
 
-The 'environment_context' parameter value will be defined by the
+The 'environment\_context' parameter value will be defined by the
 service designer as part of the service model during the SDC
 on-boarding process and will be supplied to the Heat Orchestration
 Template by ONAP at orchestration time.
@@ -2690,6 +2769,7 @@ same subnet.
 R-45602 If a VNF's Port is attached to a network (internal or external)
 and the port's IP addresses are Cloud Assigned by OpenStack's DHCP
 Service, the 'OS::Neutron::Port' Resource's
+
    * property 'fixed_ips' map property 'ip_address' **MUST NOT** be used
    * property 'fixed_ips' map property 'subnet'/'subnet_id' **MAY** be used
 
@@ -2702,8 +2782,10 @@ subnets.
 R-48880 If a VNF's Port is attached to an external network and the port's
 IP addresses are assigned by ONAP's SDN-Controller,
 the 'OS::Neutron::Port' Resource's
+
    * property 'fixed_ips' map property 'ip_address' **MUST** be used
-   * property 'fixed_ips' map property 'subnet'/'subnet_id' **MUST NOT** be used
+   * property 'fixed_ips' map property 'subnet'/'subnet_id' **MUST NOT**
+     be used
 
 R-18001 If the VNF's ports connected to a unique internal network
 and the port's IP addresses are statically assigned IP Addresses,
@@ -2715,6 +2797,7 @@ R-70964 If a VNF's Port is attached to an internal network and the port's
 IP addresses are statically assigned by the VNF's Heat Orchestration\
 Template (i.e., enumerated in the Heat Orchestration Template's
 environment file), the 'OS::Neutron::Port' Resource's
+
    * property 'fixed_ips' map property 'ip_address' **MUST** be used
    * property 'fixed_ips' map property 'subnet'/'subnet_id'
      **MUST NOT** be used
@@ -2727,34 +2810,34 @@ The Resource 'OS::Neutron::Port' property 'network' determines what network
 the port is attached to.
 
 
-R-18008 The VNF’s Heat Orchestration Template’s Resource ‘OS::Neutron::Port’
-property ‘network’ parameter **MUST** be declared as type: ‘string’.
+R-18008 The VNF's Heat Orchestration Template's Resource 'OS::Neutron::Port'
+property 'network' parameter **MUST** be declared as type: 'string'.
 
-R-62983 When the VNF’s Heat Orchestration Template’s
-Resource ‘OS::Neutron::Port’ is attaching to an external network,
-the ‘network’ parameter name **MUST**
+R-62983 When the VNF's Heat Orchestration Template's
+Resource 'OS::Neutron::Port' is attaching to an external network,
+the 'network' parameter name **MUST**
 
-- follow the naming convention ‘{network-role}_net_id’ if the Neutron
+- follow the naming convention '{network-role}_net_id' if the Neutron
   network UUID value is used to reference the network
-- follow the naming convention ‘{network-role}_net_name’ if the OpenStack
+- follow the naming convention '{network-role}_net_name' if the OpenStack
   network name is used to reference the network.
 
-where ‘{network-role}’ is the network-role of the external network and
-a ‘get_param’ **MUST** be used as the intrinsic function.
+where '{network-role}' is the network-role of the external network and
+a 'get_param' **MUST** be used as the intrinsic function.
 
-R-86182 When the VNF’s Heat Orchestration Template’s
-Resource ‘OS::Neutron::Port’ is attaching to an internal network,
+R-86182 When the VNF's Heat Orchestration Template's
+Resource 'OS::Neutron::Port' is attaching to an internal network,
 and the internal network is created in a different
-Heat Orchestration Template than the ‘OS::Neutron::Port’, the ‘network’
+Heat Orchestration Template than the 'OS::Neutron::Port', the 'network'
 parameter name **MUST**
 
-- follow the naming convention ‘int\_{network-role}_net_id’ if the Neutron
+- follow the naming convention 'int\_{network-role}_net_id' if the Neutron
   network UUID value is used to reference the network
-- follow the naming convention ‘int\_{network-role}_net_name’ if the
+- follow the naming convention 'int\_{network-role}_net_name' if the
   OpenStack network name in is used to reference the network.
 
-where ‘{network-role}’ is the network-role of the internal network
-and a ‘get_param’ **MUST** be used as the intrinsic function.
+where '{network-role}' is the network-role of the internal network
+and a 'get_param' **MUST** be used as the intrinsic function.
 
 In Requirement R-86182, the internal network is created in the VNF's
 Base Module (Heat Orchestration Template) and the parameter name is
@@ -2762,17 +2845,17 @@ declared in the Base Module's outputs' section.
 The output parameter name will be declared as a parameter in the
 'parameters' section of the incremental module.
 
-R-93177 When the VNF’s Heat Orchestration Template’s
-Resource ‘OS::Neutron::Port’ is attaching to an internal
+R-93177 When the VNF's Heat Orchestration Template's
+Resource 'OS::Neutron::Port' is attaching to an internal
 network, and the internal network is created in the same Heat
-Orchestration Template than the ‘OS::Neutron::Port’, the ‘network’
+Orchestration Template than the 'OS::Neutron::Port', the 'network'
 parameter name **MUST** obtain the UUID of the internal network
-by using the intrinsic function ‘get_resource’ or ‘get_attr’
+by using the intrinsic function 'get_resource' or 'get_attr'
 and referencing the Resource ID of the internal network.
 
-R-29872 The VNF’s Heat Orchestration Template’s Resource ‘OS::Nova::Server’
-property ‘network’ parameter **MUST NOT** be enumerated in the Heat
-Orchestration Template’s Environment File.
+R-29872 The VNF's Heat Orchestration Template's Resource 'OS::Nova::Server'
+property 'network' parameter **MUST NOT** be enumerated in the Heat
+Orchestration Template's Environment File.
 
 The parameter values for external networks are provided by ONAP
 to the VNF's Heat Orchestration Template at orchestration time.
@@ -2822,26 +2905,29 @@ addresses to port.
 One 'OS::Neutron::Port' resource may assign one or more
 IPv4 and/or IPv6 addresses.
 
-R-34037 The VNF’s Heat Orchestration Template’s resource ‘OS::Neutron::Port’
-property ‘fixed_ips’ map property ‘ip_address’ parameter **MUST**
-be declared as either type ‘string’ or type ‘comma_delimited_list’.
+R-34037 The VNF's Heat Orchestration Template's resource 'OS::Neutron::Port'
+property 'fixed_ips' map property 'ip_address' parameter **MUST**
+be declared as either type 'string' or type 'comma_delimited_list'.
 
-R-40971 When the VNF’s Heat Orchestration Template’s Resource
-‘OS::Neutron::Port’ is attaching to an external network, and an IPv4 address is
+R-40971 When the VNF's Heat Orchestration Template's Resource
+'OS::Neutron::Port' is attaching to an external network, and an IPv4 address is
 assigned using the property
-‘fixed_ips’ map property ‘ip_address’ and the parameter type is defined
+'fixed_ips' map property 'ip_address' and the parameter type is defined
 as a string, the parameter name **MUST** follow the naming
 convention
-   * ‘{vm-type}_{network-role}\_ip\_{index}’
+
+   * '{vm-type}_{network-role}\_ip\_{index}'
+
 where
-   * ‘{vm-type}’ is the {vm-type} associated with the OS::Nova::Server
-   * ‘{network-role}’ is the {network-role} of the external network
+
+   * '{vm-type}' is the {vm-type} associated with the OS::Nova::Server
+   * '{network-role}' is the {network-role} of the external network
    * the value for {index} must start at zero (0) and increment by one
 
-R-39841 The VNF’s Heat Orchestration Template’s Resource ‘OS::Neutron::Port’
-property ‘fixed_ips’ map property ‘ip_address’ parameter
-‘{vm-type}_{network-role}\_ip\_{index}’ **MUST NOT** be enumerated in the
-VNF’s Heat Orchestration Template’s Environment File.
+R-39841 The VNF's Heat Orchestration Template's Resource 'OS::Neutron::Port'
+property 'fixed_ips' map property 'ip_address' parameter
+'{vm-type}_{network-role}\_ip\_{index}' **MUST NOT** be enumerated in the
+VNF's Heat Orchestration Template's Environment File.
 
 ONAP's SDN-Controller assigns the IP Address and ONAP provides
 the value at orchestration to the Heat Orchestration Template.
@@ -2856,21 +2942,24 @@ the value at orchestration to the Heat Orchestration Template.
       type: string
       description: Fixed IPv4 assignment for {vm-type} VM {index} on the{network-role} network
 
-R-04697 When the VNF’s Heat Orchestration Template’s
-Resource ‘OS::Neutron::Port’ is attaching to an external
+R-04697 When the VNF's Heat Orchestration Template's
+Resource 'OS::Neutron::Port' is attaching to an external
 network, and an IPv4 address is assigned using the property
-‘fixed_ips’ map property ‘ip_address’ and the parameter type
+'fixed_ips' map property 'ip_address' and the parameter type
 is defined as a comma_delimited_list, the parameter name **MUST**
 follow the naming convention
-   * ‘{vm-type}_{network-role}_ips’,
-where
-   * ‘{vm-type}’ is the {vm-type} associated with the OS::Nova::Server
-   * ‘{network-role}’ is the {network-role} of the external network
 
-R-98905 The VNF’s Heat Orchestration Template’s Resource ‘OS::Neutron::Port’
-property ‘fixed_ips’ map property ‘ip_address’ parameter
-‘{vm-type}_{network-role}_ips’ **MUST NOT** be enumerated in the VNF’s
-Heat Orchestration Template’s Environment File.
+   * '{vm-type}_{network-role}_ips',
+
+where
+
+   * '{vm-type}' is the {vm-type} associated with the OS::Nova::Server
+   * '{network-role}' is the {network-role} of the external network
+
+R-98905 The VNF's Heat Orchestration Template's Resource 'OS::Neutron::Port'
+property 'fixed_ips' map property 'ip_address' parameter
+'{vm-type}_{network-role}_ips' **MUST NOT** be enumerated in the VNF's
+Heat Orchestration Template's Environment File.
 
 ONAP's SDN-Controller assigns the IP Address and ONAP provides
 the value at orchestration to the Heat Orchestration Template.
@@ -2886,23 +2975,26 @@ Parameter Definition*
       type: comma_delimited_list
       description: Fixed IPv4 assignments for {vm-type} VMs on the {network-role} network
 
-R-71577 When the VNF’s Heat Orchestration Template’s Resource
-‘OS::Neutron::Port’ is attaching to an external network, and an IPv6 address
-is assigned using the property ‘fixed_ips’ map property ‘ip_address’ and
+R-71577 When the VNF's Heat Orchestration Template's Resource
+'OS::Neutron::Port' is attaching to an external network, and an IPv6 address
+is assigned using the property 'fixed_ips' map property 'ip_address' and
 the parameter type is defined as a string, the parameter name **MUST** follow
 the naming convention
-   * ‘{vm-type}_{network-role}\_v6\_ip\_{index}’
+
+   * '{vm-type}_{network-role}\_v6\_ip\_{index}'
+
 where
-   * ‘{vm-type}’ is the {vm-type} associated with the OS::Nova::Server
-   * ‘{network-role}’ is the {network-role} of the external network
+
+   * '{vm-type}' is the {vm-type} associated with the OS::Nova::Server
+   * '{network-role}' is the {network-role} of the external network
    * the value for {index} must start at zero (0) and increment by one
 
 
-R-87123 The VNF’s Heat Orchestration Template’s Resource
-‘OS::Neutron::Port’ property ‘fixed_ips’ map property ‘ip_address’
-parameter ‘{vm-type}_{network-role}\_v6\_ip\_{index}’
-**MUST NOT** be enumerated in the VNF’s Heat Orchestration
-Template’s Environment File.
+R-87123 The VNF's Heat Orchestration Template's Resource
+'OS::Neutron::Port' property 'fixed_ips' map property 'ip_address'
+parameter '{vm-type}_{network-role}\_v6\_ip\_{index}'
+**MUST NOT** be enumerated in the VNF's Heat Orchestration
+Template's Environment File.
 
 ONAP's SDN-Controller assigns the IP Address and ONAP provides
 the value at orchestration to the Heat Orchestration Template.
@@ -2917,20 +3009,23 @@ the value at orchestration to the Heat Orchestration Template.
       type: string
       description: Fixed IPv6 assignment for {vm-type} VM {index} on the {network-role} network
 
-R-23503 When the VNF’s Heat Orchestration Template’s Resource
-‘OS::Neutron::Port’ is attaching to an external network, and an IPv6
-address is assigned using the property ‘fixed_ips’ map property ‘ip_address’
+R-23503 When the VNF's Heat Orchestration Template's Resource
+'OS::Neutron::Port' is attaching to an external network, and an IPv6
+address is assigned using the property 'fixed_ips' map property 'ip_address'
 and the parameter type is defined as a comma_delimited_list, the parameter
 name **MUST** follow the naming convention
-   * ‘{vm-type}_{network-role}_v6_ips’
-where
-   * ‘{vm-type}’ is the {vm-type} associated with the OS::Nova::Server
-   * ‘{network-role}’ is the {network-role} of the external network
 
-R-93030 The VNF’s Heat Orchestration Template’s Resource
-‘OS::Neutron::Port’ property ‘fixed_ips’ map property ‘ip_address’
-parameter ‘{vm-type}_{network-role}_v6_ips’ **MUST NOT** be enumerated in the
-VNF’s Heat Orchestration Template’s Environment File.
+   * '{vm-type}_{network-role}_v6_ips'
+
+where
+
+   * '{vm-type}' is the {vm-type} associated with the OS::Nova::Server
+   * '{network-role}' is the {network-role} of the external network
+
+R-93030 The VNF's Heat Orchestration Template's Resource
+'OS::Neutron::Port' property 'fixed_ips' map property 'ip_address'
+parameter '{vm-type}_{network-role}_v6_ips' **MUST NOT** be enumerated in the
+VNF's Heat Orchestration Template's Environment File.
 
 ONAP's SDN-Controller assigns the IP Address and ONAP provides
 the value at orchestration to the Heat Orchestration Template.
@@ -2946,21 +3041,24 @@ Definition*
       type: comma_delimited_list
       description: Fixed IPv6 assignments for {vm-type} VMs on the {network-role} network
 
-R-78380 When the VNF’s Heat Orchestration Template’s Resource
-‘OS::Neutron::Port’ is attaching to an internal network, and an IPv4 address
-is assigned using the property ‘fixed_ips’ map property ‘ip_address’ and
+R-78380 When the VNF's Heat Orchestration Template's Resource
+'OS::Neutron::Port' is attaching to an internal network, and an IPv4 address
+is assigned using the property 'fixed_ips' map property 'ip_address' and
 the parameter type is defined as a string, the parameter name **MUST** follow
 the naming convention
+
    * '{vm-type}\_int\_{network-role}\_ip\_{index}'
+
 where
+
    * '{vm-type}' is the {vm-type} associated with the OS::Nova::Server
    * '{network-role}' is the {network-role} of the internal network
    * the value for {index} must start at zero (0) and increment by one
 
-R-28795 The VNF’s Heat Orchestration Template’s Resource
-‘OS::Neutron::Port’ property ‘fixed_ips’ map property ‘ip_address’
-parameter ‘{vm-type}\_int\_{network-role}\_ip\_{index}’ **MUST** be enumerated
-in the VNF’s Heat Orchestration Template’s Environment File.
+R-28795 The VNF's Heat Orchestration Template's Resource
+'OS::Neutron::Port' property 'fixed_ips' map property 'ip_address'
+parameter '{vm-type}\_int\_{network-role}\_ip\_{index}' **MUST** be enumerated
+in the VNF's Heat Orchestration Template's Environment File.
 
 The IP address is local to the VNF's internal network and is (re)used
 in every VNF spin up, thus the constant value is declared in the VNF's
@@ -2976,20 +3074,23 @@ Heat Orchestration Template's Environment File.
       type: string
       description: Fixed IPv4 assignment for {vm-type} VM {index} on the int_{network-role} network
 
-R-85235 When the VNF’s Heat Orchestration Template’s Resource
-‘OS::Neutron::Port’ is attaching to an internal network, and an IPv4
-address is assigned using the property ‘fixed_ips’ map property ‘ip_address’
+R-85235 When the VNF's Heat Orchestration Template's Resource
+'OS::Neutron::Port' is attaching to an internal network, and an IPv4
+address is assigned using the property 'fixed_ips' map property 'ip_address'
 and the parameter type is defined as a comma_delimited_list, the parameter
 name **MUST** follow the naming convention
-   * ‘{vm-type}\_int\_{network-role}_ips’
-where
-   * ‘{vm-type}’ is the {vm-type} associated with the OS::Nova::Server
-   * ‘{network-role}’ is the {network-role} of the internal network
 
-R-90206 The VNF’s Heat Orchestration Template’s Resource
-‘OS::Neutron::Port’ property ‘fixed_ips’ map property ‘ip_address’
-parameter ‘{vm-type}\_int\_{network-role}_int_ips’ **MUST** be enumerated in
-the VNF’s Heat Orchestration Template’s Environment File.
+   * '{vm-type}\_int\_{network-role}_ips'
+
+where
+
+   * '{vm-type}' is the {vm-type} associated with the OS::Nova::Server
+   * '{network-role}' is the {network-role} of the internal network
+
+R-90206 The VNF's Heat Orchestration Template's Resource
+'OS::Neutron::Port' property 'fixed_ips' map property 'ip_address'
+parameter '{vm-type}\_int\_{network-role}_int_ips' **MUST** be enumerated in
+the VNF's Heat Orchestration Template's Environment File.
 
 The IP address is local to the VNF's internal network and is (re)used
 in every VNF spin up, thus the constant value is declared in the VNF's
@@ -3003,22 +3104,25 @@ Heat Orchestration Template's Environment File.
       type: comma_delimited_list
       description: Fixed IPv4 assignments for {vm-type} VMs on the int_{network-role} network
 
-R-27818 When the VNF’s Heat Orchestration Template’s Resource
-‘OS::Neutron::Port’ is attaching to an internal network, and an IPv6 address
-is assigned using the property ‘fixed_ips’ map property ‘ip_address’ and
+R-27818 When the VNF's Heat Orchestration Template's Resource
+'OS::Neutron::Port' is attaching to an internal network, and an IPv6 address
+is assigned using the property 'fixed_ips' map property 'ip_address' and
 the parameter type is defined as a string, the parameter name **MUST** follow
 the naming convention
-   * ‘{vm-type}\_int\_{network-role}\_v6\_ip\_{index}’
+
+   * '{vm-type}\_int\_{network-role}\_v6\_ip\_{index}'
+
 where
-   * ‘{vm-type}’ is the {vm-type} associated with the OS::Nova::Server
-   * ‘{network-role}’ is the {network-role} of the internal network
+
+   * '{vm-type}' is the {vm-type} associated with the OS::Nova::Server
+   * '{network-role}' is the {network-role} of the internal network
    * the value for {index} must start at zero (0) and increment by one
 
-R-97201 The VNF’s Heat Orchestration Template’s Resource
-‘OS::Neutron::Port’ property ‘fixed_ips’ map property ‘ip_address’
-parameter ‘{vm-type}\_int\_{network-role}\_v6\_ip\_{index}’
-**MUST** be enumerated in the VNF’s Heat Orchestration
-Template’s Environment File.
+R-97201 The VNF's Heat Orchestration Template's Resource
+'OS::Neutron::Port' property 'fixed_ips' map property 'ip_address'
+parameter '{vm-type}\_int\_{network-role}\_v6\_ip\_{index}'
+**MUST** be enumerated in the VNF's Heat Orchestration
+Template's Environment File.
 
 The IP address is local to the VNF's internal network and is (re)used
 in every VNF spin up, thus the constant value is declared in the VNF's
@@ -3034,15 +3138,18 @@ Heat Orchestration Template's Environment File.
       type: string
       description: Fixed IPv6 assignment for {vm-type} VM {index} on the int_{network-role} network
 
-R-29765 When the VNF’s Heat Orchestration Template’s Resource
-‘OS::Neutron::Port’ is attaching to an internal network, and an IPv6
-address is assigned using the property ‘fixed_ips’ map property ‘ip_address’
+R-29765 When the VNF's Heat Orchestration Template's Resource
+'OS::Neutron::Port' is attaching to an internal network, and an IPv6
+address is assigned using the property 'fixed_ips' map property 'ip_address'
 and the parameter type is defined as a comma_delimited_list, the parameter
 name **MUST** follow the naming convention
-   * ‘{vm-type}\_int\_{network-role}_v6_ips’
+
+   * '{vm-type}\_int\_{network-role}_v6_ips'
+
 where
-   * ‘{vm-type}’ is the {vm-type} associated with the OS::Nova::Server
-   * ‘{network-role}’ is the {network-role} of the internal network
+
+   * '{vm-type}' is the {vm-type} associated with the OS::Nova::Server
+   * '{network-role}' is the {network-role} of the internal network
 
 *Example Internal Network IPv6 Address comma_delimited_list Parameter
 Definition*
@@ -3055,17 +3162,17 @@ Definition*
       type: comma_delimited_list
       description: Fixed IPv6 assignments for {vm-type} VMs on the int_{network-role} network
 
-R-98569 The VNF’s Heat Orchestration Template’s Resource
-‘OS::Neutron::Port’ property ‘fixed_ips’ map property ‘ip_address’
-parameter ‘{vm-type}\_int\_{network-role}_v6_ips’ **MUST** be enumerated in
-the VNF’s Heat Orchestration Template’s Environment File.
+R-98569 The VNF's Heat Orchestration Template's Resource
+'OS::Neutron::Port' property 'fixed_ips' map property 'ip_address'
+parameter '{vm-type}\_int\_{network-role}_v6_ips' **MUST** be enumerated in
+the VNF's Heat Orchestration Template's Environment File.
 
 The IP address is local to the VNF's internal network and is (re)used
 in every VNF spin up, thus the constant value is declared in the VNF's
 Heat Orchestration Template's Environment File.
 
-R-62590 The VNF’s Heat Orchestration Template’s Resource
-‘OS::Neutron::Port’ property ‘fixed_ips’ map property ‘ip_address’
+R-62590 The VNF's Heat Orchestration Template's Resource
+'OS::Neutron::Port' property 'fixed_ips' map property 'ip_address'
 parameter associated with an external network, i.e.,
 
 - {vm-type}_{network-role}\_ip\_{index}
@@ -3073,12 +3180,12 @@ parameter associated with an external network, i.e.,
 - {vm-type}_{network-role}_ips
 - {vm-type}_{network-role}_v6_ips
 
-**MUST NOT** be enumerated in the Heat Orchestration Template’s
+**MUST NOT** be enumerated in the Heat Orchestration Template's
 Environment File. ONAP provides the IP address assignments at
 orchestration time.
 
-R-93496 The VNF’s Heat Orchestration Template’s Resource
-‘OS::Neutron::Port’ property ‘fixed_ips’ map property ‘ip_address’
+R-93496 The VNF's Heat Orchestration Template's Resource
+'OS::Neutron::Port' property 'fixed_ips' map property 'ip_address'
 parameter associated with an internal network, i.e.,
 
 - {vm-type}\_int\_{network-role}\_ip\_{index}
@@ -3086,7 +3193,7 @@ parameter associated with an internal network, i.e.,
 - {vm-type}\_int\_{network-role}_ips
 - {vm-type}\_int\_{network-role}_v6_ips
 
-**MUST** be enumerated in the Heat Orchestration Template’s Environment
+**MUST** be enumerated in the Heat Orchestration Template's Environment
 File and IP addresses **MUST** be assigned.
 
 Summary Table
@@ -3133,15 +3240,15 @@ an oam network and the '{vm-type}' has been defined as 'db' for database.
       type: OS::Neutron::Port
       properties:
         network: { get_param: oam_net_id }
-        fixed_ips: [ { “ip_address”: {get_param: [ db_oam_ips, 0 ]}}, {
-        “ip_address”: {get_param: [ db_oam_v6_ips, 0 ]}}]
+        fixed_ips: [ { "ip_address": {get_param: [ db_oam_ips, 0 ]}}, {
+        "ip_address": {get_param: [ db_oam_v6_ips, 0 ]}}]
     db_1_oam_port_0:
       type: OS::Neutron::Port
       properties:
         network: { get_param: oam_net_id }
         fixed_ips:
-          - “ip_address”: {get_param: [ db_oam_ips, 1 ]}
-          - “ip_address”: {get_param: [ db_oam_v6_ips, 1 ]}
+          - "ip_address": {get_param: [ db_oam_ips, 1 ]}
+          - "ip_address": {get_param: [ db_oam_v6_ips, 1 ]}
 
 *Example: string parameters for IPv4 and IPv6 Address Assignments to an
 external network*
@@ -3173,14 +3280,14 @@ database.
       type: OS::Neutron::Port
       properties:
         network: { get_param: oam_net_id }
-        fixed_ips: [ { “ip_address”: {get_param: db_oam_ip_0}}, { “ip_address”: {get_param: db_oam_v6_ip_0 ]}}]
+        fixed_ips: [ { "ip_address": {get_param: db_oam_ip_0}}, { "ip_address": {get_param: db_oam_v6_ip_0 ]}}]
     db_1_oam_port_0:
       type: OS::Neutron::Port
       properties:
         network: { get_param: oam_net_id }
         fixed_ips:
-          - “ip_address”: {get_param: db_oam_ip_1}}]
-          - “ip_address”: {get_param: db_oam_v6_ip_1}}]
+          - "ip_address": {get_param: db_oam_ip_1}}]
+          - "ip_address": {get_param: db_oam_v6_ip_1}}]
 
 
 *Example: comma_delimited_list parameters for IPv4 and IPv6 Address
@@ -3210,15 +3317,15 @@ database.
       type: OS::Neutron::Port
       properties:
         network: { get_param: int_ctrl_net_id }
-        fixed_ips: [ { “ip_address”: {get_param: [ db_int_ctrl_ips, 0 ]}}, {
-        “ip_address”: {get_param: [ db_int_ctrl_v6_ips, 0 ]}}]
+        fixed_ips: [ { "ip_address": {get_param: [ db_int_ctrl_ips, 0 ]}}, {
+        "ip_address": {get_param: [ db_int_ctrl_v6_ips, 0 ]}}]
     db_1_int_ctrl_port_0:
       type: OS::Neutron::Port
       properties:
         network: { get_param: int_ctrl_net_id }
         fixed_ips:
-        - “ip_address”: {get_param: [ db_int_ctrl_ips, 1 ]}
-        - “ip_address”: {get_param: [ db_int_ctrl_v6_ips, 1 ]}
+        - "ip_address": {get_param: [ db_int_ctrl_ips, 1 ]}
+        - "ip_address": {get_param: [ db_int_ctrl_v6_ips, 1 ]}
 
 
 *Example: string parameters for IPv4 and IPv6 Address Assignments to an
@@ -3251,15 +3358,15 @@ The {vm-type} has been defined as db for database.
       type: OS::Neutron::Port
       properties:
         network: { get_param: int_oam_int_net_id }
-        fixed_ips: [ { “ip_address”: {get_param: db_oam_int_ip_0}}, {
-        “ip_address”: {get_param: db_oam_int_v6_ip_0 ]}}]
+        fixed_ips: [ { "ip_address": {get_param: db_oam_int_ip_0}}, {
+        "ip_address": {get_param: db_oam_int_v6_ip_0 ]}}]
     db_1_int_ctrl_port_0:
       type: OS::Neutron::Port
       properties:
         network: { get_param: int_oam_int_net_id }
         fixed_ips:
-          - “ip_address”: {get_param: db_oam_int_ip_1}}]
-          - “ip_address”: {get_param: db_oam_int_v6_ip_1}}]
+          - "ip_address": {get_param: db_oam_int_ip_1}}]
+          - "ip_address": {get_param: db_oam_int_v6_ip_1}}]
 
 
 Property: fixed\_ips, Map Property: subnet\_id
@@ -3268,7 +3375,7 @@ Property: fixed\_ips, Map Property: subnet\_id
 The resource 'OS::Neutron::Port' property 'fixed_ips' map
 property 'subnet'/'subnet_id' is used when a
 port is requesting an IP assignment via
-OpenStack’s DHCP Service (i.e., Cloud Assigned).
+OpenStack's DHCP Service (i.e., Cloud Assigned).
 
 The IP address assignment will be made from the specified subnet.
 
@@ -3292,24 +3399,27 @@ the IP address will be assigned from.
 The property fixed_ips is used to assign IPs to a port. The Map Property
 subnet_id specifies the subnet the IP is assigned from.
 
-R-38236 The VNF’s Heat Orchestration Template’s resource
-‘OS::Neutron::Port’ property ‘fixed_ips’ map property
-‘subnet’/’subnet_id’ parameter **MUST** be declared type ‘string’.
+R-38236 The VNF's Heat Orchestration Template's resource
+'OS::Neutron::Port' property 'fixed_ips' map property
+'subnet'/'subnet_id' parameter **MUST** be declared type 'string'.
 
-R-62802 When the VNF’s Heat Orchestration Template’s resource
-‘OS::Neutron::Port’ is attaching to an external network, and an IPv4
-address is being Cloud Assigned by OpenStack’s DHCP Service and the
+R-62802 When the VNF's Heat Orchestration Template's resource
+'OS::Neutron::Port' is attaching to an external network, and an IPv4
+address is being Cloud Assigned by OpenStack's DHCP Service and the
 external network IPv4 subnet is to be specified using the property
-‘fixed_ips’ map property ‘subnet’/’subnet_id’, the parameter **MUST**
+'fixed_ips' map property 'subnet'/'subnet_id', the parameter **MUST**
 follow the naming convention
-   * ‘{network-role}_subnet_id’
-where
-   * ‘{network-role}’ is the network role of the network.
 
-R-83677 The VNF’s Heat Orchestration Template’s Resource
-‘OS::Neutron::Port’ property ‘fixed_ips’ map property
-subnet’/’subnet_id’ parameter ‘{network-role}_subnet_id’
-**MUST NOT** be enumerated in the VNF’s Heat Orchestration Template’s
+   * '{network-role}_subnet_id'
+
+where
+
+   * '{network-role}' is the network role of the network.
+
+R-83677 The VNF's Heat Orchestration Template's Resource
+'OS::Neutron::Port' property 'fixed_ips' map property
+subnet'/'subnet_id' parameter '{network-role}_subnet_id'
+**MUST NOT** be enumerated in the VNF's Heat Orchestration Template's
 Environment File.
 
 ONAP's SDN-Controller provides the network's subnet's UUID
@@ -3325,20 +3435,23 @@ value at orchestration to the Heat Orchestration Template.
       type: string
       description: Neutron IPv4 subnet UUID for the {network-role} network
 
-R-15287 When the VNF’s Heat Orchestration Template’s resource
-‘OS::Neutron::Port’ is attaching to an external network, and an IPv6
-address is being Cloud Assigned by OpenStack’s DHCP Service and the
+R-15287 When the VNF's Heat Orchestration Template's resource
+'OS::Neutron::Port' is attaching to an external network, and an IPv6
+address is being Cloud Assigned by OpenStack's DHCP Service and the
 external network IPv6 subnet is to be specified using the property
-‘fixed_ips’ map property ‘subnet’/’subnet_id’, the parameter **MUST**
+'fixed_ips' map property 'subnet'/'subnet_id', the parameter **MUST**
 follow the naming convention
-   * ‘{network-role}_subnet_v6_id’
-where
-   * ‘{network-role}’ is the network role of the network.
 
-R-80829 The VNF’s Heat Orchestration Template’s Resource
-‘OS::Neutron::Port’ property ‘fixed_ips’ map property
-subnet’/’subnet_id’ parameter ‘{network-role}_subnet_v6_id’
-**MUST NOT** be enumerated in the VNF’s Heat Orchestration Template’s
+   * '{network-role}_subnet_v6_id'
+
+where
+
+   * '{network-role}' is the network role of the network.
+
+R-80829 The VNF's Heat Orchestration Template's Resource
+'OS::Neutron::Port' property 'fixed_ips' map property
+subnet'/'subnet_id' parameter '{network-role}_subnet_v6_id'
+**MUST NOT** be enumerated in the VNF's Heat Orchestration Template's
 Environment File.
 
 ONAP's SDN-Controller provides the network's subnet's UUID
@@ -3411,25 +3524,25 @@ balancer.
 
 R-84123 When
 
-- the VNF’s Heat Orchestration Template’s resource ‘OS::Neutron::Port’
+- the VNF's Heat Orchestration Template's resource 'OS::Neutron::Port'
   in an Incremental Module is attaching to an internal network
   that is created in the Base Module, AND
-- an IPv4 address is being Cloud Assigned by OpenStack’s DHCP Service AND
+- an IPv4 address is being Cloud Assigned by OpenStack's DHCP Service AND
 - the internal network IPv4 subnet is to be specified using the
-  property ‘fixed_ips’ map property ‘subnet’/’subnet_id’,
+  property 'fixed_ips' map property 'subnet'/'subnet_id',
 
 the parameter **MUST** follow the naming convention
-   * ‘int\_{network-role}_subnet_id’
+   * 'int\_{network-role}_subnet_id'
 where
-   * ‘{network-role}’ is the network role of the internal network
+   * '{network-role}' is the network role of the internal network
 
-- Note that the parameter **MUST** be defined as an ‘output’ parameter in
+- Note that the parameter **MUST** be defined as an 'output' parameter in
   the base module.
 
-R-69634 The VNF’s Heat Orchestration Template’s Resource
-‘OS::Neutron::Port’ property ‘fixed_ips’ map property
-subnet’/’subnet_id’ parameter ‘int\_{network-role}_subnet_id’
-**MUST NOT** be enumerated in the VNF’s Heat Orchestration Template’s
+R-69634 The VNF's Heat Orchestration Template's Resource
+'OS::Neutron::Port' property 'fixed_ips' map property
+subnet'/'subnet_id' parameter 'int\_{network-role}_subnet_id'
+**MUST NOT** be enumerated in the VNF's Heat Orchestration Template's
 Environment File.
 
 The assumption is that internal networks are created in the base module.
@@ -3450,25 +3563,25 @@ input parameter.
 
 R-76160 When
 
-- the VNF’s Heat Orchestration Template’s resource
-  ‘OS::Neutron::Port’ in an Incremental Module is attaching to an
+- the VNF's Heat Orchestration Template's resource
+  'OS::Neutron::Port' in an Incremental Module is attaching to an
   internal network that is created in the Base Module, AND
-- an IPv6 address is being Cloud Assigned by OpenStack’s DHCP Service AND
+- an IPv6 address is being Cloud Assigned by OpenStack's DHCP Service AND
 - the internal network IPv6 subnet is to be specified using the property
-  ‘fixed_ips’ map property ‘subnet’/’subnet_id’,
+  'fixed_ips' map property 'subnet'/'subnet_id',
 
 the parameter **MUST** follow the naming convention
-   * ‘int\_{network-role}_v6_subnet_id’
+   * 'int\_{network-role}_v6_subnet_id'
 where
-   * ‘{network-role}’ is the network role of the internal network
+   * '{network-role}' is the network role of the internal network
 
-- Note that the parameter **MUST** be defined as an ‘output’ parameter in
+- Note that the parameter **MUST** be defined as an 'output' parameter in
   the base module.
 
-R-22288 The VNF’s Heat Orchestration Template’s Resource
-‘OS::Neutron::Port’ property ‘fixed_ips’ map property
-‘subnet’/’subnet_id’ parameter ‘int\_{network-role}_v6_subnet_id’
-**MUST NOT** be enumerated in the VNF’s Heat Orchestration Template’s
+R-22288 The VNF's Heat Orchestration Template's Resource
+'OS::Neutron::Port' property 'fixed_ips' map property
+'subnet'/'subnet_id' parameter 'int\_{network-role}_v6_subnet_id'
+**MUST NOT** be enumerated in the VNF's Heat Orchestration Template's
 Environment File.
 
 *Example Parameter Definition*
@@ -3636,10 +3749,12 @@ be forwarded to the
 Port that has been mapped to the Floating IP, using the private address of the
 port.  The VM never sees or knows about the Openstack Floating IP.
 The process to use is:
+
   - User allocates a floating IP from the Openstack pool.
-  - User ‘attaches’ that floating IP to one of the VM ports.
+  - User 'attaches' that floating IP to one of the VM ports.
+
 If there is a high-availability VNF that wants to "float" the IP to a
-different VM, it requires a Neutron command to request Openstack to ‘attach’
+different VM, it requires a Neutron command to request Openstack to 'attach'
 the floating IP to a different VM port.
 The pool of such addresses is managed by Openstack infrastructure.
 Users cannot create new ones, they can only choose from those in the pool.
@@ -3661,7 +3776,7 @@ additional IPs.
 Floating IPs are not used in ONAP due to the NAT-ting nature of the IPs,
 the inability to reserve such IPs for specific use, the need to manage them
 via Openstack commands (i.e. a HA VNF would require direct access to
-Openstack to ‘float’ such an IP from one VM to another).
+Openstack to 'float' such an IP from one VM to another).
 
 *Example:*
 
@@ -3870,6 +3985,7 @@ ONAP internal networks should be created in the base module.
 As previously mentioned,
 ports that connect to an internal network are assigned IP addresses
 via one of two methods
+
  * Method 1: Cloud assigned by OpenStack's DHCP Service
  * Method 2: Statically assigned.  That is, predetermined by the VNF designer
    and are specified in the VNF's Heat Orchestration Template's
@@ -3919,8 +4035,8 @@ __________________________________________________________________
 
 If the IP address {vm-type}_{network-role}_floating_ip and/or
 {vm-type}_{network-role}_floating_v6_ip must be used in more than module in the
-VNF, the parameter values must be defined as output values in the base module with
-output names: {vm-type}_{network-role}_shared_vip or
+VNF, the parameter values must be defined as output values in the base
+module with output names: {vm-type}_{network-role}_shared_vip or
 {vm-type}_{network-role}_v6_shared_vip
 
 .. code-block:: yaml
@@ -3972,6 +4088,7 @@ When creating a Reserve Port, if only one allowed_address_pair is configured
 on a port, then the parameter name depends upon the IP addresses type
 (IPv4 or IPv6) and network type (internal or external).
 The valid parameter names are:
+
   * {vm-type}_{network-role}_floating_ip
   * {vm-type}_{network-role}_floating_v6_ip
   * {vm-type}_int_{network-role}_floating_ip
@@ -4021,7 +4138,7 @@ configured on a port*
         - ip_address : { get_param: {vm-type}_{network-role}_floating_v6_ip }
 
 
-Resource Property “name”
+Resource Property "name"
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 The parameter naming convention of the property name for the resource
@@ -4315,6 +4432,7 @@ R-02164 When a VNF's Heat Orchestration Template's Contrail resource
 has a property that
 references an external network that requires the network's
 Fully Qualified Domain Name (FQDN), the property parameter
+
    * **MUST** follow the format '{network-role}_net_fqdn'
    * **MUST** be declared as type 'string'
    * **MUST NOT** be enumerated in the NF's Heat Orchestration Template's
@@ -4373,6 +4491,7 @@ R-28222 If a VNF's Heat Orchestration Template
 'interface_route_table_routes' property
 'interface_route_table_routes_route' map property parameter name
 **MUST** follow the format
+
    * {vm-type}_{network-role}_route_prefixes
 
 R-19756 If a VNF's Heat Orchestration Template
@@ -4400,7 +4519,7 @@ supports IP addresses in the format:
 
 *Example Parameter Definition*
 
-.. code-block:: python
+.. code-block:: yaml
 
   parameters:
     {vm-type}_{network-role}_route_prefixes:
@@ -4544,7 +4663,8 @@ represent an oam protected network and the {vm-type} has been defined as
         - get_param: oam_protected_net_fqdn
       subnet_uuid: { get_param: oam_protected_subnet_id }
 
-OS::ContrailV2::VirtualMachineInterface Property virtual_machine_interface_allowed_address_pairs
+OS::ContrailV2::VirtualMachineInterface Property
+virtual_machine_interface_allowed_address_pairs
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
@@ -4560,7 +4680,7 @@ resource 'OS::Neutron::Port' property
 
 *Example OS::ContrailV2::VirtualMachineInterface*
 
-.. code-block:: python
+.. code-block:: yaml
 
   <resource ID>:
     type: OS::ContrailV2::VirtualMachineInterface
@@ -4762,10 +4882,10 @@ NTP Server IP Address
    ntp_ip_<index>, string,
    ntp_v6_ip_<index>, string,
 
-DNS
-+++
+Netmask
+++++++++
 
-.. csv-table:: **Table 13: Suggested Naming Convention for Common Parameters:  DNS**
+.. csv-table:: **Table 13: Suggested Naming Convention for Common Parameters:  DCAE Collector Address**
    :header: Parameter Name,Parameter Type,Notes
    :align: center
    :widths: auto
@@ -4788,8 +4908,316 @@ Security Group
    {vm-type}_int_{network-role}_security_group, string, Security Group applicable to one {vm-type} and one internal network
    shared_security_group, string, Security Group applicable to more than one {vm-type} and more than one network (internal and/or external)
 
-Cinder Volume Templates
+ONAP VNF Modularity
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ONAP supports a modular Heat Orchestration Template design pattern,
+referred to as *VNF Modularity.* With this approach, a single VNF **MAY** be
+composed from one or more Heat Orchestration Templates, each of which
+represents a subset of the overall VNF. These component parts are
+referred to as *VNF Modules*. During orchestration, these modules
+are deployed incrementally to create the complete VNF.
+
+A stated in R-33132, a VNF's Heat Orchestration Template **MAY** be
+     1.) Base Module Heat Orchestration Template (also referred to as a
+      Base Module),
+     2.) Incremental Module Heat Orchestration Template (referred to as
+      an Incremental Module), or
+     3.) a Cinder Volume Module Heat Orchestration Template (referred to as
+      Cinder Volume  Module).
+
+As stated in R-20974, at orchestration time, the VNF's Base Module **MUST**
+be deployed first, prior to any incremental modules.
+
+As stated in R-28980, R-86926, and R-91497, a
+VNF's incremental module **MAY** be used for
+
+  * initial VNF deployment only
+  * scale out only
+  * both deployment and scale out
+
+As stated in R-68122, a VNF's incremental module **MAY** be deployed
+more than once, either during initial VNF deployment and/or scale out
+
+As stated in R-37028 and R-13196, a VNF **MUST** be composed
+of one Base Module and *MAY** be composed of zero to many Incremental
+Modules.
+
+ONAP also supports the concept of an optional, independently deployed
+Cinder volume via a separate Heat Orchestration Templates, referred to
+as a Cinder Volume Module. This allows the volume to persist after a VM
+(i.e., OS::Nova::Server) is deleted, allowing the volume to be reused on
+another instance (e.g., during a fail over activity).
+
+The scope of a Cinder volume module, when it exists, must be 1:1 with a
+Base module or Incremental Module.
+
+A VNF module (base, incremental, cinder) **MAY** support nested templates.
+
+A shared Heat Resource is a resource that **MAY** be used by
+other Heat Resources either in the Base Module or an
+Incremental Module.
+
+
+R-61001 A shared Heat Orchestration Template resource must be defined
+in the base module. A shared resource is a resource that that will
+be referenced by another resource that is defined in the Base Module
+and/or one or more incremental modules. When the shared resource needs
+to be referenced by a resource in an incremental module, the UUID of
+the shared resource **MUST** be exposed by declaring an ONAP Base
+Module Output Parameter.
+
+When the shared resource needs to be referenced by a resource in an
+incremental module, the UUID of the shared resource must be exposed by
+declaring an ONAP Base Module Output Parameter.
+
+An example of a shared resource is the resource
+OS::Neutron::SecurityGroup. Security groups are sets of IP filter rules
+that are applied to a VNF’s networking. The resource OS::Neutron::Port
+has a property security_groups which provides the security groups
+associated with port. The value of parameter(s) associated with this
+property must be the UUIDs of the resource(s)
+OS::Neutron::SecurityGroup.
+
+*Note:* A Cinder volume is not considered a shared resource. A volume
+template must correspond 1:1 with a base template or add-on module
+template.
+
+Suggested Patterns for Modular VNFs
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+There are numerous variations of VNF modularity. Below are two suggested
+usage patterns.
+
+**Option 1: Incremental Modules per VNFC type**
+
+a. Base module contains only the shared resources.
+
+b. Group all VMs (e.g., VNFCs) of a given type (i.e. {vm-type}) into its
+   own incremental module. That is, the VNF has an incremental module
+   for each {vm-type}.
+
+c. For a given {vm-type} incremental module, the VNF may have
+
+   i.  One incremental module used for both initial turn up and re-used
+       for scaling. This approach is used when the number of VMs
+       instantiated will be the same for initial deployment and scaling.
+
+   ii. Two incremental modules, where one is used for initial turn up
+       and one is used for scaling. This approach is used when the
+       number of VMs instantiated will be different for initial
+       deployment and scaling.
+
+**Option 2: Base VNF with Incremental Growth Modules**
+
+a. Base module contains a complete initial VNF instance
+
+b. Incremental modules for incremental scaling units
+
+   i.  May contain VMs of multiple types in logical scaling combinations
+
+   ii. May be separated by VM type for multi-dimensional scaling
+
+With no growth units, Option 2 is equivalent to the "One Heat Template
+per VNF" model.
+
+Note that modularization of VNFs is not required. A single Heat
+Orchestration Template (a base module) may still define a complete VNF,
+which might be appropriate for smaller VNFs that do not have any scaling
+options.
+
+Modularity Rules
+~~~~~~~~~~~~~~~~~~~~~
+
+There are some rules to follow when building modular VNF templates:
+
+1. All VNFs must have one Base VNF Module (template) that must be the
+   first one deployed. The base template:
+
+   a. Must include all shared resources (e.g., private networks, server
+      groups, security groups)
+
+   b. Must expose all shared resources (by UUID) as "outputs" in its
+      associated Heat template (i.e., ONAP Base Module Output
+      Parameters)
+
+   c. May include initial set of VMs
+
+   d. May be operational as a stand-alone "minimum" configuration of the
+      VNF
+
+2. VNFs may have one or more incremental modules which:
+
+   a. Defines additional resources that can be added to an existing VNF
+
+   b. Must be complete Heat templates
+
+      i. i.e. not snippets to be incorporated into some larger template
+
+   c. Should define logical growth-units or sub-components of an overall
+      VNF
+
+   d. On creation, receives appropriate Base Module outputs as
+      parameters
+
+      i.  Provides access to all shared resources (by UUID)
+
+      ii. *VNFs may have one or more incremental modules which must not be
+          dependent on other Add-On VNF Modules*
+
+   e. Multiple instances of an incremental Module may be added to the
+      same VNF (e.g., incrementally grow a VNF by a fixed "add-on"
+      growth units)
+
+3. Each VNF Module (base or incremental) may have (optional) an
+   associated Cinder Volume Module (see Cinder Volumes)
+
+   a. Volume modules must correspond 1:1 with a base module or
+      incremental module
+
+   b. A Cinder volume may be embedded within the base module or
+      incremental module if persistence is not required
+
+4. Shared resource UUIDs are passed between the base module and
+   incremental modules via Heat Outputs Parameters (i.e., Base Module
+   Output Parameters)
+
+   a. The output parameter name in the base must match the parameter
+      name in the add-on module
+
+VNF Modularity Examples
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+*Example: Base Module creates SecurityGroup*
+
+A VNF has a base module, named base.yaml, that defines a
+OS::Neutron::SecurityGroup. The security group will be referenced by an
+OS::Neutron::Port resource in an incremental module, named
+INCREMENTAL_MODULE.yaml. The base module defines a parameter in the
+outputs:section named dns_sec_grp_id. dns_sec_grp_id is defined as a
+parameter in the incremental module. ONAP captures the UUID value of
+dns_sec_grp_id from the base module output statement and provides the
+value to the incremental module.
+
+Note that the example below is not a complete Heat Orchestration
+Template. The {network-role} has been defined as oam to represent an oam
+network and the {vm-type} has been defined as dns.
+
+base_MODULE.yaml
+
+.. code-block:: yaml
+
+  parameters:
+  . . .
+  resources:
+    DNS_SECURITY_GROUP:
+      type: OS::Neutron::SecurityGroup
+      properties:
+        description: vDNS security group
+        name:
+        str_replace:
+          template: VNF_NAME_sec_grp_DNS
+          params:
+            VMF_NAME: {get_param: vnf_name}
+        rules: [. . . . .
+        ]
+  . . .
+  outputs:
+    dns_sec_grp_id:
+      description: UUID of DNS Resource SecurityGroup
+      value: { get_resource: DNS_SECURITY_GROUP }
+
+INCREMENTAL_MODULE.yaml
+
+.. code-block:: yaml
+
+  parameters:
+    dns_sec_grp_id:
+      type: string
+      description: security group UUID
+  . . .
+
+  resources:
+    dns_0_oam_0_port:
+      type: OS::Neutron::Port
+        properties:
+          name:
+            str_replace:
+              template: VNF_NAME_dns_oam_port
+              params:
+                VNF_NAME: {get_param: vnf_name}
+          network: { get_param: oam_net_name }
+          fixed_ips: [{ "ip_address": { get_param: dns_oam_ip_0 }}]
+          security_groups: [{ get_param: dns_sec_grp_id }]
+
+*Examples: Base Module creates an internal network*
+
+A VNF has a base module, named base_module.yaml, that creates an
+internal network. An incremental module, named incremental_module.yaml,
+will create a VM that will connect to the internal network. The base
+module defines a parameter in the out section named int_oam_net_id.
+int_oam_net_id is defined as a parameter in the incremental module.
+ONAP captures the UUID value of int_oam_net_id from the base module
+output statement and provides the value to the incremental module.
+
+Note that the example below is not a complete Heat Orchestration
+Template. The {network-role} has been defined as oam to represent an oam
+network and the {vm-type} has been defined as lb for load balancer.
+
+base.yaml
+
+.. code-block:: yaml
+
+  heat_template_version: 2013-05-23
+
+  resources:
+    int_oam_network:
+      type: OS::Neutron::Network
+      properties:
+        name: {… }
+  . . .
+
+  outputs:
+    int_oam_net_id:
+    value: {get_resource: int_oam_network }
+
+incremental.yaml
+
+.. code-block:: yaml
+
+  heat_template_version: 2013-05-23
+
+  parameters:
+    int_oam_net_id:
+      type: string
+      description: ID of shared private network from Base template
+    lb_name_0:
+      type: string
+      description: name for the add-on VM instance
+
+  resources:
+    lb_server_0:
+      type: OS::Nova::Server
+      properties:
+        name: {get_param: lb_name_0}
+        networks:
+          - port: { get_resource: get_resource: lb_0_int_oam_port_0  }
+  . . .
+    lb_0_int_oam_port_0:
+      type: OS::Neutron::Port
+        properties:
+        network: { get_param: int_oam_net_id }
+  ...
+
+
+Cinder Volumes
 ^^^^^^^^^^^^^^^^^^^^^^^^
+
+Cinder Volumes are created with the heat resource OS::Cinder::Volume.
+
+As stated in R-46119, R-90748, R-03251, a VNF's Heat Orchestration
+Template's Resource OS::Heat::CinderVolume **MAY** be defined in a
+Base Module, Incremental Module, or Cinder Volume Module.
 
 ONAP supports the independent deployment of a Cinder volume via separate
 Heat Orchestration Templates, the Cinder Volume module. This allows the
@@ -4801,23 +5229,41 @@ module. Use of separate volume modules is optional. A Cinder volume may
 be embedded within the Base Module or Incremental Module if persistence
 is not required.
 
+If a VNF Base Module or Incremental Module has an independent volume
+module, the scope of volume templates must be 1:1 with Base module or
+Incremental module. A single volume module must create only the volumes
+required by a single Incremental module or Base module.
+
 R-47788 The VNF Heat Orchestration Template **MUST** have a 1:1
 scope of a cinder volume module, when it exists, with the
-Base Module or Incremental Module
+Base Module or Incremental Module.
+
+As stated in R-11200, a VNF's Cinder Volume Module, when it exists,
+**MUST** be 1:1 with a Base module or Incremental module.  That is,
+A single volume module must create only the volumes required by a
+single Incremental module or Base module.
+
+As stated in R-30395, a VNF's Cinder Volume Module **MAY** utilize
+nested heat.
+
+As stated in R-89913, a VNF's Heat Orchestration Template's Cinder Volume
+Module Output Parameter(s) **MUST** include the
+UUID(s) of the Cinder Volumes created in template,
+while others **MAY** be included.
+
+As stated in R-07443, a VNF's Heat Orchestration Templates' Cinder Volume
+Module Output Parameter's name and type **MUST** match the input parameter
+name and type in the corresponding Base Module or Incremental Module unless
+the Output Parameter is of the type 'comma_delimited_list',
+then the corresponding input parameter **MUST** be declared as type 'json'.
 
 A single volume module must create only the volumes
 required by a single Incremental module or Base module.
 
 The following rules apply to independent volume Heat templates:
 
--  Cinder volumes must be created in a separate Heat Orchestration
-   Template from the Base Module or Incremental Module.
-
--  A single Cinder volume module must include all Cinder volumes
-   needed by the Base/Incremental module.
-
 -  R-79531 The VNF Heat Orchestration Template **MUST** define
-   “outputs” in the volume template for each Cinder volume
+   "outputs" in the volume template for each Cinder volume
    resource universally unique identifier (UUID) (i.e. ONAP
    Volume Template Output Parameters).
 
@@ -4830,6 +5276,31 @@ The following rules apply to independent volume Heat templates:
 
 -  Volume modules may utilize nested Heat templates.
 
+Optional Property availability_zone
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+R-25190 A VNF's Heat Orchestration Template's Resource 'OS::Cinder::Volume'
+**SHOULD NOT** declare the property 'availability_zone'.
+
+If the property is used, the value **MUST**
+be enumerated in the environment file and must be set to nova', which
+is the default. There are no requirements on the parameter naming
+convention with the exception that the naming convention **MUST NOT** be the
+same as the 'OS::Nova::Server' property 'availability_zone' (i.e.,
+'availability_zone_{index}').
+
+Optional Property volume_type
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+OpenStack supports multiple volume types. If the OS::Cinder::Volume optional
+property volume_type is not specified, the OpenStack default volume type is
+used. If a specific volume type is required, the property is used and
+the value **MUST** be enumerated in the environment file. There are no
+requirements on the parameter naming convention
+
+Cinder Volume Examples
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
 *Examples: Volume Template*
 
 A VNF has a Cinder volume module, named incremental\_volume.yaml, that
@@ -4841,7 +5312,7 @@ ONAP captures the UUID value of lb\_volume\_id\_0 from the volume module
 output statement and provides the value to the incremental module.
 
 Note that the example below is not a complete Heat Orchestration
-Template. The {vm-type} has been defined as “lb” for load balancer
+Template. The {vm-type} has been defined as "lb" for load balancer
 
 incremental\_volume.yaml
 
@@ -4900,12 +5371,10 @@ incremental.yaml
 ONAP Support of Environment Files
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The use of an environment file in OpenStack is optional. In ONAP, it is
-mandatory.
-
-R-86285 The VNF Heat Orchestration Template **MUST** have a
-corresponding environment file, even if no parameters are required to be
-enumerated.
+The use of an environment file in OpenStack is optional.  In ONAP, it is
+mandatory. A Heat Orchestration Template uploaded to ONAP must have a
+corresponding environment file, even if no parameters are required to
+be enumerated.
 
 (Note that ONAP, the open source version of ONAP, does not
 programmatically enforce the use of an environment file.)
@@ -4944,14 +5413,14 @@ Parameter values enumerated in the environment file are used by SDC as
 the default value. However, the SDC user may use the SDC GUI to
 overwrite the default values in the environment file.
 
-SDC generates a new environment file for distribution to MSO based on
+SDC generates a new environment file for distribution to SO based on
 the uploaded environment file and the user provided GUI updates. The
 user uploaded environment file is discarded when the new file is
 created. Note that if the user did not change any values via GUI
 updates, the SDC generated environment file will contain the same values
 as the uploaded file.
 
-Use of Environment Files when using OpenStack “heat stack-create” CLI
+Use of Environment Files when using OpenStack "heat stack-create" CLI
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 When ONAP is instantiating the Heat Orchestration Template, certain
@@ -4959,8 +5428,8 @@ parameter must not be enumerated in the environment file. This document
 provides the details of what parameters should not be enumerated.
 
 If the Heat Orchestration Template is to be instantiated from the
-OpenStack Command Line Interface (CLI) using the command “heat
-stack-create”, all parameters must be enumerated in the environment
+OpenStack Command Line Interface (CLI) using the command "heat
+stack-create", all parameters must be enumerated in the environment
 file.
 
 Heat Template Constructs
@@ -4983,45 +5452,103 @@ Nested Heat Template Requirements
 ONAP supports nested Heat Orchestration Templates. A Base Module,
 Incremental Module, and Cinder Volume Module may use nested heat.
 
-A Heat Orchestration Template may reference the nested heat statically
-by repeated definition.
+R-00228 A VNF's Heat Orchestration Template **MAY**
+reference the nested heat statically by repeated definition.
 
-A Heat Orchestration Template may reference the nested heat dynamically
-using the resource OS::Heat::ResourceGroup.
+R-01101 A VNF's Heat Orchestration Template **MAY**
+reference the nested heat dynamically using the resource
+'OS::Heat::ResourceGroup'.
 
-A Heat Orchestration template must have no more than three levels of
-nesting. ONAP supports a maximum of three levels.
+R-60011 A VNF's Heat Orchestration Template **MUST** have no more than
+two levels of nesting.
 
-Nested heat templates must be referenced by file name. The use of
-resource\_registry in the environment file is not supported and must not
-be used.
+R-70112 A VNF's Heat Orchestration Template **MUST**
+reference a Nested YAML file by name.
+The use of 'resource_registry' in the VNF's Heat Orchestration
+Templates Environment File **MUST NOT** be used.
+
+Two levels of nesting is defined as follows:  A base module, incremental
+module, or cinder volume module references a nested heat file either
+statically or by using the resource 'OS::Heat::ResourceGroup'.
+This file is the first level of nesting.
+If first level file then references a nested file, that file is
+the second level of nesting.
 
 R-89868 The VNF Heat Orchestration Template **MUST** have unique
 file names within the scope of the VNF for a nested heat yaml file.
 
-R-52530 The VNF Heat Orchestration Template **MUST NOT** use a
-directory hierarchy for nested templates. All templates must
-be in a single, flat directory (per VNF).
+R-52530 A VNF's Heat Orchestration Template's Nested YAML file
+**MUST** be in the same directory hierarchy as the VNF's Heat
+Orchestration Templates.
 
-A nested heat template may be used by any module within a given VNF.
+R-90022 A VNF's Nested YAML file **MAY** be invoked more than
+once by a VNF's Heat Orchestration Template.
+
+R-04344 A VNF's Nested YAML file **MAY** be invoked by more than one of
+a VNF's Heat Orchestration Templates (when the VNF is composed of two
+or more Heat Orchestration Templates).
 
 Note that:
 
--  Constrains must not be defined for any parameter enumerated in a
-   nested heat template.
+-  R-11041 All parameters defined in a VNFs Nested YAML file
+   **MUST** be passed in as properties of the resource calling
+   the nested yaml file.
 
--  R-11041 The VNF Heat Orchestration Template **MUST** have the
-   resource calling the nested yaml file pass in as properties
-   all parameters defined in nested yaml file.
+-  As stated in requirement R-00011, a VNF's Heat Orchestration
+   Template's Nested YAML file's parameter's **MUST NOT** have
+   a parameter constraint defined.
 
--  R-61183 The VNF Heat Orchestration Template **MUST NOT**
-   change the parameter names, when OS::Nova::Server metadata
-   parameters are past into a nested heat template.
+-  As stated in Requirement R-44491, if a VNF's Heat Orchestration
+   Template's OS::Nova::Server Resource metadata map value parameter
+   'vnf\_id' is passed into a Nested YAML
+   file, the parameter name 'vnf\_id' **MUST NOT** change.
+
+-  As stated in Requirement R-86237, if a VNF's Heat Orchestration
+   Template's OS::Nova::Server Resource metadata map value parameter
+   'vf\_module\_id' is passed into a Nested YAML
+   file, the parameter name 'vf\_module\_id' **MUST NOT** change.
+
+-  As stated in Requirement R-16576, if a VNF's Heat Orchestration
+   Template's OS::Nova::Server Resource metadata map value parameter
+   'vnf\_name' is passed into a Nested YAML
+   file, the parameter name 'vnf\_name' **MUST NOT** change.
+
+-  As stated in Requirement R-49177, if a VNF's Heat Orchestration
+   Template's OS::Nova::Server Resource metadata map value parameter
+   'vf\_module\_name' is passed into a Nested YAML
+   file, the parameter name 'vf\_module\_name' **MUST NOT** change.
+
+-  As stated in Requirement R-70757, if a VNF's Heat Orchestration
+   Template's OS::Nova::Server Resource metadata map value parameter
+   'vm\_role' is passed into a Nested YAML
+   file, the parameter name 'vm\_role' **MUST NOT** change.
+
+-  As stated in Requirement R-22441, if a VNF's Heat Orchestration
+   Template's OS::Nova::Server Resource metadata map value parameter
+   'vf\_module\_index' is passed into a Nested YAML
+   file, the parameter name 'vf\_module\_index' **MUST NOT** change.
+
+-  As stated in Requirement R-75202, if a VNF's Heat Orchestration
+   Template's OS::Nova::Server Resource metadata map value parameter
+   'workload\_context' is passed into a Nested YAML
+   file, the parameter name 'workload\_context' **MUST NOT** change.
+
+-  As stated in Requirement R-62954, if a VNF's Heat Orchestration
+   Template's OS::Nova::Server Resource metadata map value parameter
+   'environment\_context' is passed into a Nested YAML
+   file, the parameter name 'environment\_context' **MUST NOT** change.
 
 -  With nested templates, outputs are required to expose any resource
    properties of the child templates to the parent template. Those would
    not explicitly be declared as parameters but simply referenced as
-   get\_attribute targets against the “parent” resource.
+   get\_attribute targets against the "parent" resource.
+
+-  A parameter declared in the outputs: section of a nested template can
+   be accessed from the parent template as an attribute (i.e., via
+   get\_attr) of the "pseudo resource" whose type is in the nested
+   template. In the case of a OS::Heat::ResourceGroup, an output will be
+   an attribute of the OS::Heat::ResourceGroup itself, and will be an
+   array from the perspective of the parent template.
 
 Nested Heat Template Example: Static
 ++++++++++++++++++++++++++++++++++++++
@@ -5099,19 +5626,20 @@ example, a set of identical OS::Nova::Server resources plus their
 related OS::Neutron::Port resources via a single resource in a master
 template.
 
-ResourceGroup may be used in ONAP to simplify the structure of a Heat
+OS::Heat::ResourceGroup may be used to simplify the structure of a Heat
 template that creates multiple instances of the same VM type.
 
 However, there are important caveats to be aware of:
 
-ResourceGroup does not deal with structured parameters
+OS::Heat::ResourceGroup does not deal with structured parameters
 (comma-delimited-list and json) as one might typically expect. In
 particular, when using a list-based parameter, where each list element
 corresponds to one instance of the ResourceGroup, it is not possible to
-use the intrinsic “loop variable” %index% in the ResourceGroup
+use the intrinsic "loop variable" %index% in the OS::Heat::ResourceGroup
 definition.
 
-For instance, the following is **not** valid Heat for ResourceGroup:
+For instance, the following is **not** valid Heat for
+OS::Heat::ResourceGroup:
 
 .. code-block:: yaml
 
@@ -5121,11 +5649,12 @@ For instance, the following is **not** valid Heat for ResourceGroup:
      properties:
        name: {get_param: [vm_name_list, %index%]}
 
-Although this appears to use the nth entry of the vm\_name\_list list
-for the nth element of the ResourceGroup, it will in fact result in a
-Heat exception. When parameters are provided as a list (one for each
-element of a ResourceGroup), you must pass the complete parameter to the
-nested template along with the current index as separate parameters.
+Although this appears to use the nth entry of the vm_name_list list for
+the nth element of the OS::Heat::ResourceGroup, it will in fact result
+in a Heat exception. When parameters are provided as a list (one for
+each element of a OS::Heat::ResourceGroup), you must pass the complete
+parameter to the nested template along with the current index as
+separate parameters.
 
 Below is an example of an **acceptable** Heat Syntax for a
 ResourceGroup:
@@ -5143,34 +5672,37 @@ You can then reference within the nested template as:
 
 { get\_param: [names, {get\_param: index} ] }
 
-ResourceGroup Property count
-____________________________
+OS::Heat::ResourceGroup Property count
+________________________________________
 
-ONAP requires that the OS::Heat::ResourceGroup property count be defined
-(even if the value is one) and that the value must be enumerated in the
-environment file. This is required for ONAP to build the TOSCA model for
-the VNF.
+R-50011 A VNF's Heat Orchestration Template's 'OS::Heat::ResourceGroup'
+property 'count' **MUST** be enumerated in the VNF's
+Heat Orchestration Template's Environment File and **MUST** be
+assigned a value.
+
+This is required for ONAP to build the TOSCA model for the VNF.
 
 .. code-block:: yaml
 
  type: OS::Heat::ResourceGroup
-   properties:
+ properties:
    count: { get_param: count }
    index_var: index
-     resource_def:
-       type: my_nested_vm_template.yaml
-       properties:
-         names: {get_param: vm_name_list}
-     index: index
+   resource_def:
+     type: my_nested_vm_template.yaml
+     properties:
+       names: {get_param: vm_name_list}
+       index: index
 
 Availability Zone and ResourceGroups
 ____________________________________
 
 The resource OS::Heat::ResourceGroup and the property availability\_zone
-has been an “issue” with a few VNFs since ONAP only supports
+has been an "issue" with a few VNFs since ONAP only supports
 availability\_zone as a string parameter and not a
-comma\_delimited\_list. This makes it difficult to use a ResourceGroup
-to create Virtual Machines in more than one availability zone.
+comma\_delimited\_list. This makes it difficult to use a
+OS::Heat::ResourceGroup to create Virtual Machines in more
+than one availability zone.
 
 There are numerous solutions to this issue. Below are two suggested
 usage patterns.
@@ -5183,14 +5715,14 @@ availability\_zones by using the intrinsic function list\_join.
 
  <resource name>:
   type: OS::Heat::ResourceGroup
-     properties:
-       count: { get_param: node_count }
-       index_var: index
-       resource_def:
-         type: nested.yaml
-         properties:
-           index: index
-           avaialability_zones: { list_join: [',', [ { get_param: availability_zone_0 }, { get_param: availability_zone_1 } ] ] }
+  properties:
+    count: { get_param: node_count }
+    index_var: index
+    resource_def:
+      type: nested.yaml
+      properties:
+        index: index
+        avaialability_zones: { list_join: [',', [ { get_param: availability_zone_0 }, { get_param: availability_zone_1 } ] ] }
 
 In the nested heat
 
@@ -5210,9 +5742,244 @@ In the nested heat
        flavor: { get_param: dns_flavor_name }
        availability_zone: { get_param: [ avaialability_zones, get_param: index ] }
 
+**Option 2:** Create a CDL by passing the availability zone parameter
+into a nested heat template. An example is provided below.
 
-**Option 2:** Create a resource group per availability zone. A separate
-OS::Heat::ResourceGroup is created for each availability zone.
+base.yaml
+
+.. code-block:: yaml
+
+  availability_zone_list:
+     type: az_list_generate.yaml
+     properties:
+       availability_zone_0: { get_param: availability_zone_0 }
+       availability_zone_1: { get_param: availability_zone_1 }
+
+    create_virtual_machines:
+      type: OS::Heat::ResourceGroup
+      properties:
+        count: { get_param: count }
+        index_var: $INDEX
+        resource_def:
+          type: nest_file.yaml
+          properties:
+            index: $INDEX
+            availability_zone_0 : { get_attr: [availability_zone_list, general_zones ] }
+            . . .
+
+az_list_generate.yaml
+
+.. code-block:: yaml
+
+  parameters:
+    availability_zone_0:
+      type: string
+      description: availability zone 0
+
+    availability_zone_1:
+      type: string
+      description: availability zone 1
+
+  outputs:
+
+    general_zones:
+      value: [
+        { get_param: availability_zone_0 },
+        { get_param: availability_zone_1 },
+        { get_param: availability_zone_0 },
+        { get_param: availability_zone_1 },
+        { get_param: availability_zone_0 },
+        { get_param: availability_zone_1 },
+  ]
+
+**Option 3:** Sean's Example SCC-AS
+
+.. code-block:: yaml
+
+    cscf_availability_zones:
+      type: nest_az_gen.yaml
+      properties:
+        availability_zone_0: { get_param: availability_zone_0 }
+        availability_zone_1: { get_param: availability_zone_1 }
+
+
+    cscf_RRG:
+      type: OS::Heat::ResourceGroup
+      properties:
+        count: { get_param: cscf_count }
+        index_var: $INDEX
+        resource_def:
+          type: nest_cscf.yaml
+          properties:
+            index: $INDEX
+            availability_zone_0 : { get_attr: [ cscf_availability_zones, general_zones ] }
+            . . .
+
+  parameters:
+    availability_zone_0:
+      type: string
+      description: availability zone 0
+
+    availability_zone_1:
+      type: string
+      description: availability zone 1
+
+  outputs:
+
+    general_zones:
+      value: [
+        { get_param: availability_zone_0 },
+        { get_param: availability_zone_1 },
+        { get_param: availability_zone_0 },
+        { get_param: availability_zone_1 },
+        { get_param: availability_zone_0 },
+        { get_param: availability_zone_1 },
+      ]
+
+Nested Heat Template Example: OS::Heat::ResourceGroup
+_________________________________________________________
+
+In this example, ocgapp\_volume.yml creates volumes using a
+OS::Heat::ResourceGroup that uses nested heat by calling
+ocgapp_nested_volume.yml. ocgapp\_volume.yml has an outputs: parameter
+ocgapp\_volume\_ids which is declared a input parameter of type: json in
+ocgapp\_volume.yml.
+
+
+This is an example of requirement R-07443, where
+a VNF's Heat Orchestration Templates' Cinder Volume Module Output
+Parameter's name and type **MUST** match the input parameter name and type
+in the corresponding Base Module or Incremental Module unless the Output
+Parameter is of the type 'comma\_delimited\_list', then the corresponding
+input parameter **MUST** be declared as type 'json'.
+
+ocgapp\_volume.yml
+
+.. code-block:: yaml
+
+  heat_template_version: 2014-10-16
+
+  description: Template for the volumes
+
+  parameters:
+    vnf_name:
+      type: string
+      label: OCG VNF Name
+      description: OCG VNF Name
+    ocgapp_volume_size_0:
+      type: number
+      label: Cinder volume 1 size
+      description: the size of the Cinder volume
+      constraints:
+      - range: { min: 100, max: 400 }
+    ocgapp_volume_type_0:
+      type: string
+      label: app vm 1 volume type
+      description: the name of the target volume backend for the first OCG APP
+    volume_count:
+      type: number
+      label: volume count
+      description: number of volumes needed
+
+  resources:
+    ocgapp_volume_resource_group:
+      type: OS::Heat::ResourceGroup
+      properties:
+        count: {get_param: volume_count}
+        index_var: index
+        resource_def:
+          type: ocgapp_nested_volume.yml
+          properties:
+            index: index
+            size: {get_param: ocgapp_volume_size_0}
+            volume_type: {get_param: ocgapp_volume_type_0}
+            vnf_name: {get_param: vnf_name}
+
+  outputs:
+    ocgapp_volume_ids:
+    description: ocgapp volume ids
+    value: {get_attr: [ocgapp_volume_resource_group, ocgapp_volume_id_0]}
+
+ocgapp_nested_volume.yml
+
+.. code-block:: yaml
+
+ heat_template_version: 2014-10-16
+
+ description: nested heat
+
+ parameters:
+   index:
+     type: number
+     label: Volume Index
+     description: number of volumes to spin up
+   size:
+     type: number
+     label: Volume Size
+     description: size of the cinder volumes
+   volume_type:
+     type: string
+     label: Volume Type
+     description: type of cinder volumes
+   vnf_name:
+     type: string
+     label: VNF Name
+     description: vnf name
+
+ resources:
+   ocgapp_volume_0:
+     type: OS::Cinder::Volume
+     properties:
+       size: {get_param: size}
+       volume_type: {get_param: volume_type}
+       name:
+         str_replace:
+           template: VF_NAME_STACK_NAME_INDEX
+           params:
+             VF_NAME: { get_param: vnf_name }
+             STACK_NAME: { get_param: 'OS::stack_name' }
+             INDEX: {get_param: index}
+
+ outputs:
+   ocgapp_volume_id_0:
+   description: the ocgapp volume uuid
+   value: {get_resource: ocgapp_volume_0}
+
+The heat template below is a partial heat template,
+
+ocgapp.yml
+
+.. code-block:: yaml
+
+  heat_template_version: 2014-10-16
+
+  #file version 1.0
+  description: OCG Apps template
+
+  parameters:
+    ocgapp_volume_ids:
+      type: json
+      description: Unique IDs for volumes
+
+  resources:
+    ocgapp_server_0:
+      type: OS::Nova::Server
+      properties:
+    . . . .
+    ocgapp_server_1:
+      type: OS::Nova::Server
+      properties:
+    . . . .
+    ocgapp_volume_attachment_0:
+      type: OS::Cinder::VolumeAttachment
+      properties:
+        volume_id: {get_param: [ocgapp_volume_ids, 0]}
+        instance_uuid: {get_resource: ocgapp_server_0}
+    ocgapp_volume_attachment_1:
+      type: OS::Cinder::VolumeAttachment
+      properties:
+        volume_id: {get_param: [ocgapp_volume_ids, 1]}
+        instance_uuid: {get_resource: ocgapp_server_1}
 
 External References
 ~~~~~~~~~~~~~~~~~~~
@@ -5231,40 +5998,60 @@ environment files.
 *Note:* HTTP-based references are acceptable if the HTTP-based reference
 is accessing information with the VM private/internal network.
 
+Note that Namespaces in XML (defined at
+http://www.w3.org/TR/2009/REC-xml-names-20091208/) are allowed if the
+Heat Orchestration Template is describing and storing software
+configuration information. An XML namespace is identified by a URI
+reference. A Uniform Resource Identifier (URI) is a string of characters
+which identifies an Internet Resource. The most common URI is the
+Uniform Resource Locator (URL) which identifies an Internet domain
+address. Another, not so common type of URI is the Universal Resource
+Name (URN). The namespace URI is not used by XML the parser to look up
+information. The purpose of using an URI is to give the namespace a
+unique name.
+
 Heat Files Support (get\_file)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Heat Templates may contain the inclusion of text files into Heat
 templates via the Heat get\_file directive. This may be used, for
-example, to define a common “user-data” script, or to inject files into
-a VM on startup via the “personality” property.
+example, to define a common "user-data" script, or to inject files into
+a VM on startup via the "personality" property.
 
 Support for Heat Files is subject to the following limitations:
 
-R-76718 The VNF Heat Orchestration Template **MUST** reference
-the get\_files targets in Heat templates by file name, and the
-corresponding files should be delivered to ONAP along with the
-Heat templates.
+R-76718 If a VNF's Heat Orchestration Template uses the intrinsic function
+'get\_file', the 'get\_file' target **MUST** be referenced in
+the Heat Orchestration Template by file name.
 
-R-41888 The VNE Heat **MUST NOT** use URL-based file retrieval.
+The 'get\_file' target files are on-boarded to SDC in the same package
+that contains the VNF's complete Heat Orchestration Template.
 
-R-62177 The VNF Heat Orchestration Template **MUST** have unique
-file names for the included files within the scope of the VNF.
+R-41888 A VNF's Heat Orchestration Template intrinsic function
+'get\_file' **MUST NOT** utilize URL-based file retrieval.
 
-R-87848 The VNF Heat Orchestration Template **MUST** have all
-included files in a single, flat directory per VNF. ONAP does
-not support a directory hierarchy.
+R-62177 When using the intrinsic function get_file, the included files
+**MUST** have unique file names within the scope of the VNF.
 
--  Included files may be used by all Modules within a given VNF.
+R-87848 A VNF's Heat Orchestration Template's 'get\_file' target files
+**MUST** be in the same directory hierarchy as the VNF's Heat
+Orchestration Templates.
 
--  get\_file directives may be used in both non-nested and nested
-   templates
+ONAP does not support a hierarchical structure.  A VNF's YAML files
+must be in a single, flat directory.
+
+R-05050 A VNF's Heat Orchestration Templates intrinsic function
+'get\_file' <content key> **MAY** be used:
+
+      * more than once in a VNF's Heat Orchestration Template
+      * in two or more of a VNF's Heat Orchestration Templates
+      * in a VNF's Heat Orchestration Templates nested YAML file
 
 Key Pairs
 ~~~~~~~~~
 
 When Nova Servers are created via Heat templates, they may be passed a
-“keypair” which provides an ssh key to the ‘root’ login on the newly
+"keypair" which provides an ssh key to the 'root' login on the newly
 created VM. This is often done so that an initial root key/password does
 not need to be hard-coded into the image.
 
@@ -5287,8 +6074,8 @@ keypair. The Heat should be structured in such a way as to:
 
 -  Pass a public key as a parameter value instead of a keypair name
 
--  Create a new keypair within The VNF Heat Orchestration Template (in the base
-   module) for use within that VNF
+-  Create a new keypair within The VNF Heat Orchestration Template (in the
+   base module) based on an existing public key for use within that VNF
 
 By following this approach, the end result is the same as pre-creating
 the keypair using the public key – i.e., that public key will be
@@ -5426,7 +6213,7 @@ resources, two approaches are recommended:
    -  Dependent resource define depends\_on in the
       OS::Heat::WaitCondition resource.
 
-*Example: “depends\_on” case*
+*Example: "depends\_on" case*
 
 In this example, the {network-role} has been defined as oam to represent
 an oam network and the {vm-type} has been defined as oam to represent an
@@ -5480,7 +6267,7 @@ require high availability.
 The Heat must comply with the following requirements to specific
 availability zone IDs:
 
--  The Heat template should spread Nova and Cinder resources across the
+-  The Heat template should spread Nova resources across the
    availability zones as desired
 
 Post Orchestration & VNF Configuration
@@ -5496,3 +6283,4 @@ to the Heat template.
 
 *Note:* It is important to follow this convention to the extent possible
 even in the short-term as of the long-term direction.
+
