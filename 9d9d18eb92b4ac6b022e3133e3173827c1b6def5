@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a93c517_96b3b94c",
+        "filename": "docs/Chapter5/Heat.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 4885,
+      "author": {
+        "id": 3013
+      },
+      "writtenOn": "2018-07-06T15:01:45Z",
+      "side": 1,
+      "message": "should this be DNS?",
+      "range": {
+        "startLine": 4885,
+        "startChar": 0,
+        "endLine": 4885,
+        "endChar": 7
+      },
+      "revId": "9d9d18eb92b4ac6b022e3133e3173827c1b6def5",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_3682e552",
+        "filename": "docs/Chapter5/Heat.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 5380,
+      "author": {
+        "id": 3013
+      },
+      "writtenOn": "2018-07-06T15:01:45Z",
+      "side": 1,
+      "message": "Not part of the original change, but this should be reworded",
+      "range": {
+        "startLine": 5379,
+        "startChar": 0,
+        "endLine": 5380,
+        "endChar": 57
+      },
+      "revId": "9d9d18eb92b4ac6b022e3133e3173827c1b6def5",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_56853157",
+        "filename": "docs/Chapter5/Heat.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 5838,
+      "author": {
+        "id": 3013
+      },
+      "writtenOn": "2018-07-06T15:01:45Z",
+      "side": 1,
+      "message": "lets get rid of this example",
+      "range": {
+        "startLine": 5795,
+        "startChar": 0,
+        "endLine": 5838,
+        "endChar": 0
+      },
+      "revId": "9d9d18eb92b4ac6b022e3133e3173827c1b6def5",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
