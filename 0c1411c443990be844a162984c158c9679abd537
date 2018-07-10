@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a93c517_87eb81db",
+        "filename": "docs/Chapter5/Heat.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1579
+      },
+      "writtenOn": "2018-07-10T11:08:03Z",
+      "side": 1,
+      "message": "the possessive \u0027s should be on \"VNF\" not \"Orchestration\" to be consistent with the other requirements ( e.g. R-36772 below)",
+      "range": {
+        "startLine": 125,
+        "startChar": 0,
+        "endLine": 125,
+        "endChar": 55
+      },
+      "revId": "0c1411c443990be844a162984c158c9679abd537",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
