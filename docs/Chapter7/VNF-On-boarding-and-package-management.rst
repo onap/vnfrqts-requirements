@@ -228,7 +228,7 @@ Licensing Requirements
 * R-40827 The xNF provider **MUST** enumerate all of the open
   source licenses their xNF(s) incorporate.
 * R-97293 The xNF provider **MUST NOT** require audits of
-  Service Provider’s business.
+  Service Provider's business.
 * R-44569 The xNF provider **MUST NOT** require additional
   infrastructure such as a xNF provider license server for xNF provider
   functions and metrics.
@@ -236,7 +236,7 @@ Licensing Requirements
   purposes to allow automated scale up/down by the management system.
 * R-27511 The VNF provider **MUST** provide the ability to scale
   up a VNF provider supplied product during growth and scale down a
-  VNF provider supplied product during decline without “real-time”
+  VNF provider supplied product during decline without "real-time"
   restrictions based upon VNF provider permissions.
 * R-85991 The xNF provider **MUST** provide a universal license key
   per xNF to be used as needed by services (i.e., not tied to a VM
