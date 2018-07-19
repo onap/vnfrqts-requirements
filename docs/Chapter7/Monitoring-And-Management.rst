@@ -345,9 +345,15 @@ Monitoring & Management Requirements
 VNF telemetry via standardized interface
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* R-51910 The xNF **MUST** provide all telemetry (e.g., fault event
-  records, syslog records, performance records etc.) to ONAP using the
-  model, format and mechanisms described in this section.
+
+.. req::
+    :id: R-51910    
+    :target: XNF
+    :keyword: MUST
+
+    The xNF **MUST** provide all telemetry (e.g., fault event
+    records, syslog records, performance records etc.) to ONAP using the
+    model, format and mechanisms described in this section.
 
 Encoding and Serialization
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -357,33 +363,40 @@ Content delivered from VNFs to ONAP is to be encoded and serialized using JSON:
 JSON
 ~~~~~~~~~~~~~~~~~~
 
-* R-19624 The xNF **MUST** encode and serialize content delivered to
-  ONAP using JSON (RFC 7159) plain text format. High-volume data
-  is to be encoded and serialized using `Avro <http://avro.apache.org/>`_, where the Avro [1]_ data format are described using JSON.
 
-  Note:
+.. req::
+    :id: R-19624    
+    :target: XNF
+    :keyword: MUST
 
-  - JSON plain text format is preferred for moderate volume data sets
-    (option 1), as JSON has the advantage of having well-understood simple
-    processing and being human-readable without additional decoding. Examples
-    of moderate volume data sets include the fault alarms and performance
-    alerts, heartbeat messages, measurements used for xNF scaling and syslogs.
-  - Binary format using Avro is preferred for high volume data sets
-    (option 2) such as mobility flow measurements and other high-volume
-    streaming events (such as mobility signaling events or SIP signaling)
-    or bulk data, as this will significantly reduce the volume of data
-    to be transmitted. As of the date of this document, all events are
-    reported using plain text JSON and REST.
-  - Avro content is self-documented, using a JSON schema. The JSON schema is
-    delivered along with the data content
-    (http://avro.apache.org/docs/current/ ). This means the presence and
-    position of data fields can be recognized automatically, as well as the
-    data format, definition and other attributes. Avro content can be
-    serialized as JSON tagged text or as binary. In binary format, the
-    JSON schema is included as a separate data block, so the content is
-    not tagged, further compressing the volume. For streaming data, Avro
-    will read the schema when the stream is established and apply the
-    schema to the received content.
+    The xNF **MUST** encode and serialize content delivered to
+    ONAP using JSON (RFC 7159) plain text format. High-volume data
+    is to be encoded and serialized using `Avro <http://avro.apache.org/>`_,
+    where the Avro [1]_ data format are described using JSON.
+
+    Note:
+
+        - JSON plain text format is preferred for moderate volume data sets
+          (option 1), as JSON has the advantage of having well-understood simple
+          processing and being human-readable without additional decoding. Examples
+          of moderate volume data sets include the fault alarms and performance
+          alerts, heartbeat messages, measurements used for xNF scaling and syslogs.
+        - Binary format using Avro is preferred for high volume data sets
+          (option 2) such as mobility flow measurements and other high-volume
+          streaming events (such as mobility signaling events or SIP signaling)
+          or bulk data, as this will significantly reduce the volume of data
+          to be transmitted. As of the date of this document, all events are
+          reported using plain text JSON and REST.
+        - Avro content is self-documented, using a JSON schema. The JSON schema is
+          delivered along with the data content
+          (http://avro.apache.org/docs/current/ ). This means the presence and
+          position of data fields can be recognized automatically, as well as the
+          data format, definition and other attributes. Avro content can be
+          serialized as JSON tagged text or as binary. In binary format, the
+          JSON schema is included as a separate data block, so the content is
+          not tagged, further compressing the volume. For streaming data, Avro
+          will read the schema when the stream is established and apply the
+          schema to the received content.
 
 In addition to the preferred method (JSON), content can be delivered
 from xNFs to ONAP can be encoded and serialized using Google Protocol
@@ -426,30 +439,37 @@ can be serialized in one of the following methods:
 Reporting Frequency
 ~~~~~~~~~~~~~~~~~~~~~
 
-* R-98191 The xNF **MUST** vary the frequency that asynchronous data
-  is delivered based on the content and how data may be aggregated or
-  grouped together.
+.. req::
+    :id: R-98191    
+    :target: XNF
+    :keyword: MUST
 
-  Note:
+    The xNF **MUST** vary the frequency that asynchronous data
+    is delivered based on the content and how data may be aggregated or
+    grouped together.
 
-  - For example, alarms and alerts are expected to be delivered as
-    soon as they appear. In contrast, other content, such as
-    performance measurements, KPIs or reported network signaling may have
-    various ways of packaging and delivering content. Some content should
-    be streamed immediately; or content may be monitored over a time interval,
-    then packaged as collection of records and delivered as block; or data
-    may be collected until a package of a certain size has been collected;
-    or content may be summarized statistically over a time interval, or
-    computed as a KPI, with the summary or KPI being delivered.
-  - We expect the reporting frequency to be configurable depending
-    on the virtual network function’s needs for management. For example,
-    Service Provider may choose to vary the frequency of collection between
-    normal and trouble-shooting scenarios.
-  - Decisions about the frequency of data reporting will affect the
-    size of delivered data sets, recommended delivery method, and how the
-    data will be interpreted by ONAP. These considerations should not
-    affect deserialization and decoding of the data, which will be guided
-    by the accompanying JSON schema or GPB definition files.
+        Note:
+
+        - For example, alarms and alerts are expected to be delivered as
+          soon as they appear. In contrast, other content, such as performance
+          measurements, KPIs or reported network signaling may have various
+          ways of packaging and delivering content. Some content should be
+          streamed immediately; or content may be monitored over a time
+          interval, then packaged as collection of records and delivered
+          as block; or data may be collected until a package of a certain
+          size has been collected; or content may be summarized statistically
+          over a time interval, or computed as a KPI, with the summary or KPI
+          being delivered.
+        - We expect the reporting frequency to be configurable depending on
+          the virtual network functions needs for management. For example,
+          Service Provider may choose to vary the frequency of collection
+          between normal and trouble-shooting scenarios.
+        - Decisions about the frequency of data reporting will affect
+          the size of delivered data sets, recommended delivery method,
+          and how the data will be interpreted by ONAP. These considerations
+          should not affect deserialization and decoding of the data, which
+          will be guided by the accompanying JSON schema or GPB definition
+          files.
 
 Addressing and Delivery Protocol
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -459,87 +479,210 @@ data sets may also be addressed by host name and port number for TCP
 streaming, or by host name and landing zone directory for SFTP transfer
 of bulk files.
 
-* R-88482 The xNF **SHOULD** use REST using HTTPS delivery of plain
-  text JSON for moderate sized asynchronous data sets, and for high
-  volume data sets when feasible.
-* R-84879 The xNF **MUST** have the capability of maintaining a primary
-  and backup DNS name (URL) for connecting to ONAP collectors, with the
-  ability to switch between addresses based on conditions defined by policy
-  such as time-outs, and buffering to store messages until they can be
-  delivered. At its discretion, the service provider may choose to populate
-  only one collector address for a xNF. In this case, the network will
-  promptly resolve connectivity problems caused by a collector or network
-  failure transparently to the xNF.
-* R-81777 The xNF **MUST** be configured with initial address(es) to use
-  at deployment time. Subsequently, address(es) may be changed through
-  ONAP-defined policies delivered from ONAP to the xNF using PUTs to a
-  RESTful API, in the same manner that other controls over data reporting
-  will be controlled by policy.
-* R-08312 The xNF **MAY** use another option which is expected to include REST
-  delivery of binary encoded data sets.
-* R-79412 The xNF **MAY** use another option which is expected to include TCP
-  for high volume streaming asynchronous data sets and for other high volume
-  data sets. TCP delivery can be used for either JSON or binary encoded data
-  sets.
-* R-01033 The xNF **MAY** use another option which is expected to include SFTP
-  for asynchronous bulk files, such as bulk files that contain large volumes of
-  data collected over a long time interval or data collected across many xNFs.
-  (Preferred is to reorganize the data into more frequent or more focused data
-  sets, and deliver these by REST or TCP as appropriate.)
-* R-63229 The xNF **MAY** use another option which is expected to include REST
-  for synchronous data, using RESTCONF (e.g., for xNF state polling).
-* R-03070 The xNF **MUST**, by ONAP Policy, provide the ONAP addresses
-  as data destinations for each xNF, and may be changed by Policy while
-  the xNF is in operation. We expect the xNF to be capable of redirecting
-  traffic to changed destinations with no loss of data, for example from
-  one REST URL to another, or from one TCP host and port to another.
+.. req::
+    :id: R-88482    
+    :target: XNF
+    :keyword: SHOULD
+
+    The xNF **SHOULD** use REST using HTTPS delivery of plain
+    text JSON for moderate sized asynchronous data sets, and for high
+    volume data sets when feasible.
+
+.. req::
+    :id: R-84879    
+    :target: XNF
+    :keyword: MUST
+
+    The xNF **MUST** have the capability of maintaining a primary
+    and backup DNS name (URL) for connecting to ONAP collectors, with the
+    ability to switch between addresses based on conditions defined by policy
+    such as time-outs, and buffering to store messages until they can be
+    delivered. At its discretion, the service provider may choose to populate
+    only one collector address for a xNF. In this case, the network will
+    promptly resolve connectivity problems caused by a collector or network
+    failure transparently to the xNF.
+
+.. req::
+    :id: R-81777    
+    :target: XNF
+    :keyword: MUST
+
+    The xNF **MUST** be configured with initial address(es) to use
+    at deployment time. Subsequently, address(es) may be changed through
+    ONAP-defined policies delivered from ONAP to the xNF using PUTs to a
+    RESTful API, in the same manner that other controls over data reporting
+    will be controlled by policy.
+
+.. req::
+    :id: R-08312    
+    :target: XNF
+    :keyword: MAY
+
+    The xNF **MAY** use another option which is expected to include REST
+    delivery of binary encoded data sets.
+
+.. req::
+    :id: R-79412    
+    :target: XNF
+    :keyword: MAY
+
+    The xNF **MAY** use another option which is expected to include TCP
+    for high volume streaming asynchronous data sets and for other high volume
+    data sets. TCP delivery can be used for either JSON or binary encoded data
+    sets.
+
+.. req::
+    :id: R-01033    
+    :target: XNF
+    :keyword: MAY
+
+    The xNF **MAY** use another option which is expected to include SFTP
+    for asynchronous bulk files, such as bulk files that contain large volumes
+    of data collected over a long time interval or data collected across many
+    xNFs. (Preferred is to reorganize the data into more frequent or more focused
+    data sets, and deliver these by REST or TCP as appropriate.)
+
+.. req::
+    :id: R-63229    
+    :target: XNF
+    :keyword: MAY
+
+    The xNF **MAY** use another option which is expected to include REST
+    for synchronous data, using RESTCONF (e.g., for xNF state polling).
+
+.. req::
+    :id: R-03070    
+    :target: XNF
+    :keyword: MUST
+
+    The xNF **MUST**, by ONAP Policy, provide the ONAP addresses
+    as data destinations for each xNF, and may be changed by Policy while
+    the xNF is in operation. We expect the xNF to be capable of redirecting
+    traffic to changed destinations with no loss of data, for example from
+    one REST URL to another, or from one TCP host and port to another.
 
 Asynchronous and Synchronous Data Delivery
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* R-06924 The xNF **MUST** deliver asynchronous data as data becomes
-  available, or according to the configured frequency.
-* R-73285 The xNF **MUST** must encode, address and deliver the data
-  as described in the previous paragraphs.
-* R-42140 The xNF **MUST** respond to data requests from ONAP as soon
-  as those requests are received, as a synchronous response.
-* R-34660 The xNF **MUST** use the RESTCONF/NETCONF framework used by
-  the ONAP configuration subsystem for synchronous communication.
-* R-86586 The xNF **MUST** use the YANG configuration models and RESTCONF
-  [RFC8040] (https://tools.ietf.org/html/rfc8040).
-* R-11240 The xNF **MUST** respond with content encoded in JSON, as
-  described in the RESTCONF specification. This way the encoding of a
-  synchronous communication will be consistent with Avro.
-* R-70266 The xNF **MUST** respond to an ONAP request to deliver the
-  current data for any of the record types defined in
-  `Event Records - Data Structure Description`_ by returning the requested
-  record, populated with the current field values. (Currently the defined
-  record types include fault fields, mobile flow fields, measurements for
-  xNF scaling fields, and syslog fields. Other record types will be added
-  in the future as they become standardized and are made available.)
-* R-46290 The xNF **MUST** respond to an ONAP request to deliver granular
-  data on device or subsystem status or performance, referencing the YANG
-  configuration model for the xNF by returning the requested data elements.
-* R-43327 The xNF **SHOULD** use `Modeling JSON text with YANG
-  <https://tools.ietf.org/html/rfc7951>`_, If YANG models need to be
-  translated to and from JSON{RFC7951]. YANG configuration and content can
-  be represented via JSON, consistent with Avro, as described in “Encoding
-  and Serialization” section.
+.. req::
+    :id: R-06924    
+    :target: XNF
+    :keyword: MUST
+
+    The xNF **MUST** deliver asynchronous data as data becomes
+    available, or according to the configured frequency.
+
+.. req::
+    :id: R-73285    
+    :target: XNF
+    :keyword: MUST
+
+    The xNF **MUST** must encode, address and deliver the data
+    as described in the previous paragraphs.
+
+.. req::
+    :id: R-42140    
+    :target: XNF
+    :keyword: MUST
+
+    The xNF **MUST** respond to data requests from ONAP as soon
+    as those requests are received, as a synchronous response.
+
+.. req::
+    :id: R-34660    
+    :target: XNF
+    :keyword: MUST
+
+    The xNF **MUST** use the RESTCONF/NETCONF framework used by
+    the ONAP configuration subsystem for synchronous communication.
+
+.. req::
+    :id: R-86586    
+    :target: XNF
+    :keyword: MUST
+
+    The xNF **MUST** use the YANG configuration models and RESTCONF
+    [RFC8040] (https://tools.ietf.org/html/rfc8040).
+
+.. req::
+    :id: R-11240    
+    :target: XNF
+    :keyword: MUST
+
+    The xNF **MUST** respond with content encoded in JSON, as
+    described in the RESTCONF specification. This way the encoding of a
+    synchronous communication will be consistent with Avro.
+
+.. req::
+    :id: R-70266    
+    :target: XNF
+    :keyword: MUST
+
+    The xNF **MUST** respond to an ONAP request to deliver the
+    current data for any of the record types defined in
+    `Event Records - Data Structure Description`_ by returning the requested
+    record, populated with the current field values. (Currently the defined
+    record types include fault fields, mobile flow fields, measurements for
+    xNF scaling fields, and syslog fields. Other record types will be added
+    in the future as they become standardized and are made available.)
+
+.. req::
+    :id: R-46290    
+    :target: XNF
+    :keyword: MUST
+
+    The xNF **MUST** respond to an ONAP request to deliver granular
+    data on device or subsystem status or performance, referencing the YANG
+    configuration model for the xNF by returning the requested data elements.
+
+.. req::
+    :id: R-43327    
+    :target: XNF
+    :keyword: SHOULD
+
+    The xNF **SHOULD** use `Modeling JSON text with YANG
+    <https://tools.ietf.org/html/rfc7951>`_, If YANG models need to be
+    translated to and from JSON{RFC7951]. YANG configuration and content can
+    be represented via JSON, consistent with Avro, as described in "Encoding
+    and Serialization" section.
 
 Security
 ~~~~~~~~~~
 
-* R-42366 The xNF **MUST** support secure connections and transports such as
-  Transport Layer Security (TLS) protocol
-  [`RFC5246 <https://tools.ietf.org/html/rfc5246>`_] and should adhere to
-  the best current practices outlined in
-  `RFC7525 <https://tools.ietf.org/html/rfc7525>`_.
-* R-44290 The xNF **MUST** control access to ONAP and to xNFs, and creation
-  of connections, through secure credentials, log-on and exchange mechanisms.
-* R-47597 The xNF **MUST** carry data in motion only over secure connections.
-* R-68165 The xNF **MUST** encrypt any content containing Sensitive Personal
-  Information (SPI) or certain proprietary data, in addition to applying the
-  regular procedures for securing access and delivery.
+.. req::
+    :id: R-42366    
+    :target: XNF
+    :keyword: MUST
+
+    The xNF **MUST** support secure connections and transports such as
+    Transport Layer Security (TLS) protocol
+    [`RFC5246 <https://tools.ietf.org/html/rfc5246>`_] and should adhere to
+    the best current practices outlined in
+    `RFC7525 <https://tools.ietf.org/html/rfc7525>`_.
+
+.. req::
+    :id: R-44290    
+    :target: XNF
+    :keyword: MUST
+
+    The xNF **MUST** control access to ONAP and to xNFs, and creation
+    of connections, through secure credentials, log-on and exchange mechanisms.
+
+.. req::
+    :id: R-47597    
+    :target: XNF
+    :keyword: MUST
+
+    The xNF **MUST** carry data in motion only over secure connections.
+
+.. req::
+    :id: R-68165    
+    :target: XNF
+    :keyword: MUST
+
+    The xNF **MUST** encrypt any content containing Sensitive Personal
+    Information (SPI) or certain proprietary data, in addition to applying the
+    regular procedures for securing access and delivery.
 
 .. [1]
    This option is not currently supported in ONAP and it is currently
@@ -560,4 +703,3 @@ Security
 .. |image3| image:: Protocol_Buffers_Driven_Model.png
       :width: 4.74in
       :height: 3.3in
-
