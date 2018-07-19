@@ -30,10 +30,17 @@ types:
 
 3. Cinder Volume Module
 
-* R-37028 The VNF **MUST** be composed of one “base” module.
-* R-41215 The VNF **MAY** have zero to many “incremental” modules.
-* R-20974 The VNF **MUST** deploy the base module first, prior to
-  the incremental modules.
+:need:`R-37028` - The VNF **MUST** be composed of one "base" module.
+
+.. req::
+    :id: R-41215
+    :target: VNF
+    :keyword: MAY
+
+    The VNF **MAY** have zero to many "incremental" modules.
+
+:need:`R-20974` - The VNF **MUST** deploy the base module first, prior to
+the incremental modules.
 
 ONAP also supports the concept of an optional, independently deployed
 Cinder volume via a separate Heat Orchestration Templates, referred to
@@ -42,20 +49,21 @@ Virtual Machine (VM) (i.e., OS::Nova::Server) is deleted, allowing the
 volume to be reused on another instance (e.g., during a failover
 activity).
 
-* R-11200 The VNF **MUST** keep the scope of a Cinder volume module,
-  when it exists, to be 1:1 with the VNF Base Module or Incremental Module.
+:need:`R-11200` - The VNF **MUST** keep the scope of a Cinder volume module,
+when it exists, to be 1:1 with the VNF Base Module or Incremental Module.
 
-* R-38474 The VNF **MUST** have a corresponding environment file for
-  a Base Module.
-* R-81725 The VNF **MUST** have a corresponding environment file for
-  an Incremental Module.
-* R-53433 The VNF **MUST** have a corresponding environment file for
-  a Cinder Volume Module.
+:need:`R-38474` - The VNF **MUST** have a corresponding environment file for a
+Base Module.
+
+:need:`R-81725` - The VNF **MUST** have a corresponding environment file for an
+Incremental Module.
+
+:need:`R-53433` - The VNF **MUST** have a corresponding environment file for a
+Cinder Volume Module.
 
 These concepts will be described in more detail throughout the document.
 This overview is provided to set the stage and help clarify the concepts
 that will be introduced.
-
 
 ONAP VNF Modularity
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -350,3 +358,4 @@ incremental.yaml
        properties:
           network_id: { get_param: int_oam_net_id }
  ...
+
