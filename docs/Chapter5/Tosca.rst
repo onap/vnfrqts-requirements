@@ -805,9 +805,9 @@ Definition
 | required: false                                     |
 +-----------------------------------------------------+
 
-.. |image1| image:: Image1.png
+.. |image1| image:: ../Image1.png
    :width: 5.76806in
    :height: 4.67161in
-.. |image2| image:: Image2.png
+.. |image2| image:: ../Image2.png
    :width: 5.40486in
    :height: 2.46042in
