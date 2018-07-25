@@ -8,4 +8,4 @@ Requirement List
 
 .. needtable::
    :style: datatables
-   :columns: id;content;target;keyword;sections
+   :columns: id;content;target;keyword;section_name
