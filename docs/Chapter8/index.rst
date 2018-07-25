@@ -13,5 +13,4 @@ Appendix
     Ansible-JSON-Key-Value-Description
     VNF-License-Information-Guidelines
     TOSCA-model
-    Requirement-List
     Ansible-Playbook-Examples

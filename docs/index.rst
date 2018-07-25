@@ -18,3 +18,4 @@ VNF Requirements Documentation
     Chapter6/index
     Chapter7/index
     Chapter8/index
+    Chapter9/index
