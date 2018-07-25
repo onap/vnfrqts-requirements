@@ -1,4 +1,4 @@
-﻿:tocdepth: 2
+:tocdepth: 2
 
 **5. VNF Modeling Requirements**
 =====================================
@@ -17,8 +17,8 @@ Network Cloud. It has the following features:
 
 1. VNF TOSCA template designer supports GUI and CLI.
 
-2. VNF TOSCA template is aligned to the newest TOSCA protocol, “Working
-   Draft 04-Revision 06”.
+2. VNF TOSCA template is aligned to the newest TOSCA protocol, "Working
+   Draft 04-Revision 06".
 
 3. VNF TOSCA template supports EPA features, such as NUMA, Hyper
    Threading, SRIOV， etc.
@@ -123,7 +123,7 @@ The main parts of the VNFD are the following:
    (affinity / antiaffinity), minimum and maximum VDU instance numbers,
    and scaling aspect for horizontal scaling.
 
-The following table defines the TOSCA Type “derived from” values that
+The following table defines the TOSCA Type "derived from" values that
 SHALL be used when using the TOSCA Simple Profile for NFV version 1.0
 specification [TOSCA-Simple-Profile-NFV-v1.0] for NFV VNFD.
 
@@ -191,67 +191,67 @@ EPA Requirements
 Definitions of SRIOV\_Port are necessary if VDU supports SR-IOV. Here is
 an example.
 
-+------------------------------------------------+
-| node\_templates:                               |
-|                                                |
-| vdu\_vNat:                                     |
-|                                                |
-| SRIOV\_Port:                                   |
-|                                                |
-| attributes:                                    |
-|                                                |
-| tosca\_name: SRIOV\_Port                       |
-|                                                |
-| properties:                                    |
-|                                                |
-| virtual\_network\_interface\_requirements:     |
-|                                                |
-| - name: sriov                                  |
-|                                                |
-| support\_mandatory: false                      |
-|                                                |
-| description: sriov                             |
-|                                                |
-| requirement:                                   |
-|                                                |
-| SRIOV: true                                    |
-|                                                |
-| role: root                                     |
-|                                                |
-| description: sriov port                        |
-|                                                |
-| layer\_protocol: ipv4                          |
-|                                                |
-| requirements:                                  |
-|                                                |
-| - virtual\_binding:                            |
-|                                                |
-| capability: virtual\_binding                   |
-|                                                |
-| node: vdu\_vNat                                |
-|                                                |
-| relationship:                                  |
-|                                                |
-| type: tosca.relationships.nfv.VirtualBindsTo   |
-|                                                |
-| - virtual\_link:                               |
-|                                                |
-| node: tosca.nodes.Root                         |
-|                                                |
-| type: tosca.nodes.nfv.VduCpd                   |
-|                                                |
-| substitution\_mappings:                        |
-|                                                |
-| requirements:                                  |
-|                                                |
-| sriov\_plane:                                  |
-|                                                |
-| - SRIOV\_Port                                  |
-|                                                |
-| - virtual\_link                                |
-|                                                |
-| node\_type: tosca.nodes.nfv.VNF.vOpenNAT       |
-+------------------------------------------------+
+.. code-block:: yaml
+
+   node\_templates:
+
+   vdu\_vNat:
+
+   SRIOV\_Port:
+
+   attributes:
+
+   tosca\_name: SRIOV\_Port
+
+   properties:
+
+   virtual\_network\_interface\_requirements:
+
+   - name: sriov
+
+   support\_mandatory: false
+
+   description: sriov
+
+   requirement:
+
+   SRIOV: true
+
+   role: root
+
+   description: sriov port
+
+   layer\_protocol: ipv4
+
+   requirements:
+
+   - virtual\_binding:
+
+   capability: virtual\_binding
+
+   node: vdu\_vNat
+
+   relationship:
+
+   type: tosca.relationships.nfv.VirtualBindsTo
+
+   - virtual\_link:
+
+   node: tosca.nodes.Root
+
+   type: tosca.nodes.nfv.VduCpd
+
+   substitution\_mappings:
+
+   requirements:
+
+   sriov\_plane:
+
+   - SRIOV\_Port
+
+   - virtual\_link
+
+   node\_type: tosca.nodes.nfv.VNF.vOpenNAT
 
 2. Hugepages
 
@@ -259,22 +259,22 @@ Definitions of mem\_page\_size as one property shall be added to
 Properties and set the value to large if one VDU node supports
 huagepages. Here is an example.
 
-+----------------------------------+
-| node\_templates:                 |
-|                                  |
-| vdu\_vNat:                       |
-|                                  |
-| Hugepages:                       |
-|                                  |
-| attributes:                      |
-|                                  |
-| tosca\_name: Huge\_pages\_demo   |
-|                                  |
-| properties:                      |
-|                                  |
-| mem\_page\_size:large            |
-+==================================+
-+----------------------------------+
+.. code-block:: yaml
+
+   node\_templates:
+
+   vdu\_vNat:
+
+   Hugepages:
+
+   attributes:
+
+   tosca\_name: Huge\_pages\_demo
+
+   properties:
+
+   mem\_page\_size:large
+
 
 3. NUMA (CPU/Mem)
 
@@ -282,45 +282,46 @@ Likewise, we shall add definitions of numa to
 requested\_additional\_capabilities if we wand VUD nodes to support
 NUMA. Here is an example.
 
-+-------------------------------------------------+
-| topology\_template:                             |
-|                                                 |
-| node\_templates:                                |
-|                                                 |
-| vdu\_vNat:                                      |
-|                                                 |
-| capabilities:                                   |
-|                                                 |
-| virtual\_compute:                               |
-|                                                 |
-| properties:                                     |
-|                                                 |
-| virtual\_memory:                                |
-|                                                 |
-| numa\_enabled: true                             |
-|                                                 |
-| virtual\_mem\_size: 2 GB                        |
-|                                                 |
-| requested\_additional\_capabilities:            |
-|                                                 |
-| numa:                                           |
-|                                                 |
-| support\_mandatory: true                        |
-|                                                 |
-| requested\_additional\_capability\_name: numa   |
-|                                                 |
-| target\_performance\_parameters:                |
-|                                                 |
-| hw:numa\_nodes: "2"                             |
-|                                                 |
-| hw:numa\_cpus.0: "0,1"                          |
-|                                                 |
-| hw:numa\_mem.0: "1024"                          |
-|                                                 |
-| hw:numa\_cpus.1: "2,3,4,5"                      |
-|                                                 |
-| hw:numa\_mem.1: "1024"                          |
-+-------------------------------------------------+
+.. code-block:: yaml
+
+   topology\_template:
+
+   node\_templates:
+
+   vdu\_vNat:
+
+   capabilities:
+
+   virtual\_compute:
+
+   properties:
+
+   virtual\_memory:
+
+   numa\_enabled: true
+
+   virtual\_mem\_size: 2 GB
+
+   requested\_additional\_capabilities:
+
+   numa:
+
+   support\_mandatory: true
+
+   requested\_additional\_capability\_name: numa
+
+   target\_performance\_parameters:
+
+   hw:numa\_nodes: "2"
+
+   hw:numa\_cpus.0: "0,1"
+
+   hw:numa\_mem.0: "1024"
+
+   hw:numa\_cpus.1: "2,3,4,5"
+
+   hw:numa\_mem.1: "1024"
+
 
 4. Hyper-Theading
 
@@ -328,43 +329,44 @@ Definitions of Hyper-Theading are necessary as one of
 requested\_additional\_capabilities of one VUD node if that node
 supports Hyper-Theading. Here is an example.
 
-+-------------------------------------------------------------+
-| topology\_template:                                         |
-|                                                             |
-| node\_templates:                                            |
-|                                                             |
-| vdu\_vNat:                                                  |
-|                                                             |
-| capabilities:                                               |
-|                                                             |
-| virtual\_compute:                                           |
-|                                                             |
-| properties:                                                 |
-|                                                             |
-| virtual\_memory:                                            |
-|                                                             |
-| numa\_enabled: true                                         |
-|                                                             |
-| virtual\_mem\_size: 2 GB                                    |
-|                                                             |
-| requested\_additional\_capabilities:                        |
-|                                                             |
-| hyper\_threading:                                           |
-|                                                             |
-| support\_mandatory: true                                    |
-|                                                             |
-| requested\_additional\_capability\_name: hyper\_threading   |
-|                                                             |
-| target\_performance\_parameters:                            |
-|                                                             |
-| hw:cpu\_sockets : "2"                                       |
-|                                                             |
-| hw:cpu\_threads : "2"                                       |
-|                                                             |
-| hw:cpu\_cores : "2"                                         |
-|                                                             |
-| hw:cpu\_threads\_policy: "isolate"                          |
-+-------------------------------------------------------------+
+.. code-block:: yaml
+
+   topology\_template:
+
+   node\_templates:
+
+   vdu\_vNat:
+
+   capabilities:
+
+   virtual\_compute:
+
+   properties:
+
+   virtual\_memory:
+
+   numa\_enabled: true
+
+   virtual\_mem\_size: 2 GB
+
+   requested\_additional\_capabilities:
+
+   hyper\_threading:
+
+   support\_mandatory: true
+
+   requested\_additional\_capability\_name: hyper\_threading
+
+   target\_performance\_parameters:
+
+   hw:cpu\_sockets : "2"
+
+   hw:cpu\_threads : "2"
+
+   hw:cpu\_cores : "2"
+
+   hw:cpu\_threads\_policy: "isolate"
+
 
 5. OVS+DPDK
 
@@ -372,37 +374,38 @@ Definitions of ovs\_dpdk are necessary as one of
 requested\_additional\_capabilities of one VUD node if that node
 supports dpdk. Here is an example.
 
-+------------------------------------------------------+
-| topology\_template:                                  |
-|                                                      |
-| node\_templates:                                     |
-|                                                      |
-| vdu\_vNat:                                           |
-|                                                      |
-| capabilities:                                        |
-|                                                      |
-| virtual\_compute:                                    |
-|                                                      |
-| properties:                                          |
-|                                                      |
-| virtual\_memory:                                     |
-|                                                      |
-| numa\_enabled: true                                  |
-|                                                      |
-| virtual\_mem\_size: 2 GB                             |
-|                                                      |
-| requested\_additional\_capabilities:                 |
-|                                                      |
-| ovs\_dpdk:                                           |
-|                                                      |
-| support\_mandatory: true                             |
-|                                                      |
-| requested\_additional\_capability\_name: ovs\_dpdk   |
-|                                                      |
-| target\_performance\_parameters:                     |
-|                                                      |
-| sw:ovs\_dpdk: "true"                                 |
-+------------------------------------------------------+
+.. code-block:: yaml
+
+   topology\_template:
+
+   node\_templates:
+
+   vdu\_vNat:
+
+   capabilities:
+
+   virtual\_compute:
+
+   properties:
+
+   virtual\_memory:
+
+   numa\_enabled: true
+
+   virtual\_mem\_size: 2 GB
+
+   requested\_additional\_capabilities:
+
+   ovs\_dpdk:
+
+   support\_mandatory: true
+
+   requested\_additional\_capability\_name: ovs\_dpdk
+
+   target\_performance\_parameters:
+
+   sw:ovs\_dpdk: "true"
+
 
 NFV TOSCA Type Definition
 -------------------------
@@ -439,35 +442,36 @@ Properties
 Definition
 ^^^^^^^^^^
 
-+-----------------------------------------------------------+
-| tosca.capabilities.nfv.VirtualCompute:                    |
-|                                                           |
-| derived\_from: tosca.capabilities.Root                    |
-|                                                           |
-| properties:                                               |
-|                                                           |
-| requested\_additional\_capabilities:                      |
-|                                                           |
-| type: map                                                 |
-|                                                           |
-| entry\_schema:                                            |
-|                                                           |
-| type: tosca.datatypes.nfv.RequestedAdditionalCapability   |
-|                                                           |
-| required: false                                           |
-|                                                           |
-| virtual\_memory:                                          |
-|                                                           |
-| type: tosca.datatypes.nfv.VirtualMemory                   |
-|                                                           |
-| required: true                                            |
-|                                                           |
-| virtual\_cpu:                                             |
-|                                                           |
-| type: tosca.datatypes.nfv.VirtualCpu                      |
-|                                                           |
-| required: true                                            |
-+-----------------------------------------------------------+
+.. code-block:: yaml
+
+   tosca.capabilities.nfv.VirtualCompute:
+
+   derived\_from: tosca.capabilities.Root
+
+   properties:
+
+   requested\_additional\_capabilities:
+
+   type: map
+
+   entry\_schema:
+
+   type: tosca.datatypes.nfv.RequestedAdditionalCapability
+
+   required: false
+
+   virtual\_memory:
+
+   type: tosca.datatypes.nfv.VirtualMemory
+
+   required: true
+
+   virtual\_cpu:
+
+   type: tosca.datatypes.nfv.VirtualCpu
+
+   required: true
+
 
 tosca.nodes.nfv.VDU.Compute
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -486,7 +490,6 @@ NFV IFA011].**
 +-----------------------+-------------------------------+
 | derived\_from         | tosca.nodes.Compute           |
 +-----------------------+-------------------------------+
-
 
 
 Attributes
@@ -515,143 +518,144 @@ Capabilities
 Definition
 ^^^^^^^^^^
 
-+-----------------------------------------------------------------------------------------------------+
-| tosca.nodes.nfv.VDU.Compute:                                                                        |
-|                                                                                                     |
-| derived\_from: tosca.nodes.Compute                                                                  |
-|                                                                                                     |
-| properties:                                                                                         |
-|                                                                                                     |
-| name:                                                                                               |
-|                                                                                                     |
-| type: string                                                                                        |
-|                                                                                                     |
-| required: true                                                                                      |
-|                                                                                                     |
-| description:                                                                                        |
-|                                                                                                     |
-| type: string                                                                                        |
-|                                                                                                     |
-| required: true                                                                                      |
-|                                                                                                     |
-| boot\_order:                                                                                        |
-|                                                                                                     |
-| type: list # explicit index (boot index) not necessary, contrary to IFA011                          |
-|                                                                                                     |
-| entry\_schema:                                                                                      |
-|                                                                                                     |
-| type: string                                                                                        |
-|                                                                                                     |
-| required: false                                                                                     |
-|                                                                                                     |
-| nfvi\_constraints:                                                                                  |
-|                                                                                                     |
-| type: list                                                                                          |
-|                                                                                                     |
-| entry\_schema:                                                                                      |
-|                                                                                                     |
-| type: string                                                                                        |
-|                                                                                                     |
-| required: false                                                                                     |
-|                                                                                                     |
-| configurable\_properties:                                                                           |
-|                                                                                                     |
-| type: map                                                                                           |
-|                                                                                                     |
-| entry\_schema:                                                                                      |
-|                                                                                                     |
-| type: tosca.datatypes.nfv.VnfcConfigurableProperties                                                |
-|                                                                                                     |
-| required: true                                                                                      |
-|                                                                                                     |
-| attributes:                                                                                         |
-|                                                                                                     |
-| private\_address:                                                                                   |
-|                                                                                                     |
-| status: deprecated                                                                                  |
-|                                                                                                     |
-| public\_address:                                                                                    |
-|                                                                                                     |
-| status: deprecated                                                                                  |
-|                                                                                                     |
-| networks:                                                                                           |
-|                                                                                                     |
-| status: deprecated                                                                                  |
-|                                                                                                     |
-| ports:                                                                                              |
-|                                                                                                     |
-| status: deprecated                                                                                  |
-|                                                                                                     |
-| capabilities:                                                                                       |
-|                                                                                                     |
-| virtual\_compute:                                                                                   |
-|                                                                                                     |
-| type: tosca.capabilities.nfv.VirtualCompute                                                         |
-|                                                                                                     |
-| virtual\_binding:                                                                                   |
-|                                                                                                     |
-| type: tosca.capabilities.nfv.VirtualBindable                                                        |
-|                                                                                                     |
-| #monitoring\_parameter:                                                                             |
-|                                                                                                     |
-| # modeled as ad hoc (named) capabilities in VDU node template                                       |
-|                                                                                                     |
-| # for example:                                                                                      |
-|                                                                                                     |
-| #capabilities:                                                                                      |
-|                                                                                                     |
-| # cpu\_load: tosca.capabilities.nfv.Metric                                                          |
-|                                                                                                     |
-| # memory\_usage: tosca.capabilities.nfv.Metric                                                      |
-|                                                                                                     |
-| host: #Editor note: FFS. How this capabilities should be used in NFV Profile                        |
-|                                                                                                     |
-| type: `*tosca.capabilities.Container* <#DEFN_TYPE_CAPABILITIES_CONTAINER>`__                        |
-|                                                                                                     |
-| valid\_source\_types: [`*tosca.nodes.SoftwareComponent* <#DEFN_TYPE_NODES_SOFTWARE_COMPONENT>`__]   |
-|                                                                                                     |
-| occurrences: [0,UNBOUNDED]                                                                          |
-|                                                                                                     |
-| endpoint:                                                                                           |
-|                                                                                                     |
-| occurrences: [0,0]                                                                                  |
-|                                                                                                     |
-| os:                                                                                                 |
-|                                                                                                     |
-| occurrences: [0,0]                                                                                  |
-|                                                                                                     |
-| scalable: #Editor note: FFS. How this capabilities should be used in NFV Profile                    |
-|                                                                                                     |
-| type: `*tosca.capabilities.Scalable* <#DEFN_TYPE_CAPABILITIES_SCALABLE>`__                          |
-|                                                                                                     |
-| binding:                                                                                            |
-|                                                                                                     |
-| occurrences: [0,UNBOUND]                                                                            |
-|                                                                                                     |
-| requirements:                                                                                       |
-|                                                                                                     |
-| - virtual\_storage:                                                                                 |
-|                                                                                                     |
-| capability: tosca.capabilities.nfv.VirtualStorage                                                   |
-|                                                                                                     |
-| relationship: tosca.relationships.nfv.VDU.AttachedTo                                                |
-|                                                                                                     |
-| node: tosca.nodes.nfv.VDU.VirtualStorage                                                            |
-|                                                                                                     |
-| occurences: [ 0, UNBOUNDED ]                                                                        |
-|                                                                                                     |
-| - local\_storage: #For NFV Profile, this requirement is deprecated.                                 |
-|                                                                                                     |
-| occurrences: [0,0]                                                                                  |
-|                                                                                                     |
-| artifacts:                                                                                          |
-|                                                                                                     |
-| - sw\_image:                                                                                        |
-|                                                                                                     |
-| file:                                                                                               |
-|                                                                                                     |
-| type: tosca.artifacts.nfv.SwImage                                                                   |
-+-----------------------------------------------------------------------------------------------------+
+.. code-block:: yaml
+
+   tosca.nodes.nfv.VDU.Compute:
+
+   derived\_from: tosca.nodes.Compute
+
+   properties:
+
+   name:
+
+   type: string
+
+   required: true
+
+   description:
+
+   type: string
+
+   required: true
+
+   boot\_order:
+
+   type: list # explicit index (boot index) not necessary, contrary to IFA011
+
+   entry\_schema:
+
+   type: string
+
+   required: false
+
+   nfvi\_constraints:
+
+   type: list
+
+   entry\_schema:
+
+   type: string
+
+   required: false
+
+   configurable\_properties:
+
+   type: map
+
+   entry\_schema:
+
+   type: tosca.datatypes.nfv.VnfcConfigurableProperties
+
+   required: true 
+
+   attributes:
+
+   private\_address:
+
+   status: deprecated
+
+   public\_address:
+
+   status: deprecated
+
+   networks:
+
+   status: deprecated
+
+   ports:
+
+   status: deprecated
+
+   capabilities:
+
+   virtual\_compute:
+
+   type: tosca.capabilities.nfv.VirtualCompute
+
+   virtual\_binding:
+
+   type: tosca.capabilities.nfv.VirtualBindable
+
+   #monitoring\_parameter:
+
+   # modeled as ad hoc (named) capabilities in VDU node template
+
+   # for example:
+
+   #capabilities:
+
+   # cpu\_load: tosca.capabilities.nfv.Metric
+
+   # memory\_usage: tosca.capabilities.nfv.Metric
+
+   host: #Editor note: FFS. How this capabilities should be used in NFV Profile
+
+   type: *tosca.capabilities.Container*
+
+   valid\_source\_types: [*tosca.nodes.SoftwareComponent*]
+
+   occurrences: [0,UNBOUNDED]
+
+   endpoint:
+
+   occurrences: [0,0]
+
+   os:
+
+   occurrences: [0,0]
+
+   scalable: #Editor note: FFS. How this capabilities should be used in NFV Profile
+
+   type: *tosca.capabilities.Scalable*
+
+   binding:
+
+   occurrences: [0,UNBOUND]
+
+   requirements:
+
+   - virtual\_storage:
+
+   capability: tosca.capabilities.nfv.VirtualStorage
+
+   relationship: tosca.relationships.nfv.VDU.AttachedTo
+
+   node: tosca.nodes.nfv.VDU.VirtualStorage
+
+   occurences: [ 0, UNBOUNDED ]
+
+   - local\_storage: #For NFV Profile, this requirement is deprecated.
+
+   occurrences: [0,0]
+
+   artifacts:
+
+   - sw\_image:
+
+   file:
+
+   type: tosca.artifacts.nfv.SwImage
+
 
 Artifact
 ^^^^^^^^
@@ -704,49 +708,50 @@ None
 Definition
 ^^^^^^^^^^
 
-+----------------------------------------------------------------------+
-| tosca.nodes.nfv.Cpd:                                                 |
-|                                                                      |
-| derived\_from: tosca.nodes.Root                                      |
-|                                                                      |
-| properties:                                                          |
-|                                                                      |
-| layer\_protocol:                                                     |
-|                                                                      |
-| type:string                                                          |
-|                                                                      |
-| constraints:                                                         |
-|                                                                      |
-| - valid\_values: [ethernet, mpls, odu2, ipv4, ipv6, pseudo\_wire ]   |
-|                                                                      |
-| required:true                                                        |
-|                                                                      |
-| role: #Name in ETSI NFV IFA011 v0.7.3 cpRole                         |
-|                                                                      |
-| type:string                                                          |
-|                                                                      |
-| constraints:                                                         |
-|                                                                      |
-| - valid\_values: [ root, leaf ]                                      |
-|                                                                      |
-| required:flase                                                       |
-|                                                                      |
-| description:                                                         |
-|                                                                      |
-| type: string                                                         |
-|                                                                      |
-| required: false                                                      |
-|                                                                      |
-| address\_data:                                                       |
-|                                                                      |
-| type: list                                                           |
-|                                                                      |
-| entry\_schema:                                                       |
-|                                                                      |
-| type: tosca.datatype.nfv.AddressData                                 |
-|                                                                      |
-| required:false                                                       |
-+----------------------------------------------------------------------+
+.. code-block:: yaml
+
+   tosca.nodes.nfv.Cpd:
+
+   derived\_from: tosca.nodes.Root
+
+   properties:
+
+   layer\_protocol:
+
+   type:string
+
+   constraints:
+
+   - valid\_values: [ethernet, mpls, odu2, ipv4, ipv6, pseudo\_wire ]
+
+   required:true
+
+   role: #Name in ETSI NFV IFA011 v0.7.3 cpRole
+
+   type:string
+
+   constraints:
+
+   - valid\_values: [ root, leaf ]
+
+   required:flase
+
+   description:
+
+   type: string
+
+   required: false
+
+   address\_data:
+
+   type: list
+
+   entry\_schema:
+
+   type: tosca.datatype.nfv.AddressData
+
+   required:false
+
 
 Additional Requirement
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -770,7 +775,6 @@ internal VL as defined by [ETSI GS NFV-IFA 011].
 
 Properties
 ^^^^^^^^^^
-
 
 +-------------------------------+------------+------------------------------------------+---------------+----------------------------------------------------------+
 | Name                          | Required   | Type                                     | Constraints   | Description                                              |
@@ -800,45 +804,45 @@ Requirements
 Definition
 ^^^^^^^^^^
 
-+----------------------------------------------------------------+
-| tosca.nodes.nfv.VduCpd:                                        |
-|                                                                |
-| derived\_from: tosca.nodes.nfv.Cpd                             |
-|                                                                |
-| properties:                                                    |
-|                                                                |
-| bitrate\_requirement:                                          |
-|                                                                |
-| type: integer                                                  |
-|                                                                |
-| required:false                                                 |
-|                                                                |
-| virtual\_network\_interface\_requirements                      |
-|                                                                |
-| type: list                                                     |
-|                                                                |
-| entry\_schema:                                                 |
-|                                                                |
-| type: VirtualNetworkInterfaceRequirements                      |
-|                                                                |
-| required:false                                                 |
-|                                                                |
-| requirements:                                                  |
-|                                                                |
-| - virtual\_link:                                               |
-|                                                                |
-| capability: tosca.capabilities.nfv.VirtualLinkable             |
-|                                                                |
-| relationship: tosca.relationships.nfv.VirtualLinksTo           |
-|                                                                |
-| node: tosca.nodes.nfv.VnfVirtualLinkDesc - virtual\_binding:   |
-|                                                                |
-| capability: tosca.capabilities.nfv.VirtualBindable             |
-|                                                                |
-| relationship: tosca.relationships.nfv.VirtualBindsTo           |
-|                                                                |
-| node: tosca.nodes.nfv.VDU                                      |
-+----------------------------------------------------------------+
+.. code-block:: yaml
+
+   tosca.nodes.nfv.VduCpd:
+
+   derived\_from: tosca.nodes.nfv.Cpd
+
+   properties:
+
+   bitrate\_requirement:
+
+   type: integer
+
+   required:false
+
+   virtual\_network\_interface\_requirements
+
+   type: list
+
+   entry\_schema:
+
+   type: VirtualNetworkInterfaceRequirements
+
+   required:false
+
+   requirements:
+
+   - virtual\_link:
+
+   capability: tosca.capabilities.nfv.VirtualLinkable
+
+   relationship: tosca.relationships.nfv.VirtualLinksTo
+
+   node: tosca.nodes.nfv.VnfVirtualLinkDesc - virtual\_binding:
+
+   capability: tosca.capabilities.nfv.VirtualBindable
+
+   relationship: tosca.relationships.nfv.VirtualBindsTo
+
+   node: tosca.nodes.nfv.VDU
 
 tosca.nodes.nfv.VDU.VirtualStorage
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -852,7 +856,7 @@ model as described in YAML 1.1. Pending on Shitao proposal (see
 NFVIFA(17)000110 discussion paper)
 
 **[editor note]** new relationship type as suggested in Matt
-presentation. Slide 8. With specific rules of “valid\_target\_type”
+presentation. Slide 8. With specific rules of "valid\_target\_type"
 
 +---------------------------+--------------------------------------+
 | **Shorthand Name**        | VirtualStorage                       |
@@ -909,87 +913,88 @@ Properties
 Definition
 ^^^^^^^^^^
 
-+-----------------------------------------------------+
-| tosca.artifacts.nfv.SwImage:                        |
-|                                                     |
-|   derived\_from: tosca.artifacts.Deployment.Image   |
-|                                                     |
-|   properties or metadata:                           |
-|                                                     |
-|     #id:                                            |
-|                                                     |
-|       # node name                                   |
-|                                                     |
-|     name:                                           |
-|                                                     |
-|       type: string                                  |
-|                                                     |
-| required: true                                      |
-|                                                     |
-|     version:                                        |
-|                                                     |
-|       type: string                                  |
-|                                                     |
-| required: true                                      |
-|                                                     |
-|     checksum:                                       |
-|                                                     |
-|       type: string                                  |
-|                                                     |
-| required: true                                      |
-|                                                     |
-|     container\_format:                              |
-|                                                     |
-|       type: string                                  |
-|                                                     |
-| required: true                                      |
-|                                                     |
-|     disk\_format:                                   |
-|                                                     |
-|       type: string                                  |
-|                                                     |
-| required: true                                      |
-|                                                     |
-|     min\_disk:                                      |
-|                                                     |
-|       type: scalar-unit.size # Number               |
-|                                                     |
-| required: true                                      |
-|                                                     |
-|     min\_ram:                                       |
-|                                                     |
-|       type: scalar-unit.size # Number               |
-|                                                     |
-| required: false                                     |
-|                                                     |
-|     size:                                           |
-|                                                     |
-|       type: scalar-unit.size # Number               |
-|                                                     |
-| required: true                                      |
-|                                                     |
-|     sw\_image:                                      |
-|                                                     |
-|       type: string                                  |
-|                                                     |
-| required: true                                      |
-|                                                     |
-|     operating\_system:                              |
-|                                                     |
-|       type: string                                  |
-|                                                     |
-| required: false                                     |
-|                                                     |
-|     supported\_virtualisation\_environments:        |
-|                                                     |
-|       type: list                                    |
-|                                                     |
-|       entry\_schema:                                |
-|                                                     |
-|         type: string                                |
-|                                                     |
-| required: false                                     |
-+-----------------------------------------------------+
+.. code-block:: yaml
+
+   tosca.artifacts.nfv.SwImage:
+
+     derived\_from: tosca.artifacts.Deployment.Image
+
+     properties or metadata:
+
+       #id:
+
+         # node name
+
+       name:
+
+         type: string
+
+   required: true
+
+       version:
+
+         type: string
+
+   required: true
+
+       checksum:
+
+         type: string
+
+   required: true
+
+       container\_format:
+
+         type: string
+
+   required: true
+
+       disk\_format:
+
+         type: string
+
+   required: true
+
+       min\_disk:
+
+         type: scalar-unit.size # Number
+
+   required: true
+
+       min\_ram:
+
+         type: scalar-unit.size # Number
+
+   required: false
+
+       size:
+
+         type: scalar-unit.size # Number
+
+   required: true
+
+       sw\_image:
+
+         type: string
+
+   required: true
+
+       operating\_system:
+
+         type: string
+
+   required: false
+
+       supported\_virtualisation\_environments:
+
+         type: list
+
+         entry\_schema:
+
+           type: string
+
+   required: false
+
 
 vNAT Example
 ------------
@@ -997,545 +1002,550 @@ vNAT Example
 openovnf\_\_vOpenNAT.yaml
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+-------------------------------------------------------------+
-| imports:                                                    |
-|                                                             |
-| - openonfv\_\_tosca.capabilities.Scalable.yaml              |
-|                                                             |
-| - openonfv\_\_tosca.capabilities.nfv.Metric.yaml            |
-|                                                             |
-| - openonfv\_\_tosca.capabilities.network.Bindable.yaml      |
-|                                                             |
-| - openonfv\_\_tosca.capabilities.Attachment.yaml            |
-|                                                             |
-| - openonfv\_\_tosca.capabilities.nfv.VirtualBindable.yaml   |
-|                                                             |
-| - openonfv\_\_tosca.requirements.nfv.VirtualStorage.yaml    |
-|                                                             |
-| - openonfv\_\_tosca.nodes.nfv.VDU.VirtualStorage.yaml       |
-|                                                             |
-| - openonfv\_\_tosca.relationships.nfv.VirtualBindsTo.yaml   |
-|                                                             |
-| - openonfv\_\_tosca.nodes.nfv.VDU.Compute.yaml              |
-|                                                             |
-| - openonfv\_\_tosca.artifacts.nfv.SwImage.yaml              |
-|                                                             |
-| - openonfv\_\_tosca.capabilities.nfv.VirtualCompute.yaml    |
-|                                                             |
-| - openonfv\_\_tosca.capabilities.Container.yaml             |
-|                                                             |
-| - openonfv\_\_tosca.capabilities.nfv.VirtualStorage.yaml    |
-|                                                             |
-| - openonfv\_\_tosca.requirements.nfv.VirtualBinding.yaml    |
-|                                                             |
-| - openovnf\_\_tosca.nodes.nfv.VNF.vOpenNAT.yaml             |
-|                                                             |
-| - openonfv\_\_tosca.capabilities.Endpoint.Admin.yaml        |
-|                                                             |
-| - openonfv\_\_tosca.capabilities.OperatingSystem.yaml       |
-|                                                             |
-| - openonfv\_\_tosca.nodes.nfv.VduCpd.yaml                   |
-|                                                             |
-| - openonfv\_\_tosca.relationships.nfv.VDU.AttachedTo.yaml   |
-|                                                             |
-| metadata:                                                   |
-|                                                             |
-| vnfProductName: openNAT                                     |
-|                                                             |
-| vnfdVersion: 1.0.0                                          |
-|                                                             |
-| vnfProvider: intel                                          |
-|                                                             |
-| vnfmInfo: GVNFM                                             |
-|                                                             |
-| csarVersion: 1.0.0                                          |
-|                                                             |
-| vnfdId: openNAT-1.0                                         |
-|                                                             |
-| csarProvider: intel                                         |
-|                                                             |
-| vnfProductInfoDescription: openNAT                          |
-|                                                             |
-| version: 1.0.0                                              |
-|                                                             |
-| csarType: NFAR                                              |
-|                                                             |
-| vendor: intel                                               |
-|                                                             |
-| localizationLanguage: '[english, chinese]'                  |
-|                                                             |
-| id: openNAT-1.0                                             |
-|                                                             |
-| defaultLocalizationLanguage: english                        |
-|                                                             |
-| vnfProductInfoName: openNAT                                 |
-|                                                             |
-| vnfSoftwareVersion: 1.0.0                                   |
-|                                                             |
-| topology\_template:                                         |
-|                                                             |
-| node\_templates:                                            |
-|                                                             |
-| vdu\_vNat:                                                  |
-|                                                             |
-| artifacts:                                                  |
-|                                                             |
-| vNatVNFImage:                                               |
-|                                                             |
-| file: /swimages/xenial-snat.qcow2                           |
-|                                                             |
-| type: tosca.artifacts.nfv.SwImage                           |
-|                                                             |
-| properties:                                                 |
-|                                                             |
-| name: vNatVNFImage                                          |
-|                                                             |
-| version: "1.0"                                              |
-|                                                             |
-| checksum: "5000"                                            |
-|                                                             |
-| container\_format: bare                                     |
-|                                                             |
-| disk\_format: qcow2                                         |
-|                                                             |
-| min\_disk: 10 GB                                            |
-|                                                             |
-| min\_ram: 1 GB                                              |
-|                                                             |
-| size: 10 GB                                                 |
-|                                                             |
-| sw\_image: /swimages/xenial-snat.qcow2                      |
-|                                                             |
-| operating\_system: unbantu                                  |
-|                                                             |
-| attributes:                                                 |
-|                                                             |
-| tosca\_name: vdu\_vNat                                      |
-|                                                             |
-| capabilities:                                               |
-|                                                             |
-| virtual\_compute:                                           |
-|                                                             |
-| properties:                                                 |
-|                                                             |
-| virtual\_memory:                                            |
-|                                                             |
-| numa\_enabled: true                                         |
-|                                                             |
-| virtual\_mem\_size: 2 GB                                    |
-|                                                             |
-| requested\_additional\_capabilities:                        |
-|                                                             |
-| numa:                                                       |
-|                                                             |
-| support\_mandatory: true                                    |
-|                                                             |
-| requested\_additional\_capability\_name: numa               |
-|                                                             |
-| target\_performance\_parameters:                            |
-|                                                             |
-| hw:numa\_nodes: "2"                                         |
-|                                                             |
-| hw:numa\_cpus.0: "0,1"                                      |
-|                                                             |
-| hw:numa\_mem.0: "1024"                                      |
-|                                                             |
-| hw:numa\_cpus.1: "2,3,4,5"                                  |
-|                                                             |
-| hw:numa\_mem.1: "1024"                                      |
-|                                                             |
-| hyper\_threading:                                           |
-|                                                             |
-| support\_mandatory: true                                    |
-|                                                             |
-| requested\_additional\_capability\_name: hyper\_threading   |
-|                                                             |
-| target\_performance\_parameters:                            |
-|                                                             |
-| hw:cpu\_sockets : "2"                                       |
-|                                                             |
-| hw:cpu\_threads : "2"                                       |
-|                                                             |
-| hw:cpu\_cores : "2"                                         |
-|                                                             |
-| hw:cpu\_threads\_policy: "isolate"                          |
-|                                                             |
-| ovs\_dpdk:                                                  |
-|                                                             |
-| support\_mandatory: true                                    |
-|                                                             |
-| requested\_additional\_capability\_name: ovs\_dpdk          |
-|                                                             |
-| target\_performance\_parameters:                            |
-|                                                             |
-| sw:ovs\_dpdk: "true"                                        |
-|                                                             |
-| virtual\_cpu:                                               |
-|                                                             |
-| cpu\_architecture: X86                                      |
-|                                                             |
-| num\_virtual\_cpu: 2                                        |
-|                                                             |
-| properties:                                                 |
-|                                                             |
-| configurable\_properties:                                   |
-|                                                             |
-| test:                                                       |
-|                                                             |
-| additional\_vnfc\_configurable\_properties:                 |
-|                                                             |
-| aaa: 1                                                      |
-|                                                             |
-| name: vNat                                                  |
-|                                                             |
-| descrption: the virtual machine of vNat                     |
-|                                                             |
-| boot\_order:                                                |
-|                                                             |
-| - vNAT\_Storage                                             |
-|                                                             |
-| requirements:                                               |
-|                                                             |
-| - virtual\_storage:                                         |
-|                                                             |
-| capability: virtual\_storage                                |
-|                                                             |
-| node: vNAT\_Storage                                         |
-|                                                             |
-| relationship:                                               |
-|                                                             |
-| properties:                                                 |
-|                                                             |
-| location: /mnt/volume\_0                                    |
-|                                                             |
-| type: tosca.relationships.nfv.VDU.AttachedTo                |
-|                                                             |
-| - local\_storage:                                           |
-|                                                             |
-| node: tosca.nodes.Root                                      |
-|                                                             |
-| type: tosca.nodes.nfv.VDU.Compute                           |
-|                                                             |
-| SRIOV\_Port:                                                |
-|                                                             |
-| attributes:                                                 |
-|                                                             |
-| tosca\_name: SRIOV\_Port                                    |
-|                                                             |
-| properties:                                                 |
-|                                                             |
-| virtual\_network\_interface\_requirements:                  |
-|                                                             |
-| - name: sriov                                               |
-|                                                             |
-| support\_mandatory: false                                   |
-|                                                             |
-| description: sriov                                          |
-|                                                             |
-| requirement:                                                |
-|                                                             |
-| SRIOV: true                                                 |
-|                                                             |
-| role: root                                                  |
-|                                                             |
-| description: sriov port                                     |
-|                                                             |
-| layer\_protocol: ipv4                                       |
-|                                                             |
-| requirements:                                               |
-|                                                             |
-| - virtual\_binding:                                         |
-|                                                             |
-| capability: virtual\_binding                                |
-|                                                             |
-| node: vdu\_vNat                                             |
-|                                                             |
-| relationship:                                               |
-|                                                             |
-| type: tosca.relationships.nfv.VirtualBindsTo                |
-|                                                             |
-| - virtual\_link:                                            |
-|                                                             |
-| node: tosca.nodes.Root                                      |
-|                                                             |
-| type: tosca.nodes.nfv.VduCpd                                |
-|                                                             |
-| vNAT\_Storage:                                              |
-|                                                             |
-| attributes:                                                 |
-|                                                             |
-| tosca\_name: vNAT\_Storage                                  |
-|                                                             |
-| properties:                                                 |
-|                                                             |
-| id: vNAT\_Storage                                           |
-|                                                             |
-| size\_of\_storage: 10 GB                                    |
-|                                                             |
-| rdma\_enabled: false                                        |
-|                                                             |
-| type\_of\_storage: volume                                   |
-|                                                             |
-| type: tosca.nodes.nfv.VDU.VirtualStorage                    |
-|                                                             |
-| substitution\_mappings:                                     |
-|                                                             |
-| requirements:                                               |
-|                                                             |
-| sriov\_plane:                                               |
-|                                                             |
-| - SRIOV\_Port                                               |
-|                                                             |
-| - virtual\_link                                             |
-|                                                             |
-| node\_type: tosca.nodes.nfv.VNF.vOpenNAT                    |
-|                                                             |
-| tosca\_definitions\_version: tosca\_simple\_yaml\_1\_0      |
-+-------------------------------------------------------------+
+
+.. code-block:: yaml
+
+   imports:
+
+   - openonfv\_\_tosca.capabilities.Scalable.yaml
+
+   - openonfv\_\_tosca.capabilities.nfv.Metric.yaml
+
+   - openonfv\_\_tosca.capabilities.network.Bindable.yaml
+
+   - openonfv\_\_tosca.capabilities.Attachment.yaml
+
+   - openonfv\_\_tosca.capabilities.nfv.VirtualBindable.yaml
+
+   - openonfv\_\_tosca.requirements.nfv.VirtualStorage.yaml
+
+   - openonfv\_\_tosca.nodes.nfv.VDU.VirtualStorage.yaml
+
+   - openonfv\_\_tosca.relationships.nfv.VirtualBindsTo.yaml
+
+   - openonfv\_\_tosca.nodes.nfv.VDU.Compute.yaml
+
+   - openonfv\_\_tosca.artifacts.nfv.SwImage.yaml
+
+   - openonfv\_\_tosca.capabilities.nfv.VirtualCompute.yaml
+
+   - openonfv\_\_tosca.capabilities.Container.yaml
+
+   - openonfv\_\_tosca.capabilities.nfv.VirtualStorage.yaml
+
+   - openonfv\_\_tosca.requirements.nfv.VirtualBinding.yaml
+
+   - openovnf\_\_tosca.nodes.nfv.VNF.vOpenNAT.yaml
+
+   - openonfv\_\_tosca.capabilities.Endpoint.Admin.yaml
+
+   - openonfv\_\_tosca.capabilities.OperatingSystem.yaml
+
+   - openonfv\_\_tosca.nodes.nfv.VduCpd.yaml
+
+   - openonfv\_\_tosca.relationships.nfv.VDU.AttachedTo.yaml
+
+   metadata:
+
+   vnfProductName: openNAT
+
+   vnfdVersion: 1.0.0
+
+   vnfProvider: intel
+
+   vnfmInfo: GVNFM
+
+   csarVersion: 1.0.0
+
+   vnfdId: openNAT-1.0
+
+   csarProvider: intel
+
+   vnfProductInfoDescription: openNAT
+
+   version: 1.0.0
+
+   csarType: NFAR
+
+   vendor: intel
+
+   localizationLanguage: '[english, chinese]'
+
+   id: openNAT-1.0
+
+   defaultLocalizationLanguage: english
+
+   vnfProductInfoName: openNAT
+
+   vnfSoftwareVersion: 1.0.0
+
+   topology\_template:
+
+   node\_templates:
+
+   vdu\_vNat:
+
+   artifacts:
+
+   vNatVNFImage:
+
+   file: /swimages/xenial-snat.qcow2
+
+   type: tosca.artifacts.nfv.SwImage
+
+   properties:
+
+   name: vNatVNFImage
+
+   version: "1.0"
+
+   checksum: "5000"
+
+   container\_format: bare
+
+   disk\_format: qcow2
+
+   min\_disk: 10 GB
+
+   min\_ram: 1 GB
+
+   size: 10 GB
+
+   sw\_image: /swimages/xenial-snat.qcow2
+
+   operating\_system: unbantu
+
+   attributes:
+
+   tosca\_name: vdu\_vNat
+
+   capabilities:
+
+   virtual\_compute:
+
+   properties:
+
+   virtual\_memory:
+
+   numa\_enabled: true
+
+   virtual\_mem\_size: 2 GB
+
+   requested\_additional\_capabilities:
+
+   numa:
+
+   support\_mandatory: true
+
+   requested\_additional\_capability\_name: numa
+
+   target\_performance\_parameters:
+
+   hw:numa\_nodes: "2"
+
+   hw:numa\_cpus.0: "0,1"
+
+   hw:numa\_mem.0: "1024"
+
+   hw:numa\_cpus.1: "2,3,4,5"
+
+   hw:numa\_mem.1: "1024"
+
+   hyper\_threading:
+
+   support\_mandatory: true
+
+   requested\_additional\_capability\_name: hyper\_threading
+
+   target\_performance\_parameters:
+
+   hw:cpu\_sockets : "2"
+
+   hw:cpu\_threads : "2"
+
+   hw:cpu\_cores : "2"
+
+   hw:cpu\_threads\_policy: "isolate"
+
+   ovs\_dpdk:
+
+   support\_mandatory: true
+
+   requested\_additional\_capability\_name: ovs\_dpdk
+
+   target\_performance\_parameters:
+
+   sw:ovs\_dpdk: "true"
+
+   virtual\_cpu:
+
+   cpu\_architecture: X86
+
+   num\_virtual\_cpu: 2
+
+   properties:
+
+   configurable\_properties:
+
+   test:
+
+   additional\_vnfc\_configurable\_properties:
+
+   aaa: 1
+
+   name: vNat
+
+   descrption: the virtual machine of vNat
+
+   boot\_order:
+
+   - vNAT\_Storage
+
+   requirements:
+
+   - virtual\_storage:
+
+   capability: virtual\_storage
+
+   node: vNAT\_Storage
+
+   relationship:
+
+   properties:
+
+   location: /mnt/volume\_0
+
+   type: tosca.relationships.nfv.VDU.AttachedTo
+
+   - local\_storage:
+
+   node: tosca.nodes.Root
+
+   type: tosca.nodes.nfv.VDU.Compute
+
+   SRIOV\_Port:
+
+   attributes:
+
+   tosca\_name: SRIOV\_Port
+
+   properties:
+
+   virtual\_network\_interface\_requirements:
+
+   - name: sriov
+
+   support\_mandatory: false
+
+   description: sriov
+
+   requirement:
+
+   SRIOV: true
+
+   role: root
+
+   description: sriov port
+
+   layer\_protocol: ipv4
+
+   requirements:
+
+   - virtual\_binding:
+
+   capability: virtual\_binding
+
+   node: vdu\_vNat
+
+   relationship:
+
+   type: tosca.relationships.nfv.VirtualBindsTo
+
+   - virtual\_link:
+
+   node: tosca.nodes.Root
+
+   type: tosca.nodes.nfv.VduCpd
+
+   vNAT\_Storage:
+
+   attributes:
+
+   tosca\_name: vNAT\_Storage
+
+   properties:
+
+   id: vNAT\_Storage
+
+   size\_of\_storage: 10 GB
+
+   rdma\_enabled: false
+
+   type\_of\_storage: volume
+
+   type: tosca.nodes.nfv.VDU.VirtualStorage
+
+   substitution\_mappings:
+
+   requirements:
+
+   sriov\_plane:
+
+   - SRIOV\_Port
+
+   - virtual\_link
+
+   node\_type: tosca.nodes.nfv.VNF.vOpenNAT
+
+   tosca\_definitions\_version: tosca\_simple\_yaml\_1\_0
+
 
 openonfv\_\_tosca.nodes.nfv.VDU.VirtualStorage.yaml
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+------------------------------------------------------------+
-| imports:                                                   |
-|                                                            |
-| - openonfv\_\_tosca.capabilities.nfv.VirtualStorage.yaml   |
-|                                                            |
-| node\_types:                                               |
-|                                                            |
-| tosca.nodes.nfv.VDU.VirtualStorage:                        |
-|                                                            |
-| capabilities:                                              |
-|                                                            |
-| virtual\_storage:                                          |
-|                                                            |
-| type: tosca.capabilities.nfv.VirtualStorage                |
-|                                                            |
-| derived\_from: tosca.nodes.Root                            |
-|                                                            |
-| properties:                                                |
-|                                                            |
-| id:                                                        |
-|                                                            |
-| type: string                                               |
-|                                                            |
-| size\_of\_storage:                                         |
-|                                                            |
-| type: string                                               |
-|                                                            |
-| rdma\_enabled:                                             |
-|                                                            |
-| required: false                                            |
-|                                                            |
-| type: boolean                                              |
-|                                                            |
-| type\_of\_storage:                                         |
-|                                                            |
-| type: string                                               |
-|                                                            |
-| tosca\_definitions\_version: tosca\_simple\_yaml\_1\_0     |
-+------------------------------------------------------------+
+.. code-block:: yaml
+
+   imports:
+
+   - openonfv\_\_tosca.capabilities.nfv.VirtualStorage.yaml
+
+   node\_types:
+
+   tosca.nodes.nfv.VDU.VirtualStorage:
+
+   capabilities:
+
+   virtual\_storage:
+
+   type: tosca.capabilities.nfv.VirtualStorage
+
+   derived\_from: tosca.nodes.Root
+
+   properties:
+
+   id:
+
+   type: string
+
+   size\_of\_storage:
+
+   type: string
+
+   rdma\_enabled:
+
+   required: false
+
+   type: boolean
+
+   type\_of\_storage:
+
+   type: string
+
+   tosca\_definitions\_version: tosca\_simple\_yaml\_1\_0
+
 
 openonfv\_\_tosca.nodes.nfv.VduCpd.yaml
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+-----------------------------------------------------------------+
-| data\_types:                                                    |
-|                                                                 |
-| tosca.datatypes.nfv.L3AddressData:                              |
-|                                                                 |
-| properties:                                                     |
-|                                                                 |
-| number\_of\_ip\_address:                                        |
-|                                                                 |
-| required: false                                                 |
-|                                                                 |
-| type: integer                                                   |
-|                                                                 |
-| ip\_address\_assignment:                                        |
-|                                                                 |
-| type: boolean                                                   |
-|                                                                 |
-| ip\_address\_type:                                              |
-|                                                                 |
-| constraints:                                                    |
-|                                                                 |
-| - valid\_values:                                                |
-|                                                                 |
-| - ipv4                                                          |
-|                                                                 |
-| - ipv6                                                          |
-|                                                                 |
-| required: false                                                 |
-|                                                                 |
-| type: string                                                    |
-|                                                                 |
-| floating\_ip\_activated:                                        |
-|                                                                 |
-| type: string                                                    |
-|                                                                 |
-| tosca.datatypes.nfv.VirtualNetworkInterfaceRequirements:        |
-|                                                                 |
-| properties:                                                     |
-|                                                                 |
-| name:                                                           |
-|                                                                 |
-| required: false                                                 |
-|                                                                 |
-| type: string                                                    |
-|                                                                 |
-| support\_mandatory:                                             |
-|                                                                 |
-| type: boolean                                                   |
-|                                                                 |
-| description:                                                    |
-|                                                                 |
-| required: false                                                 |
-|                                                                 |
-| type: string                                                    |
-|                                                                 |
-| requirement:                                                    |
-|                                                                 |
-| entry\_schema:                                                  |
-|                                                                 |
-| type: string                                                    |
-|                                                                 |
-| type: map                                                       |
-|                                                                 |
-| tosca.datatype.nfv.AddressData:                                 |
-|                                                                 |
-| properties:                                                     |
-|                                                                 |
-| address\_type:                                                  |
-|                                                                 |
-| constraints:                                                    |
-|                                                                 |
-| - valid\_values:                                                |
-|                                                                 |
-| - mac\_address                                                  |
-|                                                                 |
-| - ip\_address                                                   |
-|                                                                 |
-| type: string                                                    |
-|                                                                 |
-| l2\_address\_data:                                              |
-|                                                                 |
-| required: false                                                 |
-|                                                                 |
-| type: tosca.datatypes.nfv.L2AddressData                         |
-|                                                                 |
-| l3\_address\_data:                                              |
-|                                                                 |
-| required: false                                                 |
-|                                                                 |
-| type: tosca.datatypes.nfv.L3AddressData                         |
-|                                                                 |
-| tosca.datatypes.nfv.L2AddressData: {}                           |
-|                                                                 |
-| imports:                                                        |
-|                                                                 |
-| - openonfv\_\_tosca.requirements.nfv.VirtualBinding.yaml        |
-|                                                                 |
-| - openonfv\_\_tosca.requirements.nfv.VirtualBinding.yaml        |
-|                                                                 |
-| node\_types:                                                    |
-|                                                                 |
-| tosca.nodes.nfv.VduCpd:                                         |
-|                                                                 |
-| derived\_from: tosca.nodes.Root                                 |
-|                                                                 |
-| properties:                                                     |
-|                                                                 |
-| virtual\_network\_interface\_requirements:                      |
-|                                                                 |
-| entry\_schema:                                                  |
-|                                                                 |
-| type: tosca.datatypes.nfv.VirtualNetworkInterfaceRequirements   |
-|                                                                 |
-| required: false                                                 |
-|                                                                 |
-| type: list                                                      |
-|                                                                 |
-| role:                                                           |
-|                                                                 |
-| constraints:                                                    |
-|                                                                 |
-| - valid\_values:                                                |
-|                                                                 |
-| - root                                                          |
-|                                                                 |
-| - leaf                                                          |
-|                                                                 |
-| required: false                                                 |
-|                                                                 |
-| type: string                                                    |
-|                                                                 |
-| bitrate\_requirement:                                           |
-|                                                                 |
-| required: false                                                 |
-|                                                                 |
-| type: integer                                                   |
-|                                                                 |
-| description:                                                    |
-|                                                                 |
-| required: false                                                 |
-|                                                                 |
-| type: string                                                    |
-|                                                                 |
-| layer\_protocol:                                                |
-|                                                                 |
-| constraints:                                                    |
-|                                                                 |
-| - valid\_values:                                                |
-|                                                                 |
-| - ethernet                                                      |
-|                                                                 |
-| - mpls                                                          |
-|                                                                 |
-| - odu2                                                          |
-|                                                                 |
-| - ipv4                                                          |
-|                                                                 |
-| - ipv6                                                          |
-|                                                                 |
-| - pseudo\_wire                                                  |
-|                                                                 |
-| type: string                                                    |
-|                                                                 |
-| address\_data:                                                  |
-|                                                                 |
-| entry\_schema:                                                  |
-|                                                                 |
-| type: tosca.datatype.nfv.AddressData                            |
-|                                                                 |
-| required: false                                                 |
-|                                                                 |
-| type: list                                                      |
-|                                                                 |
-| requirements:                                                   |
-|                                                                 |
-| - virtual\_binding:                                             |
-|                                                                 |
-| capability: tosca.capabilities.nfv.VirtualBindable              |
-|                                                                 |
-| occurrences:                                                    |
-|                                                                 |
-| - 0                                                             |
-|                                                                 |
-| - UNBOUNDED                                                     |
-|                                                                 |
-| - virtual\_link:                                                |
-|                                                                 |
-| capability: tosca.capabilities.nfv.VirtualBindable              |
-|                                                                 |
-| occurrences:                                                    |
-|                                                                 |
-| - 0                                                             |
-|                                                                 |
-| - UNBOUNDED                                                     |
-|                                                                 |
-| tosca\_definitions\_version: tosca\_simple\_yaml\_1\_0          |
-+-----------------------------------------------------------------+
+
+.. code-block:: yaml
+
+   data\_types:
+
+   tosca.datatypes.nfv.L3AddressData:
+
+   properties:
+
+   number\_of\_ip\_address:
+
+   required: false
+
+   type: integer
+
+   ip\_address\_assignment:
+
+   type: boolean
+
+   ip\_address\_type:
+
+   constraints:
+
+   - valid\_values:
+
+   - ipv4
+
+   - ipv6
+
+   required: false
+
+   type: string
+
+   floating\_ip\_activated:
+
+   type: string
+
+   tosca.datatypes.nfv.VirtualNetworkInterfaceRequirements:
+
+   properties:
+
+   name:
+
+   required: false
+
+   type: string
+
+   support\_mandatory:
+
+   type: boolean
+
+   description:
+
+   required: false
+
+   type: string
+
+   requirement:
+
+   entry\_schema:
+
+   type: string
+
+   type: map
+
+   tosca.datatype.nfv.AddressData:
+
+   properties:
+
+   address\_type:
+
+   constraints:
+
+   - valid\_values:
+
+   - mac\_address
+
+   - ip\_address
+
+   type: string
+
+   l2\_address\_data:
+
+   required: false
+
+   type: tosca.datatypes.nfv.L2AddressData
+
+   l3\_address\_data:
+
+   required: false
+
+   type: tosca.datatypes.nfv.L3AddressData
+
+   tosca.datatypes.nfv.L2AddressData: {}
+
+   imports:
+
+   - openonfv\_\_tosca.requirements.nfv.VirtualBinding.yaml
+
+   - openonfv\_\_tosca.requirements.nfv.VirtualBinding.yaml
+
+   node\_types:
+
+   tosca.nodes.nfv.VduCpd:
+
+   derived\_from: tosca.nodes.Root
+
+   properties:
+
+   virtual\_network\_interface\_requirements:
+
+   entry\_schema:
+
+   type: tosca.datatypes.nfv.VirtualNetworkInterfaceRequirements
+
+   required: false
+
+   type: list
+
+   role:
+
+   constraints:
+
+   - valid\_values:
+
+   - root
+
+   - leaf
+
+   required: false
+
+   type: string
+
+   bitrate\_requirement:
+
+   required: false
+
+   type: integer
+
+   description:
+
+   required: false
+
+   type: string
+
+   layer\_protocol:
+
+   constraints:
+
+   - valid\_values:
+
+   - ethernet
+
+   - mpls
+
+   - odu2
+
+   - ipv4
+
+   - ipv6
+
+   - pseudo\_wire
+
+   type: string
+
+   address\_data:
+
+   entry\_schema:
+
+   type: tosca.datatype.nfv.AddressData
+
+   required: false
+
+   type: list
+
+   requirements:
+
+   - virtual\_binding:
+
+   capability: tosca.capabilities.nfv.VirtualBindable
+
+   occurrences:
+
+   - 0
+
+   - UNBOUNDED
+
+   - virtual\_link:
+
+   capability: tosca.capabilities.nfv.VirtualBindable
+
+   occurrences:
+
+   - 0
+
+   - UNBOUNDED
+
+   tosca\_definitions\_version: tosca\_simple\_yaml\_1\_0
+
 
 .. |image1| image:: Image1.png
    :width: 5.76806in
@@ -1670,7 +1680,7 @@ availability\_zone.
    -  The name of the parameter.
 
    -  ONAP requires that the param name must contain only alphanumeric
-      characters and “\_” underscores. Special characters must not be
+      characters and "\_" underscores. Special characters must not be
       used.
 
 -  type:
@@ -1979,12 +1989,12 @@ files, the following Heat file naming convention must be utilized.
 
 In the examples below, <text> represents any alphanumeric string that
 must not contain any special characters and must not contain the word
-“base”.
+"base".
 
 Base Modules
 ~~~~~~~~~~~~
 
-The file name for the base module must include “base” in the filename
+The file name for the base module must include "base" in the filename
 and must match one of the following options:
 
 -  base\_<text>.y[a]ml
@@ -1996,19 +2006,19 @@ and must match one of the following options:
 -  <text>\_base\_<text>.y[a]ml
 
 The base module’s corresponding environment file must be named identical
-to the base module with “.y[a]ml” replaced with “.env”.
+to the base module with ".y[a]ml" replaced with ".env".
 
 Incremental Modules
 ~~~~~~~~~~~~~~~~~~~
 
 There is no explicit naming convention for the incremental modules. As
 noted above, <text> represents any alphanumeric string that must not
-contain any special characters and must not contain the word “base”.
+contain any special characters and must not contain the word "base".
 
 -  <text>.y[a]ml
 
 The incremental module’s corresponding environment file must be named
-identical to the incremental module with “.y[a]ml” replaced with “.env”.
+identical to the incremental module with ".y[a]ml" replaced with ".env".
 
 To clearly identify the incremental module, it is recommended to use the
 following naming options for modules:
@@ -2024,22 +2034,22 @@ Cinder Volume Modules
 
 The file name for the Cinder volume module must be named the same as the
 corresponding module it is supporting (base module or incremental
-module) with “\_volume” appended
+module) with "\_volume" appended
 
 -  <base module name>\_volume.y[a]ml
 
 -  <incremental module name>\_volume.y[a]ml
 
 The volume module’s corresponding environment file must be named
-identical to the volume module with “.y[a]ml” replaced with “.env”.
+identical to the volume module with ".y[a]ml" replaced with ".env".
 
 Nested Heat file
 ~~~~~~~~~~~~~~~~
 
 There is no explicit naming convention for nested Heat files with the
-following exceptions; the name should contain “nest”. As noted above,
+following exceptions; the name should contain "nest". As noted above,
 <text> represents any alphanumeric string that must not contain any
-special characters and must not contain the word “base”.
+special characters and must not contain the word "base".
 
 -  <text>.y[a]m
 
@@ -2189,7 +2199,7 @@ ONAP Base Module Output Parameters
 ONAP Base Module Output Parameters are declared in the outputs: section
 of the base module Heat Orchestration Template. A Base Module Output
 Parameter is available as an input parameter (i.e., declared in the
-“parameters:” section) to all incremental modules in the VNF.
+"parameters:" section) to all incremental modules in the VNF.
 
 -  A Base Module Output Parameter may be used as an input parameter in
    an incremental module.
@@ -2217,7 +2227,7 @@ ONAP Volume Module Output Parameters
 The volume template output parameters are only available for the module
 (base or add on) that the volume is associated with.
 
--  ONAP Volume Module Output Parameters are declared in the “outputs:”
+-  ONAP Volume Module Output Parameters are declared in the "outputs:"
    section of the Cinder volume module Heat Orchestration Template
 
 -  An ONAP Volume Module Output Parameter is available as an input
@@ -2265,7 +2275,7 @@ Networks.
 
 ONAP defines an external network in relation to the VNF and not with
 regard to the Network Cloud site. External networks may also be referred
-to as “inter-VNF” networks. An external network connects VMs in a VNF to
+to as "inter-VNF" networks. An external network connects VMs in a VNF to
 
 -  VMs in another VNF or
 
@@ -2273,7 +2283,7 @@ to as “inter-VNF” networks. An external network connects VMs in a VNF to
 
 ONAP defines an internal network in relation to the VNF and not with
 regard to the Network Cloud site. Internal networks may also be referred
-to as “intra-VNF” networks or “private” networks. An internal network
+to as "intra-VNF" networks or "private" networks. An internal network
 only connects VMs in a single VNF. It must not connect to other VNFs or
 an external gateway or router.
 
@@ -2399,8 +2409,8 @@ substring of a string is another string that occurs "in". For example,
 Pre-Amsterdam VNF Validation Program (i.e., ICE Project) process to
 produce erroneous error messages.
 
-The {vm-type} should not contain the string “\_int” or “int\_” or
-“\_int\_”. It may cause the Pre-Amsterdam VNF Validation Program (i.e.,
+The {vm-type} should not contain the string "\_int" or "int\_" or
+"\_int\_". It may cause the Pre-Amsterdam VNF Validation Program (i.e.,
 ICE Project) process to produce erroneous error messages.
 
 The {vm-type} must be the same case in all parameter names in the VNF.
@@ -2444,8 +2454,8 @@ substring of a string is another string that occurs "in". For example,
 Pre-Amsterdam VNF Validation Program (i.e., ICE Project) process to
 produce erroneous error messages.
 
-The {network-role} should not contain the string “\_int” or “int\_” or
-“\_int\_”. It may cause the Pre-Amsterdam VNF Validation Program (i.e.,
+The {network-role} should not contain the string "\_int" or "int\_" or
+"\_int\_". It may cause the Pre-Amsterdam VNF Validation Program (i.e.,
 ICE Project) process to produce erroneous error messages.
 
 The {network-role} must be the same case in all parameter names in the
@@ -2505,10 +2515,10 @@ than one network, the resource ID
 -  must not contain the {vm-type} and/or
    {network-role}/int\_{network-role}
 
--  should contain the term “shared” and/or contain text that identifies
+-  should contain the term "shared" and/or contain text that identifies
    the VNF.
 
-Only alphanumeric characters and “\_” underscores must be used in the
+Only alphanumeric characters and "\_" underscores must be used in the
 resource ID. Special characters must not be used.
 
 All {index} values must be zero based. That is, the {index} must start
@@ -2579,7 +2589,7 @@ Resource: OS::Nova::Server - Parameters
 
 The resource OS::Nova::Server manages the running virtual machine (VM)
 instance within an OpenStack cloud. (See
-https://docs.openstack.org/developer/heat/template_guide/openstack.html#OS::Nova::Server.)
+https://docs.openstack.org/heat/latest/template_guide/openstack.html#OS::Nova::Server)
 
 Four properties of this resource must follow the ONAP parameter naming
 convention. The four properties are:
@@ -2711,7 +2721,7 @@ parameters defined in the Heat.
 
 *Example: comma\_delimited\_list*
 
-In this example, the {vm-type} has been defined as “lb” for load
+In this example, the {vm-type} has been defined as "lb" for load
 balancer.
 
 .. code-block:: yaml
@@ -2736,7 +2746,7 @@ balancer.
 
 *Example: fixed-index*
 
-In this example, the {vm-type} has been defined as “lb” for load
+In this example, the {vm-type} has been defined as "lb" for load
 balancer.
 
 .. code-block:: yaml
@@ -2772,7 +2782,7 @@ https://bugs.launchpad.net/juniperopenstack/+bug/1590710. It is
 recommended that special characters be avoided. However, if special
 characters must be used, the only special characters supported are:
 
-- “ ! $ ‘ ( ) = ~ ^ \| @ \` { } [ ] > , . \_
+-- \" ! $ ' (\ \ ) = ~ ^ | @ ` { } [ ] > , . _
 
 Property: availability\_zone
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -2799,7 +2809,7 @@ uses the four OS::Nova::Server properties discussed in this section.
 
 In the Heat Orchestration Template below, four Virtual Machines
 (OS::Nova::Server) are created: two dns servers with {vm-type} set to
-“dns” and two oam servers with {vm-type} set to “oam”. Note that the
+"dns" and two oam servers with {vm-type} set to "oam". Note that the
 parameter associated with the property name is a comma\_delimited\_list
 for dns and a string for oam.
 
@@ -3002,7 +3012,7 @@ The vf\_module\_name parameter is optional; it may be included in the
 Heat Orchestration Template.
 
 The vf\_module\_name parameter is the name of the name of the Heat stack
-(e.g., <STACK\_NAME>) in the command “Heat stack-create” (e.g., Heat
+(e.g., <STACK\_NAME>) in the command "Heat stack-create" (e.g., Heat
 stack-create [-f <FILE>] [-e <FILE>] <STACK\_NAME>). The <STACK\_NAME>
 needs to be specified as part of the orchestration process.
 
@@ -3127,8 +3137,8 @@ this section. The {vm-type} has been defined as lb for load balancer.
 Resource: OS::Neutron::Port - Parameters
 ----------------------------------------
 
-The resource OS::Neutron::Port is for managing Neutron ports (See
-https://docs.openstack.org/developer/heat/template_guide/openstack.html#OS::Neutron::Port.)
+The resource OS::Neutron::Port is for managing Neutron ports
+(See http://docs.openstack.org/developer/heat/template_guide/openstack.html#OS::Neutron::Port )
 
 Introduction
 ~~~~~~~~~~~~
@@ -3248,7 +3258,7 @@ External Networks
 ^^^^^^^^^^^^^^^^^
 
 When the parameter associated with the property network is referencing
-an “external” network, the parameter must adhere to the following naming
+an "external" network, the parameter must adhere to the following naming
 convention in the Heat Orchestration Template
 
 -  {network-role}\_net\_id for the Neutron network ID
@@ -3295,7 +3305,7 @@ Internal Networks
 ^^^^^^^^^^^^^^^^^
 
 When the parameter associated with the property network is referencing
-an “internal” network, the parameter must adhere to the following naming
+an "internal" network, the parameter must adhere to the following naming
 convention.
 
 -  int\_{network-role}\_net\_id for the Neutron network ID
@@ -3342,7 +3352,7 @@ assigned IP addresses.
 Subnet of an External Networks
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-When the parameter is referencing a subnet of an “external” network, the
+When the parameter is referencing a subnet of an "external" network, the
 property fixed\_ips and Map Property subnet\_id parameter must adhere to
 the following naming convention.
 
@@ -3428,7 +3438,7 @@ balancer.
 Internal Networks
 ^^^^^^^^^^^^^^^^^
 
-When the parameter is referencing the subnet of an “internal” network,
+When the parameter is referencing the subnet of an "internal" network,
 the property fixed\_ips and Map Property subnet\_id parameter must
 adhere to the following naming convention.
 
@@ -3539,15 +3549,15 @@ an oam network and the {vm-type} has been defined as db for database.
     db_0_port_1:
        type: OS::Neutron::Port
        network: { get_param: oam_net_id }
-       fixed_ips: [ { “ip_address”: {get_param: [ db_oam_ips, 0 ]}}, {“ip_address”: {get_param: [ db_oam_v6_ips, 0 ]}}]
+       fixed_ips: [ { "ip_address": {get_param: [ db_oam_ips, 0 ]}}, {"ip_address": {get_param: [ db_oam_v6_ips, 0 ]}}]
 
     db_1_port_1:
        type: OS::Neutron::Port
        properties:
        network: { get_param: oam_net_id }
        fixed_ips:
-          - “ip_address”: {get_param: [ db_oam_ips, 1 ]}
-          - “ip_address”: {get_param: [ db_oam_v6_ips, 1 ]}
+          - "ip_address": {get_param: [ db_oam_ips, 1 ]}
+          - "ip_address": {get_param: [ db_oam_v6_ips, 1 ]}
 
 When the parameter for property fixed\_ips and Map Property ip\_address
 is declared type: string, the parameter must adhere to the following
@@ -3576,8 +3586,8 @@ The parameter must not be enumerated in the Heat environment file.
 
 *Example: string parameters for IPv4 and IPv6 Address Assignments to an external network*
 
-In this example, the {network-role} has been defined as “oam” to
-represent an oam network and the {vm-type} has been defined as “db” for
+In this example, the {network-role} has been defined as "oam" to
+represent an oam network and the {vm-type} has been defined as "db" for
 database.
 
 .. code-block:: yaml
@@ -3608,15 +3618,15 @@ database.
        type: OS::Neutron::Port
        properties:
           network: { get_param: oam_net_id }
-          fixed_ips: [ { “ip_address”: {get_param: db_oam_ip_0}}, {“ip_address”: {get_param: db_oam_v6_ip_0 ]}}]
+          fixed_ips: [ { "ip_address": {get_param: db_oam_ip_0}}, {"ip_address": {get_param: db_oam_v6_ip_0 ]}}]
 
     db_1_port_1:
        type: OS::Neutron::Port
        properties:
           network: { get_param: oam_net_id }
           fixed_ips:
-             - “ip_address”: {get_param: db_oam_ip_1}}]
-             - “ip_address”: {get_param: db_oam_v6_ip_1}}]
+             - "ip_address": {get_param: db_oam_ip_1}}]
+             - "ip_address": {get_param: db_oam_v6_ip_1}}]
 
 IP Address Assignment on Internal Networks
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3684,15 +3694,15 @@ database.
        type: OS::Neutron::Port
        properties:
        network: { get_param: int_oam_int_net_id }
-       fixed_ips: [ { “ip_address”: {get_param: [ db_int_oam_int_ips, 0]}}, { “ip_address”: {get_param: [ db_int_oam_int_v6_ips, 0 ]}}]
+       fixed_ips: [ { "ip_address": {get_param: [ db_int_oam_int_ips, 0]}}, { "ip_address": {get_param: [ db_int_oam_int_v6_ips, 0 ]}}]
 
     db_1_port_1:
        type: OS::Neutron::Port
        properties:
        network: { get_param: int_oam_int_net_id }
        fixed_ips:
-          - “ip_address”: {get_param: [ db_int_oam_int_ips, 1 ]}
-          - “ip_address”: {get_param: [ db_int_oam_int_v6_ips, 1 ]}
+          - "ip_address": {get_param: [ db_int_oam_int_ips, 1 ]}
+          - "ip_address": {get_param: [ db_int_oam_int_v6_ips, 1 ]}
 
 When the parameter for property fixed\_ips and Map Property ip\_address
 is declared type: string, the parameter must adhere to the following
@@ -3758,15 +3768,15 @@ database.
        type: OS::Neutron::Port
        properties:
           network: { get_param: int_oam_int_net_id }
-          fixed_ips: [ { “ip_address”: {get_param: db_oam_int_ip_0}}, {“ip_address”: {get_param: db_oam_int_v6_ip_0 ]}}]
+          fixed_ips: [ { "ip_address": {get_param: db_oam_int_ip_0}}, {"ip_address": {get_param: db_oam_int_v6_ip_0 ]}}]
 
     db_1_port_0:
        type: OS::Neutron::Port
        properties:
           network: { get_param: int_oam_int_net_id }
           fixed_ips:
-             - “ip_address”: {get_param: db_oam_int_ip_1}}]
-             - “ip_address”: {get_param: db_oam_int_v6_ip_1}}]
+             - "ip_address": {get_param: db_oam_int_ip_1}}]
+             - "ip_address": {get_param: db_oam_int_v6_ip_1}}]
 
 Property: allowed\_address\_pairs, Map Property: ip\_address
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -3793,7 +3803,7 @@ ownership between active and standby VMs) is the responsibility of the
 application itself.
 
 Note that these parameters are **not** intended to represent Neutron
-“Floating IP” resources, for which OpenStack manages a pool of public IP
+"Floating IP" resources, for which OpenStack manages a pool of public IP
 addresses that are mapped to specific VM ports. In that case, the
 individual VMs are not even aware of the public IPs, and all assignment
 of public IPs to VMs is via OpenStack commands. ONAP does not support
@@ -3802,7 +3812,7 @@ Neutron-style Floating IPs.
 External Networks
 ^^^^^^^^^^^^^^^^^
 
-When the parameter is referencing an “external” network, the property
+When the parameter is referencing an "external" network, the property
 allowed\_address\_pairs and Map Property ip\_address parameter must
 adhere to the following naming convention.
 
@@ -3853,20 +3863,20 @@ an oam network and the {vm-type} has been defined as db for database.
        type: OS::Neutron::Port
        properties:
           network: { get_param: oam_net_id }
-          fixed_ips: [ { “ip_address”: {get_param: [db_oam_ips,0] }}]
-          allowed_address_pairs: [ { “ip_address”: {get_param: db_oam_floating_ip}}]
+          fixed_ips: [ { "ip_address": {get_param: [db_oam_ips,0] }}]
+          allowed_address_pairs: [ { "ip_address": {get_param: db_oam_floating_ip}}]
 
     db_1_port_0:
        type: OS::Neutron::Port
        properties:
           network: { get_param: oam_net_id }
-          fixed_ips: [ { “ip_address”: {get_param: [db_oam_ips,1] }}]
-          allowed_address_pairs: [ { “ip_address”: {get_param: db_oam_floating_ip}}]
+          fixed_ips: [ { "ip_address": {get_param: [db_oam_ips,1] }}]
+          allowed_address_pairs: [ { "ip_address": {get_param: db_oam_floating_ip}}]
 
 Internal Networks
 ^^^^^^^^^^^^^^^^^
 
-When the parameter is referencing an “internal” network, the property
+When the parameter is referencing an "internal" network, the property
 allowed\_address\_pairs and Map Property ip\_address parameter must
 adhere to the following naming convention.
 
@@ -3937,29 +3947,29 @@ VIP, [admin\_oam\_ips,5]
        type: OS::Neutron::Port
        properties:
           network: { get_param: oam_net_id }
-          fixed_ips: [ { “ip_address”: {get_param: [admin_oam_ips,0] }}]
-          allowed_address_pairs: [{ “ip_address”: {get_param: [admin_oam_ips,2] }}]
+          fixed_ips: [ { "ip_address": {get_param: [admin_oam_ips,0] }}]
+          allowed_address_pairs: [{ "ip_address": {get_param: [admin_oam_ips,2] }}]
 
     admin_1_port_0:
        type: OS::Neutron::Port
        properties:
           network: { get_param: oam_net_id }
-          fixed_ips: [ { “ip_address”: {get_param: [admin_oam_ips,1] }}]
-          allowed_address_pairs: [{ “ip_address”: {get_param:  [admin_oam_ips,2] }}]
+          fixed_ips: [ { "ip_address": {get_param: [admin_oam_ips,1] }}]
+          allowed_address_pairs: [{ "ip_address": {get_param:  [admin_oam_ips,2] }}]
 
     admin_2_port_0:
        type: OS::Neutron::Port
        properties:
           network: { get_param: oam_net_id }
-          fixed_ips: [ { “ip_address”: {get_param: [admin_oam_ips,3] }}]
-          allowed_address_pairs: [{ “ip_address”: {get_param: [admin_oam_ips,5] }}]
+          fixed_ips: [ { "ip_address": {get_param: [admin_oam_ips,3] }}]
+          allowed_address_pairs: [{ "ip_address": {get_param: [admin_oam_ips,5] }}]
 
     admin_3_port_0:
        type: OS::Neutron::Port
        properties:
           network: { get_param: oam_net_id }
-          fixed_ips: [ { “ip_address”: {get_param: [admin_oam_ips,4] }}]
-          allowed_address_pairs: [{ “ip_address”: {get_param:  [admin_oam_ips,5] }}]
+          fixed_ips: [ { "ip_address": {get_param: [admin_oam_ips,4] }}]
+          allowed_address_pairs: [{ "ip_address": {get_param:  [admin_oam_ips,5] }}]
 
 *Example: A VNF has two load balancers. The pair of load balancers share
 two VIPs.*
@@ -3975,14 +3985,14 @@ network and the {vm-type} has been defined as lb for a load balancer VM.
        type: OS::Neutron::Port
        properties:
           network: { get_param: oam_net_id }
-          fixed_ips: [ { “ip_address”: {get_param: [lb_oam_ips,0] }}]
+          fixed_ips: [ { "ip_address": {get_param: [lb_oam_ips,0] }}]
           allowed_address_pairs: [{ "ip_address": {get_param: [lb_oam_ips,2]}, {get_param: [lb_oam_ips,3] }}]
 
     lb_1_port_0:
        type: OS::Neutron::Port
        properties:
           network: { get_param: oam_net_id }
-          fixed_ips: [ { “ip_address”: {get_param: [lb_oam_ips,1] }}]
+          fixed_ips: [ { "ip_address": {get_param: [lb_oam_ips,1] }}]
           allowed_address_pairs: [{ "ip_address": {get_param: [lb_oam_ips,2]}, {get_param: [lb_oam_ips,3] }}]
 
 As a general rule, provide the fixed IPs for the VMs indexed first in
@@ -3999,7 +4009,7 @@ The VMs must be of the same {vm-type}.
 
 The VMs must be created in the same module (base or incremental).
 
-Resource Property “name”
+Resource Property "name"
 ------------------------
 
 The parameter naming convention of the property name for the resource
@@ -4082,7 +4092,7 @@ characters must be used, note that for the following resources:
 
 the only special characters supported are:
 
-- “ ! $ ‘ ( ) = ~ ^ \| @ \` { } [ ] > , . \_
+-- \" ! $ ' (\ \ ) = ~ ^ | @ ` { } [ ] > , . _
 
 ONAP Output Parameter Names
 ---------------------------
@@ -4238,7 +4248,7 @@ External Networks
 ^^^^^^^^^^^^^^^^^
 
 When the parameter associated with the Contrail Network is referencing
-an “external” network, the parameter must adhere to the following naming
+an "external" network, the parameter must adhere to the following naming
 convention in the Heat Orchestration Template
 
 -  {network-role}\_net\_fqdn
@@ -4380,9 +4390,9 @@ subnet\_uuid*
 The property instance\_ip\_address uses the same parameter naming
 convention as the property fixed\_ips and Map Property subnet\_id in
 OS::Neutron::Port. The resource is assigning a Cloud Assigned IP
-Address. The {network-role} has been defined as “oam\_protected” to
+Address. The {network-role} has been defined as "oam\_protected" to
 represent an oam protected network and the {vm-type} has been defined as
-“fw” for firewall.
+"fw" for firewall.
 
 .. code-block:: yaml
 
@@ -4423,7 +4433,7 @@ The following rules apply to independent volume Heat templates:
    -  A single Cinder volume module must include all Cinder volumes
       needed by the Base/Incremental module.
 
-   -  The volume template must define “outputs” for each Cinder volume
+   -  The volume template must define "outputs" for each Cinder volume
       resource universally unique identifier (UUID) (i.e. ONAP Volume
       Template Output Parameters).
 
@@ -4447,7 +4457,7 @@ ONAP captures the UUID value of lb\_volume\_id\_0 from the volume module
 output statement and provides the value to the incremental module.
 
 Note that the example below is not a complete Heat Orchestration
-Template. The {vm-type} has been defined as “lb” for load balancer
+Template. The {vm-type} has been defined as "lb" for load balancer
 
 incremental\_volume.yaml
 
@@ -4554,7 +4564,7 @@ created. Note that if the user did not change any values via GUI
 updates, the SDC generated environment file will contain the same values
 as the uploaded file.
 
-Use of Environment Files when using OpenStack “heat stack-create” CLI
+Use of Environment Files when using OpenStack "heat stack-create" CLI
 ---------------------------------------------------------------------
 
 When ONAP is instantiating the Heat Orchestration Template, certain
@@ -4562,8 +4572,8 @@ parameter must not be enumerated in the environment file. This document
 provides the details of what parameters should not be enumerated.
 
 If the Heat Orchestration Template is to be instantiated from the
-OpenStack Command Line Interface (CLI) using the command “heat
-stack-create”, all parameters must be enumerated in the environment
+OpenStack Command Line Interface (CLI) using the command "heat
+stack-create", all parameters must be enumerated in the environment
 file.
 
 Heat Template Constructs
@@ -4621,7 +4631,7 @@ Note that:
 -  With nested templates, outputs are required to expose any resource
    properties of the child templates to the parent template. Those would
    not explicitly be declared as parameters but simply referenced as
-   get\_attribute targets against the “parent” resource.
+   get\_attribute targets against the "parent" resource.
 
 Nested Heat Template Example: Static
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4708,7 +4718,7 @@ ResourceGroup does not deal with structured parameters
 (comma-delimited-list and json) as one might typically expect. In
 particular, when using a list-based parameter, where each list element
 corresponds to one instance of the ResourceGroup, it is not possible to
-use the intrinsic “loop variable” %index% in the ResourceGroup
+use the intrinsic "loop variable" %index% in the ResourceGroup
 definition.
 
 For instance, the following is **not** valid Heat for ResourceGroup:
@@ -4767,7 +4777,7 @@ Availability Zone and ResourceGroups
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The resource OS::Heat::ResourceGroup and the property availability\_zone
-has been an “issue” with a few VNFs since ONAP only supports
+has been an "issue" with a few VNFs since ONAP only supports
 availability\_zone as a string parameter and not a
 comma\_delimited\_list. This makes it difficult to use a ResourceGroup
 to create Virtual Machines in more than one availability zone.
@@ -4836,8 +4846,8 @@ Heat Files Support (get\_file)
 
 Heat Templates may contain the inclusion of text files into Heat
 templates via the Heat get\_file directive. This may be used, for
-example, to define a common “user-data” script, or to inject files into
-a VM on startup via the “personality” property.
+example, to define a common "user-data" script, or to inject files into
+a VM on startup via the "personality" property.
 
 Support for Heat Files is subject to the following limitations:
 
@@ -4863,7 +4873,7 @@ Key Pairs
 ---------
 
 When Nova Servers are created via Heat templates, they may be passed a
-“keypair” which provides an ssh key to the ‘root’ login on the newly
+"keypair" which provides an ssh key to the ‘root’ login on the newly
 created VM. This is often done so that an initial root key/password does
 not need to be hard-coded into the image.
 
@@ -5025,7 +5035,7 @@ resources, two approaches are recommended:
    -  Dependent resource define depends\_on in the
       OS::Heat::WaitCondition resource.
 
-*Example: “depends\_on” case*
+*Example: "depends\_on" case*
 
 In this example, the {network-role} has been defined as oam to represent
 an oam network and the {vm-type} has been defined as oam to represent an
@@ -5099,12 +5109,12 @@ even in the short-term as of the long-term direction.
 c. VNFM Driver Development Steps
 ================================
 
-Refer to the ONAP documentation for VNF Provider instructions on integrating 
+Refer to the ONAP documentation for VNF Provider instructions on integrating
 vendor-specific VNFM adaptors with VF-C.  The VNF driver development steps are
-highlighted below. 
+highlighted below.
 
 1. Use the VNF SDK tools to design the VNF with TOSCA models to output
-the VNF TOSCA package.  Using the VNF SDK tools, the VNF package can be 
+the VNF TOSCA package.  Using the VNF SDK tools, the VNF package can be
 validated and tested.
 
 2. The VNF Provider supplies a vendor-specific VNFM driver in ONAP, which
@@ -5119,8 +5129,8 @@ VNFs can be managed by vendor-specific VNFMs. To add a vendor-specific VNFM to O
 vendor-specific VNFM adaptor is added to ONAP implementing the interface of the vendor-specific VNFM.
 
 A vendor-specific VNFM adaptor is a microservice with a unique name and an appointed
-port. When started up, the vendor-specific VNFM adaptor microservice is automatically registered to the 
-Microservices Bus (MSB). The following RESTful example describes the scenario of 
+port. When started up, the vendor-specific VNFM adaptor microservice is automatically registered to the
+Microservices Bus (MSB). The following RESTful example describes the scenario of
 registering a vendor-specific VNFM adaptor to MSB:
 
 .. code-block:: java
@@ -5140,3 +5150,5 @@ registering a vendor-specific VNFM adaptor to MSB:
         }
         ]
     }
+
+

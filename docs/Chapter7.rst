@@ -1,4 +1,5 @@
 ﻿:tocdepth: 2
+
 **7. ONAP Management Requirements**
 =====================================
 
@@ -143,7 +144,7 @@ services. The Adapters employ a model driven approach along with
 standardized APIs provided by the VNF developers to configure resources
 and manage their runtime lifecycle.
 
-Additional details can be found in the `ONAP Application Controller (APPC) API Guide <http://onap.readthedocs.io/en/latest/submodules/appc.git/docs/APPC%20API%20Guide/APPC%20API%20Guide.html>`_, `ONAP VF-C project <http://onap.readthedocs.io/en/latest/submodules/vfc/nfvo/lcm.git/docs/index.html>`_ and the `ONAP SDNC project <http://onap.readthedocs.io/en/latest/submodules/sdnc/northbound.git/docs/index.html>`_.
+Additional details can be found in the `ONAP Application Controller (APPC) API Guide <http://onap.readthedocs.io/en/amsterdam/submodules/appc.git/docs/index.html>`_, `ONAP VF-C project <http://onap.readthedocs.io/en/amsterdam/submodules/vfc/nfvo/lcm.git/docs/index.html>`_ and the `ONAP SDNC project <http://onap.readthedocs.io/en/amsterdam/submodules/sdnc/oam.git/docs/index.html>`_.
 
 NETCONF Standards and Capabilities
 ----------------------------------
@@ -184,7 +185,7 @@ industry standards.
 * R-68200 The VNF **MUST** support the **:url** value to specify protocol operation source and target parameters. The capability URI for this feature will indicate which schemes (e.g., file, https, sftp) that the server supports within a particular URL value. The 'file' scheme allows for editable local configuration databases. The other schemes allow for remote storage of configuration databases.
 * R-20353 The VNF **MUST** implement at least one of the capabilities **:candidate** or **:writable-running**. If both **:candidate** and **:writable-running** are provided then two locks should be supported.
 * R-11499 The VNF **MUST** fully support the XPath 1.0 specification for filtered retrieval of configuration and other database contents. The 'type' attribute within the <filter> parameter for <get> and <get-config> operations may be set to 'xpath'. The 'select' attribute (which contains the XPath expression) will also be supported by the server. A server may support partial XPath retrieval filtering, but it cannot advertise the **:xpath** capability unless the entire XPath 1.0 specification is supported.
-* R-83790 The VNF **MUST** implement the **:validate** capability
+* R-83790 The VNF **MUST** implement the **:validate** capability.
 * R-49145 The VNF **MUST** implement **:confirmed-commit** If **:candidate** is supported.
 * R-58358 The VNF **MUST** implement the **:with-defaults** capability [RFC6243].
 * R-59610 The VNF **MUST** implement the data model discovery and download as defined in [RFC6022].
@@ -199,7 +200,7 @@ industry standards.
 * R-66793 The VNF **MUST** guarantee the VNF configuration integrity for all simultaneous configuration operations (e.g., if a change is attempted to the BUM filter rate from multiple interfaces on the same EVC, then they need to be sequenced in the VNF without locking either configuration method out).
 * R-54190 The VNF **MUST** release locks to prevent permanent lock-outs when/if a session applying the lock is terminated (e.g., SSH session is terminated).
 * R-03465 The VNF **MUST** release locks to prevent permanent lock-outs when the corresponding <partial-unlock> operation succeeds.
-* R-63935 The VNF **MUST** release locks to prevent permanent lock-outs when a user configured timer has expired forcing the NETCONF SSH Session termination (i.e., product must expose a configuration knob for a user setting of a lock expiration timer)
+* R-63935 The VNF **MUST** release locks to prevent permanent lock-outs when a user configured timer has expired forcing the NETCONF SSH Session termination (i.e., product must expose a configuration knob for a user setting of a lock expiration timer).
 * R-10173 The VNF **MUST** allow another NETCONF session to be able to initiate the release of the lock by killing the session owning the lock, using the <kill-session> operation to guard against hung NETCONF sessions.
 * R-88899 The VNF **MUST** support simultaneous <commit> operations within the context of this locking requirements framework.
 * R-07545 The VNF **MUST** support all operations, administration and management (OAM) functions available from the supplier for VNFs using the supplied YANG code and associated NETCONF servers.
@@ -213,20 +214,20 @@ industry standards.
  $ pyang --verbose --strict <YANG-file-name(s)>
  $ echo $!
 
-* R-63953 The VNF **MUST** have the echo command return a zero value otherwise the validation has failed
+* R-63953 The VNF **MUST** have the echo command return a zero value otherwise the validation has failed.
 * R-26508 The VNF **MUST** support NETCONF server that can be mounted on OpenDaylight (client) and perform the following operations:
 
-- Modify, update, change, rollback configurations using each configuration data element.
-- Query each state (non-configuration) data element.
-- Execute each YANG RPC.
-- Receive data through each notification statement.
+  - Modify, update, change, rollback configurations using each configuration data element.
+  - Query each state (non-configuration) data element.
+  - Execute each YANG RPC.
+  - Receive data through each notification statement.
 
 
 
 The following requirements provides the Yang models that suppliers must
 conform, and those where applicable, that suppliers need to use.
 
-* R-28545 The VNF **MUST** conform its YANG model to RFC 6060, “YANG - A Data Modeling Language for the Network Configuration Protocol (NETCONF)”
+* R-28545 The VNF **MUST** conform its YANG model to RFC 6060, “YANG - A Data Modeling Language for the Network Configuration Protocol (NETCONF)”.
 * R-29967 The VNF **MUST** conform its YANG model to RFC 6022, “YANG module for NETCONF monitoring”.
 * R-22700 The VNF **MUST** conform its YANG model to RFC 6470, “NETCONF Base Notifications”.
 * R-10353 The VNF **MUST** conform its YANG model to RFC 6244, “An Architecture for Network Management Using NETCONF and YANG”.
@@ -252,16 +253,16 @@ NETCONF RFCs.
 VNF REST APIs
 -------------
 
-Healthcheck is a command for which no NETCONF support exists. Therefore, this must be supported using a RESTful interface (defined in this section) or 
+Healthcheck is a command for which no NETCONF support exists. Therefore, this must be supported using a RESTful interface (defined in this section) or
 with a Chef cookbook/Ansible playbook (defined in sections `Chef Standards and Capabilities`_ and `Ansible Standards and Capabilities`_).
 
-HealthCheck Definition: The VNF level HealthCheck is a check over the entire scope of the VNF. 
-The VNF must be 100% healthy, ready to take requests and provide services, with all VNF required 
-capabilities ready to provide services and with all active and standby resources fully ready with 
-no open MINOR, MAJOR or CRITICAL alarms.  NOTE: A switch may need to be turned on, but the VNF 
+HealthCheck Definition: The VNF level HealthCheck is a check over the entire scope of the VNF.
+The VNF must be 100% healthy, ready to take requests and provide services, with all VNF required
+capabilities ready to provide services and with all active and standby resources fully ready with
+no open MINOR, MAJOR or CRITICAL alarms.  NOTE: A switch may need to be turned on, but the VNF
 should be ready to take service requests or be already processing service requests successfully.
 
-The VNF must provide a REST formatted GET RPCs to support Healthcheck queries via the GET method 
+The VNF must provide a REST formatted GET RPCs to support Healthcheck queries via the GET method
 over HTTP(s).
 
 The port number, url, and other authentication information is provided
@@ -408,10 +409,10 @@ Ansible Standards and Capabilities
 ONAP will support configuration of VNFs via Ansible subject to the
 requirements and guidelines defined in this section.
 
-Ansible allows agentless management of VNFs/VMs/VNFCs via execution of ‘playbooks’ 
-over ssh. The ‘playbooks’ are a structured set of tasks which contain all the necessary 
-data and execution capabilities to take the necessary action on one or more target VMs 
-(and/or VNFCs) of the VNF. ONAP will utilize the framework of an Ansible Server that 
+Ansible allows agentless management of VNFs/VMs/VNFCs via execution of ‘playbooks’
+over ssh. The ‘playbooks’ are a structured set of tasks which contain all the necessary
+data and execution capabilities to take the necessary action on one or more target VMs
+(and/or VNFCs) of the VNF. ONAP will utilize the framework of an Ansible Server that
 will host and run playbooks to manage VNFs that support Ansible.
 
 **VNF Configuration via Ansible Requirements**
@@ -423,7 +424,7 @@ will host and run playbooks to manage VNFs that support Ansible.
 * R-35401 The VNF **MUST** support SSH and allow SSH access to the Ansible server for the endpoint VM(s) and comply with the  Network Cloud Service Provider guidelines for authentication and access.
 * R-82018 The VNF **SHOULD** load the SSH key onto VNF VM(s) as part of instantiation. This will allow the Ansible Server to authenticate to perform post-instantiation configuration without manual intervention and without requiring specific VNF login IDs and passwords.
 
- CAUTION: For VNFs configured using Ansible, to eliminate the need for manual steps, post-instantiation and pre-configuration, to upload of SSH keys, SSH keys loaded during (heat) instantiation shall be preserved and not removed by (heat) embedded scripts. 
+ CAUTION: For VNFs configured using Ansible, to eliminate the need for manual steps, post-instantiation and pre-configuration, to upload of SSH keys, SSH keys loaded during (heat) instantiation shall be preserved and not removed by (heat) embedded scripts.
 
 * R-92866 The VNF **MUST** include as part of post-instantiation configuration done by Ansible Playbooks the removal/update of SSH keys loaded through instantiation to support Ansible. This may include download and install of new SSH keys.
 * R-91745 The VNF **MUST** update the Ansible Server and other entities storing and using the SSH key for authentication when the SSH key used by Ansible is regenerated/updated.
@@ -453,38 +454,38 @@ The Ansible Server will determine if a playbook invoked to execute a VNF action 
 * R-43353 The VNF **MUST** return control from Ansible Playbooks only after tasks are fully complete, signaling that the playbook completed all tasks. When starting services, return control only after all services are up. This is critical for workflows where the next steps are dependent on prior tasks being fully completed.
 
  Detailed examples:
- 
+
  StopApplication Playbook – StopApplication Playbook shall return control and a completion status only after VNF application is fully stopped, all processes/services stopped.
  StartApplication Playbook – StartApplication Playbook shall return control and a completion status only after all VNF application services are fully up, all processes/services started and ready to provide services. NOTE: Start Playbook should not be declared complete/done after starting one or several processes that start the other processes.
- 
+
  HealthCheck Playbook:
- 
+
  SUCCESS – HealthCheck success shall be returned (return code 0) by a Playbook or Cookbook only when VNF is 100% healthy, ready to take requests and provide services, with all VNF required capabilities ready to provide services and with all active and standby resources fully ready with no open MINOR, MAJOR or CRITICAL alarms.
- 
+
  NOTE: In some cases, a switch may need to be turned on, but a VNF reported as healthy, should be ready to take service requests or be already processing service requests successfully.
- 
+
  A successful execution of a health-check playbook shall also create one file per VNF VM, named using IP address or VM name followed by “_results.txt (<hostname>_results.txt) to indicate health-check was executed and completed successfully, example: 1xx.2yy.zzz.105_results.txt, with the following contents:
- 
+
  "status”:"healthy”
 
  Example:
- 
+
  $ cat 1xx.2yy.zzz.105_results.txt
 
  "status”:"healthy”
- 
+
  FAILURE – A health check playbook shall return a non-zero return code in case VNF is not 100% healthy because one or more VNF application processes are stopped or not ready to take service requests or because critical or non-critical resources are not ready or because there are open MINOR, MAJOR or CRITICAL traps/alarms or because there are issues with the VNF that need attention even if they do not impact services provided by the VNF.
- 
+
  A failed health-check playbook shall also create one file per VNF VM, named using Playbook Name plus IP address or VM name, followed by “_results.txt to indicate health-check was executed and found issues in the health of the VNF. This is to differentiate from failure to run health-check playbook or tasks to verify the health of the VNF, example: 1xx.2yy.zzz.105_results.txt, with the following contents:
- 
+
  "status”:"unhealthy”
- 
+
  Example:
-  
+
  $ cat 1xx.2yy.zzz.105_results.txt
- 
+
  "status”:"unhealthy”
- 
+
  See `VNF REST APIs`_ for additional details on HealthCheck.
 
 ONAP Controller / Ansible API Usage
@@ -493,16 +494,16 @@ ONAP Controller / Ansible API Usage
 This section outlines the workflow that ONAP Controller invokes when it receives an action request against an Ansible managed VNF.
 
  #. When ONAP Controller receives a request for an action for an AnsibleManaged VNF, it retrieves the corresponding template (based on **action** and **VNF**) from its database and sets necessary values (such as an Id, NodeList, and EnvParameters) from either information in the request or data obtained from other sources.   This is referred to as the payload that is sent as a JSON object to the Ansible server.
- #. The ONAP Controller sends a request to the Ansible server to execute the action. 
- #. The ONAP Controller polls the Ansible Server for result (success or failure).  The ONAP Controllers has a timeout value which is contained in the template.   If the result is not available when the timeout is reached, the ONAP Controller stops polling and returns a timeout error to the requester.   The Ansible Server continues to process the request.
+ #. The ONAP Controller sends a request to the Ansible server to execute the action.
+ #. The ONAP Controller polls the Ansible Server for result (success or failure).  The ONAP Controllers has a timeout value which is contained in the template.   If the result is not available when the timeout is reached, the ONAP Controller stops polling and returns a timeout error to the requester. The Ansible Server continues to process the request.
 
 
 ONAP Controller APIs and Behavior
 ---------------------------------
 
-ONAP Controllers such as APPC expose a northbound API to clients which offer a set of commands. The following commands are expected to be supported 
-on all VNF’s if applicable, either directly (via the Netconf interface) or indirectly (via a Chef or Ansible server). There are additional commands 
-offered to northbound clients that are not listed here, as these commands either act internally on the Controller itself or depend upon network cloud 
+ONAP Controllers such as APPC expose a northbound API to clients which offer a set of commands. The following commands are expected to be supported
+on all VNF’s if applicable, either directly (via the Netconf interface) or indirectly (via a Chef or Ansible server). There are additional commands
+offered to northbound clients that are not listed here, as these commands either act internally on the Controller itself or depend upon network cloud
 components for implementation (thus, these actions do not put any special requirement on the VNF provider).
 
 The following table summarizes how the VNF must act in response to
@@ -588,13 +589,14 @@ Table 9. ONAP Controller APIs and Chef/Ansible Support
 |                     |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                                                             |
 | StopApplication     | For StopApplication, the application must be stopped gracefully (no loss of traffic).                                                                                                                                                                                                            | For StopApplication, the application must be stopped gracefully (no loss of traffic).                                                                                                                                                                                                       |
 +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ConfigBackup,       | VNF provider must provide roles, cookbooks, recipes to backup or restore the configuration parameters on the VNF when triggered by an ECOMP request.                                                                                                                                             | VNF provider must provide an Ansible playbook to backup or restore the configuration parameters on the VNF when triggered by an ECOMP request.                                                                                                                                              |
+| ConfigBackup,       | VNF provider must provide roles, cookbooks, recipes to backup or restore the configuration parameters on the VNF when triggered by an ONAP request.                                                                                                                                              | VNF provider must provide an Ansible playbook to backup or restore the configuration parameters on the VNF when triggered by an ONAP request.                                                                                                                                               |
 |                     |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                                                             |
 |                     | When the ConfigBackup command is executed, the current VNF configuration parameters are copied over to the Ansible or Chef server (if there is an existing set of backed up parameters, they are overwritten). When the ConfigRestore command is executed, the VNF configuration parameters      | When the ConfigBackup command is executed, the current VNF configuration parameters are copied over to the Ansible or Chef server (if there is an existing set of backed up parameters, they are overwritten). When the ConfigRestore command is executed, the VNF configuration parameters |
 | ConfigRestore       | which are backed up on the Ansible or Chef server are applied to the VNF (replacing existing parameters). It can be assumed that the VNF is not in service when a ConfigRestore command is executed.                                                                                             | which are backed up on the Ansible or Chef server are applied to the VNF (replacing existing parameters). It can be assumed that the VNF is not in service when a ConfigRestore command is executed.                                                                                        |
 |                     |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                                                             |
 |                     | If either command fails, the run must fail or raise an exception.                                                                                                                                                                                                                                | If either command fails, the run must fail or raise an exception.                                                                                                                                                                                                                           |
 +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
 
 For information purposes, the following ONAP controller functions are
 planned in the future:
@@ -609,42 +611,42 @@ Table 10. Planned ONAP Controller Functions
 | QuiesceTraffic,  | Quiesces traffic (stops traffic gracefully) and resume traffic on the VNF.   These commands do not stop the application processes (which is done using StopApplication).        |
 | ResumeTraffic    |                                                                                                                                                                                 |
 +------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
- 
- 
+
+
 d. Monitoring & Management
 ===========================
 
-This section addresses data collection and event processing functionality that is directly 
-dependent on the interfaces provided by the VNFs’ APIs. These can be in the form of asynchronous 
-interfaces for event, fault notifications, and autonomous data streams. They can also be 
-synchronous interfaces for on-demand requests to retrieve various performance, usage, 
+This section addresses data collection and event processing functionality that is directly
+dependent on the interfaces provided by the VNFs’ APIs. These can be in the form of asynchronous
+interfaces for event, fault notifications, and autonomous data streams. They can also be
+synchronous interfaces for on-demand requests to retrieve various performance, usage,
 and other event information.
 
-The target direction for VNF interfaces is to employ APIs that are implemented 
-utilizing standardized messaging and modeling protocols over standardized transports. 
-Migrating to a virtualized environment presents a tremendous opportunity to eliminate 
-the need for proprietary interfaces for VNF provider equipment while removing the traditional 
-boundaries between Network Management Systems and Element Management Systems. Additionally, 
-VNFs provide the ability to instrument the networking applications by creating event 
-records to test and monitor end-to-end data flow through the network, similar to what 
-physical or virtual probes provide without the need to insert probes at various points 
-in the network. The VNF providers must be able to provide the aforementioned set of required 
+The target direction for VNF interfaces is to employ APIs that are implemented
+utilizing standardized messaging and modeling protocols over standardized transports.
+Migrating to a virtualized environment presents a tremendous opportunity to eliminate
+the need for proprietary interfaces for VNF provider equipment while removing the traditional
+boundaries between Network Management Systems and Element Management Systems. Additionally,
+VNFs provide the ability to instrument the networking applications by creating event
+records to test and monitor end-to-end data flow through the network, similar to what
+physical or virtual probes provide without the need to insert probes at various points
+in the network. The VNF providers must be able to provide the aforementioned set of required
 data directly to the ONAP collection layer using standardized interfaces.
 
 Data Model for Event Records
 ----------------------------
 
-This section describes the data model for the collection of telemetry data from VNFs 
-by Service Providers (SPs) to manage VNF health and runtime lifecycle. This data 
-model is referred to as the VNF Event Streaming (VES) specifications. While this 
-document is focused on specifying some of the records from the ONAP perspective, 
-there may be other external bodies using the same framework to specify additional 
-records. For example, OPNFV has a VES project  that is looking to specify records 
-for OpenStack’s internal telemetry to manage Application (VNFs), physical and 
-virtual infrastructure (compute, storage, network devices), and virtual infrastructure 
-managers (cloud controllers, SDN controllers). Note that any configurable parameters 
-for these data records (e.g., frequency, granularity, policy-based configuration) 
-will be managed using the “Configuration” framework described in the prior sections 
+This section describes the data model for the collection of telemetry data from VNFs
+by Service Providers (SPs) to manage VNF health and runtime lifecycle. This data
+model is referred to as the VNF Event Streaming (VES) specifications. While this
+document is focused on specifying some of the records from the ONAP perspective,
+there may be other external bodies using the same framework to specify additional
+records. For example, OPNFV has a VES project  that is looking to specify records
+for OpenStack’s internal telemetry to manage Application (VNFs), physical and
+virtual infrastructure (compute, storage, network devices), and virtual infrastructure
+managers (cloud controllers, SDN controllers). Note that any configurable parameters
+for these data records (e.g., frequency, granularity, policy-based configuration)
+will be managed using the “Configuration” framework described in the prior sections
 of this document.
 
 The Data Model consists of:
@@ -653,22 +655,22 @@ The Data Model consists of:
    Technology Independent and Technology Specific records sections of
    the data model.
 
--  Technology Independent Records: This version of the document specifies 
-   the model for Fault, Heartbeat, State Change, Syslog, Threshold Crossing 
-   Alerts, and VNF Scaling* (short for measurementForVfScalingFields – actual 
-   name used in JSON specification) records. In the future, these may be 
-   extended to support other types of technology independent records. Each 
-   of these records allows additional fields (name/ value pairs) for extensibility. 
-   The VNF provider can use these VNF Provider-specific additional fields to provide 
+-  Technology Independent Records: This version of the document specifies
+   the model for Fault, Heartbeat, State Change, Syslog, Threshold Crossing
+   Alerts, and VNF Scaling* (short for measurementForVfScalingFields – actual
+   name used in JSON specification) records. In the future, these may be
+   extended to support other types of technology independent records. Each
+   of these records allows additional fields (name/ value pairs) for extensibility.
+   The VNF provider can use these VNF Provider-specific additional fields to provide
    additional information that may be relevant to the managing systems.
 
--  Technology Specific Records: This version of the document specifies the model 
-   for Mobile Flow records, Signaling and Voice Quality records. In the future, 
-   these may be extended to support other types of records (e.g. Network Fabric, 
-   Security records, etc.). Each of these records allows additional fields 
-   (name/value pairs) for extensibility. The VNF providers can use these VNF-specific 
-   additional fields to provide additional information that may be relevant to the 
-   managing systems. A placeholder for additional technology specific areas of 
+-  Technology Specific Records: This version of the document specifies the model
+   for Mobile Flow records, Signaling and Voice Quality records. In the future,
+   these may be extended to support other types of records (e.g. Network Fabric,
+   Security records, etc.). Each of these records allows additional fields
+   (name/value pairs) for extensibility. The VNF providers can use these VNF-specific
+   additional fields to provide additional information that may be relevant to the
+   managing systems. A placeholder for additional technology specific areas of
    interest to be defined in the future documents has been depicted.
 
 |image0|
@@ -694,24 +696,24 @@ The data structure for event records consists of:
 Common Event Header
 ~~~~~~~~~~~~~~~~~~~~~
 
-The common header that precedes any of the domain-specific records contains 
-information identifying the type of record to follow, information about 
-the sender and other identifying characteristics related to timestamp, 
-sequence number, etc. 
+The common header that precedes any of the domain-specific records contains
+information identifying the type of record to follow, information about
+the sender and other identifying characteristics related to timestamp,
+sequence number, etc.
 
 Technology Independent Records – Fault Fields
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The Fault Record, describing a condition in the Fault domain, contains 
-information about the fault such as the entity under fault, the 
+The Fault Record, describing a condition in the Fault domain, contains
+information about the fault such as the entity under fault, the
 severity, resulting status, etc.
 
 Technology Independent Records – Heartbeat Fields
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The Heartbeat Record provides an optional structure for communicating 
-information about heartbeat or watchdog signaling events.  It can 
-contain information about service intervals, status information etc. 
+The Heartbeat Record provides an optional structure for communicating
+information about heartbeat or watchdog signaling events.  It can
+contain information about service intervals, status information etc.
 as required by the heartbeat implementation.
 
 Note: Heartbeat records would only have the Common Event Header block.
@@ -721,73 +723,73 @@ implementation.
 Technology Independent Records – State Change Fields
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The State Change Record provides a structure for communicating information 
-about data flow through the VNF. It can contain information about state 
-change related to physical device that is reported by VNF. As an example, 
+The State Change Record provides a structure for communicating information
+about data flow through the VNF. It can contain information about state
+change related to physical device that is reported by VNF. As an example,
 when cards or port name of the entity that has changed state.
 
 Technology Independent Records – Syslog Fields
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The Syslog Record provides a structure for communicating any type of 
-information that may be logged by the VNF. It can contain information 
+The Syslog Record provides a structure for communicating any type of
+information that may be logged by the VNF. It can contain information
 about system internal events, status, errors, etc.
 
 Technology Independent Records – Threshold Crossing Alert Fields
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The Threshold Crossing Alert (TCA) Record provides a structure for 
-communicating information about threshold crossing alerts. It can 
-contain alert definitions and types, actions, events, timestamps 
+The Threshold Crossing Alert (TCA) Record provides a structure for
+communicating information about threshold crossing alerts. It can
+contain alert definitions and types, actions, events, timestamps
 and physical or logical details.
 
 Technology Independent Records - VNF Scaling Fields
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The VNF Scaling\* (short for measurementForVfScalingFields – 
-actual name used in JSON specification) Record contains information 
-about VNF and VNF resource structure and its condition to help in 
+The VNF Scaling\* (short for measurementForVfScalingFields –
+actual name used in JSON specification) Record contains information
+about VNF and VNF resource structure and its condition to help in
 the management of the resources for purposes of elastic scaling.
 
 Technology Independent Records – otherFields
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The otherFields Record defines fields for events belonging to the 
-otherFields domain of the Technology Independent domain enumeration. 
-This record provides a mechanism to convey a complex set of fields 
-(possibly nested or opaque) and is purely intended to address 
-miscellaneous needs such as addressing time-to-market considerations 
-or other proof-of-concept evaluations. Hence, use of this record 
-type is discouraged and should be minimized. 
+The otherFields Record defines fields for events belonging to the
+otherFields domain of the Technology Independent domain enumeration.
+This record provides a mechanism to convey a complex set of fields
+(possibly nested or opaque) and is purely intended to address
+miscellaneous needs such as addressing time-to-market considerations
+or other proof-of-concept evaluations. Hence, use of this record
+type is discouraged and should be minimized.
 
 Technology Specific Records – Mobile Flow Fields
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The Mobile Flow Record provides a structure for communicating 
-information about data flow through the VNF. It can contain 
-information about connectivity and data flows between serving 
+The Mobile Flow Record provides a structure for communicating
+information about data flow through the VNF. It can contain
+information about connectivity and data flows between serving
 elements for mobile service, such as between LTE reference points, etc.
 
 Technology Specific Records – Signaling Fields
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The Signaling Record provides a structure for communicating information 
-about signaling messages, parameters and signaling state.  It can 
-contain information about data flows for signaling and controlling 
-multimedia communication sessions such as voice and video calls. 
+The Signaling Record provides a structure for communicating information
+about signaling messages, parameters and signaling state.  It can
+contain information about data flows for signaling and controlling
+multimedia communication sessions such as voice and video calls.
 
 Technology Specific Records – Voice Quality Fields
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The Voice Quality Record provides a structure for communicating information 
-about voice quality statistics including media connection information, 
-such as transmitted octet and packet counts, packet loss, packet delay 
-variation, round-trip delay, QoS parameters and codec selection.  
+The Voice Quality Record provides a structure for communicating information
+about voice quality statistics including media connection information,
+such as transmitted octet and packet counts, packet loss, packet delay
+variation, round-trip delay, QoS parameters and codec selection.
 
 Technology Specific Records – Future Domains
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The futureDomains Record is a placeholder for additional technology 
-specific areas of interest that will be defined and described 
+The futureDomains Record is a placeholder for additional technology
+specific areas of interest that will be defined and described
 in the future documents.
 
 Data Structure Specification of the Event Record
@@ -800,30 +802,30 @@ Listener <https://github.com/att/evel-test-collector/tree/master/docs/att_interf
 Transports and Protocols Supporting Resource Interfaces
 -------------------------------------------------------
 
-Delivery of data from VNFs to ONAP must use the common transport mechanisms and protocols 
-for all VNFs as defined in this document. Transport mechanisms and protocols have been 
-selected to enable both high volume and moderate volume datasets, as well as asynchronous 
-and synchronous communications over secure connections. The specified encoding provides 
-self-documenting content, so data fields can be changed as needs evolve, while minimizing 
+Delivery of data from VNFs to ONAP must use the common transport mechanisms and protocols
+for all VNFs as defined in this document. Transport mechanisms and protocols have been
+selected to enable both high volume and moderate volume datasets, as well as asynchronous
+and synchronous communications over secure connections. The specified encoding provides
+self-documenting content, so data fields can be changed as needs evolve, while minimizing
 changes to data delivery.
 
-The term ‘Event Record’ is used throughout this document to represent various forms of 
-telemetry or instrumentation made available by the VNF including, faults, status events, 
-various other types of VNF measurements and logs. Headers received by themselves must be 
-used as heartbeat indicators. Common structures and delivery protocols for other types of 
-data will be given in future versions of this document as we get more insight into data 
+The term ‘Event Record’ is used throughout this document to represent various forms of
+telemetry or instrumentation made available by the VNF including, faults, status events,
+various other types of VNF measurements and logs. Headers received by themselves must be
+used as heartbeat indicators. Common structures and delivery protocols for other types of
+data will be given in future versions of this document as we get more insight into data
 volumes and required processing.
 
-In the following sections, we provide options for encoding, serialization and data 
-delivery. Agreements between Service Providers and VNF providers shall determine which 
-encoding, serialization and delivery method to use for particular data sets. The selected 
+In the following sections, we provide options for encoding, serialization and data
+delivery. Agreements between Service Providers and VNF providers shall determine which
+encoding, serialization and delivery method to use for particular data sets. The selected
 methods must be agreed to prior to the on-boarding of the VNF into ONAP design studio.
 
 VNF Telemetry using VES/JSON Model
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The preferred model for data delivery from a VNF to ONAP DCAE is the JSON driven model as depicted in Figure 2.
- 
+
 |image1|
 
 Figure 2. VES/JSON Driven Model
@@ -833,25 +835,25 @@ VNF providers will provide a YAML artifact to the Service Provider that describe
 * standard VES/JSON model information elements (key/values) that the VNF provides
 * any additional non-standard (custom) VES/JSON model information elements (key/values) that the VNF provides
 
-Using the semantics and syntax supported by YAML, VNF providers will indicate specific conditions that may 
-arise, and recommend actions that should be taken at specific thresholds, or if specific conditions 
-repeat within a specified time interval.  
- 
-Based on the VNF provider's recommendations, the Service Provider may create additional YAML artifacts 
-(using ONAP design Studio), which finalizes Service Provider engineering rules for the processing of 
-the VNF events.  The Service Provider may alter the threshold levels recommended by the VNF providor, 
-and may modify and more clearly specify actions that should be taken when specified conditions arise. 
-The Service Provider-created version of the YAML artifact will be distributed to ONAP applications 
+Using the semantics and syntax supported by YAML, VNF providers will indicate specific conditions that may
+arise, and recommend actions that should be taken at specific thresholds, or if specific conditions
+repeat within a specified time interval.
+
+Based on the VNF provider's recommendations, the Service Provider may create additional YAML artifacts
+(using ONAP design Studio), which finalizes Service Provider engineering rules for the processing of
+the VNF events.  The Service Provider may alter the threshold levels recommended by the VNF providor,
+and may modify and more clearly specify actions that should be taken when specified conditions arise.
+The Service Provider-created version of the YAML artifact will be distributed to ONAP applications
 by the Design framework.
 
 VNF Telemetry using YANG Model
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In addition to the JSON driven model described above, a YANG driven model can also be 
+In addition to the JSON driven model described above, a YANG driven model can also be
 supported, as depicted in Figure 3.
 
 |image2|
- 
+
 Figure 3. YANG Driven Model
 
 VNF providers will provide to the Service Provider the following YANG model artifacts:
@@ -864,7 +866,7 @@ VNF providers will provide to the Service Provider the following YANG model arti
 
     * sensor paths
     * subscription bindings
-    * path destinations 
+    * path destinations
     * delivery frequency
     * transport mechanisms
     * data encodings
@@ -873,47 +875,47 @@ VNF providers will provide to the Service Provider the following YANG model arti
 * YANG helper or decoder functions that automate the conversion between YANG model data types to VES/JSON information elements
 * OPTIONAL: YANG Telemetry modules in JSON format per RFC 7951
 
-Using the semantics and syntax supported by YANG, VNF providers will indicate specific conditions that may 
-arise, and recommend actions that should be taken at specific thresholds, or if specific conditions 
-repeat within a specified time interval.  
+Using the semantics and syntax supported by YANG, VNF providers will indicate specific conditions that may
+arise, and recommend actions that should be taken at specific thresholds, or if specific conditions
+repeat within a specified time interval.
 
-Based on the VNF provider's recommendations, the Service Provider may create additional YAML artifacts 
-(using ONAP design Studio), which finalizes Service Provider engineering rules for the processing 
-of the VNF events.  The Service Provider may alter the threshold levels recommended by the 
-VNF provider, and may modify and more clearly specify actions that should be taken when specified 
-conditions arise.  The Service Provided-created version of the YAML will be distributed to ONAP 
+Based on the VNF provider's recommendations, the Service Provider may create additional YAML artifacts
+(using ONAP design Studio), which finalizes Service Provider engineering rules for the processing
+of the VNF events.  The Service Provider may alter the threshold levels recommended by the
+VNF provider, and may modify and more clearly specify actions that should be taken when specified
+conditions arise.  The Service Provided-created version of the YAML will be distributed to ONAP
 applications by the Design framework.
 
-Note: While supporting the YANG model described above, we are still leveraging the VES JSON 
-based model in DCAE.  The purpose of the diagram above is to illustrate the concept only and 
+Note: While supporting the YANG model described above, we are still leveraging the VES JSON
+based model in DCAE.  The purpose of the diagram above is to illustrate the concept only and
 not to imply a specific implementation.
 
 VNF Telemetry using Google Protocol Buffers
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In addition to the data delivery models described above, support for delivery of VNF telemetry 
-using Google Protocol Buffers (GPB) can also be supported, as depicted in Figure 4. 
+In addition to the data delivery models described above, support for delivery of VNF telemetry
+using Google Protocol Buffers (GPB) can also be supported, as depicted in Figure 4.
 
-VNF providers will provide to the Service Provider the additional following artifacts to 
-support the delivery of VNF telemetry to DCAE via the open-source gRPC mechanism using 
+VNF providers will provide to the Service Provider the additional following artifacts to
+support the delivery of VNF telemetry to DCAE via the open-source gRPC mechanism using
 Google's Protocol Buffers:
 
 * the YANG model artifacts described in support of the "VNF Telemetry using YANG Model"
 * valid definition file(s) for all GPB / KV-GPB encoded messages
-* valid definition file(s) for all gRPC services 
+* valid definition file(s) for all gRPC services
 * gRPC method parameters and return types specified as Protocol Buffers messages
 
 |image3|
- 
+
 Figure 4. Protocol Buffers Driven Model
 
-Note: if Google Protocol Buffers are employed for delivery of VNF telemetry, Key-Value 
-Google Protocol Buffers (KV-GPB) is the preferred serialization method.  Details of 
-specifications and versioning corresponding to a release can be found 
+Note: if Google Protocol Buffers are employed for delivery of VNF telemetry, Key-Value
+Google Protocol Buffers (KV-GPB) is the preferred serialization method.  Details of
+specifications and versioning corresponding to a release can be found
 at: `VES Event Listener <https://github.com/att/evel-test-collector/tree/master/docs/att_interface_definition>`__.
 
-Note: While supporting the VNF telemetry delivery approach described above, we are 
-still leveraging the VES JSON based model in DCAE.  The purpose of the diagram above 
+Note: While supporting the VNF telemetry delivery approach described above, we are
+still leveraging the VES JSON based model in DCAE.  The purpose of the diagram above
 is to illustrate the concept only and not to imply a specific implementation.
 
 Monitoring & Management Requirements
@@ -929,7 +931,7 @@ Content delivered from VNFs to ONAP is to be encoded and serialized using JSON:
 
 **JSON**
 
-* R-19624 The VNF **MUST** encode and serialize content delivered to ONAP using JSON (RFC 7159) plain text format. High-volume data 
+* R-19624 The VNF **MUST** encode and serialize content delivered to ONAP using JSON (RFC 7159) plain text format. High-volume data
   is to be encoded and serialized using `Avro <http://avro.apache.org/>`_, where the Avro [5]_ data format are described using JSON.
 
  -  JSON plain text format is preferred for moderate volume data sets (option 1), as JSON has the advantage of having well-understood simple processing and being human-readable without additional decoding. Examples of moderate volume data sets include the fault alarms and performance alerts, heartbeat messages, measurements used for VNF scaling and syslogs.
@@ -956,7 +958,7 @@ Telemetry data delivered using Google Protocol Buffers v3 (proto3) can be serial
 
 * Google Protocol Buffers (GPB) requires metadata in the form of .proto files. VNF providers must supply the necessary GPB .proto files such that GPB telemetry messages can be encoded and decoded.
 
-* In the future, we may consider support for other types of encoding & serialization methods based on industry demand
+* In the future, we may consider support for other types of encoding & serialization methods based on industry demand.
 
 
 **Reporting Frequency**
@@ -973,7 +975,7 @@ ONAP destinations can be addressed by URLs for RESTful data PUT. Future data set
 * R-88482 The VNF **SHOULD** use REST using HTTPS delivery of plain text JSON for moderate sized asynchronous data sets, and for high volume data sets when feasible.
 * R-84879 The VNF **MUST** have the capability of maintaining a primary and backup DNS name (URL) for connecting to ONAP collectors, with the ability to switch between addresses based on conditions defined by policy such as time-outs, and buffering to store messages until they can be delivered. At its discretion, the service provider may choose to populate only one collector address for a VNF. In this case, the network will promptly resolve connectivity problems caused by a collector or network failure transparently to the VNF.
 * R-81777 The VNF **MUST** be configured with initial address(es) to use at deployment time. Subsequently, address(es) may be changed through ONAP-defined policies delivered from ONAP to the VNF using PUTs to a RESTful API, in the same manner that other controls over data reporting will be controlled by policy.
-* R-08312 The VNF **MAY** use other options which are expected to include
+* R-08312 The VNF **MAY** use other options which are expected to include:
 
  -  REST delivery of binary encoded data sets.
  -  TCP for high volume streaming asynchronous data sets and for other high volume data sets. TCP delivery can be used for either JSON or binary encoded data sets.
@@ -992,7 +994,7 @@ ONAP destinations can be addressed by URLs for RESTful data PUT. Future data set
 * R-11240 The VNF **MUST** respond with content encoded in JSON, as described in the RESTCONF specification. This way the encoding of a synchronous communication will be consistent with Avro.
 * R-70266 The VNF **MUST** respond to an ONAP request to deliver the current data for any of the record types defined in `Event Records - Data Structure Description`_ by returning the requested record, populated with the current field values. (Currently the defined record types include fault fields, mobile flow fields, measurements for VNF scaling fields, and syslog fields. Other record types will be added in the future as they become standardized and are made available.)
 * R-46290 The VNF **MUST** respond to an ONAP request to deliver granular data on device or subsystem status or performance, referencing the YANG configuration model for the VNF by returning the requested data elements.
-* R-43327 The VNF **SHOULD** use `Modeling JSON text with YANG <https://tools.ietf.org/html/rfc7951>`_, If YANG models need to be translated to and from JSON{RFC7951]. YANG configuration and content can be represented via JSON, consistent with Avro, as described in “Encoding and Serialization” section.
+* R-43327 The VNF **SHOULD** use `Modeling JSON text with YANG <https://tools.ietf.org/html/rfc7951>`_, If YANG models need to be translated to and from JSON[`RFC7951 <https://tools.ietf.org/html/rfc7951>`_]. YANG configuration and content can be represented via JSON, consistent with Avro, as described in “Encoding and Serialization” section.
 
 **Security**
 
@@ -1020,13 +1022,10 @@ ONAP destinations can be addressed by URLs for RESTful data PUT. Future data set
    This option is not currently supported in ONAP and it is currently
    under consideration.
 
-.. [6]
-   https://wiki.opnfv.org/display/PROJ/VNF+Event+Stream
 
 .. |image0| image:: Data_Model_For_Event_Records.png
       :width: 7in
       :height: 8in
-
 
 .. |image1| image:: VES_JSON_Driven_Model.png
       :width: 5in
@@ -1039,3 +1038,5 @@ ONAP destinations can be addressed by URLs for RESTful data PUT. Future data set
 .. |image3| image:: Protocol_Buffers_Driven_Model.png
       :width: 4.74in
       :height: 3.3in
+
+

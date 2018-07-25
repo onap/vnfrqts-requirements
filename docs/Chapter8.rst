@@ -1,4 +1,4 @@
-﻿**8. Appendix**
+**8. Appendix**
 ===============
 
 a. – Chef JSON Key Value Description
@@ -21,50 +21,50 @@ Table A1. Chef JSON File key value description
 +-------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------+-----------------------------------------------------------------------------------------------------------------------------------------+
 | NodeList          | Array of FQDNs that correspond to the endpoints (VMs) of a VNF registered with the Chef Server that need to trigger a chef-client run as part of the desired VNF action.                                                                                                                          | Mandatory   |                                                                                                                                         |
 +-------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------+-----------------------------------------------------------------------------------------------------------------------------------------+
-| PushJobFlag       | This field indicates whether the VNF action requires a push Job. Push job object will be created by ONAP if required.                                                                                                                                                                             | Mandatory   | If set to “True”, ONAP will request a push job. Ignored otherwise.                                                                      |
+| PushJobFlag       | This field indicates whether the VNF action requires a push Job. Push job object will be created by ONAP if required.                                                                                                                                                                             | Mandatory   | If set to "True", ONAP will request a push job. Ignored otherwise.                                                                      |
 +-------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------+-----------------------------------------------------------------------------------------------------------------------------------------+
-| CallbackCapable   | This field indicates if the chef-client run invoked by push job corresponding to the VNF action is capable of posting results on a callback URL.                                                                                                                                                  | Optional    | If Chef cookbook is callback capable, VNF owner is required to set it to “True”. Ignored otherwise.                                     |
+| CallbackCapable   | This field indicates if the chef-client run invoked by push job corresponding to the VNF action is capable of posting results on a callback URL.                                                                                                                                                  | Optional    | If Chef cookbook is callback capable, VNF owner is required to set it to "True". Ignored otherwise.                                     |
 +-------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------+-----------------------------------------------------------------------------------------------------------------------------------------+
-| GetOutputFlag     | Flag which indicates whether ONAP should retrieve output generated in a chef-client run from Node object attribute node[‘PushJobOutput’] for this VNF action (e.g., in Audit).                                                                                                                    | Mandatory   | ONAP will retrieve output from NodeObject attributes [‘PushJobOutput’] for all nodes in NodeList if set to “True”. Ignored otherwise.   |
+| GetOutputFlag     | Flag which indicates whether ONAP should retrieve output generated in a chef-client run from Node object attribute node['PushJobOutput'] for this VNF action (e.g., in Audit).                                                                                                                    | Mandatory   | ONAP will retrieve output from NodeObject attributes ['PushJobOutput'] for all nodes in NodeList if set to "True". Ignored otherwise.   |
 +-------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------+-----------------------------------------------------------------------------------------------------------------------------------------+
 
 Chef Template example:
 
 .. code-block:: chef
 
- “Environment”:{
+ "Environment":{
       "name": "HAR",
       "description": "VNF Chef environment for HAR",
       "json\_class": "Chef::Environment",
       "chef\_type": "environment",
       "default\_attributes": { },
       "override\_attributes": {
-            “Retry\_Time”:”50”,
-            “MemCache”: “1024”,
-            “Database\_IP”:”10.10.1.5”
+            "Retry\_Time":"50",
+            "MemCache": "1024",
+            "Database\_IP":"10.10.1.5"
       },
  }
  }
- “Node”: {
-      “name” : “signal.network.com “
+ "Node": {
+      "name" : "signal.network.com "
       "chef\_type": "node",
       "json\_class": "Chef::Node",
       "attributes": {
-            “IPAddress1”: “192.168.1.2”,
-            “IPAddress2”:”135.16.162.5”,
-            “MyRole”:”BE”
+            "IPAddress1": "192.168.1.2",
+            "IPAddress2":"135.16.162.5",
+            "MyRole":"BE"
       },
       "override": {},
       "default": {},
-      “normal”:{},
-      “automatic”:{},
-      “chef\_environment” : “\_default”
+      "normal":{},
+      "automatic":{},
+      "chef\_environment" : "\_default"
       "run\_list": [ "configure\_signal" ]
       },
-      “NodeList”:[“node1.vnf\_a.onap.com”, “node2.vnf\_a.onap.com”],
-      “PushJobFlag”: “True”
-      “CallbackCapable”:True
-      “GetOutputFlag” : “False”
+      "NodeList":["node1.vnf\_a.onap.com", "node2.vnf\_a.onap.com"],
+      "PushJobFlag": "True"
+      "CallbackCapable":True
+      "GetOutputFlag" : "False"
  }
 
 The example JSON file provided by the VNF provider for each VNF action will be
@@ -76,8 +76,8 @@ Some points worth noting regarding the JSON fields:
 a. The JSON file must be created for each action for each VNF.
 
 b. If a VNF action involves multiple endpoints (VMs) of a VNF, ONAP will
-   replicate the “Node” JSON dictionary in the template and post it to
-   each FQDN (i.e., endpoint) in the NodeList after setting the “name”
+   replicate the "Node" JSON dictionary in the template and post it to
+   each FQDN (i.e., endpoint) in the NodeList after setting the "name"
    field in the Node object to be the respective FQDN [1]_. Hence, it
    is required that all end points (VMs) of a VNF involved in a VNF
    action support the same set of Node Object attributes.
@@ -100,7 +100,7 @@ Table A2. JSON Dictionary to Post in Callback
 +-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------+-------------------------------------------------------------+
 | StatusMessage   | A string which must be set to                                                                                                                                                                             | Mandatory   |                                                             |
 |                 |                                                                                                                                                                                                           |             |                                                             |
-|                 | ‘SUCCESS’ if StatusCode was 200                                                                                                                                                                           |             |                                                             |
+|                 | 'SUCCESS' if StatusCode was 200                                                                                                                                                                           |             |                                                             |
 |                 |                                                                                                                                                                                                           |             |                                                             |
 |                 | Appropriate error message otherwise.                                                                                                                                                                      |             |                                                             |
 +-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------+-------------------------------------------------------------+
@@ -137,28 +137,31 @@ Table B1. Ansible JSON File key value description
 
 Ansible JSON file example:
 
-{
+.. code-block:: json
 
-      “Action”:”Configure”,
+  {
 
-      "PlaybookName": "Ansible\_configure.yml",
+     "Action":"Configure",
 
-      "NodeList": ["test1.vnf\_b.onap.com", “test2.vnf\_b.onap.com”],
+     "PlaybookName": "Ansible\_configure.yml",
 
-      "Timeout": 60,
+     "NodeList": ["test1.vnf\_b.onap.com", "test2.vnf\_b.onap.com"],
 
-      "EnvParameters": {"Retry": 3, "Wait": 5, “ConfigFile”:”config.txt”},
+     "Timeout": 60,
 
-      “FileParameters”:{“config.txt”:”db\_ip=10.1.1.1, sip\_timer=10000”}
+     "EnvParameters": {"Retry": 3, "Wait": 5, "ConfigFile":"config.txt"},
 
-}
+     "FileParameters":{"config.txt":"db\_ip=10.1.1.1, sip\_timer=10000"}
+
+  }
+
 
 In the above example, the Ansible Server will:
 
-a. Process the “FileParameters” dictionary and generate a file named
-   ‘config.txt’ with contents set to the value of the ‘config.txt’ key.
+a. Process the "FileParameters" dictionary and generate a file named
+   'config.txt' with contents set to the value of the 'config.txt' key.
 
-b. Execute the playbook named ‘Ansible\_configure.yml’ on nodes with
+b. Execute the playbook named 'Ansible\_configure.yml' on nodes with
    FQDNs test1.vnf\_b.onap.com and test2.vnf\_b.onap.com respectively
    while providing the following key value pairs to the playbook:
    Retry=3, Wait=5, ConfigFile=config.txt
@@ -210,7 +213,7 @@ Table C2. Required Fields for Entitlements
 +---------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+---------------+
 | **Field Name**                                          | **Description**                                                                                                                                                                       | **Data Type**     | **Type**      |
 +=========================================================+=======================================================================================================================================================================================+===================+===============+
-| VNF Provider Part Number / Manufacture Reference Number | Identifier for the entitlement as described by the VNF provider in their price list / catalog / contract.                                                                                   | String            | Mandatory     |
+| VNF Provider Part Number / Manufacture Reference Number | Identifier for the entitlement as described by the VNF provider in their price list / catalog / contract.                                                                             | String            | Mandatory     |
 +---------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+---------------+
 | Description                                             | Verbiage that describes the entitlement.                                                                                                                                              | String            | Optional      |
 +---------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+---------------+
@@ -518,9 +521,9 @@ Table C8. Required Fields for Amount
 d. – Requirement List
 ==================================
 
-R-11200: The VNF MUST keep the scope of a Cinder volume module, when it exists, to be 1:1 with the VNF Base Module or Incremental Module.
+R-11200: The VNF **MUST** keep the scope of a Cinder volume module, when it exists, to be 1:1 with the VNF Base Module or Incremental Module.
 
-R-01334: The VNF **MUST** conform to the NETCONF RFC 5717, “Partial Lock Remote Procedure Call”.
+R-01334: The VNF **MUST** conform to the NETCONF RFC 5717, "Partial Lock Remote Procedure Call".
 
 R-51910: The VNF **MUST** provide all telemetry (e.g., fault event records, syslog records, performance records etc.) to ONAP using the model, format and mechanisms described in this section.
 
@@ -528,7 +531,7 @@ R-29324: The VNF **SHOULD** implement the protocol operation: **copy-config(targ
 
 R-72184: The VNF **MUST** have routable FQDNs for all the endpoints (VMs) of a VNF that contain chef-clients which are used to register with the Chef Server.  As part of invoking VNF actions, ONAP will trigger push jobs against FQDNs of endpoints for a VNF, if required.
 
-R-23740: The VNF **MUST** accommodate the security principle of “least privilege” during development, implementation and operation. The importance of “least privilege” cannot be overstated and must be observed in all aspects of VNF development and not limited to security. This is applicable to all sections of this document.
+R-23740: The VNF **MUST** accommodate the security principle of "least privilege" during development, implementation and operation. The importance of "least privilege" cannot be overstated and must be observed in all aspects of VNF development and not limited to security. This is applicable to all sections of this document.
 
 R-12709: The VNFC **SHOULD** be independently deployed, configured, upgraded, scaled, monitored, and administered by ONAP.
 
@@ -538,15 +541,15 @@ R-42207: The VNF **MUST** design resiliency into a VNF such that the resiliency 
 
 R-98617: The VNF provider **MUST** provide information regarding any dependency (e.g., affinity, anti-affinity) with other VNFs and resources.
 
-R-62498: The VNF **MUST**, if not using the NCSP’s IDAM API, encrypt OA&M access (e.g., SSH, SFTP).
+R-62498: The VNF **MUST**, if not using the NCSP's IDAM API, encrypt OA&M access (e.g., SSH, SFTP).
 
 R-42366: The VNF **MUST** support secure connections and transports.
 
-R-33955: The VNF **SHOULD** conform its YANG model to \*\*RFC 6991, “Common YANG Data Types”.
+R-33955: The VNF **SHOULD** conform its YANG model to \*\*RFC 6991, "Common YANG Data Types".
 
 R-33488: The VNF **MUST** protect against all denial of service attacks, both volumetric and non-volumetric, or integrate with external denial of service protection tools.
 
-R-57617: The VNF **MUST** include the field “success/failure” in the Security alarms (where applicable and technically feasible).
+R-57617: The VNF **MUST** include the field "success/failure" in the Security alarms (where applicable and technically feasible).
 
 R-57271: The VNF **MUST** provide the capability of generating security audit logs by interacting with the operating system (OS) as appropriate.
 
@@ -572,7 +575,7 @@ R-33280: The VNF **MUST NOT** use any instance specific parameters in a playbook
 
 R-73468: The VNF **MUST** allow the NETCONF server connection parameters to be configurable during virtual machine instantiation through Heat templates where SSH keys, usernames, passwords, SSH service and SSH port numbers are Heat template parameters.
 
-R-46908: The VNF **MUST**, if not using the NCSP’s IDAM API, comply with "password complexity" policy. When passwords are used, they shall be complex and shall at least meet the following password construction requirements: (1) be a minimum configurable number of characters in length, (2) include 3 of the 4 following types of characters: upper-case alphabetic, lower-case alphabetic, numeric, and special, (3) not be the same as the UserID with which they are associated or other common strings as specified by the environment, (4) not contain repeating or sequential characters or numbers, (5) not to use special characters that may have command functions, and (6) new passwords must not contain sequences of three or more characters from the previous password.
+R-46908: The VNF **MUST**, if not using the NCSP's IDAM API, comply with "password complexity" policy. When passwords are used, they shall be complex and shall at least meet the following password construction requirements: (1) be a minimum configurable number of characters in length, (2) include 3 of the 4 following types of characters: upper-case alphabetic, lower-case alphabetic, numeric, and special, (3) not be the same as the UserID with which they are associated or other common strings as specified by the environment, (4) not contain repeating or sequential characters or numbers, (5) not to use special characters that may have command functions, and (6) new passwords must not contain sequences of three or more characters from the previous password.
 
 R-86261: The VNF **MUST NOT** allow VNF provider access to VNFs remotely.
 
@@ -598,7 +601,7 @@ R-36280: The VNF provider **MUST** provide documentation describing VNF Function
 
 R-15671: The VNF **MUST NOT** provide public or unrestricted access to any data without the permission of the data owner. All data classification and access controls must be followed.
 
-R-39342: The VNF **MUST**, if not using the NCSP’s IDAM API, comply with "password changes (includes default passwords)" policy. Products will support password aging, syntax and other credential management practices on a configurable basis.
+R-39342: The VNF **MUST**, if not using the NCSP's IDAM API, comply with "password changes (includes default passwords)" policy. Products will support password aging, syntax and other credential management practices on a configurable basis.
 
 R-21558: The VNF **SHOULD** use intelligent routing by having knowledge of multiple downstream/upstream endpoints that are exposed to it, to ensure there is no dependency on external services (such as load balancers) to switch to alternate endpoints.
 
@@ -608,9 +611,9 @@ R-73541: The VNF **MIST** use access controls for VNFs and their supporting comp
 
 R-97102: The VNF Package **MUST** include VM requirements via a Heat template that provides the necessary data for:
 
-R-44013: The VNF **MUST** populate an attribute, defined as node[‘PushJobOutput’] with the desired output on all nodes in the push job that execute chef-client run if the VNF action requires the output of a chef-client run be made available (e.g., get running configuration).
+R-44013: The VNF **MUST** populate an attribute, defined as node['PushJobOutput'] with the desired output on all nodes in the push job that execute chef-client run if the VNF action requires the output of a chef-client run be made available (e.g., get running configuration).
 
-R-40521: The VNF **MUST**, if not using the NCSP’s IDAM API, support use of common third party authentication and authorization tools such as TACACS+, RADIUS.
+R-40521: The VNF **MUST**, if not using the NCSP's IDAM API, support use of common third party authentication and authorization tools such as TACACS+, RADIUS.
 
 R-41829: The VNF **MUST** be able to specify the granularity of the lock via a restricted or full XPath expression.
 
@@ -622,7 +625,7 @@ R-14853: The VNF **MUST** respond to a "move traffic" [2]_ command against a spe
 
 R-68165: The VNF **MUST** encrypt any content containing Sensitive Personal Information (SPI) or certain proprietary data, in addition to applying the regular procedures for securing access and delivery.
 
-R-31614: The VNF **MUST** log the field “event type” in the security audit logs.
+R-31614: The VNF **MUST** log the field "event type" in the security audit logs.
 
 R-87662: The VNF **SHOULD** implement the NETCONF Event Notifications [RFC5277].
 
@@ -630,11 +633,11 @@ R-26508: The VNF **MUST** support NETCONF server that can be mounted on OpenDayl
 
 R-26567: The VNF Package **MUST** include a run list of roles/cookbooks/recipes, for each supported VNF action, that will perform the desired VNF action in its entirety as specified by ONAP (see Section 8.c, ONAP Controller APIs and Behavior, for list of VNF actions and requirements), when triggered by a chef-client run list in JSON file.
 
-R-04158: The VNF **MUST** conform to the NETCONF RFC 4742, “Using the NETCONF Configuration Protocol over Secure Shell (SSH)”.
+R-04158: The VNF **MUST** conform to the NETCONF RFC 4742, "Using the NETCONF Configuration Protocol over Secure Shell (SSH)".
 
 R-49109: The VNF **MUST** encrypt TCP/IP--HTTPS (e.g., TLS v1.2) transmission of data on internal and external networks.
 
-R-15884: The VNF **MUST** include the field “date” in the Security alarms (where applicable and technically feasible).
+R-15884: The VNF **MUST** include the field "date" in the Security alarms (where applicable and technically feasible).
 
 R-15885: The VNF **MUST** Upon completion of the chef-client run, POST back on the callback URL, a JSON object as described in Table A2 if the chef-client run list includes a cookbook/recipe that is callback capable. Failure to POST on the Callback Url should not be considered a critical error. That is, if the chef-client successfully completes the VNF action, it should reflect this status on the Chef Server regardless of whether the Callback succeeded or not.
 
@@ -646,19 +649,19 @@ R-02170: The VNF **MUST** use, whenever possible, standard implementations of se
 
 R-11235: The VNF **MUST** implement the protocol operation: **kill-session(session)** - Force the termination of **session**.
 
-R-87564: The VNF **SHOULD** conform its YANG model to RFC 7317, “A YANG Data Model for System Management”.
+R-87564: The VNF **SHOULD** conform its YANG model to RFC 7317, "A YANG Data Model for System Management".
 
 R-69649: The VNF **MUST** have all vulnerabilities patched as soon as possible. Patching shall be controlled via change control process with vulnerabilities disclosed along with mitigation recommendations.
 
-R-75041: The VNF **MUST**, if not using the NCSP’s IDAM API, expire passwords at regular configurable intervals.
+R-75041: The VNF **MUST**, if not using the NCSP's IDAM API, expire passwords at regular configurable intervals.
 
 R-23035: The VNF **MUST** be designed to scale horizontally (more instances of a VNF or VNFC) and not vertically (moving the existing instances to larger VMs or increasing the resources within a VM) to achieve effective utilization of cloud resources.
 
-R-97445: The VNF **MUST** log the field “date/time” in the security audit logs.
+R-97445: The VNF **MUST** log the field "date/time" in the security audit logs.
 
 R-16777: The VNF provider **MUST** provide a JSON file for each supported action for the VNF.  The JSON file must contain key value pairs with all relevant values populated with sample data that illustrates its usage. The fields and their description are defined in Appendix B.
 
-R-08134: The VNF **MUST** conform to the NETCONF RFC 6241, “NETCONF Configuration Protocol”.
+R-08134: The VNF **MUST** conform to the NETCONF RFC 6241, "NETCONF Configuration Protocol".
 
 R-01382: The VNF **MUST** allow the entire configuration of the VNF to be retrieved via NETCONF's <get-config> and <edit-config>, independently of whether it was configured via NETCONF or other mechanisms.
 
@@ -670,21 +673,21 @@ R-90007: The VNF **MUST** implement the protocol operation: **close-session()**-
 
 R-42140: The VNF **MUST** respond to data requests from ONAP as soon as those requests are received, as a synchronous response.
 
-R-27511: The VNF provider **MUST** provide the ability to scale up a VNF provider supplied product during growth and scale down a VNF provider supplied product during decline without “real-time” restrictions based upon VNF provider permissions.
+R-27511: The VNF provider **MUST** provide the ability to scale up a VNF provider supplied product during growth and scale down a VNF provider supplied product during decline without "real-time" restrictions based upon VNF provider permissions.
 
 R-05470: The VNF **MUST** host connectors for access to the database layer.
 
-R-85633: The VNF **MUST** implement Data Storage Encryption (database/disk encryption) for Sensitive Personal Information (SPI) and other subscriber identifiable data. Note: subscriber’s SPI/data must be encrypted at rest, and other subscriber identifiable data should be encrypted at rest. Other data protection requirements exist and should be well understood by the developer.
+R-85633: The VNF **MUST** implement Data Storage Encryption (database/disk encryption) for Sensitive Personal Information (SPI) and other subscriber identifiable data. Note: subscriber's SPI/data must be encrypted at rest, and other subscriber identifiable data should be encrypted at rest. Other data protection requirements exist and should be well understood by the developer.
 
 R-36792: The VNF **MUST** automatically retry/resubmit failed requests made by the software to its downstream system to increase the success rate.
 
-R-49036: The VNF **SHOULD** conform its YANG model to RFC 7277, “A YANG Data Model for IP Management”.
+R-49036: The VNF **SHOULD** conform its YANG model to RFC 7277, "A YANG Data Model for IP Management".
 
-R-63217: The VNF **MUST**, if not using the NCSP’s IDAM API, support logging via ONAP for a historical view of “who did what and when”.
+R-63217: The VNF **MUST**, if not using the NCSP's IDAM API, support logging via ONAP for a historical view of "who did what and when".
 
 R-44125: The VNF provider **MUST** agree to the process that can be met by Service Provider reporting infrastructure. The Contract shall define the reporting process and the available reporting tools.
 
-R-22700: The VNF **MUST** conform its YANG model to RFC 6470, “NETCONF Base Notifications”.
+R-22700: The VNF **MUST** conform its YANG model to RFC 6470, "NETCONF Base Notifications".
 
 R-74958: The VNF **MUST** activate security alarms automatically when the following event is detected: unsuccessful attempts to gain permissions or assume the identity of another user
 
@@ -698,9 +701,9 @@ R-57855: The VNF **MUST** support hitless staggered/rolling deployments between 
 
 R-73285: The VNF **MUST** must encode the delivered data using JSON or Avro, addressed and delivered as described in the previous paragraphs.
 
-R-85028: The VNF **MUST** authenticate system to system access and do not conceal a VNF provider user’s individual accountability for transactions.
+R-85028: The VNF **MUST** authenticate system to system access and do not conceal a VNF provider user's individual accountability for transactions.
 
-R-28545: The VNF **MUST** conform its YANG model to RFC 6060, “YANG - A Data Modeling Language for the Network Configuration Protocol (NETCONF)”
+R-28545: The VNF **MUST** conform its YANG model to RFC 6060, "YANG - A Data Modeling Language for the Network Configuration Protocol (NETCONF)"
 
 R-74712: The VNF **MUST** utilize FQDNs (and not IP address) for both Service Chaining and scaling.
 
@@ -716,7 +719,7 @@ R-19082: The VNF **MUST NOT** run security testing tools and programs, e.g., pas
 
 R-39650: The VNF **SHOULD** provide the ability to test incremental growth of the VNF.
 
-R-15325: The VNF **MUST** log the field “success/failure” in the security audit logs.
+R-15325: The VNF **MUST** log the field "success/failure" in the security audit logs.
 
 R-07617: The VNF **MUST** log creating, removing, or changing the inherent privilege level of users.
 
@@ -730,7 +733,7 @@ R-83227: The VNF **MUST** Provide the capability to encrypt data in transit on a
 
 R-36843: The VNF **MUST** support the ability of the VNFC to be deployable in multi-zoned cloud sites to allow for site support in the event of cloud zone failure or upgrades.
 
-R-10129: The VNF **SHOULD** conform its YANG model to RFC 7223, “A YANG Data Model for Interface Management”.
+R-10129: The VNF **SHOULD** conform its YANG model to RFC 7223, "A YANG Data Model for Interface Management".
 
 R-18733: The VNF **MUST** implement the protocol operation: **discard-changes()** - Revert the candidate configuration datastore to the running configuration.
 
@@ -744,7 +747,7 @@ R-79224: The VNF **MUST** have the chef-client be preloaded with validator keys 
 
 R-12467: The VNF **MUST NOT** use the SHA, DSS, MD5, SHA-1 and Skipjack algorithms or other compromised encryption.
 
-R-68589: The VNF **MUST**, if not using the NCSP’s IDAM API, support User-IDs and passwords to uniquely identify the user/application. VNF needs to have appropriate connectors to the Identity, Authentication and Authorization systems that enables access at OS, Database and Application levels as appropriate.
+R-68589: The VNF **MUST**, if not using the NCSP's IDAM API, support User-IDs and passwords to uniquely identify the user/application. VNF needs to have appropriate connectors to the Identity, Authentication and Authorization systems that enables access at OS, Database and Application levels as appropriate.
 
 R-26115: The VNF **MUST** follow the data model upgrade rules defined in [RFC6020] section 10. All deviations from section 10 rules shall be handled by a built-in automatic upgrade mechanism.
 
@@ -762,9 +765,9 @@ R-58964: The VNF **MUST** provide the capability to restrict read and write acce
 
 R-73364: The VNF **MUST** support at least two major versions of the VNF software and/or sub-components to co-exist within production environments at any time so that upgrades can be applied across multiple systems in a staggered manner.
 
-R-33946: The VNF **MUST** conform to the NETCONF RFC 4741, “NETCONF Configuration Protocol”.
+R-33946: The VNF **MUST** conform to the NETCONF RFC 4741, "NETCONF Configuration Protocol".
 
-R-24269: The VNF **SHOULD** conform its YANG model to RFC 7407, “A YANG Data Model for SNMP Configuration”.
+R-24269: The VNF **SHOULD** conform its YANG model to RFC 7407, "A YANG Data Model for SNMP Configuration".
 
 R-16039: The VNF **SHOULD** test for adherence to the defined resiliency rating recommendation at each layer, during each delivery cycle so that the resiliency rating is measured and feedback is provided where software resiliency requirements are not met.
 
@@ -812,11 +815,11 @@ R-70933: The VNF **MUST** provide the ability to migrate to newer versions of cr
 
 R-48917: The VNF **MUST** monitor for and alert on (both sender and receiver) errant, running longer than expected and missing file transfers, so as to minimize the impact due to file transfer errors.
 
-R-79107: The VNF **MUST**, if not using the NCSP’s IDAM API, enforce a configurable maximum number of Login attempts policy for the users. VNF provider must comply with "terminate idle sessions" policy. Interactive sessions must be terminated, or a secure, locking screensaver must be activated requiring authentication, after a configurable period of inactivity. The system-based inactivity timeout for the enterprise identity and access management system must also be configurable.
+R-79107: The VNF **MUST**, if not using the NCSP's IDAM API, enforce a configurable maximum number of Login attempts policy for the users. VNF provider must comply with "terminate idle sessions" policy. Interactive sessions must be terminated, or a secure, locking screensaver must be activated requiring authentication, after a configurable period of inactivity. The system-based inactivity timeout for the enterprise identity and access management system must also be configurable.
 
 R-75850: The VNF **SHOULD** decouple persistent data from the VNFC and keep it in its own datastore that can be reached by all instances of the VNFC requiring the data.
 
-R-46960: The VNF **MUST** utilize only the Guest OS versions that are supported by the NCSP’s Network Cloud. [5]_
+R-46960: The VNF **MUST** utilize only the Guest OS versions that are supported by the NCSP's Network Cloud. [5]_
 
 R-21210: The VNF **MUST** implement the following input validation control: Validate that any input file has a correct and valid Multipurpose Internet Mail Extensions (MIME) type. Input files should be tested for spoofed MIME types.
 
@@ -840,7 +843,7 @@ R-04492: The VNF **MUST** generate security audit logs that must be sent to Secu
 
 R-02597: The VNF **MUST** implement the protocol operation: **lock(target)** - Lock the configuration datastore target.
 
-R-13800: The VNF **MUST** conform to the NETCONF RFC 5277, “NETCONF Event Notification”.
+R-13800: The VNF **MUST** conform to the NETCONF RFC 5277, "NETCONF Event Notification".
 
 R-64445: The VNF **MUST** support the ability of a requestor of the service to determine the version (and therefore capabilities) of the service so that Network Cloud Service Provider can understand the capabilities of the service.
 
@@ -860,11 +863,11 @@ R-67709: The VNF **MUST** be designed, built and packaged to enable deployment a
 
 R-46567: The VNF Package **MUST** include configuration scripts for boot sequence and configuration.
 
-R-55345: The VNF **SHOULD** use techniques such as “lazy loading” when initialization includes loading catalogues and/or lists which can grow over time, so that the VNF startup time does not grow at a rate proportional to that of the list.
+R-55345: The VNF **SHOULD** use techniques such as "lazy loading" when initialization includes loading catalogues and/or lists which can grow over time, so that the VNF startup time does not grow at a rate proportional to that of the list.
 
 R-88482: The VNF **SHOULD** use REST using HTTPS delivery of plain text JSON for moderate sized asynchronous data sets, and for high volume data sets when feasible.
 
-R-56786: The VNF **MUST** implement “Closed Loop” automatic implementation (without human intervention) for Known Threats with detection rate in low false positives.
+R-56786: The VNF **MUST** implement "Closed Loop" automatic implementation (without human intervention) for Known Threats with detection rate in low false positives.
 
 R-94525: The VNF **MUST** log connections to a network listener of the resource.
 
@@ -876,7 +879,7 @@ R-35851: The VNF Package **MUST** include VNF topology that describes basic netw
 
 R-29301: The VNF **MUST** provide or support the Identity and Access Management (IDAM) based threat detection data for Password Attacks.
 
-R-23957: The VNF **MUST** include the field “time” in the Security alarms (where applicable and technically feasible).
+R-23957: The VNF **MUST** include the field "time" in the Security alarms (where applicable and technically feasible).
 
 R-32636: The VNF **MUST** support API-based monitoring to take care of the scenarios where the control interfaces are not exposed, or are optimized and proprietary in nature.
 
@@ -890,7 +893,7 @@ R-86585: The VNFC **SHOULD** minimize the use of state within a VNFC to facilita
 
 R-18725: The VNF **MUST** handle the restart of a single VNFC instance without requiring all VNFC instances to be restarted.
 
-R-53317: The VNF **MUST** conform its YANG model to RFC 6087, “Guidelines for Authors and Reviewers of YANG Data Model Documents”.
+R-53317: The VNF **MUST** conform its YANG model to RFC 6087, "Guidelines for Authors and Reviewers of YANG Data Model Documents".
 
 R-67114: The VNF **MUST** be installed with:
 
@@ -908,7 +911,7 @@ R-09467: The VNF **MUST**  utilize only NCSP standard compute flavors. [5]_
 
 R-62170: The VNF **MUST** over-ride any default values for configurable parameters that can be set by ONAP in the roles, cookbooks and recipes.
 
-R-41994: The VNF **MUST**, if not using the NCSP’s IDAM API, comply with "No Self-Signed Certificates" policy. Self-signed certificates must be used for encryption only, using specified and approved encryption protocols such as LS 1.1 or higher or equivalent security protocols such as IPSec, AES.
+R-41994: The VNF **MUST**, if not using the NCSP's IDAM API, comply with "No Self-Signed Certificates" policy. Self-signed certificates must be used for encryption only, using specified and approved encryption protocols such as LS 1.1 or higher or equivalent security protocols such as IPSec, AES.
 
 R-38474: The VNF **MUST** have a corresponding environment file for a Base Module.
 
@@ -956,7 +959,7 @@ R-23475: The VNF **SHOULD** utilize only NCSP provided Guest OS images. [5]_
 
 R-64503: The VNF **MUST** provide minimum privileges for initial and default settings for new user accounts.
 
-R-42681: The VNF **MUST** use the NCSP’s IDAM API or comply with the requirements if not using the NCSP’s IDAM API, for identification, authentication and access control of OA&M and other system level functions.
+R-42681: The VNF **MUST** use the NCSP's IDAM API or comply with the requirements if not using the NCSP's IDAM API, for identification, authentication and access control of OA&M and other system level functions.
 
 R-19219: The VNF **MUST** provide audit logs that include user ID, dates, times for log-on and log-off, and terminal location at minimum.
 
@@ -964,7 +967,7 @@ R-73067: The VNF **MUST** use industry standard cryptographic algorithms and sta
 
 R-25878: The VNF **MUST** use certificates issued from publicly recognized Certificate Authorities (CA) for the authentication process where PKI-based authentication is used.
 
-R-70266: The VNF **MUST** respond to an ONAP request to deliver the current data for any of the record types defined in Section 8.d “Data Model for Event Records” by returning the requested record, populated with the current field values. (Currently the defined record types include the common header record, technology independent records such as Fault, Heartbeat, State Change, Syslog, and technology specific records such as Mobile Flow, Signaling and Voice Quality records.  Additional record types will be added in the future as they are standardized and become available.)
+R-70266: The VNF **MUST** respond to an ONAP request to deliver the current data for any of the record types defined in Section 8.d "Data Model for Event Records" by returning the requested record, populated with the current field values. (Currently the defined record types include the common header record, technology independent records such as Fault, Heartbeat, State Change, Syslog, and technology specific records such as Mobile Flow, Signaling and Voice Quality records.  Additional record types will be added in the future as they are standardized and become available.)
 
 R-70496: The VNF **MUST** implement the protocol operation: **commit(confirmed, confirm-timeout)** - Commit candidate configuration datastore to the running configuration.
 
@@ -990,7 +993,7 @@ R-58421: The VNF **SHOULD** be decomposed into granular re-usable VNFCs.
 
 R-27711: The VNF provider **MUST** provide an XML file that contains a list of VNF error codes, descriptions of the error, and possible causes/corrective action.
 
-R-78282: The VNF **MUST** conform to the NETCONF RFC 6242, “Using the Network Configuration Protocol over Secure Shell”.
+R-78282: The VNF **MUST** conform to the NETCONF RFC 6242, "Using the Network Configuration Protocol over Secure Shell".
 
 R-99766: The VNF **MUST** allow configurations and configuration parameters to be managed under version control to ensure the ability to rollback to a known valid configuration.
 
@@ -1002,9 +1005,9 @@ R-21652: The VNF **MUST** implement the following input validation control: Chec
 
 R-54190: The VNF **MUST** release locks to prevent permanent lock-outs when/if a session applying the lock is terminated (e.g., SSH session is terminated).
 
-R-12271: The VNF **SHOULD** conform its YANG model to RFC 7223, “IANA Interface Type YANG Module”.
+R-12271: The VNF **SHOULD** conform its YANG model to RFC 7223, "IANA Interface Type YANG Module".
 
-R-25547: The VNF **MUST** log the field “protocol” in the security audit logs.
+R-25547: The VNF **MUST** log the field "protocol" in the security audit logs.
 
 R-22286: The VNF **MUST** support Integration functionality via API/Syslog/SNMP to other functional modules in the network (e.g., PCRF, PCEF) that enable dynamic security control by blocking the malicious traffic or malicious end users
 
@@ -1034,9 +1037,9 @@ R-12110: The VNF **MUST NOT** use keys generated or derived from predictable fun
 
 R-03954: The VNF **MUST** survive any single points of failure within the Network Cloud (e.g., virtual NIC, VM, disk failure).
 
-R-98391: The VNF **MUST**, if not using the NCSP’s IDAM API, support Role-Based Access Control to permit/limit the user/application to performing specific activities.
+R-98391: The VNF **MUST**, if not using the NCSP's IDAM API, support Role-Based Access Control to permit/limit the user/application to performing specific activities.
 
-R-29967: The VNF **MUST** conform its YANG model to RFC 6022, “YANG module for NETCONF monitoring”.
+R-29967: The VNF **MUST** conform its YANG model to RFC 6022, "YANG module for NETCONF monitoring".
 
 R-80335: The VNF **MUST** make visible a Warning Notices: A formal statement of resource intent, i.e., a warning notice, upon initial access to a VNF provider user who accesses private internal networks or Company computer resources, e.g., upon initial logon to an internal web site, system or application which requires authentication.
 
@@ -1060,7 +1063,7 @@ R-41825: The VNF **MUST** activate security alarms automatically when the follow
 
 R-52870: The VNF **MUST** provide a method of metrics gathering and analysis to evaluate the resiliency of the software from both a granular as well as a holistic standpoint. This includes, but is not limited to thread utilization, errors, timeouts, and retries.
 
-R-89474: The VNF **MUST** log the field “Login ID” in the security audit logs.
+R-89474: The VNF **MUST** log the field "Login ID" in the security audit logs.
 
 R-13390: The VNF provider **MUST** provide cookbooks to be loaded on the appropriate Chef Server.
 
@@ -1068,7 +1071,7 @@ R-24825: The VNF **MUST** provide Context awareness data (device, location, time
 
 R-23882: The VNF **SHOULD** be scanned using both network scanning and application scanning security tools on all code, including underlying OS and related configuration. Scan reports shall be provided. Remediation roadmaps shall be made available for any findings.
 
-R-22946: The VNF **SHOULD** conform its YANG model to RFC 6536, “NETCONF Access Control Model”.
+R-22946: The VNF **SHOULD** conform its YANG model to RFC 6536, "NETCONF Access Control Model".
 
 R-89753: The VNF **MUST NOT** install or use systems, tools or utilities capable of capturing or logging data that was not created by them or sent specifically to them in production, without authorization of the VNF system owner.
 
@@ -1086,11 +1089,11 @@ R-31961: The VNF **MUST** support integrated DPI/monitoring functionality as par
 
 R-47597: The VNF **MUST** carry data in motion only over secure connections.
 
-R-43253: The VNF **MUST** use playbooks designed to allow Ansible Server to infer failure or success based on the “PLAY_RECAP” capability.
+R-43253: The VNF **MUST** use playbooks designed to allow Ansible Server to infer failure or success based on the "PLAY_RECAP" capability.
 
-R-23135: The VNF **MUST**, if not using the NCSP’s IDAM API, authenticate system to system communications were one system accesses the resources of another system, and must never conceal individual accountability.
+R-23135: The VNF **MUST**, if not using the NCSP's IDAM API, authenticate system to system communications were one system accesses the resources of another system, and must never conceal individual accountability.
 
-R-99730: The VNF **MUST** include the field “Login ID” in the Security alarms (where applicable and technically feasible).
+R-99730: The VNF **MUST** include the field "Login ID" in the Security alarms (where applicable and technically feasible).
 
 R-88199: The VNF **MUST** utilize virtualized, scalable open source database software that can meet the performance/latency requirements of the service for all datastores.
 
@@ -1126,7 +1129,7 @@ R-22888: The VNF provider **MUST** provide documentation for the VNF Policy Desc
 
 R-78066: The VNF **MUST** support requests for information from law enforcement and government agencies.
 
-R-35144: The VNF **MUST**, if not using the NCSP’s IDAM API, comply with the NCSP’s credential management policy.
+R-35144: The VNF **MUST**, if not using the NCSP's IDAM API, comply with the NCSP's credential management policy.
 
 R-85959: The VNF **SHOULD** automatically enable/disable added/removed sub-components or component so there is no manual intervention required.
 
@@ -1144,7 +1147,7 @@ R-22059: The VNF **MUST NOT** execute long running tasks (e.g., IO, database, ne
 
 R-30650: The VNF **MUST** utilize cloud provided infrastructure and VNFs (e.g., virtualized Local Load Balancer) as part of the VNF so that the cloud can manage and provide a consistent service resiliency and methods across all VNF's.
 
-R-30654: The VNF Package **MUST** have appropriate cookbooks that are designed to automatically ‘rollback’ to the original state in case of any errors for actions that change state of the VNF (e.g., configure).
+R-30654: The VNF Package **MUST** have appropriate cookbooks that are designed to automatically 'rollback' to the original state in case of any errors for actions that change state of the VNF (e.g., configure).
 
 R-29705: The VNF **MUST** restrict changing the criticality level of a system security alarm to administrator(s).
 
@@ -1164,11 +1167,11 @@ R-86455: The VNF **SHOULD** support hosting connectors for OS Level and Applicat
 
 R-68990: The VNF **MUST** support the **:startup** capability. It will allow the running configuration to be copied to this special database. It can also be locked and unlocked.
 
-R-78010: The VNF **MUST** use the NCSP’s IDAM API for Identification, authentication and access control of customer or VNF application users.
+R-78010: The VNF **MUST** use the NCSP's IDAM API for Identification, authentication and access control of customer or VNF application users.
 
 R-46986: The VNF **SHOULD** have source code scanned using scanning tools (e.g., Fortify) and provide reports.
 
-R-97293: The VNF provider **MUST NOT** require audits of Service Provider’s business.
+R-97293: The VNF provider **MUST NOT** require audits of Service Provider's business.
 
 R-16065: The VNF provider **MUST** provide configurable parameters (if unable to conform to YANG model) including VNF attributes/parameters and valid values, dynamic attributes and cross parameter dependencies (e.g., customer provisioning data).
 
@@ -1184,7 +1187,7 @@ R-41159: The VNF **MUST** deliver any and all functionality from any VNFC in the
 
 R-18864: The VNF **MUST** NOT use technologies that bypass virtualization layers (such as SR-IOV) unless approved by the NCSP (e.g., if necessary to meet functional or performance requirements).
 
-R-37028: The VNF **MUST** be composed of one “base” module.
+R-37028: The VNF **MUST** be composed of one "base" module.
 
 R-40827: The VNF provider **MUST** enumerate all of the open source licenses their VNF(s) incorporate.
 
@@ -1192,9 +1195,9 @@ R-95950: The VNF **MUST** provide a NETCONF interface fully defined by supplied 
 
 R-10716: The VNF **MUST** support parallel and simultaneous configuration of separate objects within itself.
 
-R-71842: The VNF **MUST** include the field “service or program used for access” in the Security alarms (where applicable and technically feasible).
+R-71842: The VNF **MUST** include the field "service or program used for access" in the Security alarms (where applicable and technically feasible).
 
-R-54430: The VNF **MUST** use the NCSP’s supported library and compute flavor that supports DPDK to optimize network efficiency if using DPDK. [5]_
+R-54430: The VNF **MUST** use the NCSP's supported library and compute flavor that supports DPDK to optimize network efficiency if using DPDK. [5]_
 
 R-03465: The VNF **MUST** release locks to prevent permanent lock-outs when the corresponding <partial-unlock> operation succeeds.
 
@@ -1216,7 +1219,7 @@ R-19790: The VNF **MUST NOT** include authentication credentials in security aud
 
 R-97529: The VNF **SHOULD** implement the protocol operation: **get-schema(identifier, version, format) -** Retrieve the YANG schema.
 
-R-84473: The VNF **MUST** enable DPDK in the guest OS for VNF’s requiring high packets/sec performance.  High packet throughput is defined as greater than 500K packets/sec.
+R-84473: The VNF **MUST** enable DPDK in the guest OS for VNF's requiring high packets/sec performance.  High packet throughput is defined as greater than 500K packets/sec.
 
 R-54816: The VNF **MUST** support the storage of security audit logs for agreed period of time for forensic analysis.
 
@@ -1230,7 +1233,7 @@ R-18525: The VNF provider **MUST** provide a JSON file for each supported action
 
 R-99174: The VNF **MUST** comply with Individual Accountability (each person must be assigned a unique ID) when persons or non-person entities access VNFs.
 
-R-99771: The VNF **MUST** provide all code/configuration files in a “Locked down” or hardened state or with documented recommendations for such hardening. All unnecessary services will be disabled. VNF provider default credentials, community strings and other such artifacts will be removed or disclosed so that they can be modified or removed during provisioning.
+R-99771: The VNF **MUST** provide all code/configuration files in a "Locked down" or hardened state or with documented recommendations for such hardening. All unnecessary services will be disabled. VNF provider default credentials, community strings and other such artifacts will be removed or disclosed so that they can be modified or removed during provisioning.
 
 R-58358: The VNF **MUST** implement the **:with-defaults** capability [RFC6243].
 
@@ -1238,9 +1241,9 @@ R-78116: The VNF **MUST** update status on the Chef Server appropriately (e.g., 
 
 R-84879: The VNF **MUST** have the capability of maintaining a primary and backup DNS name (URL) for connecting to ONAP collectors, with the ability to switch between addresses based on conditions defined by policy such as time-outs, and buffering to store messages until they can be delivered. At its discretion, the service provider may choose to populate only one collector address for a VNF. In this case, the network will promptly resolve connectivity problems caused by a collector or network failure transparently to the VNF.
 
-R-06413: The VNF **MUST** log the field “service or program used for access” in the security audit logs.
+R-06413: The VNF **MUST** log the field "service or program used for access" in the security audit logs.
 
-R-51442: The VNF **SHOULD** use playbooks that are designed to automatically ‘rollback’ to the original state in case of any errors for actions that change state of the VNF (e.g., configure).
+R-51442: The VNF **SHOULD** use playbooks that are designed to automatically 'rollback' to the original state in case of any errors for actions that change state of the VNF (e.g., configure).
 
 R-98989: The VNF **SHOULD** utilize resource pooling (threads, connections, etc.) within the VNF application so that resources are not being created and destroyed resulting in resource management overhead.
 
@@ -1248,11 +1251,11 @@ R-58998: The VNF **MUST** provide or support the Identity and Access Management 
 
 R-52499: The VNF **MUST** meet their own resiliency goals and not rely on the Network Cloud.
 
-R-43327: The VNF **SHOULD** use “Modeling JSON text with YANG”, https://trac.tools.ietf.org/id/draft-lhotka-netmod-yang-json-00.html, If YANG models need to be translated to and from JSON. YANG configuration and content can be represented via JSON, consistent with Avro, as described in “Encoding and Serialization” section.
+R-43327: The VNF **SHOULD** use "Modeling JSON text with YANG", https://trac.tools.ietf.org/id/draft-lhotka-netmod-yang-json-00.html, If YANG models need to be translated to and from JSON. YANG configuration and content can be represented via JSON, consistent with Avro, as described in "Encoding and Serialization" section.
 
 R-52060: The VNF **MUST** provide the capability to configure encryption algorithms or devices so that they comply with the laws of the jurisdiction in which there are plans to use data encryption.
 
-R-10353: The VNF **MUST** conform its YANG model to RFC 6244, “An Architecture for Network Management Using NETCONF and YANG”.
+R-10353: The VNF **MUST** conform its YANG model to RFC 6244, "An Architecture for Network Management Using NETCONF and YANG".
 
 R-26586: The VNF **SHOULD** support the ability to work with aliases (e.g., gateways, proxies) to protect and encapsulate resources.
 
@@ -1266,11 +1269,11 @@ R-73223: The VNF **MUST** support proactive monitoring to detect and report the 
 
 R-06668: The VNF **MUST** handle the start or restart of VNFC instances in any order with each VNFC instance establishing or re-establishing required connections or relationships with other VNFC instances and/or VNFs required to perform the VNF function/role without requiring VNFC instance(s) to be started/restarted in a particular order.
 
-R-41215: The VNF **MAY** have zero to many “incremental” modules.
+R-41215: The VNF **MAY** have zero to many "incremental" modules.
 
 R-85991: The VNF provider **MUST** provide a universal license key per VNF to be used as needed by services (i.e., not tied to a VM instance) as the recommended solution. The VNF provider may provide pools of Unique VNF License Keys, where there is a unique key for each VNF instance as an alternate solution. Licensing issues should be resolved without interrupting in-service VNFs.
 
-R-52085: The VNF **MUST**, if not using the NCSP’s IDAM API, provide the ability to support Multi-Factor Authentication (e.g., 1st factor = Software token on device (RSA SecureID); 2nd factor = User Name+Password, etc.) for the users.
+R-52085: The VNF **MUST**, if not using the NCSP's IDAM API, provide the ability to support Multi-Factor Authentication (e.g., 1st factor = Software token on device (RSA SecureID); 2nd factor = User Name+Password, etc.) for the users.
 
 R-29495: The VNF **MUST** support locking if a common object is being manipulated by two simultaneous NETCONF configuration operations on the same VNF within the context of the same writable running data store (e.g., if an interface parameter is being configured then it should be locked out for configuration by a simultaneous configuration operation on that same interface parameter).
 
@@ -1299,7 +1302,7 @@ e. - Ansible Playbook Examples
 The following sections contain examples of Ansible playbook contents
 which follow the guidelines.
 
-Guidelines for Playbooks to properly integrate with APPC 
+Guidelines for Playbooks to properly integrate with APPC
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 NOTE: To support concurrent requests to multiple VNF instances of same
@@ -1334,7 +1337,7 @@ Comments:
    track request down to completion and provide status to APPC when
    requested.
 
--  Playbook Name provided in the request (full path in this case)
+-  Playbook Name provided in the request (full path in this case).
 
 -  Playbook path (in this example provided as part of playbook name as
    full path) or, later in a separate variable, playbook root directory
@@ -1403,9 +1406,9 @@ by underscore:
  oam: {vnfc_name: {{ vm_config_oam_vnfc_name }}, hostname: {{
  vm_config_oam_hostname }}, provider_ip_address: {{
  vm_config_oam_provider_ip_address }
- 
+
  },
- 
+
  …
 
 Parameters like VNF names, VNFC names, OA&M IP addresses, after
@@ -1497,7 +1500,7 @@ Ansible Playbooks – Notes On Artifacts Required to Run Playbooks
 
 Inventory hosts file: should be VNF instance specific.
 
-Default variables: should be VNF instance specific/
+Default variables: should be VNF instance specific.
 
 NOTE: Some playbooks may rely on inventory directory contents to target
 the collection of VNFs in the Services Platform supported through
@@ -1569,7 +1572,7 @@ Example:
 tmp/<VNF\_instance\_name>/all.yml
 
 Files containing site specific (Openstack location non-instance
-specific) attribute name value pairs, like NTP server and DNS server’s
+specific) attribute name value pairs, like NTP server and DNS server's
 IP addresses and other parameters, referenced/included by playbooks, not
 VNF specific – Could/should be stored under vars directory, in a
 subdirectory named after the string used to identify the site (nyc1,
@@ -1691,7 +1694,7 @@ Optional:
  /storage/<VNF type>/<Version>/ansible/groups/<VNF instance name>/common\_groups.yml
 
 NOTE: Default groups will be created based on VNFC type, 3 characters,
-on VNFC name. Example: “oam”, “rdb”, “dbs”, “man”, “iox”, “app”,…
+on VNFC name. Example: "oam", "rdb", "dbs", "man", "iox", "app",…
 
 Ansible Directories for other artifacts – VNF (special) other files –
 Optional – Example – License file:
@@ -1743,11 +1746,11 @@ VM(s) as specified in the request.
 ONAP APPC REST API to Ansible Server is documented separately and can be
 found under ONAP (onap.org).
 
-\ **Ansible Server – On-boarding Ansible Playbooks **
+**Ansible Server – On-boarding Ansible Playbooks**
 
 Once playbooks are developed following the guidelines listed in prior
 section(s), playbooks need to be on-boarded onto Ansible Server(s). In
-the future, they’ll be on-boarded and distributed through ONAP, at least
+the future, they'll be on-boarded and distributed through ONAP, at least
 that is the proposed plan, but for now they need to be uploaded
 manually.
 
@@ -1763,7 +1766,7 @@ Ansible Server.
    a. Includes VNF type using VNF function code 4 characters under
       /storage.
 
-   b. Includes VNF “Version” directory as part of the path to store
+   b. Includes VNF "Version" directory as part of the path to store
       playbooks for this VNF version.
 
    c. Include generic ansible root directory. Creating full directory
@@ -1845,10 +1848,10 @@ Ansible Server.
    vm\_config\_rdb4\_hostname: vfdb9904vm006
    vm\_config\_rdb4\_provider\_ip\_address: 1xx.2yy.zzz.yyy
 
-NOTE: Please note names in this file shall use underscore “\_” not dots
-“.” or dashes “-“.
+NOTE: Please note names in this file shall use underscore "\_" not dots
+"." or dashes "-".
 
-7. Perform some basic playbook validation running with “--check” option,
+7. Perform some basic playbook validation running with "--check" option,
    running dummy playbooks or other.
 
 8. Upload any SSH keys referenced on hosts file to appropriate
@@ -1865,11 +1868,11 @@ developed playbooks for the VNF.
 
 
 .. [1]
-   The “name” field is a mandatory field in a valid Chef Node Object
+   The "name" field is a mandatory field in a valid Chef Node Object
    JSON dictionary.
 
 .. [2]
-   Not currently supported in ONAP release 1
+   Not currently supported in ONAP release 1.
 
 .. [3]
    https://github.com/mbj4668/pyang
@@ -1879,7 +1882,7 @@ developed playbooks for the VNF.
    ONAP for the desired action.
 
 .. [5]
-   Refer to NCSP’s Network Cloud specification
+   Refer to NCSP's Network Cloud specification.
 
 .. [6]
    This option is not currently supported in ONAP and it is currently
@@ -1887,3 +1890,5 @@ developed playbooks for the VNF.
 
 .. [7]
    Multiple ONAP actions may map to one playbook.
+
+

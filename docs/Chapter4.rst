@@ -1,4 +1,4 @@
-﻿**4. VNF Development Requirements**
+**4. VNF Development Requirements**
 ====================================
 
 a. VNF Design
@@ -59,7 +59,7 @@ Network Cloud, resiliency must be designed into the VNF software to
 provide high availability versus relying on the Network Cloud to achieve
 that end.
 
-Section 5.a Resiliency in *VNF Guidelines* describes
+Section 4.b Resiliency in *VNF Guidelines* describes
 the overall guidelines for designing VNFs to meet resiliency goals.
 Below are more detailed resiliency requirements for VNFs.
 
@@ -90,7 +90,7 @@ Avoid performance-sapping data center-to-data center replication delay
 by applying techniques such as caching and persistent transaction paths
 - Eliminate replication delay impact between data centers by using a
 concept of stickiness (i.e., once a client is routed to data center "A",
-the client will stay with Data center “A” until the entire session is
+the client will stay with Data center "A" until the entire session is
 completed).
 
 Minimize Cross Data-Center Traffic Requirements
@@ -139,7 +139,7 @@ System Resource Optimization Requirements
 * R-06885 The VNF **SHOULD** support the ability to scale down a VNFC pool without jeopardizing active sessions. Ideally, an active session should not be tied to any particular VNFC instance.
 * R-12538 The VNF **SHOULD** support load balancing and discovery mechanisms in resource pools containing VNFC instances.
 * R-98989 The VNF **SHOULD** utilize resource pooling (threads, connections, etc.) within the VNF application so that resources are not being created and destroyed resulting in resource management overhead.
-* R-55345 The VNF **SHOULD** use techniques such as “lazy loading” when initialization includes loading catalogues and/or lists which can grow over time, so that the VNF startup time does not grow at a rate proportional to that of the list.
+* R-55345 The VNF **SHOULD** use techniques such as "lazy loading" when initialization includes loading catalogues and/or lists which can grow over time, so that the VNF startup time does not grow at a rate proportional to that of the list.
 * R-35532 The VNF **SHOULD** release and clear all shared assets (memory, database operations, connections, locks, etc.) as soon as possible, especially before long running sync and asynchronous operations, so as to not prevent use of these assets by other entities.
 
 
@@ -227,7 +227,7 @@ to all VNFs. Additional security requirements for specific types of VNFs
 will be applicable and are outside the scope of these general
 requirements.
 
-Section 5.a Security in *VNF Guidelines* outlines
+Section 4.c Security in *VNF Guidelines* outlines
 the five broad security areas for VNFs that are detailed in the
 following sections:
 
@@ -265,7 +265,7 @@ General Security Requirements
 
 Integration and operation within a robust security environment is necessary and expected. The security architecture will include one or more of the following: IDAM (Identity and Access Management) for all system and applications access, Code scanning, network vulnerability scans, OS, Database and application patching, malware detection and cleaning, DDOS prevention, network security gateways (internal and external) operating at various layers, host and application based tools for security compliance validation, aggressive security patch application, tightly controlled software distribution and change control processes and other state of the art security solutions. The VNF is expected to function reliably within such an environment and the developer is expected to understand and accommodate such controls and can expected to supply responsive interoperability support and testing throughout the product’s lifecycle.
 
-* R-23740 The VNF **MUST** accommodate the security principle of “least privilege” during development, implementation and operation. The importance of “least privilege” cannot be overstated and must be observed in all aspects of VNF development and not limited to security. This is applicable to all sections of this document.
+* R-23740 The VNF **MUST** accommodate the security principle of "least privilege" during development, implementation and operation. The importance of "least privilege" cannot be overstated and must be observed in all aspects of VNF development and not limited to security. This is applicable to all sections of this document.
 * R-61354 The VNF **MUST** implement access control list for OA&M services (e.g., restricting access to certain ports or applications).
 * R-85633 The VNF **MUST** implement Data Storage Encryption (database/disk encryption) for Sensitive Personal Information (SPI) and other subscriber identifiable data. Note: subscriber’s SPI/data must be encrypted at rest, and other subscriber identifiable data should be encrypted at rest. Other data protection requirements exist and should be well understood by the developer.
 * R-92207 The VNF **SHOULD** implement a mechanism for automated and frequent "system configuration (automated provisioning / closed loop)" auditing.
@@ -285,7 +285,7 @@ Integration and operation within a robust security environment is necessary and 
 * R-68589 The VNF **MUST**, if not using the NCSP’s IDAM API, support User-IDs and passwords to uniquely identify the user/application. VNF needs to have appropriate connectors to the Identity, Authentication and Authorization systems that enables access at OS, Database and Application levels as appropriate.
 * R-52085 The VNF **MUST**, if not using the NCSP’s IDAM API, provide the ability to support Multi-Factor Authentication (e.g., 1st factor = Software token on device (RSA SecureID); 2nd factor = User Name+Password, etc.) for the users.
 * R-98391 The VNF **MUST**, if not using the NCSP’s IDAM API, support Role-Based Access Control to permit/limit the user/application to performing specific activities.
-* R-63217 The VNF **MUST**, if not using the NCSP’s IDAM API, support logging via ONAP for a historical view of “who did what and when”.
+* R-63217 The VNF **MUST**, if not using the NCSP’s IDAM API, support logging via ONAP for a historical view of "who did what and when".
 * R-62498 The VNF **MUST**, if not using the NCSP’s IDAM API, encrypt OA&M access (e.g., SSH, SFTP).
 * R-79107 The VNF **MUST**, if not using the NCSP’s IDAM API, enforce a configurable maximum number of Login attempts policy for the users. VNF provider must comply with "terminate idle sessions" policy. Interactive sessions must be terminated, or a secure, locking screensaver must be activated requiring authentication, after a configurable period of inactivity. The system-based inactivity timeout for the enterprise identity and access management system must also be configurable.
 * R-35144 The VNF **MUST**, if not using the NCSP’s IDAM API, comply with the NCSP’s credential management policy.
@@ -424,9 +424,9 @@ solution in a virtual environment.
 Security Analytics Requirements
 
 * R-48470 The VNF **MUST** support Real-time detection and notification of security events.
-* R-22286 The VNF **MUST** support Integration functionality via API/Syslog/SNMP to other functional modules in the network (e.g., PCRF, PCEF) that enable dynamic security control by blocking the malicious traffic or malicious end users
+* R-22286 The VNF **MUST** support Integration functionality via API/Syslog/SNMP to other functional modules in the network (e.g., PCRF, PCEF) that enable dynamic security control by blocking the malicious traffic or malicious end users.
 * R-32636 The VNF **MUST** support API-based monitoring to take care of the scenarios where the control interfaces are not exposed, or are optimized and proprietary in nature.
-* R-61648 The VNF **MUST** support event logging, formats, and delivery tools to provide the required degree of event data to ONAP
+* R-61648 The VNF **MUST** support event logging, formats, and delivery tools to provide the required degree of event data to ONAP.
 * R-22367 The VNF **MUST** support detection of malformed packets due to software misconfiguration or software vulnerability.
 * R-31961 The VNF **MUST** support integrated DPI/monitoring functionality as part of VNFs (e.g., PGW, MME).
 * R-20912 The VNF **MUST** support alternative monitoring capabilities when VNFs do not expose data or control traffic or use proprietary and optimized protocols for inter VNF communication.
@@ -436,30 +436,30 @@ Security Analytics Requirements
 * R-54520 The VNF **MUST** log successful and unsuccessful login attempts.
 * R-55478 The VNF **MUST** log logoffs.
 * R-08598 The VNF **MUST** log successful and unsuccessful changes to a privilege level.
-* R-13344 The VNF **MUST** log starting and stopping of security logging
+* R-13344 The VNF **MUST** log starting and stopping of security logging.
 * R-07617 The VNF **MUST** log creating, removing, or changing the inherent privilege level of users.
 * R-94525 The VNF **MUST** log connections to a network listener of the resource.
-* R-31614 The VNF **MUST** log the field “event type” in the security audit logs.
-* R-97445 The VNF **MUST** log the field “date/time” in the security audit logs.
-* R-25547 The VNF **MUST** log the field “protocol” in the security audit logs.
-* R-06413 The VNF **MUST** log the field “service or program used for access” in the security audit logs.
-* R-15325 The VNF **MUST** log the field “success/failure” in the security audit logs.
-* R-89474 The VNF **MUST** log the field “Login ID” in the security audit logs.
+* R-31614 The VNF **MUST** log the field "event type" in the security audit logs.
+* R-97445 The VNF **MUST** log the field "date/time" in the security audit logs.
+* R-25547 The VNF **MUST** log the field "protocol" in the security audit logs.
+* R-06413 The VNF **MUST** log the field "service or program used for access" in the security audit logs.
+* R-15325 The VNF **MUST** log the field "success/failure" in the security audit logs.
+* R-89474 The VNF **MUST** log the field "Login ID" in the security audit logs.
 * R-04982 The VNF **MUST NOT** include an authentication credential, e.g., password, in the security audit logs, even if encrypted.
 * R-63330 The VNF **MUST** detect when the security audit log storage medium is approaching capacity (configurable) and issue an alarm via SMS or equivalent as to allow time for proper actions to be taken to pre-empt loss of audit data.
 * R-41252 The VNF **MUST** support the capability of online storage of security audit logs.
-* R-41825 The VNF **MUST** activate security alarms automatically when the following event is detected: configurable number of consecutive unsuccessful login attempts
-* R-43332 The VNF **MUST** activate security alarms automatically when the following event is detected: successful modification of critical system or application files
-* R-74958 The VNF **MUST** activate security alarms automatically when the following event is detected: unsuccessful attempts to gain permissions or assume the identity of another user
-* R-15884 The VNF **MUST** include the field “date” in the Security alarms (where applicable and technically feasible).
-* R-23957 The VNF **MUST** include the field “time” in the Security alarms (where applicable and technically feasible).
-* R-71842 The VNF **MUST** include the field “service or program used for access” in the Security alarms (where applicable and technically feasible).
-* R-57617 The VNF **MUST** include the field “success/failure” in the Security alarms (where applicable and technically feasible).
-* R-99730 The VNF **MUST** include the field “Login ID” in the Security alarms (where applicable and technically feasible).
+* R-41825 The VNF **MUST** activate security alarms automatically when the following event is detected: configurable number of consecutive unsuccessful login attempts.
+* R-43332 The VNF **MUST** activate security alarms automatically when the following event is detected: successful modification of critical system or application files.
+* R-74958 The VNF **MUST** activate security alarms automatically when the following event is detected: unsuccessful attempts to gain permissions or assume the identity of another user.
+* R-15884 The VNF **MUST** include the field "date" in the Security alarms (where applicable and technically feasible).
+* R-23957 The VNF **MUST** include the field "time" in the Security alarms (where applicable and technically feasible).
+* R-71842 The VNF **MUST** include the field "service or program used for access" in the Security alarms (where applicable and technically feasible).
+* R-57617 The VNF **MUST** include the field "success/failure" in the Security alarms (where applicable and technically feasible).
+* R-99730 The VNF **MUST** include the field "Login ID" in the Security alarms (where applicable and technically feasible).
 * R-29705 The VNF **MUST** restrict changing the criticality level of a system security alarm to administrator(s).
 * R-13627 The VNF **MUST** monitor API invocation patterns to detect anomalous access patterns that may represent fraudulent access or other types of attacks, or integrate with tools that implement anomaly and abuse detection.
 * R-21819 The VNF **MUST** support requests for information from law enforcement and government agencies.
-* R-56786 The VNF **MUST** implement “Closed Loop” automatic implementation (without human intervention) for Known Threats with detection rate in low false positives.
+* R-56786 The VNF **MUST** implement "Closed Loop" automatic implementation (without human intervention) for Known Threats with detection rate in low false positives.
 * R-25094 The VNF **MUST** perform data capture for security functions.
 * R-04492 The VNF **MUST** generate security audit logs that must be sent to Security Analytics Tools for analysis.
 * R-19219 The VNF **MUST** provide audit logs that include user ID, dates, times for log-on and log-off, and terminal location at minimum.
@@ -514,8 +514,8 @@ ONAP VNF Modularity Overview
 
 With VNF Modularity, a single VNF may be composed from one or more Heat
 Orchestration Templates, each of which represents a subset of the
-overall VNF. These component parts are referred to as “\ *VNF
-Modules*\ ”. During orchestration, these modules are deployed
+overall VNF. These component parts are referred to as "\ *VNF
+Modules*\ ". During orchestration, these modules are deployed
 incrementally to create the complete VNF.
 
 A modular Heat Orchestration Template can be either one of the following
@@ -527,8 +527,8 @@ types:
 
 3. Cinder Volume Module
 
-* R-37028 The VNF **MUST** be composed of one “base” module.
-* R-41215 The VNF **MAY** have zero to many “incremental” modules.
+* R-37028 The VNF **MUST** be composed of one "base" module.
+* R-41215 The VNF **MAY** have zero to many "incremental" modules.
 * R-20974 The VNF **MUST** deploy the base module first, prior to the incremental modules.
 
 ONAP also supports the concept of an optional, independently deployed
@@ -538,11 +538,10 @@ Virtual Machine (VM) (i.e., OS::Nova::Server) is deleted, allowing the
 volume to be reused on another instance (e.g., during a failover
 activity).
 
-* R-11200 The VNF MUST keep the scope of a Cinder volume module, when it exists, to be 1:1 with the VNF Base Module or Incremental Module.
-
-* R-38474 The VNF MUST have a corresponding environment file for a Base Module.
-* R-81725 The VNF MUST have a corresponding environment file for an Incremental Module.
-* R-53433 The VNF MUST have a corresponding environment file for a Cinder Volume Module.
+* R-11200 The VNF **MUST** keep the scope of a Cinder volume module, when it exists, to be 1:1 with the VNF Base Module or Incremental Module.
+* R-38474 The VNF **MUST** have a corresponding environment file for a Base Module.
+* R-81725 The VNF **MUST** have a corresponding environment file for an Incremental Module.
+* R-53433 The VNF **MUST** have a corresponding environment file for a Cinder Volume Module.
 
 These concepts will be described in more detail throughout the document.
 This overview is provided to set the stage and help clarify the concepts
@@ -556,7 +555,7 @@ ONAP supports a modular Heat Orchestration Template design pattern,
 referred to as *VNF Modularity.* With this approach, a single VNF may be
 composed from one or more Heat Orchestration Templates, each of which
 represents a subset of the overall VNF. These component parts are
-referred to as “\ *VNF Modules*\ ”. During orchestration, these modules
+referred to as "\ *VNF Modules*\ ". During orchestration, these modules
 are deployed incrementally to create the complete VNF.
 
 A modular Heat Orchestration Template can be either one of the following
@@ -568,8 +567,8 @@ types:
 
 3. Cinder Volume Module
 
-A VNF must be composed of one “base” module and may be composed of zero
-to many “incremental” modules. The base module must be deployed first,
+A VNF must be composed of one "base" module and may be composed of zero
+to many "incremental" modules. The base module must be deployed first,
 prior to the incremental modules.
 
 ONAP also supports the concept of an optional, independently deployed
@@ -640,16 +639,16 @@ c. For a given {vm-type} incremental module, the VNF may have
 
 **Option 2: Base VNF with Incremental Growth Modules**
 
-a. Base module contains a complete initial VNF instance
+a. Base module contains a complete initial VNF instance.
 
-b. Incremental modules for incremental scaling units
+b. Incremental modules for incremental scaling units.
 
-   i.  May contain VMs of multiple types in logical scaling combinations
+   i.  May contain VMs of multiple types in logical scaling combinations.
 
-   ii. May be separated by VM type for multi-dimensional scaling
+   ii. May be separated by VM type for multi-dimensional scaling.
 
-With no growth units, Option 2 is equivalent to the “One Heat Template
-per VNF” model.
+With no growth units, Option 2 is equivalent to the "One Heat Template
+per VNF" model.
 
 Note that modularization of VNFs is not required. A single Heat
 Orchestration Template (a base module) may still define a complete VNF,
@@ -665,54 +664,54 @@ There are some rules to follow when building modular VNF templates:
    first one deployed. The base template:
 
    a. Must include all shared resources (e.g., private networks, server
-      groups, security groups)
+      groups, security groups).
 
-   b. Must expose all shared resources (by UUID) as “outputs” in its
+   b. Must expose all shared resources (by UUID) as "outputs" in its
       associated Heat template (i.e., ONAP Base Module Output
-      Parameters)
+      Parameters).
 
-   c. May include initial set of VMs
+   c. May include initial set of VMs.
 
-   d. May be operational as a stand-alone “minimum” configuration of the
-      VNF
+   d. May be operational as a stand-alone "minimum" configuration of the
+      VNF.
 
 2. VNFs may have one or more incremental modules which:
 
-   a. Defines additional resources that can be added to an existing VNF
+   a. Defines additional resources that can be added to an existing VNF.
 
-   b. Must be complete Heat templates
+   b. Must be complete Heat templates.
 
-      i. i.e. not snippets to be incorporated into some larger template
+      i. i.e. not snippets to be incorporated into some larger template.
 
    c. Should define logical growth-units or sub-components of an overall
-      VNF
+      VNF.
 
    d. On creation, receives appropriate Base Module outputs as
-      parameters
+      parameters.
 
-      i.  Provides access to all shared resources (by UUID)
+      i.  Provides access to all shared resources (by UUID).
 
-      ii. must not be dependent on other Add-On VNF Modules
+      ii. must not be dependent on other Add-On VNF Modules.
 
    e. Multiple instances of an incremental Module may be added to the
-      same VNF (e.g., incrementally grow a VNF by a fixed “add-on”
-      growth units)
+      same VNF (e.g., incrementally grow a VNF by a fixed "add-on"
+      growth units).
 
 3. Each VNF Module (base or incremental) may have (optional) an
-   associated Cinder Volume Module (see Cinder Volume Templates)
+   associated Cinder Volume Module (see Cinder Volume Templates):
 
    a. Volume modules must correspond 1:1 with a base module or
-      incremental module
+      incremental module.
 
    b. A Cinder volume may be embedded within the base module or
-      incremental module if persistence is not required
+      incremental module if persistence is not required.
 
 4. Shared resource UUIDs are passed between the base module and
    incremental modules via Heat Outputs Parameters (i.e., Base Module
-   Output Parameters)
+   Output Parameters):
 
    a. The output parameter name in the base must match the parameter
-      name in the add-on module
+      name in the add-on module.
 
 VNF Modularity Examples
 -----------------------
@@ -856,7 +855,7 @@ software bundle, VNF suppliers using standard images would typically
 provide the NCSP with an install package consistent with the default OS
 package manager (e.g. aptitude for Ubuntu, yum for Redhat/CentOS).
 
-Section 5.a DevOps in *VNF Guidelines* describes
+Section 4.e DevOps in *VNF Guidelines* describes
 the DevOps guidelines for VNFs.
 
 DevOps Requirements
@@ -873,7 +872,7 @@ DevOps Requirements
 * R-39650 The VNF **SHOULD** provide the ability to test incremental growth of the VNF.
 * R-14853 The VNF **MUST** respond to a "move traffic" [2]_ command against a specific VNFC, moving all existing session elsewhere with minimal disruption if a VNF provides a load balancing function across multiple instances of its VNFCs. Note: Individual VNF performance aspects (e.g., move duration or disruption scope) may require further constraints.
 * R-06327 The VNF **MUST** respond to a "drain VNFC" [2]_ command against a specific VNFC, preventing new session from reaching the targeted VNFC, with no disruption to active sessions on the impacted VNFC, if a VNF provides a load balancing function across multiple instances of its VNFCs. This is used to support scenarios such as proactive maintenance with no user impact.
-* R-64713 The VNF **SHOULD** support a software promotion methodology from dev/test -> pre-prod -> production in software, development & testing and operations. 
+* R-64713 The VNF **SHOULD** support a software promotion methodology from dev/test -> pre-prod -> production in software, development & testing and operations.
 
 f. VNF Develop Steps
 =======================
@@ -906,3 +905,5 @@ Note:
 
 .. [2]
    Not currently supported in ONAP release 1
+
+
