@@ -188,6 +188,7 @@ changes from ETSI SOL001 draft.
 +====================================================================+
 +--------------------------------------------------------------------+
 
+
 HPA Requirements
 ^^^^^^^^^^^^^^^^^^
 
@@ -196,67 +197,67 @@ HPA Requirements
 Definitions of SRIOV\_Port are necessary if VDU supports SR-IOV. Here is
 an example.
 
-+------------------------------------------------+
-| node\_templates:                               |
-|                                                |
-| vdu\_vNat:                                     |
-|                                                |
-| SRIOV\_Port:                                   |
-|                                                |
-| attributes:                                    |
-|                                                |
-| tosca\_name: SRIOV\_Port                       |
-|                                                |
-| properties:                                    |
-|                                                |
-| virtual\_network\_interface\_requirements:     |
-|                                                |
-| - name: sriov                                  |
-|                                                |
-| support\_mandatory: false                      |
-|                                                |
-| description: sriov                             |
-|                                                |
-| requirement:                                   |
-|                                                |
-| SRIOV: true                                    |
-|                                                |
-| role: root                                     |
-|                                                |
-| description: sriov port                        |
-|                                                |
-| layer\_protocol: ipv4                          |
-|                                                |
-| requirements:                                  |
-|                                                |
-| - virtual\_binding:                            |
-|                                                |
-| capability: virtual\_binding                   |
-|                                                |
-| node: vdu\_vNat                                |
-|                                                |
-| relationship:                                  |
-|                                                |
-| type: tosca.relationships.nfv.VirtualBindsTo   |
-|                                                |
-| - virtual\_link:                               |
-|                                                |
-| node: tosca.nodes.Root                         |
-|                                                |
-| type: tosca.nodes.nfv.VduCpd                   |
-|                                                |
-| substitution\_mappings:                        |
-|                                                |
-| requirements:                                  |
-|                                                |
-| sriov\_plane:                                  |
-|                                                |
-| - SRIOV\_Port                                  |
-|                                                |
-| - virtual\_link                                |
-|                                                |
-| node\_type: tosca.nodes.nfv.VNF.vOpenNAT       |
-+------------------------------------------------+
+.. code-block:: yaml
+
+  node\_templates:
+
+  vdu\_vNat:
+
+  SRIOV\_Port:
+
+  attributes:
+
+  tosca\_name: SRIOV\_Port
+
+  properties:
+
+  virtual\_network\_interface\_requirements:
+
+  - name: sriov
+
+  support\_mandatory: false
+
+  description: sriov
+
+  requirement:
+
+  SRIOV: true
+
+  role: root
+
+  description: sriov port
+
+  layer\_protocol: ipv4
+
+  requirements:
+
+  - virtual\_binding:
+
+  capability: virtual\_binding
+
+  node: vdu\_vNat
+
+  relationship:
+
+  type: tosca.relationships.nfv.VirtualBindsTo
+
+  - virtual\_link:
+
+  node: tosca.nodes.Root
+
+  type: tosca.nodes.nfv.VduCpd
+
+  substitution\_mappings:
+
+  requirements:
+
+  sriov\_plane:
+
+  - SRIOV\_Port
+
+  - virtual\_link
+
+  node\_type: tosca.nodes.nfv.VNF.vOpenNAT
 
 2. Hugepages
 
@@ -264,22 +265,22 @@ Definitions of mem\_page\_size as one property shall be added to
 Properties and set the value to large if one VDU node supports
 huagepages. Here is an example.
 
-+----------------------------------+
-| node\_templates:                 |
-|                                  |
-| vdu\_vNat:                       |
-|                                  |
-| Hugepages:                       |
-|                                  |
-| attributes:                      |
-|                                  |
-| tosca\_name: Huge\_pages\_demo   |
-|                                  |
-| properties:                      |
-|                                  |
-| mem\_page\_size:large            |
-+==================================+
-+----------------------------------+
+.. code-block:: yaml
+
+  node\_templates:
+
+  vdu\_vNat:
+
+  Hugepages:
+
+  attributes:
+
+  tosca\_name: Huge\_pages\_demo
+
+  properties:
+
+  mem\_page\_size:large
+
 
 3. NUMA (CPU/Mem)
 
@@ -287,45 +288,47 @@ Likewise, we shall add definitions of numa to
 requested\_additional\_capabilities if we wand VUD nodes to support
 NUMA. Here is an example.
 
-+-------------------------------------------------+
-| topology\_template:                             |
-|                                                 |
-| node\_templates:                                |
-|                                                 |
-| vdu\_vNat:                                      |
-|                                                 |
-| capabilities:                                   |
-|                                                 |
-| virtual\_compute:                               |
-|                                                 |
-| properties:                                     |
-|                                                 |
-| virtual\_memory:                                |
-|                                                 |
-| numa\_enabled: true                             |
-|                                                 |
-| virtual\_mem\_size: 2 GB                        |
-|                                                 |
-| requested\_additional\_capabilities:            |
-|                                                 |
-| numa:                                           |
-|                                                 |
-| support\_mandatory: true                        |
-|                                                 |
-| requested\_additional\_capability\_name: numa   |
-|                                                 |
-| target\_performance\_parameters:                |
-|                                                 |
-| hw:numa\_nodes: "2"                             |
-|                                                 |
-| hw:numa\_cpus.0: "0,1"                          |
-|                                                 |
-| hw:numa\_mem.0: "1024"                          |
-|                                                 |
-| hw:numa\_cpus.1: "2,3,4,5"                      |
-|                                                 |
-| hw:numa\_mem.1: "1024"                          |
-+-------------------------------------------------+
+
+.. code-block:: yaml
+
+  topology\_template:
+
+  node\_templates:
+
+  vdu\_vNat:
+
+  capabilities:
+
+  virtual\_compute:
+
+  properties:
+
+  virtual\_memory:
+
+  numa\_enabled: true
+
+  virtual\_mem\_size: 2 GB
+
+  requested\_additional\_capabilities:
+
+  numa:
+
+  support\_mandatory: true
+
+  requested\_additional\_capability\_name: numa
+
+  target\_performance\_parameters:
+
+  hw:numa\_nodes: "2"
+
+  hw:numa\_cpus.0: "0,1"
+
+  hw:numa\_mem.0: "1024"
+
+  hw:numa\_cpus.1: "2,3,4,5"
+
+  hw:numa\_mem.1: "1024"
+
 
 4. Hyper-Theading
 
@@ -333,43 +336,44 @@ Definitions of Hyper-Theading are necessary as one of
 requested\_additional\_capabilities of one VUD node if that node
 supports Hyper-Theading. Here is an example.
 
-+-------------------------------------------------------------+
-| topology\_template:                                         |
-|                                                             |
-| node\_templates:                                            |
-|                                                             |
-| vdu\_vNat:                                                  |
-|                                                             |
-| capabilities:                                               |
-|                                                             |
-| virtual\_compute:                                           |
-|                                                             |
-| properties:                                                 |
-|                                                             |
-| virtual\_memory:                                            |
-|                                                             |
-| numa\_enabled: true                                         |
-|                                                             |
-| virtual\_mem\_size: 2 GB                                    |
-|                                                             |
-| requested\_additional\_capabilities:                        |
-|                                                             |
-| hyper\_threading:                                           |
-|                                                             |
-| support\_mandatory: true                                    |
-|                                                             |
-| requested\_additional\_capability\_name: hyper\_threading   |
-|                                                             |
-| target\_performance\_parameters:                            |
-|                                                             |
-| hw:cpu\_sockets : "2"                                       |
-|                                                             |
-| hw:cpu\_threads : "2"                                       |
-|                                                             |
-| hw:cpu\_cores : "2"                                         |
-|                                                             |
-| hw:cpu\_threads\_policy: "isolate"                          |
-+-------------------------------------------------------------+
+.. code-block:: yaml
+
+  topology\_template:
+
+  node\_templates:
+
+  vdu\_vNat:
+
+  capabilities:
+
+  virtual\_compute:
+
+  properties:
+
+  virtual\_memory:
+
+  numa\_enabled: true
+
+  virtual\_mem\_size: 2 GB
+
+  requested\_additional\_capabilities:
+
+  hyper\_threading:
+
+  support\_mandatory: true
+
+  requested\_additional\_capability\_name: hyper\_threading
+
+  target\_performance\_parameters:
+
+  hw:cpu\_sockets : "2"
+
+  hw:cpu\_threads : "2"
+
+  hw:cpu\_cores : "2"
+
+  hw:cpu\_threads\_policy: "isolate"
+
 
 5. OVS+DPDK
 
@@ -377,37 +381,38 @@ Definitions of ovs\_dpdk are necessary as one of
 requested\_additional\_capabilities of one VUD node if that node
 supports dpdk. Here is an example.
 
-+------------------------------------------------------+
-| topology\_template:                                  |
-|                                                      |
-| node\_templates:                                     |
-|                                                      |
-| vdu\_vNat:                                           |
-|                                                      |
-| capabilities:                                        |
-|                                                      |
-| virtual\_compute:                                    |
-|                                                      |
-| properties:                                          |
-|                                                      |
-| virtual\_memory:                                     |
-|                                                      |
-| numa\_enabled: true                                  |
-|                                                      |
-| virtual\_mem\_size: 2 GB                             |
-|                                                      |
-| requested\_additional\_capabilities:                 |
-|                                                      |
-| ovs\_dpdk:                                           |
-|                                                      |
-| support\_mandatory: true                             |
-|                                                      |
-| requested\_additional\_capability\_name: ovs\_dpdk   |
-|                                                      |
-| target\_performance\_parameters:                     |
-|                                                      |
-| sw:ovs\_dpdk: "true"                                 |
-+------------------------------------------------------+
+.. code-block:: yaml
+
+  topology\_template:
+
+  node\_templates:
+
+  vdu\_vNat:
+
+  capabilities:
+
+  virtual\_compute:
+
+  properties:
+
+  virtual\_memory:
+
+  numa\_enabled: true
+
+  virtual\_mem\_size: 2 GB
+
+  requested\_additional\_capabilities:
+
+  ovs\_dpdk:
+
+  support\_mandatory: true
+
+  requested\_additional\_capability\_name: ovs\_dpdk
+
+  target\_performance\_parameters:
+
+  sw:ovs\_dpdk: "true"
+
 
 NFV TOSCA Type Definition
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -472,148 +477,149 @@ Capabilities
 |            | capability type    |            |                              |
 +------------+--------------------+------------+------------------------------+
 
+
 Definition
 ++++++++++++
 
-+-----------------------------------------------------------------------------+
-| tosca.nodes.nfv.VDU.Compute:                                                |
-|                                                                             |
-| derived\_from: tosca.nodes.Compute                                          |
-|                                                                             |
-| properties:                                                                 |
-|                                                                             |
-| name:                                                                       |
-|                                                                             |
-| type: string                                                                |
-|                                                                             |
-| required: true                                                              |
-|                                                                             |
-| description:                                                                |
-|                                                                             |
-| type: string                                                                |
-|                                                                             |
-| required: true                                                              |
-|                                                                             |
-| boot\_order:                                                                |
-|                                                                             |
-| type: list # explicit index (boot index) not necessary, contrary to IFA011  |
-|                                                                             |
-| entry\_schema:                                                              |
-|                                                                             |
-| type: string                                                                |
-|                                                                             |
-| required: false                                                             |
-|                                                                             |
-| nfvi\_constraints:                                                          |
-|                                                                             |
-| type: list                                                                  |
-|                                                                             |
-| entry\_schema:                                                              |
-|                                                                             |
-| type: string                                                                |
-|                                                                             |
-| required: false                                                             |
-|                                                                             |
-| configurable\_properties:                                                   |
-|                                                                             |
-| type: map                                                                   |
-|                                                                             |
-| entry\_schema:                                                              |
-|                                                                             |
-| type: tosca.datatypes.nfv.VnfcConfigurableProperties                        |
-|                                                                             |
-| required: true                                                              |
-|                                                                             |
-| attributes:                                                                 |
-|                                                                             |
-| private\_address:                                                           |
-|                                                                             |
-| status: deprecated                                                          |
-|                                                                             |
-| public\_address:                                                            |
-|                                                                             |
-| status: deprecated                                                          |
-|                                                                             |
-| networks:                                                                   |
-|                                                                             |
-| status: deprecated                                                          |
-|                                                                             |
-| ports:                                                                      |
-|                                                                             |
-| status: deprecated                                                          |
-|                                                                             |
-| capabilities:                                                               |
-|                                                                             |
-| virtual\_compute:                                                           |
-|                                                                             |
-| type: tosca.capabilities.nfv.VirtualCompute                                 |
-|                                                                             |
-| virtual\_binding:                                                           |
-|                                                                             |
-| type: tosca.capabilities.nfv.VirtualBindable                                |
-|                                                                             |
-| #monitoring\_parameter:                                                     |
-|                                                                             |
-| # modeled as ad hoc (named) capabilities in VDU node template               |
-|                                                                             |
-| # for example:                                                              |
-|                                                                             |
-| #capabilities:                                                              |
-|                                                                             |
-| # cpu\_load: tosca.capabilities.nfv.Metric                                  |
-|                                                                             |
-| # memory\_usage: tosca.capabilities.nfv.Metric                              |
-|                                                                             |
-| host: #Editor note: FFS. How this capabilities should be used in NFV Profile|
-|                                                                             |
-| type: `*tosca.capabilities.Container* <#DEFN_TYPE_CAPABILITIES_CONTAINER>`__|
-|                                                                             |
-| valid\_source\_types:                                                       |
-| [`*tosca.nodes.SoftwareComponent* <#DEFN_TYPE_NODES_SOFTWARE_COMPONENT>`__] |
-|                                                                             |
-| occurrences: [0,UNBOUNDED]                                                  |
-|                                                                             |
-| endpoint:                                                                   |
-|                                                                             |
-| occurrences: [0,0]                                                          |
-|                                                                             |
-| os:                                                                         |
-|                                                                             |
-| occurrences: [0,0]                                                          |
-|                                                                             |
-| scalable:                                                                   |
-| #Editor note: FFS. How this capabilities should be used in NFV Profile      |
-|                                                                             |
-| type: `*tosca.capabilities.Scalable* <#DEFN_TYPE_CAPABILITIES_SCALABLE>`__  |
-|                                                                             |
-| binding:                                                                    |
-|                                                                             |
-| occurrences: [0,UNBOUND]                                                    |
-|                                                                             |
-| requirements:                                                               |
-|                                                                             |
-| - virtual\_storage:                                                         |
-|                                                                             |
-| capability: tosca.capabilities.nfv.VirtualStorage                           |
-|                                                                             |
-| relationship: tosca.relationships.nfv.VDU.AttachedTo                        |
-|                                                                             |
-| node: tosca.nodes.nfv.VDU.VirtualStorage                                    |
-|                                                                             |
-| occurences: [ 0, UNBOUNDED ]                                                |
-|                                                                             |
-| - local\_storage: #For NFV Profile, this requirement is deprecated.         |
-|                                                                             |
-| occurrences: [0,0]                                                          |
-|                                                                             |
-| artifacts:                                                                  |
-|                                                                             |
-| - sw\_image:                                                                |
-|                                                                             |
-| file:                                                                       |
-|                                                                             |
-| type: tosca.artifacts.nfv.SwImage                                           |
-+-----------------------------------------------------------------------------+
+.. code-block:: yaml
+
+  tosca.nodes.nfv.VDU.Compute:
+
+  derived\_from: tosca.nodes.Compute
+
+  properties:
+
+  name:
+
+  type: string
+
+  required: true
+
+  description:
+
+  type: string
+
+  required: true
+
+  boot\_order:
+
+  type: list # explicit index (boot index) not necessary, contrary to IFA011
+
+  entry\_schema:
+
+  type: string
+
+  required: false
+
+  nfvi\_constraints:
+
+  type: list
+
+  entry\_schema:
+
+  type: string
+
+  required: false
+
+  configurable\_properties:
+
+  type: map
+
+  entry\_schema:
+
+  type: tosca.datatypes.nfv.VnfcConfigurableProperties
+
+  required: true 
+
+  attributes:
+
+  private\_address:
+
+  status: deprecated
+
+  public\_address:
+
+  status: deprecated
+
+  networks:
+
+  status: deprecated
+
+  ports:
+
+  status: deprecated
+
+  capabilities:
+
+  virtual\_compute:
+
+  type: tosca.capabilities.nfv.VirtualCompute
+
+  virtual\_binding:
+
+  type: tosca.capabilities.nfv.VirtualBindable
+
+  #monitoring\_parameter:
+
+  # modeled as ad hoc (named) capabilities in VDU node template
+
+  # for example:
+
+  #capabilities:
+
+  # cpu\_load: tosca.capabilities.nfv.Metric
+
+  # memory\_usage: tosca.capabilities.nfv.Metric
+
+  host: #Editor note: FFS. How this capabilities should be used in NFV Profile|
+
+  type: *tosca.capabilities.Container*
+
+  valid\_source\_types: [*tosca.nodes.SoftwareComponent*]
+
+  occurrences: [0,UNBOUNDED]
+
+  endpoint:
+
+  occurrences: [0,0]
+
+  os:
+
+  occurrences: [0,0]
+
+  scalable:
+  #Editor note: FFS. How this capabilities should be used in NFV Profile
+
+  type: *tosca.capabilities.Scalable*
+
+  binding:
+
+  occurrences: [0,UNBOUND]
+
+  requirements:
+
+  - virtual\_storage:
+
+  capability: tosca.capabilities.nfv.VirtualStorage
+
+  relationship: tosca.relationships.nfv.VDU.AttachedTo
+
+  node: tosca.nodes.nfv.VDU.VirtualStorage
+
+  occurences: [ 0, UNBOUNDED ]
+
+  - local\_storage: #For NFV Profile, this requirement is deprecated.
+
+  occurrences: [0,0]
+
+  artifacts:
+
+  - sw\_image:
+
+  file:
+
+  type: tosca.artifacts.nfv.SwImage
+
 
 Artifact
 ++++++++++
@@ -631,7 +637,6 @@ Note: currently not supported.
 
 
 |image2|
-
 
 
 tosca.nodes.nfv.VDU.VirtualStorage
@@ -724,98 +729,100 @@ Properties
 |                 |         |          |            | with this software image|
 +-----------------+---------+----------+------------+-------------------------+
 
+
 Definition
 +++++++++++
 
-+-----------------------------------------------------+
-| tosca.artifacts.nfv.SwImage:                        |
-|                                                     |
-|   derived\_from: tosca.artifacts.Deployment.Image   |
-|                                                     |
-|   properties or metadata:                           |
-|                                                     |
-|     #id:                                            |
-|                                                     |
-|       # node name                                   |
-|                                                     |
-|     name:                                           |
-|                                                     |
-|       type: string                                  |
-|                                                     |
-| required: true                                      |
-|                                                     |
-|     version:                                        |
-|                                                     |
-|       type: string                                  |
-|                                                     |
-| required: true                                      |
-|                                                     |
-|     checksum:                                       |
-|                                                     |
-|       type: string                                  |
-|                                                     |
-| required: true                                      |
-|                                                     |
-|     container\_format:                              |
-|                                                     |
-|       type: string                                  |
-|                                                     |
-| required: true                                      |
-|                                                     |
-|     disk\_format:                                   |
-|                                                     |
-|       type: string                                  |
-|                                                     |
-| required: true                                      |
-|                                                     |
-|     min\_disk:                                      |
-|                                                     |
-|       type: scalar-unit.size # Number               |
-|                                                     |
-| required: true                                      |
-|                                                     |
-|     min\_ram:                                       |
-|                                                     |
-|       type: scalar-unit.size # Number               |
-|                                                     |
-| required: false                                     |
-|                                                     |
-|     size:                                           |
-|                                                     |
-|       type: scalar-unit.size # Number               |
-|                                                     |
-| required: true                                      |
-|                                                     |
-|     sw\_image:                                      |
-|                                                     |
-|       type: string                                  |
-|                                                     |
-| required: true                                      |
-|                                                     |
-|     operating\_system:                              |
-|                                                     |
-|       type: string                                  |
-|                                                     |
-| required: false                                     |
-|                                                     |
-|     supported\_virtualisation\_environments:        |
-|                                                     |
-|       type: list                                    |
-|                                                     |
-|       entry\_schema:                                |
-|                                                     |
-|         type: string                                |
-|                                                     |
-| required: false                                     |
-+-----------------------------------------------------+
+.. code-block:: yaml
+
+   tosca.artifacts.nfv.SwImage:
+
+     derived\_from: tosca.artifacts.Deployment.Image
+
+     properties or metadata:
+
+       #id:
+
+         # node name
+
+       name:
+
+         type: string
+
+   required: true
+
+       version:
+
+         type: string
+
+   required: true
+
+       checksum:
+
+         type: string
+
+   required: true
+
+       container\_format:
+
+         type: string
+
+   required: true
+
+       disk\_format:
+
+         type: string
+
+   required: true
+
+       min\_disk:
+
+         type: scalar-unit.size # Number
+
+   required: true
+
+       min\_ram:
+
+         type: scalar-unit.size # Number
+
+   required: false
+
+       size:
+
+         type: scalar-unit.size # Number
+
+   required: true
+
+       sw\_image:
+
+         type: string
+
+   required: true
+
+       operating\_system:
+
+         type: string
+
+   required: false
+
+       supported\_virtualisation\_environments:
+
+         type: list
+
+         entry\_schema:
+
+           type: string
+
+   required: false
+
 
 .. |image1| image:: Image1.png
    :width: 5.76806in
    :height: 4.67161in
+
 .. |image2| image:: Image2.png
    :width: 5.40486in
    :height: 2.46042in
-
 
 Heat
 -------------
@@ -991,7 +998,7 @@ hidden
 ______
 
 R-32557 A VNF's Heat Orchestration Template parameter
-declaration MAY contain the attribute "hidden:".
+declaration **MAY** contain the attribute "hidden:".
 
 The parameter attribute "hidden:" is an OpenStack optional
 attribute that defines whether the parameters should be
@@ -1271,7 +1278,7 @@ R-36982 A VNF’s Heat Orchestration template **MAY** contain the “outputs:”
 This section allows for specifying output parameters
 available to users once the template has been instantiated. If the
 section is specified, it will need to adhere to specific requirements.
-See `ONAP Parameter Classifications Overview`_ and
+See `Output Parameters`_ and
 `ONAP Output Parameter Names`_ for additional details.
 
 Environment File Format
@@ -1341,7 +1348,7 @@ created.
 
 ONAP has requirements for what parameters must be enumerated in the
 environment file and what parameter must not be enumerated in the
-environment file. See `ONAP Parameter Classifications Overview`_ and
+environment file. See `Output Parameters`_ and
 `ONAP Resource ID and Parameter Naming Convention`_ for more details.
 
 ONAP Heat Orchestration Templates: Overview
@@ -2266,7 +2273,7 @@ convention. The four properties are:
 
 Requirement R-01455 defines how the ‘{vm-type]’ is defined.
 
-Requirement R-82481 defines how the ‘{vm-type} is used.’
+Requirement R-82481 defines how the ‘{vm-type}’ is used.
 
 The table below provides a summary. The sections that follow provides
 the detailed requirements.
@@ -2450,9 +2457,10 @@ In this example, the {vm-type} has been defined as “lb” for load balancer.
 Contrail Issue with Values for OS::Nova::Server Property Name
 _____________________________________________________________
 
-R-44271 The VNF's Heat Orchestration Template's Resource 'OS::Nova::Server' property
-'name' parameter value **SHOULD NOT** contain special characters
-since the Contrail GUI has a limitation displaying special characters.
+R-44271 The VNF's Heat Orchestration Template's Resource
+'OS::Nova::Server' property 'name' parameter value **SHOULD NOT**
+contain special characters since the Contrail GUI has a limitation
+displaying special characters.
 
 However, if special characters must be used, the only special characters
 supported are:
@@ -2617,10 +2625,9 @@ associated with these two properties:
 Resource: OS::Nova::Server – Metadata Parameters
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The OS::Nova::Server Resource property metadata is an optional
-OpenStack property.
-The table below summarizes the mandatory and optional metadata
-supported by ONAP.
+The OS::Nova::Server Resource property metadata is an
+optional OpenStack property. The table below summarizes the
+mandatory and optional metadata supported by ONAP.
 
 The sections that follow provides the requirements associated with each
 metadata parameter.
@@ -2822,7 +2829,7 @@ parameter contraints defined.
 
 R-46823 A VNF’s Heat Orchestration Template’s OS::Nova::Server
 Resource metadata map value parameter ‘vnf_name’ **MUST** be
-either
+either:
 
  - enumerated in the VNF’s Heat Orchestration
    Template’s environment file.
@@ -3153,7 +3160,9 @@ ONAP parameter naming convention. The four properties are:
 1. network
 2. fixed_ips, ip_address
 3. fixed_ips, subnet_id or fixed_ips, subnet
+
  * Note that in many examples in this document fixed_ips, subnet_id is used.
+
 4. allowed_address_pairs, ip_address
 
 Below is a generic example. Note that for some parameters
@@ -3216,33 +3225,38 @@ different subnets and the IPv6 Addresses **MAY** be from different
 subnets.
 
 If a VNF's Port is attached to an external network the IP addresses **MAY**
-either be assigned by
+either be assigned by:
+
  1. ONAP's SDN-Controller (SDN-C)
  2. Cloud Assigned by OpenStack’s DHCP Service
 
 If a VNF's Port is attached to an external network and the port's IP addresses
-are assigned by ONAP's SDN-Controller, the 'OS::Neutron::Port' Resource's
+are assigned by ONAP's SDN-Controller, the 'OS::Neutron::Port' Resource's:
+
  * property 'fixed_ips' map property 'ip_address' **MUST** be used
  * property 'fixed_ips' map property 'subnet'/'subnet_id'
    **MUST NOT** be used
 
 If a VNF's Port is attached to an external network and the port's IP addresses
 are Cloud Assigned by OpenStack’s DHCP Service,
-the 'OS::Neutron::Port' Resource's
+the 'OS::Neutron::Port' Resource's:
+
  * property 'fixed_ips' map property 'ip_address' **MUST NOT** be used
  * property fixed_ips' map property 'subnet'/'subnet_id' **MAY** be used
 
 If a VNF's Port is attached to an internal network and the port's IP addresses
 are assigned by the VNF's Heat Orchestration Template
 (i.e., enumerated in the Heat Orchestration Template's environment file),
-the 'OS::Neutron::Port' Resource's
+the 'OS::Neutron::Port' Resource's:
+
  * property 'fixed_ips' map property 'ip_address' **MUST** be used
  * property 'fixed_ips' map property 'subnet'/'subnet_id'
    **MUST NOT** be used
 
 If a VNF's Port is attached to an internal network and the port's IP addresses
 are Cloud Assigned by OpenStack’s DHCP Service,
-the 'OS::Neutron::Port' Resource's
+the 'OS::Neutron::Port' Resource's:
+
  * property 'fixed_ips' map property 'ip_address' **MUST NOT** be used
  * property 'fixed_ips' map property 'subnet'/'subnet_id'
    **MAY** be used
@@ -3267,15 +3281,16 @@ be specified.
 Property: network
 +++++++++++++++++
 
-The Resource 'OS::Neutron::Port' property 'network' determines what network
-the port is attached to.
+The Resource 'OS::Neutron::Port' property 'network' determines what
+network the port is attached to.
 
 
 R-18008 The VNF’s Heat Orchestration Template’s Resource ‘OS::Neutron::Port’
 property ‘network’ parameter **MUST** be declared as type: ‘string’.
 
-R-62983 When the VNF’s Heat Orchestration Template’s Resource ‘OS::Neutron::Port’
-is attaching to an external network, the ‘network’ parameter name **MUST**
+R-62983 When the VNF’s Heat Orchestration Template’s
+Resource ‘OS::Neutron::Port’ is attaching to an external
+network, the ‘network’ parameter name **MUST**:
 
 - follow the naming convention ‘{network-role}_net_id’ if the Neutron
   network UUID value is used to reference the network
@@ -3285,17 +3300,19 @@ is attaching to an external network, the ‘network’ parameter name **MUST**
 where ‘{network-role}’ is the network-role of the external network and
 a ‘get_param’ **MUST** be used as the intrinsic function.
 
-R-86182 When the VNF’s Heat Orchestration Template’s Resource ‘OS::Neutron::Port’
-is attaching to an internal network, and the internal network is created in a different
+R-86182 When the VNF’s Heat Orchestration Template’s
+Resource ‘OS::Neutron::Port’ is attaching to an internal network,
+and the internal network is created in a different
 Heat Orchestration Template than the ‘OS::Neutron::Port’, the ‘network’
-parameter name **MUST**
+parameter name **MUST**:
 
 - follow the naming convention ‘int\_{network-role}_net_id’ if the Neutron
   network UUID value is used to reference the network
 - follow the naming convention ‘int\_{network-role}_net_name’ if the
   OpenStack network name in is used to reference the network.
 
-where ‘{network-role}’ is the network-role of the internal network and a ‘get_param’ **MUST** be used as the intrinsic function.
+where ‘{network-role}’ is the network-role of the internal network
+and a ‘get_param’ **MUST** be used as the intrinsic function.
 
 In Requirement R-86182, the internal network is created in the VNF's
 Base Module (Heat Orchestration Template) and the parameter name is
@@ -3303,8 +3320,9 @@ declared in the Base Module's outputs' section.
 The output parameter name will be declared as a parameter in the
 'parameters' section of the incremental module.
 
-R-93177 When the VNF’s Heat Orchestration Template’s Resource ‘OS::Neutron::Port’
-is attaching to an internal network, and the internal network is created in the same Heat
+R-93177 When the VNF’s Heat Orchestration Template’s
+Resource ‘OS::Neutron::Port’ is attaching to an internal network,
+and the internal network is created in the same Heat
 Orchestration Template than the ‘OS::Neutron::Port’, the ‘network’
 parameter name **MUST** obtain the UUID of the internal network by using
 the intrinsic function ‘get_resource’ or ‘get_attr’ and referencing the
@@ -3363,15 +3381,15 @@ One 'OS::Neutron::Port' resource may assign one or more
 IPv4 and/or IPv6 addresses.
 
 R-34037 The VNF’s Heat Orchestration Template’s resource ‘OS::Neutron::Port’
-property ‘fixed_ips’ map property ‘ip_address’ parameter **MUST** be declared as
-either type ‘string’ or type ‘comma_delimited_list’.
+property ‘fixed_ips’ map property ‘ip_address’ parameter **MUST**
+be declared as either type ‘string’ or type ‘comma_delimited_list’.
 
 R-40971 When the VNF’s Heat Orchestration Template’s Resource
 ‘OS::Neutron::Port’ is attaching to an external network, and an IPv4 address is
 assigned using the property
 ‘fixed_ips’ map property ‘ip_address’ and the parameter type is defined
 as a string, the parameter name **MUST** follow the naming
-convention ‘{vm-type}_{network-role}\_ip\_{index}’, where
+convention ‘{vm-type}_{network-role}\_ip\_{index}’, where:
 
 - ‘{vm-type}’ is the {vm-type} associated with the OS::Nova::Server
 - ‘{network-role}’ is the {network-role} of the external network
@@ -3395,11 +3413,12 @@ the value at orchestration to the Heat Orchestration Template.
       type: string
       description: Fixed IPv4 assignment for {vm-type} VM {index} on the{network-role} network
 
-R-04697 When the VNF’s Heat Orchestration Template’s Resource ‘OS::Neutron::Port’
-is attaching to an external network, and an IPv4 address is assigned using
-the property ‘fixed_ips’ map property ‘ip_address’ and the parameter type
-is defined as a comma_delimited_list, the parameter name **MUST** follow the
-naming convention ‘{vm-type}_{network-role}_ips’, where
+R-04697 When the VNF’s Heat Orchestration Template’s
+Resource ‘OS::Neutron::Port’ is attaching to an external network,
+and an IPv4 address is assigned using the property ‘fixed_ips’
+map property ‘ip_address’ and the parameter type is defined as
+a comma_delimited_list, the parameter name **MUST** follow the
+naming convention ‘{vm-type}_{network-role}_ips’, where:
 
 - ‘{vm-type}’ is the {vm-type} associated with the OS::Nova::Server
 - ‘{network-role}’ is the {network-role} of the external network
@@ -3427,7 +3446,7 @@ R-71577 When the VNF’s Heat Orchestration Template’s Resource
 ‘OS::Neutron::Port’ is attaching to an external network, and an IPv6 address
 is assigned using the property ‘fixed_ips’ map property ‘ip_address’ and
 the parameter type is defined as a string, the parameter name **MUST** follow
-the naming convention ‘{vm-type}_{network-role}\_v6\_ip\_{index}’, where
+the naming convention ‘{vm-type}_{network-role}\_v6\_ip\_{index}’, where:
 
 - ‘{vm-type}’ is the {vm-type} associated with the OS::Nova::Server
 - ‘{network-role}’ is the {network-role} of the external network
@@ -3436,8 +3455,9 @@ the naming convention ‘{vm-type}_{network-role}\_v6\_ip\_{index}’, where
 
 R-87123 The VNF’s Heat Orchestration Template’s Resource
 ‘OS::Neutron::Port’ property ‘fixed_ips’ map property ‘ip_address’
-parameter ‘{vm-type}_{network-role}\_v6\_ip\_{index}’ **MUST NOT** be enumerated
-in the VNF’s Heat Orchestration Template’s Environment File.
+parameter ‘{vm-type}_{network-role}\_v6\_ip\_{index}’
+**MUST NOT** be enumerated in the VNF’s Heat Orchestration
+Template’s Environment File.
 
 ONAP's SDN-Controller assigns the IP Address and ONAP provides
 the value at orchestration to the Heat Orchestration Template.
@@ -3456,7 +3476,8 @@ R-23503 When the VNF’s Heat Orchestration Template’s Resource
 ‘OS::Neutron::Port’ is attaching to an external network, and an IPv6
 address is assigned using the property ‘fixed_ips’ map property ‘ip_address’
 and the parameter type is defined as a comma_delimited_list, the parameter
-name **MUST** follow the naming convention ‘{vm-type}_{network-role}_v6_ips’, where
+name **MUST** follow the naming convention
+‘{vm-type}_{network-role}_v6_ips’, where:
 
 - ‘{vm-type}’ is the {vm-type} associated with the OS::Nova::Server
 - ‘{network-role}’ is the {network-role} of the external network
@@ -3484,7 +3505,7 @@ R-78380 When the VNF’s Heat Orchestration Template’s Resource
 ‘OS::Neutron::Port’ is attaching to an internal network, and an IPv4 address
 is assigned using the property ‘fixed_ips’ map property ‘ip_address’ and
 the parameter type is defined as a string, the parameter name **MUST** follow
-the naming convention ‘{vm-type}\_int\_{network-role}\_ip\_{index}’, where
+the naming convention ‘{vm-type}\_int\_{network-role}\_ip\_{index}’, where:
 
 - ‘{vm-type}’ is the {vm-type} associated with the OS::Nova::Server
 - ‘{network-role}’ is the {network-role} of the internal network
@@ -3513,7 +3534,8 @@ R-85235 When the VNF’s Heat Orchestration Template’s Resource
 ‘OS::Neutron::Port’ is attaching to an internal network, and an IPv4
 address is assigned using the property ‘fixed_ips’ map property ‘ip_address’
 and the parameter type is defined as a comma_delimited_list, the parameter
-name **MUST** follow the naming convention ‘{vm-type}\_int\_{network-role}_ips’, where
+name **MUST** follow the naming convention
+‘{vm-type}\_int\_{network-role}_ips’, where:
 
 - ‘{vm-type}’ is the {vm-type} associated with the OS::Nova::Server
 - ‘{network-role}’ is the {network-role} of the internal network
@@ -3539,7 +3561,7 @@ R-27818 When the VNF’s Heat Orchestration Template’s Resource
 ‘OS::Neutron::Port’ is attaching to an internal network, and an IPv6 address
 is assigned using the property ‘fixed_ips’ map property ‘ip_address’ and
 the parameter type is defined as a string, the parameter name **MUST** follow
-the naming convention ‘{vm-type}\_int\_{network-role}\_v6\_ip\_{index}’, where
+the naming convention ‘{vm-type}\_int\_{network-role}\_v6\_ip\_{index}’, where:
 
 - ‘{vm-type}’ is the {vm-type} associated with the OS::Nova::Server
 - ‘{network-role}’ is the {network-role} of the internal network
@@ -3547,7 +3569,8 @@ the naming convention ‘{vm-type}\_int\_{network-role}\_v6\_ip\_{index}’, whe
 
 R-97201 The VNF’s Heat Orchestration Template’s Resource
 ‘OS::Neutron::Port’ property ‘fixed_ips’ map property ‘ip_address’
-parameter ‘{vm-type}\_int\_{network-role}\_v6\_ip\_{index}’ **MUST** be enumerated
+parameter ‘{vm-type}\_int\_{network-role}\_v6\_ip\_{index}’
+**MUST** be enumerated
 in the VNF’s Heat Orchestration Template’s Environment File.
 
 The IP address is local to the VNF's internal network and is (re)used
@@ -3568,7 +3591,8 @@ R-29765 When the VNF’s Heat Orchestration Template’s Resource
 ‘OS::Neutron::Port’ is attaching to an internal network, and an IPv6
 address is assigned using the property ‘fixed_ips’ map property ‘ip_address’
 and the parameter type is defined as a comma_delimited_list, the parameter
-name **MUST** follow the naming convention ‘{vm-type}\_int\_{network-role}_v6_ips’, where
+name **MUST** follow the naming convention
+‘{vm-type}\_int\_{network-role}_v6_ips’, where:
 
 - ‘{vm-type}’ is the {vm-type} associated with the OS::Nova::Server
 - ‘{network-role}’ is the {network-role} of the internal network
@@ -3602,8 +3626,9 @@ parameter associated with an external network, i.e.,
 - {vm-type}_{network-role}_ips
 - {vm-type}_{network-role}_v6_ips
 
-**MUST NOT** be enumerated in the Heat Orchestration Template’s Environment File.
-ONAP provides the IP address assignments at orchestration time.
+**MUST NOT** be enumerated in the Heat Orchestration Template’s
+Environment File. ONAP provides the IP address assignments at
+orchestration time.
 
 R-93496 The VNF’s Heat Orchestration Template’s Resource
 ‘OS::Neutron::Port’ property ‘fixed_ips’ map property ‘ip_address’
@@ -3933,7 +3958,7 @@ balancer.
           - subnet_id: { get_param: oam_subnet_id }
           - subnet_id: { get_param: oam_v6_subnet_id }
 
-R-84123 When
+R-84123 When:
 
 - the VNF’s Heat Orchestration Template’s resource ‘OS::Neutron::Port’
   in an Incremental Module is attaching to an internal network
@@ -3971,7 +3996,7 @@ input parameter.
       type: string
       description: Neutron IPv4 subnet UUID for the int_{network-role} network
 
-R-76160 When
+R-76160 When:
 
 - the VNF’s Heat Orchestration Template’s resource
   ‘OS::Neutron::Port’ in an Incremental Module is attaching to an
@@ -4103,9 +4128,10 @@ an oam network and the {vm-type} has been defined as db for database.
 Internal Networks
 _________________
 
-R-16805 The VNF Heat Orchestration Template **MUST** adhere to the following naming convention
-for the property allowed\_address\_pairs and Map Property ip\_address
-parameter when the parameter is referencing an “internal” network.
+R-16805 The VNF Heat Orchestration Template **MUST** adhere to
+the following naming convention for the property allowed\_address\_pairs
+and Map Property ip\_address parameter when the parameter is
+referencing an “internal” network.
 
 -  {vm-type}\_int\_{network-role}\_floating\_ip for an IPv4 address
 
@@ -4130,7 +4156,7 @@ The parameter must be enumerated in the Heat environment file.
        description: VIP for {vm-type} VMs on the int_{network-role} network
 
 Multiple allowed\_address\_pairs for a {vm-type} / {network-role} combination
-__________________________________________________________________
+______________________________________________________________________________
 
 The parameter {vm-type}\_{network-role}\_floating\_ip provides only one
 allowed address pair IPv4 address per {vm-type} and {network-role} pair.
@@ -4248,23 +4274,23 @@ OS::Nova::Server resources must be defined when the property is used.
 Not all resources require the property name (e.g., it is optional) and
 some resources do not support the property.
 
-R-85734 The VNF Heat Orchestration Template **MUST** use the intrinsic function str\_replace
-in conjunction with the ONAP supplied metadata parameter
-vnf\_name to generate a unique value,
+R-85734 The VNF Heat Orchestration Template **MUST** use the
+intrinsic function str\_replace in conjunction with the ONAP
+supplied metadata parameter vnf\_name to generate a unique value,
 when the property name for a non OS::Nova::Server resources is defined
 in a Heat Orchestration Template.
 
 This prevents the enumeration of a
 unique value for the property name in a per instance environment file.
 
-Note that
+Note that:
 
 -  In most cases, only the use of the metadata value vnf\_name is
-   required to create a unique property name
+   required to create a unique property name.
 
 -  the Heat Orchestration Template pseudo parameter 'OS::stack\_name’
    may also be used in the str\_replace construct to generate a unique
-   name when the vnf\_name does not provide uniqueness
+   name when the vnf\_name does not provide uniqueness.
 
 *Example: Property* name *for resource* OS::Neutron::SecurityGroup
 
@@ -4323,7 +4349,7 @@ characters must be used, note that for the following resources:
 
 the only special characters supported are:
 
-- “ ! $ ‘ ( ) = ~ ^ \| @ \` { } [ ] > , . \_
+-- “ ! $ ‘ ( ) = ~ ^ \| @ \` { } [ ] > , . \_
 
 ONAP Output Parameter Names
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -4481,7 +4507,7 @@ _________________
 
 When the parameter associated with the Contrail Network is referencing
 an “external” network, the parameter must adhere to the following naming
-convention in the Heat Orchestration Template
+convention in the Heat Orchestration Template:
 
 -  {network-role}\_net\_fqdn
 
@@ -4524,7 +4550,7 @@ virtual\_network\_refs references a contrail network FQDN.
        - get_param: fw_sec_grp_id
 
 Interface Route Table Prefixes for Contrail InterfaceRoute Table
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 The parameter associated with the resource
 OS::ContrailV2::InterfaceRouteTable property
@@ -4652,8 +4678,9 @@ module. Use of separate volume modules is optional. A Cinder volume may
 be embedded within the Base Module or Incremental Module if persistence
 is not required.
 
-R-47788 The VNF Heat Orchestration Template **MUST** have a 1:1 scope of a cinder volume module,
-when it exists, with the Base Module or Incremental Module
+R-47788 The VNF Heat Orchestration Template **MUST** have a 1:1
+scope of a cinder volume module, when it exists, with the Base
+Module or Incremental Module
 
 A single volume module must create only the volumes
 required by a single Incremental module or Base module.
@@ -4666,9 +4693,10 @@ The following rules apply to independent volume Heat templates:
 -  A single Cinder volume module must include all Cinder volumes
    needed by the Base/Incremental module.
 
--  R-79531 The VNF Heat Orchestration Template **MUST** define “outputs” in the volume
-   template for each Cinder volume resource universally unique
-   identifier (UUID) (i.e. ONAP Volume Template Output Parameters).
+-  R-79531 The VNF Heat Orchestration Template **MUST** define
+   “outputs” in the volume template for each Cinder volume
+   resource universally unique identifier (UUID) (i.e. ONAP Volume
+   Template Output Parameters).
 
 -  The VNF Incremental Module or Base Module must define input
    parameters that match each Volume output parameter (i.e., ONAP Volume
@@ -4765,8 +4793,8 @@ environment file for a Base Module.
 R-35727 The VNF Heat Orchestration Template **MUST** have a
 corresponding environment file for an Incremental module.
 
-R-22656 The VNF Heat Orchestration Template **MUST** have a corresponding environment file
-for a Cinder Volume Module.
+R-22656 The VNF Heat Orchestration Template **MUST** have a
+corresponding environment file for a Cinder Volume Module.
 
 A nested heat template must not have an environment file; OpenStack does
 not support it.
@@ -4845,12 +4873,12 @@ Nested heat templates must be referenced by file name. The use of
 resource\_registry in the environment file is not supported and must not
 be used.
 
-R-89868 The VNF Heat Orchestration Template **MUST** have unique file names within the scope
-of the VNF for a nested heat yaml file.
+R-89868 The VNF Heat Orchestration Template **MUST** have unique
+file names within the scope of the VNF for a nested heat yaml file.
 
-R-52530 The VNF Heat Orchestration Template **MUST NOT** use a directory hierarchy for
-nested templates. All templates must be in a single, flat directory
-(per VNF).
+R-52530 The VNF Heat Orchestration Template **MUST NOT** use a
+directory hierarchy for nested templates. All templates must be
+in a single, flat directory (per VNF).
 
 A nested heat template may be used by any module within a given VNF.
 
@@ -4859,9 +4887,9 @@ Note that:
 -  Constrains must not be defined for any parameter enumerated in a
    nested heat template.
 
--  R-11041 The VNF Heat Orchestration Template **MUST** have the resource calling the
-   nested yaml file pass in as properties all parameters defined
-   in nested yaml file.
+-  R-11041 The VNF Heat Orchestration Template **MUST** have the
+   resource calling the nested yaml file pass in as properties
+   all parameters defined in nested yaml file.
 
 -  R-61183 The VNF Heat Orchestration Template **MUST NOT** change the parameter names, when OS::Nova::Server metadata parameters are past into a nested heat
    template.
@@ -5089,16 +5117,18 @@ a VM on startup via the “personality” property.
 
 Support for Heat Files is subject to the following limitations:
 
-R-76718 The VNF Heat Orchestration Template **MUST** reference the get\_files targets in
-Heat templates by file name, and the corresponding files should be
-delivered to ONAP along with the Heat templates.
+R-76718 The VNF Heat Orchestration Template **MUST** reference the
+get\_files targets in Heat templates by file name, and the
+corresponding files should be delivered to ONAP along with the Heat
+templates.
 
 R-41888 The VNE Heat **MUST NOT** use URL-based file retrieval.
 
-R-62177 The VNF Heat Orchestration Template **MUST** have unique file names for the included
-files within the scope of the VNF.
+R-62177 The VNF Heat Orchestration Template **MUST** have unique
+file names for the included files within the scope of the VNF.
 
-R-87848 The VNF Heat Orchestration Template **MUST** have all included files in a single, flat
+R-87848 The VNF Heat Orchestration Template **MUST** have all
+included files in a single, flat
 directory per VNF. ONAP does not support a directory hierarchy.
 
 -  Included files may be used by all Modules within a given VNF.

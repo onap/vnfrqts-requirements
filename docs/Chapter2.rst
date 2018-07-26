@@ -13,7 +13,7 @@ Scope
 - Requirements that are not applicable to xNF providers such as those
   that applicable to service providers are not included in this document.
 - These requirements are applicable to the current release of ONAP.
-- Scope of the ONAP versions/release and future functionality
+- Scope of the ONAP versions/release and future functionality.
 - The VNF Requirements should include support for the functionality of the
   ONAP E-E use cases.
 - These requirements apply to xNFs at both ONAP Design-Time and ONAP Run-Time.
