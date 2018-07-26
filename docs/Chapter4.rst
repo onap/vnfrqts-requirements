@@ -24,7 +24,7 @@ grouping functions in a common cloud data center to minimize
 inter-component latency. The VNFs should be designed with a goal of
 being modular and reusable to enable using best-in-breed vendors.
 
-Section 5.a VNF Design in *VNF Guidelines* describes
+Section 4.1 VNF Design in *VNF Guidelines* describes
 the overall guidelines for designing VNFs from VNF Components (VNFCs).
 Below are more detailed requirements for composing VNFs.
 
@@ -63,7 +63,7 @@ VNF Design Requirements
 * R-88199 The VNF **MUST** utilize a persistent datastore service that
   can meet the data performance/latency requirements. (For example:
   Datastore service could be a VNFC in VNF or a DBaaS in the Cloud
-  execution environment)
+  execution environment).
 * R-99656 The VNF **MUST** NOT terminate stable sessions if a VNFC
   instance fails.
 * R-84473 The VNF **MUST** enable DPDK in the guest OS for VNF’s requiring
@@ -95,7 +95,7 @@ Network Cloud, resiliency must be designed into the VNF software to
 provide high availability versus relying on the Network Cloud to achieve
 that end.
 
-Section 5.a Resiliency in *VNF Guidelines* describes
+Section 4.2 Resiliency in *VNF Guidelines* describes
 the overall guidelines for designing VNFs to meet resiliency goals.
 Below are more detailed resiliency requirements for VNFs.
 
@@ -390,7 +390,7 @@ to all VNFs. Additional security requirements for specific types of VNFs
 will be applicable and are outside the scope of these general
 requirements.
 
-Section 5.a Security in *VNF Guidelines* outlines
+Section 4.3 Security in *VNF Guidelines* outlines
 the five broad security areas for VNFs that are detailed in the
 following sections:
 
@@ -773,12 +773,12 @@ Security Analytics Requirements
 * R-22286 The VNF **MUST** support Integration functionality via
   API/Syslog/SNMP to other functional modules in the network (e.g.,
   PCRF, PCEF) that enable dynamic security control by blocking the
-  malicious traffic or malicious end users
+  malicious traffic or malicious end users.
 * R-32636 The VNF **MUST** support API-based monitoring to take care of
   the scenarios where the control interfaces are not exposed, or are
   optimized and proprietary in nature.
 * R-61648 The VNF **MUST** support event logging, formats, and delivery
-  tools to provide the required degree of event data to ONAP
+  tools to provide the required degree of event data to ONAP.
 * R-22367 The VNF **MUST** support detection of malformed packets due to
   software misconfiguration or software vulnerability.
 * R-31961 The VNF **MUST** support integrated DPI/monitoring functionality
@@ -829,13 +829,13 @@ Security Analytics Requirements
   security audit logs.
 * R-41825 The VNF **MUST** activate security alarms automatically when
   the following event is detected: configurable number of consecutive
-  unsuccessful login attempts
+  unsuccessful login attempts.
 * R-43332 The VNF **MUST** activate security alarms automatically when
   the following event is detected: successful modification of critical
-  system or application files
+  system or application files.
 * R-74958 The VNF **MUST** activate security alarms automatically when
   the following event is detected: unsuccessful attempts to gain permissions
-  or assume the identity of another user
+  or assume the identity of another user.
 * R-15884 The VNF **MUST** include the field “date” in the Security alarms
   (where applicable and technically feasible).
 * R-23957 The VNF **MUST** include the field “time” in the Security alarms
@@ -1071,7 +1071,7 @@ b. Group all VMs (e.g., VNFCs) of a given type (i.e. {vm-type}) into its
    own incremental module. That is, the VNF has an incremental module
    for each {vm-type}.
 
-c. For a given {vm-type} incremental module, the VNF may have
+c. For a given {vm-type} incremental module, the VNF may have:
 
    i.  One incremental module used for both initial turn up and re-used
        for scaling. This approach is used when the number of VMs
@@ -1084,13 +1084,13 @@ c. For a given {vm-type} incremental module, the VNF may have
 
 **Option 2: Base VNF with Incremental Growth Modules**
 
-a. Base module contains a complete initial VNF instance
+a. Base module contains a complete initial VNF instance.
 
-b. Incremental modules for incremental scaling units
+b. Incremental modules for incremental scaling units:
 
-   i.  May contain VMs of multiple types in logical scaling combinations
+   i.  May contain VMs of multiple types in logical scaling combinations.
 
-   ii. May be separated by VM type for multi-dimensional scaling
+   ii. May be separated by VM type for multi-dimensional scaling.
 
 With no growth units, Option 2 is equivalent to the “One Heat Template
 per VNF” model.
@@ -1109,54 +1109,54 @@ There are some rules to follow when building modular VNF templates:
    first one deployed. The base template:
 
    a. Must include all shared resources (e.g., private networks, server
-      groups, security groups)
+      groups, security groups).
 
    b. Must expose all shared resources (by UUID) as “outputs” in its
       associated Heat template (i.e., ONAP Base Module Output
-      Parameters)
+      Parameters).
 
-   c. May include initial set of VMs
+   c. May include initial set of VMs.
 
    d. May be operational as a stand-alone “minimum” configuration of the
-      VNF
+      VNF.
 
 2. VNFs may have one or more incremental modules which:
 
-   a. Defines additional resources that can be added to an existing VNF
+   a. Defines additional resources that can be added to an existing VNF.
 
-   b. Must be complete Heat templates
+   b. Must be complete Heat templates.
 
-      i. i.e. not snippets to be incorporated into some larger template
+      i. i.e. not snippets to be incorporated into some larger template.
 
    c. Should define logical growth-units or sub-components of an overall
-      VNF
+      VNF.
 
    d. On creation, receives appropriate Base Module outputs as
-      parameters
+      parameters.
 
-      i.  Provides access to all shared resources (by UUID)
+      i.  Provides access to all shared resources (by UUID).
 
-      ii. must not be dependent on other Add-On VNF Modules
+      ii. must not be dependent on other Add-On VNF Modules.
 
    e. Multiple instances of an incremental Module may be added to the
       same VNF (e.g., incrementally grow a VNF by a fixed “add-on”
-      growth units)
+      growth units).
 
 3. Each VNF Module (base or incremental) may have (optional) an
-   associated Cinder Volume Module (see Cinder Volume Templates)
+   associated Cinder Volume Module (see Cinder Volume Templates):
 
    a. Volume modules must correspond 1:1 with a base module or
-      incremental module
+      incremental module.
 
    b. A Cinder volume may be embedded within the base module or
-      incremental module if persistence is not required
+      incremental module if persistence is not required.
 
 4. Shared resource UUIDs are passed between the base module and
    incremental modules via Heat Outputs Parameters (i.e., Base Module
-   Output Parameters)
+   Output Parameters):
 
    a. The output parameter name in the base must match the parameter
-      name in the add-on module
+      name in the add-on module.
 
 VNF Modularity Examples
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1300,7 +1300,7 @@ software bundle, VNF suppliers using standard images would typically
 provide the NCSP with an install package consistent with the default OS
 package manager (e.g. aptitude for Ubuntu, yum for Redhat/CentOS).
 
-Section 5.a DevOps in *VNF Guidelines* describes
+Section 4.5 DevOps in *VNF Guidelines* describes
 the DevOps guidelines for VNFs.
 
 DevOps Requirements
