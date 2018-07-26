@@ -662,7 +662,7 @@ outputs
 This section allows for specifying output parameters
 available to users once the template has been instantiated. If the
 section is specified, it will need to adhere to specific requirements.
-See `ONAP Parameter Classifications Overview`_ and
+See `Output Parameters`_ and
 `ONAP Output Parameter Names`_ for additional details.
 
 Environment File Format
@@ -778,7 +778,7 @@ created.
 
 ONAP has requirements for what parameters must be enumerated in the
 environment file and what parameter must not be enumerated in the
-environment file. See `ONAP Parameter Classifications Overview`_ and
+environment file. See `Output Parameters`_ and
 `ONAP Resource ID and Parameter Naming Convention`_ for more details.
 
 ONAP Heat Orchestration Templates: Overview
@@ -1254,7 +1254,7 @@ string value with embedded commas.
     parameter constraints **MUST NOT** be declared.
 
 Additional details on ONAP Base Module Output Parameters are provided in
-`ONAP Output Parameter Names`_ and `Cinder Volume Templates`_.
+`ONAP Output Parameter Names`_ and `Cinder Volumes`_.
 
 ONAP Predefined Output Parameters
 +++++++++++++++++++++++++++++++++++
@@ -6507,8 +6507,7 @@ represent an oam protected network and the {vm-type} has been defined as
         - get_param: oam_protected_net_fqdn
       subnet_uuid: { get_param: oam_protected_subnet_id }
 
-OS::ContrailV2::VirtualMachineInterface Property
-virtual_machine_interface_allowed_address_pairs
+OS::ContrailV2::VirtualMachineInterface Property virtual_machine_interface_allowed_address_pairs
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
