@@ -184,6 +184,7 @@ changes from ETSI SOL001 draft.
 +====================================================================+
 +--------------------------------------------------------------------+
 
+
 HPA Requirements
 ^^^^^^^^^^^^^^^^^^
 
@@ -192,67 +193,68 @@ HPA Requirements
 Definitions of SRIOV\_Port are necessary if VDU supports SR-IOV. Here is
 an example.
 
-+------------------------------------------------+
-| node\_templates:                               |
-|                                                |
-| vdu\_vNat:                                     |
-|                                                |
-| SRIOV\_Port:                                   |
-|                                                |
-| attributes:                                    |
-|                                                |
-| tosca\_name: SRIOV\_Port                       |
-|                                                |
-| properties:                                    |
-|                                                |
-| virtual\_network\_interface\_requirements:     |
-|                                                |
-| - name: sriov                                  |
-|                                                |
-| support\_mandatory: false                      |
-|                                                |
-| description: sriov                             |
-|                                                |
-| requirement:                                   |
-|                                                |
-| SRIOV: true                                    |
-|                                                |
-| role: root                                     |
-|                                                |
-| description: sriov port                        |
-|                                                |
-| layer\_protocol: ipv4                          |
-|                                                |
-| requirements:                                  |
-|                                                |
-| - virtual\_binding:                            |
-|                                                |
-| capability: virtual\_binding                   |
-|                                                |
-| node: vdu\_vNat                                |
-|                                                |
-| relationship:                                  |
-|                                                |
-| type: tosca.relationships.nfv.VirtualBindsTo   |
-|                                                |
-| - virtual\_link:                               |
-|                                                |
-| node: tosca.nodes.Root                         |
-|                                                |
-| type: tosca.nodes.nfv.VduCpd                   |
-|                                                |
-| substitution\_mappings:                        |
-|                                                |
-| requirements:                                  |
-|                                                |
-| sriov\_plane:                                  |
-|                                                |
-| - SRIOV\_Port                                  |
-|                                                |
-| - virtual\_link                                |
-|                                                |
-| node\_type: tosca.nodes.nfv.VNF.vOpenNAT       |
-+------------------------------------------------+
+.. code-block:: yaml
+
+  node\_templates:
+
+  vdu\_vNat:
+
+  SRIOV\_Port:
+
+  attributes:
+
+  tosca\_name: SRIOV\_Port
+
+  properties:
+
+  virtual\_network\_interface\_requirements:
+
+  - name: sriov
+
+  support\_mandatory: false
+
+  description: sriov
+
+  requirement:
+
+  SRIOV: true
+
+  role: root
+
+  description: sriov port
+
+  layer\_protocol: ipv4
+
+  requirements:
+
+  - virtual\_binding:
+
+  capability: virtual\_binding
+
+  node: vdu\_vNat
+
+  relationship:
+
+  type: tosca.relationships.nfv.VirtualBindsTo
+
+  - virtual\_link:
+
+  node: tosca.nodes.Root
+
+  type: tosca.nodes.nfv.VduCpd
+
+  substitution\_mappings:
+
+  requirements:
+
+  sriov\_plane:
+
+  - SRIOV\_Port
+
+  - virtual\_link
+
+  node\_type: tosca.nodes.nfv.VNF.vOpenNAT
+
 
 2. Hugepages
 
@@ -260,22 +262,22 @@ Definitions of mem\_page\_size as one property shall be added to
 Properties and set the value to large if one VDU node supports
 huagepages. Here is an example.
 
-+----------------------------------+
-| node\_templates:                 |
-|                                  |
-| vdu\_vNat:                       |
-|                                  |
-| Hugepages:                       |
-|                                  |
-| attributes:                      |
-|                                  |
-| tosca\_name: Huge\_pages\_demo   |
-|                                  |
-| properties:                      |
-|                                  |
-| mem\_page\_size:large            |
-+==================================+
-+----------------------------------+
+.. code-block:: yaml
+
+  node\_templates:
+
+  vdu\_vNat:
+
+  Hugepages:
+
+  attributes:
+
+  tosca\_name: Huge\_pages\_demo
+
+  properties:
+
+  mem\_page\_size:large
+
 
 3. NUMA (CPU/Mem)
 
@@ -283,45 +285,46 @@ Likewise, we shall add definitions of numa to
 requested\_additional\_capabilities if we wand VUD nodes to support
 NUMA. Here is an example.
 
-+-------------------------------------------------+
-| topology\_template:                             |
-|                                                 |
-| node\_templates:                                |
-|                                                 |
-| vdu\_vNat:                                      |
-|                                                 |
-| capabilities:                                   |
-|                                                 |
-| virtual\_compute:                               |
-|                                                 |
-| properties:                                     |
-|                                                 |
-| virtual\_memory:                                |
-|                                                 |
-| numa\_enabled: true                             |
-|                                                 |
-| virtual\_mem\_size: 2 GB                        |
-|                                                 |
-| requested\_additional\_capabilities:            |
-|                                                 |
-| numa:                                           |
-|                                                 |
-| support\_mandatory: true                        |
-|                                                 |
-| requested\_additional\_capability\_name: numa   |
-|                                                 |
-| target\_performance\_parameters:                |
-|                                                 |
-| hw:numa\_nodes: "2"                             |
-|                                                 |
-| hw:numa\_cpus.0: "0,1"                          |
-|                                                 |
-| hw:numa\_mem.0: "1024"                          |
-|                                                 |
-| hw:numa\_cpus.1: "2,3,4,5"                      |
-|                                                 |
-| hw:numa\_mem.1: "1024"                          |
-+-------------------------------------------------+
+.. code-block:: yaml
+
+  topology\_template:
+
+  node\_templates:
+
+  vdu\_vNat:
+
+  capabilities:
+
+  virtual\_compute:
+
+  properties:
+
+  virtual\_memory:
+
+  numa\_enabled: true
+
+  virtual\_mem\_size: 2 GB
+
+  requested\_additional\_capabilities:
+
+  numa:
+
+  support\_mandatory: true
+
+  requested\_additional\_capability\_name: numa
+
+  target\_performance\_parameters:
+
+  hw:numa\_nodes: "2"
+
+  hw:numa\_cpus.0: "0,1"
+
+  hw:numa\_mem.0: "1024"
+
+  hw:numa\_cpus.1: "2,3,4,5"
+
+  hw:numa\_mem.1: "1024"
+
 
 4. Hyper-Theading
 
@@ -329,43 +332,44 @@ Definitions of Hyper-Theading are necessary as one of
 requested\_additional\_capabilities of one VUD node if that node
 supports Hyper-Theading. Here is an example.
 
-+-------------------------------------------------------------+
-| topology\_template:                                         |
-|                                                             |
-| node\_templates:                                            |
-|                                                             |
-| vdu\_vNat:                                                  |
-|                                                             |
-| capabilities:                                               |
-|                                                             |
-| virtual\_compute:                                           |
-|                                                             |
-| properties:                                                 |
-|                                                             |
-| virtual\_memory:                                            |
-|                                                             |
-| numa\_enabled: true                                         |
-|                                                             |
-| virtual\_mem\_size: 2 GB                                    |
-|                                                             |
-| requested\_additional\_capabilities:                        |
-|                                                             |
-| hyper\_threading:                                           |
-|                                                             |
-| support\_mandatory: true                                    |
-|                                                             |
-| requested\_additional\_capability\_name: hyper\_threading   |
-|                                                             |
-| target\_performance\_parameters:                            |
-|                                                             |
-| hw:cpu\_sockets : "2"                                       |
-|                                                             |
-| hw:cpu\_threads : "2"                                       |
-|                                                             |
-| hw:cpu\_cores : "2"                                         |
-|                                                             |
-| hw:cpu\_threads\_policy: "isolate"                          |
-+-------------------------------------------------------------+
+.. code-block:: yaml
+
+  topology\_template:
+
+  node\_templates:
+
+  vdu\_vNat:
+
+  capabilities:
+
+  virtual\_compute:
+
+  properties:
+
+  virtual\_memory:
+
+  numa\_enabled: true
+
+  virtual\_mem\_size: 2 GB
+
+  requested\_additional\_capabilities:
+
+  hyper\_threading:
+
+  support\_mandatory: true
+
+  requested\_additional\_capability\_name: hyper\_threading
+
+  target\_performance\_parameters:
+
+  hw:cpu\_sockets : "2"
+
+  hw:cpu\_threads : "2"
+
+  hw:cpu\_cores : "2"
+
+  hw:cpu\_threads\_policy: "isolate"
+
 
 5. OVS+DPDK
 
@@ -373,37 +377,38 @@ Definitions of ovs\_dpdk are necessary as one of
 requested\_additional\_capabilities of one VUD node if that node
 supports dpdk. Here is an example.
 
-+------------------------------------------------------+
-| topology\_template:                                  |
-|                                                      |
-| node\_templates:                                     |
-|                                                      |
-| vdu\_vNat:                                           |
-|                                                      |
-| capabilities:                                        |
-|                                                      |
-| virtual\_compute:                                    |
-|                                                      |
-| properties:                                          |
-|                                                      |
-| virtual\_memory:                                     |
-|                                                      |
-| numa\_enabled: true                                  |
-|                                                      |
-| virtual\_mem\_size: 2 GB                             |
-|                                                      |
-| requested\_additional\_capabilities:                 |
-|                                                      |
-| ovs\_dpdk:                                           |
-|                                                      |
-| support\_mandatory: true                             |
-|                                                      |
-| requested\_additional\_capability\_name: ovs\_dpdk   |
-|                                                      |
-| target\_performance\_parameters:                     |
-|                                                      |
-| sw:ovs\_dpdk: "true"                                 |
-+------------------------------------------------------+
+.. code-block:: yaml
+
+  topology\_template:
+
+  node\_templates:
+
+  vdu\_vNat:
+
+  capabilities:
+
+  virtual\_compute:
+
+  properties:
+
+  virtual\_memory:
+
+  numa\_enabled: true
+
+  virtual\_mem\_size: 2 GB
+
+  requested\_additional\_capabilities:
+
+  ovs\_dpdk:
+
+  support\_mandatory: true
+
+  requested\_additional\_capability\_name: ovs\_dpdk
+
+  target\_performance\_parameters:
+
+  sw:ovs\_dpdk: "true"
+
 
 NFV TOSCA Type Definition
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -468,148 +473,151 @@ Capabilities
 |            | capability type    |            |                              |
 +------------+--------------------+------------+------------------------------+
 
+
+
 Definition
 ++++++++++++
 
-+-----------------------------------------------------------------------------+
-| tosca.nodes.nfv.VDU.Compute:                                                |
-|                                                                             |
-| derived\_from: tosca.nodes.Compute                                          |
-|                                                                             |
-| properties:                                                                 |
-|                                                                             |
-| name:                                                                       |
-|                                                                             |
-| type: string                                                                |
-|                                                                             |
-| required: true                                                              |
-|                                                                             |
-| description:                                                                |
-|                                                                             |
-| type: string                                                                |
-|                                                                             |
-| required: true                                                              |
-|                                                                             |
-| boot\_order:                                                                |
-|                                                                             |
-| type: list # explicit index (boot index) not necessary, contrary to IFA011  |
-|                                                                             |
-| entry\_schema:                                                              |
-|                                                                             |
-| type: string                                                                |
-|                                                                             |
-| required: false                                                             |
-|                                                                             |
-| nfvi\_constraints:                                                          |
-|                                                                             |
-| type: list                                                                  |
-|                                                                             |
-| entry\_schema:                                                              |
-|                                                                             |
-| type: string                                                                |
-|                                                                             |
-| required: false                                                             |
-|                                                                             |
-| configurable\_properties:                                                   |
-|                                                                             |
-| type: map                                                                   |
-|                                                                             |
-| entry\_schema:                                                              |
-|                                                                             |
-| type: tosca.datatypes.nfv.VnfcConfigurableProperties                        |
-|                                                                             |
-| required: true                                                              |
-|                                                                             |
-| attributes:                                                                 |
-|                                                                             |
-| private\_address:                                                           |
-|                                                                             |
-| status: deprecated                                                          |
-|                                                                             |
-| public\_address:                                                            |
-|                                                                             |
-| status: deprecated                                                          |
-|                                                                             |
-| networks:                                                                   |
-|                                                                             |
-| status: deprecated                                                          |
-|                                                                             |
-| ports:                                                                      |
-|                                                                             |
-| status: deprecated                                                          |
-|                                                                             |
-| capabilities:                                                               |
-|                                                                             |
-| virtual\_compute:                                                           |
-|                                                                             |
-| type: tosca.capabilities.nfv.VirtualCompute                                 |
-|                                                                             |
-| virtual\_binding:                                                           |
-|                                                                             |
-| type: tosca.capabilities.nfv.VirtualBindable                                |
-|                                                                             |
-| #monitoring\_parameter:                                                     |
-|                                                                             |
-| # modeled as ad hoc (named) capabilities in VDU node template               |
-|                                                                             |
-| # for example:                                                              |
-|                                                                             |
-| #capabilities:                                                              |
-|                                                                             |
-| # cpu\_load: tosca.capabilities.nfv.Metric                                  |
-|                                                                             |
-| # memory\_usage: tosca.capabilities.nfv.Metric                              |
-|                                                                             |
-| host: #Editor note: FFS. How this capabilities should be used in NFV Profile|
-|                                                                             |
-| type: `*tosca.capabilities.Container* <#DEFN_TYPE_CAPABILITIES_CONTAINER>`__|
-|                                                                             |
-| valid\_source\_types:                                                       |
-| [`*tosca.nodes.SoftwareComponent* <#DEFN_TYPE_NODES_SOFTWARE_COMPONENT>`__] |
-|                                                                             |
-| occurrences: [0,UNBOUNDED]                                                  |
-|                                                                             |
-| endpoint:                                                                   |
-|                                                                             |
-| occurrences: [0,0]                                                          |
-|                                                                             |
-| os:                                                                         |
-|                                                                             |
-| occurrences: [0,0]                                                          |
-|                                                                             |
-| scalable:                                                                   |
-| #Editor note: FFS. How this capabilities should be used in NFV Profile      |
-|                                                                             |
-| type: `*tosca.capabilities.Scalable* <#DEFN_TYPE_CAPABILITIES_SCALABLE>`__  |
-|                                                                             |
-| binding:                                                                    |
-|                                                                             |
-| occurrences: [0,UNBOUND]                                                    |
-|                                                                             |
-| requirements:                                                               |
-|                                                                             |
-| - virtual\_storage:                                                         |
-|                                                                             |
-| capability: tosca.capabilities.nfv.VirtualStorage                           |
-|                                                                             |
-| relationship: tosca.relationships.nfv.VDU.AttachedTo                        |
-|                                                                             |
-| node: tosca.nodes.nfv.VDU.VirtualStorage                                    |
-|                                                                             |
-| occurences: [ 0, UNBOUNDED ]                                                |
-|                                                                             |
-| - local\_storage: #For NFV Profile, this requirement is deprecated.         |
-|                                                                             |
-| occurrences: [0,0]                                                          |
-|                                                                             |
-| artifacts:                                                                  |
-|                                                                             |
-| - sw\_image:                                                                |
-|                                                                             |
-| file:                                                                       |
-|                                                                             |
-| type: tosca.artifacts.nfv.SwImage                                           |
-+-----------------------------------------------------------------------------+
+.. code-block:: yaml
+
+  tosca.nodes.nfv.VDU.Compute:
+
+  derived\_from: tosca.nodes.Compute
+
+  properties:
+
+  name:
+
+  type: string
+
+  required: true
+
+  description:
+
+  type: string
+
+  required: true
+
+  boot\_order:
+
+  type: list # explicit index (boot index) not necessary, contrary to IFA011
+
+  entry\_schema:
+
+  type: string
+
+  required: false
+
+  nfvi\_constraints:
+
+  type: list
+
+  entry\_schema:
+
+  type: string
+
+  required: false
+
+  configurable\_properties:
+
+  type: map
+
+  entry\_schema:
+
+  type: tosca.datatypes.nfv.VnfcConfigurableProperties
+
+  required: true 
+
+  attributes:
+
+  private\_address:
+
+  status: deprecated
+
+  public\_address:
+
+  status: deprecated
+
+  networks:
+
+  status: deprecated
+
+  ports:
+
+  status: deprecated
+
+  capabilities:
+
+  virtual\_compute:
+
+  type: tosca.capabilities.nfv.VirtualCompute
+
+  virtual\_binding:
+
+  type: tosca.capabilities.nfv.VirtualBindable
+
+  #monitoring\_parameter:
+
+  # modeled as ad hoc (named) capabilities in VDU node template
+
+  # for example:
+
+  #capabilities:
+
+  # cpu\_load: tosca.capabilities.nfv.Metric
+
+  # memory\_usage: tosca.capabilities.nfv.Metric
+
+  host: #Editor note: FFS. How this capabilities should be used in NFV Profile|
+
+  type: *tosca.capabilities.Container*
+
+  valid\_source\_types:
+  [*tosca.nodes.SoftwareComponent*]
+
+  occurrences: [0,UNBOUNDED]
+
+  endpoint:
+
+  occurrences: [0,0]
+
+  os:
+
+  occurrences: [0,0]
+
+  scalable:
+  #Editor note: FFS. How this capabilities should be used in NFV Profile
+
+  type: *tosca.capabilities.Scalable*
+
+  binding:
+
+  occurrences: [0,UNBOUND]
+
+  requirements:
+
+  - virtual\_storage:
+
+  capability: tosca.capabilities.nfv.VirtualStorage
+
+  relationship: tosca.relationships.nfv.VDU.AttachedTo
+
+  node: tosca.nodes.nfv.VDU.VirtualStorage
+
+  occurences: [ 0, UNBOUNDED ]
+
+  - local\_storage: #For NFV Profile, this requirement is deprecated.
+
+  occurrences: [0,0]
+
+  artifacts:
+
+  - sw\_image:
+
+  file:
+
+  type: tosca.artifacts.nfv.SwImage
+
 
 Artifact
 ++++++++++
@@ -720,94 +728,97 @@ Properties
 |                 |         |          |            | with this software image|
 +-----------------+---------+----------+------------+-------------------------+
 
+
 Definition
 +++++++++++
 
-+-----------------------------------------------------+
-| tosca.artifacts.nfv.SwImage:                        |
-|                                                     |
-|   derived\_from: tosca.artifacts.Deployment.Image   |
-|                                                     |
-|   properties or metadata:                           |
-|                                                     |
-|     #id:                                            |
-|                                                     |
-|       # node name                                   |
-|                                                     |
-|     name:                                           |
-|                                                     |
-|       type: string                                  |
-|                                                     |
-| required: true                                      |
-|                                                     |
-|     version:                                        |
-|                                                     |
-|       type: string                                  |
-|                                                     |
-| required: true                                      |
-|                                                     |
-|     checksum:                                       |
-|                                                     |
-|       type: string                                  |
-|                                                     |
-| required: true                                      |
-|                                                     |
-|     container\_format:                              |
-|                                                     |
-|       type: string                                  |
-|                                                     |
-| required: true                                      |
-|                                                     |
-|     disk\_format:                                   |
-|                                                     |
-|       type: string                                  |
-|                                                     |
-| required: true                                      |
-|                                                     |
-|     min\_disk:                                      |
-|                                                     |
-|       type: scalar-unit.size # Number               |
-|                                                     |
-| required: true                                      |
-|                                                     |
-|     min\_ram:                                       |
-|                                                     |
-|       type: scalar-unit.size # Number               |
-|                                                     |
-| required: false                                     |
-|                                                     |
-|     size:                                           |
-|                                                     |
-|       type: scalar-unit.size # Number               |
-|                                                     |
-| required: true                                      |
-|                                                     |
-|     sw\_image:                                      |
-|                                                     |
-|       type: string                                  |
-|                                                     |
-| required: true                                      |
-|                                                     |
-|     operating\_system:                              |
-|                                                     |
-|       type: string                                  |
-|                                                     |
-| required: false                                     |
-|                                                     |
-|     supported\_virtualisation\_environments:        |
-|                                                     |
-|       type: list                                    |
-|                                                     |
-|       entry\_schema:                                |
-|                                                     |
-|         type: string                                |
-|                                                     |
-| required: false                                     |
-+-----------------------------------------------------+
+.. code-block:: yaml
+
+  tosca.artifacts.nfv.SwImage:
+
+    derived\_from: tosca.artifacts.Deployment.Image
+
+    properties or metadata:
+
+      #id:
+
+        # node name
+
+      name:
+
+        type: string
+
+  required: true
+
+      version:
+
+        type: string
+
+  required: true
+
+      checksum:
+
+        type: string
+
+  required: true
+
+      container\_format:
+
+        type: string
+
+  required: true
+
+      disk\_format:
+
+        type: string
+
+  required: true
+
+      min\_disk:
+
+        type: scalar-unit.size # Number
+
+  required: true
+
+      min\_ram:
+
+        type: scalar-unit.size # Number
+
+  required: false
+
+      size:
+
+        type: scalar-unit.size # Number
+
+  required: true
+
+      sw\_image:
+
+        type: string
+
+  required: true
+
+      operating\_system:
+
+        type: string
+
+  required: false
+
+      supported\_virtualisation\_environments:
+
+        type: list
+
+        entry\_schema:
+
+          type: string
+
+  required: false
+
 
 .. |image1| image:: ../Image1.png
    :width: 5.76806in
    :height: 4.67161in
+
 .. |image2| image:: ../Image2.png
    :width: 5.40486in
    :height: 2.46042in
