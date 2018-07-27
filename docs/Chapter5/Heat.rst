@@ -7351,15 +7351,8 @@ Incremental Module, and Cinder Volume Module may use nested heat.
     A VNF's Heat Orchestration Template **MUST** have no more than
     two levels of nesting.
 
-.. req::
-    :id: R-70112
-    :target: VNF
-    :keyword: MUST
-
-    A VNF's Heat Orchestration Template **MUST**
-    reference a Nested YAML file by name.
-    The use of 'resource_registry' in the VNF's Heat Orchestration
-    Templates Environment File **MUST NOT** be used.
+As stated in R-67231 a VNF's Heat Orchestration template's
+Environment File's **MUST NOT** contain the "resource_registry:" section.
 
 Two levels of nesting is defined as follows:  A base module, incremental
 module, or cinder volume module references a nested heat file either
