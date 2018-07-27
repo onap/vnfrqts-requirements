@@ -79,21 +79,23 @@ Table B1. Ansible JSON File key value description
 
 Ansible JSON file example:
 
-{
+.. code-block:: json
 
-      “Action”:”Configure”,
+  {
 
-      "PlaybookName": "<VNFCode>/<Version>/ansible/configure/site.yml",
+    “Action”:”Configure”,
 
-      "NodeList": ["test1.vnf\_b.onap.com", “test2.vnf\_b.onap.com”],
+    "PlaybookName": "<VNFCode>/<Version>/ansible/configure/site.yml",
 
-      "Timeout": 60,
+    "NodeList": ["test1.vnf\_b.onap.com", “test2.vnf\_b.onap.com”],
 
-      "EnvParameters": {"Retry": 3, "Wait": 5, “ConfigFile”:”config.txt”},
+    "Timeout": 60,
 
-      “FileParameters”:{“config.txt”:”db\_ip=10.1.1.1, sip\_timer=10000”}
+    "EnvParameters": {"Retry": 3, "Wait": 5, “ConfigFile”:”config.txt”},
 
-}
+    “FileParameters”:{“config.txt”:”db\_ip=10.1.1.1, sip\_timer=10000”}
+
+  }
 
 In the above example, the Ansible Server will:
 
