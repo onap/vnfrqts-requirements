@@ -16,7 +16,7 @@ Network Cloud, resiliency must be designed into the VNF software to
 provide high availability versus relying on the Network Cloud to achieve
 that end.
 
-Section 5.a Resiliency in *VNF Guidelines* describes
+Section 4.2 Resiliency in *VNF Guidelines* describes
 the overall guidelines for designing VNFs to meet resiliency goals.
 Below are more detailed resiliency requirements for VNFs.
 

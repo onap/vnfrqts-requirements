@@ -20,7 +20,7 @@ grouping functions in a common cloud data center to minimize
 inter-component latency. The VNFs should be designed with a goal of
 being modular and reusable to enable using best-in-breed vendors.
 
-Section 5.a VNF Design in *VNF Guidelines* describes
+Section 4.1 VNF Design in *VNF Guidelines* describes
 the overall guidelines for designing VNFs from VNF Components (VNFCs).
 Below are more detailed requirements for composing VNFs.
 

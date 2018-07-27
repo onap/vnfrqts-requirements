@@ -6,9 +6,6 @@
 Introduction
 ============
 
-- These requirements are specific to the current release of ONAP.
-  It is the initial release of requirements based on a merge of the Open-O
-  and OpenECOMP requirements.
 - Requirements are identified as either MUST, MUST NOT, SHOULD, SHOULD NOT,
   or MAY as defined in RFC 2119.
 - Requirements should be targeted to a restricted set of nouns related
