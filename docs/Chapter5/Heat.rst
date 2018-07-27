@@ -7083,16 +7083,6 @@ module, the scope of volume templates must be 1:1 with Base module or
 Incremental module. A single volume module must create only the volumes
 required by a single Incremental module or Base module.
 
-
-.. req::
-    :id: R-47788
-    :target: VNF
-    :keyword: MUST
-
-    The VNF Heat Orchestration Template **MUST** have a 1:1
-    scope of a cinder volume module, when it exists, with the
-    Base Module or Incremental Module.
-
 As stated in R-11200, a VNF's Cinder Volume Module, when it exists,
 **MUST** be 1:1 with a Base module or Incremental module.  That is,
 A single volume module must create only the volumes required by a
