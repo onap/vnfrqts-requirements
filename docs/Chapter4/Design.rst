@@ -162,7 +162,7 @@ VNF Design Requirements
     :keyword: MUST
 
     The VNF **MUST** use the NCSP's supported library and compute
-    flavor that supports DPDK to optimize network efficiency if using DPDK. [1]_
+    flavor that supports DPDK to optimize network efficiency if using DPDK. [#4.1.1]_
 
 .. req::
     :id: R-18864
@@ -191,6 +191,6 @@ VNF Design Requirements
     The VNF **MUST NOT** require the use of a dynamic routing
     protocol unless necessary to meet functional requirements.
 
-.. [1]
+.. [#4.1.1]
    Refer to NCSP’s Network Cloud specification
 

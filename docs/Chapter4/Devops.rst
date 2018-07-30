@@ -46,14 +46,14 @@ DevOps Requirements
     :keyword: MUST
 
     The VNF **MUST** install the NCSP required software on Guest OS
-    images when not using the NCSP provided Guest OS images. [1]_
+    images when not using the NCSP provided Guest OS images. [#4.5.1]_
 
 .. req::
     :id: R-09467
     :target: VNF
     :keyword: MUST
 
-    The VNF **MUST** utilize only NCSP standard compute flavors. [1]_
+    The VNF **MUST** utilize only NCSP standard compute flavors. [#4.5.1]_
 
 .. req::
     :id: R-02997
@@ -115,7 +115,7 @@ DevOps Requirements
     :target: VNF
     :keyword: MUST
 
-    The VNF **MUST** respond to a "move traffic" [2]_ command
+    The VNF **MUST** respond to a "move traffic" [#4.5.2]_ command
     against a specific VNFC, moving all existing session elsewhere with
     minimal disruption if a VNF provides a load balancing function across
     multiple instances of its VNFCs.
@@ -128,7 +128,7 @@ DevOps Requirements
     :target: VNF
     :keyword: MUST
 
-    The VNF **MUST** respond to a "drain VNFC" [2]_ command against
+    The VNF **MUST** respond to a "drain VNFC" [#4.5.2]_ command against
     a specific VNFC, preventing new session from reaching the targeted VNFC,
     with no disruption to active sessions on the impacted VNFC, if a VNF
     provides a load balancing function across multiple instances of its VNFCs.
@@ -145,10 +145,10 @@ DevOps Requirements
     testing and operations.
 
 
-.. [1]
+.. [#4.5.1]
    Refer to NCSP’s Network Cloud specification
 
-.. [2]
+.. [#4.5.2]
    Not currently supported in ONAP release 1
 
 

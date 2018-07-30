@@ -372,7 +372,7 @@ JSON
     The xNF **MUST** encode and serialize content delivered to
     ONAP using JSON (RFC 7159) plain text format. High-volume data
     is to be encoded and serialized using `Avro <http://avro.apache.org/>`_,
-    where the Avro [1]_ data format are described using JSON.
+    where the Avro [#7.4.1]_ data format are described using JSON.
 
     Note:
 
@@ -684,7 +684,7 @@ Security
     Information (SPI) or certain proprietary data, in addition to applying the
     regular procedures for securing access and delivery.
 
-.. [1]
+.. [#7.4.1]
    This option is not currently supported in ONAP and it is currently
    under consideration.
 

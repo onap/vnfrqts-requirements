@@ -127,7 +127,7 @@ a. The JSON file must be created for each action for each VNF.
 b. If a VNF action involves multiple endpoints (VMs) of a VNF, ONAP will
    replicate the “Node” JSON dictionary in the template and post it to
    each FQDN (i.e., endpoint) in the NodeList after setting the “name”
-   field in the Node object to be the respective FQDN [1]_. Hence, it
+   field in the Node object to be the respective FQDN [#8.1.1]_. Hence, it
    is required that all end points (VMs) of a VNF involved in a VNF
    action support the same set of Node Object attributes.
 
@@ -173,6 +173,6 @@ Table A2. JSON Dictionary to Post in Callback
 |              | to be returned to ONAP.    |         | be included.          |
 +--------------+----------------------------+---------+-----------------------+
 
-.. [1]
+.. [#8.1.1]
    The “name” field is a mandatory field in a valid Chef Node Object
    JSON dictionary.

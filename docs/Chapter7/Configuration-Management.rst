@@ -752,7 +752,7 @@ NETCONF Server Requirements
     :keyword: MUST
 
     The xNF PACKAGE **MUST** validated YANG code using the open
-    source pyang [1]_ program using the following commands:
+    source pyang [#7.3.1]_ program using the following commands:
 
     .. code-block:: python
 
@@ -1182,7 +1182,7 @@ action request against a Chef managed VNF.
 
 3. Next, it creates a Node Object from the “Node” JSON dictionary for
    all elements listed in the NodeList (using the FQDN to construct the
-   endpoint) by replicating it  [2]_. As part of this process, it will
+   endpoint) by replicating it  [#7.3.2]_. As part of this process, it will
    set the name field in each Node Object to the corresponding FQDN.
    These node objects are then posted on the Chef Server to
    corresponding Node Object REST endpoints to update the corresponding
@@ -1245,7 +1245,7 @@ Ansible Client Requirements
     The xNF **MUST** have routable FQDNs that are reachable via
     the Ansible Server for the endpoints (VMs) of a xNF on which playbooks
     will be executed. ONAP will initiate requests to the Ansible Server
-    for invocation of playbooks against these end points [3]_.
+    for invocation of playbooks against these end points [#7.3.3]_.
 
 .. req::
     :id: R-54373    
@@ -1326,7 +1326,7 @@ complete the desired action.
     :keyword: MUST
 
     The xNF **MUST** support each ONAP (APPC) xNF action
-    by invocation of **one** playbook [4]_. The playbook will be responsible
+    by invocation of **one** playbook [#7.3.4]_. The playbook will be responsible
     for executing all necessary tasks (as well as calling other playbooks)
     to complete the request.
 
@@ -1660,18 +1660,18 @@ Table 8. ONAP Controller APIs and NETCONF Commands
 |             |                    |                    |results.            |
 +-------------+--------------------+--------------------+--------------------+
 
-.. [1]
+.. [#7.3.1]
    https://github.com/mbj4668/pyang
 
-.. [2]
+.. [#7.3.2]
    Recall that the Node Object **is required** to be identical across
    all VMs of a VNF invoked as part of the action except for the “name”.
 
-.. [3]
+.. [#7.3.3]
    Upstream elements must provide the appropriate FQDN in the request to
    ONAP for the desired action.
 
-.. [4]
+.. [#7.3.4]
    Multiple ONAP actions may map to one playbook.
 
 
