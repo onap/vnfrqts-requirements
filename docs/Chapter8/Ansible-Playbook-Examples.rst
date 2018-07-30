@@ -1,4 +1,4 @@
-.. This work is licensed under a Creative Commons Attribution 4.0 International License.
+.. Licensed under a Creative Commons Attribution 4.0 International License.
 .. http://creativecommons.org/licenses/by/4.0
 .. Copyright 2017 AT&T Intellectual Property.  All rights reserved.
 
@@ -18,7 +18,7 @@ values are kept or created in separate directories.
 Example of an Ansible command (after pwd) to run playbook again
 vfdb9904v VNF instance:
 
-.. code-block:: none
+.. code-block:: text
 
  $ pwd
  /storage/vfdb/V16.1/ansible/configure
@@ -37,7 +37,7 @@ Specifications:
 An example of a curl request simulating a Rest API POST requesting execution
 of configure Playbook (using playbook relative path):
 
-.. code-block:: none
+.. code-block:: text
 
  curl -u APIUser:APIPassword -H "Content-type:application/json" -X POST
  -d '{"Id": "8412", "PlaybookName": "vfdb/V5.x.x/ansible/configure/site.yml",
@@ -47,7 +47,7 @@ of configure Playbook (using playbook relative path):
 Rest API GET request to obtain response/results for prior request
 (same Id as POST request above):
 
-.. code-block:: none
+.. code-block:: text
 
  curl -u APIUser:APIPassword -H 'Content-type: application/json' -X GET
  'http://ansible.server.com:5000/Dispatch/?Id=8412&Type=GetResult'
@@ -68,7 +68,7 @@ Ansible Playbooks will use the VNF instance name (passed using
 to run the playbook(s) against the target VNF instance. Same example as
 above:
 
-.. code-block:: none
+.. code-block:: text
 
  $ ansible-playbook -i ../inventory/vfdb9904vhosts site.yml --extra-vars "vnf_instance=vfdb9904v"
 
@@ -78,7 +78,7 @@ SSH keys that may be rotated regularly. Here hosts file, no longer referencing
 file with SSH key credentials, to run ansible-playbook listed in this example
 above (IP addresses were scrubbed):
 
-.. code-block:: none
+.. code-block:: text
 
  $ more ../inventory/vfdb9904v/hosts
  [host]
@@ -110,7 +110,7 @@ from other sources, inventory database, etc.
 And here the scrubbed default arguments for this VNF instance(originated
 from previously re-factored playbooks now being phased out):
 
-.. code-block:: none
+.. code-block:: text
 
  vnf_instance=vfdb9904v
 
@@ -125,7 +125,7 @@ vm\_config\_oam\_vnfc\_name, as an example, is derived from vm\_config
 array structure (list) in the CSAR package ENV file, with dots replaced
 by underscore:
 
-.. code-block:: none
+.. code-block:: text
 
  vm_config:
 
@@ -144,7 +144,7 @@ used as defaults. For parameterized playbooks attribute-value pairs
 passed down by APPC to Ansible Server always take precedence over
 template or VNF instance specific defaults stored in defaults file(s).
 
-.. code-block:: none
+.. code-block:: text
 
  $ pwd
  /storage/vfdb/latest/ansible
@@ -184,7 +184,7 @@ instance specific set of attribute-value pairs to be used for the run, in
 INI format. Here is an excerpt from such a file that should look
 somewhat similar to ENV files:
 
-.. code-block:: none
+.. code-block:: text
 
  $ more tmp/vfdb9904v/all.yml
 
@@ -201,7 +201,7 @@ somewhat similar to ENV files:
 
 # logins list contain 'login name', 'login group', 'login password'
 
-.. code-block:: none
+.. code-block:: text
 
  logins:
  - { name: 'm99999', group: 'm99999', password: 'abcdefgha' }
@@ -377,47 +377,47 @@ Ansible Servers. Generic directory structure:
 
 Ansible Playbooks – Function directory and main playbook:
 
-.. code-block:: none
+.. code-block:: text
 
  <VNF type>/<Version>/ansible/<Playbook Function>/site.yml
 
 Example – Post-instantiation (bulk) configuration –APPC Function -
 Configure:
 
-.. code-block:: none
+.. code-block:: text
 
  <VNF type>/<Version>/ansible/configure/site.yml
 
 Example – Post-instantiation (bulk) configuration –APPC Function
 – Configure – VNF software version 16.1:
 
-.. code-block:: none
+.. code-block:: text
 
  vfdb/V16.1/ansible/configure/site.yml
 
 Example – Health-check –APPC Function - HealthCheck:
 
-.. code-block:: none
+.. code-block:: text
 
  <VNF type>/<Version>/ansible/healthcheck/site.yml
 
 OR (Function directory name does not need to match APPC function name)
 
-.. code-block:: none
+.. code-block:: text
 
  <VNF type>/<Version>/ansible/check/site.yml
 
 Ansible Directories for other artifacts – VNF inventory hosts file -
 Required:
 
-.. code-block:: none
+.. code-block:: text
 
  <VNF type>/<Version>/ansible/inventory/<VNF instance name>hosts
 
 Ansible Directories for other artifacts – VNF instance specific default
 arguments – Optional:
 
-.. code-block:: none
+.. code-block:: text
 
  <VNF type>/<Version>/ansible/group_vars/<VNF instance name>
 
@@ -431,7 +431,7 @@ management mechanisms/tools/solutions.
 Ansible Directories for other artifacts – VNF (special) groups –
 Optional:
 
-.. code-block:: none
+.. code-block:: text
 
  <VNF type>/<Version>/ansible/inventory/group_vars/<VNF instance name>
 
@@ -441,7 +441,7 @@ on VNFC name. Example: “oam”, “rdb”, “dbs”, “man”, “iox”, �
 Ansible Directories for other artifacts – VNF (special) other files –
 Optional – Example – License file:
 
-.. code-block:: none
+.. code-block:: text
 
  <VNF type>/<Version>/ansible/<Other directory(s)>
 
@@ -459,7 +459,7 @@ CAUTION: On referenced files used/required by playbooks.
 -  This is the ansible (root) directory referenced on this
    note (Ansible Server mount point not included):
 
-.. code-block:: none
+.. code-block:: text
 
      <VNF type>/<Version>/ansible/
 
@@ -515,14 +515,14 @@ Ansible Server.
    c. Include generic ansible root directory. Creating full directory
       path as an example:
 
-.. code-block:: none
+.. code-block:: text
 
      $ mkdir –p /storage/vfdb/V16.1/ansible**/**
 
 3. Make this directory (VNF ansible root directory) current directory
    for next few steps:
 
-.. code-block:: none
+.. code-block:: text
 
      cd /storage/vfdb/V16.1/ansible/
 
@@ -530,7 +530,7 @@ Ansible Server.
    the playbooks onto the ansible directory. Command depends on the type
    of file uploaded, examples would be:
 
-.. code-block:: none
+.. code-block:: text
 
      tar xvf ..
      unzip …
@@ -540,7 +540,7 @@ Ansible Server.
    OA&M IP addresses for all VNF instances with known OA&M IP addresses
    for respective VMs, example:
 
-.. code-block:: none
+.. code-block:: text
 
     $ mkdir inventory
 
@@ -563,7 +563,7 @@ Ansible Server.
 arguments for each VNF instance,
 example:
 
-.. code-block:: none
+.. code-block:: text
 
    $ mkdir –p vars/vfdb9904v
    $ touch vars/vfdb9904v/default\_args.yml
@@ -615,7 +615,7 @@ playbooks are run.
 
 UpgradePreCheck:
 
-.. code-block:: none
+.. code-block:: text
 
  $ pwd
  /storage/comx/V5.3.1.3/ansible/upgradeprecheck
@@ -661,7 +661,7 @@ UpgradePreCheck:
 
 UpgradePostCheck:
 
-.. code-block:: none
+.. code-block:: text
 
  $ pwd
  /storage/comx/V5.3.1.3/ansible/upgradepostcheck

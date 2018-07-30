@@ -1,4 +1,4 @@
-.. This work is licensed under a Creative Commons Attribution 4.0 International License.
+.. Licensed under a Creative Commons Attribution 4.0 International License.
 .. http://creativecommons.org/licenses/by/4.0
 .. Copyright 2017 AT&T Intellectual Property.  All rights reserved.
 
@@ -347,7 +347,7 @@ VNF telemetry via standardized interface
 
 
 .. req::
-    :id: R-51910    
+    :id: R-51910
     :target: XNF
     :keyword: MUST
 
@@ -365,7 +365,7 @@ JSON
 
 
 .. req::
-    :id: R-19624    
+    :id: R-19624
     :target: XNF
     :keyword: MUST
 
@@ -440,7 +440,7 @@ Reporting Frequency
 ~~~~~~~~~~~~~~~~~~~~~
 
 .. req::
-    :id: R-98191    
+    :id: R-98191
     :target: XNF
     :keyword: MUST
 
@@ -480,7 +480,7 @@ streaming, or by host name and landing zone directory for SFTP transfer
 of bulk files.
 
 .. req::
-    :id: R-88482    
+    :id: R-88482
     :target: XNF
     :keyword: SHOULD
 
@@ -489,7 +489,7 @@ of bulk files.
     volume data sets when feasible.
 
 .. req::
-    :id: R-84879    
+    :id: R-84879
     :target: XNF
     :keyword: MUST
 
@@ -503,7 +503,7 @@ of bulk files.
     failure transparently to the xNF.
 
 .. req::
-    :id: R-81777    
+    :id: R-81777
     :target: XNF
     :keyword: MUST
 
@@ -514,7 +514,7 @@ of bulk files.
     will be controlled by policy.
 
 .. req::
-    :id: R-08312    
+    :id: R-08312
     :target: XNF
     :keyword: MAY
 
@@ -522,7 +522,7 @@ of bulk files.
     delivery of binary encoded data sets.
 
 .. req::
-    :id: R-79412    
+    :id: R-79412
     :target: XNF
     :keyword: MAY
 
@@ -532,7 +532,7 @@ of bulk files.
     sets.
 
 .. req::
-    :id: R-01033    
+    :id: R-01033
     :target: XNF
     :keyword: MAY
 
@@ -543,7 +543,7 @@ of bulk files.
     data sets, and deliver these by REST or TCP as appropriate.)
 
 .. req::
-    :id: R-63229    
+    :id: R-63229
     :target: XNF
     :keyword: MAY
 
@@ -551,7 +551,7 @@ of bulk files.
     for synchronous data, using RESTCONF (e.g., for xNF state polling).
 
 .. req::
-    :id: R-03070    
+    :id: R-03070
     :target: XNF
     :keyword: MUST
 
@@ -565,7 +565,7 @@ Asynchronous and Synchronous Data Delivery
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. req::
-    :id: R-06924    
+    :id: R-06924
     :target: XNF
     :keyword: MUST
 
@@ -573,7 +573,7 @@ Asynchronous and Synchronous Data Delivery
     available, or according to the configured frequency.
 
 .. req::
-    :id: R-73285    
+    :id: R-73285
     :target: XNF
     :keyword: MUST
 
@@ -581,7 +581,7 @@ Asynchronous and Synchronous Data Delivery
     as described in the previous paragraphs.
 
 .. req::
-    :id: R-42140    
+    :id: R-42140
     :target: XNF
     :keyword: MUST
 
@@ -589,7 +589,7 @@ Asynchronous and Synchronous Data Delivery
     as those requests are received, as a synchronous response.
 
 .. req::
-    :id: R-34660    
+    :id: R-34660
     :target: XNF
     :keyword: MUST
 
@@ -597,7 +597,7 @@ Asynchronous and Synchronous Data Delivery
     the ONAP configuration subsystem for synchronous communication.
 
 .. req::
-    :id: R-86586    
+    :id: R-86586
     :target: XNF
     :keyword: MUST
 
@@ -605,7 +605,7 @@ Asynchronous and Synchronous Data Delivery
     [RFC8040] (https://tools.ietf.org/html/rfc8040).
 
 .. req::
-    :id: R-11240    
+    :id: R-11240
     :target: XNF
     :keyword: MUST
 
@@ -614,7 +614,7 @@ Asynchronous and Synchronous Data Delivery
     synchronous communication will be consistent with Avro.
 
 .. req::
-    :id: R-70266    
+    :id: R-70266
     :target: XNF
     :keyword: MUST
 
@@ -627,7 +627,7 @@ Asynchronous and Synchronous Data Delivery
     in the future as they become standardized and are made available.)
 
 .. req::
-    :id: R-46290    
+    :id: R-46290
     :target: XNF
     :keyword: MUST
 
@@ -636,7 +636,7 @@ Asynchronous and Synchronous Data Delivery
     configuration model for the xNF by returning the requested data elements.
 
 .. req::
-    :id: R-43327    
+    :id: R-43327
     :target: XNF
     :keyword: SHOULD
 
@@ -650,7 +650,7 @@ Security
 ~~~~~~~~~~
 
 .. req::
-    :id: R-42366    
+    :id: R-42366
     :target: XNF
     :keyword: MUST
 
@@ -661,7 +661,7 @@ Security
     `RFC7525 <https://tools.ietf.org/html/rfc7525>`_.
 
 .. req::
-    :id: R-44290    
+    :id: R-44290
     :target: XNF
     :keyword: MUST
 
@@ -669,14 +669,14 @@ Security
     of connections, through secure credentials, log-on and exchange mechanisms.
 
 .. req::
-    :id: R-47597    
+    :id: R-47597
     :target: XNF
     :keyword: MUST
 
     The xNF **MUST** carry data in motion only over secure connections.
 
 .. req::
-    :id: R-68165    
+    :id: R-68165
     :target: XNF
     :keyword: MUST
 

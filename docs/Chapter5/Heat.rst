@@ -1,4 +1,4 @@
-.. This work is licensed under a Creative Commons Attribution 4.0 International License.
+.. Licensed under a Creative Commons Attribution 4.0 International License.
 .. http://creativecommons.org/licenses/by/4.0
 .. Copyright 2017 AT&T Intellectual Property.  All rights reserved.
 
@@ -1545,10 +1545,12 @@ Contrail Heat Resources.
     :keyword: MUST
 
     If a VNF's port is connected to an internal network and the
-    port is created in an Incremental Module and the internal network is created
-    in the Base Module then the UUID of the internal network **MUST** be exposed
+    port is created in an Incremental Module and the internal
+    network is created in the Base Module then the UUID of the
+    internal network **MUST** be exposed
     as a parameter in the 'outputs:' section of the Base Module and the port
     resource **MUST** use a 'get_param' to obtain the network UUID.
+
 ONAP does not programmatically enforce a naming convention for
 parameters for internal network. However, a naming convention is
 provided that must be followed.
@@ -3879,35 +3881,37 @@ YAML File
 
 .. code-block:: yaml
 
-  parameters:
-    vf_module_index:
-      type: number
-      description: Unique index for this VNF Module instance
-    oam_vm_name_0:
-      type: string
-      description: VM Name for lb VM 0
-    int_ctrl_net_id:
-      type: string
-      description: Neutron UUID for the internal control network
-    oam_vm_int_ctrl_ips:
-      type: comma_delimited_list
-      description: Fixed IP assignments for oam VMs on the internal control
-      network
-  resources:
-    oam_vm_server_0:
-      type: OS::Nova::Server
-      properties:
-        name: { get_param: oam_vm_name_0 }
-        networks:
-          - port: { get_resource: oam_vm_0_int_ctrl_port_0 }
-        . . .
-        metadata:
-          vf_module_index: { get_param: vf_module_index }
-    oam_vm_0_int_ctrl_port_0:
-      type: OS::Neutron::Port
-      properties:
-        network: { get_param: int_ctrl_net_id }
-        fixed_ips: [ { "ip_address": {get_param: [ oam_vm_int_ctrl_ips, { get_param, vf_module_index]}}}]
+ parameters:
+   vf_module_index:
+     type: number
+     description: Unique index for this VNF Module instance
+   oam_vm_name_0:
+     type: string
+     description: VM Name for lb VM 0
+   int_ctrl_net_id:
+     type: string
+     description: Neutron UUID for the internal control network
+   oam_vm_int_ctrl_ips:
+     type: comma_delimited_list
+     description: Fixed IP assignments for oam VMs on the internal control
+     network
+ resources:
+   oam_vm_server_0:
+     type: OS::Nova::Server
+     properties:
+       name: { get_param: oam_vm_name_0 }
+       networks:
+         port: { get_resource: oam_vm_0_int_ctrl_port_0 }
+
+       . . .
+
+       metadata:
+         vf_module_index: { get_param: vf_module_index }
+   oam_vm_0_int_ctrl_port_0:
+     type: OS::Neutron::Port
+     properties:
+       network: { get_param: int_ctrl_net_id }
+       fixed_ips: [ { "ip_address": {get_param: [ oam_vm_int_ctrl_ips, { get_param, vf_module_index}]}}]
 
 workload\_context
 ++++++++++++++++++
@@ -4854,14 +4858,14 @@ database.
       type: OS::Neutron::Port
       properties:
         network: { get_param: oam_net_id }
-        fixed_ips: [ { "ip_address": {get_param: db_oam_ip_0}}, { "ip_address": {get_param: db_oam_v6_ip_0 ]}}]
+        fixed_ips: [ { "ip_address": {get_param: db_oam_ip_0}}, { "ip_address": {get_param: db_oam_v6_ip_0 }}]
     db_1_oam_port_0:
       type: OS::Neutron::Port
       properties:
         network: { get_param: oam_net_id }
         fixed_ips:
-          - "ip_address": {get_param: db_oam_ip_1}}]
-          - "ip_address": {get_param: db_oam_v6_ip_1}}]
+          - "ip_address": {get_param: db_oam_ip_1}
+          - "ip_address": {get_param: db_oam_v6_ip_1}
 
 
 *Example: comma_delimited_list parameters for IPv4 and IPv6 Address
@@ -4933,14 +4937,14 @@ The {vm-type} has been defined as db for database.
       properties:
         network: { get_param: int_oam_int_net_id }
         fixed_ips: [ { "ip_address": {get_param: db_oam_int_ip_0}}, {
-        "ip_address": {get_param: db_oam_int_v6_ip_0 ]}}]
+        "ip_address": {get_param: db_oam_int_v6_ip_0 }}]
     db_1_int_ctrl_port_0:
       type: OS::Neutron::Port
       properties:
         network: { get_param: int_oam_int_net_id }
         fixed_ips:
-          - "ip_address": {get_param: db_oam_int_ip_1}}]
-          - "ip_address": {get_param: db_oam_int_v6_ip_1}}]
+          - "ip_address": {get_param: db_oam_int_ip_1}
+          - "ip_address": {get_param: db_oam_int_v6_ip_1}
 
 
 Property: fixed\_ips, Map Property: subnet\_id
@@ -7560,7 +7564,7 @@ OS::Heat::ResourceGroup:
    resource_def:
      type: my_nested_vm_template.yaml
      properties:
-       name: {get_param: [vm_name_list, %index%]}
+       name: {get_param: [vm_name_list, "%index%"]}
 
 Although this appears to use the nth entry of the vm_name_list list for
 the nth element of the OS::Heat::ResourceGroup, it will in fact result
@@ -7579,7 +7583,7 @@ ResourceGroup:
      type: my_nested_vm_template.yaml
      properties:
        names: {get_param: vm_name_list}
-       index: %index%
+       index: "%index%"
 
 You can then reference within the nested template as:
 

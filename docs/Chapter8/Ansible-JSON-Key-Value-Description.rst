@@ -1,4 +1,4 @@
-.. This work is licensed under a Creative Commons Attribution 4.0 International License.
+.. Licensed under a Creative Commons Attribution 4.0 International License.
 .. http://creativecommons.org/licenses/by/4.0
 .. Copyright 2017 AT&T Intellectual Property.  All rights reserved.
 
@@ -83,17 +83,17 @@ Ansible JSON file example:
 
   {
 
-    “Action”:”Configure”,
+    "Action":"Configure",
 
     "PlaybookName": "<VNFCode>/<Version>/ansible/configure/site.yml",
 
-    "NodeList": ["test1.vnf\_b.onap.com", “test2.vnf\_b.onap.com”],
+    "NodeList": ["test1.vnf_b.onap.com", "test2.vnf_b.onap.com"],
 
     "Timeout": 60,
 
-    "EnvParameters": {"Retry": 3, "Wait": 5, “ConfigFile”:”config.txt”},
+    "EnvParameters": {"Retry": 3, "Wait": 5, "ConfigFile":"config.txt"},
 
-    “FileParameters”:{“config.txt”:”db\_ip=10.1.1.1, sip\_timer=10000”}
+    "FileParameters": {"config.txt":"db_ip=10.1.1.1, sip_timer=10000"}
 
   }
 

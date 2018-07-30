@@ -1,4 +1,4 @@
-.. This work is licensed under a Creative Commons Attribution 4.0 International License.
+.. Licensed under a Creative Commons Attribution 4.0 International License.
 .. http://creativecommons.org/licenses/by/4.0
 .. Copyright 2017 AT&T Intellectual Property.  All rights reserved.
 
@@ -79,7 +79,7 @@ Table A1. Chef JSON File key value description
 
 Chef Template example:
 
-.. code-block:: chef
+.. code-block:: erb
 
  “Environment”:{
       "name": "HAR",

@@ -1,4 +1,4 @@
-.. This work is licensed under a Creative Commons Attribution 4.0 International License.
+.. Licensed under a Creative Commons Attribution 4.0 International License.
 .. http://creativecommons.org/licenses/by/4.0
 .. Copyright 2017 AT&T Intellectual Property.  All rights reserved.
 
@@ -77,42 +77,42 @@ configuration update) is audited against the running configuration on the VNF.
 
 
 .. req::
-    :id: R-20741    
+    :id: R-20741
     :target: XNF
     :keyword: MUST
 
     The xNF **MUST** support ONAP Controller's **Configure** command.
 
 .. req::
-    :id: R-19366    
+    :id: R-19366
     :target: XNF
     :keyword: MUST
 
     The xNF **MUST** support ONAP Controller's **ConfigModify** command.
 
 .. req::
-    :id: R-32981    
+    :id: R-32981
     :target: XNF
     :keyword: MUST
 
     The xNF **MUST** support ONAP Controller's **ConfigBackup** command.
 
 .. req::
-    :id: R-48247    
+    :id: R-48247
     :target: XNF
     :keyword: MUST
 
     The xNF **MUST** support ONAP Controller's **ConfigRestore** command.
 
 .. req::
-    :id: R-94084    
+    :id: R-94084
     :target: XNF
     :keyword: MUST
 
     The xNF **MUST** support ONAP Controller's **ConfigScaleOut** command.
 
 .. req::
-    :id: R-56385    
+    :id: R-56385
     :target: XNF
     :keyword: MUST
 
@@ -168,63 +168,63 @@ failed).
 
 
 .. req::
-    :id: R-12706    
+    :id: R-12706
     :target: XNF
     :keyword: MUST
 
     The xNF **MUST** support ONAP Controller's **QuiesceTraffic** command.
 
 .. req::
-    :id: R-07251    
+    :id: R-07251
     :target: XNF
     :keyword: MUST
 
     The xNF **MUST** support ONAP Controller's **ResumeTraffic** command.
 
 .. req::
-    :id: R-83146    
+    :id: R-83146
     :target: XNF
     :keyword: MUST
 
     The xNF **MUST** support ONAP Controller's **StopApplication** command.
 
 .. req::
-    :id: R-82811    
+    :id: R-82811
     :target: XNF
     :keyword: MUST
 
     The xNF **MUST** support ONAP Controller's **StartApplication** command.
 
 .. req::
-    :id: R-19922    
+    :id: R-19922
     :target: XNF
     :keyword: MUST
 
     The xNF **MUST** support ONAP Controller's **UpgradePrecheck** command.
 
 .. req::
-    :id: R-49466    
+    :id: R-49466
     :target: XNF
     :keyword: MUST
 
     The xNF **MUST** support ONAP Controller's **UpgradeSoftware** command.
 
 .. req::
-    :id: R-45856    
+    :id: R-45856
     :target: XNF
     :keyword: MUST
 
     The xNF **MUST** support ONAP Controller's **UpgradePostCheck** command.
 
 .. req::
-    :id: R-97343    
+    :id: R-97343
     :target: XNF
     :keyword: MUST
 
     The xNF **MUST** support ONAP Controller's **UpgradeBackup** command.
 
 .. req::
-    :id: R-65641    
+    :id: R-65641
     :target: XNF
     :keyword: MUST
 
@@ -249,7 +249,7 @@ must be supported.
 
 
 .. req::
-    :id: R-11790    
+    :id: R-11790
     :target: VNF
     :keyword: MUST
 
@@ -257,7 +257,7 @@ must be supported.
     **Restart (stop/start or reboot)** command.
 
 .. req::
-    :id: R-56218    
+    :id: R-56218
     :target: VNF
     :keyword: MUST
 
@@ -271,14 +271,14 @@ must be supported.
         Compute Node / Physical Server.
 
 .. req::
-    :id: R-38001    
+    :id: R-38001
     :target: VNF
     :keyword: MUST
 
     The VNF **MUST** support ONAP Controller's **Rebuild** command.
 
 .. req::
-    :id: R-76901    
+    :id: R-76901
     :target: VNF
     :keyword: MUST
 
@@ -301,7 +301,7 @@ automated fashion.
 
 
 .. req::
-    :id: R-41430    
+    :id: R-41430
     :target: XNF
     :keyword: MUST
 
@@ -353,7 +353,7 @@ Configuration Management
 
 
 .. req::
-    :id: R-88026    
+    :id: R-88026
     :target: XNF
     :keyword: MUST
 
@@ -361,7 +361,7 @@ Configuration Management
     runtime configuration and lifecycle management capabilities.
 
 .. req::
-    :id: R-95950    
+    :id: R-95950
     :target: XNF
     :keyword: MUST
 
@@ -373,7 +373,7 @@ NETCONF Server Requirements
 
 
 .. req::
-    :id: R-73468    
+    :id: R-73468
     :target: XNF
     :keyword: MUST
 
@@ -383,7 +383,7 @@ NETCONF Server Requirements
     service and SSH port numbers are Heat template parameters.
 
 .. req::
-    :id: R-90007    
+    :id: R-90007
     :target: XNF
     :keyword: MUST
 
@@ -391,7 +391,7 @@ NETCONF Server Requirements
     **close-session()**- Gracefully close the current session.
 
 .. req::
-    :id: R-70496    
+    :id: R-70496
     :target: XNF
     :keyword: MUST
 
@@ -400,7 +400,7 @@ NETCONF Server Requirements
     configuration datastore to the running configuration.
 
 .. req::
-    :id: R-18733    
+    :id: R-18733
     :target: XNF
     :keyword: MUST
 
@@ -409,7 +409,7 @@ NETCONF Server Requirements
     datastore to the running configuration.
 
 .. req::
-    :id: R-44281    
+    :id: R-44281
     :target: XNF
     :keyword: MUST
 
@@ -419,7 +419,7 @@ NETCONF Server Requirements
     replacing, creating, or deleting new config elements.
 
 .. req::
-    :id: R-60106    
+    :id: R-60106
     :target: XNF
     :keyword: MUST
 
@@ -429,7 +429,7 @@ NETCONF Server Requirements
     the list of xNF supported schemas.
 
 .. req::
-    :id: R-29488    
+    :id: R-29488
     :target: XNF
     :keyword: MUST
 
@@ -438,7 +438,7 @@ NETCONF Server Requirements
     a) configuration from the configuration datastore source.
 
 .. req::
-    :id: R-11235    
+    :id: R-11235
     :target: XNF
     :keyword: MUST
 
@@ -446,7 +446,7 @@ NETCONF Server Requirements
     **kill-session(session)** - Force the termination of **session**.
 
 .. req::
-    :id: R-02597    
+    :id: R-02597
     :target: XNF
     :keyword: MUST
 
@@ -454,7 +454,7 @@ NETCONF Server Requirements
     **lock(target)** - Lock the configuration datastore target.
 
 .. req::
-    :id: R-96554    
+    :id: R-96554
     :target: XNF
     :keyword: MUST
 
@@ -462,7 +462,7 @@ NETCONF Server Requirements
     **unlock(target)** - Unlock the configuration datastore target.
 
 .. req::
-    :id: R-29324    
+    :id: R-29324
     :target: XNF
     :keyword: SHOULD
 
@@ -471,7 +471,7 @@ NETCONF Server Requirements
     configuration datastore source to the configuration datastore target.
 
 .. req::
-    :id: R-88031    
+    :id: R-88031
     :target: XNF
     :keyword: SHOULD
 
@@ -480,7 +480,7 @@ NETCONF Server Requirements
     datastore target.
 
 .. req::
-    :id: R-97529    
+    :id: R-97529
     :target: XNF
     :keyword: SHOULD
 
@@ -488,7 +488,7 @@ NETCONF Server Requirements
     **get-schema(identifier, version, format) -** Retrieve the YANG schema.
 
 .. req::
-    :id: R-62468    
+    :id: R-62468
     :target: XNF
     :keyword: MUST
 
@@ -497,7 +497,7 @@ NETCONF Server Requirements
     NETCONF RPCs that make configuration changes are not sufficient.
 
 .. req::
-    :id: R-01382    
+    :id: R-01382
     :target: XNF
     :keyword: MUST
 
@@ -506,7 +506,7 @@ NETCONF Server Requirements
     of whether it was configured via NETCONF or other mechanisms.
 
 .. req::
-    :id: R-28756    
+    :id: R-28756
     :target: XNF
     :keyword: MUST
 
@@ -516,7 +516,7 @@ NETCONF Server Requirements
     part of the <running> configuration at the same time.
 
 .. req::
-    :id: R-83873    
+    :id: R-83873
     :target: XNF
     :keyword: MUST
 
@@ -528,7 +528,7 @@ NETCONF Server Requirements
     request.
 
 .. req::
-    :id: R-68990    
+    :id: R-68990
     :target: XNF
     :keyword: MUST
 
@@ -537,7 +537,7 @@ NETCONF Server Requirements
     database. It can also be locked and unlocked.
 
 .. req::
-    :id: R-68200    
+    :id: R-68200
     :target: XNF
     :keyword: MUST
 
@@ -549,7 +549,7 @@ NETCONF Server Requirements
     schemes allow for remote storage of configuration databases.
 
 .. req::
-    :id: R-20353    
+    :id: R-20353
     :target: XNF
     :keyword: MUST
 
@@ -558,7 +558,7 @@ NETCONF Server Requirements
     **:writable-running** are provided then two locks should be supported.
 
 .. req::
-    :id: R-11499    
+    :id: R-11499
     :target: XNF
     :keyword: MUST
 
@@ -572,14 +572,14 @@ NETCONF Server Requirements
     1.0 specification is supported.
 
 .. req::
-    :id: R-83790    
+    :id: R-83790
     :target: XNF
     :keyword: MUST
 
     The xNF **MUST** implement the **:validate** capability.
 
 .. req::
-    :id: R-49145    
+    :id: R-49145
     :target: XNF
     :keyword: MUST
 
@@ -587,7 +587,7 @@ NETCONF Server Requirements
     **:candidate** is supported.
 
 .. req::
-    :id: R-58358    
+    :id: R-58358
     :target: XNF
     :keyword: MUST
 
@@ -595,7 +595,7 @@ NETCONF Server Requirements
     [RFC6243].
 
 .. req::
-    :id: R-59610    
+    :id: R-59610
     :target: XNF
     :keyword: MUST
 
@@ -603,7 +603,7 @@ NETCONF Server Requirements
     download as defined in [RFC6022].
 
 .. req::
-    :id: R-93443    
+    :id: R-93443
     :target: XNF
     :keyword: MUST
 
@@ -611,7 +611,7 @@ NETCONF Server Requirements
     and the mapping to NETCONF shall follow the rules defined in this RFC.
 
 .. req::
-    :id: R-26115    
+    :id: R-26115
     :target: XNF
     :keyword: MUST
 
@@ -620,7 +620,7 @@ NETCONF Server Requirements
     be handled by a built-in automatic upgrade mechanism.
 
 .. req::
-    :id: R-10716    
+    :id: R-10716
     :target: XNF
     :keyword: MUST
 
@@ -628,7 +628,7 @@ NETCONF Server Requirements
     configuration of separate objects within itself.
 
 .. req::
-    :id: R-29495    
+    :id: R-29495
     :target: XNF
     :keyword: MUST
 
@@ -640,7 +640,7 @@ NETCONF Server Requirements
     operation on that same interface parameter).
 
 .. req::
-    :id: R-53015    
+    :id: R-53015
     :target: XNF
     :keyword: MUST
 
@@ -649,7 +649,7 @@ NETCONF Server Requirements
     out all others until completed.
 
 .. req::
-    :id: R-02616    
+    :id: R-02616
     :target: XNF
     :keyword: MUST
 
@@ -661,7 +661,7 @@ NETCONF Server Requirements
     if a non-overlapping parameter on the interface is being configured).
 
 .. req::
-    :id: R-41829    
+    :id: R-41829
     :target: XNF
     :keyword: MUST
 
@@ -669,7 +669,7 @@ NETCONF Server Requirements
     lock via a restricted or full XPath expression.
 
 .. req::
-    :id: R-66793    
+    :id: R-66793
     :target: XNF
     :keyword: MUST
 
@@ -680,7 +680,7 @@ NETCONF Server Requirements
     configuration method out).
 
 .. req::
-    :id: R-54190    
+    :id: R-54190
     :target: XNF
     :keyword: MUST
 
@@ -689,7 +689,7 @@ NETCONF Server Requirements
     is terminated).
 
 .. req::
-    :id: R-03465    
+    :id: R-03465
     :target: XNF
     :keyword: MUST
 
@@ -697,7 +697,7 @@ NETCONF Server Requirements
     when the corresponding <partial-unlock> operation succeeds.
 
 .. req::
-    :id: R-63935    
+    :id: R-63935
     :target: XNF
     :keyword: MUST
 
@@ -707,7 +707,7 @@ NETCONF Server Requirements
     setting of a lock expiration timer).
 
 .. req::
-    :id: R-10173    
+    :id: R-10173
     :target: XNF
     :keyword: MUST
 
@@ -716,7 +716,7 @@ NETCONF Server Requirements
     using the <kill-session> operation to guard against hung NETCONF sessions.
 
 .. req::
-    :id: R-88899    
+    :id: R-88899
     :target: XNF
     :keyword: MUST
 
@@ -724,7 +724,7 @@ NETCONF Server Requirements
     within the context of this locking requirements framework.
 
 .. req::
-    :id: R-07545    
+    :id: R-07545
     :target: XNF
     :keyword: MUST
 
@@ -733,33 +733,33 @@ NETCONF Server Requirements
     the supplied YANG code and associated NETCONF servers.
 
 .. req::
-    :id: R-60656    
+    :id: R-60656
     :target: XNF
     :keyword: MUST
 
     The xNF **MUST** support sub tree filtering.
 
 .. req::
-    :id: R-80898    
+    :id: R-80898
     :target: XNF
     :keyword: MUST
 
     TThe xNF **MUST** support heartbeat via a <get> with null filter.
 
 .. req::
-    :id: R-25238    
+    :id: R-25238
     :target: VNF
     :keyword: MUST
 
     The xNF PACKAGE **MUST** validated YANG code using the open
     source pyang [#7.3.1]_ program using the following commands:
 
-    .. code-block:: python
+    .. code-block:: text
 
-        $ pyang --verbose --strict <YANG-file-name(s)> $ echo $!
+      $ pyang --verbose --strict <YANG-file-name(s)> $ echo $!
 
 .. req::
-    :id: R-63953    
+    :id: R-63953
     :target: XNF
     :keyword: MUST
 
@@ -767,7 +767,7 @@ NETCONF Server Requirements
     otherwise the validation has failed.
 
 .. req::
-    :id: R-26508    
+    :id: R-26508
     :target: XNF
     :keyword: MUST
 
@@ -782,7 +782,7 @@ conform, and those where applicable, that suppliers need to use.
 
 
 .. req::
-    :id: R-28545    
+    :id: R-28545
     :target: XNF
     :keyword: MUST
 
@@ -791,7 +791,7 @@ conform, and those where applicable, that suppliers need to use.
     Protocol (NETCONF)".
 
 .. req::
-    :id: R-22700    
+    :id: R-22700
     :target: XNF
     :keyword: MUST
 
@@ -799,7 +799,7 @@ conform, and those where applicable, that suppliers need to use.
     "NETCONF Base Notifications".
 
 .. req::
-    :id: R-10353    
+    :id: R-10353
     :target: XNF
     :keyword: MUST
 
@@ -807,7 +807,7 @@ conform, and those where applicable, that suppliers need to use.
     "An Architecture for Network Management Using NETCONF and YANG".
 
 .. req::
-    :id: R-53317    
+    :id: R-53317
     :target: XNF
     :keyword: MUST
 
@@ -815,7 +815,7 @@ conform, and those where applicable, that suppliers need to use.
     "Guidelines for Authors and Reviewers of YANG Data Model Documents".
 
 .. req::
-    :id: R-33955    
+    :id: R-33955
     :target: XNF
     :keyword: SHOULD
 
@@ -823,7 +823,7 @@ conform, and those where applicable, that suppliers need to use.
     "Common YANG Data Types".
 
 .. req::
-    :id: R-22946    
+    :id: R-22946
     :target: XNF
     :keyword: SHOULD
 
@@ -831,7 +831,7 @@ conform, and those where applicable, that suppliers need to use.
     "NETCONF Access Control Model".
 
 .. req::
-    :id: R-10129    
+    :id: R-10129
     :target: XNF
     :keyword: SHOULD
 
@@ -839,7 +839,7 @@ conform, and those where applicable, that suppliers need to use.
     "A YANG Data Model for Interface Management".
 
 .. req::
-    :id: R-12271    
+    :id: R-12271
     :target: XNF
     :keyword: SHOULD
 
@@ -847,7 +847,7 @@ conform, and those where applicable, that suppliers need to use.
     "IANA Interface Type YANG Module".
 
 .. req::
-    :id: R-49036    
+    :id: R-49036
     :target: XNF
     :keyword: SHOULD
 
@@ -855,7 +855,7 @@ conform, and those where applicable, that suppliers need to use.
     "A YANG Data Model for IP Management".
 
 .. req::
-    :id: R-87564    
+    :id: R-87564
     :target: XNF
     :keyword: SHOULD
 
@@ -863,7 +863,7 @@ conform, and those where applicable, that suppliers need to use.
     "A YANG Data Model for System Management".
 
 .. req::
-    :id: R-24269    
+    :id: R-24269
     :target: XNF
     :keyword: SHOULD
 
@@ -876,7 +876,7 @@ NETCONF RFCs.
 
 
 .. req::
-    :id: R-33946    
+    :id: R-33946
     :target: XNF
     :keyword: MUST
 
@@ -884,7 +884,7 @@ NETCONF RFCs.
     "NETCONF Configuration Protocol".
 
 .. req::
-    :id: R-04158    
+    :id: R-04158
     :target: XNF
     :keyword: MUST
 
@@ -892,7 +892,7 @@ NETCONF RFCs.
     "Using the NETCONF Configuration Protocol over Secure Shell (SSH)".
 
 .. req::
-    :id: R-13800    
+    :id: R-13800
     :target: XNF
     :keyword: MUST
 
@@ -900,7 +900,7 @@ NETCONF RFCs.
     "NETCONF Event Notification".
 
 .. req::
-    :id: R-01334    
+    :id: R-01334
     :target: XNF
     :keyword: MUST
 
@@ -908,15 +908,15 @@ NETCONF RFCs.
     "Partial Lock Remote Procedure Call".
 
 .. req::
-    :id: R-08134    
+    :id: R-08134
     :target: XNF
     :keyword: MUST
 
-    The xNF **MUST** conform to the NETCONF RFC 6241, 
+    The xNF **MUST** conform to the NETCONF RFC 6241,
     "NETCONF Configuration Protocol".
 
 .. req::
-    :id: R-78282    
+    :id: R-78282
     :target: XNF
     :keyword: MUST
 
@@ -952,7 +952,7 @@ REST APIs
 
 
 .. req::
-    :id: R-31809    
+    :id: R-31809
     :target: XNF
     :keyword: MUST
 
@@ -1018,7 +1018,7 @@ Chef Client Requirements
 
 
 .. req::
-    :id: R-79224    
+    :id: R-79224
     :target: XNF
     :keyword: MUST
 
@@ -1027,7 +1027,7 @@ Chef Client Requirements
     Chef Server as part of the installation process.
 
 .. req::
-    :id: R-72184    
+    :id: R-72184
     :target: XNF
     :keyword: MUST
 
@@ -1037,7 +1037,7 @@ Chef Client Requirements
     trigger push jobs against FQDNs of endpoints for a xNF, if required.
 
 .. req::
-    :id: R-47068    
+    :id: R-47068
     :target: XNF
     :keyword: MAY
 
@@ -1045,7 +1045,7 @@ Chef Client Requirements
     responsible for all functionality.
 
 .. req::
-    :id: R-67114    
+    :id: R-67114
     :target: VNF
     :keyword: MUST
 
@@ -1057,7 +1057,7 @@ Chef Roles/Requirements
 
 
 .. req::
-    :id: R-27310    
+    :id: R-27310
     :target: XNF
     :keyword: MUST
 
@@ -1066,7 +1066,7 @@ Chef Roles/Requirements
     ONAP for loading on appropriate Chef Server.
 
 .. req::
-    :id: R-26567    
+    :id: R-26567
     :target: XNF
     :keyword: MUST
 
@@ -1078,7 +1078,7 @@ Chef Roles/Requirements
     in JSON file.
 
 .. req::
-    :id: R-98911    
+    :id: R-98911
     :target: XNF
     :keyword: MUST NOT
 
@@ -1086,7 +1086,7 @@ Chef Roles/Requirements
     for the xNF in roles/cookbooks/recipes invoked for a xNF action.
 
 .. req::
-    :id: R-37929    
+    :id: R-37929
     :target: XNF
     :keyword: MUST
 
@@ -1095,7 +1095,7 @@ Chef Roles/Requirements
     in roles/cookbooks/recipes invoked for a xNF action.
 
 .. req::
-    :id: R-62170    
+    :id: R-62170
     :target: XNF
     :keyword: MUST
 
@@ -1104,7 +1104,7 @@ Chef Roles/Requirements
     cookbooks and recipes.
 
 .. req::
-    :id: R-78116    
+    :id: R-78116
     :target: XNF
     :keyword: MUST
 
@@ -1114,7 +1114,7 @@ Chef Roles/Requirements
     executing a xNF action.
 
 .. req::
-    :id: R-44013    
+    :id: R-44013
     :target: XNF
     :keyword: MUST
 
@@ -1124,7 +1124,7 @@ Chef Roles/Requirements
     chef-client run be made available (e.g., get running configuration).
 
 .. req::
-    :id: R-30654    
+    :id: R-30654
     :target: XNF
     :keyword: MUST
 
@@ -1133,7 +1133,7 @@ Chef Roles/Requirements
     any errors for actions that change state of the xNF (e.g., configure).
 
 .. req::
-    :id: R-65755    
+    :id: R-65755
     :target: XNF
     :keyword: SHOULD
 
@@ -1151,7 +1151,7 @@ Chef Roles/Requirements
        the chef-client run need not post the results back via callback.
 
 .. req::
-    :id: R-15885    
+    :id: R-15885
     :target: XNF
     :keyword: MUST
 
@@ -1197,15 +1197,16 @@ action request against a Chef managed VNF.
 
 .. code-block:: java
 
-   {
-     "command": "chef-client",
-     "run\_timeout": 300,
-     "nodes”: [“node1.vnf\_a.onap.com”, “node2.vnf\_a.onap.com”],
-       "env": {
-                “RequestId”:”8279-abcd-aksdj-19231”,
-                “CallbackUrl”:”<callback>”
-              },
-   }
+  {
+   "command": "chef-client"
+   "run\_timeout": 300
+   "nodes": ["node1.vnf\_a.onap.com", "node2.vnf\_a.onap.com"]
+     "env": {
+              "RequestId":"8279-abcd-aksdj-19231"
+              "CallbackUrl":"<callback>"
+            }
+  }
+
 
 5. If CallbackCapable field in the template is not present or set to
    “False” ONAP will poll the Chef Server to check completion status of
@@ -1238,7 +1239,7 @@ Ansible Client Requirements
 
 
 .. req::
-    :id: R-32217    
+    :id: R-32217
     :target: XNF
     :keyword: MUST
 
@@ -1248,7 +1249,7 @@ Ansible Client Requirements
     for invocation of playbooks against these end points [#7.3.3]_.
 
 .. req::
-    :id: R-54373    
+    :id: R-54373
     :target: XNF
     :keyword: MUST
 
@@ -1256,7 +1257,7 @@ Ansible Client Requirements
     of a xNF on which an Ansible playbook will be executed.
 
 .. req::
-    :id: R-35401    
+    :id: R-35401
     :target: XNF
     :keyword: MUST
 
@@ -1265,7 +1266,7 @@ Ansible Client Requirements
     Cloud Service Provider guidelines for authentication and access.
 
 .. req::
-    :id: R-82018    
+    :id: R-82018
     :target: XNF
     :keyword: MUST
 
@@ -1282,7 +1283,7 @@ Ansible Client Requirements
     (userdata) scripts.
 
 .. req::
-    :id: R-92866    
+    :id: R-92866
     :target: XNF
     :keyword: MUST
 
@@ -1293,7 +1294,7 @@ Ansible Client Requirements
     new SSH keys and new mechanized IDs.
 
 .. req::
-    :id: R-91745    
+    :id: R-91745
     :target: XNF
     :keyword: MUST
 
@@ -1313,7 +1314,7 @@ complete the desired action.
 
 
 .. req::
-    :id: R-40293    
+    :id: R-40293
     :target: XNF
     :keyword: MUST
 
@@ -1321,7 +1322,7 @@ complete the desired action.
     to the ONAP requirement.
 
 .. req::
-    :id: R-49396    
+    :id: R-49396
     :target: XNF
     :keyword: MUST
 
@@ -1331,7 +1332,7 @@ complete the desired action.
     to complete the request.
 
 .. req::
-    :id: R-33280    
+    :id: R-33280
     :target: XNF
     :keyword: MUST NOT
 
@@ -1339,7 +1340,7 @@ complete the desired action.
     in a playbook.
 
 .. req::
-    :id: R-48698    
+    :id: R-48698
     :target: XNF
     :keyword: MUST
 
@@ -1359,7 +1360,7 @@ will be considered to have failed.
 
 
 .. req::
-    :id: R-43253    
+    :id: R-43253
     :target: XNF
     :keyword: MUST
 
@@ -1371,7 +1372,7 @@ will be considered to have failed.
     accordingly (failure for failed tasks).
 
 .. req::
-    :id: R-50252    
+    :id: R-50252
     :target: XNF
     :keyword: MUST
 
@@ -1385,7 +1386,7 @@ will be considered to have failed.
     respective VM/xNF must be written.
 
 .. req::
-    :id: R-51442    
+    :id: R-51442
     :target: XNF
     :keyword: SHOULD
 
@@ -1401,7 +1402,7 @@ will be considered to have failed.
         rollback when soft rollback is feasible.
 
 .. req::
-    :id: R-58301    
+    :id: R-58301
     :target: XNF
     :keyword: SHOULD NOT
 
@@ -1420,7 +1421,7 @@ will be considered to have failed.
     to Event Bus.
 
 .. req::
-    :id: R-02651    
+    :id: R-02651
     :target: XNF
     :keyword: SHOULD
 
@@ -1431,7 +1432,7 @@ will be considered to have failed.
     changes when needed.
 
 .. req::
-    :id: R-43353    
+    :id: R-43353
     :target: XNF
     :keyword: MUST
 
