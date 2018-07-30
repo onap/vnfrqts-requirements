@@ -13,7 +13,7 @@ to all VNFs. Additional security requirements for specific types of VNFs
 will be applicable and are outside the scope of these general
 requirements.
 
-Section 5.a Security in *VNF Guidelines* outlines
+Section 4.3 Security in *VNF Guidelines* outlines
 the five broad security areas for VNFs that are detailed in the
 following sections:
 

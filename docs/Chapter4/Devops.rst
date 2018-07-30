@@ -15,7 +15,7 @@ software bundle, VNF suppliers using standard images would typically
 provide the NCSP with an install package consistent with the default OS
 package manager (e.g. aptitude for Ubuntu, yum for Redhat/CentOS).
 
-Section 5.a DevOps in *VNF Guidelines* describes
+Section 4.5 DevOps in *VNF Guidelines* describes
 the DevOps guidelines for VNFs.
 
 DevOps Requirements

@@ -9,10 +9,9 @@ Purpose
   practices which will increase innovation, minimize customization needed to
   onboard xNFs as well as reduce implementation complexity, time and cost
   for all impacted stakeholders.
-- This initial release consolidates the requirements from Open-O and OpenECOMP
-  to provide common xNF requirements across the industry in order to drive
-  interoperability, simplify management, and reduce cost to build, deploy and
-  manage xNFs.
+- The consolidated requirements provide common xNF requirements across
+  the industry in order to drive interoperability, simplify management, and
+  reduce cost to build, deploy and manage xNFs.
 - These requirements serve multiple purposes:
     - Primarily it provides a detailed list of requirements for xNF
       providers to meet to be compatible with ONAP; xNF providers will use
