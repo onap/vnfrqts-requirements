@@ -262,7 +262,7 @@ Resource Control Loop
 
     The xNF Package **MUST** include documentation which must include
     all events (fault, measurement for xNF Scaling, Syslogs, State Change
-    and Mobile Flow), that need to be collected at each VM, VNFC (defined in `VNF Guidelines <http://onap.readthedocs.io/en/latest/submodules/vnfrqts/guidelines.git/docs/vnf_guidelines/vnf_guidelines.html#a-glossary>`__ ) and for the overall xNF.
+    and Mobile Flow), that need to be collected at each VM, VNFC (defined in `VNF Guidelines <https://onap.readthedocs.io/en/latest/submodules/vnfrqts/guidelines.git/docs/vnf_guidelines/vnf_guidelines.html>`__ ) and for the overall xNF.
 
 .. req::
     :id: R-27711
@@ -383,7 +383,7 @@ Resource Control Loop
     all of the xNF Event Records supported. The artifact should include
     reference to the specific release of the xNF Event Stream Common Event
     Data Model document it is based on. (e.g.,
-    `VES Event Listener <https://github.com/att/evel-test-collector/tree/master/docs/att_interface_definition>`__)
+    `VES Event Listener <https://onap.readthedocs.io/en/latest/submodules/vnfsdk/model.git/docs/files/VESEventListener.html>`__)
 
 Compute, Network, and Storage Requirements
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

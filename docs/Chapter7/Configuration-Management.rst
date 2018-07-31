@@ -20,7 +20,7 @@ This section describes the list of commands that should be supported
 by the VNF.   The following sections describe the standard protocols
 that are supported (NETCONF, Chef, Ansible, and REST).
 
-The commands below are expected to be supported on all VNF’s, unless
+The commands below are expected to be supported on all VNF's, unless
 noted otherwise, either directly (via the NETCONF or REST interface)
 or indirectly (via a Chef Cookbook or Ansible server).  Note that there
 are additional commands offered to northbound clients that are not shown
@@ -68,7 +68,7 @@ the VNF is not in service (i.e., in a maintenance state).
 
 **ConfigScaleOut**: The Controller client is requesting that a configuration
 be applied after the VNF instance has been scaled out (i.e., one or more
-additional VM’s instantiated to increase capacity). For some VNF’s,
+additional VM's instantiated to increase capacity). For some VNF's,
 ConfigScaleOut is not needed because the VNF is auto-configured after
 scale-out. This command is being introduced in the Beijing release.
 
@@ -318,7 +318,7 @@ NETCONF and REST require the VNF to implement a server which supports the RPC
 or REST calls.
 
 Ansible and Chef require the use of a Ansible or Chef server which communicates
-with the Controller (northbound) and the VNF VM’s (southbound).
+with the Controller (northbound) and the VNF VM's (southbound).
 
 The vendor must select which protocol to support for the commands listed above.
 Notes:
@@ -332,9 +332,9 @@ Notes:
 
 
 Additional details can be found in the
-`ONAP Application Controller (APPC) API Guide <http://onap.readthedocs.io/en/latest/submodules/appc.git/docs/APPC%20API%20Guide/APPC%20API%20Guide.html>`_,
-`ONAP VF-C project <http://onap.readthedocs.io/en/latest/submodules/vfc/nfvo/lcm.git/docs/index.html>`_ and
-the `ONAP SDNC project <http://onap.readthedocs.io/en/latest/submodules/sdnc/northbound.git/docs/index.html>`_.
+`ONAP Application Controller (APPC) API Guide <https://onap.readthedocs.io/en/latest/submodules/appc.git/docs/index.html>`_,
+`ONAP VF-C project <https://onap.readthedocs.io/en/latest/submodules/vfc/nfvo/lcm.git/docs/index.html>`_ and
+the `ONAP SDNC project <https://onap.readthedocs.io/en/latest/submodules/sdnc/oam.git/docs/index.html>`_.
 
 NETCONF Standards and Capabilities
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1000,7 +1000,7 @@ requirements and guidelines defined in this section.
 The Chef configuration management mechanism follows a client-server
 model. It requires the presence of a Chef-Client on the VNF that will be
 directly managed by a Chef Server. The Chef-client will register with
-the appropriate Chef Server and are managed via ‘cookbooks’ and
+the appropriate Chef Server and are managed via 'cookbooks' and
 configuration attributes loaded on the Chef Server which contain all
 necessary information to execute the appropriate actions on the VNF via
 the Chef-client.
@@ -1172,15 +1172,15 @@ action request against a Chef managed VNF.
 1. When ONAP receives a request for an action for a Chef Managed VNF, it
    retrieves the corresponding template (based on **action** and
    **VNF)** from its database and sets necessary values in the
-   “Environment”, “Node” and “NodeList” keys (if present) from either
+   "Environment", "Node" and "NodeList" keys (if present) from either
    the payload of the received action or internal data.
 
-2. If “Environment” key is present in the updated template, it posts the
+2. If "Environment" key is present in the updated template, it posts the
    corresponding JSON dictionary to the appropriate Environment object
    REST endpoint on the Chef Server thus updating the Environment
    attributes on the Chef Server.
 
-3. Next, it creates a Node Object from the “Node” JSON dictionary for
+3. Next, it creates a Node Object from the "Node" JSON dictionary for
    all elements listed in the NodeList (using the FQDN to construct the
    endpoint) by replicating it  [#7.3.2]_. As part of this process, it will
    set the name field in each Node Object to the corresponding FQDN.
@@ -1188,7 +1188,7 @@ action request against a Chef managed VNF.
    corresponding Node Object REST endpoints to update the corresponding
    node attributes.
 
-4. If PushJobFlag is set to “True” in the template, ONAP requests a push
+4. If PushJobFlag is set to "True" in the template, ONAP requests a push
    job against all the nodes in the NodeList to trigger
    chef-client\ **.** It will not invoke any other command via the push
    job. ONAP will include a callback URL in the push job request and a
@@ -1209,13 +1209,13 @@ action request against a Chef managed VNF.
 
 
 5. If CallbackCapable field in the template is not present or set to
-   “False” ONAP will poll the Chef Server to check completion status of
+   "False" ONAP will poll the Chef Server to check completion status of
    the push job.
 
-6. If “GetOutputFlag” is set to “True” in the template and
-   CallbackCapable is not set to “True”, ONAP will retrieve any output
+6. If "GetOutputFlag" is set to "True" in the template and
+   CallbackCapable is not set to "True", ONAP will retrieve any output
    from each node where the push job has finished by accessing the Node
-   Object attribute node[‘PushJobOutput’].
+   Object attribute node['PushJobOutput'].
 
 Ansible Standards and Capabilities
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1224,7 +1224,7 @@ ONAP will support configuration of VNFs via Ansible subject to the
 requirements and guidelines defined in this section.
 
 Ansible allows agentless management of VNFs/VMs/VNFCs via execution
-of ‘playbooks’ over ssh. The ‘playbooks’ are a structured set of
+of 'playbooks' over ssh. The 'playbooks' are a structured set of
 tasks which contain all the necessary resources and execution capabilities
 to take the necessary action on one or more target VMs (and/or VNFCs)
 of the VNF. ONAP will utilize the framework of an Ansible Server that
@@ -1352,9 +1352,9 @@ complete the desired action.
     generic templates.
 
 The Ansible Server will determine if a playbook invoked to execute a
-xNF action finished successfully or not using the “PLAY_RECAP” summary
+xNF action finished successfully or not using the "PLAY_RECAP" summary
 in Ansible log.  The playbook will be considered to successfully finish
-only if the “PLAY RECAP” section at the end of playbook execution output
+only if the "PLAY RECAP" section at the end of playbook execution output
 has no unreachable hosts and no failed tasks. Otherwise, the playbook
 will be considered to have failed.
 
@@ -1467,7 +1467,7 @@ already processing service requests successfully.
 
 A successful execution of a health-check playbook shall also create one
 file per VNF VM, named after the VNF instance name followed by
-“_results.txt (<vnf_instance>_results.txt) to indicate health-check was
+"_results.txt (<vnf_instance>_results.txt) to indicate health-check was
 executed and completed successfully, example: vfdb9904v_results.txt,
 with the following contents:
 
@@ -1500,7 +1500,7 @@ need attention even if they do not impact services provided by the VNF.
 
 A failed health-check playbook shall also create one file per VNF,
 named after the VNF instance name, followed by
-“_results.txt to indicate health-check was executed and found issues
+"_results.txt to indicate health-check was executed and found issues
 in the health of the VNF. This is to differentiate from failure to
 run health-check playbook or playbook tasks to verify the health of the VNF,
 example: vfdb9904v_results.txt, with the following contents:
@@ -1586,7 +1586,7 @@ Table 8. ONAP Controller APIs and NETCONF Commands
 |             |                    |a VNF and place it  |Ansible server in   |
 |             |                    |in the respective   |a manner aligned    |
 |             |                    |Node Objects        |with playbook       |
-|             |                    |‘PushJobOutput’     |requirements listed |
+|             |                    |'PushJobOutput'     |requirements listed |
 |             |                    |attribute of all    |in this document.   |
 |             |                    |nodes in NodeList   |                    |
 |             |                    |when triggered      |The PlaybookName    |
@@ -1596,10 +1596,10 @@ Table 8. ONAP Controller APIs and NETCONF Commands
 |             |                    |The JSON file for   |NodeList must list  |
 |             |                    |this VNF action is  |IP addresses or DNS |
 |             |                    |required to set     |supported FQDNs of  |
-|             |                    |“PushJobFlag” to    |an example VNF      |
-|             |                    |“True” and          |on which to         |
-|             |                    |“GetOutputFlag” to  |execute playbook.   |
-|             |                    |“True”. The “Node”  |                    |
+|             |                    |"PushJobFlag" to    |an example VNF      |
+|             |                    |"True" and          |on which to         |
+|             |                    |"GetOutputFlag" to  |execute playbook.   |
+|             |                    |"True". The "Node"  |                    |
 |             |                    |JSON dictionary     |                    |
 |             |                    |must have the run   |                    |
 |             |                    |list populated      |                    |
@@ -1666,7 +1666,7 @@ Table 8. ONAP Controller APIs and NETCONF Commands
 
 .. [#7.3.2]
    Recall that the Node Object **is required** to be identical across
-   all VMs of a VNF invoked as part of the action except for the “name”.
+   all VMs of a VNF invoked as part of the action except for the "name".
 
 .. [#7.3.3]
    Upstream elements must provide the appropriate FQDN in the request to

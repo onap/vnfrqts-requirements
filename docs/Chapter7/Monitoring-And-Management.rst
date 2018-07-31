@@ -7,7 +7,7 @@ Monitoring & Management
 
 This section addresses data collection and event processing
 functionality that is directly dependent on the interfaces
-provided by the VNFs’ APIs. These can be in the form of asynchronous
+provided by the VNFs' APIs. These can be in the form of asynchronous
 interfaces for event, fault notifications, and autonomous data streams.
 They can also be synchronous interfaces for on-demand requests to
 retrieve various performance, usage, and other event information.
@@ -36,7 +36,7 @@ Streaming (VES) specifications. While this document is focused on
 specifying some of the records from the ONAP perspective, there may
 be other external bodies using the same framework to specify additional
 records. For example, OPNFV has a VES project that is looking to specify
-records for OpenStack’s internal telemetry to manage Application (VNFs),
+records for OpenStack's internal telemetry to manage Application (VNFs),
 physical and virtual infrastructure (compute, storage, network devices),
 and virtual infrastructure managers (cloud controllers, SDN controllers).
 Note that any configurable parameters for these data records (e.g.,
@@ -195,7 +195,7 @@ Data Structure Specification of the Event Record
 
 For additional information on the event record formats of the data
 structures mentioned above, please refer to `VES Event
-Listener <https://github.com/att/evel-test-collector/tree/master/docs/att_interface_definition>`__.
+Listener <https://onap.readthedocs.io/en/latest/submodules/vnfsdk/model.git/docs/files/VESEventListener.html>`__.
 
 Transports and Protocols Supporting Resource Interfaces
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -208,7 +208,7 @@ synchronous communications over secure connections. The specified
 encoding provides self-documenting content, so data fields can be
 changed as needs evolve, while minimizing changes to data delivery.
 
-The term ‘Event Record’ is used throughout this document to represent
+The term 'Event Record' is used throughout this document to represent
 various forms of telemetry or instrumentation made available by the
 VNF including, faults, status events, various other types of VNF
 measurements and logs. Headers received by themselves must be used
@@ -332,7 +332,7 @@ Note: if Google Protocol Buffers are employed for delivery of VNF
 telemetry, Key-Value Google Protocol Buffers (KV-GPB) is the
 preferred serialization method.  Details of specifications and
 versioning corresponding to a release can be found at:
-`VES Event Listener <https://github.com/att/evel-test-collector/tree/master/docs/att_interface_definition>`__.
+`VES Event Listener <https://onap.readthedocs.io/en/latest/submodules/vnfsdk/model.git/docs/files/VESEventListener.html>`__.
 
 Note: While supporting the VNF telemetry delivery approach described above,
 we are still leveraging the VES JSON based model in DCAE.  The purpose of
