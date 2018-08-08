@@ -7467,6 +7467,16 @@ Note that:
    an attribute of the OS::Heat::ResourceGroup itself, and will be an
    array from the perspective of the parent template.
 
+.. req::
+    :id: R-17528
+    :target: VNF
+    :keyword: MUST
+
+    A VNF's Heat Orchestration Template's first level Nested YAML file
+    **MUST NOT** contain more than one ``OS::Nova::Server`` resource.
+    A VNF's Heat Orchestration Template's second level Nested YAML file
+    **MUST NOT** contain an ``OS::Nova::Server`` resource.
+
 Nested Heat Template Example: Static
 ++++++++++++++++++++++++++++++++++++++
 

@@ -6,6 +6,27 @@
 VNF Requirements Release Notes
 ==============================
 
+Version: 3.0.0 
+--------------
+
+:Release Date: In Progress (Casablanca Release)
+
+**New Features**
+    - Added R-17528 to Heat section regarding Nested YAML requirements
+
+**Bug Fixes** 
+
+**Known Issues**
+
+**Security Issues**
+    - None
+
+**Upgrade Notes**
+
+**Deprecation Notes**
+
+**Other**
+
 Version: 2.0.0
 --------------
 
