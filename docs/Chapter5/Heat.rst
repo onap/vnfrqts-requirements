@@ -4398,18 +4398,18 @@ IPv4 and/or IPv6 addresses.
     :keyword: MUST
 
     When the VNF's Heat Orchestration Template's Resource
-    'OS::Neutron::Port' is attaching to an external network, and an IPv4 address is
-    assigned using the property
-    'fixed_ips' map property 'ip_address' and the parameter type is defined
+    'OS::Neutron::Port' is attaching to an external network, and an IPv4
+    address is assigned using the property 'fixed_ips' map property
+    'ip_address' and the parameter type is defined
     as a string, the parameter name **MUST** follow the naming
     convention
-    - '{vm-type}_{network-role}\_ip\_{index}'
+      - '{vm-type}_{network-role}\_ip\_{index}'
 
-where
+    where
 
-    - '{vm-type}' is the {vm-type} associated with the OS::Nova::Server
-    - '{network-role}' is the {network-role} of the external network
-    - the value for {index} must start at zero (0) and increment by one
+      - '{vm-type}' is the {vm-type} associated with the OS::Nova::Server
+      - '{network-role}' is the {network-role} of the external network
+      - the value for {index} must start at zero (0) and increment by one
 
 .. req::
     :id: R-39841
