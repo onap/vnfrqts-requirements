@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a76adc5_56cbfba4",
+        "filename": "docs/Chapter7/VNF-On-boarding-and-package-management.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2018-08-21T23:08:56Z",
+      "side": 1,
+      "message": "For new requirements, please update to include the additional metadata.  introduced, impacts (if known), and validtion_mode (static).",
+      "revId": "0c622034345f4331b8fad9d91951a9029db7c0aa",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
