@@ -125,6 +125,17 @@ Resource Description
     The xNF provider **MUST** provide information regarding any
     dependency (e.g., affinity, anti-affinity) with other xNFs and resources.
 
+.. req::
+    :id: R-22346
+    :target: XNF
+    :keyword: MUST
+    :impacts: None
+    :introduced: Casablanca
+    :validation_mode: None
+
+    The xNF package MUST provide `VES Event Registration <https://onap.readthedocs.io/en/latest/submodules/vnfsdk/model.git/docs/files/VESEventRegistration.html>`_ for all VES events provided by that xNF.
+
+
 Resource Configuration
 ^^^^^^^^^^^^^^^^^^^^^^^
 
