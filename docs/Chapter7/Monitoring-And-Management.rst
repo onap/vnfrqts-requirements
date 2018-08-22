@@ -684,6 +684,26 @@ Security
     Information (SPI) or certain proprietary data, in addition to applying the
     regular procedures for securing access and delivery.
 
+Bulk PM
+~~~~~~~~~~
+
+.. req::
+    :id: R-xxxx1
+    :target: XNF
+    :keyword: SHOULD
+
+    The xNF **SHOULD** support FileReady VES event for event-driven bulk transfer
+    of monitoring data.
+
+
+.. req::
+    :id: R-xxxx2
+    :target: XNF
+    :keyword: SHOULD
+
+    The xNF **SHOULD** support File transferring protocol, such as FTPES or HTTPS,
+    when supporting the event-driven bulk transfer of monitoring data.
+
 .. [#7.4.1]
    This option is not currently supported in ONAP and it is currently
    under consideration.
