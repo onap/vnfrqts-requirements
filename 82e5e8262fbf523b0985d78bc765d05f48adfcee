@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a76adc5_aa30e09e",
+        "filename": "docs/Chapter7/VNF-On-boarding-and-package-management.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2018-08-22T13:27:36Z",
+      "side": 1,
+      "message": "Sorry, I think the metadata still requires some changes.\n\nI think target should be XNF PACKAGE, but we did have a VNF Package.  Maybe we can confirm with the team on the daily call if we need to introduce a new target or if all VNF Package targets should simply be XNF Package.\n\nIf we don\u0027t know the impacts, then we can exclude it vs. including None.  \n\nvalidation_mode would be static since we\u0027re validating the package.  The validation_mode isn\u0027t meant to imply if a test case exists or not - just how it would be validated when written.\n\nintroduced should be all lower case. Full details here: https://wiki.onap.org/display/DW/VNFRQTS+Requirement+and+Documentation+Standards",
+      "revId": "82e5e8262fbf523b0985d78bc765d05f48adfcee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
