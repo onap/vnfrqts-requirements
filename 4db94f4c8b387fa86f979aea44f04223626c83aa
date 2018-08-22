@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a76adc5_605c29ee",
+        "filename": "docs/Chapter7/Monitoring-And-Management.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 687,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2018-08-22T19:46:53Z",
+      "side": 1,
+      "message": "Can we spell out what PM means here?",
+      "revId": "4db94f4c8b387fa86f979aea44f04223626c83aa",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_206e3197",
+        "filename": "docs/Chapter7/Monitoring-And-Management.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 696,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2018-08-22T19:46:53Z",
+      "side": 1,
+      "message": "It would be useful to provide some reference to the VES standards here to provide more clarity on how to send this and what a FileReady event means.  Is there a place this is already defined?\n\nThis doesn\u0027t necessarily need to be in the requirement, and could be provided as introductory text at the top of the section.",
+      "revId": "4db94f4c8b387fa86f979aea44f04223626c83aa",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_00fa15bd",
+        "filename": "docs/Chapter7/Monitoring-And-Management.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 705,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2018-08-22T19:46:53Z",
+      "side": 1,
+      "message": "Is HTTPS supported?  The page I found on the wiki (https://wiki.onap.org/display/DW/5G+-+Bulk+PM) mentioned that FTPES was committed, and also mentioned SFTP but it did not mention HTTPS so I wanted to confirm.\n\nAre there any policies addressing storage constraints the XNF needs to adhere to?  For example, if the FileReady event is sent but data needs to be rotated or purged before collection.",
+      "revId": "4db94f4c8b387fa86f979aea44f04223626c83aa",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
