@@ -16,7 +16,7 @@
 Infrastructure Requirements
 ===========================
 
-This Amsterdam release of the requirements is targeted for those
+This release of the requirements is targeted for those
 implementations that consist of Network Clouds: Vanilla OpenStack
 (based on Ocata_) and commercial Clouds for example: OpenStack
 (including `Titanium - Mitaka from Wind River`_ and
