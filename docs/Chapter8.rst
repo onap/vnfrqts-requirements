@@ -2945,6 +2945,9 @@ xNF and compose complex services.
 R-98617 The xNF provider **MUST** provide information regarding any
 dependency (e.g., affinity, anti-affinity) with other xNFs and resources.
 
+R-22346 The xNF package MUST provide `VES Event Registration <https://onap.readthedocs.io/en/beijing/submodules/vnfsdk/model.git/docs/files/VESEventRegistration.html>`_
+for all VES events provided by that xNF.
+
 R-89571 The xNF **MUST** support and provide artifacts for configuration
 management using at least one of the following technologies;
 a) Netconf/YANG, b) Chef, or c) Ansible.
