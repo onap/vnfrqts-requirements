@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "1a76adc5_b31614f0",
+        "filename": "docs/Chapter7/Monitoring-And-Management.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 687,
+      "author": {
+        "id": 3967
+      },
+      "writtenOn": "2018-08-23T15:20:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a76adc5_605c29ee",
+      "revId": "4db94f4c8b387fa86f979aea44f04223626c83aa",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a76adc5_206e3197",
         "filename": "docs/Chapter7/Monitoring-And-Management.rst",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "1a76adc5_d3e870e4",
+        "filename": "docs/Chapter7/Monitoring-And-Management.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 696,
+      "author": {
+        "id": 3967
+      },
+      "writtenOn": "2018-08-23T15:20:11Z",
+      "side": 1,
+      "message": "Ves 6.0 is planned to be published soon. for now I have no link to refer.",
+      "parentUuid": "1a76adc5_206e3197",
+      "revId": "4db94f4c8b387fa86f979aea44f04223626c83aa",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a76adc5_00fa15bd",
         "filename": "docs/Chapter7/Monitoring-And-Management.rst",
         "patchSetId": 1
@@ -47,6 +83,24 @@
       "writtenOn": "2018-08-22T19:46:53Z",
       "side": 1,
       "message": "Is HTTPS supported?  The page I found on the wiki (https://wiki.onap.org/display/DW/5G+-+Bulk+PM) mentioned that FTPES was committed, and also mentioned SFTP but it did not mention HTTPS so I wanted to confirm.\n\nAre there any policies addressing storage constraints the XNF needs to adhere to?  For example, if the FileReady event is sent but data needs to be rotated or purged before collection.",
+      "revId": "4db94f4c8b387fa86f979aea44f04223626c83aa",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_d396304c",
+        "filename": "docs/Chapter7/Monitoring-And-Management.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 705,
+      "author": {
+        "id": 3967
+      },
+      "writtenOn": "2018-08-23T15:20:11Z",
+      "side": 1,
+      "message": "It is SFTP which is supported.\nI don\u0027t see any policies on this release.",
+      "parentUuid": "1a76adc5_00fa15bd",
       "revId": "4db94f4c8b387fa86f979aea44f04223626c83aa",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
