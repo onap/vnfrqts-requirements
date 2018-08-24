@@ -17,6 +17,6 @@ Service Design
 --------------
 
 This section, Service Design, has been left intentionally blank. It
-is out-of-scope for the VNF Requirements project for the Amsterdam
+is out-of-scope for the VNF Requirements project for this
 release and no numbered requirements are expected. Content may be
 added in future updates of this document.
