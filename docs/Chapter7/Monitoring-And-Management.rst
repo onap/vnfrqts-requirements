@@ -719,6 +719,16 @@ Bulk Performance Measurement
     The xNF **SHOULD** support File transferring protocol, such as FTPES or SFTP,
     when supporting the event-driven bulk transfer of monitoring data.
 
+.. req::
+    :id: R-xxxxxx
+    :target: XNF
+    :keyword: SHOULD
+    :introduced: casablanca
+    :impacts: dcae, dmaap
+
+    The xNF **SHOULD** support the data schema defined in 3GPP TS 32.435, when
+    supporting the event-driven bulk transfer of monitoring data.
+
 .. [#7.4.1]
    This option is not currently supported in ONAP and it is currently
    under consideration.
