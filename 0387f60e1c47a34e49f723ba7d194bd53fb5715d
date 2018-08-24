@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a76adc5_61598159",
+        "filename": "docs/Chapter7/Monitoring-And-Management.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 723,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2018-08-24T20:01:07Z",
+      "side": 1,
+      "message": "We\u0027ve changed the process for contributing new requirements a bit, and documented.  https://wiki.onap.org/display/DW/VNFRQTS+How+to+Contribute#VNFRQTSHowtoContribute-SubmittingGerritReviews \n\nCouple things:\n- You can generate unique requirement IDs using make_ids.py\n- You need to generate the requirements using tox -e docs.  This will generate both the HTML version for your inspection, but also a JSON version of the requirements that will also be checked in and hosted on ReadTheDocs.",
+      "revId": "0387f60e1c47a34e49f723ba7d194bd53fb5715d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_a178f9c4",
+        "filename": "docs/Chapter7/Monitoring-And-Management.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 729,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2018-08-24T20:01:07Z",
+      "side": 1,
+      "message": "Is there a specific version of the spec that should be targeted?  Does it matter?",
+      "revId": "0387f60e1c47a34e49f723ba7d194bd53fb5715d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
