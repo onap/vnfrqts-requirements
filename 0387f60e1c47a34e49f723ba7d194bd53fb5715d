@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "1a76adc5_72070d1d",
+        "filename": "docs/Chapter7/Monitoring-And-Management.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 723,
+      "author": {
+        "id": 3967
+      },
+      "writtenOn": "2018-08-25T16:21:09Z",
+      "side": 1,
+      "message": "- request ID is generated (R-75943)\n- \u0027tox -d docs\u0027 gives me error: \"sphinx-build: error: config directory doesn\u0027t contain a conf.py file\"",
+      "parentUuid": "1a76adc5_61598159",
+      "revId": "0387f60e1c47a34e49f723ba7d194bd53fb5715d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a76adc5_a178f9c4",
         "filename": "docs/Chapter7/Monitoring-And-Management.rst",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2018-08-24T20:01:07Z",
       "side": 1,
       "message": "Is there a specific version of the spec that should be targeted?  Does it matter?",
+      "revId": "0387f60e1c47a34e49f723ba7d194bd53fb5715d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_9202e909",
+        "filename": "docs/Chapter7/Monitoring-And-Management.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 729,
+      "author": {
+        "id": 3967
+      },
+      "writtenOn": "2018-08-25T16:21:09Z",
+      "side": 1,
+      "message": "3GPP adds new features by releases. But it is always backward compatibility. Therefore it does not matter.",
+      "parentUuid": "1a76adc5_a178f9c4",
       "revId": "0387f60e1c47a34e49f723ba7d194bd53fb5715d",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
