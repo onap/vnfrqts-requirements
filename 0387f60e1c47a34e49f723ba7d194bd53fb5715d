@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "1a76adc5_4d04b414",
+        "filename": "docs/Chapter7/Monitoring-And-Management.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 723,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2018-08-25T17:15:01Z",
+      "side": 1,
+      "message": "Yes, I tested this out, and there is an issue in the tox.ini file.\n\nIf you add -c . to the two lines below in tox.ini it should work\n\ncommands \u003d\n    sphinx-build -c . -b needs -n -d {envtmpdir}/doctrees ./docs/ ./docs/data/\n    sphinx-build -c . -b html -n -d {envtmpdir}/doctrees ./docs/ {toxinidir}/docs/_build/html",
+      "parentUuid": "1a76adc5_72070d1d",
+      "revId": "0387f60e1c47a34e49f723ba7d194bd53fb5715d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a76adc5_a178f9c4",
         "filename": "docs/Chapter7/Monitoring-And-Management.rst",
         "patchSetId": 1
