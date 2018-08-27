@@ -1,10 +1,10 @@
 {
-    "created": "2018-08-27T16:35:55.323885",
+    "created": "2018-08-27T19:33:30.140540",
     "current_version": "casablanca",
     "project": "",
     "versions": {
         "casablanca": {
-            "created": "2018-08-27T16:35:55.323795",
+            "created": "2018-08-27T19:33:30.140540",
             "needs": {
                 "R-00011": {
                     "description": "A VNF's Heat Orchestration Template's Nested YAML files\nparameter's **MUST NOT** have a parameter constraint defined.",
@@ -13271,7 +13271,7 @@
                     "validation_mode": ""
                 },
                 "R-58964": {
-                    "description": "The VNF **MUST** provide the capability to restrict read\nand write access to data.",
+                    "description": "The VNF **MUST** provide the capability to restrict read\nand write access to data handled by the VNF.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-58964",
@@ -13294,7 +13294,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
