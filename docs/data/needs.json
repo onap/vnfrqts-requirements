@@ -1,10 +1,10 @@
 {
-    "created": "2018-08-26T07:27:45.431204",
+    "created": "2018-08-27T16:35:55.323885",
     "current_version": "casablanca",
     "project": "",
     "versions": {
         "casablanca": {
-            "created": "2018-08-26T07:27:45.431191",
+            "created": "2018-08-27T16:35:55.323795",
             "needs": {
                 "R-00011": {
                     "description": "A VNF's Heat Orchestration Template's Nested YAML files\nparameter's **MUST NOT** have a parameter constraint defined.",
@@ -9868,7 +9868,7 @@
                     "validation_mode": ""
                 },
                 "R-43958": {
-                    "description": "The xNF Package **MUST** include documentation describing\nthe tests that were conducted by the xNF providor and the test results.",
+                    "description": "The xNF Package **MUST** include documentation describing\nthe tests that were conducted by the xNF provider and the test results.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-43958",
