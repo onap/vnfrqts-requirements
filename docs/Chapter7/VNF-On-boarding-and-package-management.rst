@@ -483,7 +483,7 @@ Testing
     :keyword: MUST
 
     The xNF Package **MUST** include documentation describing
-    the tests that were conducted by the xNF providor and the test results.
+    the tests that were conducted by the xNF provider and the test results.
 
 .. req::
     :id: R-04298
