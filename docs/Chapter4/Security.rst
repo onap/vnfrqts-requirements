@@ -1258,14 +1258,14 @@ applicable to security monitoring.
 
 Data Protection Requirements
 
-
 .. req::
     :id: R-58964
     :target: VNF
     :keyword: MUST
+    :updated: casablanca
 
     The VNF **MUST** provide the capability to restrict read
-    and write access to data.
+    and write access to data handled by the VNF.
 
 .. req::
     :id: R-99112
