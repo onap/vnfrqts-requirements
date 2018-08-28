@@ -356,15 +356,9 @@ Monitoring & Management Requirements
 VNF telemetry via standardized interface
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
-.. req::
-    :id: R-51910
-    :target: XNF
-    :keyword: MUST
-
-    The xNF **MUST** provide all telemetry (e.g., fault event
-    records, syslog records, performance records etc.) to ONAP using the
-    model, format and mechanisms described in this section.
+All VNF telemetry data (e.g. fault event records, syslog records, 
+performance records, etc.) need to be delivered to ONAP using the 
+standardized models and interfaces described in this section.
 
 Encoding and Serialization
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -416,35 +410,39 @@ Buffers (GPB).
 KV-GPB/GPB
 ~~~~~~~~~~~~~~~~~~
 
-Telemetry data delivered using Google Protocol Buffers v3 (proto3)
-can be serialized in one of the following methods:
+.. req::
+    :id: R-10623
+    :target: XNF
+    :keyword: MUST
+    :introduced: casablanca
 
-* Key-value Google Protocol Buffers (KV-GPB) is also known as
-  self-describing GPB:
+    Telemetry data delivered using Google Protocol Buffers v3 (proto3)
+    **MUST** be serialized in one of the following methods:
 
-  * keys are strings that correspond to the path of the system
-    resources for the VNF being monitored.
-  * values correspond to integers or strings that identify the
-    operational state of the VNF resource, such a statistics counters
-    and the state of a VNF resource.
+      * Key-value Google Protocol Buffers (KV-GPB) is also known as
+        self-describing GPB:
+        
+          * keys are strings that correspond to the path of the system
+            resources for the VNF being monitored.
+          * values correspond to integers or strings that identify the
+            operational state of the VNF resource, such a statistics counters
+            and the state of a VNF resource.
+          * VNF providers must supply valid KV-GPB definition file(s) to allow
+            for the decoding of all KV-GPB encoded telemetry messages.
+            
+     * Native Google Protocol Buffers (GPB) is also known as compact GPB:
+     
+          * keys are represented as integers pointing to the system resources for
+            the VNF being monitored.
+          * values correspond to integers or strings that identify the operational
+            state of the VNF resource, such a statistics counters and the state
+            of a VNF resource.
+          * Google Protocol Buffers (GPB) requires metadata in the form of .proto
+            files. VNF providers must supply the necessary GPB .proto files such that
+            GPB telemetry messages can be encoded and decoded.
 
-* VNF providers must supply valid KV-GPB definition file(s) to allow
-  for the decoding of all KV-GPB encoded telemetry messages.
-
-* Native Google Protocol Buffers (GPB) is also known as compact GPB:
-
-  * keys are represented as integers pointing to the system resources for
-    the VNF being monitored.
-  * values correspond to integers or strings that identify the operational
-    state of the VNF resource, such a statistics counters and the state
-    of a VNF resource.
-
-* Google Protocol Buffers (GPB) requires metadata in the form of .proto
-  files. VNF providers must supply the necessary GPB .proto files such that
-  GPB telemetry messages can be encoded and decoded.
-
-* In the future, we may consider support for other types of
-  encoding & serialization methods based on industry demand.
+In the future, we may consider support for other types of
+encoding & serialization methods based on industry demand.
 
 
 Reporting Frequency
