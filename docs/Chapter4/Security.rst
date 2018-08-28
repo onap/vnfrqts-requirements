@@ -1317,9 +1317,11 @@ Data Protection Requirements
     :id: R-73067
     :target: VNF
     :keyword: MUST
+    :updated: casablanca
 
-    The VNF **MUST** use industry standard cryptographic algorithms
-    and standard modes of operations when implementing cryptography.
+    The VNF **MUST** use NIST and industry standard cryptographic
+    algorithms and standard modes of operations when implementing
+    cryptography.
 
 .. req::
     :id: R-22645
