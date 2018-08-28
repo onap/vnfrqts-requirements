@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a76adc5_ceaf5093",
+        "filename": "docs/Chapter7/Monitoring-And-Management.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 3271
+      },
+      "writtenOn": "2018-08-28T17:51:03Z",
+      "side": 1,
+      "message": "Hey John, please review change to remove white spaces at the end of the lines.",
+      "range": {
+        "startLine": 359,
+        "startChar": 0,
+        "endLine": 361,
+        "endChar": 61
+      },
+      "revId": "b0bc057ecb9a4d99eecc4e3567b13047a8e2827a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_4e9b4072",
+        "filename": "docs/Chapter7/Monitoring-And-Management.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 3271
+      },
+      "writtenOn": "2018-08-28T17:51:03Z",
+      "side": 1,
+      "message": "Please add the metadata: \":introduced: casablanca\"\n\nWhen creating a list, please make sure to include spaces between levels of the list. For example:\n\n      * Key-value Google Protocol Buffers (KV-GPB) is also known as\n        self-describing GPB:\n\n          * keys are strings that correspond to the path of the system\n            resources for the VNF being monitored.\n          * values correspond to integers or strings that identify the\n            operational state of the VNF resource, such a statistics counters\n            and the state of a VNF resource.\n          * VNF providers must supply valid KV-GPB definition file(s) to allow \n            for the decoding of all KV-GPB encoded telemetry messages.\n\n     * Native Google Protocol Buffers (GPB) is also known as compact GPB:\n\n          * keys are represented as integers pointing to the system resources  \n            for the VNF being monitored.",
+      "range": {
+        "startLine": 421,
+        "startChar": 0,
+        "endLine": 438,
+        "endChar": 62
+      },
+      "revId": "b0bc057ecb9a4d99eecc4e3567b13047a8e2827a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
