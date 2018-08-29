@@ -18,7 +18,25 @@ Heat
 
 General Guidelines
 ^^^^^^^^^^^^^^^^^^
-This section contains general Heat Orchestration Template guidelines.
+This section contains general Heat Orchestration Template guidelines
+and requirements.
+
+Heat Template Compliance
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+The Heat Orchestration Template requirements with RFC 2119
+keywords **MUST** and **MUST NOT** can be validated against a set of Heat
+Templates via the VNF Validation Program (VVP).
+
+**NOTE**: Not all requirements are currently testable via VVP.
+
+The VVP *validation scripts* project contains python validation
+scripts that will parse Heat Orchestration Templates in a given directory
+to ensure that they comply with ONAP Heat Orchestration Template requirements.
+
+For instructions on how to use the VVP validation scripts,
+please see the validation scripts
+`README <https://github.com/onap/vvp-validation-scripts>`__
 
 YAML Format
 ~~~~~~~~~~~
