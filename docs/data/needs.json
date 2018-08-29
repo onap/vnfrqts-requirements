@@ -1,10 +1,10 @@
 {
-    "created": "2018-08-28T18:13:45.520689",
+    "created": "2018-08-29T15:58:48.649549",
     "current_version": "casablanca",
     "project": "",
     "versions": {
         "casablanca": {
-            "created": "2018-08-28T18:13:45.520548",
+            "created": "2018-08-29T15:58:48.649549",
             "needs": {
                 "R-00011": {
                     "description": "A VNF's Heat Orchestration Template's Nested YAML files\nparameter's **MUST NOT** have a parameter constraint defined.",
@@ -1946,6 +1946,35 @@
                         "VNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "XNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": ""
+                },
+                "R-10623": {
+                    "description": "Telemetry data delivered using Google Protocol Buffers v3 (proto3)\n**MUST** be serialized in one of the following methods:\n\n  * Key-value Google Protocol Buffers (KV-GPB) is also known as\n    self-describing GPB:\n\n      * keys are strings that correspond to the path of the system\n        resources for the VNF being monitored.\n      * values correspond to integers or strings that identify the\n        operational state of the VNF resource, such a statistics counters\n        and the state of a VNF resource.\n      * VNF providers must supply valid KV-GPB definition file(s) to allow\n        for the decoding of all KV-GPB encoded telemetry messages.\n\n * Native Google Protocol Buffers (GPB) is also known as compact GPB:\n\n      * keys are represented as integers pointing to the system resources for\n        the VNF being monitored.\n      * values correspond to integers or strings that identify the operational\n        state of the VNF resource, such a statistics counters and the state\n        of a VNF resource.\n      * Google Protocol Buffers (GPB) requires metadata in the form of .proto\n        files. VNF providers must supply the necessary GPB .proto files such that\n        GPB telemetry messages can be encoded and decoded.",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-10623",
+                    "impacts": "",
+                    "introduced": "casablanca",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "KV-GPB/GPB",
+                    "sections": [
+                        "KV-GPB/GPB",
+                        "Monitoring & Management Requirements",
+                        "Monitoring & Management"
                     ],
                     "status": null,
                     "tags": [],
@@ -21970,7 +21999,7 @@
                     "validation_mode": ""
                 }
             },
-            "needs_amount": 754
+            "needs_amount": 755
         },
         "master branch": {
             "created": "2018-08-22T16:47:37.993404",
