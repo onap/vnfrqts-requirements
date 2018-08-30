@@ -1344,20 +1344,22 @@ Data Protection Requirements
     :id: R-02170
     :target: VNF
     :keyword: MUST
+    :updated: casablanca
 
     The VNF **MUST** use, whenever possible, standard implementations
-    of security applications, protocols, and format, e.g., S/MIME, TLS, SSH,
+    of security applications, protocols, and formats, e.g., S/MIME, TLS, SSH,
     IPSec, X.509 digital certificates for cryptographic implementations.
-    These implementations must be purchased from reputable vendors and must
-    not be developed in-house.
+    These implementations must be purchased from reputable vendors or obtained
+    from reputable open source communities and must not be developed in-house.
 
 .. req::
     :id: R-70933
     :target: VNF
     :keyword: MUST
+    :updated: casablanca
 
     The VNF **MUST** provide the ability to migrate to newer
-    versions of cryptographic algorithms and protocols with no impact.
+    versions of cryptographic algorithms and protocols with minimal impact.
 
 .. req::
     :id: R-44723
@@ -1403,9 +1405,10 @@ Data Protection Requirements
     :id: R-69610
     :target: VNF
     :keyword: MUST
+    :updated: casablanca
 
-    The VNF **MUST** provide the capability of using certificates
-    issued from a Certificate Authority not provided by the VNF provider.
+    The VNF **MUST** provide the capability of using X.509 certificates
+    issued by an external Certificate Authority.
 
 .. req::
     :id: R-83500
