@@ -1,10 +1,10 @@
 {
-    "created": "2018-08-29T15:58:48.649549",
+    "created": "2018-08-30T17:31:35.004923",
     "current_version": "casablanca",
     "project": "",
     "versions": {
         "casablanca": {
-            "created": "2018-08-29T15:58:48.649549",
+            "created": "2018-08-30T17:31:35.004799",
             "needs": {
                 "R-00011": {
                     "description": "A VNF's Heat Orchestration Template's Nested YAML files\nparameter's **MUST NOT** have a parameter constraint defined.",
@@ -530,7 +530,7 @@
                     "validation_mode": ""
                 },
                 "R-02170": {
-                    "description": "The VNF **MUST** use, whenever possible, standard implementations\nof security applications, protocols, and format, e.g., S/MIME, TLS, SSH,\nIPSec, X.509 digital certificates for cryptographic implementations.\nThese implementations must be purchased from reputable vendors and must\nnot be developed in-house.",
+                    "description": "The VNF **MUST** use, whenever possible, standard implementations\nof security applications, protocols, and formats, e.g., S/MIME, TLS, SSH,\nIPSec, X.509 digital certificates for cryptographic implementations.\nThese implementations must be purchased from reputable vendors or obtained\nfrom reputable open source communities and must not be developed in-house.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-02170",
@@ -553,7 +553,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -15285,7 +15285,7 @@
                     "validation_mode": ""
                 },
                 "R-69610": {
-                    "description": "The VNF **MUST** provide the capability of using certificates\nissued from a Certificate Authority not provided by the VNF provider.",
+                    "description": "The VNF **MUST** provide the capability of using X.509 certificates\nissued by an external Certificate Authority.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-69610",
@@ -15308,7 +15308,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -15604,7 +15604,7 @@
                     "validation_mode": ""
                 },
                 "R-70933": {
-                    "description": "The VNF **MUST** provide the ability to migrate to newer\nversions of cryptographic algorithms and protocols with no impact.",
+                    "description": "The VNF **MUST** provide the ability to migrate to newer\nversions of cryptographic algorithms and protocols with minimal impact.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-70933",
@@ -15627,7 +15627,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
