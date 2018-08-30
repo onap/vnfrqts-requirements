@@ -80,12 +80,10 @@ the product’s lifecycle.
     :id: R-23740
     :target: VNF
     :keyword: MUST
+    :updated: casablanca
 
-    The VNF **MUST** accommodate the security principle of
-    "least privilege" during development, implementation and operation.
-    The importance of "least privilege" cannot be overstated and must be
-    observed in all aspects of VNF development and not limited to security.
-    This is applicable to all sections of this document.
+    The VNF **MUST** implement and enforce the principle of least privilege
+    on all protected interfaces.
 
 .. req::
     :id: R-61354
@@ -161,10 +159,10 @@ the product’s lifecycle.
     :id: R-19768
     :target: VNF
     :keyword: SHOULD
+    :updated: casablanca
 
-    The VNF **SHOULD** support L3 VPNs that enable segregation of
-    traffic by application (dropping packets not belonging to the VPN) (i.e.,
-    AVPN, IPSec VPN for Internet routes).
+    The VNF **SHOULD** support Layer 3 VPNs that enable segregation of
+    traffic by application (i.e., AVPN, IPSec VPN for Internet routes).
 
 .. req::
     :id: R-33981
@@ -179,9 +177,10 @@ the product’s lifecycle.
     :id: R-40813
     :target: VNF
     :keyword: SHOULD
+    :updated: casablanca
 
     The VNF **SHOULD** support the use of virtual trusted platform
-    module, hypervisor security testing and standards scanning tools.
+    module.
 
 .. req::
     :id: R-56904
@@ -280,9 +279,10 @@ the product’s lifecycle.
     :id: R-62498
     :target: VNF
     :keyword: MUST
+    :updated: casablanca
 
-    The VNF **MUST**, if not using the NCSPs IDAM API, encrypt
-    OA&M access (e.g., SSH, SFTP).
+    The VNF **MUST** support encrypted access protocols, e.g., TLS,
+    SSH, SFTP.
 
 .. req::
     :id: R-79107
@@ -406,10 +406,10 @@ Identity and Access Management Requirements
     :id: R-99174
     :target: VNF
     :keyword: MUST
+    :updated: casablanca
 
-    The VNF **MUST** comply with Individual Accountability
-    (each person must be assigned a unique ID) when persons or non-person
-    entities access VNFs.
+    The VNF **MUST** allow the creation of multiple IDs so that
+    individual accountability can be supported.
 
 .. req::
     :id: R-42874

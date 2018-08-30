@@ -1,10 +1,10 @@
 {
-    "created": "2018-08-30T17:31:35.004923",
+    "created": "2018-08-30T21:56:21.449389",
     "current_version": "casablanca",
     "project": "",
     "versions": {
         "casablanca": {
-            "created": "2018-08-30T17:31:35.004799",
+            "created": "2018-08-30T21:56:21.449234",
             "needs": {
                 "R-00011": {
                     "description": "A VNF's Heat Orchestration Template's Nested YAML files\nparameter's **MUST NOT** have a parameter constraint defined.",
@@ -3944,7 +3944,7 @@
                     "validation_mode": ""
                 },
                 "R-19768": {
-                    "description": "The VNF **SHOULD** support L3 VPNs that enable segregation of\ntraffic by application (dropping packets not belonging to the VPN) (i.e.,\nAVPN, IPSec VPN for Internet routes).",
+                    "description": "The VNF **SHOULD** support Layer 3 VPNs that enable segregation of\ntraffic by application (i.e., AVPN, IPSec VPN for Internet routes).",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-19768",
@@ -3967,7 +3967,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -5248,7 +5248,7 @@
                     "validation_mode": ""
                 },
                 "R-23740": {
-                    "description": "The VNF **MUST** accommodate the security principle of\n\"least privilege\" during development, implementation and operation.\nThe importance of \"least privilege\" cannot be overstated and must be\nobserved in all aspects of VNF development and not limited to security.\nThis is applicable to all sections of this document.",
+                    "description": "The VNF **MUST** implement and enforce the principle of least privilege\non all protected interfaces.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-23740",
@@ -5271,7 +5271,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -9087,7 +9087,7 @@
                     "validation_mode": ""
                 },
                 "R-40813": {
-                    "description": "The VNF **SHOULD** support the use of virtual trusted platform\nmodule, hypervisor security testing and standards scanning tools.",
+                    "description": "The VNF **SHOULD** support the use of virtual trusted platform\nmodule.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-40813",
@@ -9110,7 +9110,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -13914,7 +13914,7 @@
                     "validation_mode": ""
                 },
                 "R-62498": {
-                    "description": "The VNF **MUST**, if not using the NCSPs IDAM API, encrypt\nOA&M access (e.g., SSH, SFTP).",
+                    "description": "The VNF **MUST** support encrypted access protocols, e.g., TLS,\nSSH, SFTP.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-62498",
@@ -13937,7 +13937,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -21743,7 +21743,7 @@
                     "validation_mode": ""
                 },
                 "R-99174": {
-                    "description": "The VNF **MUST** comply with Individual Accountability\n(each person must be assigned a unique ID) when persons or non-person\nentities access VNFs.",
+                    "description": "The VNF **MUST** allow the creation of multiple IDs so that\nindividual accountability can be supported.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-99174",
@@ -21766,7 +21766,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
