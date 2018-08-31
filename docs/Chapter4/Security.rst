@@ -94,20 +94,6 @@ the product’s lifecycle.
     services (e.g., restricting access to certain ports or applications).
 
 .. req::
-    :id: R-85633
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST** implement Data Storage Encryption
-    (database/disk encryption) for Sensitive Personal Information (SPI)
-    and other subscriber identifiable data.
-
-    Note: Subscribers SPI/data must be encrypted at rest, and other
-    subscriber identifiable data should be encrypted at rest. Other
-    data protection requirements exist and should be well understood
-    by the developer.
-
-.. req::
     :id: R-92207
     :target: VNF
     :keyword: SHOULD
@@ -133,15 +119,6 @@ the product’s lifecycle.
 
     The VNF **SHOULD** have source code scanned using scanning
     tools (e.g., Fortify) and provide reports.
-
-.. req::
-    :id: R-55830
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST** distribute all production code from NCSP
-    internal sources only. No production code, libraries, OS images, etc.
-    shall be distributed from publically accessible depots.
 
 .. req::
     :id: R-99771
@@ -249,16 +226,6 @@ the product’s lifecycle.
     Application levels as appropriate.
 
 .. req::
-    :id: R-52085
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST**, if not using the NCSP's IDAM API, provide
-    the ability to support Multi-Factor Authentication (e.g., 1st factor =
-    Software token on device (RSA SecureID); 2nd factor = User Name+Password,
-    etc.) for the users.
-
-.. req::
     :id: R-98391
     :target: VNF
     :keyword: MUST
@@ -266,14 +233,6 @@ the product’s lifecycle.
     The VNF **MUST**, if not using the NCSP's IDAM API, support
     Role-Based Access Control to permit/limit the user/application to
     performing specific activities.
-
-.. req::
-    :id: R-63217
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST**, if not using the NCSP's IDAM API, support
-    logging via ONAP for a historical view of "who did what and when."
 
 .. req::
     :id: R-62498
@@ -1268,14 +1227,6 @@ Data Protection Requirements
     and write access to data handled by the VNF.
 
 .. req::
-    :id: R-99112
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST** provide the capability to restrict access
-    to data to specific users.
-
-.. req::
     :id: R-83227
     :target: VNF
     :keyword: MUST
@@ -1322,15 +1273,6 @@ Data Protection Requirements
     The VNF **MUST** use NIST and industry standard cryptographic
     algorithms and standard modes of operations when implementing
     cryptography.
-
-.. req::
-    :id: R-22645
-    :target: VNF
-    :keyword: SHOULD
-
-    The VNF **SHOULD** use commercial algorithms only when there
-    are no applicable governmental standards for specific cryptographic
-    functions, e.g., public key cryptography, message digests.
 
 .. req::
     :id: R-12467

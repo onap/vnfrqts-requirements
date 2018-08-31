@@ -1,10 +1,10 @@
 {
-    "created": "2018-08-30T21:56:21.449389",
+    "created": "2018-08-31T17:36:18.850778",
     "current_version": "casablanca",
     "project": "",
     "versions": {
         "casablanca": {
-            "created": "2018-08-30T21:56:21.449234",
+            "created": "2018-08-31T17:36:18.850676",
             "needs": {
                 "R-00011": {
                     "description": "A VNF's Heat Orchestration Template's Nested YAML files\nparameter's **MUST NOT** have a parameter constraint defined.",
@@ -4830,34 +4830,6 @@
                         "Output Parameters",
                         "ONAP Heat Orchestration Templates: Overview",
                         "Heat"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "",
-                    "validated_by": "",
-                    "validation_mode": ""
-                },
-                "R-22645": {
-                    "description": "The VNF **SHOULD** use commercial algorithms only when there\nare no applicable governmental standards for specific cryptographic\nfunctions, e.g., public key cryptography, message digests.",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-22645",
-                    "impacts": "",
-                    "introduced": "",
-                    "keyword": "SHOULD",
-                    "links": [],
-                    "notes": "",
-                    "section_name": "VNF Data Protection Requirements",
-                    "sections": [
-                        "VNF Data Protection Requirements",
-                        "VNF Security"
                     ],
                     "status": null,
                     "tags": [],
@@ -11823,34 +11795,6 @@
                     "validated_by": "",
                     "validation_mode": ""
                 },
-                "R-52085": {
-                    "description": "The VNF **MUST**, if not using the NCSP's IDAM API, provide\nthe ability to support Multi-Factor Authentication (e.g., 1st factor =\nSoftware token on device (RSA SecureID); 2nd factor = User Name+Password,\netc.) for the users.",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-52085",
-                    "impacts": "",
-                    "introduced": "",
-                    "keyword": "MUST",
-                    "links": [],
-                    "notes": "",
-                    "section_name": "VNF General Security Requirements",
-                    "sections": [
-                        "VNF General Security Requirements",
-                        "VNF Security"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "",
-                    "validated_by": "",
-                    "validation_mode": ""
-                },
                 "R-52425": {
                     "description": "A VNF's port connected to an internal network **MUST** connect\nthe port to VMs in the same VNF.",
                     "full_title": "",
@@ -12595,34 +12539,6 @@
                     "sections": [
                         "Compute, Network, and Storage Requirements",
                         "VNF On-boarding and package management"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "",
-                    "validated_by": "",
-                    "validation_mode": ""
-                },
-                "R-55830": {
-                    "description": "The VNF **MUST** distribute all production code from NCSP\ninternal sources only. No production code, libraries, OS images, etc.\nshall be distributed from publically accessible depots.",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-55830",
-                    "impacts": "",
-                    "introduced": "",
-                    "keyword": "MUST",
-                    "links": [],
-                    "notes": "",
-                    "section_name": "VNF General Security Requirements",
-                    "sections": [
-                        "VNF General Security Requirements",
-                        "VNF Security"
                     ],
                     "status": null,
                     "tags": [],
@@ -14078,34 +13994,6 @@
                         "Heat Orchestration Template Structure",
                         "Heat Orchestration Template Format",
                         "Heat"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "",
-                    "validated_by": "",
-                    "validation_mode": ""
-                },
-                "R-63217": {
-                    "description": "The VNF **MUST**, if not using the NCSP's IDAM API, support\nlogging via ONAP for a historical view of \"who did what and when.\"",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-63217",
-                    "impacts": "",
-                    "introduced": "",
-                    "keyword": "MUST",
-                    "links": [],
-                    "notes": "",
-                    "section_name": "VNF General Security Requirements",
-                    "sections": [
-                        "VNF General Security Requirements",
-                        "VNF Security"
                     ],
                     "status": null,
                     "tags": [],
@@ -18521,34 +18409,6 @@
                     "validated_by": "",
                     "validation_mode": ""
                 },
-                "R-85633": {
-                    "description": "The VNF **MUST** implement Data Storage Encryption\n(database/disk encryption) for Sensitive Personal Information (SPI)\nand other subscriber identifiable data.\n\nNote: Subscribers SPI/data must be encrypted at rest, and other\nsubscriber identifiable data should be encrypted at rest. Other\ndata protection requirements exist and should be well understood\nby the developer.",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-85633",
-                    "impacts": "",
-                    "introduced": "",
-                    "keyword": "MUST",
-                    "links": [],
-                    "notes": "",
-                    "section_name": "VNF General Security Requirements",
-                    "sections": [
-                        "VNF General Security Requirements",
-                        "VNF Security"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "",
-                    "validated_by": "",
-                    "validation_mode": ""
-                },
                 "R-85653": {
                     "description": "The xNF **MUST** provide metrics (e.g., number of sessions,\nnumber of subscribers, number of seats, etc.) to ONAP for tracking\nevery license.",
                     "full_title": "",
@@ -21714,34 +21574,6 @@
                     "validated_by": "",
                     "validation_mode": ""
                 },
-                "R-99112": {
-                    "description": "The VNF **MUST** provide the capability to restrict access\nto data to specific users.",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-99112",
-                    "impacts": "",
-                    "introduced": "",
-                    "keyword": "MUST",
-                    "links": [],
-                    "notes": "",
-                    "section_name": "VNF Data Protection Requirements",
-                    "sections": [
-                        "VNF Data Protection Requirements",
-                        "VNF Security"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "",
-                    "validated_by": "",
-                    "validation_mode": ""
-                },
                 "R-99174": {
                     "description": "The VNF **MUST** allow the creation of multiple IDs so that\nindividual accountability can be supported.",
                     "full_title": "",
@@ -22001,7 +21833,7 @@
             },
             "needs_amount": 755
         },
-        "master branch": {
+        "beijing": {
             "created": "2018-08-22T16:47:37.993404",
             "needs": {
                 "R-00011": {
