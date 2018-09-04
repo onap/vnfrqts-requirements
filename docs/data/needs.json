@@ -1,10 +1,10 @@
 {
-    "created": "2018-08-31T17:36:18.850778",
+    "created": "2018-09-04T21:23:02.895014",
     "current_version": "casablanca",
     "project": "",
     "versions": {
         "casablanca": {
-            "created": "2018-08-31T17:36:18.850676",
+            "created": "2018-09-04T21:23:02.894928",
             "needs": {
                 "R-00011": {
                     "description": "A VNF's Heat Orchestration Template's Nested YAML files\nparameter's **MUST NOT** have a parameter constraint defined.",
@@ -21,8 +21,7 @@
                         "constraints",
                         "parameters",
                         "Heat Orchestration Template Structure",
-                        "Heat Orchestration Template Format",
-                        "Heat"
+                        "ONAP Heat Orchestration Template Format"
                     ],
                     "status": null,
                     "tags": [],
@@ -134,8 +133,7 @@
                     "section_name": "Nested Heat Template Requirements",
                     "sections": [
                         "Nested Heat Template Requirements",
-                        "Heat Template Constructs",
-                        "Heat"
+                        "ONAP Heat Heat Template Constructs"
                     ],
                     "status": null,
                     "tags": [],
@@ -163,8 +161,7 @@
                     "section_name": "External Networks",
                     "sections": [
                         "External Networks",
-                        "Networking",
-                        "Heat"
+                        "ONAP Heat Networking"
                     ],
                     "status": null,
                     "tags": [],
@@ -191,9 +188,7 @@
                     "notes": "",
                     "section_name": "{network-role}",
                     "sections": [
-                        "{network-role}",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "{network-role}"
                     ],
                     "status": null,
                     "tags": [],
@@ -250,8 +245,7 @@
                     "section_name": "Nested Heat Template Requirements",
                     "sections": [
                         "Nested Heat Template Requirements",
-                        "Heat Template Constructs",
-                        "Heat"
+                        "ONAP Heat Heat Template Constructs"
                     ],
                     "status": null,
                     "tags": [],
@@ -309,9 +303,7 @@
                     "section_name": "Property: availability_zone",
                     "sections": [
                         "Property: availability_zone",
-                        "Resource: OS::Nova::Server - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -357,7 +349,7 @@
                     "validation_mode": ""
                 },
                 "R-01455": {
-                    "description": "When a VNF's Heat Orchestration Template creates a\nVirtual Machine  (i.e., 'OS::Nova::Server'), each 'class' of VMs\n**MUST** be assigned a VNF unique '{vm-type}'; where 'class'\ndefines VMs that **MUST** have the following identical characteristics:\n\n  1.) OS::Nova::Server property flavor value\n\n  2.) OS::Nova::Server property image value\n\n  3.) Cinder Volume attachments\n    - Each VM in the 'class' **MUST** have the identical Cinder Volume\n      configuration\n\n  4.) Network attachments and IP address requirements\n    - Each VM in the 'class' **MUST** have the the identical number\n      of ports connecting to the identical networks and requiring the\n      identical IP address configuration.",
+                    "description": "When a VNF's Heat Orchestration Template creates a\nVirtual Machine  (i.e., 'OS::Nova::Server'), each 'class' of VMs\n**MUST** be assigned a VNF unique '{vm-type}'; where 'class'\ndefines VMs that **MUST** have the following identical characteristics:\n\n  1.) OS::Nova::Server property flavor value\n\n  2.) OS::Nova::Server property image value\n\n  3.) Cinder Volume attachments\n\n      - Each VM in the 'class' **MUST** have the identical Cinder Volume\n        configuration\n\n  4.) Network attachments and IP address requirements\n\n      - Each VM in the 'class' **MUST** have the the identical number\n        of ports connecting to the identical networks and requiring the\n        identical IP address configuration.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-01455",
@@ -368,9 +360,7 @@
                     "notes": "",
                     "section_name": "{vm-type}",
                     "sections": [
-                        "{vm-type}",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "{vm-type}"
                     ],
                     "status": null,
                     "tags": [],
@@ -454,8 +444,7 @@
                     "section_name": "Scope of a Heat Orchestration Template",
                     "sections": [
                         "Scope of a Heat Orchestration Template",
-                        "ONAP Heat Orchestration Templates: Overview",
-                        "Heat"
+                        "ONAP Heat Orchestration Templates Overview"
                     ],
                     "status": null,
                     "tags": [],
@@ -512,9 +501,7 @@
                     "sections": [
                         "External Networks",
                         "Contrail Network Parameters",
-                        "Contrail Resource Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Contrail Resource Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -715,9 +702,7 @@
                     "section_name": "workload_context",
                     "sections": [
                         "workload_context",
-                        "Resource: OS::Nova::Server \u2013 Metadata Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -801,8 +786,7 @@
                     "section_name": "ONAP VNF Modularity Overview",
                     "sections": [
                         "ONAP VNF Modularity Overview",
-                        "ONAP Heat Orchestration Templates: Overview",
-                        "Heat"
+                        "ONAP Heat Orchestration Templates Overview"
                     ],
                     "status": null,
                     "tags": [],
@@ -830,8 +814,7 @@
                     "section_name": "Environment File Format",
                     "sections": [
                         "Environment File Format",
-                        "Heat Orchestration Template Format",
-                        "Heat"
+                        "ONAP Heat Orchestration Template Format"
                     ],
                     "status": null,
                     "tags": [],
@@ -890,9 +873,7 @@
                     "sections": [
                         "OS::Neutron::SecurityGroup",
                         "OpenStack Heat Resources Resource ID Naming Convention",
-                        "Resource IDs",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource IDs"
                     ],
                     "status": null,
                     "tags": [],
@@ -921,9 +902,7 @@
                     "sections": [
                         "OS::Heat::SoftwareConfig",
                         "OpenStack Heat Resources Resource ID Naming Convention",
-                        "Resource IDs",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource IDs"
                     ],
                     "status": null,
                     "tags": [],
@@ -1037,8 +1016,7 @@
                     "section_name": "Nested Heat Template Requirements",
                     "sections": [
                         "Nested Heat Template Requirements",
-                        "Heat Template Constructs",
-                        "Heat"
+                        "ONAP Heat Heat Template Constructs"
                     ],
                     "status": null,
                     "tags": [],
@@ -1094,9 +1072,7 @@
                     "section_name": "Property: fixed_ips, Map Property: ip_address",
                     "sections": [
                         "Property: fixed_ips, Map Property: ip_address",
-                        "Resource: OS::Neutron::Port - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -1125,9 +1101,7 @@
                     "sections": [
                         "OS::Heat::CloudConfig",
                         "OpenStack Heat Resources Resource ID Naming Convention",
-                        "Resource IDs",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource IDs"
                     ],
                     "status": null,
                     "tags": [],
@@ -1183,8 +1157,7 @@
                     "section_name": "Heat Files Support (get_file)",
                     "sections": [
                         "Heat Files Support (get_file)",
-                        "Heat Template Constructs",
-                        "Heat"
+                        "ONAP Heat Heat Template Constructs"
                     ],
                     "status": null,
                     "tags": [],
@@ -1212,8 +1185,7 @@
                     "section_name": "External Networks",
                     "sections": [
                         "External Networks",
-                        "Networking",
-                        "Heat"
+                        "ONAP Heat Networking"
                     ],
                     "status": null,
                     "tags": [],
@@ -1242,9 +1214,7 @@
                     "sections": [
                         "VIP Assignment, External Networks, Supported by Automation",
                         "Property: allowed_address_pairs, Map Property: ip_address",
-                        "Resource: OS::Neutron::Port - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -1357,8 +1327,7 @@
                         "constraints",
                         "parameters",
                         "Heat Orchestration Template Structure",
-                        "Heat Orchestration Template Format",
-                        "Heat"
+                        "ONAP Heat Orchestration Template Format"
                     ],
                     "status": null,
                     "tags": [],
@@ -1488,7 +1457,7 @@
                     "validation_mode": ""
                 },
                 "R-07443": {
-                    "description": "A VNF's Heat Orchestration Templates' Cinder Volume Module Output\nParameter's name and type **MUST** match the input parameter name and type\nin the corresponding Base Module or Incremental Module unless the Output\nParameter is of the type 'comma\\_delimited\\_list', then the corresponding input\nparameter **MUST** be declared as type 'json'.",
+                    "description": "A VNF's Heat Orchestration Templates' Cinder Volume Module Output\nParameter's name and type **MUST** match the input parameter name and type\nin the corresponding Base Module or Incremental Module unless the Output\nParameter is of the type 'comma_delimited_list', then the corresponding input\nparameter **MUST** be declared as type 'json'.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-07443",
@@ -1501,8 +1470,7 @@
                     "sections": [
                         "ONAP Volume Module Output Parameters",
                         "Output Parameters",
-                        "ONAP Heat Orchestration Templates: Overview",
-                        "Heat"
+                        "ONAP Heat Orchestration Templates Overview"
                     ],
                     "status": null,
                     "tags": [],
@@ -1530,9 +1498,7 @@
                     "section_name": "vnf_id",
                     "sections": [
                         "vnf_id",
-                        "Resource: OS::Nova::Server \u2013 Metadata Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -1591,9 +1557,7 @@
                     "sections": [
                         "Items to Note",
                         "Introduction",
-                        "Resource: OS::Neutron::Port - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -1765,9 +1729,7 @@
                     "sections": [
                         "OS::Neutron::SecurityGroup",
                         "OpenStack Heat Resources Resource ID Naming Convention",
-                        "Resource IDs",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource IDs"
                     ],
                     "status": null,
                     "tags": [],
@@ -1796,9 +1758,7 @@
                     "sections": [
                         "OS::Heat::SoftwareConfig",
                         "OpenStack Heat Resources Resource ID Naming Convention",
-                        "Resource IDs",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource IDs"
                     ],
                     "status": null,
                     "tags": [],
@@ -1841,7 +1801,7 @@
                     "validation_mode": ""
                 },
                 "R-09811": {
-                    "description": "A VNF's Heat Orchestration Template's OS::Nova::Server\nResource metadata map value parameter 'vf\\_module\\_index' **MUST NOT**\nhave parameter contraints defined.",
+                    "description": "A VNF's Heat Orchestration Template's OS::Nova::Server\nResource metadata map value parameter 'vf_module_index' **MUST NOT**\nhave parameter contraints defined.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-09811",
@@ -1853,9 +1813,7 @@
                     "section_name": "vf_module_index",
                     "sections": [
                         "vf_module_index",
-                        "Resource: OS::Nova::Server \u2013 Metadata Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -2033,9 +1991,7 @@
                     "sections": [
                         "VIP Assignment, External Networks, Supported by Automation",
                         "Property: allowed_address_pairs, Map Property: ip_address",
-                        "Resource: OS::Neutron::Port - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -2065,8 +2021,7 @@
                         "properties",
                         "resources",
                         "Heat Orchestration Template Structure",
-                        "Heat Orchestration Template Format",
-                        "Heat"
+                        "ONAP Heat Orchestration Template Format"
                     ],
                     "status": null,
                     "tags": [],
@@ -2094,8 +2049,7 @@
                     "section_name": "Nested Heat Template Requirements",
                     "sections": [
                         "Nested Heat Template Requirements",
-                        "Heat Template Constructs",
-                        "Heat"
+                        "ONAP Heat Heat Template Constructs"
                     ],
                     "status": null,
                     "tags": [],
@@ -2122,9 +2076,7 @@
                     "notes": "",
                     "section_name": "{network-role}",
                     "sections": [
-                        "{network-role}",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "{network-role}"
                     ],
                     "status": null,
                     "tags": [],
@@ -2152,8 +2104,7 @@
                     "section_name": "ONAP VNF Modularity Overview",
                     "sections": [
                         "ONAP VNF Modularity Overview",
-                        "ONAP Heat Orchestration Templates: Overview",
-                        "Heat"
+                        "ONAP Heat Orchestration Templates Overview"
                     ],
                     "status": null,
                     "tags": [],
@@ -2242,8 +2193,7 @@
                         "type",
                         "parameters",
                         "Heat Orchestration Template Structure",
-                        "Heat Orchestration Template Format",
-                        "Heat"
+                        "ONAP Heat Orchestration Template Format"
                     ],
                     "status": null,
                     "tags": [],
@@ -2300,9 +2250,7 @@
                     "notes": "",
                     "section_name": "Resource IDs",
                     "sections": [
-                        "Resource IDs",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource IDs"
                     ],
                     "status": null,
                     "tags": [],
@@ -2585,9 +2533,7 @@
                     "section_name": "environment_context",
                     "sections": [
                         "environment_context",
-                        "Resource: OS::Nova::Server \u2013 Metadata Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -2615,8 +2561,7 @@
                     "section_name": "ONAP VNF Modularity Overview",
                     "sections": [
                         "ONAP VNF Modularity Overview",
-                        "ONAP Heat Orchestration Templates: Overview",
-                        "Heat"
+                        "ONAP Heat Orchestration Templates Overview"
                     ],
                     "status": null,
                     "tags": [],
@@ -2788,9 +2733,7 @@
                     "sections": [
                         "Items to Note",
                         "Introduction",
-                        "Resource: OS::Neutron::Port - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -2847,9 +2790,7 @@
                     "sections": [
                         "OS::Neutron::SecurityGroup",
                         "OpenStack Heat Resources Resource ID Naming Convention",
-                        "Resource IDs",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource IDs"
                     ],
                     "status": null,
                     "tags": [],
@@ -2878,9 +2819,7 @@
                     "sections": [
                         "OS::ContrailV2::ServiceTemplate",
                         "Contrail Heat Resources Resource ID Naming Convention",
-                        "Resource IDs",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource IDs"
                     ],
                     "status": null,
                     "tags": [],
@@ -2936,9 +2875,7 @@
                     "sections": [
                         "OS::Nova::ServerGroup",
                         "OpenStack Heat Resources Resource ID Naming Convention",
-                        "Resource IDs",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource IDs"
                     ],
                     "status": null,
                     "tags": [],
@@ -2966,9 +2903,7 @@
                     "section_name": "Property: fixed_ips, Map Property: subnet_id",
                     "sections": [
                         "Property: fixed_ips, Map Property: subnet_id",
-                        "Resource: OS::Neutron::Port - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -3012,7 +2947,7 @@
                     "validation_mode": ""
                 },
                 "R-15480": {
-                    "description": "A VNF's Heat Orchestration Template's OS::Nova::Server\nResource metadata map value parameter 'vf\\_module\\_name'\n**MUST NOT** have parameter contraints defined.",
+                    "description": "A VNF's Heat Orchestration Template's OS::Nova::Server\nResource metadata map value parameter 'vf_module_name'\n**MUST NOT** have parameter contraints defined.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-15480",
@@ -3024,9 +2959,7 @@
                     "section_name": "vf_module_name",
                     "sections": [
                         "vf_module_name",
-                        "Resource: OS::Nova::Server \u2013 Metadata Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -3225,8 +3158,7 @@
                     "section_name": "Internal Networks",
                     "sections": [
                         "Internal Networks",
-                        "Networking",
-                        "Heat"
+                        "ONAP Heat Networking"
                     ],
                     "status": null,
                     "tags": [],
@@ -3255,9 +3187,7 @@
                     "sections": [
                         "OS::ContrailV2::ServiceTemplate",
                         "Contrail Heat Resources Resource ID Naming Convention",
-                        "Resource IDs",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource IDs"
                     ],
                     "status": null,
                     "tags": [],
@@ -3287,8 +3217,7 @@
                         "resource ID",
                         "resources",
                         "Heat Orchestration Template Structure",
-                        "Heat Orchestration Template Format",
-                        "Heat"
+                        "ONAP Heat Orchestration Template Format"
                     ],
                     "status": null,
                     "tags": [],
@@ -3371,9 +3300,7 @@
                     "section_name": "vnf_name",
                     "sections": [
                         "vnf_name",
-                        "Resource: OS::Nova::Server \u2013 Metadata Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -3458,8 +3385,7 @@
                     "section_name": "External Networks",
                     "sections": [
                         "External Networks",
-                        "Networking",
-                        "Heat"
+                        "ONAP Heat Networking"
                     ],
                     "status": null,
                     "tags": [],
@@ -3488,9 +3414,7 @@
                     "sections": [
                         "OS::Neutron::SecurityGroup",
                         "OpenStack Heat Resources Resource ID Naming Convention",
-                        "Resource IDs",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource IDs"
                     ],
                     "status": null,
                     "tags": [],
@@ -3518,8 +3442,7 @@
                     "section_name": "Nested Heat Template Requirements",
                     "sections": [
                         "Nested Heat Template Requirements",
-                        "Heat Template Constructs",
-                        "Heat"
+                        "ONAP Heat Heat Template Constructs"
                     ],
                     "status": null,
                     "tags": [],
@@ -3548,9 +3471,7 @@
                     "sections": [
                         "Items to Note",
                         "Introduction",
-                        "Resource: OS::Neutron::Port - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -3578,9 +3499,7 @@
                     "section_name": "Property: network",
                     "sections": [
                         "Property: network",
-                        "Resource: OS::Neutron::Port - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -3609,9 +3528,7 @@
                     "sections": [
                         "OS::Heat::MultipartMime",
                         "OpenStack Heat Resources Resource ID Naming Convention",
-                        "Resource IDs",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource IDs"
                     ],
                     "status": null,
                     "tags": [],
@@ -3669,9 +3586,7 @@
                     "sections": [
                         "OAM Management IP Addresses",
                         "Predefined Output Parameters",
-                        "ONAP Output Parameter Names",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "ONAP Output Parameter Names"
                     ],
                     "status": null,
                     "tags": [],
@@ -3926,9 +3841,7 @@
                     "section_name": "Interface Route Table Prefixes for Contrail InterfaceRoute Table",
                     "sections": [
                         "Interface Route Table Prefixes for Contrail InterfaceRoute Table",
-                        "Contrail Resource Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Contrail Resource Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -4070,9 +3983,7 @@
                     "sections": [
                         "OS::ContrailV2::PortTuple",
                         "Contrail Heat Resources Resource ID Naming Convention",
-                        "Resource IDs",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource IDs"
                     ],
                     "status": null,
                     "tags": [],
@@ -4128,9 +4039,7 @@
                     "section_name": "environment_context",
                     "sections": [
                         "environment_context",
-                        "Resource: OS::Nova::Server \u2013 Metadata Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -4159,9 +4068,7 @@
                     "sections": [
                         "OS::Heat::CloudConfig",
                         "OpenStack Heat Resources Resource ID Naming Convention",
-                        "Resource IDs",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource IDs"
                     ],
                     "status": null,
                     "tags": [],
@@ -4220,9 +4127,7 @@
                     "sections": [
                         "OS::Neutron::Port",
                         "OpenStack Heat Resources Resource ID Naming Convention",
-                        "Resource IDs",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource IDs"
                     ],
                     "status": null,
                     "tags": [],
@@ -4251,8 +4156,7 @@
                     "sections": [
                         "ONAP Volume Module Output Parameters",
                         "Output Parameters",
-                        "ONAP Heat Orchestration Templates: Overview",
-                        "Heat"
+                        "ONAP Heat Orchestration Templates Overview"
                     ],
                     "status": null,
                     "tags": [],
@@ -4309,9 +4213,7 @@
                     "section_name": "vnf_id",
                     "sections": [
                         "vnf_id",
-                        "Resource: OS::Nova::Server \u2013 Metadata Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -4395,9 +4297,7 @@
                     "sections": [
                         "OS::ContrailV2::InstanceIp",
                         "Contrail Heat Resources Resource ID Naming Convention",
-                        "Resource IDs",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource IDs"
                     ],
                     "status": null,
                     "tags": [],
@@ -4425,8 +4325,7 @@
                     "section_name": "ONAP VNF Modularity Overview",
                     "sections": [
                         "ONAP VNF Modularity Overview",
-                        "ONAP Heat Orchestration Templates: Overview",
-                        "Heat"
+                        "ONAP Heat Orchestration Templates Overview"
                     ],
                     "status": null,
                     "tags": [],
@@ -4481,9 +4380,7 @@
                     "notes": "",
                     "section_name": "{network-role}",
                     "sections": [
-                        "{network-role}",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "{network-role}"
                     ],
                     "status": null,
                     "tags": [],
@@ -4510,9 +4407,7 @@
                     "notes": "",
                     "section_name": "{network-role}",
                     "sections": [
-                        "{network-role}",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "{network-role}"
                     ],
                     "status": null,
                     "tags": [],
@@ -4680,9 +4575,7 @@
                     "section_name": "Property: fixed_ips, Map Property: subnet_id",
                     "sections": [
                         "Property: fixed_ips, Map Property: subnet_id",
-                        "Resource: OS::Neutron::Port - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -4766,9 +4659,7 @@
                     "section_name": "vf_module_index",
                     "sections": [
                         "vf_module_index",
-                        "Resource: OS::Nova::Server \u2013 Metadata Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -4798,8 +4689,7 @@
                         "immutable",
                         "parameters",
                         "Heat Orchestration Template Structure",
-                        "Heat Orchestration Template Format",
-                        "Heat"
+                        "ONAP Heat Orchestration Template Format"
                     ],
                     "status": null,
                     "tags": [],
@@ -4828,8 +4718,7 @@
                     "sections": [
                         "ONAP Base Module Output Parameters",
                         "Output Parameters",
-                        "ONAP Heat Orchestration Templates: Overview",
-                        "Heat"
+                        "ONAP Heat Orchestration Templates Overview"
                     ],
                     "status": null,
                     "tags": [],
@@ -4854,10 +4743,9 @@
                     "keyword": "MUST",
                     "links": [],
                     "notes": "",
-                    "section_name": "ONAP Support of Environment Files",
+                    "section_name": "ONAP Heat Support of Environment Files",
                     "sections": [
-                        "ONAP Support of Environment Files",
-                        "Heat"
+                        "ONAP Heat Support of Environment Files"
                     ],
                     "status": null,
                     "tags": [],
@@ -4913,8 +4801,7 @@
                     "section_name": "Internal Networks",
                     "sections": [
                         "Internal Networks",
-                        "Networking",
-                        "Heat"
+                        "ONAP Heat Networking"
                     ],
                     "status": null,
                     "tags": [],
@@ -4972,9 +4859,7 @@
                     "section_name": "Property: Name",
                     "sections": [
                         "Property: Name",
-                        "Resource: OS::Nova::Server - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -5115,9 +5000,7 @@
                     "section_name": "Property: availability_zone",
                     "sections": [
                         "Property: availability_zone",
-                        "Resource: OS::Nova::Server - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -5172,9 +5055,7 @@
                     "section_name": "Property: fixed_ips, Map Property: ip_address",
                     "sections": [
                         "Property: fixed_ips, Map Property: ip_address",
-                        "Resource: OS::Neutron::Port - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -5203,8 +5084,7 @@
                     "sections": [
                         "resources",
                         "Heat Orchestration Template Structure",
-                        "Heat Orchestration Template Format",
-                        "Heat"
+                        "ONAP Heat Orchestration Template Format"
                     ],
                     "status": null,
                     "tags": [],
@@ -5430,8 +5310,7 @@
                     "section_name": "Environment File Format",
                     "sections": [
                         "Environment File Format",
-                        "Heat Orchestration Template Format",
-                        "Heat"
+                        "ONAP Heat Orchestration Template Format"
                     ],
                     "status": null,
                     "tags": [],
@@ -5460,9 +5339,7 @@
                     "sections": [
                         "OS::Nova::Keypair",
                         "OpenStack Heat Resources Resource ID Naming Convention",
-                        "Resource IDs",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource IDs"
                     ],
                     "status": null,
                     "tags": [],
@@ -5518,8 +5395,7 @@
                     "section_name": "Optional Property availability_zone",
                     "sections": [
                         "Optional Property availability_zone",
-                        "Cinder Volumes",
-                        "Heat"
+                        "ONAP Heat Cinder Volumes"
                     ],
                     "status": null,
                     "tags": [],
@@ -5634,9 +5510,7 @@
                     "sections": [
                         "OS::Neutron::Net",
                         "OpenStack Heat Resources Resource ID Naming Convention",
-                        "Resource IDs",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource IDs"
                     ],
                     "status": null,
                     "tags": [],
@@ -5666,8 +5540,7 @@
                         "<param name>",
                         "parameters",
                         "Heat Orchestration Template Structure",
-                        "Heat Orchestration Template Format",
-                        "Heat"
+                        "ONAP Heat Orchestration Template Format"
                     ],
                     "status": null,
                     "tags": [],
@@ -5755,8 +5628,7 @@
                         "default",
                         "parameters",
                         "Heat Orchestration Template Structure",
-                        "Heat Orchestration Template Format",
-                        "Heat"
+                        "ONAP Heat Orchestration Template Format"
                     ],
                     "status": null,
                     "tags": [],
@@ -5785,9 +5657,7 @@
                     "sections": [
                         "OS::Neutron::Port",
                         "OpenStack Heat Resources Resource ID Naming Convention",
-                        "Resource IDs",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource IDs"
                     ],
                     "status": null,
                     "tags": [],
@@ -5842,9 +5712,7 @@
                     "notes": "",
                     "section_name": "{network-role}",
                     "sections": [
-                        "{network-role}",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "{network-role}"
                     ],
                     "status": null,
                     "tags": [],
@@ -5989,8 +5857,7 @@
                     "sections": [
                         "heat_template_version",
                         "Heat Orchestration Template Structure",
-                        "Heat Orchestration Template Format",
-                        "Heat"
+                        "ONAP Heat Orchestration Template Format"
                     ],
                     "status": null,
                     "tags": [],
@@ -6049,9 +5916,7 @@
                     "sections": [
                         "OS::Neutron::Port",
                         "OpenStack Heat Resources Resource ID Naming Convention",
-                        "Resource IDs",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource IDs"
                     ],
                     "status": null,
                     "tags": [],
@@ -6135,9 +6000,7 @@
                     "section_name": "Property: fixed_ips, Map Property: ip_address",
                     "sections": [
                         "Property: fixed_ips, Map Property: ip_address",
-                        "Resource: OS::Neutron::Port - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -6164,9 +6027,7 @@
                     "notes": "",
                     "section_name": "Resource IDs",
                     "sections": [
-                        "Resource IDs",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource IDs"
                     ],
                     "status": null,
                     "tags": [],
@@ -6251,9 +6112,7 @@
                     "sections": [
                         "OS::ContrailV2::InterfaceRouteTable",
                         "Contrail Heat Resources Resource ID Naming Convention",
-                        "Resource IDs",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource IDs"
                     ],
                     "status": null,
                     "tags": [],
@@ -6281,9 +6140,7 @@
                     "section_name": "Interface Route Table Prefixes for Contrail InterfaceRoute Table",
                     "sections": [
                         "Interface Route Table Prefixes for Contrail InterfaceRoute Table",
-                        "Contrail Resource Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Contrail Resource Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -6371,9 +6228,7 @@
                     "section_name": "Property: fixed_ips, Map Property: ip_address",
                     "sections": [
                         "Property: fixed_ips, Map Property: ip_address",
-                        "Resource: OS::Neutron::Port - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -6401,8 +6256,7 @@
                     "section_name": "ONAP VNF Modularity Overview",
                     "sections": [
                         "ONAP VNF Modularity Overview",
-                        "ONAP Heat Orchestration Templates: Overview",
-                        "Heat"
+                        "ONAP Heat Orchestration Templates Overview"
                     ],
                     "status": null,
                     "tags": [],
@@ -6577,9 +6431,7 @@
                     "sections": [
                         "OS::Nova::Server",
                         "OpenStack Heat Resources Resource ID Naming Convention",
-                        "Resource IDs",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource IDs"
                     ],
                     "status": null,
                     "tags": [],
@@ -6634,9 +6486,7 @@
                     "section_name": "Property: fixed_ips, Map Property: ip_address",
                     "sections": [
                         "Property: fixed_ips, Map Property: ip_address",
-                        "Resource: OS::Neutron::Port - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -6664,8 +6514,7 @@
                     "section_name": "External Networks",
                     "sections": [
                         "External Networks",
-                        "Networking",
-                        "Heat"
+                        "ONAP Heat Networking"
                     ],
                     "status": null,
                     "tags": [],
@@ -6693,9 +6542,7 @@
                     "section_name": "Property: network",
                     "sections": [
                         "Property: network",
-                        "Resource: OS::Neutron::Port - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -6752,9 +6599,7 @@
                     "sections": [
                         "OS::Neutron::SecurityGroup",
                         "OpenStack Heat Resources Resource ID Naming Convention",
-                        "Resource IDs",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource IDs"
                     ],
                     "status": null,
                     "tags": [],
@@ -6811,8 +6656,7 @@
                     "section_name": "Nested Heat Orchestration Templates Overview",
                     "sections": [
                         "Nested Heat Orchestration Templates Overview",
-                        "ONAP Heat Orchestration Templates: Overview",
-                        "Heat"
+                        "ONAP Heat Orchestration Templates Overview"
                     ],
                     "status": null,
                     "tags": [],
@@ -6898,9 +6742,7 @@
                     "sections": [
                         "OS::ContrailV2::NetworkIpam",
                         "Contrail Heat Resources Resource ID Naming Convention",
-                        "Resource IDs",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource IDs"
                     ],
                     "status": null,
                     "tags": [],
@@ -6929,9 +6771,7 @@
                     "sections": [
                         "OS::Heat::MultipartMime",
                         "OpenStack Heat Resources Resource ID Naming Convention",
-                        "Resource IDs",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource IDs"
                     ],
                     "status": null,
                     "tags": [],
@@ -6988,8 +6828,7 @@
                     "sections": [
                         "Cinder Volume Modules",
                         "ONAP Heat Orchestration Template Filenames",
-                        "ONAP Heat Orchestration Templates: Overview",
-                        "Heat"
+                        "ONAP Heat Orchestration Templates Overview"
                     ],
                     "status": null,
                     "tags": [],
@@ -7158,8 +6997,7 @@
                     "section_name": "Internal Networks",
                     "sections": [
                         "Internal Networks",
-                        "Networking",
-                        "Heat"
+                        "ONAP Heat Networking"
                     ],
                     "status": null,
                     "tags": [],
@@ -7189,8 +7027,7 @@
                         "label",
                         "parameters",
                         "Heat Orchestration Template Structure",
-                        "Heat Orchestration Template Format",
-                        "Heat"
+                        "ONAP Heat Orchestration Template Format"
                     ],
                     "status": null,
                     "tags": [],
@@ -7247,9 +7084,7 @@
                     "notes": "",
                     "section_name": "{vm-type}",
                     "sections": [
-                        "{vm-type}",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "{vm-type}"
                     ],
                     "status": null,
                     "tags": [],
@@ -7276,9 +7111,7 @@
                     "notes": "",
                     "section_name": "Resource Property \u201cname\u201d",
                     "sections": [
-                        "Resource Property \u201cname\u201d",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource Property \u201cname\u201d"
                     ],
                     "status": null,
                     "tags": [],
@@ -7308,8 +7141,7 @@
                         "hidden",
                         "parameters",
                         "Heat Orchestration Template Structure",
-                        "Heat Orchestration Template Format",
-                        "Heat"
+                        "ONAP Heat Orchestration Template Format"
                     ],
                     "status": null,
                     "tags": [],
@@ -7450,8 +7282,7 @@
                     "section_name": "ONAP VNF Modularity Overview",
                     "sections": [
                         "ONAP VNF Modularity Overview",
-                        "ONAP Heat Orchestration Templates: Overview",
-                        "Heat"
+                        "ONAP Heat Orchestration Templates Overview"
                     ],
                     "status": null,
                     "tags": [],
@@ -7708,9 +7539,7 @@
                     "section_name": "Property: fixed_ips, Map Property: ip_address",
                     "sections": [
                         "Property: fixed_ips, Map Property: ip_address",
-                        "Resource: OS::Neutron::Port - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -7738,9 +7567,7 @@
                     "section_name": "workload_context",
                     "sections": [
                         "workload_context",
-                        "Resource: OS::Nova::Server \u2013 Metadata Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -7852,8 +7679,7 @@
                     "section_name": "Internal Networks",
                     "sections": [
                         "Internal Networks",
-                        "Networking",
-                        "Heat"
+                        "ONAP Heat Networking"
                     ],
                     "status": null,
                     "tags": [],
@@ -7996,8 +7822,7 @@
                     "sections": [
                         "parameters",
                         "Heat Orchestration Template Structure",
-                        "Heat Orchestration Template Format",
-                        "Heat"
+                        "ONAP Heat Orchestration Template Format"
                     ],
                     "status": null,
                     "tags": [],
@@ -8053,8 +7878,7 @@
                     "section_name": "Internal Networks",
                     "sections": [
                         "Internal Networks",
-                        "Networking",
-                        "Heat"
+                        "ONAP Heat Networking"
                     ],
                     "status": null,
                     "tags": [],
@@ -8079,10 +7903,9 @@
                     "keyword": "MUST",
                     "links": [],
                     "notes": "",
-                    "section_name": "ONAP Support of Environment Files",
+                    "section_name": "ONAP Heat Support of Environment Files",
                     "sections": [
-                        "ONAP Support of Environment Files",
-                        "Heat"
+                        "ONAP Heat Support of Environment Files"
                     ],
                     "status": null,
                     "tags": [],
@@ -8111,9 +7934,7 @@
                     "sections": [
                         "VIP Assignment, External Networks, Supported by Automation",
                         "Property: allowed_address_pairs, Map Property: ip_address",
-                        "Resource: OS::Neutron::Port - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -8213,7 +8034,7 @@
                     "validation_mode": ""
                 },
                 "R-36542": {
-                    "description": "A VNF's Heat Orchestration Template's OS::Nova::Server\nResource metadata map value parameter 'vnf\\_name' **MUST NOT** be\nenumerated in the Heat Orchestration Template's environment file.",
+                    "description": "A VNF's Heat Orchestration Template's OS::Nova::Server\nResource metadata map value parameter 'vnf_name' **MUST NOT** be\nenumerated in the Heat Orchestration Template's environment file.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-36542",
@@ -8225,9 +8046,7 @@
                     "section_name": "vnf_name",
                     "sections": [
                         "vnf_name",
-                        "Resource: OS::Nova::Server \u2013 Metadata Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -8255,8 +8074,7 @@
                     "section_name": "Nested Heat Orchestration Templates Overview",
                     "sections": [
                         "Nested Heat Orchestration Templates Overview",
-                        "ONAP Heat Orchestration Templates: Overview",
-                        "Heat"
+                        "ONAP Heat Orchestration Templates Overview"
                     ],
                     "status": null,
                     "tags": [],
@@ -8283,9 +8101,7 @@
                     "notes": "",
                     "section_name": "{vm-type}",
                     "sections": [
-                        "{vm-type}",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "{vm-type}"
                     ],
                     "status": null,
                     "tags": [],
@@ -8315,8 +8131,7 @@
                         "type",
                         "parameters",
                         "Heat Orchestration Template Structure",
-                        "Heat Orchestration Template Format",
-                        "Heat"
+                        "ONAP Heat Orchestration Template Format"
                     ],
                     "status": null,
                     "tags": [],
@@ -8401,8 +8216,7 @@
                     "sections": [
                         "outputs",
                         "Heat Orchestration Template Structure",
-                        "Heat Orchestration Template Format",
-                        "Heat"
+                        "ONAP Heat Orchestration Template Format"
                     ],
                     "status": null,
                     "tags": [],
@@ -8430,8 +8244,7 @@
                     "section_name": "ONAP VNF Modularity Overview",
                     "sections": [
                         "ONAP VNF Modularity Overview",
-                        "ONAP Heat Orchestration Templates: Overview",
-                        "Heat"
+                        "ONAP Heat Orchestration Templates Overview"
                     ],
                     "status": null,
                     "tags": [],
@@ -8447,7 +8260,7 @@
                     "validation_mode": ""
                 },
                 "R-37039": {
-                    "description": "A VNF's Heat Orchestration Template's OS::Nova::Server\nResource metadata map value parameter 'vf\\_module\\_index' **MUST NOT**\nbe enumerated in the Heat Orchestration Template's environment file.",
+                    "description": "A VNF's Heat Orchestration Template's OS::Nova::Server\nResource metadata map value parameter 'vf_module_index' **MUST NOT**\nbe enumerated in the Heat Orchestration Template's environment file.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-37039",
@@ -8459,9 +8272,7 @@
                     "section_name": "vf_module_index",
                     "sections": [
                         "vf_module_index",
-                        "Resource: OS::Nova::Server \u2013 Metadata Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -8489,9 +8300,7 @@
                     "section_name": "vnf_id",
                     "sections": [
                         "vnf_id",
-                        "Resource: OS::Nova::Server \u2013 Metadata Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -8633,9 +8442,7 @@
                     "section_name": "Property: fixed_ips, Map Property: subnet_id",
                     "sections": [
                         "Property: fixed_ips, Map Property: subnet_id",
-                        "Resource: OS::Neutron::Port - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -8663,8 +8470,7 @@
                     "section_name": "ONAP VNF Modularity Overview",
                     "sections": [
                         "ONAP VNF Modularity Overview",
-                        "ONAP Heat Orchestration Templates: Overview",
-                        "Heat"
+                        "ONAP Heat Orchestration Templates Overview"
                     ],
                     "status": null,
                     "tags": [],
@@ -8680,7 +8486,7 @@
                     "validation_mode": ""
                 },
                 "R-39067": {
-                    "description": "A VNF's Heat Orchestration Template's OS::Nova::Server\nResource metadata map value parameter 'vf\\_module\\_name' **MUST**\nbe declared as type: 'string'.",
+                    "description": "A VNF's Heat Orchestration Template's OS::Nova::Server\nResource metadata map value parameter 'vf_module_name' **MUST**\nbe declared as type: 'string'.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-39067",
@@ -8692,9 +8498,7 @@
                     "section_name": "vf_module_name",
                     "sections": [
                         "vf_module_name",
-                        "Resource: OS::Nova::Server \u2013 Metadata Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -8750,8 +8554,7 @@
                     "section_name": "Support of heat stack update",
                     "sections": [
                         "Support of heat stack update",
-                        "ONAP Heat Orchestration Templates: Overview",
-                        "Heat"
+                        "ONAP Heat Orchestration Templates Overview"
                     ],
                     "status": null,
                     "tags": [],
@@ -8780,8 +8583,7 @@
                     "sections": [
                         "description",
                         "Heat Orchestration Template Structure",
-                        "Heat Orchestration Template Format",
-                        "Heat"
+                        "ONAP Heat Orchestration Template Format"
                     ],
                     "status": null,
                     "tags": [],
@@ -8880,7 +8682,7 @@
                     "validation_mode": ""
                 },
                 "R-39841": {
-                    "description": "The VNF's Heat Orchestration Template's Resource 'OS::Neutron::Port'\nproperty 'fixed_ips' map property 'ip_address' parameter\n'{vm-type}_{network-role}\\_ip\\_{index}' **MUST NOT** be enumerated in the\nVNF's Heat Orchestration Template's Environment File.",
+                    "description": "The VNF's Heat Orchestration Template's Resource 'OS::Neutron::Port'\nproperty 'fixed_ips' map property 'ip_address' parameter\n'{vm-type}_{network-role}_ip_{index}' **MUST NOT** be enumerated in the\nVNF's Heat Orchestration Template's Environment File.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-39841",
@@ -8892,9 +8694,7 @@
                     "section_name": "Property: fixed_ips, Map Property: ip_address",
                     "sections": [
                         "Property: fixed_ips, Map Property: ip_address",
-                        "Resource: OS::Neutron::Port - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -8952,9 +8752,7 @@
                     "section_name": "Property: flavor",
                     "sections": [
                         "Property: flavor",
-                        "Resource: OS::Nova::Server - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -8984,8 +8782,7 @@
                         "constraints",
                         "parameters",
                         "Heat Orchestration Template Structure",
-                        "Heat Orchestration Template Format",
-                        "Heat"
+                        "ONAP Heat Orchestration Template Format"
                     ],
                     "status": null,
                     "tags": [],
@@ -9042,8 +8839,7 @@
                     "sections": [
                         "resources",
                         "Heat Orchestration Template Structure",
-                        "Heat Orchestration Template Format",
-                        "Heat"
+                        "ONAP Heat Orchestration Template Format"
                     ],
                     "status": null,
                     "tags": [],
@@ -9127,9 +8923,7 @@
                     "section_name": "Property: Name",
                     "sections": [
                         "Property: Name",
-                        "Resource: OS::Nova::Server - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -9157,9 +8951,7 @@
                     "section_name": "Property: fixed_ips, Map Property: ip_address",
                     "sections": [
                         "Property: fixed_ips, Map Property: ip_address",
-                        "Resource: OS::Neutron::Port - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -9301,9 +9093,7 @@
                     "sections": [
                         "VIP Assignment, External Networks, Supported by Automation",
                         "Property: allowed_address_pairs, Map Property: ip_address",
-                        "Resource: OS::Neutron::Port - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -9389,8 +9179,7 @@
                     "section_name": "Heat Files Support (get_file)",
                     "sections": [
                         "Heat Files Support (get_file)",
-                        "Heat Template Constructs",
-                        "Heat"
+                        "ONAP Heat Heat Template Constructs"
                     ],
                     "status": null,
                     "tags": [],
@@ -9419,9 +9208,7 @@
                     "sections": [
                         "VIP Assignment, External Networks, Supported by Automation",
                         "Property: allowed_address_pairs, Map Property: ip_address",
-                        "Resource: OS::Neutron::Port - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -9619,8 +9406,7 @@
                     "section_name": "Environment File Format",
                     "sections": [
                         "Environment File Format",
-                        "Heat Orchestration Template Format",
-                        "Heat"
+                        "ONAP Heat Orchestration Template Format"
                     ],
                     "status": null,
                     "tags": [],
@@ -9793,8 +9579,7 @@
                     "section_name": "Support of heat stack update",
                     "sections": [
                         "Support of heat stack update",
-                        "ONAP Heat Orchestration Templates: Overview",
-                        "Heat"
+                        "ONAP Heat Orchestration Templates Overview"
                     ],
                     "status": null,
                     "tags": [],
@@ -9824,8 +9609,7 @@
                         "deletion_policy",
                         "resources",
                         "Heat Orchestration Template Structure",
-                        "Heat Orchestration Template Format",
-                        "Heat"
+                        "ONAP Heat Orchestration Template Format"
                     ],
                     "status": null,
                     "tags": [],
@@ -9911,8 +9695,7 @@
                         "description",
                         "parameters",
                         "Heat Orchestration Template Structure",
-                        "Heat Orchestration Template Format",
-                        "Heat"
+                        "ONAP Heat Orchestration Template Format"
                     ],
                     "status": null,
                     "tags": [],
@@ -10056,9 +9839,7 @@
                     "sections": [
                         "Contrail Issue with Values for OS::Nova::Server Property Name",
                         "Property: Name",
-                        "Resource: OS::Nova::Server - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -10133,7 +9914,7 @@
                     "validation_mode": ""
                 },
                 "R-44318": {
-                    "description": "A VNF's Heat Orchestration Template's OS::Nova::Server\nResource metadata map value parameter 'vnf\\_name' **MUST NOT** have\nparameter contraints defined.",
+                    "description": "A VNF's Heat Orchestration Template's OS::Nova::Server\nResource metadata map value parameter 'vnf_name' **MUST NOT** have\nparameter contraints defined.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-44318",
@@ -10145,9 +9926,7 @@
                     "section_name": "vnf_name",
                     "sections": [
                         "vnf_name",
-                        "Resource: OS::Nova::Server \u2013 Metadata Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -10175,9 +9954,7 @@
                     "section_name": "vnf_id",
                     "sections": [
                         "vnf_id",
-                        "Resource: OS::Nova::Server \u2013 Metadata Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -10289,9 +10066,7 @@
                     "section_name": "Property: flavor",
                     "sections": [
                         "Property: flavor",
-                        "Resource: OS::Nova::Server - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -10348,9 +10123,7 @@
                     "sections": [
                         "Items to Note",
                         "Introduction",
-                        "Resource: OS::Neutron::Port - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -10407,8 +10180,7 @@
                     "section_name": "Environment File Format",
                     "sections": [
                         "Environment File Format",
-                        "Heat Orchestration Template Format",
-                        "Heat"
+                        "ONAP Heat Orchestration Template Format"
                     ],
                     "status": null,
                     "tags": [],
@@ -10436,8 +10208,7 @@
                     "section_name": "ONAP VNF Modularity Overview",
                     "sections": [
                         "ONAP VNF Modularity Overview",
-                        "ONAP Heat Orchestration Templates: Overview",
-                        "Heat"
+                        "ONAP Heat Orchestration Templates Overview"
                     ],
                     "status": null,
                     "tags": [],
@@ -10466,9 +10237,7 @@
                     "sections": [
                         "OS::ContrailV2::InstanceIp",
                         "Contrail Heat Resources Resource ID Naming Convention",
-                        "Resource IDs",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource IDs"
                     ],
                     "status": null,
                     "tags": [],
@@ -10525,8 +10294,7 @@
                     "section_name": "Internal Networks",
                     "sections": [
                         "Internal Networks",
-                        "Networking",
-                        "Heat"
+                        "ONAP Heat Networking"
                     ],
                     "status": null,
                     "tags": [],
@@ -10583,9 +10351,7 @@
                     "section_name": "vm_role",
                     "sections": [
                         "vm_role",
-                        "Resource: OS::Nova::Server \u2013 Metadata Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -10612,9 +10378,7 @@
                     "notes": "",
                     "section_name": "{vm-type}",
                     "sections": [
-                        "{vm-type}",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "{vm-type}"
                     ],
                     "status": null,
                     "tags": [],
@@ -10699,8 +10463,7 @@
                         "depends_on",
                         "resources",
                         "Heat Orchestration Template Structure",
-                        "Heat Orchestration Template Format",
-                        "Heat"
+                        "ONAP Heat Orchestration Template Format"
                     ],
                     "status": null,
                     "tags": [],
@@ -10756,9 +10519,7 @@
                     "section_name": "workload_context",
                     "sections": [
                         "workload_context",
-                        "Resource: OS::Nova::Server \u2013 Metadata Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -10902,9 +10663,7 @@
                     "sections": [
                         "OAM Management IP Addresses",
                         "Predefined Output Parameters",
-                        "ONAP Output Parameter Names",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "ONAP Output Parameter Names"
                     ],
                     "status": null,
                     "tags": [],
@@ -10931,9 +10690,7 @@
                     "notes": "",
                     "section_name": "{vm-type}",
                     "sections": [
-                        "{vm-type}",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "{vm-type}"
                     ],
                     "status": null,
                     "tags": [],
@@ -11133,9 +10890,7 @@
                     "sections": [
                         "Items to Note",
                         "Introduction",
-                        "Resource: OS::Neutron::Port - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -11192,9 +10947,7 @@
                     "sections": [
                         "OAM Management IP Addresses",
                         "Predefined Output Parameters",
-                        "ONAP Output Parameter Names",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "ONAP Output Parameter Names"
                     ],
                     "status": null,
                     "tags": [],
@@ -11298,7 +11051,7 @@
                     "validation_mode": ""
                 },
                 "R-49177": {
-                    "description": "If a VNF's Heat Orchestration Template's OS::Nova::Server\nResource metadata map value parameter 'vf\\_module\\_name' is passed\ninto a Nested YAML file, the parameter name 'vf\\_module\\_name'\n**MUST NOT** change.",
+                    "description": "If a VNF's Heat Orchestration Template's OS::Nova::Server\nResource metadata map value parameter 'vf_module_name' is passed\ninto a Nested YAML file, the parameter name 'vf_module_name'\n**MUST NOT** change.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-49177",
@@ -11310,9 +11063,7 @@
                     "section_name": "vf_module_name",
                     "sections": [
                         "vf_module_name",
-                        "Resource: OS::Nova::Server \u2013 Metadata Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -11513,8 +11264,7 @@
                         "OS::Heat::ResourceGroup Property count",
                         "Use of Heat ResourceGroup",
                         "Nested Heat Template Requirements",
-                        "Heat Template Constructs",
-                        "Heat"
+                        "ONAP Heat Heat Template Constructs"
                     ],
                     "status": null,
                     "tags": [],
@@ -11572,9 +11322,7 @@
                     "section_name": "Property: flavor",
                     "sections": [
                         "Property: flavor",
-                        "Resource: OS::Nova::Server - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -11603,9 +11351,7 @@
                     "sections": [
                         "OS::ContrailV2::VirtualMachineInterface",
                         "Contrail Heat Resources Resource ID Naming Convention",
-                        "Resource IDs",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource IDs"
                     ],
                     "status": null,
                     "tags": [],
@@ -11621,7 +11367,7 @@
                     "validation_mode": ""
                 },
                 "R-50816": {
-                    "description": "A VNF's Heat Orchestration Template's OS::Nova::Server\nResource **MAY** contain the metadata map value parameter\n'vf\\_module\\_index'.",
+                    "description": "A VNF's Heat Orchestration Template's OS::Nova::Server\nResource **MAY** contain the metadata map value parameter\n'vf_module_index'.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-50816",
@@ -11633,9 +11379,7 @@
                     "section_name": "vf_module_index",
                     "sections": [
                         "vf_module_index",
-                        "Resource: OS::Nova::Server \u2013 Metadata Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -11663,9 +11407,7 @@
                     "section_name": "Property: Name",
                     "sections": [
                         "Property: Name",
-                        "Resource: OS::Nova::Server - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -11808,8 +11550,7 @@
                     "section_name": "Internal Networks",
                     "sections": [
                         "Internal Networks",
-                        "Networking",
-                        "Heat"
+                        "ONAP Heat Networking"
                     ],
                     "status": null,
                     "tags": [],
@@ -11865,8 +11606,7 @@
                     "section_name": "Nested Heat Template Requirements",
                     "sections": [
                         "Nested Heat Template Requirements",
-                        "Heat Template Constructs",
-                        "Heat"
+                        "ONAP Heat Heat Template Constructs"
                     ],
                     "status": null,
                     "tags": [],
@@ -11895,8 +11635,7 @@
                     "sections": [
                         "ONAP Base Module Output Parameters",
                         "Output Parameters",
-                        "ONAP Heat Orchestration Templates: Overview",
-                        "Heat"
+                        "ONAP Heat Orchestration Templates Overview"
                     ],
                     "status": null,
                     "tags": [],
@@ -11983,9 +11722,7 @@
                     "sections": [
                         "OS::ContrailV2::InstanceIp",
                         "Contrail Heat Resources Resource ID Naming Convention",
-                        "Resource IDs",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource IDs"
                     ],
                     "status": null,
                     "tags": [],
@@ -12043,8 +11780,7 @@
                     "section_name": "ONAP VNF Modularity Overview",
                     "sections": [
                         "ONAP VNF Modularity Overview",
-                        "ONAP Heat Orchestration Templates: Overview",
-                        "Heat"
+                        "ONAP Heat Orchestration Templates Overview"
                     ],
                     "status": null,
                     "tags": [],
@@ -12102,8 +11838,7 @@
                         "type",
                         "resources",
                         "Heat Orchestration Template Structure",
-                        "Heat Orchestration Template Format",
-                        "Heat"
+                        "ONAP Heat Orchestration Template Format"
                     ],
                     "status": null,
                     "tags": [],
@@ -12131,9 +11866,7 @@
                     "section_name": "Property: Name",
                     "sections": [
                         "Property: Name",
-                        "Resource: OS::Nova::Server - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -12179,7 +11912,7 @@
                     "validation_mode": ""
                 },
                 "R-54340": {
-                    "description": "A VNF's Heat Orchestration Template's OS::Nova::Server\nResource metadata map value parameter 'vf\\_module\\_index' **MUST** be\ndeclared as type: 'number'.",
+                    "description": "A VNF's Heat Orchestration Template's OS::Nova::Server\nResource metadata map value parameter 'vf_module_index' **MUST** be\ndeclared as type: 'number'.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-54340",
@@ -12191,9 +11924,7 @@
                     "section_name": "vf_module_index",
                     "sections": [
                         "vf_module_index",
-                        "Resource: OS::Nova::Server \u2013 Metadata Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -12279,9 +12010,7 @@
                     "sections": [
                         "OS::ContrailV2::VirtualMachineInterface",
                         "Contrail Heat Resources Resource ID Naming Convention",
-                        "Resource IDs",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource IDs"
                     ],
                     "status": null,
                     "tags": [],
@@ -12308,9 +12037,7 @@
                     "notes": "",
                     "section_name": "Resource IDs",
                     "sections": [
-                        "Resource IDs",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource IDs"
                     ],
                     "status": null,
                     "tags": [],
@@ -12422,9 +12149,7 @@
                     "section_name": "vnf_id",
                     "sections": [
                         "vnf_id",
-                        "Resource: OS::Nova::Server \u2013 Metadata Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -12440,7 +12165,7 @@
                     "validation_mode": ""
                 },
                 "R-55306": {
-                    "description": "If a VNF's Heat Orchestration Template's OS::Nova::Server\nResource metadata map value parameter 'vf\\_module\\_index' **MUST NOT** be\nused in a VNF's Volume Template; it is not supported.",
+                    "description": "If a VNF's Heat Orchestration Template's OS::Nova::Server\nResource metadata map value parameter 'vf_module_index' **MUST NOT** be\nused in a VNF's Volume Template; it is not supported.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-55306",
@@ -12452,9 +12177,7 @@
                     "section_name": "vf_module_index",
                     "sections": [
                         "vf_module_index",
-                        "Resource: OS::Nova::Server \u2013 Metadata Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -12566,9 +12289,7 @@
                     "section_name": "environment_context",
                     "sections": [
                         "environment_context",
-                        "Resource: OS::Nova::Server \u2013 Metadata Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -12626,9 +12347,7 @@
                     "sections": [
                         "OAM Management IP Addresses",
                         "Predefined Output Parameters",
-                        "ONAP Output Parameter Names",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "ONAP Output Parameter Names"
                     ],
                     "status": null,
                     "tags": [],
@@ -12685,8 +12404,7 @@
                     "section_name": "ONAP Heat Orchestration Template Filenames",
                     "sections": [
                         "ONAP Heat Orchestration Template Filenames",
-                        "ONAP Heat Orchestration Templates: Overview",
-                        "Heat"
+                        "ONAP Heat Orchestration Templates Overview"
                     ],
                     "status": null,
                     "tags": [],
@@ -12714,8 +12432,7 @@
                     "section_name": "Nested Heat Orchestration Templates Overview",
                     "sections": [
                         "Nested Heat Orchestration Templates Overview",
-                        "ONAP Heat Orchestration Templates: Overview",
-                        "Heat"
+                        "ONAP Heat Orchestration Templates Overview"
                     ],
                     "status": null,
                     "tags": [],
@@ -12911,9 +12628,7 @@
                     "section_name": "Property: image",
                     "sections": [
                         "Property: image",
-                        "Resource: OS::Nova::Server - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -12941,8 +12656,7 @@
                     "section_name": "External Networks",
                     "sections": [
                         "External Networks",
-                        "Networking",
-                        "Heat"
+                        "ONAP Heat Networking"
                     ],
                     "status": null,
                     "tags": [],
@@ -13140,9 +12854,7 @@
                     "notes": "",
                     "section_name": "{network-role}",
                     "sections": [
-                        "{network-role}",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "{network-role}"
                     ],
                     "status": null,
                     "tags": [],
@@ -13170,9 +12882,7 @@
                     "section_name": "Property: image",
                     "sections": [
                         "Property: image",
-                        "Resource: OS::Nova::Server - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -13341,9 +13051,7 @@
                     "sections": [
                         "OS::Neutron::Subnet",
                         "OpenStack Heat Resources Resource ID Naming Convention",
-                        "Resource IDs",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource IDs"
                     ],
                     "status": null,
                     "tags": [],
@@ -13371,8 +13079,7 @@
                     "section_name": "Scope of a Heat Orchestration Template",
                     "sections": [
                         "Scope of a Heat Orchestration Template",
-                        "ONAP Heat Orchestration Templates: Overview",
-                        "Heat"
+                        "ONAP Heat Orchestration Templates Overview"
                     ],
                     "status": null,
                     "tags": [],
@@ -13400,9 +13107,7 @@
                     "section_name": "Property: availability_zone",
                     "sections": [
                         "Property: availability_zone",
-                        "Resource: OS::Nova::Server - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -13460,8 +13165,7 @@
                     "section_name": "Environment File Format",
                     "sections": [
                         "Environment File Format",
-                        "Heat Orchestration Template Format",
-                        "Heat"
+                        "ONAP Heat Orchestration Template Format"
                     ],
                     "status": null,
                     "tags": [],
@@ -13489,8 +13193,7 @@
                     "section_name": "Nested Heat Template Requirements",
                     "sections": [
                         "Nested Heat Template Requirements",
-                        "Heat Template Constructs",
-                        "Heat"
+                        "ONAP Heat Heat Template Constructs"
                     ],
                     "status": null,
                     "tags": [],
@@ -13575,10 +13278,9 @@
                     "keyword": "MUST",
                     "links": [],
                     "notes": "",
-                    "section_name": "ONAP VNF Modularity",
+                    "section_name": "ONAP Heat VNF Modularity",
                     "sections": [
-                        "ONAP VNF Modularity",
-                        "Heat"
+                        "ONAP Heat VNF Modularity"
                     ],
                     "status": null,
                     "tags": [],
@@ -13692,8 +13394,7 @@
                     "section_name": "Heat Files Support (get_file)",
                     "sections": [
                         "Heat Files Support (get_file)",
-                        "Heat Template Constructs",
-                        "Heat"
+                        "ONAP Heat Heat Template Constructs"
                     ],
                     "status": null,
                     "tags": [],
@@ -13722,9 +13423,7 @@
                     "sections": [
                         "OS::ContrailV2::InstanceIp",
                         "Contrail Heat Resources Resource ID Naming Convention",
-                        "Resource IDs",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource IDs"
                     ],
                     "status": null,
                     "tags": [],
@@ -13752,9 +13451,7 @@
                     "section_name": "Property: allowed_address_pairs, Map Property: ip_address",
                     "sections": [
                         "Property: allowed_address_pairs, Map Property: ip_address",
-                        "Resource: OS::Neutron::Port - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -13782,9 +13479,7 @@
                     "section_name": "vnf_name",
                     "sections": [
                         "vnf_name",
-                        "Resource: OS::Nova::Server \u2013 Metadata Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -13870,9 +13565,7 @@
                     "section_name": "Property: fixed_ips, Map Property: ip_address",
                     "sections": [
                         "Property: fixed_ips, Map Property: ip_address",
-                        "Resource: OS::Neutron::Port - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -13900,9 +13593,7 @@
                     "section_name": "Property: fixed_ips, Map Property: subnet_id",
                     "sections": [
                         "Property: fixed_ips, Map Property: subnet_id",
-                        "Resource: OS::Neutron::Port - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -13930,9 +13621,7 @@
                     "section_name": "environment_context",
                     "sections": [
                         "environment_context",
-                        "Resource: OS::Nova::Server \u2013 Metadata Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -13960,9 +13649,7 @@
                     "section_name": "Property: network",
                     "sections": [
                         "Property: network",
-                        "Resource: OS::Neutron::Port - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -13992,8 +13679,7 @@
                         "update_policy",
                         "resources",
                         "Heat Orchestration Template Structure",
-                        "Heat Orchestration Template Format",
-                        "Heat"
+                        "ONAP Heat Orchestration Template Format"
                     ],
                     "status": null,
                     "tags": [],
@@ -14167,9 +13853,7 @@
                     "sections": [
                         "Items to Note",
                         "Introduction",
-                        "Resource: OS::Neutron::Port - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -14198,9 +13882,7 @@
                     "sections": [
                         "OS::Heat::ResourceGroup",
                         "OpenStack Heat Resources Resource ID Naming Convention",
-                        "Resource IDs",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource IDs"
                     ],
                     "status": null,
                     "tags": [],
@@ -14394,9 +14076,7 @@
                     "sections": [
                         "OS::Nova::Keypair",
                         "OpenStack Heat Resources Resource ID Naming Convention",
-                        "Resource IDs",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource IDs"
                     ],
                     "status": null,
                     "tags": [],
@@ -14425,9 +14105,7 @@
                     "sections": [
                         "OS::ContrailV2::ServiceHealthCheck",
                         "Contrail Heat Resources Resource ID Naming Convention",
-                        "Resource IDs",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource IDs"
                     ],
                     "status": null,
                     "tags": [],
@@ -14541,9 +14219,7 @@
                     "notes": "",
                     "section_name": "{vm-type}",
                     "sections": [
-                        "{vm-type}",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "{vm-type}"
                     ],
                     "status": null,
                     "tags": [],
@@ -14628,10 +14304,9 @@
                     "keyword": "MUST",
                     "links": [],
                     "notes": "",
-                    "section_name": "ONAP Support of Environment Files",
+                    "section_name": "ONAP Heat Support of Environment Files",
                     "sections": [
-                        "ONAP Support of Environment Files",
-                        "Heat"
+                        "ONAP Heat Support of Environment Files"
                     ],
                     "status": null,
                     "tags": [],
@@ -14659,8 +14334,7 @@
                     "section_name": "Environment File Format",
                     "sections": [
                         "Environment File Format",
-                        "Heat Orchestration Template Format",
-                        "Heat"
+                        "ONAP Heat Orchestration Template Format"
                     ],
                     "status": null,
                     "tags": [],
@@ -14688,9 +14362,7 @@
                     "section_name": "vm_role",
                     "sections": [
                         "vm_role",
-                        "Resource: OS::Nova::Server \u2013 Metadata Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -14734,7 +14406,7 @@
                     "validation_mode": ""
                 },
                 "R-67793": {
-                    "description": "When a VNF's Heat Orchestration Template's resource is associated\nwith more than one '{vm-type}' and/or more than one internal and/or\nexternal network, the Resource ID **MUST NOT** contain the '{vm-type}'\nand/or '{network-role}'/'int\\_{network-role}'. It also should contain the\nterm 'shared' and/or contain text that identifies the VNF",
+                    "description": "When a VNF's Heat Orchestration Template's resource is associated\nwith more than one '{vm-type}' and/or more than one internal and/or\nexternal network, the Resource ID **MUST NOT** contain the '{vm-type}'\nand/or '{network-role}'/'int\\_{network-role}'. It also should contain the\nterm 'shared' and/or contain text that identifies the VNF.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-67793",
@@ -14745,9 +14417,7 @@
                     "notes": "",
                     "section_name": "Resource IDs",
                     "sections": [
-                        "Resource IDs",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource IDs"
                     ],
                     "status": null,
                     "tags": [],
@@ -14791,7 +14461,7 @@
                     "validation_mode": ""
                 },
                 "R-68023": {
-                    "description": "A VNF's Heat Orchestration Template's OS::Nova::Server\nResource **SHOULD** contain the metadata map value parameter\n'vf\\_module\\_name'.",
+                    "description": "A VNF's Heat Orchestration Template's OS::Nova::Server\nResource **SHOULD** contain the metadata map value parameter\n'vf_module_name'.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-68023",
@@ -14803,9 +14473,7 @@
                     "section_name": "vf_module_name",
                     "sections": [
                         "vf_module_name",
-                        "Resource: OS::Nova::Server \u2013 Metadata Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -14833,8 +14501,7 @@
                     "section_name": "ONAP VNF Modularity Overview",
                     "sections": [
                         "ONAP VNF Modularity Overview",
-                        "ONAP Heat Orchestration Templates: Overview",
-                        "Heat"
+                        "ONAP Heat Orchestration Templates Overview"
                     ],
                     "status": null,
                     "tags": [],
@@ -14891,8 +14558,7 @@
                     "section_name": "Environment File Format",
                     "sections": [
                         "Environment File Format",
-                        "Heat Orchestration Template Format",
-                        "Heat"
+                        "ONAP Heat Orchestration Template Format"
                     ],
                     "status": null,
                     "tags": [],
@@ -14951,9 +14617,7 @@
                     "sections": [
                         "OS::Neutron::Port",
                         "OpenStack Heat Resources Resource ID Naming Convention",
-                        "Resource IDs",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource IDs"
                     ],
                     "status": null,
                     "tags": [],
@@ -15009,8 +14673,7 @@
                     "section_name": "Internal Networks",
                     "sections": [
                         "Internal Networks",
-                        "Networking",
-                        "Heat"
+                        "ONAP Heat Networking"
                     ],
                     "status": null,
                     "tags": [],
@@ -15068,8 +14731,7 @@
                     "section_name": "External Networks",
                     "sections": [
                         "External Networks",
-                        "Networking",
-                        "Heat"
+                        "ONAP Heat Networking"
                     ],
                     "status": null,
                     "tags": [],
@@ -15097,9 +14759,7 @@
                     "section_name": "Property: flavor",
                     "sections": [
                         "Property: flavor",
-                        "Resource: OS::Nova::Server - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -15155,9 +14815,7 @@
                     "section_name": "Boot Options",
                     "sections": [
                         "Boot Options",
-                        "Resource: OS::Nova::Server - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -15213,9 +14871,7 @@
                     "section_name": "Property: fixed_ips, Map Property: subnet_id",
                     "sections": [
                         "Property: fixed_ips, Map Property: subnet_id",
-                        "Resource: OS::Neutron::Port - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -15271,8 +14927,7 @@
                     "section_name": "ONAP VNF Modularity Overview",
                     "sections": [
                         "ONAP VNF Modularity Overview",
-                        "ONAP Heat Orchestration Templates: Overview",
-                        "Heat"
+                        "ONAP Heat Orchestration Templates Overview"
                     ],
                     "status": null,
                     "tags": [],
@@ -15300,8 +14955,7 @@
                     "section_name": "Internal Networks",
                     "sections": [
                         "Internal Networks",
-                        "Networking",
-                        "Heat"
+                        "ONAP Heat Networking"
                     ],
                     "status": null,
                     "tags": [],
@@ -15415,8 +15069,7 @@
                     "sections": [
                         "Nested Heat file",
                         "ONAP Heat Orchestration Template Filenames",
-                        "ONAP Heat Orchestration Templates: Overview",
-                        "Heat"
+                        "ONAP Heat Orchestration Templates Overview"
                     ],
                     "status": null,
                     "tags": [],
@@ -15474,9 +15127,7 @@
                     "section_name": "vm_role",
                     "sections": [
                         "vm_role",
-                        "Resource: OS::Nova::Server \u2013 Metadata Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -15533,9 +15184,7 @@
                     "sections": [
                         "Items to Note",
                         "Introduction",
-                        "Resource: OS::Neutron::Port - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -15563,9 +15212,7 @@
                     "section_name": "Property: image",
                     "sections": [
                         "Property: image",
-                        "Resource: OS::Nova::Server - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -15581,7 +15228,7 @@
                     "validation_mode": ""
                 },
                 "R-71493": {
-                    "description": "A VNF's Heat Orchestration Template's OS::Nova::Server\nResource **MUST** contain the metadata map value parameter\n'vf\\_module\\_id'.",
+                    "description": "A VNF's Heat Orchestration Template's OS::Nova::Server\nResource **MUST** contain the metadata map value parameter\n'vf_module_id'.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-71493",
@@ -15593,9 +15240,7 @@
                     "section_name": "vf_module_id",
                     "sections": [
                         "vf_module_id",
-                        "Resource: OS::Nova::Server \u2013 Metadata Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -15611,7 +15256,7 @@
                     "validation_mode": ""
                 },
                 "R-71577": {
-                    "description": "When the VNF's Heat Orchestration Template's Resource\n'OS::Neutron::Port' is attaching to an external network, and an IPv6 address\nis assigned using the property 'fixed_ips' map property 'ip_address' and\nthe parameter type is defined as a string, the parameter name **MUST** follow\nthe naming convention\n\n  * '{vm-type}_{network-role}\\_v6\\_ip\\_{index}'\n\nwhere\n\n  * '{vm-type}' is the {vm-type} associated with the OS::Nova::Server\n  * '{network-role}' is the {network-role} of the external network\n  * the value for {index} must start at zero (0) and increment by one",
+                    "description": "When the VNF's Heat Orchestration Template's Resource\n'OS::Neutron::Port' is attaching to an external network, and an IPv6 address\nis assigned using the property 'fixed_ips' map property 'ip_address' and\nthe parameter type is defined as a string, the parameter name **MUST** follow\nthe naming convention\n\n  * '{vm-type}_{network-role}_v6_ip_{index}'\n\nwhere\n\n  * '{vm-type}' is the {vm-type} associated with the OS::Nova::Server\n  * '{network-role}' is the {network-role} of the external network\n  * the value for {index} must start at zero (0) and increment by one",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-71577",
@@ -15623,9 +15268,7 @@
                     "section_name": "Property: fixed_ips, Map Property: ip_address",
                     "sections": [
                         "Property: fixed_ips, Map Property: ip_address",
-                        "Resource: OS::Neutron::Port - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -15655,8 +15298,7 @@
                         "type",
                         "resources",
                         "Heat Orchestration Template Structure",
-                        "Heat Orchestration Template Format",
-                        "Heat"
+                        "ONAP Heat Orchestration Template Format"
                     ],
                     "status": null,
                     "tags": [],
@@ -15798,9 +15440,7 @@
                     "section_name": "vnf_name",
                     "sections": [
                         "vnf_name",
-                        "Resource: OS::Nova::Server \u2013 Metadata Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -15816,7 +15456,7 @@
                     "validation_mode": ""
                 },
                 "R-72871": {
-                    "description": "A VNF's Heat Orchestration Template's OS::Nova::Server\nResource metadata map value parameter 'vf\\_module\\_id' **MUST NOT**\nbe enumerated in the Heat Orchestration Template's environment file.",
+                    "description": "A VNF's Heat Orchestration Template's OS::Nova::Server\nResource metadata map value parameter 'vf_module_id' **MUST NOT**\nbe enumerated in the Heat Orchestration Template's environment file.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-72871",
@@ -15828,9 +15468,7 @@
                     "section_name": "vf_module_id",
                     "sections": [
                         "vf_module_id",
-                        "Resource: OS::Nova::Server \u2013 Metadata Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -15887,9 +15525,7 @@
                     "sections": [
                         "OS::Neutron::SecurityGroup",
                         "OpenStack Heat Resources Resource ID Naming Convention",
-                        "Resource IDs",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource IDs"
                     ],
                     "status": null,
                     "tags": [],
@@ -15946,9 +15582,7 @@
                     "sections": [
                         "External Networks",
                         "Contrail Network Parameters",
-                        "Contrail Resource Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Contrail Resource Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -16147,8 +15781,7 @@
                     "section_name": "ONAP Heat Orchestration Template Filenames",
                     "sections": [
                         "ONAP Heat Orchestration Template Filenames",
-                        "ONAP Heat Orchestration Templates: Overview",
-                        "Heat"
+                        "ONAP Heat Orchestration Templates Overview"
                     ],
                     "status": null,
                     "tags": [],
@@ -16287,9 +15920,7 @@
                     "section_name": "workload_context",
                     "sections": [
                         "workload_context",
-                        "Resource: OS::Nova::Server \u2013 Metadata Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -16347,8 +15978,7 @@
                         "resource ID",
                         "resources",
                         "Heat Orchestration Template Structure",
-                        "Heat Orchestration Template Format",
-                        "Heat"
+                        "ONAP Heat Orchestration Template Format"
                     ],
                     "status": null,
                     "tags": [],
@@ -16376,9 +16006,7 @@
                     "section_name": "workload_context",
                     "sections": [
                         "workload_context",
-                        "Resource: OS::Nova::Server \u2013 Metadata Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -16520,9 +16148,7 @@
                     "sections": [
                         "OS::ContrailV2::ServiceHealthCheck",
                         "Contrail Heat Resources Resource ID Naming Convention",
-                        "Resource IDs",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource IDs"
                     ],
                     "status": null,
                     "tags": [],
@@ -16551,8 +16177,7 @@
                     "sections": [
                         "Nested Heat file",
                         "ONAP Heat Orchestration Template Filenames",
-                        "ONAP Heat Orchestration Templates: Overview",
-                        "Heat"
+                        "ONAP Heat Orchestration Templates Overview"
                     ],
                     "status": null,
                     "tags": [],
@@ -16580,9 +16205,7 @@
                     "section_name": "Property: fixed_ips, Map Property: subnet_id",
                     "sections": [
                         "Property: fixed_ips, Map Property: subnet_id",
-                        "Resource: OS::Neutron::Port - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -16611,9 +16234,7 @@
                     "sections": [
                         "VIP Assignment, External Networks, Supported by Automation",
                         "Property: allowed_address_pairs, Map Property: ip_address",
-                        "Resource: OS::Neutron::Port - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -16641,9 +16262,7 @@
                     "section_name": "Interface Route Table Prefixes for Contrail InterfaceRoute Table",
                     "sections": [
                         "Interface Route Table Prefixes for Contrail InterfaceRoute Table",
-                        "Contrail Resource Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Contrail Resource Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -16671,8 +16290,7 @@
                     "section_name": "Heat Files Support (get_file)",
                     "sections": [
                         "Heat Files Support (get_file)",
-                        "Heat Template Constructs",
-                        "Heat"
+                        "ONAP Heat Heat Template Constructs"
                     ],
                     "status": null,
                     "tags": [],
@@ -16957,9 +16575,7 @@
                     "section_name": "Property: fixed_ips, Map Property: ip_address",
                     "sections": [
                         "Property: fixed_ips, Map Property: ip_address",
-                        "Resource: OS::Neutron::Port - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -16989,8 +16605,7 @@
                         "external_id",
                         "resources",
                         "Heat Orchestration Template Structure",
-                        "Heat Orchestration Template Format",
-                        "Heat"
+                        "ONAP Heat Orchestration Template Format"
                     ],
                     "status": null,
                     "tags": [],
@@ -17102,10 +16717,9 @@
                     "keyword": "MUST",
                     "links": [],
                     "notes": "",
-                    "section_name": "Cinder Volumes",
+                    "section_name": "ONAP Heat Cinder Volumes",
                     "sections": [
-                        "Cinder Volumes",
-                        "Heat"
+                        "ONAP Heat Cinder Volumes"
                     ],
                     "status": null,
                     "tags": [],
@@ -17135,8 +16749,7 @@
                         "constraints",
                         "parameters",
                         "Heat Orchestration Template Structure",
-                        "Heat Orchestration Template Format",
-                        "Heat"
+                        "ONAP Heat Orchestration Template Format"
                     ],
                     "status": null,
                     "tags": [],
@@ -17236,7 +16849,7 @@
                     "validation_mode": ""
                 },
                 "R-80374": {
-                    "description": "A VNF's Heat Orchestration Template's OS::Nova::Server\nResource metadata map value parameter 'vf\\_module\\_name'\n**MUST NOT** be enumerated in the Heat Orchestration Template's\nenvironment file.",
+                    "description": "A VNF's Heat Orchestration Template's OS::Nova::Server\nResource metadata map value parameter 'vf_module_name'\n**MUST NOT** be enumerated in the Heat Orchestration Template's\nenvironment file.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-80374",
@@ -17248,9 +16861,7 @@
                     "section_name": "vf_module_name",
                     "sections": [
                         "vf_module_name",
-                        "Resource: OS::Nova::Server \u2013 Metadata Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -17278,9 +16889,7 @@
                     "section_name": "Property: fixed_ips, Map Property: subnet_id",
                     "sections": [
                         "Property: fixed_ips, Map Property: subnet_id",
-                        "Resource: OS::Neutron::Port - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -17367,9 +16976,7 @@
                     "sections": [
                         "OS::ContrailV2::InterfaceRouteTable",
                         "Contrail Heat Resources Resource ID Naming Convention",
-                        "Resource IDs",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource IDs"
                     ],
                     "status": null,
                     "tags": [],
@@ -17398,8 +17005,7 @@
                     "sections": [
                         "Base Modules",
                         "ONAP Heat Orchestration Template Filenames",
-                        "ONAP Heat Orchestration Templates: Overview",
-                        "Heat"
+                        "ONAP Heat Orchestration Templates Overview"
                     ],
                     "status": null,
                     "tags": [],
@@ -17427,8 +17033,7 @@
                     "section_name": "ONAP VNF Modularity Overview",
                     "sections": [
                         "ONAP VNF Modularity Overview",
-                        "ONAP Heat Orchestration Templates: Overview",
-                        "Heat"
+                        "ONAP Heat Orchestration Templates Overview"
                     ],
                     "status": null,
                     "tags": [],
@@ -17486,9 +17091,7 @@
                     "sections": [
                         "OS::ContrailV2::NetworkIpam",
                         "Contrail Heat Resources Resource ID Naming Convention",
-                        "Resource IDs",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource IDs"
                     ],
                     "status": null,
                     "tags": [],
@@ -17545,9 +17148,7 @@
                     "notes": "",
                     "section_name": "Resource IDs",
                     "sections": [
-                        "Resource IDs",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource IDs"
                     ],
                     "status": null,
                     "tags": [],
@@ -17563,7 +17164,7 @@
                     "validation_mode": ""
                 },
                 "R-82134": {
-                    "description": "A VNF's Heat Orchestration Template's OS::Nova::Server\nResource metadata map value parameter 'vf\\_module\\_id' **MUST**\nbe declared as type: 'string'.",
+                    "description": "A VNF's Heat Orchestration Template's OS::Nova::Server\nResource metadata map value parameter 'vf_module_id' **MUST**\nbe declared as type: 'string'.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-82134",
@@ -17575,9 +17176,7 @@
                     "section_name": "vf_module_id",
                     "sections": [
                         "vf_module_id",
-                        "Resource: OS::Nova::Server \u2013 Metadata Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -17631,9 +17230,7 @@
                     "notes": "",
                     "section_name": "{vm-type}",
                     "sections": [
-                        "{vm-type}",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "{vm-type}"
                     ],
                     "status": null,
                     "tags": [],
@@ -17660,9 +17257,7 @@
                     "notes": "",
                     "section_name": "Resource IDs",
                     "sections": [
-                        "Resource IDs",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource IDs"
                     ],
                     "status": null,
                     "tags": [],
@@ -17691,8 +17286,7 @@
                     "sections": [
                         "Cinder Volume Modules",
                         "ONAP Heat Orchestration Template Filenames",
-                        "ONAP Heat Orchestration Templates: Overview",
-                        "Heat"
+                        "ONAP Heat Orchestration Templates Overview"
                     ],
                     "status": null,
                     "tags": [],
@@ -17749,8 +17343,7 @@
                     "section_name": "External Networks",
                     "sections": [
                         "External Networks",
-                        "Networking",
-                        "Heat"
+                        "ONAP Heat Networking"
                     ],
                     "status": null,
                     "tags": [],
@@ -17836,9 +17429,7 @@
                     "sections": [
                         "VIP Assignment, External Networks, Supported by Automation",
                         "Property: allowed_address_pairs, Map Property: ip_address",
-                        "Resource: OS::Neutron::Port - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -17867,9 +17458,7 @@
                     "sections": [
                         "VIP Assignment, External Networks, Supported by Automation",
                         "Property: allowed_address_pairs, Map Property: ip_address",
-                        "Resource: OS::Neutron::Port - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -17925,9 +17514,7 @@
                     "section_name": "Property: fixed_ips, Map Property: subnet_id",
                     "sections": [
                         "Property: fixed_ips, Map Property: subnet_id",
-                        "Resource: OS::Neutron::Port - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -17955,9 +17542,7 @@
                     "section_name": "Boot Options",
                     "sections": [
                         "Boot Options",
-                        "Resource: OS::Nova::Server - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -18045,9 +17630,7 @@
                     "section_name": "Property: fixed_ips, Map Property: subnet_id",
                     "sections": [
                         "Property: fixed_ips, Map Property: subnet_id",
-                        "Resource: OS::Neutron::Port - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -18131,9 +17714,7 @@
                     "notes": "",
                     "section_name": "{network-role}",
                     "sections": [
-                        "{network-role}",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "{network-role}"
                     ],
                     "status": null,
                     "tags": [],
@@ -18190,9 +17771,7 @@
                     "sections": [
                         "OS::ContrailV2::PortTuple",
                         "Contrail Heat Resources Resource ID Naming Convention",
-                        "Resource IDs",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource IDs"
                     ],
                     "status": null,
                     "tags": [],
@@ -18247,9 +17826,7 @@
                     "section_name": "Contrail Issue with Values for the Property Name",
                     "sections": [
                         "Contrail Issue with Values for the Property Name",
-                        "Resource Property \u201cname\u201d",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource Property \u201cname\u201d"
                     ],
                     "status": null,
                     "tags": [],
@@ -18334,9 +17911,7 @@
                     "section_name": "Property: fixed_ips, Map Property: ip_address",
                     "sections": [
                         "Property: fixed_ips, Map Property: ip_address",
-                        "Resource: OS::Neutron::Port - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -18364,9 +17939,7 @@
                     "section_name": "vm_role",
                     "sections": [
                         "vm_role",
-                        "Resource: OS::Nova::Server \u2013 Metadata Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -18449,9 +18022,7 @@
                     "notes": "",
                     "section_name": "Resource Property \u201cname\u201d",
                     "sections": [
-                        "Resource Property \u201cname\u201d",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource Property \u201cname\u201d"
                     ],
                     "status": null,
                     "tags": [],
@@ -18479,9 +18050,7 @@
                     "section_name": "Property: Name",
                     "sections": [
                         "Property: Name",
-                        "Resource: OS::Nova::Server - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -18565,9 +18134,7 @@
                     "section_name": "Property: network",
                     "sections": [
                         "Property: network",
-                        "Resource: OS::Neutron::Port - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -18611,7 +18178,7 @@
                     "validation_mode": ""
                 },
                 "R-86237": {
-                    "description": "If a VNF's Heat Orchestration Template's OS::Nova::Server\nResource metadata map value parameter 'vf_module_id' is passed\ninto a Nested YAML file, the parameter name 'vf\\_module\\_id'\n**MUST NOT** change.",
+                    "description": "If a VNF's Heat Orchestration Template's OS::Nova::Server\nResource metadata map value parameter 'vf_module_id' is passed\ninto a Nested YAML file, the parameter name 'vf_module_id'\n**MUST NOT** change.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-86237",
@@ -18623,9 +18190,7 @@
                     "section_name": "vf_module_id",
                     "sections": [
                         "vf_module_id",
-                        "Resource: OS::Nova::Server \u2013 Metadata Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -18681,8 +18246,7 @@
                     "section_name": "Environment File Format",
                     "sections": [
                         "Environment File Format",
-                        "Heat Orchestration Template Format",
-                        "Heat"
+                        "ONAP Heat Orchestration Template Format"
                     ],
                     "status": null,
                     "tags": [],
@@ -18710,9 +18274,7 @@
                     "section_name": "vm_role",
                     "sections": [
                         "vm_role",
-                        "Resource: OS::Nova::Server \u2013 Metadata Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -18741,9 +18303,7 @@
                     "sections": [
                         "OS::Cinder::VolumeAttachment",
                         "OpenStack Heat Resources Resource ID Naming Convention",
-                        "Resource IDs",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource IDs"
                     ],
                     "status": null,
                     "tags": [],
@@ -18826,9 +18386,7 @@
                     "notes": "",
                     "section_name": "{network-role}",
                     "sections": [
-                        "{network-role}",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "{network-role}"
                     ],
                     "status": null,
                     "tags": [],
@@ -18911,8 +18469,7 @@
                     "section_name": "ONAP VNF Modularity Overview",
                     "sections": [
                         "ONAP VNF Modularity Overview",
-                        "ONAP Heat Orchestration Templates: Overview",
-                        "Heat"
+                        "ONAP Heat Orchestration Templates Overview"
                     ],
                     "status": null,
                     "tags": [],
@@ -18940,8 +18497,7 @@
                     "section_name": "Internal Networks",
                     "sections": [
                         "Internal Networks",
-                        "Networking",
-                        "Heat"
+                        "ONAP Heat Networking"
                     ],
                     "status": null,
                     "tags": [],
@@ -18970,9 +18526,7 @@
                     "sections": [
                         "OS::Cinder::Volume",
                         "OpenStack Heat Resources Resource ID Naming Convention",
-                        "Resource IDs",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource IDs"
                     ],
                     "status": null,
                     "tags": [],
@@ -19000,8 +18554,7 @@
                     "section_name": "Internal Networks",
                     "sections": [
                         "Internal Networks",
-                        "Networking",
-                        "Heat"
+                        "ONAP Heat Networking"
                     ],
                     "status": null,
                     "tags": [],
@@ -19017,7 +18570,7 @@
                     "validation_mode": ""
                 },
                 "R-87123": {
-                    "description": "The VNF's Heat Orchestration Template's Resource\n'OS::Neutron::Port' property 'fixed_ips' map property 'ip_address'\nparameter '{vm-type}_{network-role}\\_v6\\_ip\\_{index}'\n**MUST NOT** be enumerated in the VNF's Heat Orchestration\nTemplate's Environment File.",
+                    "description": "The VNF's Heat Orchestration Template's Resource\n'OS::Neutron::Port' property 'fixed_ips' map property 'ip_address'\nparameter '{vm-type}_{network-role}_v6_ip_{index}'\n**MUST NOT** be enumerated in the VNF's Heat Orchestration\nTemplate's Environment File.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-87123",
@@ -19029,9 +18582,7 @@
                     "section_name": "Property: fixed_ips, Map Property: ip_address",
                     "sections": [
                         "Property: fixed_ips, Map Property: ip_address",
-                        "Resource: OS::Neutron::Port - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -19088,8 +18639,7 @@
                     "sections": [
                         "Incremental Modules",
                         "ONAP Heat Orchestration Template Filenames",
-                        "ONAP Heat Orchestration Templates: Overview",
-                        "Heat"
+                        "ONAP Heat Orchestration Templates Overview"
                     ],
                     "status": null,
                     "tags": [],
@@ -19145,8 +18695,7 @@
                     "section_name": "ONAP Heat Orchestration Template Filenames",
                     "sections": [
                         "ONAP Heat Orchestration Template Filenames",
-                        "ONAP Heat Orchestration Templates: Overview",
-                        "Heat"
+                        "ONAP Heat Orchestration Templates Overview"
                     ],
                     "status": null,
                     "tags": [],
@@ -19175,9 +18724,7 @@
                     "sections": [
                         "OS::ContrailV2::InstanceIp",
                         "Contrail Heat Resources Resource ID Naming Convention",
-                        "Resource IDs",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource IDs"
                     ],
                     "status": null,
                     "tags": [],
@@ -19235,9 +18782,7 @@
                     "section_name": "Property: Name",
                     "sections": [
                         "Property: Name",
-                        "Resource: OS::Nova::Server - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -19265,8 +18810,7 @@
                     "section_name": "Heat Files Support (get_file)",
                     "sections": [
                         "Heat Files Support (get_file)",
-                        "Heat Template Constructs",
-                        "Heat"
+                        "ONAP Heat Heat Template Constructs"
                     ],
                     "status": null,
                     "tags": [],
@@ -19410,9 +18954,7 @@
                     "section_name": "ONAP Volume Template Output Parameters:",
                     "sections": [
                         "ONAP Volume Template Output Parameters:",
-                        "ONAP Output Parameter Names",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "ONAP Output Parameter Names"
                     ],
                     "status": null,
                     "tags": [],
@@ -19440,9 +18982,7 @@
                     "section_name": "environment_context",
                     "sections": [
                         "environment_context",
-                        "Resource: OS::Nova::Server \u2013 Metadata Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -19471,9 +19011,7 @@
                     "sections": [
                         "OS::ContrailV2::InstanceIp",
                         "Contrail Heat Resources Resource ID Naming Convention",
-                        "Resource IDs",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource IDs"
                     ],
                     "status": null,
                     "tags": [],
@@ -19503,8 +19041,7 @@
                         "constraints",
                         "parameters",
                         "Heat Orchestration Template Structure",
-                        "Heat Orchestration Template Format",
-                        "Heat"
+                        "ONAP Heat Orchestration Template Format"
                     ],
                     "status": null,
                     "tags": [],
@@ -19701,8 +19238,7 @@
                     "section_name": "Nested Heat Template Requirements",
                     "sections": [
                         "Nested Heat Template Requirements",
-                        "Heat Template Constructs",
-                        "Heat"
+                        "ONAP Heat Heat Template Constructs"
                     ],
                     "status": null,
                     "tags": [],
@@ -19731,8 +19267,7 @@
                     "sections": [
                         "ONAP Volume Module Output Parameters",
                         "Output Parameters",
-                        "ONAP Heat Orchestration Templates: Overview",
-                        "Heat"
+                        "ONAP Heat Orchestration Templates Overview"
                     ],
                     "status": null,
                     "tags": [],
@@ -19790,8 +19325,7 @@
                     "section_name": "Nested Heat Template Requirements",
                     "sections": [
                         "Nested Heat Template Requirements",
-                        "Heat Template Constructs",
-                        "Heat"
+                        "ONAP Heat Heat Template Constructs"
                     ],
                     "status": null,
                     "tags": [],
@@ -19820,8 +19354,7 @@
                     "sections": [
                         "resources",
                         "Heat Orchestration Template Structure",
-                        "Heat Orchestration Template Format",
-                        "Heat"
+                        "ONAP Heat Orchestration Template Format"
                     ],
                     "status": null,
                     "tags": [],
@@ -19849,9 +19382,7 @@
                     "section_name": "Property: fixed_ips, Map Property: ip_address",
                     "sections": [
                         "Property: fixed_ips, Map Property: ip_address",
-                        "Resource: OS::Neutron::Port - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -19880,8 +19411,7 @@
                     "sections": [
                         "parameters",
                         "Heat Orchestration Template Structure",
-                        "Heat Orchestration Template Format",
-                        "Heat"
+                        "ONAP Heat Orchestration Template Format"
                     ],
                     "status": null,
                     "tags": [],
@@ -19911,8 +19441,7 @@
                         "default",
                         "parameters",
                         "Heat Orchestration Template Structure",
-                        "Heat Orchestration Template Format",
-                        "Heat"
+                        "ONAP Heat Orchestration Template Format"
                     ],
                     "status": null,
                     "tags": [],
@@ -19968,8 +19497,7 @@
                     "section_name": "ONAP VNF Modularity Overview",
                     "sections": [
                         "ONAP VNF Modularity Overview",
-                        "ONAP Heat Orchestration Templates: Overview",
-                        "Heat"
+                        "ONAP Heat Orchestration Templates Overview"
                     ],
                     "status": null,
                     "tags": [],
@@ -19997,9 +19525,7 @@
                     "section_name": "Property: image",
                     "sections": [
                         "Property: image",
-                        "Resource: OS::Nova::Server - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -20028,8 +19554,7 @@
                     "sections": [
                         "parameters",
                         "Heat Orchestration Template Structure",
-                        "Heat Orchestration Template Format",
-                        "Heat"
+                        "ONAP Heat Orchestration Template Format"
                     ],
                     "status": null,
                     "tags": [],
@@ -20058,8 +19583,7 @@
                     "sections": [
                         "Base Modules",
                         "ONAP Heat Orchestration Template Filenames",
-                        "ONAP Heat Orchestration Templates: Overview",
-                        "Heat"
+                        "ONAP Heat Orchestration Templates Overview"
                     ],
                     "status": null,
                     "tags": [],
@@ -20087,8 +19611,7 @@
                     "section_name": "ONAP VNF Modularity Overview",
                     "sections": [
                         "ONAP VNF Modularity Overview",
-                        "ONAP Heat Orchestration Templates: Overview",
-                        "Heat"
+                        "ONAP Heat Orchestration Templates Overview"
                     ],
                     "status": null,
                     "tags": [],
@@ -20147,9 +19670,7 @@
                     "sections": [
                         "VIP Assignment, External Networks, Supported by Automation",
                         "Property: allowed_address_pairs, Map Property: ip_address",
-                        "Resource: OS::Neutron::Port - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -20178,9 +19699,7 @@
                     "sections": [
                         "External Networks",
                         "Contrail Network Parameters",
-                        "Contrail Resource Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Contrail Resource Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -20322,9 +19841,7 @@
                     "section_name": "Property: fixed_ips, Map Property: ip_address",
                     "sections": [
                         "Property: fixed_ips, Map Property: ip_address",
-                        "Resource: OS::Neutron::Port - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -20352,9 +19869,7 @@
                     "section_name": "Property: network",
                     "sections": [
                         "Property: network",
-                        "Resource: OS::Neutron::Port - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -20383,9 +19898,7 @@
                     "sections": [
                         "Items to Note",
                         "Introduction",
-                        "Resource: OS::Neutron::Port - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -20443,9 +19956,7 @@
                     "section_name": "Property: fixed_ips, Map Property: ip_address",
                     "sections": [
                         "Property: fixed_ips, Map Property: ip_address",
-                        "Resource: OS::Neutron::Port - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -20531,8 +20042,7 @@
                     "sections": [
                         "Incremental Modules",
                         "ONAP Heat Orchestration Template Filenames",
-                        "ONAP Heat Orchestration Templates: Overview",
-                        "Heat"
+                        "ONAP Heat Orchestration Templates Overview"
                     ],
                     "status": null,
                     "tags": [],
@@ -20589,9 +20099,7 @@
                     "sections": [
                         "OAM Management IP Addresses",
                         "Predefined Output Parameters",
-                        "ONAP Output Parameter Names",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "ONAP Output Parameter Names"
                     ],
                     "status": null,
                     "tags": [],
@@ -20675,8 +20183,7 @@
                     "section_name": "YAML Format",
                     "sections": [
                         "YAML Format",
-                        "General Guidelines",
-                        "Heat"
+                        "General Guidelines for Heat"
                     ],
                     "status": null,
                     "tags": [],
@@ -20704,9 +20211,7 @@
                     "section_name": "vm_role",
                     "sections": [
                         "vm_role",
-                        "Resource: OS::Nova::Server \u2013 Metadata Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -20794,8 +20299,7 @@
                         "constraints",
                         "parameters",
                         "Heat Orchestration Template Structure",
-                        "Heat Orchestration Template Format",
-                        "Heat"
+                        "ONAP Heat Orchestration Template Format"
                     ],
                     "status": null,
                     "tags": [],
@@ -20824,9 +20328,7 @@
                     "sections": [
                         "OS::ContrailV2::VirtualMachineInterface",
                         "Contrail Heat Resources Resource ID Naming Convention",
-                        "Resource IDs",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource IDs"
                     ],
                     "status": null,
                     "tags": [],
@@ -20853,9 +20355,7 @@
                     "notes": "",
                     "section_name": "Resource IDs",
                     "sections": [
-                        "Resource IDs",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource IDs"
                     ],
                     "status": null,
                     "tags": [],
@@ -20940,9 +20440,7 @@
                     "notes": "",
                     "section_name": "{network-role}",
                     "sections": [
-                        "{network-role}",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "{network-role}"
                     ],
                     "status": null,
                     "tags": [],
@@ -21000,8 +20498,7 @@
                         "metadata",
                         "resources",
                         "Heat Orchestration Template Structure",
-                        "Heat Orchestration Template Format",
-                        "Heat"
+                        "ONAP Heat Orchestration Template Format"
                     ],
                     "status": null,
                     "tags": [],
@@ -21029,9 +20526,7 @@
                     "section_name": "Property: fixed_ips, Map Property: ip_address",
                     "sections": [
                         "Property: fixed_ips, Map Property: ip_address",
-                        "Resource: OS::Neutron::Port - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -21174,9 +20669,7 @@
                     "section_name": "ONAP Base Module Output Parameters:",
                     "sections": [
                         "ONAP Base Module Output Parameters:",
-                        "ONAP Output Parameter Names",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "ONAP Output Parameter Names"
                     ],
                     "status": null,
                     "tags": [],
@@ -21203,9 +20696,7 @@
                     "notes": "",
                     "section_name": "Resource IDs",
                     "sections": [
-                        "Resource IDs",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource IDs"
                     ],
                     "status": null,
                     "tags": [],
@@ -21250,7 +20741,7 @@
                     "validation_mode": ""
                 },
                 "R-98374": {
-                    "description": "A VNF's Heat Orchestration Template's OS::Nova::Server\nResource metadata map value parameter 'vf\\_module\\_id' **MUST NOT**\nhave parameter contraints defined.",
+                    "description": "A VNF's Heat Orchestration Template's OS::Nova::Server\nResource metadata map value parameter 'vf_module_id' **MUST NOT**\nhave parameter contraints defined.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-98374",
@@ -21262,9 +20753,7 @@
                     "section_name": "vf_module_id",
                     "sections": [
                         "vf_module_id",
-                        "Resource: OS::Nova::Server \u2013 Metadata Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -21319,9 +20808,7 @@
                     "notes": "",
                     "section_name": "{vm-type}",
                     "sections": [
-                        "{vm-type}",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "{vm-type}"
                     ],
                     "status": null,
                     "tags": [],
@@ -21349,9 +20836,7 @@
                     "section_name": "Property: availability_zone",
                     "sections": [
                         "Property: availability_zone",
-                        "Resource: OS::Nova::Server - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -21379,9 +20864,7 @@
                     "section_name": "Property: fixed_ips, Map Property: ip_address",
                     "sections": [
                         "Property: fixed_ips, Map Property: ip_address",
-                        "Resource: OS::Neutron::Port - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -21438,9 +20921,7 @@
                     "sections": [
                         "VIP Assignment, External Networks, Supported by Automation",
                         "Property: allowed_address_pairs, Map Property: ip_address",
-                        "Resource: OS::Neutron::Port - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -21468,9 +20949,7 @@
                     "section_name": "Property: fixed_ips, Map Property: ip_address",
                     "sections": [
                         "Property: fixed_ips, Map Property: ip_address",
-                        "Resource: OS::Neutron::Port - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -21557,9 +21036,7 @@
                     "sections": [
                         "OS::ContrailV2::VirtualNetwork",
                         "Contrail Heat Resources Resource ID Naming Convention",
-                        "Resource IDs",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource IDs"
                     ],
                     "status": null,
                     "tags": [],
@@ -21615,8 +21092,7 @@
                     "section_name": "ONAP Heat Orchestration Template Filenames",
                     "sections": [
                         "ONAP Heat Orchestration Template Filenames",
-                        "ONAP Heat Orchestration Templates: Overview",
-                        "Heat"
+                        "ONAP Heat Orchestration Templates Overview"
                     ],
                     "status": null,
                     "tags": [],
@@ -21755,8 +21231,7 @@
                     "section_name": "External Networks",
                     "sections": [
                         "External Networks",
-                        "Networking",
-                        "Heat"
+                        "ONAP Heat Networking"
                     ],
                     "status": null,
                     "tags": [],
@@ -21784,9 +21259,7 @@
                     "section_name": "Boot Options",
                     "sections": [
                         "Boot Options",
-                        "Resource: OS::Nova::Server - Parameters",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource: OS::Nova::Server - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -21813,9 +21286,7 @@
                     "notes": "",
                     "section_name": "Resource Property \u201cname\u201d",
                     "sections": [
-                        "Resource Property \u201cname\u201d",
-                        "ONAP Resource ID and Parameter Naming Convention",
-                        "Heat"
+                        "Resource Property \u201cname\u201d"
                     ],
                     "status": null,
                     "tags": [],
@@ -21831,7 +21302,7 @@
                     "validation_mode": ""
                 }
             },
-            "needs_amount": 755
+            "needs_amount": 749
         },
         "beijing": {
             "created": "2018-08-22T16:47:37.993404",

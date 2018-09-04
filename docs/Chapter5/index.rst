@@ -20,6 +20,6 @@ VNF Modeling Requirements
     :maxdepth: 2
 
     Tosca
-    Heat
+    Heat/index.rst
     VNFM-Driver-Development-Steps
     Creating-Vendor-Specific-VNFM-Adaptor-Microservices
