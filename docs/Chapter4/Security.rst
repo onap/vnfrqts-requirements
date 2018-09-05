@@ -548,11 +548,10 @@ Identity and Access Management Requirements
     :id: R-85419
     :target: VNF
     :keyword: SHOULD
+    :updated: casablanca
 
-    The VNF **SHOULD** use REST APIs exposed to Client
-    Applications for the implementation of OAuth 2.0 Authorization
-    Code Grant and Client Credentials Grant, as the standard interface
-    for a VNF.
+    The VNF **SHOULD** support OAuth 2.0 authorization using an external
+    Authorization Server.
 
 .. req::
     :id: R-48080
@@ -589,10 +588,11 @@ API Requirements
 .. req::
     :id: R-43884
     :target: VNF
-    :keyword: MUST
+    :keyword: SHOULD
+    :updated: casablanca
 
-    The VNF **MUST** integrate with external authentication
-    and authorization services (e.g., IDAM).
+    The VNF **SHOULD** integrate with the Operator's authentication and
+    authorization services (e.g., IDAM).
 
 .. req::
     :id: R-25878
@@ -855,8 +855,12 @@ Security Analytics Requirements
     :id: R-54520
     :target: VNF
     :keyword: MUST
+    :updated: casablanca
 
-    The VNF **MUST** log successful and unsuccessful login attempts.
+    The VNF **MUST** log successful and unsuccessful authentication
+    attempts, e.g., authentication associated with a transaction,
+    authentication to create a session, authentication to assume elevated
+    privilege.
 
 .. req::
     :id: R-55478
@@ -884,16 +888,18 @@ Security Analytics Requirements
     :id: R-07617
     :target: VNF
     :keyword: MUST
+    :updated: casablanca
 
-    The VNF **MUST** log creating, removing, or changing the
-    inherent privilege level of users.
+    The VNF **MUST** log success and unsuccessful creation, removal, or
+    change to the inherent privilege level of users.
 
 .. req::
     :id: R-94525
     :target: VNF
     :keyword: MUST
+    :updated: casablanca
 
-    The VNF **MUST** log connections to a network listener of the
+    The VNF **MUST** log connections to the network listeners of the
     resource.
 
 .. req::
@@ -954,11 +960,10 @@ Security Analytics Requirements
     :id: R-63330
     :target: VNF
     :keyword: MUST
+    :updated: casablanca
 
-    The VNF **MUST** detect when the security audit log storage
-    medium is approaching capacity (configurable) and issue an alarm via
-    SMS or equivalent as to allow time for proper actions to be taken to
-    pre-empt loss of audit data.
+    The VNF **MUST** detect when its security audit log storage
+    medium is approaching capacity (configurable) and issue an alarm.
 
 .. req::
     :id: R-41252
@@ -972,27 +977,30 @@ Security Analytics Requirements
     :id: R-41825
     :target: VNF
     :keyword: MUST
+    :updated: casablanca
 
     The VNF **MUST** activate security alarms automatically when
-    the following event is detected: configurable number of consecutive
-    unsuccessful login attempts.
+    a configurable number of consecutive unsuccessful login attempts
+    is reached.
 
 .. req::
     :id: R-43332
     :target: VNF
     :keyword: MUST
+    :updated: casablanca
 
     The VNF **MUST** activate security alarms automatically when
-    the following event is detected: successful modification of critical
-    system or application files.
+    it detects the successful modification of a critical system or
+    application file.
 
 .. req::
     :id: R-74958
     :target: VNF
     :keyword: MUST
+    :updated: casablanca
 
     The VNF **MUST** activate security alarms automatically when
-    the following event is detected: unsuccessful attempts to gain permissions
+    it detects an unsuccessful attempt to gain permissions
     or assume the identity of another user.
 
 .. req::
@@ -1039,9 +1047,10 @@ Security Analytics Requirements
     :id: R-29705
     :target: VNF
     :keyword: MUST
+    :updated: casablanca
 
     The VNF **MUST** restrict changing the criticality level of a
-    system security alarm to administrator(s).
+    system security alarm to users with administrative privileges.
 
 .. req::
     :id: R-13627

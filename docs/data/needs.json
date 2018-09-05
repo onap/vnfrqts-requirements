@@ -1,5 +1,5 @@
 {
-    "created": "2018-09-05T18:05:01.216554",
+    "created": "2018-09-05T20:05:26.621772",
     "current_version": "casablanca",
     "project": "",
     "versions": {
@@ -21858,7 +21858,7 @@
             "needs_amount": 750
         },
         "casablanca": {
-            "created": "2018-09-05T18:05:01.216400",
+            "created": "2018-09-05T20:05:26.621679",
             "needs": {
                 "R-00011": {
                     "description": "A VNF's Heat Orchestration Template's Nested YAML files\nparameter's **MUST NOT** have a parameter constraint defined.",
@@ -23427,7 +23427,7 @@
                     "validation_mode": ""
                 },
                 "R-07617": {
-                    "description": "The VNF **MUST** log creating, removing, or changing the\ninherent privilege level of users.",
+                    "description": "The VNF **MUST** log success and unsuccessful creation, removal, or\nchange to the inherent privilege level of users.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-07617",
@@ -23450,7 +23450,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -28160,7 +28160,7 @@
                     "validation_mode": ""
                 },
                 "R-29705": {
-                    "description": "The VNF **MUST** restrict changing the criticality level of a\nsystem security alarm to administrator(s).",
+                    "description": "The VNF **MUST** restrict changing the criticality level of a\nsystem security alarm to users with administrative privileges.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-29705",
@@ -28183,7 +28183,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -30823,7 +30823,7 @@
                     "validation_mode": ""
                 },
                 "R-41825": {
-                    "description": "The VNF **MUST** activate security alarms automatically when\nthe following event is detected: configurable number of consecutive\nunsuccessful login attempts.",
+                    "description": "The VNF **MUST** activate security alarms automatically when\na configurable number of consecutive unsuccessful login attempts\nis reached.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-41825",
@@ -30846,7 +30846,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -31223,7 +31223,7 @@
                     "validation_mode": ""
                 },
                 "R-43332": {
-                    "description": "The VNF **MUST** activate security alarms automatically when\nthe following event is detected: successful modification of critical\nsystem or application files.",
+                    "description": "The VNF **MUST** activate security alarms automatically when\nit detects the successful modification of a critical system or\napplication file.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-43332",
@@ -31246,7 +31246,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -31339,13 +31339,13 @@
                     "validation_mode": ""
                 },
                 "R-43884": {
-                    "description": "The VNF **MUST** integrate with external authentication\nand authorization services (e.g., IDAM).",
+                    "description": "The VNF **SHOULD** integrate with the Operator's authentication and\nauthorization services (e.g., IDAM).",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-43884",
                     "impacts": "",
                     "introduced": "",
-                    "keyword": "MUST",
+                    "keyword": "SHOULD",
                     "links": [],
                     "notes": "",
                     "section_name": "VNF API Security Requirements",
@@ -31362,7 +31362,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -33711,7 +33711,7 @@
                     "validation_mode": ""
                 },
                 "R-54520": {
-                    "description": "The VNF **MUST** log successful and unsuccessful login attempts.",
+                    "description": "The VNF **MUST** log successful and unsuccessful authentication\nattempts, e.g., authentication associated with a transaction,\nauthentication to create a session, authentication to assume elevated\nprivilege.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-54520",
@@ -33734,7 +33734,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -35326,7 +35326,7 @@
                     "validation_mode": ""
                 },
                 "R-63330": {
-                    "description": "The VNF **MUST** detect when the security audit log storage\nmedium is approaching capacity (configurable) and issue an alarm via\nSMS or equivalent as to allow time for proper actions to be taken to\npre-empt loss of audit data.",
+                    "description": "The VNF **MUST** detect when its security audit log storage\nmedium is approaching capacity (configurable) and issue an alarm.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-63330",
@@ -35349,7 +35349,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -37454,7 +37454,7 @@
                     "validation_mode": ""
                 },
                 "R-74958": {
-                    "description": "The VNF **MUST** activate security alarms automatically when\nthe following event is detected: unsuccessful attempts to gain permissions\nor assume the identity of another user.",
+                    "description": "The VNF **MUST** activate security alarms automatically when\nit detects an unsuccessful attempt to gain permissions\nor assume the identity of another user.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-74958",
@@ -37477,7 +37477,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -39529,7 +39529,7 @@
                     "validation_mode": ""
                 },
                 "R-85419": {
-                    "description": "The VNF **SHOULD** use REST APIs exposed to Client\nApplications for the implementation of OAuth 2.0 Authorization\nCode Grant and Client Credentials Grant, as the standard interface\nfor a VNF.",
+                    "description": "The VNF **SHOULD** support OAuth 2.0 authorization using an external\nAuthorization Server.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-85419",
@@ -39552,7 +39552,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -41632,7 +41632,7 @@
                     "validation_mode": ""
                 },
                 "R-94525": {
-                    "description": "The VNF **MUST** log connections to a network listener of the\nresource.",
+                    "description": "The VNF **MUST** log connections to the network listeners of the\nresource.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-94525",
@@ -41655,7 +41655,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
