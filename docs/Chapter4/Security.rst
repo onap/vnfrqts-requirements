@@ -106,11 +106,10 @@ the product’s lifecycle.
     :id: R-23882
     :target: VNF
     :keyword: SHOULD
+    :updated: casablanca
 
-    The VNF **SHOULD** be scanned using both network scanning
-    and application scanning security tools on all code, including underlying
-    OS and related configuration. Scan reports shall be provided. Remediation
-    roadmaps shall be made available for any findings.
+    The VNF **SHOULD** provide the capability for the Operator to run security
+    vulnerability scans of the operating system and all application layers.
 
 .. req::
     :id: R-46986
@@ -124,13 +123,14 @@ the product’s lifecycle.
     :id: R-99771
     :target: VNF
     :keyword: MUST
+    :updated: casablanca
 
-    The VNF **MUST** provide all code/configuration files in a
-    "Locked down" or hardened state or with documented recommendations for
-    such hardening. All unnecessary services will be disabled. VNF provider
-    default credentials, community strings and other such artifacts will be
-    removed or disclosed so that they can be modified or removed during
-    provisioning.
+    The VNF **MUST** have all code (e.g., QCOW2) and configuration files
+    (e.g., HEAT template, Ansible playbook, script) hardened, or with
+    documented recommended configurations for hardening and interfaces that
+    allow the Operator to harden the VNF. Actions taken to harden a system
+    include disabling all unnecessary services, and changing default values
+    such as default credentials and community strings.
 
 .. req::
     :id: R-19768
@@ -383,10 +383,11 @@ Identity and Access Management Requirements
     :id: R-71787
     :target: VNF
     :keyword: MUST
+    :updated: casablanca
 
-    The VNF **MUST** comply with Segregation of Duties (access to a
-    single layer and no developer may access production without special
-    oversight) when persons or non-person entities access VNFs.
+    Each layer of the VNF **MUST** support access restriction
+    independently of all other layers so that Segregation of Duties
+    can be implemented.
 
 .. req::
     :id: R-86261
@@ -591,11 +592,11 @@ Identity and Access Management Requirements
 .. req::
     :id: R-15671
     :target: VNF
-    :keyword: MUST NOT
+    :keyword: MUST
+    :updated: casablanca
 
-    The VNF **MUST NOT** provide public or unrestricted access
-    to any data without the permission of the data owner. All data
-    classification and access controls must be followed.
+    The VNF **MUST** provide access controls that allow the Operator
+    to restrict access to VNF functions and data to authorized entities.
 
 .. req::
     :id: R-89753
@@ -1321,9 +1322,10 @@ Data Protection Requirements
     :id: R-95864
     :target: VNF
     :keyword: MUST
+    :updated: casablanca
 
-    The VNF **MUST** use commercial tools that comply with X.509
-    standards and produce x.509 compliant keys for public/private key generation.
+    The VNF **MUST** support digital certificates that comply with X.509
+    standards.
 
 .. req::
     :id: R-12110
