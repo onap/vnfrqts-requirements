@@ -408,93 +408,12 @@ Identity and Access Management Requirements
     policy based mechanism.
 
 .. req::
-    :id: R-31751
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST** subject VNF provider access to privilege
-    reconciliation tools to prevent access creep and ensure correct
-    enforcement of access policies.
-
-.. req::
     :id: R-34552
     :target: VNF
     :keyword: MUST
 
     The VNF **MUST** provide or support the Identity and Access
     Management (IDAM) based threat detection data for OWASP Top 10.
-
-.. req::
-    :id: R-29301
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST** provide or support the Identity and Access
-    Management (IDAM) based threat detection data for Password Attacks.
-
-.. req::
-    :id: R-72243
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST** provide or support the Identity and Access
-    Management (IDAM) based threat detection data for Phishing / SMishing.
-
-.. req::
-    :id: R-58998
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST** provide or support the Identity and Access
-    Management (IDAM) based threat detection data for Malware (Key Logger).
-
-.. req::
-    :id: R-14025
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST** provide or support the Identity and Access
-    Management (IDAM) based threat detection data for Session Hijacking.
-
-.. req::
-    :id: R-31412
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST** provide or support the Identity and Access
-    Management (IDAM) based threat detection data for XSS / CSRF.
-
-.. req::
-    :id: R-51883
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST** provide or support the Identity and Access
-    Management (IDAM) based threat detection data for Replay.
-
-.. req::
-    :id: R-44032
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST** provide or support the Identity and Access
-    Management (IDAM) based threat detection data for Man in the Middle (MITM).
-
-.. req::
-    :id: R-58977
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST** provide or support the Identity and Access
-    Management (IDAM) based threat detection data for Eavesdropping.
-
-.. req::
-    :id: R-24825
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST** provide Context awareness data (device,
-    location, time, etc.) and be able to integrate with threat detection system.
 
 .. req::
     :id: R-59391

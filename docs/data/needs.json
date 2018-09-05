@@ -1,5 +1,5 @@
 {
-    "created": "2018-09-05T16:14:05.658398",
+    "created": "2018-09-05T18:05:01.216554",
     "current_version": "casablanca",
     "project": "",
     "versions": {
@@ -21858,7 +21858,7 @@
             "needs_amount": 750
         },
         "casablanca": {
-            "created": "2018-09-05T16:14:05.658216",
+            "created": "2018-09-05T18:05:01.216400",
             "needs": {
                 "R-00011": {
                     "description": "A VNF's Heat Orchestration Template's Nested YAML files\nparameter's **MUST NOT** have a parameter constraint defined.",
@@ -24602,34 +24602,6 @@
                     "validated_by": "",
                     "validation_mode": ""
                 },
-                "R-14025": {
-                    "description": "The VNF **MUST** provide or support the Identity and Access\nManagement (IDAM) based threat detection data for Session Hijacking.",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-14025",
-                    "impacts": "",
-                    "introduced": "",
-                    "keyword": "MUST",
-                    "links": [],
-                    "notes": "",
-                    "section_name": "VNF Identity and Access Management Requirements",
-                    "sections": [
-                        "VNF Identity and Access Management Requirements",
-                        "VNF Security"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "",
-                    "validated_by": "",
-                    "validation_mode": ""
-                },
                 "R-14198": {
                     "description": "A VNF's Heat Orchestration Template's Resource\nOS::Neutron::SecurityGroup that is applicable to one {vm-type}\nand one internal network Resource ID **SHOULD** use the naming convention\n\n   * {vm-type}_int_{network-role}_security_group\n\nwhere\n\n   * {vm-type} is the vm-type\n   * {network-role} is the network-role",
                     "full_title": "",
@@ -27123,34 +27095,6 @@
                     "validated_by": "",
                     "validation_mode": ""
                 },
-                "R-24825": {
-                    "description": "The VNF **MUST** provide Context awareness data (device,\nlocation, time, etc.) and be able to integrate with threat detection system.",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-24825",
-                    "impacts": "",
-                    "introduced": "",
-                    "keyword": "MUST",
-                    "links": [],
-                    "notes": "",
-                    "section_name": "VNF Identity and Access Management Requirements",
-                    "sections": [
-                        "VNF Identity and Access Management Requirements",
-                        "VNF Security"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "",
-                    "validated_by": "",
-                    "validation_mode": ""
-                },
                 "R-24893": {
                     "description": "A VNF's Heat Orchestration template's Environment File's\n**MAY** contain the \"event_sinks:\" section.",
                     "full_title": "",
@@ -28125,34 +28069,6 @@
                     "validated_by": "",
                     "validation_mode": ""
                 },
-                "R-29301": {
-                    "description": "The VNF **MUST** provide or support the Identity and Access\nManagement (IDAM) based threat detection data for Password Attacks.",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-29301",
-                    "impacts": "",
-                    "introduced": "",
-                    "keyword": "MUST",
-                    "links": [],
-                    "notes": "",
-                    "section_name": "VNF Identity and Access Management Requirements",
-                    "sections": [
-                        "VNF Identity and Access Management Requirements",
-                        "VNF Security"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "",
-                    "validated_by": "",
-                    "validation_mode": ""
-                },
                 "R-29324": {
                     "description": "The xNF **SHOULD** implement the protocol operation:\n**copy-config(target, source) -** Copy the content of the\nconfiguration datastore source to the configuration datastore target.",
                     "full_title": "",
@@ -28697,34 +28613,6 @@
                     "validated_by": "",
                     "validation_mode": ""
                 },
-                "R-31412": {
-                    "description": "The VNF **MUST** provide or support the Identity and Access\nManagement (IDAM) based threat detection data for XSS / CSRF.",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-31412",
-                    "impacts": "",
-                    "introduced": "",
-                    "keyword": "MUST",
-                    "links": [],
-                    "notes": "",
-                    "section_name": "VNF Identity and Access Management Requirements",
-                    "sections": [
-                        "VNF Identity and Access Management Requirements",
-                        "VNF Security"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "",
-                    "validated_by": "",
-                    "validation_mode": ""
-                },
                 "R-31614": {
                     "description": "The VNF **MUST** log the field \"event type\" in the security audit\nlogs.",
                     "full_title": "",
@@ -28738,34 +28626,6 @@
                     "section_name": "VNF Security Analytics Requirements",
                     "sections": [
                         "VNF Security Analytics Requirements",
-                        "VNF Security"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "",
-                    "validated_by": "",
-                    "validation_mode": ""
-                },
-                "R-31751": {
-                    "description": "The VNF **MUST** subject VNF provider access to privilege\nreconciliation tools to prevent access creep and ensure correct\nenforcement of access policies.",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-31751",
-                    "impacts": "",
-                    "introduced": "",
-                    "keyword": "MUST",
-                    "links": [],
-                    "notes": "",
-                    "section_name": "VNF Identity and Access Management Requirements",
-                    "sections": [
-                        "VNF Identity and Access Management Requirements",
                         "VNF Security"
                     ],
                     "status": null,
@@ -31623,34 +31483,6 @@
                     "validated_by": "",
                     "validation_mode": ""
                 },
-                "R-44032": {
-                    "description": "The VNF **MUST** provide or support the Identity and Access\nManagement (IDAM) based threat detection data for Man in the Middle (MITM).",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-44032",
-                    "impacts": "",
-                    "introduced": "",
-                    "keyword": "MUST",
-                    "links": [],
-                    "notes": "",
-                    "section_name": "VNF Identity and Access Management Requirements",
-                    "sections": [
-                        "VNF Identity and Access Management Requirements",
-                        "VNF Security"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "",
-                    "validated_by": "",
-                    "validation_mode": ""
-                },
                 "R-44125": {
                     "description": "The xNF provider **MUST** agree to the process that can\nbe met by Service Provider reporting infrastructure. The Contract\nshall define the reporting process and the available reporting tools.",
                     "full_title": "",
@@ -33306,34 +33138,6 @@
                     "validated_by": "",
                     "validation_mode": ""
                 },
-                "R-51883": {
-                    "description": "The VNF **MUST** provide or support the Identity and Access\nManagement (IDAM) based threat detection data for Replay.",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-51883",
-                    "impacts": "",
-                    "introduced": "",
-                    "keyword": "MUST",
-                    "links": [],
-                    "notes": "",
-                    "section_name": "VNF Identity and Access Management Requirements",
-                    "sections": [
-                        "VNF Identity and Access Management Requirements",
-                        "VNF Security"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "",
-                    "validated_by": "",
-                    "validation_mode": ""
-                },
                 "R-51910": {
                     "description": "The xNF **MUST** provide all telemetry (e.g., fault event\nrecords, syslog records, performance records etc.) to ONAP using the\nmodel, format and mechanisms described in this section.",
                     "full_title": "",
@@ -34804,62 +34608,6 @@
                     "title_from_content": "",
                     "type_name": "Requirement",
                     "updated": "casablanca",
-                    "validated_by": "",
-                    "validation_mode": ""
-                },
-                "R-58977": {
-                    "description": "The VNF **MUST** provide or support the Identity and Access\nManagement (IDAM) based threat detection data for Eavesdropping.",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-58977",
-                    "impacts": "",
-                    "introduced": "",
-                    "keyword": "MUST",
-                    "links": [],
-                    "notes": "",
-                    "section_name": "VNF Identity and Access Management Requirements",
-                    "sections": [
-                        "VNF Identity and Access Management Requirements",
-                        "VNF Security"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "",
-                    "validated_by": "",
-                    "validation_mode": ""
-                },
-                "R-58998": {
-                    "description": "The VNF **MUST** provide or support the Identity and Access\nManagement (IDAM) based threat detection data for Malware (Key Logger).",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-58998",
-                    "impacts": "",
-                    "introduced": "",
-                    "keyword": "MUST",
-                    "links": [],
-                    "notes": "",
-                    "section_name": "VNF Identity and Access Management Requirements",
-                    "sections": [
-                        "VNF Identity and Access Management Requirements",
-                        "VNF Security"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -37243,34 +36991,6 @@
                     "status": null,
                     "tags": [],
                     "target": "XNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "",
-                    "validated_by": "",
-                    "validation_mode": ""
-                },
-                "R-72243": {
-                    "description": "The VNF **MUST** provide or support the Identity and Access\nManagement (IDAM) based threat detection data for Phishing / SMishing.",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-72243",
-                    "impacts": "",
-                    "introduced": "",
-                    "keyword": "MUST",
-                    "links": [],
-                    "notes": "",
-                    "section_name": "VNF Identity and Access Management Requirements",
-                    "sections": [
-                        "VNF Identity and Access Management Requirements",
-                        "VNF Security"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
                     "test": "",
                     "test_case": "",
                     "test_file": "",
@@ -43156,7 +42876,7 @@
                     "validation_mode": ""
                 }
             },
-            "needs_amount": 749
+            "needs_amount": 739
         }
     }
 }
