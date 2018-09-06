@@ -662,56 +662,6 @@ API Requirements
     Multipurpose Internet Mail Extensions (MIME) type. Input files
     should be tested for spoofed MIME types.
 
-.. req::
-    :id: R-23772
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST** validate input at all layers implementing VNF APIs.
-
-.. req::
-    :id: R-87135
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST** comply with NIST standards and industry
-    best practices for all implementations of cryptography.
-
-.. req::
-    :id: R-02137
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST** implement all monitoring and logging as
-    described in the Security Analytics section.
-
-.. req::
-    :id: R-15659
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST** restrict changing the criticality level of
-    a system security alarm to administrator(s).
-
-.. req::
-    :id: R-19367
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST** monitor API invocation patterns to detect
-    anomalous access patterns that may represent fraudulent access or
-    other types of attacks, or integrate with tools that implement anomaly
-    and abuse detection.
-
-.. req::
-    :id: R-78066
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST** support requests for information from law
-    enforcement and government agencies.
-
-
 VNF Security Analytics Requirements
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -812,15 +762,6 @@ Security Analytics Requirements
     as part of VNFs (e.g., PGW, MME).
 
 .. req::
-    :id: R-20912
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST** support alternative monitoring capabilities
-    when VNFs do not expose data or control traffic or use proprietary and
-    optimized protocols for inter VNF communication.
-
-.. req::
     :id: R-73223
     :target: VNF
     :keyword: MUST
@@ -868,13 +809,6 @@ Security Analytics Requirements
     :keyword: MUST
 
     The VNF **MUST** log logoffs.
-
-.. req::
-    :id: R-08598
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST** log successful and unsuccessful changes to a privilege level.
 
 .. req::
     :id: R-13344
@@ -1069,22 +1003,6 @@ Security Analytics Requirements
 
     The VNF **MUST** support requests for information from law
     enforcement and government agencies.
-
-.. req::
-    :id: R-56786
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST** implement "Closed Loop" automatic implementation
-    (without human intervention) for Known Threats with detection rate in low
-    false positives.
-
-.. req::
-    :id: R-25094
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST** perform data capture for security functions.
 
 .. req::
     :id: R-04492
