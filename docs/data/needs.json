@@ -1,5 +1,5 @@
 {
-    "created": "2018-09-06T16:25:05.382160",
+    "created": "2018-09-06T17:45:18.112660",
     "current_version": "casablanca",
     "project": "",
     "versions": {
@@ -21858,7 +21858,7 @@
             "needs_amount": 750
         },
         "casablanca": {
-            "created": "2018-09-06T16:25:05.382063",
+            "created": "2018-09-06T17:45:18.112581",
             "needs": {
                 "R-00011": {
                     "description": "A VNF's Heat Orchestration Template's Nested YAML files\nparameter's **MUST NOT** have a parameter constraint defined.",
@@ -25456,34 +25456,6 @@
                     "validated_by": "",
                     "validation_mode": ""
                 },
-                "R-19219": {
-                    "description": "The VNF **MUST** provide audit logs that include user ID, dates,\ntimes for log-on and log-off, and terminal location at minimum.",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-19219",
-                    "impacts": "",
-                    "introduced": "",
-                    "keyword": "MUST",
-                    "links": [],
-                    "notes": "",
-                    "section_name": "VNF Security Analytics Requirements",
-                    "sections": [
-                        "VNF Security Analytics Requirements",
-                        "VNF Security"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "",
-                    "validated_by": "",
-                    "validation_mode": ""
-                },
                 "R-19366": {
                     "description": "The xNF **MUST** support ONAP Controller's **ConfigModify** command.",
                     "full_title": "",
@@ -25595,34 +25567,6 @@
                     "title_from_content": "",
                     "type_name": "Requirement",
                     "updated": "casablanca",
-                    "validated_by": "",
-                    "validation_mode": ""
-                },
-                "R-19790": {
-                    "description": "The VNF **MUST NOT** include authentication credentials\nin security audit logs, even if encrypted.",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-19790",
-                    "impacts": "",
-                    "introduced": "",
-                    "keyword": "MUST NOT",
-                    "links": [],
-                    "notes": "",
-                    "section_name": "VNF Identity and Access Management Requirements",
-                    "sections": [
-                        "VNF Identity and Access Management Requirements",
-                        "VNF Security"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -27143,34 +27087,6 @@
                         "parameters",
                         "Heat Orchestration Template Structure",
                         "ONAP Heat Orchestration Template Format"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "",
-                    "validated_by": "",
-                    "validation_mode": ""
-                },
-                "R-25878": {
-                    "description": "The VNF **MUST** use certificates issued from publicly\nrecognized Certificate Authorities (CA) for the authentication process\nwhere PKI-based authentication is used.",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-25878",
-                    "impacts": "",
-                    "introduced": "",
-                    "keyword": "MUST",
-                    "links": [],
-                    "notes": "",
-                    "section_name": "VNF API Security Requirements",
-                    "sections": [
-                        "VNF API Security Requirements",
-                        "VNF Security"
                     ],
                     "status": null,
                     "tags": [],
@@ -29819,34 +29735,6 @@
                     "sections": [
                         "vnf_id",
                         "Resource: OS::Nova::Server - Metadata Parameters"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "",
-                    "validated_by": "",
-                    "validation_mode": ""
-                },
-                "R-37608": {
-                    "description": "The VNF **MUST** provide a mechanism to restrict access based\non the attributes of the VNF and the attributes of the subject.",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-37608",
-                    "impacts": "",
-                    "introduced": "",
-                    "keyword": "MUST",
-                    "links": [],
-                    "notes": "",
-                    "section_name": "VNF API Security Requirements",
-                    "sections": [
-                        "VNF API Security Requirements",
-                        "VNF Security"
                     ],
                     "status": null,
                     "tags": [],
@@ -32673,34 +32561,6 @@
                     "status": null,
                     "tags": [],
                     "target": "XNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "",
-                    "validated_by": "",
-                    "validation_mode": ""
-                },
-                "R-49945": {
-                    "description": "The VNF **MUST** authorize VNF provider access through a\nclient application API by the client application owner and the resource\nowner of the VNF before provisioning authorization through Role Based\nAccess Control (RBAC), Attribute Based Access Control (ABAC), or other\npolicy based mechanism.",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-49945",
-                    "impacts": "",
-                    "introduced": "",
-                    "keyword": "MUST",
-                    "links": [],
-                    "notes": "",
-                    "section_name": "VNF Identity and Access Management Requirements",
-                    "sections": [
-                        "VNF Identity and Access Management Requirements",
-                        "VNF Security"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
                     "test": "",
                     "test_case": "",
                     "test_file": "",
@@ -37034,34 +36894,6 @@
                     "validated_by": "",
                     "validation_mode": ""
                 },
-                "R-73541": {
-                    "description": "The VNF **MUST** use access controls for VNFs and their\nsupporting computing systems at all times to restrict access to\nauthorized personnel only, e.g., least privilege. These controls\ncould include the use of system configuration or access control\nsoftware.",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-73541",
-                    "impacts": "",
-                    "introduced": "",
-                    "keyword": "MUST",
-                    "links": [],
-                    "notes": "",
-                    "section_name": "VNF Identity and Access Management Requirements",
-                    "sections": [
-                        "VNF Identity and Access Management Requirements",
-                        "VNF Security"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "",
-                    "validated_by": "",
-                    "validation_mode": ""
-                },
                 "R-73560": {
                     "description": "The xNF Package **MUST** include documentation about monitoring\nparameters/counters exposed for virtual resource management and xNF\napplication management.",
                     "full_title": "",
@@ -37670,34 +37502,6 @@
                         "Virtual Function - Container Recovery Requirements",
                         "Controller Interactions With VNF",
                         "Configuration Management"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "",
-                    "validated_by": "",
-                    "validation_mode": ""
-                },
-                "R-77157": {
-                    "description": "The VNF **MUST** conform to approved request, workflow\nauthorization, and authorization provisioning requirements when\ncreating privileged users.",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-77157",
-                    "impacts": "",
-                    "introduced": "",
-                    "keyword": "MUST",
-                    "links": [],
-                    "notes": "",
-                    "section_name": "VNF Identity and Access Management Requirements",
-                    "sections": [
-                        "VNF Identity and Access Management Requirements",
-                        "VNF Security"
                     ],
                     "status": null,
                     "tags": [],
@@ -39192,34 +38996,6 @@
                     "validated_by": "",
                     "validation_mode": ""
                 },
-                "R-85028": {
-                    "description": "The VNF **MUST** authenticate system to system access and\ndo not conceal a VNF provider user's individual accountability for\ntransactions.",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-85028",
-                    "impacts": "",
-                    "introduced": "",
-                    "keyword": "MUST",
-                    "links": [],
-                    "notes": "",
-                    "section_name": "VNF Identity and Access Management Requirements",
-                    "sections": [
-                        "VNF Identity and Access Management Requirements",
-                        "VNF Security"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "",
-                    "validated_by": "",
-                    "validation_mode": ""
-                },
                 "R-85235": {
                     "description": "When the VNF's Heat Orchestration Template's Resource\n'OS::Neutron::Port' is attaching to an internal network, and an IPv4\naddress is assigned using the property 'fixed_ips' map property 'ip_address'\nand the parameter type is defined as a comma_delimited_list, the parameter\nname **MUST** follow the naming convention\n\n   * '{vm-type}\\_int\\_{network-role}_ips'\n\nwhere\n\n   * '{vm-type}' is the {vm-type} associated with the OS::Nova::Server\n   * '{network-role}' is the {network-role} of the internal network",
                     "full_title": "",
@@ -40454,34 +40230,6 @@
                     "status": null,
                     "tags": [],
                     "target": "XNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "",
-                    "validated_by": "",
-                    "validation_mode": ""
-                },
-                "R-89753": {
-                    "description": "The VNF **MUST NOT** install or use systems, tools or\nutilities capable of capturing or logging data that was not created\nby them or sent specifically to them in production, without\nauthorization of the VNF system owner.",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-89753",
-                    "impacts": "",
-                    "introduced": "",
-                    "keyword": "MUST NOT",
-                    "links": [],
-                    "notes": "",
-                    "section_name": "VNF Identity and Access Management Requirements",
-                    "sections": [
-                        "VNF Identity and Access Management Requirements",
-                        "VNF Security"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
                     "test": "",
                     "test_case": "",
                     "test_file": "",
@@ -42596,7 +42344,7 @@
                     "validation_mode": ""
                 }
             },
-            "needs_amount": 729
+            "needs_amount": 720
         }
     }
 }

@@ -397,17 +397,6 @@ Identity and Access Management Requirements
     The VNF **MUST NOT** allow vendor access to VNFs remotely.
 
 .. req::
-    :id: R-49945
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST** authorize VNF provider access through a
-    client application API by the client application owner and the resource
-    owner of the VNF before provisioning authorization through Role Based
-    Access Control (RBAC), Attribute Based Access Control (ABAC), or other
-    policy based mechanism.
-
-.. req::
     :id: R-34552
     :target: VNF
     :keyword: MUST
@@ -428,15 +417,6 @@ Identity and Access Management Requirements
     uniquely identifies the individual performing the function.
 
 .. req::
-    :id: R-85028
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST** authenticate system to system access and
-    do not conceal a VNF provider user's individual accountability for
-    transactions.
-
-.. req::
     :id: R-80335
     :target: VNF
     :keyword: MUST
@@ -446,17 +426,6 @@ Identity and Access Management Requirements
     access to a VNF provider user who accesses private internal networks
     or Company computer resources, e.g., upon initial logon to an internal
     web site, system or application which requires authentication.
-
-.. req::
-    :id: R-73541
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST** use access controls for VNFs and their
-    supporting computing systems at all times to restrict access to
-    authorized personnel only, e.g., least privilege. These controls
-    could include the use of system configuration or access control
-    software.
 
 .. req::
     :id: R-64503
@@ -473,15 +442,6 @@ Identity and Access Management Requirements
 
     The VNF **MUST** set the default settings for user access
     to sensitive commands and data to deny authorization.
-
-.. req::
-    :id: R-77157
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST** conform to approved request, workflow
-    authorization, and authorization provisioning requirements when
-    creating privileged users.
 
 .. req::
     :id: R-81147
@@ -518,16 +478,6 @@ Identity and Access Management Requirements
     to restrict access to VNF functions and data to authorized entities.
 
 .. req::
-    :id: R-89753
-    :target: VNF
-    :keyword: MUST NOT
-
-    The VNF **MUST NOT** install or use systems, tools or
-    utilities capable of capturing or logging data that was not created
-    by them or sent specifically to them in production, without
-    authorization of the VNF system owner.
-
-.. req::
     :id: R-19082
     :target: VNF
     :keyword: MUST NOT
@@ -535,14 +485,6 @@ Identity and Access Management Requirements
     The VNF **MUST NOT** run security testing tools and
     programs, e.g., password cracker, port scanners, hacking tools
     in production, without authorization of the VNF system owner.
-
-.. req::
-    :id: R-19790
-    :target: VNF
-    :keyword: MUST NOT
-
-    The VNF **MUST NOT** include authentication credentials
-    in security audit logs, even if encrypted.
 
 .. req::
     :id: R-85419
@@ -576,15 +518,6 @@ security requirements:
 
 API Requirements
 
-
-.. req::
-    :id: R-37608
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST** provide a mechanism to restrict access based
-    on the attributes of the VNF and the attributes of the subject.
-
 .. req::
     :id: R-43884
     :target: VNF
@@ -593,15 +526,6 @@ API Requirements
 
     The VNF **SHOULD** integrate with the Operator's authentication and
     authorization services (e.g., IDAM).
-
-.. req::
-    :id: R-25878
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST** use certificates issued from publicly
-    recognized Certificate Authorities (CA) for the authentication process
-    where PKI-based authentication is used.
 
 .. req::
     :id: R-19804
@@ -1011,14 +935,6 @@ Security Analytics Requirements
 
     The VNF **MUST** generate security audit logs that must be sent
     to Security Analytics Tools for analysis.
-
-.. req::
-    :id: R-19219
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST** provide audit logs that include user ID, dates,
-    times for log-on and log-off, and terminal location at minimum.
 
 .. req::
     :id: R-30932
