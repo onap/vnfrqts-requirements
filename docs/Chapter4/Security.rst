@@ -226,15 +226,6 @@ the product’s lifecycle.
     Application levels as appropriate.
 
 .. req::
-    :id: R-98391
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST**, if not using the NCSP's IDAM API, support
-    Role-Based Access Control to permit/limit the user/application to
-    performing specific activities.
-
-.. req::
     :id: R-62498
     :target: VNF
     :keyword: MUST
@@ -263,14 +254,6 @@ the product’s lifecycle.
 
     The VNF **MUST**, if not using the NCSP's IDAM API, comply
     with the NCSP's credential management policy.
-
-.. req::
-    :id: R-75041
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST**, if not using the NCSP's IDAM API, expire
-    passwords at regular configurable intervals.
 
 .. req::
     :id: R-46908
@@ -329,6 +312,27 @@ the product’s lifecycle.
     authenticate system to system communications where one system
     accesses the resources of another system, and must never conceal
     individual accountability.
+
+.. req::
+    :id: R-80335
+    :target: VNF
+    :keyword: MUST
+    :updated: casablanca
+
+    For all GUI and command-line interfaces, the VNF **MUST** provide the
+    ability to present a warning notice that is set by the Operator. A warning
+    notice is a formal statement of resource intent presented to everyone
+    who accesses the system.
+
+.. req::
+    :id: R-19082
+    :target: VNF
+    :keyword: MUST
+    :updated: casablanca
+
+    The VNF **MUST** allow the Operator to disable or remove any security
+    testing tools or programs included in the VNF, e.g., password cracker,
+    port scanner.
 
 VNF Identity and Access Management Requirements
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -397,14 +401,6 @@ Identity and Access Management Requirements
     The VNF **MUST NOT** allow vendor access to VNFs remotely.
 
 .. req::
-    :id: R-34552
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST** provide or support the Identity and Access
-    Management (IDAM) based threat detection data for OWASP Top 10.
-
-.. req::
     :id: R-59391
     :target: VNF
     :keyword: MUST
@@ -415,17 +411,6 @@ Identity and Access Management Requirements
     higher level account; or where the individual user login is infeasible,
     must login with an account with admin privileges in a way that
     uniquely identifies the individual performing the function.
-
-.. req::
-    :id: R-80335
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST** make visible a Warning Notice: A formal
-    statement of resource intent, i.e., a warning notice, upon initial
-    access to a VNF provider user who accesses private internal networks
-    or Company computer resources, e.g., upon initial logon to an internal
-    web site, system or application which requires authentication.
 
 .. req::
     :id: R-64503
@@ -478,15 +463,6 @@ Identity and Access Management Requirements
     to restrict access to VNF functions and data to authorized entities.
 
 .. req::
-    :id: R-19082
-    :target: VNF
-    :keyword: MUST NOT
-
-    The VNF **MUST NOT** run security testing tools and
-    programs, e.g., password cracker, port scanners, hacking tools
-    in production, without authorization of the VNF system owner.
-
-.. req::
     :id: R-85419
     :target: VNF
     :keyword: SHOULD
@@ -501,6 +477,25 @@ Identity and Access Management Requirements
     :keyword: SHOULD
 
     The VNF **SHOULD** support SCEP (Simple Certificate Enrollment Protocol).
+
+.. req::
+    :id: R-75041
+    :target: VNF
+    :keyword: MUST
+    :updated: casablanca
+
+    The VNF **MUST**, if not integrated the Operator's Identity and Access
+    Management system, support configurable password expiration.
+
+.. req::
+    :id: R-98391
+    :target: VNF
+    :keyword: MUST
+    :updated: casablanca
+
+    The VNF **MUST**, if not integrated with the Operator's Identity and
+    Access Management system, support Role-Based Access Control to enforce
+    least privilege.
 
 VNF API Security Requirements
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -536,14 +531,6 @@ API Requirements
     ensure that the date is within the validity period of the certificate,
     check the Certificate Revocation List (CRL), and recognize the identity
     represented by the certificate where PKI-based authentication is used.
-
-.. req::
-    :id: R-47204
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST** protect the confidentiality and integrity of
-    data at rest and in transit from unauthorized access and modification.
 
 .. req::
     :id: R-33488
@@ -971,6 +958,15 @@ Security Analytics Requirements
     routines to maintain activity records and cleanup programs to ensure
     the integrity of the audit/logging systems.
 
+.. req::
+    :id: R-34552
+    :target: VNF
+    :keyword: MUST
+    :updated: casablanca
+
+    The VNF **MUST** be implemented so that it is not vulnerable to OWASP
+    Top 10 web application security risks.
+
 VNF Data Protection Requirements
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -1160,3 +1156,11 @@ Data Protection Requirements
     validity of a digital certificate by recognizing the identity represented
     by the certificate - the "distinguished name".
 
+.. req::
+    :id: R-47204
+    :target: VNF
+    :keyword: MUST
+    :updated: casablanca
+
+    The VNF **MUST** be capable of protecting the confidentiality and integrity
+    of data at rest and in transit from unauthorized access and modification.
