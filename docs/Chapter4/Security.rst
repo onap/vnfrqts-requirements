@@ -404,13 +404,10 @@ Identity and Access Management Requirements
     :id: R-59391
     :target: VNF
     :keyword: MUST
+    :updated: casablanca
 
-    The VNF provider **MUST**, where a VNF provider requires
-    the assumption of permissions, such as root or administrator, first
-    log in under their individual user login ID then switch to the other
-    higher level account; or where the individual user login is infeasible,
-    must login with an account with admin privileges in a way that
-    uniquely identifies the individual performing the function.
+    The VNF MUST NOT not allow the assumption of the permissions of
+    another account to mask individual accountability.
 
 .. req::
     :id: R-64503
@@ -548,21 +545,23 @@ API Requirements
     :id: R-54930
     :target: VNF
     :keyword: MUST
+    :updated: casablanca
 
-    The VNF **MUST** implement the following input validation
-    control: Do not permit input that contains content or characters
-    inappropriate to the input expected by the design. Inappropriate input,
-    such as SQL insertions, may cause the system to execute undesirable
-    and unauthorized transactions against the database or allow other
-    inappropriate access to the internal network.
+    The VNF **MUST** implement the following input validation controls:
+    Do not permit input that contains content or characters inappropriate
+    to the input expected by the design. Inappropriate input, such as
+    SQL expressions, may cause the system to execute undesirable and
+    unauthorized transactions against the database or allow other
+    inappropriate access to the internal network (injection attacks).
 
 .. req::
     :id: R-21210
     :target: VNF
     :keyword: MUST
+    :updated: casablanca
 
-    The VNF **MUST** implement the following input validation
-    control: Validate that any input file has a correct and valid
+    The VNF **MUST** implement the following input validation control
+    on APIs: Validate that any input file has a correct and valid
     Multipurpose Internet Mail Extensions (MIME) type. Input files
     should be tested for spoofed MIME types.
 
@@ -912,18 +911,19 @@ Security Analytics Requirements
     :id: R-04492
     :target: VNF
     :keyword: MUST
+    :updated: casablanca
 
-    The VNF **MUST** generate security audit logs that must be sent
+    The VNF **MUST** generate security audit logs that can be sent
     to Security Analytics Tools for analysis.
 
 .. req::
     :id: R-30932
     :target: VNF
     :keyword: MUST
+    :updated: casablanca
 
-    The VNF **MUST** provide security audit logs including records
-    of successful and rejected system access data and other resource access
-    attempts.
+    The VNF **MUST** log successful and unsuccessful access to VNF
+    resources, including data.
 
 .. req::
     :id: R-54816

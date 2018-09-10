@@ -1,5 +1,5 @@
 {
-    "created": "2018-09-10T17:51:37.025716",
+    "created": "2018-09-10T21:34:50.919181",
     "current_version": "casablanca",
     "project": "",
     "versions": {
@@ -21858,7 +21858,7 @@
             "needs_amount": 750
         },
         "casablanca": {
-            "created": "2018-09-10T17:51:37.025645",
+            "created": "2018-09-10T21:34:50.919089",
             "needs": {
                 "R-00011": {
                     "description": "A VNF's Heat Orchestration Template's Nested YAML files\nparameter's **MUST NOT** have a parameter constraint defined.",
@@ -22858,7 +22858,7 @@
                     "validation_mode": ""
                 },
                 "R-04492": {
-                    "description": "The VNF **MUST** generate security audit logs that must be sent\nto Security Analytics Tools for analysis.",
+                    "description": "The VNF **MUST** generate security audit logs that can be sent\nto Security Analytics Tools for analysis.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-04492",
@@ -22881,7 +22881,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -25971,7 +25971,7 @@
                     "validation_mode": ""
                 },
                 "R-21210": {
-                    "description": "The VNF **MUST** implement the following input validation\ncontrol: Validate that any input file has a correct and valid\nMultipurpose Internet Mail Extensions (MIME) type. Input files\nshould be tested for spoofed MIME types.",
+                    "description": "The VNF **MUST** implement the following input validation control\non APIs: Validate that any input file has a correct and valid\nMultipurpose Internet Mail Extensions (MIME) type. Input files\nshould be tested for spoofed MIME types.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-21210",
@@ -25994,7 +25994,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -28277,7 +28277,7 @@
                     "validation_mode": ""
                 },
                 "R-30932": {
-                    "description": "The VNF **MUST** provide security audit logs including records\nof successful and rejected system access data and other resource access\nattempts.",
+                    "description": "The VNF **MUST** log successful and unsuccessful access to VNF\nresources, including data.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-30932",
@@ -28300,7 +28300,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -33431,7 +33431,7 @@
                     "validation_mode": ""
                 },
                 "R-54930": {
-                    "description": "The VNF **MUST** implement the following input validation\ncontrol: Do not permit input that contains content or characters\ninappropriate to the input expected by the design. Inappropriate input,\nsuch as SQL insertions, may cause the system to execute undesirable\nand unauthorized transactions against the database or allow other\ninappropriate access to the internal network.",
+                    "description": "The VNF **MUST** implement the following input validation controls:\nDo not permit input that contains content or characters inappropriate\nto the input expected by the design. Inappropriate input, such as\nSQL expressions, may cause the system to execute undesirable and\nunauthorized transactions against the database or allow other\ninappropriate access to the internal network (injection attacks).",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-54930",
@@ -33454,7 +33454,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -34248,7 +34248,7 @@
                     "validation_mode": ""
                 },
                 "R-59391": {
-                    "description": "The VNF provider **MUST**, where a VNF provider requires\nthe assumption of permissions, such as root or administrator, first\nlog in under their individual user login ID then switch to the other\nhigher level account; or where the individual user login is infeasible,\nmust login with an account with admin privileges in a way that\nuniquely identifies the individual performing the function.",
+                    "description": "The VNF MUST NOT not allow the assumption of the permissions of\nanother account to mask individual accountability.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-59391",
@@ -34271,7 +34271,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
