@@ -472,13 +472,6 @@ Identity and Access Management Requirements
     Authorization Server.
 
 .. req::
-    :id: R-48080
-    :target: VNF
-    :keyword: SHOULD
-
-    The VNF **SHOULD** support SCEP (Simple Certificate Enrollment Protocol).
-
-.. req::
     :id: R-75041
     :target: VNF
     :keyword: MUST
@@ -1016,14 +1009,6 @@ Data Protection Requirements
     requiring encryption, the virtual memory should be encrypted.
 
 .. req::
-    :id: R-93860
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST** provide the capability to integrate with an
-    external encryption service.
-
-.. req::
     :id: R-73067
     :target: VNF
     :keyword: MUST
@@ -1063,20 +1048,6 @@ Data Protection Requirements
     versions of cryptographic algorithms and protocols with minimal impact.
 
 .. req::
-    :id: R-44723
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST** use symmetric keys of at least 112 bits in length.
-
-.. req::
-    :id: R-25401
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST** use asymmetric keys of at least 2048 bits in length.
-
-.. req::
     :id: R-95864
     :target: VNF
     :keyword: MUST
@@ -1095,15 +1066,6 @@ Data Protection Requirements
     include user identity information, time of day, stored/transmitted data.
 
 .. req::
-    :id: R-52060
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST** provide the capability to configure encryption
-    algorithms or devices so that they comply with the laws of the jurisdiction
-    in which there are plans to use data encryption.
-
-.. req::
     :id: R-69610
     :target: VNF
     :keyword: MUST
@@ -1113,9 +1075,71 @@ Data Protection Requirements
     issued by an external Certificate Authority.
 
 .. req::
+    :id: R-47204
+    :target: VNF
+    :keyword: MUST
+    :updated: casablanca
+
+    The VNF **MUST** be capable of protecting the confidentiality and integrity
+    of data at rest and in transit from unauthorized access and modification.
+
+
+VNF Cryptography Requirements
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This section covers VNF cryptography requirements that are mostly
+applicable to encryption or protocol meethods.
+
+.. req::
+    :id: R-48080
+    :target: VNF
+    :keyword: SHOULD
+    :updated: casablanca
+
+    The VNF **SHOULD** support an automated certificate management protocol
+    such as CMPv2, Simple Certificate Enrollment Protocol (SCEP) or
+    Automated Certificate Management Environment (ACME).
+
+.. req::
+    :id: R-93860
+    :target: VNF
+    :keyword: SHOULD
+    :updated: casablanca
+
+    The VNF **SHOULD** provide the capability to integrate with an
+    external encryption service.
+
+.. req::
+    :id: R-44723
+    :target: VNF
+    :keyword: MUST
+    :updated: casablanca
+
+    The VNF **MUST** use symmetric keys of at least 112 bits in length.
+
+.. req::
+    :id: R-25401
+    :target: VNF
+    :keyword: MUST
+    :updated: casablanca
+
+    The VNF **MUST** use asymmetric keys of at least 2048 bits in length.
+
+.. req::
+    :id: R-52060
+    :target: VNF
+    :keyword: MUST
+    :updated: casablanca
+
+    The VNF **MUST** provide the capability to configure encryption
+    algorithms or devices so that they comply with the laws of the jurisdiction
+    in which there are plans to use data encryption.
+
+.. req::
     :id: R-83500
     :target: VNF
     :keyword: MUST
+    :updated: casablanca
 
     The VNF **MUST** provide the capability of allowing certificate
     renewal and revocation.
@@ -1124,6 +1148,7 @@ Data Protection Requirements
     :id: R-29977
     :target: VNF
     :keyword: MUST
+    :updated: casablanca
 
     The VNF **MUST** provide the capability of testing the validity
     of a digital certificate by validating the CA signature on the certificate.
@@ -1132,6 +1157,7 @@ Data Protection Requirements
     :id: R-24359
     :target: VNF
     :keyword: MUST
+    :updated: casablanca
 
     The VNF **MUST** provide the capability of testing the validity
     of a digital certificate by validating the date the certificate is being
@@ -1141,6 +1167,7 @@ Data Protection Requirements
     :id: R-39604
     :target: VNF
     :keyword: MUST
+    :updated: casablanca
 
     The VNF **MUST** provide the capability of testing the
     validity of a digital certificate by checking the Certificate Revocation
@@ -1151,16 +1178,9 @@ Data Protection Requirements
     :id: R-75343
     :target: VNF
     :keyword: MUST
+    :updated: casablanca
 
     The VNF **MUST** provide the capability of testing the
     validity of a digital certificate by recognizing the identity represented
     by the certificate - the "distinguished name".
 
-.. req::
-    :id: R-47204
-    :target: VNF
-    :keyword: MUST
-    :updated: casablanca
-
-    The VNF **MUST** be capable of protecting the confidentiality and integrity
-    of data at rest and in transit from unauthorized access and modification.

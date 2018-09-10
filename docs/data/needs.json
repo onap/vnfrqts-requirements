@@ -1,5 +1,5 @@
 {
-    "created": "2018-09-07T19:37:09.602325",
+    "created": "2018-09-10T17:51:37.025716",
     "current_version": "casablanca",
     "project": "",
     "versions": {
@@ -21858,7 +21858,7 @@
             "needs_amount": 750
         },
         "casablanca": {
-            "created": "2018-09-07T19:37:09.602183",
+            "created": "2018-09-10T17:51:37.025645",
             "needs": {
                 "R-00011": {
                     "description": "A VNF's Heat Orchestration Template's Nested YAML files\nparameter's **MUST NOT** have a parameter constraint defined.",
@@ -26853,9 +26853,9 @@
                     "keyword": "MUST",
                     "links": [],
                     "notes": "",
-                    "section_name": "VNF Data Protection Requirements",
+                    "section_name": "VNF Cryptography Requirements",
                     "sections": [
-                        "VNF Data Protection Requirements",
+                        "VNF Cryptography Requirements",
                         "VNF Security"
                     ],
                     "status": null,
@@ -26867,7 +26867,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -26996,9 +26996,9 @@
                     "keyword": "MUST",
                     "links": [],
                     "notes": "",
-                    "section_name": "VNF Data Protection Requirements",
+                    "section_name": "VNF Cryptography Requirements",
                     "sections": [
-                        "VNF Data Protection Requirements",
+                        "VNF Cryptography Requirements",
                         "VNF Security"
                     ],
                     "status": null,
@@ -27010,7 +27010,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -28057,9 +28057,9 @@
                     "keyword": "MUST",
                     "links": [],
                     "notes": "",
-                    "section_name": "VNF Data Protection Requirements",
+                    "section_name": "VNF Cryptography Requirements",
                     "sections": [
-                        "VNF Data Protection Requirements",
+                        "VNF Cryptography Requirements",
                         "VNF Security"
                     ],
                     "status": null,
@@ -28071,7 +28071,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -30042,9 +30042,9 @@
                     "keyword": "MUST",
                     "links": [],
                     "notes": "",
-                    "section_name": "VNF Data Protection Requirements",
+                    "section_name": "VNF Cryptography Requirements",
                     "sections": [
-                        "VNF Data Protection Requirements",
+                        "VNF Cryptography Requirements",
                         "VNF Security"
                     ],
                     "status": null,
@@ -30056,7 +30056,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -31385,9 +31385,9 @@
                     "keyword": "MUST",
                     "links": [],
                     "notes": "",
-                    "section_name": "VNF Data Protection Requirements",
+                    "section_name": "VNF Cryptography Requirements",
                     "sections": [
-                        "VNF Data Protection Requirements",
+                        "VNF Cryptography Requirements",
                         "VNF Security"
                     ],
                     "status": null,
@@ -31399,7 +31399,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -32084,7 +32084,7 @@
                     "validation_mode": ""
                 },
                 "R-48080": {
-                    "description": "The VNF **SHOULD** support SCEP (Simple Certificate Enrollment Protocol).",
+                    "description": "The VNF **SHOULD** support an automated certificate management protocol\nsuch as CMPv2, Simple Certificate Enrollment Protocol (SCEP) or\nAutomated Certificate Management Environment (ACME).",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-48080",
@@ -32093,9 +32093,9 @@
                     "keyword": "SHOULD",
                     "links": [],
                     "notes": "",
-                    "section_name": "VNF Identity and Access Management Requirements",
+                    "section_name": "VNF Cryptography Requirements",
                     "sections": [
-                        "VNF Identity and Access Management Requirements",
+                        "VNF Cryptography Requirements",
                         "VNF Security"
                     ],
                     "status": null,
@@ -32107,7 +32107,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -32841,9 +32841,9 @@
                     "keyword": "MUST",
                     "links": [],
                     "notes": "",
-                    "section_name": "VNF Data Protection Requirements",
+                    "section_name": "VNF Cryptography Requirements",
                     "sections": [
-                        "VNF Data Protection Requirements",
+                        "VNF Cryptography Requirements",
                         "VNF Security"
                     ],
                     "status": null,
@@ -32855,7 +32855,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -37213,9 +37213,9 @@
                     "keyword": "MUST",
                     "links": [],
                     "notes": "",
-                    "section_name": "VNF Data Protection Requirements",
+                    "section_name": "VNF Cryptography Requirements",
                     "sections": [
-                        "VNF Data Protection Requirements",
+                        "VNF Cryptography Requirements",
                         "VNF Security"
                     ],
                     "status": null,
@@ -37227,7 +37227,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -38609,9 +38609,9 @@
                     "keyword": "MUST",
                     "links": [],
                     "notes": "",
-                    "section_name": "VNF Data Protection Requirements",
+                    "section_name": "VNF Cryptography Requirements",
                     "sections": [
-                        "VNF Data Protection Requirements",
+                        "VNF Cryptography Requirements",
                         "VNF Security"
                     ],
                     "status": null,
@@ -38623,7 +38623,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -41014,18 +41014,18 @@
                     "validation_mode": ""
                 },
                 "R-93860": {
-                    "description": "The VNF **MUST** provide the capability to integrate with an\nexternal encryption service.",
+                    "description": "The VNF **SHOULD** provide the capability to integrate with an\nexternal encryption service.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-93860",
                     "impacts": "",
                     "introduced": "",
-                    "keyword": "MUST",
+                    "keyword": "SHOULD",
                     "links": [],
                     "notes": "",
-                    "section_name": "VNF Data Protection Requirements",
+                    "section_name": "VNF Cryptography Requirements",
                     "sections": [
-                        "VNF Data Protection Requirements",
+                        "VNF Cryptography Requirements",
                         "VNF Security"
                     ],
                     "status": null,
@@ -41037,7 +41037,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -41811,7 +41811,7 @@
                     "validation_mode": ""
                 },
                 "R-98391": {
-                    "description": "The VNF **MUST**, if not integrated with the Operator\u2019s Identity and\nAccess Management system, support Role-Based Access Control to enforce\nleast privilege.",
+                    "description": "The VNF **MUST**, if not integrated with the Operator's Identity and\nAccess Management system, support Role-Based Access Control to enforce\nleast privilege.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-98391",
