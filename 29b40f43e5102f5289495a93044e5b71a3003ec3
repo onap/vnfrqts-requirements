@@ -16,6 +16,24 @@
       "revId": "29b40f43e5102f5289495a93044e5b71a3003ec3",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_7397ca3a",
+        "filename": "docs/Chapter4/Security.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1142,
+      "author": {
+        "id": 3271
+      },
+      "writtenOn": "2018-09-10T18:34:25Z",
+      "side": 1,
+      "message": "Yea I figured because the JSON would technically be updated since the section field would be changed.",
+      "parentUuid": "1a76adc5_93ae2697",
+      "revId": "29b40f43e5102f5289495a93044e5b71a3003ec3",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
