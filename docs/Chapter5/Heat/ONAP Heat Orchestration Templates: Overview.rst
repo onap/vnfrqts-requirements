@@ -22,9 +22,9 @@ ONAP VNF Modularity Overview
     A VNF **MAY** be composed from one or more Heat Orchestration
     Templates, each of which represents a subset of the overall VNF.
 
-The Heat Orchestration Templates can be thought of a components or
-modules of the VNF and are referred to as "\ *VNF Modules*\ ".
-During orchestration, these modules are
+The Heat Orchestration Templates can be thought of a components or modules of
+the VNF and are referred to as *VNF Modules*. During orchestration,
+these modules are
 deployed incrementally to create the complete VNF.
 
 
@@ -34,22 +34,19 @@ deployed incrementally to create the complete VNF.
     :keyword: MAY
 
     A VNF's Heat Orchestration Template **MAY** be
-
-       * a Base Module Heat Orchestration Template
-         (also referred to as a Base Module)
-
-       * an Incremental Module Heat Orchestration Template
-         (referred to as an Incremental Module)
-
-       * a Cinder Volume Module Heat Orchestration Template
-         (referred to as Cinder Volume Module).
+     1.) Base Module Heat Orchestration Template (also referred to as a
+         Base Module),
+     2.) Incremental Module Heat Orchestration Template (referred to as
+         an Incremental Module), or
+     3.) a Cinder Volume Module Heat Orchestration Template (referred to as
+         Cinder Volume  Module).
 
 .. req::
     :id: R-37028
     :target: VNF
     :keyword: MUST
 
-    The VNF **MUST** be composed of one "base" module.
+    A VNF **MUST** be composed of one Base Module
 
 .. req::
     :id: R-13196
@@ -63,16 +60,15 @@ deployed incrementally to create the complete VNF.
     :target: VNF
     :keyword: MUST
 
-    The VNF **MUST** deploy the base module first, prior to
-    the incremental modules.
+    At orchestration time, the VNF's Base Module **MUST**
+    be deployed first, prior to any incremental modules.
 
 .. req::
     :id: R-28980
     :target: VNF
     :keyword: MAY
 
-    A VNF's incremental module **MAY** be used for initial VNF
-    deployment only.
+    A VNF's incremental module **MAY** be used for initial VNF deployment only.
 
 .. req::
     :id: R-86926
@@ -81,8 +77,8 @@ deployed incrementally to create the complete VNF.
 
     A VNF's incremental module **MAY** be used for scale out only.
 
-A VNF's Incremental Module that is used for scale out is deployed
-sometime after initial VNF deployment to add capacity.
+A VNF's Incremental Module that is used for scale out is deployed sometime
+after initial VNF deployment to add capacity.
 
 
 .. req::
@@ -90,8 +86,8 @@ sometime after initial VNF deployment to add capacity.
     :target: VNF
     :keyword: MAY
 
-    A VNF's incremental module **MAY** be used for both deployment
-    and scale out.
+    A VNF's incremental module **MAY** be used for both deployment and
+    scale out.
 
 .. req::
     :id: R-68122
@@ -135,9 +131,10 @@ on another instance (e.g., during a failover activity).
     :id: R-11200
     :target: VNF
     :keyword: MUST
+    :validation_mode: static
 
-    The VNF **MUST** keep the scope of a Cinder volume module,
-    when it exists, to be 1:1 with the VNF Base Module or Incremental Module.
+    A VNF's Cinder Volume Module, when it exists, **MUST** be 1:1
+    with a Base module or Incremental module.
 
 It is strongly recommended that Cinder Volumes be created in a Cinder Volume
 Module.
@@ -146,6 +143,7 @@ Module.
     :id: R-38474
     :target: VNF
     :keyword: MUST
+    :validation_mode: static
 
     The VNF **MUST** have a corresponding environment file for a Base Module.
 
@@ -153,15 +151,17 @@ Module.
     :id: R-81725
     :target: VNF
     :keyword: MUST
+    :validation_mode: static
 
-    The VNF **MUST** have a corresponding environment file for an Incremental Module.
+    A VNF's Incremental Module **MUST** have a corresponding Environment File
 
 .. req::
     :id: R-53433
     :target: VNF
     :keyword: MUST
+    :validation_mode: static
 
-    The VNF **MUST** have a corresponding environment file for a Cinder Volume Module.
+    A VNF's Cinder Volume Module **MUST** have a corresponding environment file
 
 These concepts will be described in more detail throughout the document.
 This overview is provided to set the stage and help clarify the concepts
@@ -219,101 +219,108 @@ must not contain any special characters and must not contain the word
     :id: R-87485
     :target: VNF
     :keyword: MUST
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's file extension **MUST**
-    be in the lower case format '.yaml' or '.yml'.
+    be in the lower case format ``.yaml`` or ``.yml``.
 
 .. req::
     :id: R-56438
     :target: VNF
     :keyword: MUST
+    :validation_mode: static
 
-    A VNF's Heat Orchestration Template's Nested YAML file extension
-    **MUST** be in the lower case format '.yaml' or '.yml'.
+    A VNF's Heat Orchestration Template's Nested YAML file extension **MUST**
+    be in the lower case format ``.yaml`` or ``.yml``.
 
 .. req::
     :id: R-74304
     :target: VNF
     :keyword: MUST
+    :validation_mode: static
 
-    A VNF's Heat Orchestration Template's Environment file extension
-    **MUST** be in the lower case format '.env'.
+    A VNF's Heat Orchestration Template's Environment file extension **MUST**
+    be in the lower case format ``.env``.
 
 .. req::
     :id: R-99646
     :target: VNF
     :keyword: MUST
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
+    :validation_mode: static
 
     A VNF's YAML files (i.e, Heat Orchestration Template files and
     Nested files) **MUST** have a unique name in the scope of the VNF.
 
 Base Modules
-~~~~~~~~~~~~~~
+~~~~~~~~~~~~
 
 
 .. req::
     :id: R-81339
     :target: VNF
     :keyword: MUST
+    :validation_mode: static
 
-    A VNF Heat Orchestration Template's Base Module file name **MUST**
-    include 'base' in the filename and **MUST** match one of the following four
+    A VNF Heat Orchestration Template's Base Module file name **MUST** include
+    case insensitive 'base' in the filename and
+    **MUST** match one of the following four
     formats:
 
-       * 'base_<text>.y[a]ml'
-       * '<text>_base.y[a]ml'
-       * 'base.y[a]ml'
-       * '<text>_base_<text>'.y[a]ml
+     1.) ``base_<text>.y[a]ml``
 
-    where 'base' is case insensitive and where '<text>'
-    **MUST** contain only alphanumeric characters
-    and underscores '_' and **MUST NOT** contain the case
-    insensitive word 'base'.
+     2.) ``<text>_base.y[a]ml``
+
+     3.) ``base.y[a]ml``
+
+     4.) ``<text>_base_<text>``.y[a]ml
+
+    where ``<text>`` **MUST** contain only alphanumeric characters and
+    underscores '_' and **MUST NOT** contain the case insensitive word ``base``.
 
 .. req::
     :id: R-91342
     :target: VNF
     :keyword: MUST
+    :validation_mode: static
 
     A VNF Heat Orchestration Template's Base Module's Environment File
-    **MUST** be named identical to the VNF Heat Orchestration Template's Base
-    Module with '.y[a]ml' replaced with '.env'.
+    **MUST** be named identical to the VNF Heat Orchestration Template's
+    Base Module with ``.y[a]ml`` replaced with ``.env``.
 
 Incremental Modules
-~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~
 
 
 .. req::
     :id: R-87247
     :target: VNF
     :keyword: MUST
+    :validation_mode: static
 
-    A VNF Heat Orchestration Template's Incremental Module file name
-    **MUST** contain only alphanumeric characters and underscores '_' and
-    **MUST NOT** contain the case insensitive word 'base'.
+    VNF Heat Orchestration Template's Incremental Module file name
+    **MUST** contain only alphanumeric characters and underscores
+    '_' and **MUST NOT** contain the case insensitive word ``base``.
 
 .. req::
     :id: R-94509
     :target: VNF
     :keyword: MUST
+    :validation_mode: static
 
-    A VNF Heat Orchestration Template's Incremental Module's Environment
-    File **MUST** be named identical to the VNF Heat Orchestration Template's
-    Incremental Module with '.y[a]ml' replaced with '.env'.
+    A VNF Heat Orchestration Template's Incremental Module's Environment File
+    **MUST** be named identical to the VNF Heat Orchestration Template's
+    Incremental Module with ``.y[a]ml`` replaced with ``.env``.
 
 To clearly identify the incremental module, it is recommended to use the
 following naming options for modules:
 
- -  module_<text>.y[a]ml
+ -  ``module_<text>.y[a]ml``
 
- -  <text>_module.y[a]ml
+ -  ``<text>_module.y[a]ml``
 
- -  module.y[a]ml
+ -  ``module.y[a]ml``
 
- -  <text>_module_<text>.y[a]ml
+ -  ``<text>_module_<text>.y[a]ml``
 
 Cinder Volume Modules
 ~~~~~~~~~~~~~~~~~~~~~
@@ -323,56 +330,57 @@ Cinder Volume Modules
     :id: R-82732
     :target: VNF
     :keyword: MUST
+    :validation_mode: static
 
-    A VNF Heat Orchestration Template's Cinder Volume Module **MUST** be
-    named identical to the base or incremental module it is supporting with
-    '_volume appended'
+    A VNF Heat Orchestration Template's Cinder Volume Module **MUST**
+    be named identical to the base or incremental module it is supporting with
+    ``_volume`` appended.
 
 .. req::
     :id: R-31141
     :target: VNF
     :keyword: MUST
+    :validation_mode: static
 
-    A VNF Heat Orchestration Template's Cinder Volume Module's Environment
-    File **MUST** be named identical to the VNF Heat Orchestration Template's
-    Cinder Volume Module with .y[a]ml replaced with '.env'.
+    VNF Heat Orchestration Template's Cinder Volume Module's Environment File
+    **MUST** be named identical to the VNF Heat Orchestration Template's
+    Cinder Volume Module with ``.y[a]ml`` replaced with ``.env``.
 
 Nested Heat file
-~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~
 
 
 .. req::
     :id: R-76057
     :target: VNF
     :keyword: MUST
+    :validation_mode: static
 
-    A VNF Heat Orchestration Template's Nested YAML file name **MUST**
-    contain only alphanumeric characters and underscores '_' and **MUST NOT**
-    contain the case insensitive word 'base'.
+    VNF Heat Orchestration Template's Nested YAML file name **MUST** contain
+    only alphanumeric characters and underscores '_' and
+    **MUST NOT** contain the case insensitive word ``base``.
 
 .. req::
     :id: R-70276
     :target: VNF
     :keyword: MUST NOT
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
+    :validation_mode: static
 
-    A VNF HEAT's Orchestration Nested Template's YAML file
-    name **MUST NOT** be in the format '{vm-type}.y[a]ml' where
-    '{vm-type}' is defined in the Heat Orchestration Template.
+    A VNF HEAT's Orchestration Nested Template's YAML file name **MUST NOT**
+    be in the format ``{vm-type}.y[a]ml`` where ``{vm-type}`` is defined
+    in the Heat Orchestration Template.
 
 Examples include
 
- -  <text>.y[a]ml
+ -  ``<text>.y[a]ml``
 
- -  nest_<text>.y[a]ml
+ -  ``nest_<text>.y[a]ml``
 
- -  <text>_nest.y[a]ml
+ -  ``<text>_nest.y[a]ml``
 
- -  nest.y[a]ml
+ -  ``nest.y[a]ml``
 
- -  <text>_nest_<text>.y[a]ml
+ -  ``<text>_nest_<text>.y[a]ml``
 
 VNF Heat Orchestration Template's Nested YAML file does not have a
 corresponding environment files, per OpenStack specifications.
@@ -395,57 +403,62 @@ into three categories:
 ONAP Base Module Output Parameters
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-ONAP Base Module Output Parameters are declared in the 'outputs:'' section of
-the VNF's Heat Orchestration Template's Base Module. A Base Module Output
-Parameter is available as an input parameter (i.e., declared in the
-'parameters:'' section) to all Incremental Modules in the VNF.
+ONAP Base Module Output Parameters are declared in the ``outputs:`` section
+of the VNF's Heat Orchestration Template's Base Module. A Base Module Output
+Parameter is available as an input parameter (i.e., declared in
+the ``parameters:`` section) to all Incremental Modules in the VNF.
 
 A Base Module Output Parameter may be used as an input parameter in any
-incremental module in the VNF.  Note that the parameter is not
-available to other VNFs.
+incremental module in the VNF.  Note that the parameter is not available to
+other VNFs.
 
 
 .. req::
     :id: R-52753
     :target: VNF
     :keyword: MUST
+    :validation_mode: static
 
     VNF's Heat Orchestration Template's Base Module's output parameter's
     name and type **MUST** match the VNF's Heat Orchestration Template's
-    incremental Module's name and type unless the output parameter is of type
-    'comma_delimited_list', then the corresponding input parameter **MUST**
-    be declared as type 'json'.
+    incremental Module's name and type unless the output parameter is of
+    type ``comma_delimited_list``, then the corresponding input parameter
+    **MUST** be declared as type ``json``.
 
 If the Output parameter has a comma_delimited_list value (e.g., a collection
-of UUIDs from a Resource Group), then the corresponding input parameter
-must be declared as type json and not a comma_delimited_list, which is
-actually a string value with embedded commas.
+of UUIDs from a Resource Group), then the corresponding input parameter must
+be declared as type ``json`` and not a ``comma_delimited_list``,
+which is actually a string value with embedded commas.
 
 
 .. req::
     :id: R-22608
     :target: VNF
     :keyword: MUST NOT
+    :validation_mode: static
 
     When a VNF's Heat Orchestration Template's Base Module's output
     parameter is declared as an input parameter in an Incremental Module,
-    the parameter attribute 'constraints:' **MUST NOT** be declared.
+    the parameter attribute ``constraints:`` **MUST NOT** be declared.
 
 Additional details on ONAP Base Module Output Parameters are provided in
 :ref:`ONAP Output Parameter Names` and ONAP VNF Modularity.
 
 ONAP Volume Module Output Parameters
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 .. req::
     :id: R-89913
     :target: VNF
     :keyword: MUST
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's Cinder Volume Module Output
-    Parameter(s) **MUST** include the UUID(s) of the Cinder Volumes created in
-    template, while other Output Parameters **MAY** be included.
+    Parameter(s)
+    **MUST** include the
+    UUID(s) of the Cinder Volumes created in template,
+    while others **MAY** be included.
 
 A VNF's Heat Orchestration Template's Cinder Volume Module Output Parameter(s)
 are only available for the module (base or incremental) that the volume
@@ -456,27 +469,29 @@ template is associated with.
     :id: R-07443
     :target: VNF
     :keyword: MUST
+    :validation_mode: static
 
     A VNF's Heat Orchestration Templates' Cinder Volume Module Output
     Parameter's name and type **MUST** match the input parameter name and type
     in the corresponding Base Module or Incremental Module unless the Output
-    Parameter is of the type 'comma_delimited_list', then the corresponding input
-    parameter **MUST** be declared as type 'json'.
+    Parameter is of the type ``comma_delimited_list``, then the corresponding
+    input parameter **MUST** be declared as type ``json``.
 
 If the Output parameter has a comma_delimited_list value (e.g., a collection
 of UUIDs from a Resource Group), then the corresponding input parameter must
-be declared as type json and not a comma_delimited_list, which is actually a
-string value with embedded commas.
+be declared as type json and not a comma_delimited_list, which is actually
+a string value with embedded commas.
 
 
 .. req::
     :id: R-20547
     :target: VNF
     :keyword: MUST NOT
+    :validation_mode: static
 
     When an ONAP Volume Module Output Parameter is declared as an input
-    parameter in a base or an incremental module Heat Orchestration Template,
-    parameter constraints **MUST NOT** be declared.
+    parameter in a base or an incremental module Heat Orchestration
+    Template, parameter constraints **MUST NOT** be declared.
 
 Additional details on ONAP Base Module Output Parameters are provided in
 :ref:`ONAP Output Parameter Names` and :ref:`ONAP Heat Cinder Volumes`.
@@ -501,18 +516,22 @@ ONAP does not support the use of heat stack-update command for scaling
     :id: R-39349
     :target: VNF
     :keyword: MUST NOT
+    :validation_mode: static
 
-    A VNF Heat Orchestration Template **MUST NOT** be designed to
-    utilize the OpenStack 'heat stack-update' command for scaling
-    (growth/de-growth).
+    A VNF Heat Orchestration Template **MUST NOT** be designed to utilize the
+    OpenStack ``heat stack-update`` command for scaling (growth/de-growth).
 
 .. req::
     :id: R-43413
     :target: VNF
     :keyword: MUST
+    :validation_mode: static
 
-    A VNF **MUST** utilize a modular Heat Orchestration Template
-    design to support scaling (growth/de-growth).
+    A VNF **MUST** utilize a modular Heat Orchestration Template design to
+    support scaling (growth/de-growth).
+
+It is important to note that ONAP only supports heat stack-update for
+image upgrades.
 
 Scope of a Heat Orchestration Template
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -522,9 +541,10 @@ Scope of a Heat Orchestration Template
     :id: R-59482
     :target: VNF
     :keyword: MUST NOT
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template **MUST NOT** be VNF instance
-    specific or Cloud site specific.
+    specific or cloud site specific.
 
 ONAP provides the instance specific parameter values to the Heat
 Orchestration Template at orchestration time.
@@ -534,9 +554,10 @@ Orchestration Template at orchestration time.
     :id: R-01896
     :target: VNF
     :keyword: MUST
+    :validation_mode: static
 
-    A VNF's Heat Orchestration Template's parameter values that are
-    constant across all deployments **MUST** be declared in a Heat Orchestration
+    A VNF's Heat Orchestration Template's parameter values that are constant
+    across all deployments **MUST** be declared in a Heat Orchestration
     Template Environment File.
 
 

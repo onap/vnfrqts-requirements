@@ -35,9 +35,17 @@ YAML Format
     :id: R-95303
     :target: VNF
     :keyword: MUST
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template **MUST** be defined using valid YAML.
 
 YAML (YAML Ain't
 Markup Language) is a human friendly data serialization standard for all
 programming languages. See http://www.yaml.org/.
+
+YAML rules include:
+
+ - Tabs are not allowed, use spaces ONLY
+ - You must indent your properties and lists with 1 or more spaces
+ - All Resource IDs and resource property parameters are case-sensitive.
+   (e.g., "ThIs", is not the same as "thiS")
