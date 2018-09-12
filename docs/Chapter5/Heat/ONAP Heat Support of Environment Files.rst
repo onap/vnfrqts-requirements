@@ -12,32 +12,14 @@ mandatory. A Heat Orchestration Template uploaded to ONAP must have a
 corresponding environment file, even if no parameters are required to
 be enumerated.
 
-(Note that ONAP does not programmatically enforce the use of
-an environment file.)
+*(Note that ONAP does not programmatically enforce the use of
+an environment file.)*
 
-.. req::
-    :id: R-67205
-    :target: VNF
-    :keyword: MUST
+As stated in :need:`R-38474`, :need:`R-81725`, and :need:`R-53433`:
 
-    The VNF Heat Orchestration Template **MUST** have a corresponding
-    environment file for a Base Module.
-
-.. req::
-    :id: R-35727
-    :target: VNF
-    :keyword: MUST
-
-    The VNF Heat Orchestration Template **MUST** have a
-    corresponding environment file for an Incremental module.
-
-.. req::
-    :id: R-22656
-    :target: VNF
-    :keyword: MUST
-
-    The VNF Heat Orchestration Template **MUST** have a
-    corresponding environment file for a Cinder Volume Module.
+  * A VNF's Base Module **MUST** have a corresponding Environment File.
+  * A VNF's Incremental Module **MUST** have a corresponding Environment File.
+  * A VNF's Cinder Volume Module **MUST** have a corresponding environment File.
 
 A nested heat template must not have an environment file; OpenStack does
 not support it.

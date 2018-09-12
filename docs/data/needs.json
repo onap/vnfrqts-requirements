@@ -1,5 +1,5 @@
 {
-    "created": "2018-09-12T17:22:55.929421",
+    "created": "2018-09-12T23:20:21.160620",
     "current_version": "casablanca",
     "project": "",
     "versions": {
@@ -21858,7 +21858,7 @@
             "needs_amount": 750
         },
         "casablanca": {
-            "created": "2018-09-12T17:22:55.929309",
+            "created": "2018-09-12T23:20:21.160546",
             "needs": {
                 "R-00011": {
                     "description": "A VNF's Heat Orchestration Template's parameter defined\nin a nested YAML file\n**MUST NOT** have a parameter constraint defined.",
@@ -21987,6 +21987,7 @@
                     "section_name": "Nested Heat Template Requirements",
                     "sections": [
                         "Nested Heat Template Requirements",
+                        "Nested Heat Templates",
                         "ONAP Heat Heat Template Constructs"
                     ],
                     "status": null,
@@ -22087,7 +22088,7 @@
                     "validation_mode": ""
                 },
                 "R-01101": {
-                    "description": "A VNF's Heat Orchestration Template **MAY**\nreference the nested heat dynamically using the resource\n'OS::Heat::ResourceGroup'.",
+                    "description": "A VNF's Heat Orchestration Template **MAY**\nreference the nested heat dynamically using the resource\n``OS::Heat::ResourceGroup``.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-01101",
@@ -22099,6 +22100,7 @@
                     "section_name": "Nested Heat Template Requirements",
                     "sections": [
                         "Nested Heat Template Requirements",
+                        "Nested Heat Templates",
                         "ONAP Heat Heat Template Constructs"
                     ],
                     "status": null,
@@ -22110,7 +22112,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -22842,6 +22844,7 @@
                     "section_name": "Nested Heat Template Requirements",
                     "sections": [
                         "Nested Heat Template Requirements",
+                        "Nested Heat Templates",
                         "ONAP Heat Heat Template Constructs"
                     ],
                     "status": null,
@@ -22971,7 +22974,7 @@
                     "validation_mode": ""
                 },
                 "R-05050": {
-                    "description": "A VNF's Heat Orchestration Templates intrinsic function\n'get\\_file' <content key> **MAY** be used:\n\n    * more than once in a VNF's Heat Orchestration Template\n    * in two or more of a VNF's Heat Orchestration Templates\n    * in a VNF's Heat Orchestration Templates nested YAML file",
+                    "description": "A VNF's Heat Orchestration Templates intrinsic function\n``get_file`` <content key> **MAY** be used:\n\n    * more than once in a VNF's Heat Orchestration Template\n    * in two or more of a VNF's Heat Orchestration Templates\n    * in a VNF's Heat Orchestration Templates nested YAML file",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-05050",
@@ -22994,7 +22997,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -23819,6 +23822,7 @@
                     "section_name": "Nested Heat Template Requirements",
                     "sections": [
                         "Nested Heat Template Requirements",
+                        "Nested Heat Templates",
                         "ONAP Heat Heat Template Constructs"
                     ],
                     "status": null,
@@ -23830,9 +23834,9 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
-                    "validation_mode": ""
+                    "validation_mode": "static"
                 },
                 "R-11168": {
                     "description": "A VNF's Heat Orchestration Template's Resource ID that is\nassociated with an external network **MUST** include the\n'{network-role}' as part of the resource ID.",
@@ -25156,6 +25160,7 @@
                     "section_name": "Nested Heat Template Requirements",
                     "sections": [
                         "Nested Heat Template Requirements",
+                        "Nested Heat Templates",
                         "ONAP Heat Heat Template Constructs"
                     ],
                     "status": null,
@@ -25167,9 +25172,9 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
-                    "validation_mode": ""
+                    "validation_mode": "static"
                 },
                 "R-18001": {
                     "description": "If the VNF's ports connected to a unique internal network\nand the port's IP addresses are statically assigned IP Addresses,\nthe IPv4 Addresses **MAY** be from different subnets and the\nIPv6 Addresses **MAY** be from different subnets.",
@@ -26307,33 +26312,6 @@
                     "validated_by": "",
                     "validation_mode": "static"
                 },
-                "R-22656": {
-                    "description": "The VNF Heat Orchestration Template **MUST** have a\ncorresponding environment file for a Cinder Volume Module.",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-22656",
-                    "impacts": "",
-                    "introduced": "",
-                    "keyword": "MUST",
-                    "links": [],
-                    "notes": "",
-                    "section_name": "ONAP Heat Support of Environment Files",
-                    "sections": [
-                        "ONAP Heat Support of Environment Files"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "",
-                    "validated_by": "",
-                    "validation_mode": ""
-                },
                 "R-22680": {
                     "description": "The xNF Package **MUST** include documentation that describes\nany requirements for the monitoring component of tools for Network\nCloud automation and management to provide these records to components\nof the xNF.",
                     "full_title": "",
@@ -26873,7 +26851,7 @@
                     "validation_mode": ""
                 },
                 "R-25190": {
-                    "description": "A VNF's Heat Orchestration Template's Resource 'OS::Cinder::Volume'\n**SHOULD NOT** declare the property 'availability_zone'.",
+                    "description": "A VNF's Heat Orchestration Template's Resource ``OS::Cinder::Volume``\n**SHOULD NOT** declare the property ``availability_zone``.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-25190",
@@ -26896,7 +26874,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -29243,33 +29221,6 @@
                     "validated_by": "",
                     "validation_mode": ""
                 },
-                "R-35727": {
-                    "description": "The VNF Heat Orchestration Template **MUST** have a\ncorresponding environment file for an Incremental module.",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-35727",
-                    "impacts": "",
-                    "introduced": "",
-                    "keyword": "MUST",
-                    "links": [],
-                    "notes": "",
-                    "section_name": "ONAP Heat Support of Environment Files",
-                    "sections": [
-                        "ONAP Heat Support of Environment Files"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "",
-                    "validated_by": "",
-                    "validation_mode": ""
-                },
                 "R-35735": {
                     "description": "When the VNF's Heat Orchestration Template's Resource\n'OS::Neutron::Port' is attaching to an external network,\nand an IPv6 Virtual IP (VIP) address is assigned via ONAP automation\nusing the property 'allowed_address_pairs' map property 'ip_address',\nthe parameter name **MUST** follow the naming convention\n\n   * '{vm-type}_{network-role}_v6_floating_ip'\n\nwhere\n\n   * '{vm-type}' is the {vm-type} associated with the OS::Nova::Server\n   * '{network-role}' is the {network-role} of the external network\n\nAnd the parameter **MUST** be declared as type 'string'.",
                     "full_title": "",
@@ -30489,7 +30440,7 @@
                     "validation_mode": ""
                 },
                 "R-41888": {
-                    "description": "A VNF's Heat Orchestration Template intrinsic function\n'get\\_file' **MUST NOT** utilize URL-based file retrieval.",
+                    "description": "A VNF's Heat Orchestration Template intrinsic function\n``get_file`` **MUST NOT** utilize URL-based file retrieval.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-41888",
@@ -30512,9 +30463,9 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
-                    "validation_mode": ""
+                    "validation_mode": "static"
                 },
                 "R-41956": {
                     "description": "If a VNF requires ONAP to assign a Virtual IP (VIP) Address to\nports connected an external network, the port\n**MUST NOT** have more than one IPv6 VIP address.",
@@ -32460,7 +32411,7 @@
                     "validation_mode": ""
                 },
                 "R-50011": {
-                    "description": "A VNF's Heat Orchestration Template's 'OS::Heat::ResourceGroup'\nproperty 'count' **MUST** be enumerated in the VNF's\nHeat Orchestration Template's Environment File and **MUST** be\nassigned a value.",
+                    "description": "A VNF's Heat Orchestration Template's ``OS::Heat::ResourceGroup``\nproperty ``count`` **MUST** be enumerated in the VNF's\nHeat Orchestration Template's Environment File and **MUST** be\nassigned a value.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-50011",
@@ -32473,7 +32424,7 @@
                     "sections": [
                         "OS::Heat::ResourceGroup Property count",
                         "Use of Heat ResourceGroup",
-                        "Nested Heat Template Requirements",
+                        "Nested Heat Templates",
                         "ONAP Heat Heat Template Constructs"
                     ],
                     "status": null,
@@ -32485,9 +32436,9 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
-                    "validation_mode": ""
+                    "validation_mode": "static"
                 },
                 "R-50252": {
                     "description": "The xNF **MUST** write to a specific one text files that\nwill be retrieved and made available by the Ansible Server if, as part\nof a xNF action (e.g., audit), a playbook is required to return any\nxNF information. The text files must be written in the same directory as\nthe one from which the playbook is being executed. A text file must be\ncreated for the xNF playbook run targets/affects, with the name\n'<VNFname>_results.txt' into which any desired output from each\nrespective VM/xNF must be written.",
@@ -32788,6 +32739,7 @@
                     "section_name": "Nested Heat Template Requirements",
                     "sections": [
                         "Nested Heat Template Requirements",
+                        "Nested Heat Templates",
                         "ONAP Heat Heat Template Constructs"
                     ],
                     "status": null,
@@ -32799,9 +32751,9 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
-                    "validation_mode": ""
+                    "validation_mode": "static"
                 },
                 "R-52753": {
                     "description": "VNF's Heat Orchestration Template's Base Module's output parameter's\nname and type **MUST** match the VNF's Heat Orchestration Template's\nincremental Module's name and type unless the output parameter is of\ntype ``comma_delimited_list``, then the corresponding input parameter\n**MUST** be declared as type ``json``.",
@@ -34291,6 +34243,7 @@
                     "section_name": "Nested Heat Template Requirements",
                     "sections": [
                         "Nested Heat Template Requirements",
+                        "Nested Heat Templates",
                         "ONAP Heat Heat Template Constructs"
                     ],
                     "status": null,
@@ -34302,9 +34255,9 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
-                    "validation_mode": ""
+                    "validation_mode": "static"
                 },
                 "R-60106": {
                     "description": "The xNF **MUST** implement the protocol operation:\n**get(filter)** - Retrieve (a filtered subset of) the running\nconfiguration and device state information. This should include\nthe list of xNF supported schemas.",
@@ -34389,9 +34342,9 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
-                    "validation_mode": ""
+                    "validation_mode": "static"
                 },
                 "R-61354": {
                     "description": "The VNF **MUST** provide a mechanism (e.g., access control list) to\npermit and/or restrict access to services on the VNF by source,\ndestination, protocol, and/or port.",
@@ -34503,9 +34456,9 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
-                    "validation_mode": ""
+                    "validation_mode": "static"
                 },
                 "R-62187": {
                     "description": "A VNF's Heat Orchestration Template's Resource\n'OS::ContrailV2::InstanceIp' that is configuring an\nIPv4 Address on a port attached to an internal network\nResource ID **MUST** use the naming convention\n\n   *  {vm-type}_{vm-type_index}_int_{network-role}_vmi_{vmi_index}_IP_{index}\n\nwhere\n\n   * {vm-type} is the vm-type\n   * {vm-type_index} is the instance of the {vm-type}\n   * {network-role} is the network-role of the network\n     that the port is attached to\n   * {vmi_index} is the instance of the the virtual machine interface\n     (e.g., port)  on the vm-type\n     attached to the network of {network-role}\n   * 'IP' signifies that an IPv4 address is being configured\n   * {index} is the index of the IPv4 address",
@@ -35392,33 +35345,6 @@
                     "validated_by": "",
                     "validation_mode": ""
                 },
-                "R-67205": {
-                    "description": "The VNF Heat Orchestration Template **MUST** have a corresponding\nenvironment file for a Base Module.",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-67205",
-                    "impacts": "",
-                    "introduced": "",
-                    "keyword": "MUST",
-                    "links": [],
-                    "notes": "",
-                    "section_name": "ONAP Heat Support of Environment Files",
-                    "sections": [
-                        "ONAP Heat Support of Environment Files"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "",
-                    "validated_by": "",
-                    "validation_mode": ""
-                },
                 "R-67231": {
                     "description": "A VNF's Heat Orchestration template's Environment File's\n**MUST NOT** contain the ``resource_registry:`` section.",
                     "full_title": "",
@@ -36125,6 +36051,35 @@
                     "updated": "",
                     "validated_by": "",
                     "validation_mode": ""
+                },
+                "R-70112": {
+                    "description": "A VNF's Heat Orchestration Template **MUST** reference a Nested YAML\nfile by name. The use of ``resource_registry`` in the VNF's Heat\nOrchestration Templates Environment File **MUST NOT** be used.",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-70112",
+                    "impacts": "",
+                    "introduced": "casablanca",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "Nested Heat Template Requirements",
+                    "sections": [
+                        "Nested Heat Template Requirements",
+                        "Nested Heat Templates",
+                        "ONAP Heat Heat Template Constructs"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "VNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": "static"
                 },
                 "R-70266": {
                     "description": "The xNF **MUST** respond to an ONAP request to deliver the\ncurrent data for any of the record types defined in\n`Event Records - Data Structure Description`_ by returning the requested\nrecord, populated with the current field values. (Currently the defined\nrecord types include fault fields, mobile flow fields, measurements for\nxNF scaling fields, and syslog fields. Other record types will be added\nin the future as they become standardized and are made available.)",
@@ -37322,7 +37277,7 @@
                     "validation_mode": ""
                 },
                 "R-76718": {
-                    "description": "If a VNF's Heat Orchestration Template uses the intrinsic function\n'get\\_file', the 'get\\_file' target **MUST** be referenced in\nthe Heat Orchestration Template by file name.",
+                    "description": "If a VNF's Heat Orchestration Template uses the intrinsic function\n``get_file``, the ``get_file`` target **MUST** be referenced in\nthe Heat Orchestration Template by file name.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-76718",
@@ -37345,9 +37300,9 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
-                    "validation_mode": ""
+                    "validation_mode": "static"
                 },
                 "R-76901": {
                     "description": "The VNF **MUST** support a container rebuild mechanism based on existing\nimage (e.g. Glance image in Openstack environment) or a snapshot.",
@@ -39730,7 +39685,7 @@
                     "validation_mode": ""
                 },
                 "R-87848": {
-                    "description": "A VNF's Heat Orchestration Template's 'get\\_file' target files\n**MUST** be in the same directory hierarchy as the VNF's Heat\nOrchestration Templates.",
+                    "description": "When using the intrinsic function get_file, ONAP does not support\na directory hierarchy for included files. All files must be in a\nsingle, flat directory per VNF. A VNF's Heat Orchestration\nTemplate's ``get_file`` target files **MUST** be in the same\ndirectory hierarchy as the VNF's Heat Orchestration Templates.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-87848",
@@ -39753,9 +39708,9 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
-                    "validation_mode": ""
+                    "validation_mode": "static"
                 },
                 "R-88026": {
                     "description": "The xNF **MUST** include a NETCONF server enabling\nruntime configuration and lifecycle management capabilities.",
@@ -40129,34 +40084,6 @@
                     "validated_by": "",
                     "validation_mode": ""
                 },
-                "R-89868": {
-                    "description": "The VNF Heat Orchestration Template **MUST** have unique\nfile names within the scope of the VNF for a nested heat yaml file.",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-89868",
-                    "impacts": "",
-                    "introduced": "",
-                    "keyword": "MUST",
-                    "links": [],
-                    "notes": "",
-                    "section_name": "Nested Heat Template Requirements",
-                    "sections": [
-                        "Nested Heat Template Requirements",
-                        "ONAP Heat Heat Template Constructs"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "",
-                    "validated_by": "",
-                    "validation_mode": ""
-                },
                 "R-89913": {
                     "description": "A VNF's Heat Orchestration Template's Cinder Volume Module Output\nParameter(s)\n**MUST** include the\nUUID(s) of the Cinder Volumes created in template,\nwhile others **MAY** be included.",
                     "full_title": "",
@@ -40229,6 +40156,7 @@
                     "section_name": "Nested Heat Template Requirements",
                     "sections": [
                         "Nested Heat Template Requirements",
+                        "Nested Heat Templates",
                         "ONAP Heat Heat Template Constructs"
                     ],
                     "status": null,
@@ -42205,7 +42133,7 @@
                     "validation_mode": ""
                 }
             },
-            "needs_amount": 715
+            "needs_amount": 712
         }
     }
 }

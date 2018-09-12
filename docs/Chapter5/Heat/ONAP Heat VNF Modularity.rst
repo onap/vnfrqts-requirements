@@ -15,12 +15,12 @@ referred to as *VNF Modules*. During orchestration, these modules
 are deployed incrementally to create the complete VNF.
 
 As stated in :need:`R-33132`, a VNF's Heat Orchestration Template **MAY** be
-     1.) Base Module Heat Orchestration Template (also referred to as a
-      Base Module),
-     2.) Incremental Module Heat Orchestration Template (referred to as
-      an Incremental Module), or
-     3.) a Cinder Volume Module Heat Orchestration Template (referred to as
-      Cinder Volume  Module).
+     1. Base Module Heat Orchestration Template (also referred to as a
+        Base Module),
+     2. Incremental Module Heat Orchestration Template (referred to as
+        an Incremental Module), or
+     3. a Cinder Volume Module Heat Orchestration Template (referred to as
+        Cinder Volume  Module).
 
 As stated in :need:`R-20974`, at orchestration time, the VNF's Base Module **MUST**
 be deployed first, prior to any incremental modules.
@@ -38,6 +38,9 @@ more than once, either during initial VNF deployment and/or scale out
 As stated in :need:`R-37028` and :need:`R-13196`, a VNF **MUST** be composed
 of one Base Module and *MAY** be composed of zero to many Incremental
 Modules.
+
+As stated in :need:`R-20974`, at orchestration time, the VNF's Base Module
+**MUST** be deployed first, prior to any incremental modules.
 
 ONAP also supports the concept of an optional, independently deployed
 Cinder volume via a separate Heat Orchestration Templates, referred to
@@ -58,6 +61,8 @@ Incremental Module.
     :id: R-61001
     :target: VNF
     :keyword: MUST
+    :validation_mode: static
+    :updated: casablanca
 
     A shared Heat Orchestration Template resource must be defined
     in the base module. A shared resource is a resource that that will
@@ -70,6 +75,9 @@ Incremental Module.
 When the shared resource needs to be referenced by a resource in an
 incremental module, the UUID of the shared resource must be exposed by
 declaring an ONAP Base Module Output Parameter.
+
+Note that a Cinder volume is not a shared resource. A volume template
+must correspond 1:1 with a base module or incremental module.
 
 An example of a shared resource is the resource
 OS::Neutron::SecurityGroup. Security groups are sets of IP filter rules
