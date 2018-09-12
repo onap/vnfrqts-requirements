@@ -89,9 +89,11 @@ the product’s lifecycle.
     :id: R-61354
     :target: VNF
     :keyword: MUST
+    :updated: casablanca
 
-    The VNF **MUST** implement access control list for OA&M
-    services (e.g., restricting access to certain ports or applications).
+    The VNF **MUST** provide a mechanism (e.g., access control list) to
+    permit and/or restrict access to services on the VNF by source,
+    destination, protocol, and/or port.
 
 .. req::
     :id: R-92207
@@ -172,10 +174,12 @@ the product’s lifecycle.
     :id: R-69649
     :target: VNF
     :keyword: MUST
+    :updated: casablanca
 
-    The VNF **MUST** have all vulnerabilities patched as soon
-    as possible. Patching shall be controlled via change control process
-    with vulnerabilities disclosed along with mitigation recommendations.
+    The VNF Provider **MUST** have patches available for vulnerabilities
+    in the VNF as soon as possible. Patching shall be controlled via change
+    control process with vulnerabilities disclosed along with
+    mitigation recommendations.
 
 .. req::
     :id: R-78010
@@ -326,10 +330,12 @@ Identity and Access Management Requirements
     :id: R-42874
     :target: VNF
     :keyword: MUST
+    :updated: casablanca
 
-    The VNF **MUST** comply with Least Privilege (no more
-    privilege than required to perform job functions) when persons
-    or non-person entities access VNFs.
+    The VNF **MUST** allow the Operator to restrict access based on
+    the assigned permissions associated with an ID in order to support
+    Least Privilege (no more privilege than required to perform job
+    functions).
 
 .. req::
     :id: R-71787
@@ -617,10 +623,10 @@ Security Analytics Requirements
     :id: R-58370
     :target: VNF
     :keyword: MUST
+    :updated: casablanca
 
-    The VNF **MUST** coexist and operate normally with commercial
-    anti-virus software which shall produce alarms every time when there is a
-    security incident.
+    The VNF **MUST** operate with anti-virus software which produces
+    alarms every time a virus is detected.
 
 .. req::
     :id: R-56920
@@ -960,9 +966,13 @@ Data Protection Requirements
     :id: R-12467
     :target: VNF
     :keyword: MUST NOT
+    :updated: casablanca
 
-    The VNF **MUST NOT** use the SHA, DSS, MD5, SHA-1 and
-    Skipjack algorithms or other compromised encryption.
+    The VNF **MUST NOT** use compromised encryption algorithms.
+    For example, SHA, DSS, MD5, SHA-1 and Skipjack algorithms.
+    Acceptable algorithms can be found in the NIST FIPS publications
+    (https://csrc.nist.gov/publications/fips) and in the
+    NIST Special Publications (https://csrc.nist.gov/publications/sp).
 
 .. req::
     :id: R-02170

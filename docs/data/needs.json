@@ -1,5 +1,5 @@
 {
-    "created": "2018-09-12T16:27:21.368274",
+    "created": "2018-09-12T17:22:55.929421",
     "current_version": "casablanca",
     "project": "",
     "versions": {
@@ -21858,7 +21858,7 @@
             "needs_amount": 750
         },
         "casablanca": {
-            "created": "2018-09-12T16:27:21.368212",
+            "created": "2018-09-12T17:22:55.929309",
             "needs": {
                 "R-00011": {
                     "description": "A VNF's Heat Orchestration Template's parameter defined\nin a nested YAML file\n**MUST NOT** have a parameter constraint defined.",
@@ -24123,7 +24123,7 @@
                     "validation_mode": ""
                 },
                 "R-12467": {
-                    "description": "The VNF **MUST NOT** use the SHA, DSS, MD5, SHA-1 and\nSkipjack algorithms or other compromised encryption.",
+                    "description": "The VNF **MUST NOT** use compromised encryption algorithms.\nFor example, SHA, DSS, MD5, SHA-1 and Skipjack algorithms.\nAcceptable algorithms can be found in the NIST FIPS publications\n(https://csrc.nist.gov/publications/fips) and in the\nNIST Special Publications (https://csrc.nist.gov/publications/sp).",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-12467",
@@ -24146,7 +24146,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -30744,7 +30744,7 @@
                     "validation_mode": ""
                 },
                 "R-42874": {
-                    "description": "The VNF **MUST** comply with Least Privilege (no more\nprivilege than required to perform job functions) when persons\nor non-person entities access VNFs.",
+                    "description": "The VNF **MUST** allow the Operator to restrict access based on\nthe assigned permissions associated with an ID in order to support\nLeast Privilege (no more privilege than required to perform job\nfunctions).",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-42874",
@@ -30767,7 +30767,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -33942,7 +33942,7 @@
                     "validation_mode": ""
                 },
                 "R-58370": {
-                    "description": "The VNF **MUST** coexist and operate normally with commercial\nanti-virus software which shall produce alarms every time when there is a\nsecurity incident.",
+                    "description": "The VNF **MUST** operate with anti-virus software which produces\nalarms every time a virus is detected.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-58370",
@@ -33965,7 +33965,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -34394,7 +34394,7 @@
                     "validation_mode": ""
                 },
                 "R-61354": {
-                    "description": "The VNF **MUST** implement access control list for OA&M\nservices (e.g., restricting access to certain ports or applications).",
+                    "description": "The VNF **MUST** provide a mechanism (e.g., access control list) to\npermit and/or restrict access to services on the VNF by source,\ndestination, protocol, and/or port.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-61354",
@@ -34417,7 +34417,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -35987,7 +35987,7 @@
                     "validation_mode": ""
                 },
                 "R-69649": {
-                    "description": "The VNF **MUST** have all vulnerabilities patched as soon\nas possible. Patching shall be controlled via change control process\nwith vulnerabilities disclosed along with mitigation recommendations.",
+                    "description": "The VNF Provider **MUST** have patches available for vulnerabilities\nin the VNF as soon as possible. Patching shall be controlled via change\ncontrol process with vulnerabilities disclosed along with\nmitigation recommendations.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-69649",
@@ -36010,7 +36010,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -42205,7 +42205,7 @@
                     "validation_mode": ""
                 }
             },
-            "needs_amount": 722
+            "needs_amount": 715
         }
     }
 }
