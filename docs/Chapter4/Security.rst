@@ -169,25 +169,6 @@ the product’s lifecycle.
     routing and forwarding rules.
 
 .. req::
-    :id: R-26586
-    :target: VNF
-    :keyword: SHOULD
-
-    The VNF **SHOULD** support the ability to work with aliases
-    (e.g., gateways, proxies) to protect and encapsulate resources.
-
-.. req::
-    :id: R-49956
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST** pass all access to applications (Bearer,
-    signaling and OA&M) through various security tools and platforms from
-    ACLs, stateful firewalls and application layer gateways depending on
-    manner of deployment. The application is expected to function (and in
-    some cases, interwork) with these security tools.
-
-.. req::
     :id: R-69649
     :target: VNF
     :keyword: MUST
@@ -213,17 +194,6 @@ the product’s lifecycle.
     the requirements if not using the NCSP's IDAM API, for identification,
     authentication and access control of OA&M and other system level
     functions.
-
-.. req::
-    :id: R-68589
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST**, if not using the NCSP's IDAM API, support
-    User-IDs and passwords to uniquely identify the user/application. VNF
-    needs to have appropriate connectors to the Identity, Authentication
-    and Authorization systems that enables access at OS, Database and
-    Application levels as appropriate.
 
 .. req::
     :id: R-62498
@@ -342,28 +312,6 @@ management need to be met by the solution in a virtual environment:
 
 
 Identity and Access Management Requirements
-
-
-.. req::
-    :id: R-95105
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST** host connectors for access to the application layer.
-
-.. req::
-    :id: R-45496
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST** host connectors for access to the OS (Operating System) layer.
-
-.. req::
-    :id: R-05470
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST** host connectors for access to the database layer.
 
 .. req::
     :id: R-99174
@@ -511,16 +459,6 @@ API Requirements
 
     The VNF **SHOULD** integrate with the Operator's authentication and
     authorization services (e.g., IDAM).
-
-.. req::
-    :id: R-19804
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST** validate the CA signature on the certificate,
-    ensure that the date is within the validity period of the certificate,
-    check the Certificate Revocation List (CRL), and recognize the identity
-    represented by the certificate where PKI-based authentication is used.
 
 .. req::
     :id: R-33488
