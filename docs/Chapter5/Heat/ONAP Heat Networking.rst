@@ -24,6 +24,8 @@ An External Network may be a Neutron Network or a Contrail Network.
     :id: R-16968
     :target: VNF
     :keyword: MUST NOT
+    :validation_mode: static
+    :updated: casablanca
 
     A VNF's Heat Orchestration Templates **MUST NOT** include heat
     resources to create external networks.
@@ -37,6 +39,7 @@ independently of VNFs.
     :id: R-00606
     :target: VNF
     :keyword: MAY
+    :updated: casablanca
 
     A VNF **MAY** be connected to zero, one or more than one external
     networks.
@@ -45,84 +48,84 @@ independently of VNFs.
     :id: R-57424
     :target: VNF
     :keyword: MUST
+    :validation_mode: static
+    :updated: casablanca
 
     A VNF's port connected to an external network **MUST**
-    use the port for the purpose of reaching VMs in another VNF
-    and/or an external gateway and/or external router. A VNF's port
-    connected to an external network **MAY** use the port for
-    the purpose of reaching VMs in the same VNF.
-
-.. req::
-    :id: R-29865
-    :target: VNF
-    :keyword: MUST
-
-    When a VNF connects to an external network, a network role,
-    referred to as the '{network-role}' **MUST** be assigned to the
-    external network for use in the VNF's Heat Orchestration Template.
+    use the port for the purpose of reaching
+    VMs in another VNF and/or an external gateway and/or external router.
+    A VNF's port connected to an external network **MAY**
+    use the port for the purpose of reaching VMs in the same VNF.
 
 .. req::
     :id: R-69014
     :target: VNF
     :keyword: MUST
+    :validation_mode: static
+    :updated: casablanca
 
-    When a VNF connects to an external network, a network role, referred
-    to as the '{network-role}' **MUST** be assigned to the external network
-    for use in the VNF's Heat Orchestration Template.
+    When a VNF connects to an external network, a network role, referred to
+    as the ``{network-role}`` **MUST** be assigned to the external network for
+    use in the VNF's Heat Orchestration Template.
 
 .. req::
     :id: R-05201
     :target: VNF
     :keyword: MUST
+    :validation_mode: static
+    :updated: casablanca
 
     When a VNF connects to two or more external networks, each external
-    network **MUST** be assigned a unique '{network-role}' in the context of
-    the VNF for use in the VNF's Heat Orchestration Template.
+    network **MUST** be assigned a unique ``{network-role}``
+    in the context of the VNF for use in the VNF's Heat Orchestration
+    Template.
 
 .. req::
     :id: R-83015
     :target: VNF
     :keyword: MUST
+    :validation_mode: static
+    :updated: casablanca
 
-    A VNF's '{network-role}' assigned to an external network **MUST**
-    be different than the '{network-role}' assigned to the VNF's internal
-    networks, if internal networks exist.
+    A VNF's ``{network-role}`` assigned to an external network **MUST**
+    be different than the ``{network-role}`` assigned to the VNF's
+    internal networks, if internal networks exist.
 
 .. req::
     :id: R-99794
     :target: VNF
     :keyword: MUST
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
+    :validation_mode: static
+    :updated: casablanca
 
     An external network **MUST** have one subnet. An external network
     **MAY** have more than one subnet.
 
-Note that this document refers to **'{network-role}'** which in reality
-is the **'{network-role-tag}'**.  The value of the
-'{network-role}' / '{network-role-tag}'
+Note that this document refers to ``{network-role}`` which in reality
+is the ``{network-role-tag}``.  The value of the
+``{network-role}`` / ``{network-role-tag}``
 is determined by the designer of the VNF's Heat Orchestration Template and
-there is no requirement for '{network-role}' / '{network-role-tag}'
+there is no requirement for ``{network-role}`` / ``{network-role-tag}``
 uniqueness across Heat Orchestration Templates for
 different VNFs.
 
 When an external network is created by ONAP, the network is assigned a
-'{network-role}'.  The '{network-role}' of the network is not required to
-match the '{network-role}' of the VNF Heat Orchestration Template.
+``{network-role}``.  The ``{network-role}`` of the network is not required to
+match the ``{network-role}`` of the VNF Heat Orchestration Template.
 
-For example, the VNF Heat Orchestration Template can assign a '{network-role}'
-of 'oam' to a network which attaches to an external network with a
-'{network-role}' of 'oam_protected_1' .
+For example, the VNF Heat Orchestration Template can assign a
+``{network-role}``
+of ``oam`` to a network which attaches to an external network with a
+``{network-role}`` of ``oam_protected_1`` .
 
 When the Heat Orchestration Template is on-boarded into ONAP
-  * each '{network-role}' value in the Heat Orchestration Template
-    is mapped to the '{network-role-tag}' in the ONAP
+  * each ``{network-role}`` value in the Heat Orchestration Template
+    is mapped to the ``{network-role-tag}`` in the ONAP
     data structure.
-  * each OS::Neutron::Port is associated with the external network it is
+  * each ``OS::Neutron::Port`` is associated with the external network it is
     connecting to, thus creating the VNF Heat Orchestration Template
-    '{network-role}' / '{network-role-tag}' to external network '{network-role}'
-    mapping.
+    ``{network-role}`` / ``{network-role-tag}``
+    to external network ``{network-role}`` mapping.
 
 ONAP enforces a naming convention for parameters associated with
 external networks. :ref:`ONAP Heat Resource ID and Parameter Naming Convention`
@@ -142,6 +145,7 @@ or an external gateway or router
     :id: R-87096
     :target: VNF
     :keyword: MAY
+    :updated: casablanca
 
     A VNF **MAY** contain zero, one or more than one internal networks.
 
@@ -149,14 +153,17 @@ or an external gateway or router
     :id: R-35666
     :target: VNF
     :keyword: MUST
+    :validation_mode: static
+    :updated: casablanca
 
-    If a VNF has an internal network, the VNF Heat Orchestration
-    Template **MUST** include the heat resources to create the internal network.
+    If a VNF has an internal network, the VNF Heat Orchestration Template
+    **MUST** include the heat resources to create the internal network.
 
 .. req::
     :id: R-86972
     :target: VNF
     :keyword: SHOULD
+    :updated: casablanca
 
     A VNF **SHOULD** create the internal network in the VNF's Heat
     Orchestration Template Base Module.
@@ -169,14 +176,18 @@ Contrail Heat Resources.
     :id: R-52425
     :target: VNF
     :keyword: MUST
+    :validation_mode: static
+    :updated: casablanca
 
-    A VNF's port connected to an internal network **MUST** connect
-    the port to VMs in the same VNF.
+    A VNF's port connected to an internal network **MUST**
+    use the port for the purpose of reaching VMs in the same VNF.
 
 .. req::
     :id: R-46461
     :target: VNF
     :keyword: MUST NOT
+    :validation_mode: static
+    :updated: casablanca
 
     A VNF's port connected to an internal network **MUST NOT** connect
     the port to VMs in another VNF and/or an external gateway and/or
@@ -186,61 +197,58 @@ Contrail Heat Resources.
     :id: R-68936
     :target: VNF
     :keyword: MUST
+    :validation_mode: static
+    :updated: casablanca
 
-    When a VNF creates an internal network, a network role, referred to
-    as the '{network-role}' **MUST** be assigned to the internal network for
-    use in the VNF's Heat Orchestration Template.
+    When a VNF creates an internal network, a network role, referred to as
+    the ``{network-role}`` **MUST** be assigned to the internal network
+    for use in the VNF's Heat Orchestration Template.
 
 .. req::
     :id: R-32025
     :target: VNF
     :keyword: MUST
+    :validation_mode: static
+    :updated: casablanca
 
     When a VNF creates two or more internal networks, each internal
-    network **MUST** be assigned a unique '{network-role}' in the context of
-    the VNF for use in the VNF's Heat Orchestration Template.
+    network **MUST** be assigned a unique ``{network-role}`` in the context
+    of the VNF for use in the VNF's Heat Orchestration Template.
 
 .. req::
     :id: R-69874
     :target: VNF
     :keyword: MUST
+    :validation_mode: static
+    :updated: casablanca
 
-    A VNF's '{network-role}' assigned to an internal network **MUST**
-    be different than the '{network-role}' assigned to the VNF's external
+    A VNF's ``{network-role}`` assigned to an internal network **MUST**
+    be different than the ``{network-role}`` assigned to the VNF's external
     networks.
 
 .. req::
     :id: R-16241
     :target: VNF
     :keyword: MUST
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
+    :validation_mode: static
+    :updated: casablanca
 
     A VNF's internal network **MUST** have one subnet.
     A VNF's internal network **MAY** have more than one subnet.
 
 .. req::
-    :id: R-34726
-    :target: VNF
-    :keyword: MUST
-
-    If a VNF's port is connected to an internal network and the port
-    is created in the same Heat Orchestration Template as the internal network,
-    then the port resource **MUST** use a 'get_resource' to obtain
-    the network UUID.
-
-.. req::
     :id: R-22688
     :target: VNF
     :keyword: MUST
+    :validation_mode: static
+    :updated: casablanca
 
-    If a VNF's port is connected to an internal network and the
-    port is created in an Incremental Module and the internal
-    network is created in the Base Module then the UUID of the
-    internal network **MUST** be exposed
-    as a parameter in the 'outputs:' section of the Base Module and the port
-    resource **MUST** use a 'get_param' to obtain the network UUID.
+    If a VNF's port is connected to an internal network and the port is
+    created in an Incremental Module and the internal network is created
+    in the Base Module then the UUID of the internal network **MUST** be
+    exposed as a parameter in the ``outputs:`` section of the Base Module
+    and the port resource **MUST** use a ``get_param`` to obtain the network
+    UUID.
 
 ONAP does not programmatically enforce a naming convention for
 parameters for internal network. However, a naming convention is

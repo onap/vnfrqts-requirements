@@ -5,65 +5,64 @@
 Resource Property "name"
 ----------------------------
 
-The parameter naming convention of the property name for the
-resource OS::Nova::Server has been defined in
+The parameter naming convention of the property ``name`` for the resource
+``OS::Nova::Server`` has been defined in 
 :ref:`Nova Server - Metadata Parameters`.
 
-This section provides the requirements how the property name for non
-OS::Nova::Server resources must be defined when the property is used.
-Not all resources require the property name (e.g., it is optional) and
+This section provides specifies how the property ``name`` for non
+``OS::Nova::Server`` resources must be defined when the property is used.
+Not all resources require the property ``name`` (e.g., it is optional) and
 some resources do not support the property.
 
 .. req::
     :id: R-85734
     :target: VNF
     :keyword: MUST
+    :validation_mode: static
+    :updated: casablanca
 
-    If a VNF's Heat Orchestration Template contains the property 'name'
-    for a non 'OS::Nova::Server' resource, the intrinsic function
-    'str_replace' **MUST** be used in conjunction with the ONAP
-    supplied metadata parameter 'vnf_name' to generate a unique value.
+    If a VNF's Heat Orchestration Template contains the property ``name``
+    for a non ``OS::Nova::Server`` resource, the intrinsic function
+    ``str_replace`` **MUST** be used in conjunction with the ONAP
+    supplied metadata parameter ``vnf_name`` to generate a unique value.
 
-This prevents the enumeration of a
-unique value for the property name in a per instance environment file.
+This approach prevents the enumeration of a unique value for the property
+``name`` in a per instance environment file.
 
 .. req::
     :id: R-99812
     :target: VNF
     :keyword: MUST NOT
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
+    :validation_mode: static
+    :updated: casablanca
 
-    A value for VNF's Heat Orchestration Template's property 'name'
-    for a non 'OS::Nova::Server' resource **MUST NOT** be declared
+    A value for VNF's Heat Orchestration Template's property ``name``
+    for a non ``OS::Nova::Server`` resource **MUST NOT** be declared
     in the VNF's Heat Orchestration Template's Environment File.
 
-In most cases the use of the metadata value 'vnf_name' is required to create a
-unique property name.  If this will not provide a unique value,
+In most cases the use of the metadata value ``vnf_name`` is required to create
+a unique property name.  If this will not provide a unique value,
 additional options include:
 
  - Using the Heat Orchestration Template pseudo parameter
-   'OS::stack_name' in the str_replace construct
+   ``OS::stack_name`` in the str_replace construct
  - Resources created in a nested heat file invoked by an
-   'OS::Heat::ResourceGroup' can use the 'index' to construct a unique name
-
+   ``OS::Heat::ResourceGroup`` can use the ``index`` to construct a unique name
 
 .. req::
     :id: R-32408
     :target: VNF
     :keyword: MUST
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
+    :validation_mode: static
+    :updated: casablanca
 
-    If a VNF's Heat Orchestration Template property 'name'
-    for a non 'OS::Nova::Server' resource uses the intrinsic function
-    'str_replace' in conjunction with the ONAP
-    supplied metadata parameter 'vnf_name' and does not create
+    If a VNF's Heat Orchestration Template property ``name``
+    for a non ``OS::Nova::Server`` resource uses the intrinsic function
+    ``str_replace`` in conjunction with the ONAP
+    supplied metadata parameter ``vnf_name`` and does not create
     a unique value, additional data **MUST** be used in the
-    'str_replace' to create a unique value, such as 'OS::stack_name'
-    and/or the 'OS::Heat::ResourceGroup' 'index'.
+    ``str_replace`` to create a unique value, such as ``OS::stack_name``
+    and/or the ``OS::Heat::ResourceGroup`` ``index``.
 
 *Example: Property 'name' for resource 'OS::Neutron::SecurityGroup'*
 
@@ -125,9 +124,7 @@ Contrail Issue with Values for the Property Name
     :id: R-84517
     :target: VNF
     :keyword: SHOULD
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
+    :updated: casablanca
 
     The Contrail GUI has a limitation displaying special characters.
     The issue is documented in
@@ -136,12 +133,12 @@ Contrail Issue with Values for the Property Name
     However, if special characters must be used, note that for
     the following resources:
 
-       * Virtual Machine
-       * Virtual Network
-       * Port
-       * Security Group
-       * Policies
-       * IPAM Creation
+    * Virtual Machine
+    * Virtual Network
+    * Port
+    * Security Group
+    * Policies
+    * IPAM Creation
 
     the only special characters supported
     are - \" ! $\ \ ' ( ) = ~ ^ | @ ` { } [ ] > , . _"

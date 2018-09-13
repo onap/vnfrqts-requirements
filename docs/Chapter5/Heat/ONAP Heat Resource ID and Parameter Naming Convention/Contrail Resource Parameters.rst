@@ -22,42 +22,38 @@ External Networks
     :id: R-02164
     :target: VNF
     :keyword: MUST
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
+    :validation_mode: static
+    :updated: casablanca
 
     When a VNF's Heat Orchestration Template's Contrail resource
     has a property that
     references an external network that requires the network's
     Fully Qualified Domain Name (FQDN), the property parameter
 
-       * **MUST** follow the format '{network-role}_net_fqdn'
-       * **MUST** be declared as type 'string'
-       * **MUST NOT** be enumerated in the NF's Heat Orchestration Template's
-         Environment File
+    * **MUST** follow the format ``{network-role}_net_fqdn``
+    * **MUST** be declared as type ``string``
+    * **MUST NOT** be enumerated in the VNF's Heat Orchestration Template's
+      Environment File
 
 .. req::
     :id: R-73228
     :target: VNF
     :keyword: MUST
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
+    :validation_mode: static
+    :updated: casablanca
 
     A VNF's Heat Orchestration Template's parameter
-    '{network-role}_net_fqdn'
-    **MUST** be declared as type 'string'.
+    ``{network-role}_net_fqdn``
+    **MUST** be declared as type ``string``.
 
 .. req::
     :id: R-92193
     :target: VNF
     :keyword: MUST NOT
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's parameter
-    '{network-role}_net_fqdn'
+    ``{network-role}_net_fqdn``
     **MUST NOT** be enumerated in the VNF's Heat Orchestration Template's
     Environment File.
 
@@ -96,7 +92,6 @@ virtual_network_refs references a contrail network FQDN.
       security_group_refs:
         - get_param: fw_sec_grp_id
 
-
 Interface Route Table Prefixes for Contrail InterfaceRoute Table
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -104,55 +99,53 @@ Interface Route Table Prefixes for Contrail InterfaceRoute Table
     :id: R-28222
     :target: VNF
     :keyword: MUST
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
+    :validation_mode: static
+    :updated: casablanca
 
     If a VNF's Heat Orchestration Template
-    'OS::ContrailV2::InterfaceRouteTable' resource
-    'interface_route_table_routes' property
-    'interface_route_table_routes_route' map property parameter name
+    ``OS::ContrailV2::InterfaceRouteTable`` resource
+    ``interface_route_table_routes`` property
+    ``interface_route_table_routes_route`` map property parameter name
     **MUST** follow the format
 
-       * {vm-type}_{network-role}_route_prefixes
+    * ``{vm-type}_{network-role}_route_prefixes``
 
 .. req::
     :id: R-19756
     :target: VNF
     :keyword: MUST
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
+    :validation_mode: static
+    :updated: casablanca
 
     If a VNF's Heat Orchestration Template
-    'OS::ContrailV2::InterfaceRouteTable' resource
-    'interface_route_table_routes' property
-    'interface_route_table_routes_route' map property parameter
-    '{vm-type}_{network-role}_route_prefixes'
-    **MUST** be defined as type 'json'.
+    ``OS::ContrailV2::InterfaceRouteTable`` resource
+    ``interface_route_table_routes`` property
+    ``interface_route_table_routes_route`` map property parameter
+    ``{vm-type}_{network-role}_route_prefixes``
+    **MUST** be defined as type ``json``.
 
 .. req::
     :id: R-76682
     :target: VNF
     :keyword: MUST NOT
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
+    :validation_mode: static
+    :updated: casablanca
 
     If a VNF's Heat Orchestration Template
-    'OS::ContrailV2::InterfaceRouteTable' resource
-    'interface_route_table_routes' property
-    'interface_route_table_routes_route' map property parameter
-    '{vm-type}_{network-role}_route_prefixes'
+    ``OS::ContrailV2::InterfaceRouteTable`` resource
+    ``interface_route_table_routes`` property
+    ``interface_route_table_routes_route`` map property parameter
+    ``{vm-type}_{network-role}_route_prefixes``
     **MUST NOT** be enumerated in the VNF's Heat Orchestration Template's
     Environment File.
 
-The parameter '{vm-type}_{network-role}_route_prefixes'
+The parameter ``{vm-type}_{network-role}_route_prefixes``
 supports IP addresses in the format:
 
 1. Host IP Address (e.g., 10.10.10.10)
 
 2. CIDR Notation format (e.g., 10.0.0.0/28)
+
 
 *Example Parameter Definition*
 
@@ -195,12 +188,13 @@ supports IP addresses in the format:
         service_instance_refs_data:
           - service_instance_refs_data_interface_type: { get_param: oam_interface_type }
 
+
 Resource OS::ContrailV2::InstanceIp
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The Contrail resource OS::ContrailV2::InstanceIp has two properties
+The Contrail resource ``OS::ContrailV2::InstanceIp`` has two properties
 that parameters **MUST** follow an explicit naming convention.  The
-properties are 'instance_ip_address' and 'subnet_uuid'.
+properties are ``instance_ip_address`` and ``subnet_uuid``.
 
 *Example OS::ContrailV2::InstanceIp Resource*
 
@@ -235,21 +229,23 @@ properties are 'instance_ip_address' and 'subnet_uuid'.
       virtual_machine_interface_refs: [{ get_param: virtual_machine_interface_refs }]
       virtual_network_refs: [{ get_param: virtual_network_refs }]
 
+
 Resource OS::ContrailV2::InstanceIp Property instance_ip_address
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-A VNF's Heat Orchestration Templates resource 'OS::ContrailV2::InstanceIp'
-property 'instance_ip_address' parameter
+A VNF's Heat Orchestration Templates resource ``OS::ContrailV2::InstanceIp``
+property ``instance_ip_address`` parameter
 **MUST** follow the same requirements
-that apply to the resource 'OS::Neutron' property 'fixed_ips' map
-property 'ip_address' parameter.
+that apply to the resource ``OS::Neutron`` property ``fixed_ips`` map
+property ``ip_address`` parameter.
+
 
 *Example: Contrail Resource OS::ContrailV2::InstanceIp, Property
 instance_ip_address*
 
 The property instance_ip_address uses the same parameter naming
 convention as the property fixed_ips and Map Property ip_address in
-OS::Neutron::Port. The resource is assigning an ONAP SDN-C Assigned IP
+OS::Neutron::Port. The resource is assigning an ECOMP SDN-C Assigned IP
 Address. The {network-role} has been defined as oam_protected to
 represent an oam protected network and the {vm-type} has been defined as
 fw for firewall.
@@ -270,18 +266,18 @@ fw for firewall.
 Resource OS::ContrailV2::InstanceIp Property subnet_uuid
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-A VNF's Heat Orchestration Templates resource 'OS::ContrailV2::InstanceIp'
-property 'subnet_uuid' parameter
+A VNF's Heat Orchestration Templates resource ``OS::ContrailV2::InstanceIp``
+property ``subnet_uuid`` parameter
 **MUST** follow the same requirements
-that apply to the resource 'OS::Neutron' property 'fixed_ips' map
-property 'subnet'/'subnet_id' parameter.
+that apply to the resource ``OS::Neutron`` property ``fixed_ips`` map
+property ``subnet``/``subnet_id`` parameter.
 
 *Example: Contrail Resource OS::ContrailV2::InstanceIp, Property
 subnet_uuid*
 
 The property instance_ip_address uses the same parameter naming
 convention as the property fixed_ips and Map Property subnet_id in
-OS::Neutron::Port. The resource is assigning a Cloud Assigned IP
+OS::Neutron::Port. The resource is assigning a cloud assigned IP
 Address. The {network-role} has been defined as "oam_protected" to
 represent an oam protected network and the {vm-type} has been defined as
 "fw" for firewall.
@@ -303,14 +299,14 @@ OS::ContrailV2::VirtualMachineInterface Property virtual_machine_interface_allow
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 A VNF's Heat Orchestration Templates resource
-'OS::ContrailV2::VirtualMachineInterface' map property,
-virtual_machine_interface_allowed_address_pairs,
+``OS::ContrailV2::VirtualMachineInterface`` map property,
+``virtual_machine_interface_allowed_address_pairs,
 virtual_machine_interface_allowed_address_pairs_allowed_address_pair,
 virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip,
-virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip_ip_prefix
+virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip_ip_prefix``
 parameter **MUST** follow the same requirements that apply to the
-resource 'OS::Neutron::Port' property
-'allowed_address_pairs', map property 'ip_address' parameter.
+resource ``OS::Neutron::Port`` property
+``allowed_address_pairs``, map property ``ip_address`` parameter.
 
 *Example OS::ContrailV2::VirtualMachineInterface*
 
