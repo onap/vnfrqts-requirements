@@ -3,15 +3,15 @@
 .. Copyright 2017 AT&T Intellectual Property.  All rights reserved.
 
 Resource IDs
--------------------------------
+------------
 
-Requirement R-75141 states a VNF's Heat Orchestration Template's
-resource name (i.e., <resource ID>) MUST only contain alphanumeric
-characters and underscores ('_').*
+Requirement R-75141 states a VNF’s Heat Orchestration Template’s resource
+name (i.e., <resource ID>) MUST only contain alphanumeric characters and
+underscores (‘_’).*
 
-Requirement R-16447 states a VNF's <resource ID> MUST be unique
-across all Heat Orchestration Templates and all HEAT Orchestration
-Template Nested YAML files that are used to create the VNF.
+Requirement R-16447 states a VNF’s <resource ID> MUST be unique across
+all Heat Orchestration Templates and all HEAT Orchestration Template Nested
+YAML files that are used to create the VNF.
 
 As stated previously, OpenStack requires the <resource ID> to be unique
 to the Heat Orchestration Template and not unique across all Heat
@@ -23,14 +23,17 @@ Heat Orchestration Template resources are described in :ref:`resources`.
     :id: R-54517
     :target: VNF
     :keyword: MUST
+    :validation_mode: static
 
-    When a VNF's Heat Orchestration Template's resource is associated
-    with a single '{vm-type}', the Resource ID **MUST** contain the '{vm-type}'.
+    When a VNF's Heat Orchestration Template's resource is associated with
+    a single ``{vm-type}``, the Resource ID **MUST** contain the
+    ``{vm-type}``.
 
 .. req::
     :id: R-96482
     :target: VNF
     :keyword: MUST
+    :validation_mode: static
 
     When a VNF's Heat Orchestration Template's resource is associated
     with a single external network, the Resource ID **MUST** contain the text
@@ -40,75 +43,86 @@ Heat Orchestration Template resources are described in :ref:`resources`.
     :id: R-98138
     :target: VNF
     :keyword: MUST
+    :validation_mode: static
 
-    When a VNF's Heat Orchestration Template's resource is associated
-    with a single internal network, the Resource ID **MUST** contain the text
-    'int\_{network-role}'.
+    When a VNF's Heat Orchestration Template's resource is associated with a
+    single internal network, the Resource ID **MUST** contain the text
+    ``int_{network-role}``.
 
 .. req::
     :id: R-82115
     :target: VNF
     :keyword: MUST
+    :validation_mode: static
 
-    When a VNF's Heat Orchestration Template's resource is associated
-    with a single '{vm-type}' and a single external network, the Resource
-    ID text **MUST** contain both the '{vm-type}' and the '{network-role}'
+    When a VNF's Heat Orchestration Template's resource is associated with a
+    single ``{vm-type}``
+    and a single external network, the Resource ID text **MUST** contain both
+    the ``{vm-type}``
+    and the ``{network-role}``
 
-      - the '{vm-type}' **MUST** appear before the '{network-role}' and **MUST**
-        be separated by an underscore '_'
+    - the ``{vm-type}`` **MUST** appear before the ``{network-role}`` and
+      **MUST** be separated by an underscore '_'
 
-          - e.g.,'{vm-type}\_{network-role}', '{vm-type}\_{index}\_{network-role}'
 
-      - note that an '{index}' value **MAY** separate the '{vm-type}' and the
-        '{network-role}' and when this occurs underscores **MUST** separate the
-        three values.
+      - e.g., ``{vm-type}_{network-role}``, ``{vm-type}_{index}_{network-role}``
+
+
+    - note that an ``{index}`` value **MAY** separate the ``{vm-type}`` and the
+      ``{network-role}`` and when this occurs underscores **MUST** separate the
+      three values.  (e.g., ``{vm-type}_{index}_{network-role}``).
 
 .. req::
     :id: R-82551
     :target: VNF
     :keyword: MUST
+    :validation_mode: static
 
-    When a VNF's Heat Orchestration Template's resource is associated
-    with a single '{vm-type}' and a single internal network, the Resource ID
-    **MUST** contain both the '{vm-type}' and the 'int\_{network-role}' and
+    When a VNF's Heat Orchestration Template's resource is associated with a
+    single ``{vm-type}`` and a single internal network, the Resource ID **MUST**
+    contain both the ``{vm-type}`` and the ``int_{network-role}`` and
 
-      - the '{vm-type}' **MUST** appear before the 'int\_{network-role}' and
+    - the ``{vm-type}`` **MUST** appear before the ``int_{network-role}`` and
       **MUST** be separated by an underscore '_'
 
-        - e.g.,'{vm-type}\_int\_{network-role}', '{vm-type}_{index}\_int\_{network-role}'
+      - (e.g., ``{vm-type}_int_{network-role}``,
+        ``{vm-type}_{index}_int_{network-role}``)
 
-      - note that an '{index}' value **MAY** separate the '{vm-type}' and the
-        'int\_{network-role}' and when this occurs underscores **MUST** separate
-        the three values.
+    - note that an ``{index}`` value **MAY** separate the
+      ``{vm-type}`` and the ``int_{network-role}`` and when this occurs
+      underscores **MUST** separate the three values.
+      (e.g., ``{vm-type}_{index}_int_{network-role}``).
 
 .. req::
     :id: R-67793
     :target: VNF
     :keyword: MUST NOT
+    :validation_mode: static
 
     When a VNF's Heat Orchestration Template's resource is associated
-    with more than one '{vm-type}' and/or more than one internal and/or
-    external network, the Resource ID **MUST NOT** contain the '{vm-type}'
-    and/or '{network-role}'/'int\_{network-role}'. It also should contain the
-    term 'shared' and/or contain text that identifies the VNF.
+    with more than one ``{vm-type}`` and/or more than one internal and/or
+    external network, the Resource ID **MUST** not contain the ``{vm-type}``
+    and/or ``{network-role}``/``int_{network-role}``. It also should contain the
+    term ``shared`` and/or contain text that identifies the VNF.
 
 .. req::
     :id: R-27970
     :target: VNF
     :keyword: MAY
 
-    When a VNF's Heat Orchestration Template's resource is associated
-    with more than one '{vm-type}' and/or more than one internal and/or
-    external network, the Resource ID **MAY** contain the term 'shared'
-    and/or **MAY** contain text that identifies the VNF.
+    When a VNF's Heat Orchestration Template's resource is associated with
+    more than one ``{vm-type}`` and/or more than one internal and/or external
+    network, the Resource ID **MAY** contain the term ``shared`` and/or **MAY**
+    contain text that identifies the VNF.
 
 .. req::
     :id: R-11690
     :target: VNF
     :keyword: MUST
+    :validation_mode: static
 
-    When a VNF's Heat Orchestration Template's Resource ID contains
-    an {index} value (e.g. multiple VMs of same {vm-type}), the '{index}'
+    When a VNF's Heat Orchestration Template's Resource ID contains an
+    ``{index}`` value (e.g. multiple VMs of same ``{vm-type}``), the ``{index}``
     **MUST** start at zero and increment by one.
 
 OpenStack Heat Resources Resource ID Naming Convention
@@ -125,19 +139,19 @@ OS::Cinder::Volume
     :id: R-87004
     :target: VNF
     :keyword: SHOULD
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
 
     A VNF's Heat Orchestration Template's Resource
-    OS::Cinder::Volume Resource ID **SHOULD** use the naming convention
+    ``OS::Cinder::Volume``
+    Resource ID
+    **SHOULD**
+    use the naming convention
 
-       * {vm-type}_volume_{index}
+    * ``{vm-type}_volume_{index}``
 
     where
 
-       * {vm-type} is the vm-type
-       * {index} starts at zero and increments by one
+    * ``{vm-type}`` is the vm-type
+    * ``{index}`` starts at zero and increments by one
 
 OS::Cinder::VolumeAttachment
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -146,19 +160,19 @@ OS::Cinder::VolumeAttachment
     :id: R-86497
     :target: VNF
     :keyword: SHOULD
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
 
     A VNF's Heat Orchestration Template's Resource
-    OS::Cinder::VolumeAttachment Resource ID **SHOULD** use the naming convention
+    ``OS::Cinder::VolumeAttachment``
+    Resource ID
+    **SHOULD**
+    use the naming convention
 
-       * {vm-type}_volume_attachment_{index}
+    * ``{vm-type}_volume_attachment_{index}``
 
     where
 
-       * {vm-type} is the vm-type
-       * {index} starts at zero and increments by one
+    * ``{vm-type}`` is the vm-type
+    * ``{index}`` starts at zero and increments by one
 
 OS::Heat::CloudConfig
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -167,30 +181,25 @@ OS::Heat::CloudConfig
     :id: R-04747
     :target: VNF
     :keyword: MUST
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
+    :validation_mode: static
 
-    A VNF's Heat Orchestration Template's Resource
-    'OS::Heat::CloudConfig' Resource ID **MUST** contain the '{vm-type}'.
+    A VNF's Heat Orchestration Template's Resource ``OS::Heat::CloudConfig``
+    Resource ID **MUST** contain the ``{vm-type}``.
 
 .. req::
     :id: R-20319
     :target: VNF
     :keyword: MAY
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
 
-    A VNF's Heat Orchestration Template's Resource 'OS::Heat::CloudConfig'
+    A VNF's Heat Orchestration Template's Resource ``OS::Heat::CloudConfig``
     Resource ID **MAY** use the naming convention
 
-       * {vm-type}_RCC
+    * ``{vm-type}_RCC``
 
     where
 
-       * {vm-type} is the vm-type
-       * 'RCC' signifies that it is the Resource Cloud Config
+    * ``{vm-type}`` is the vm-type
+    * ``RCC`` signifies that it is the Resource Cloud Config
 
 OS::Heat::MultipartMime
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -200,30 +209,31 @@ OS::Heat::MultipartMime
     :id: R-30804
     :target: VNF
     :keyword: MUST
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's Resource
-    'OS::Heat::MultipartMime' Resource ID **MUST** contain the '{vm-type}'.
+    ``OS::Heat::MultipartMime``
+    Resource ID
+    **MUST**
+    contain the ``{vm-type}``.
 
 .. req::
     :id: R-18202
     :target: VNF
     :keyword: MAY
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
 
     A VNF's Heat Orchestration Template's Resource
-    'OS::Heat::MultipartMime' Resource ID **MAY** use the naming convention
+    ``OS::Heat::MultipartMime``
+    Resource ID
+    **MAY**
+    use the naming convention
 
-       * {vm-type}_RMM
+    * ``{vm-type}_RMM``
 
     where
 
-       * {vm-type} is the vm-type
-       * 'RMM' signifies that it is the Resource Multipart Mime
+    * ``{vm-type}`` is the vm-type
+    * ``RMM`` signifies that it is the Resource Multipart Mime
 
 OS::Heat::ResourceGroup
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -235,24 +245,21 @@ that is is creating sub-interfaces.
     :id: R-64197
     :target: VNF
     :keyword: MUST
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
+    :validation_mode: static
 
-    A VNF's Heat Orchestration Template's Resource
-    OS::Heat::ResourceGroup Resource ID that creates sub-interfaces **MUST**
-    use the naming convention
+    A VNF's Heat Orchestration Template's Resource ``OS::Heat::ResourceGroup``
+    Resource ID that creates sub-interfaces **MUST** use the naming convention
 
-       * {vm-type}_{vm-type_index}_subint_{network-role}_port_{port-index}_subinterfaces
+    * ``{vm-type}_{vm-type_index}_subint_{network-role}_port_{port-index}_subinterfaces``
 
     where
 
-       * {vm-type} is the vm-type
-       * {vm-type_index} is the instance of the {vm-type}
-       * {network-role} is the network-role of the networks
-         that the sub-interfaces attach to
-       * {port-index} is the instance of the the port on the vm-type
-         attached to the network of {network-role}
+    * ``{vm-type}`` is the vm-type
+    * ``{vm-type_index}`` is the instance of the ``{vm-type}``
+    * ``{network-role}`` is the network-role of the networks
+      that the sub-interfaces attach to
+    * ``{port-index}`` is the instance of the the port on the vm-type
+      attached to the network of ``{network-role}``
 
 OS::Heat::SoftwareConfig
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -261,30 +268,25 @@ OS::Heat::SoftwareConfig
     :id: R-08975
     :target: VNF
     :keyword: MUST
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
+    :validation_mode: static
 
-    A VNF's Heat Orchestration Template's Resource
-    'OS::Heat::SoftwareConfig' Resource ID **MUST** contain the '{vm-type}'.
+    A VNF's Heat Orchestration Template's Resource ``OS::Heat::SoftwareConfig``
+    Resource ID **MUST** contain the ``{vm-type}``.
 
 .. req::
     :id: R-03656
     :target: VNF
     :keyword: MAY
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
 
-    A VNF's Heat Orchestration Template's Resource
-    'OS::Heat::SoftwareConfig' Resource ID **MAY** use the naming convention
+    A VNF's Heat Orchestration Template's Resource ``OS::Heat::SoftwareConfig``
+    Resource ID **MAY** use the naming convention
 
-       * {vm-type}_RSC
+    * ``{vm-type}_RSC``
 
     where
 
-       * {vm-type} is the vm-type
-       * 'RSC' signifies that it is the Resource Software Config
+    * ``{vm-type}`` is the vm-type
+    * ``RSC`` signifies that it is the Resource Software Config
 
 OS::Neutron::Net
 ~~~~~~~~~~~~~~~~
@@ -293,19 +295,17 @@ OS::Neutron::Net
     :id: R-25720
     :target: VNF
     :keyword: MUST
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
+    :validation_mode: static
 
-    A VNF's Heat Orchestration Template's Resource
-    OS::Neutron::Net Resource ID **MUST** use the naming convention
+    A VNF's Heat Orchestration Template's Resource ``OS::Neutron::Net``
+    Resource ID **MUST** use the naming convention
 
-       * int_{network-role}_network
+    * ``int_{network-role}_network``
 
-VNF Heat Orchestration Templates can only create internal networks.
-There is no {index} after {network-role} because {network-role}
-**MUST** be unique in the scope of the VNF's
-Heat Orchestration Template.
+    VNF Heat Orchestration Templates can only create internal networks.
+    There is no ``{index}`` after ``{network-role}`` because ``{network-role}``
+    **MUST** be unique in the scope of the VNF's
+    Heat Orchestration Template.
 
 OS::Neutron::Port
 ~~~~~~~~~~~~~~~~~~
@@ -315,91 +315,83 @@ OS::Neutron::Port
     :id: R-20453
     :target: VNF
     :keyword: MUST
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
+    :validation_mode: static
 
-    A VNF's Heat Orchestration Template's Resource
-    OS::Neutron::Port that is attaching to an external network Resource ID
+    A VNF's Heat Orchestration Template's Resource ``OS::Neutron::Port``
+    that is attaching to an external network Resource ID
     **MUST** use the naming convention
 
-       * {vm-type}_{vm-type_index}_{network-role}_port_{port-index}
+    * ``{vm-type}_{vm-type_index}_{network-role}_port_{port-index}``
 
     where
 
-       * {vm-type} is the vm-type
-       * {vm-type_index} is the instance of the {vm-type}
-       * {network-role} is the network-role of the network
-         that the port is attached to
-       * {port-index} is the instance of the the port on the vm-type
-         attached to the network of {network-role}
+    * ``{vm-type}`` is the vm-type
+    * ``{vm-type_index}`` is the instance of the ``{vm-type}``
+    * ``{network-role}`` is the network-role of the network
+      that the port is attached to
+    * ``{port-index}`` is the instance of the the port on the vm-type
+      attached to the network of ``{network-role}``
 
 .. req::
     :id: R-26351
     :target: VNF
     :keyword: MUST
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
+    :validation_mode: static
 
-    A VNF's Heat Orchestration Template's Resource
-    OS::Neutron::Port that is attaching to an internal network Resource ID
-    **MUST** use the naming convention
+    A VNF's Heat Orchestration Template's Resource ``OS::Neutron::Port``
+    that is attaching to an internal network Resource ID **MUST**
+    use the naming convention
 
-       * {vm-type}_{vm-type_index}_int_{network-role}_port_{port-index}
+    * ``{vm-type}_{vm-type_index}_int_{network-role}_port_{port-index}``
 
     where
 
-       * {vm-type} is the vm-type
-       * {vm-type_index} is the instance of the {vm-type}
-       * {network-role} is the network-role of the network
-         that the port is attached to
-       * {port-index} is the instance of the the port on the vm-type
-         attached to the network of {network-role}
+    * ``{vm-type}`` is the vm-type
+    * ``{vm-type_index}`` is the instance of the ``{vm-type}``
+    * ``{network-role}`` is the network-role of the network
+      that the port is attached to
+    * ``{port-index}`` is the instance of the the port on the vm-type
+      attached to the network of ``{network-role}``
 
 .. req::
     :id: R-27469
     :target: VNF
     :keyword: MUST
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
+    :validation_mode: static
 
-    A VNF's Heat Orchestration Template's Resource
-    OS::Neutron::Port that is creating a *Reserve Port* with an IPv4 address
-    Resource ID **MUST** use the naming convention
+    A VNF's Heat Orchestration Template's Resource ``OS::Neutron::Port``
+    that is creating a *Reserve Port* with an IPv4 address Resource ID **MUST**
+    use the naming convention
 
-       * reserve_port_{vm-type}_{network-role}_floating_ip_{index}
+    * ``reserve_port_{vm-type}_{network-role}_floating_ip_{index}``
 
     where
 
-       * {vm-type} is the vm-type
-       * {network-role} is the network-role of the network
-         that the port is attached to
-       * {index} is the instance of the IPv4 *Reserve Port*
-         for the vm-type attached to the network of {network-role}
+    * ``{vm-type}`` is the vm-type
+    * ``{network-role}`` is the network-role of the network
+      that the port is attached to
+    * ``{index}`` is the instance of the IPv4 *Reserve Port*
+      for the vm-type attached to the network of ``{network-role}``
 
 .. req::
     :id: R-68520
     :target: VNF
     :keyword: MUST
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
+    :validation_mode: static
 
-    A VNF's Heat Orchestration Template's Resource OS::Neutron::Port
-    that is creating a *Reserve Port* with an IPv6 address Resource ID
-    **MUST** use the naming convention
+    A VNF's Heat Orchestration Template's Resource ``OS::Neutron::Port``
+    that is creating a *Reserve Port* with an IPv6 address Resource ID **MUST**
+    use the naming convention
 
-       * reserve_port_{vm-type}_{network-role}_floating_v6_ip_{index}
+    * ``reserve_port_{vm-type}_{network-role}_floating_v6_ip_{index}``
 
     where
 
-       * {vm-type} is the vm-type
-       * {network-role} is the network-role of the network
-         that the port is attached to
-       * {index} is the instance of the IPv6 *Reserve Port*
-         for the vm-type attached to the network of {network-role}
+    * ``{vm-type}`` is the vm-type
+    * ``{network-role}`` is the network-role of the network
+      that the port is attached to
+    * ``{index}`` is the instance of the IPv6 *Reserve Port*
+      for the vm-type attached to the network of ``{network-role}``
 
 OS::Neutron::SecurityGroup
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -408,180 +400,149 @@ OS::Neutron::SecurityGroup
     :id: R-08775
     :target: VNF
     :keyword: SHOULD
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
 
-    A VNF's Heat Orchestration Template's Resource
-    OS::Neutron::SecurityGroup that is applicable to one {vm-type} and
-    more than one network (internal and/or external) Resource ID
-    **SHOULD** use the naming convention
+    A VNF's Heat Orchestration Template's Resource ``OS::Neutron::SecurityGroup``
+    that is applicable to one ``{vm-type}`` and more than one network (internal
+    and/or external) Resource ID **SHOULD** use the naming convention
 
-       * {vm-type}_security_group
+    * ``{vm-type}_security_group``
 
     where
 
-       * {vm-type} is the vm-type
+    * ``{vm-type}`` is the vm-type
 
 .. req::
     :id: R-03595
     :target: VNF
     :keyword: SHOULD
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
 
-    A VNF's Heat Orchestration Template's Resource
-    OS::Neutron::SecurityGroup that is applicable to more than
-    one {vm-type} and one external network Resource ID **SHOULD**
-    use the naming convention
+    A VNF's Heat Orchestration Template's Resource ``OS::Neutron::SecurityGroup`` that
+    is applicable to more than one ``{vm-type}`` and one external network Resource ID
+    **SHOULD** use the naming convention
 
-       * {network-role}_security_group
+    * ``{network-role}_security_group``
 
     where
 
-       * {network-role} is the network-role
+    * ``{network-role}`` is the network-role
 
 .. req::
     :id: R-73213
     :target: VNF
     :keyword: SHOULD
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
 
-    A VNF's Heat Orchestration Template's Resource
-    OS::Neutron::SecurityGroup that is applicable to more than
-    one {vm-type} and one internal network Resource ID **SHOULD**
-    use the naming convention
+    A VNF's Heat Orchestration Template's Resource ``OS::Neutron::SecurityGroup`` that
+    is applicable to more than one ``{vm-type}`` and one internal network Resource ID
+    **SHOULD** use the naming convention
 
-       * int_{network-role}_security_group
+    * ``int_{network-role}_security_group``
 
     where
 
-       * {network-role} is the network-role
+    * ``{network-role}`` is the network-role
 
 .. req::
     :id: R-17334
     :target: VNF
     :keyword: SHOULD
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
 
-    A VNF's Heat Orchestration Template's Resource
-    OS::Neutron::SecurityGroup that is applicable to one {vm-type}
-    and one external network Resource ID **SHOULD** use the naming convention
+    A VNF's Heat Orchestration Template's Resource ``OS::Neutron::SecurityGroup``
+    that is applicable to one ``{vm-type}`` and one external network Resource ID
+    **SHOULD** use the naming convention
 
-       * {vm-type}_{network-role}_security_group
+    * ``{vm-type}_{network-role}_security_group``
 
     where
 
-       * {vm-type} is the vm-type
-       * {network-role} is the network-role
+    * ``{vm-type}`` is the vm-type
+    * ``{network-role}`` is the network-role
 
 .. req::
     :id: R-14198
     :target: VNF
     :keyword: SHOULD
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
 
-    A VNF's Heat Orchestration Template's Resource
-    OS::Neutron::SecurityGroup that is applicable to one {vm-type}
-    and one internal network Resource ID **SHOULD** use the naming convention
+    A VNF's Heat Orchestration Template's Resource ``OS::Neutron::SecurityGroup`` that
+    is applicable to one {vm-type} and one internal network Resource ID **SHOULD**
+    use the naming convention
 
-       * {vm-type}_int_{network-role}_security_group
+    * ``{vm-type}_int_{network-role}_security_group``
 
     where
 
-       * {vm-type} is the vm-type
-       * {network-role} is the network-role
+    * ``{vm-type}`` is the vm-type
+    * ``{network-role}`` is the network-role
 
 .. req::
     :id: R-30005
     :target: VNF
     :keyword: MAY
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
 
-    A VNF's Heat Orchestration Template's Resource
-    OS::Neutron::SecurityGroup that is applicable to more than one
-    {vm-type} and more than one network (internal and/or external)
-    Resource ID **MAY** use the naming convention
+    A VNF's Heat Orchestration Template's Resource ``OS::Neutron::SecurityGroup`` that
+    is applicable to more than one ``{vm-type}`` and more than one network
+    (internal and/or external) Resource ID **MAY**
+    use the naming convention
 
-       * shared_security_group
+    * ``shared_security_group``
 
     or
 
-       * {vnf-type}_security_group
+    * ``{vnf-type}_security_group``
 
     where
 
-       * {vnf-type} describes the VNF
+    * ``{vnf-type}`` describes the VNF
 
 OS::Neutron::Subnet
-~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~
 
 .. req::
     :id: R-59434
     :target: VNF
     :keyword: SHOULD
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
 
-    A VNF's Heat Orchestration Template's Resource
-    OS::Neutron::Subnet Resource ID **SHOULD** use the naming convention
+    A VNF's Heat Orchestration Template's Resource ``OS::Neutron::Subnet``
+    Resource ID **SHOULD** use the naming convention
 
-       * int_{network-role}_subnet_{index}
+    * ``int_{network-role}_subnet_{index}``
 
     where
 
-       * {network-role} is the network-role
-       * {index} is the {index} of the subnet of the network
+    * ``{network-role}`` is the network-role
+    * ``{index}`` is the ``{index}`` of the subnet of the network
 
 OS::Nova::Keypair
-~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~
 
 .. req::
     :id: R-24997
     :target: VNF
     :keyword: SHOULD
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
 
-    A VNF's Heat Orchestration Template's Resource
-    OS::Nova::Keypair applies to one {vm-type} Resource ID **SHOULD**
-    use the naming convention
+    A VNF's Heat Orchestration Template's Resource ``OS::Nova::Keypair`` applies to
+    one ``{vm-type}`` Resource ID **SHOULD** use the naming convention
 
-       * {vm-type}_keypair_{index}
+    * ``{vm-type}_keypair_{index}``
 
     where
 
-       * {network-role} is the network-role
-       * {index} is the {index} of the keypair
+    * ``{network-role}`` is the network-role
+    * ``{index}`` is the ``{index}`` of the keypair
 
 .. req::
     :id: R-65516
     :target: VNF
     :keyword: SHOULD
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
 
-    A VNF's Heat Orchestration Template's Resource OS::Nova::Keypair
-    applies to all Virtual Machines in the the VNF, the Resource ID **SHOULD**
-    use the naming convention
+    A VNF's Heat Orchestration Template's Resource ``OS::Nova::Keypair`` applies to
+    all Virtual Machines in the the VNF, the Resource ID **SHOULD** use the naming
+    convention
 
-       * {vnf-type}_keypair
+    * ``{vnf-type}_keypair``
 
     where
 
-       * {vnf-type} describes the VNF
+    * ``{vnf-type}`` describes the VNF
 
 OS::Nova::Server
 ~~~~~~~~~~~~~~~~
@@ -590,19 +551,17 @@ OS::Nova::Server
     :id: R-29751
     :target: VNF
     :keyword: MUST
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
+    :validation_mode: static
 
-    A VNF's Heat Orchestration Template's Resource OS::Nova::Server
-    Resource ID **MUST** use the naming convention
+    A VNF's Heat Orchestration Template's Resource ``OS::Nova::Server`` Resource ID
+    **MUST** use the naming convention
 
-       * {vm-type}_server_{index}
+    * ``{vm-type}_server_{index}``
 
     where
 
-       * {vm-type} is the vm-type
-       * {index} is the index
+    * ``{vm-type}`` is the vm-type
+    * ``{index}`` is the index
 
 OS::Nova::ServerGroup
 ~~~~~~~~~~~~~~~~~~~~~
@@ -611,26 +570,23 @@ OS::Nova::ServerGroup
     :id: R-15189
     :target: VNF
     :keyword: MAY
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
 
-    A VNF's Heat Orchestration Template's Resource OS::Nova::ServerGroup
-    Resource ID **MAY** use the naming convention
+    A VNF's Heat Orchestration Template's Resource ``OS::Nova::ServerGroup`` Resource ID
+    **MAY** use the naming convention
 
-       * {vm-type}_RSG
+    * ``{vm-type}_RSG``
 
     or
 
-       * {vm-type}_Server_Grp
+    * ``{vm-type}_Server_Grp``
 
     or
 
-       * {vm-type}_ServerGroup
+    * ``{vm-type}_ServerGroup``
 
     or
 
-       * {vm-type}_servergroup
+    * ``{vm-type}_servergroup``
 
 Contrail Heat Resources Resource ID Naming Convention
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -647,163 +603,144 @@ OS::ContrailV2::InstanceIp
     :id: R-53310
     :target: VNF
     :keyword: MUST
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
+    :validation_mode: static
 
-    A VNF's Heat Orchestration Template's Resource
-    'OS::ContrailV2::InstanceIp' that is configuring an IPv4 Address
-    on a port attached to an external network Resource ID **MUST**
-    use the naming convention
+    A VNF's Heat Orchestration Template's Resource ``OS::ContrailV2::InstanceIp``
+    that is configuring an IPv4 Address on a port attached to an external network
+    Resource ID **MUST** use the naming convention
 
-       *  {vm-type}_{vm-type_index}_{network-role}_vmi_{vmi_index}_IP_{index}
+    *  ``{vm-type}_{vm-type_index}_{network-role}_vmi_{vmi_index}_IP_{index}``
 
     where
 
-       * {vm-type} is the vm-type
-       * {vm-type_index} is the instance of the {vm-type}
-       * {network-role} is the network-role of the network
-         that the port is attached to
-       * {vmi_index} is the instance of the the virtual machine interface
-         (e.g., port)  on the vm-type
-         attached to the network of {network-role}
-       * 'IP' signifies that an IPv4 address is being configured
-       * {index} is the index of the IPv4 address
+    * ``{vm-type}`` is the vm-type
+    * ``{vm-type_index}`` is the instance of the {vm-type}
+    * ``{network-role}`` is the network-role of the network that the port is attached to
+    * ``{vmi_index}`` is the instance of the the virtual machine interface
+      (e.g., port)  on the vm-type attached to the network of {network-role}
+    * ``IP`` signifies that an IPv4 address is being configured
+    * ``{index}`` is the index of the IPv4 address
 
 .. req::
     :id: R-46128
     :target: VNF
     :keyword: MUST
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
+    :validation_mode: static
 
-    A VNF's Heat Orchestration Template's Resource
-    'OS::ContrailV2::InstanceIp' that is configuring an
-    IPv6 Address on a port attached to an external network
+    A VNF's Heat Orchestration Template's Resource ``OS::ContrailV2::InstanceIp``
+    that is configuring an IPv6 Address on a port attached to an external network
     Resource ID **MUST** use the naming convention
 
-       *  {vm-type}_{vm-type_index}_{network-role}_vmi_{vmi_index}_v6_IP_{index}
+    *  ``{vm-type}_{vm-type_index}_{network-role}_vmi_{vmi_index}_v6_IP_{index}``
 
     where
 
-       * {vm-type} is the vm-type
-       * {vm-type_index} is the instance of the {vm-type}
-       * {network-role} is the network-role of the network
-         that the port is attached to
-       * {vmi_index} is the instance of the the virtual machine interface
-         (e.g., port)  on the vm-type
-         attached to the network of {network-role}
-       * 'v6_IP' signifies that an IPv6 address is being configured
-       * {index} is the index of the IPv6 address
+    * ``{vm-type}`` is the vm-type
+    * ``{vm-type_index}`` is the instance of the ``{vm-type}``
+    * ``{network-role}`` is the network-role of the network
+      that the port is attached to
+    * ``{vmi_index}`` is the instance of the the virtual machine interface
+      (e.g., port)  on the vm-type
+      attached to the network of {network-role}
+    * ``v6_IP`` signifies that an IPv6 address is being configured
+    * ``{index}`` is the index of the IPv6 address
 
 .. req::
     :id: R-62187
     :target: VNF
     :keyword: MUST
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
+    :validation_mode: static
 
-    A VNF's Heat Orchestration Template's Resource
-    'OS::ContrailV2::InstanceIp' that is configuring an
-    IPv4 Address on a port attached to an internal network
+    A VNF's Heat Orchestration Template's Resource ``OS::ContrailV2::InstanceIp``
+    that is configuring an IPv4 Address on a port attached to an internal network
     Resource ID **MUST** use the naming convention
 
-       *  {vm-type}_{vm-type_index}_int_{network-role}_vmi_{vmi_index}_IP_{index}
+    *  ``{vm-type}_{vm-type_index}_int_{network-role}_vmi_{vmi_index}_IP_{index}``
 
     where
 
-       * {vm-type} is the vm-type
-       * {vm-type_index} is the instance of the {vm-type}
-       * {network-role} is the network-role of the network
-         that the port is attached to
-       * {vmi_index} is the instance of the the virtual machine interface
-         (e.g., port)  on the vm-type
-         attached to the network of {network-role}
-       * 'IP' signifies that an IPv4 address is being configured
-       * {index} is the index of the IPv4 address
+    * ``{vm-type}`` is the vm-type
+    * ``{vm-type_index}`` is the instance of the ``{vm-type}``
+    * ``{network-role}`` is the network-role of the network
+      that the port is attached to
+    * ``{vmi_index}`` is the instance of the the virtual machine interface
+      (e.g., port)  on the vm-type
+      attached to the network of ``{network-role}``
+    * ``IP`` signifies that an IPv4 address is being configured
+    * ``{index}`` is the index of the IPv4 address
 
 .. req::
     :id: R-87563
     :target: VNF
     :keyword: MUST
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
+    :validation_mode: static
 
-    A VNF's Heat Orchestration Template's Resource
-    'OS::ContrailV2::InstanceIp' that is configuring an
-    IPv6 Address on a port attached to an internal network
+    A VNF's Heat Orchestration Template's Resource ``OS::ContrailV2::InstanceIp``
+    that is configuring an IPv6 Address on a port attached to an internal network
     Resource ID **MUST** use the naming convention
 
-       *  {vm-type}_{vm-type_index}_int_{network-role}_vmi_{vmi_index}_v6_IP_{index}
+    *  ``{vm-type}_{vm-type_index}_int_{network-role}_vmi_{vmi_index}_v6_IP_{index}``
 
     where
 
-       * {vm-type} is the vm-type
-       * {vm-type_index} is the instance of the {vm-type}
-       * {network-role} is the network-role of the network
-         that the port is attached to
-       * {vmi_index} is the instance of the the virtual machine interface
-         (e.g., port)  on the vm-type
-         attached to the network of {network-role}
-       * 'v6_IP' signifies that an IPv6 address is being configured
-       * {index} is the index of the IPv6 address
+    * ``{vm-type}`` is the vm-type
+    * ``{vm-type_index}`` is the instance of the ``{vm-type}``
+    * ``{network-role}`` is the network-role of the network
+      that the port is attached to
+    * ``{vmi_index}`` is the instance of the the virtual machine interface
+      (e.g., port)  on the vm-type
+      attached to the network of ``{network-role}``
+    * ``v6_IP`` signifies that an IPv6 address is being configured
+    * ``{index}`` is the index of the IPv6 address
 
 .. req::
     :id: R-20947
     :target: VNF
     :keyword: MUST
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
+    :validation_mode: static
 
-    A VNF's Heat Orchestration Template's Resource
-    'OS::ContrailV2::InstanceIp' that is configuring an IPv4 Address
-    on a sub-interface port attached to a sub-interface network
-    Resource ID **MUST** use the naming convention
+    A VNF's Heat Orchestration Template's Resource ``OS::ContrailV2::InstanceIp``
+    that is configuring an IPv4 Address on a sub-interface port attached to a
+    sub-interface network Resource ID **MUST** use the naming convention
 
-       *  {vm-type}_{vm-type_index}_subint_{network-role}_vmi_{vmi_index}_IP_{index}
+    *  ``{vm-type}_{vm-type_index}_subint_{network-role}_vmi_{vmi_index}_IP_{index}``
 
     where
 
-       * {vm-type} is the vm-type
-       * {vm-type_index} is the instance of the {vm-type}
-       * {network-role} is the network-role of the network
-         that the port is attached to
-       * {vmi_index} is the instance of the the virtual machine interface
-         (e.g., port)  on the vm-type
-         attached to the network of {network-role}
-       * 'IP' signifies that an IPv4 address is being configured
-       * {index} is the index of the IPv4 address
+    * ``{vm-type}`` is the vm-type
+    * ``{vm-type_index}`` is the instance of the ``{vm-type}``
+    * ``{network-role}`` is the network-role of the network
+      that the port is attached to
+    * ``{vmi_index}`` is the instance of the the virtual machine interface
+      (e.g., port)  on the vm-type
+      attached to the network of ``{network-role}``
+    * ``IP`` signifies that an IPv4 address is being configured
+    * ``{index}`` is the index of the IPv4 address
 
 .. req::
     :id: R-88540
     :target: VNF
     :keyword: MUST
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
+    :validation_mode: static
 
-    A VNF's Heat Orchestration Template's Resource
-    'OS::ContrailV2::InstanceIp' that is configuring an IPv6 Address
-    on a sub-interface port attached to a sub-interface network
-    Resource ID **MUST** use the naming convention
+    A VNF's Heat Orchestration Template's Resource ``OS::ContrailV2::InstanceIp``
+    that is configuring an IPv6 Address on a sub-interface port attached to a
+    sub-interface network Resource ID **MUST**
+    use the naming convention
 
-       *  {vm-type}_{vm-type_index}_subint_{network-role}_vmi_{vmi_index}_v6_IP_{index}
+    *  ``{vm-type}_{vm-type_index}_subint_{network-role}_vmi_{vmi_index}_v6_IP_{index}``
 
     where
 
-       * {vm-type} is the vm-type
-       * {vm-type_index} is the instance of the {vm-type}
-       * {network-role} is the network-role of the network
-         that the port is attached to
-       * {vmi_index} is the instance of the the virtual machine interface
-         (e.g., port)  on the vm-type
-         attached to the network of {network-role}
-       * 'v6_IP' signifies that an IPv6 address is being configured
-       * {index} is the index of the IPv6 address
+    * ``{vm-type}`` is the vm-type
+    * ``{vm-type_index}`` is the instance of the ``{vm-type}``
+    * ``{network-role}`` is the network-role of the network
+      that the port is attached to
+    * ``{vmi_index}`` is the instance of the the virtual machine interface
+      (e.g., port)  on the vm-type
+      attached to the network of ``{network-role}``
+    * ``v6_IP`` signifies that an IPv6 address is being configured
+    * ``{index}`` is the index of the IPv6 address
 
 OS::ContrailV2::InterfaceRouteTable
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -812,32 +749,29 @@ OS::ContrailV2::InterfaceRouteTable
     :id: R-81214
     :target: VNF
     :keyword: MUST
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's Resource
-    'OS::ContrailV2::InterfaceRouteTable' Resource ID **MUST**
-    contain the '{network-role}'.
+    ``OS::ContrailV2::InterfaceRouteTable``
+    Resource ID
+    **MUST**
+    contain the ``{network-role}``.
 
 .. req::
     :id: R-28189
     :target: VNF
     :keyword: MAY
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
 
     A VNF's Heat Orchestration Template's Resource
-    'OS::ContrailV2::InterfaceRouteTable' Resource ID **MAY**
-    use the naming convention
+    ``OS::ContrailV2::InterfaceRouteTable``
+    Resource ID **MAY** use the naming convention
 
-       * {network-role}_RIRT
+    * ``{network-role}_RIRT``
 
     where
 
-       * {network-role} is the network-role
-       * 'RIRT' signifies that it is the Resource Interface Route Table
+    * ``{network-role}`` is the network-role
+    * ``RIRT`` signifies that it is the Resource Interface Route Table
 
 OS::ContrailV2::NetworkIpam
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -846,32 +780,28 @@ OS::ContrailV2::NetworkIpam
     :id: R-30753
     :target: VNF
     :keyword: MUST
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's Resource
-    'OS::ContrailV2::NetworkIpam' Resource ID **MUST**
-    contain the '{network-role}'.
+    ``OS::ContrailV2::NetworkIpam``
+    Resource ID
+    **MUST**
+    contain the ``{network-role}``.
 
 .. req::
     :id: R-81979
     :target: VNF
     :keyword: MAY
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
 
-    A VNF's Heat Orchestration Template's Resource
-    'OS::ContrailV2::NetworkIpam' Resource ID **MAY**
-    use the naming convention
+    A VNF's Heat Orchestration Template's Resource ``OS::ContrailV2::NetworkIpam``
+    Resource ID **MAY** use the naming convention
 
-       * {network-role}_RNI
+    * ``{network-role}_RNI``
 
     where
 
-       * {network-role} is the network-role
-       * 'RNI' signifies that it is the Resource Network IPAM
+    * ``{network-role}`` is the network-role
+    * ``RNI`` signifies that it is the Resource Network IPAM
 
 OS::ContrailV2::PortTuple
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -880,32 +810,26 @@ OS::ContrailV2::PortTuple
     :id: R-20065
     :target: VNF
     :keyword: MUST
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's Resource
-    'OS::ContrailV2::PortTuple' Resource ID **MUST**
-    contain the '{vm-type}'.
+    ``OS::ContrailV2::PortTuple``
+    Resource ID **MUST** contain the ``{vm-type}``.
 
 .. req::
     :id: R-84457
     :target: VNF
     :keyword: MAY
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
 
-    A VNF's Heat Orchestration Template's Resource
-    'OS::ContrailV2::PortTuple' Resource ID **MAY**
-    use the naming convention
+    A VNF's Heat Orchestration Template's Resource ``OS::ContrailV2::PortTuple``
+    Resource ID **MAY** use the naming convention
 
-       * {vm-type}_RPT
+    * ``{vm-type}_RPT``
 
     where
 
-       * {vm-type} is the vm-type
-       * 'RPT' signifies that it is the Resource Port Tuple
+    * ``{vm-type}`` is the vm-type
+    * ``RPT`` signifies that it is the Resource Port Tuple
 
 OS::ContrailV2::ServiceHealthCheck
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -914,34 +838,30 @@ OS::ContrailV2::ServiceHealthCheck
     :id: R-76014
     :target: VNF
     :keyword: MUST
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's Resource
-    'OS::ContrailV2::ServiceHealthCheck' Resource ID **MUST**
-    contain the '{vm-type}'.
+    ``OS::ContrailV2::ServiceHealthCheck``
+    Resource ID
+    **MUST**
+    contain the ``{vm-type}``.
 
 .. req::
     :id: R-65618
     :target: VNF
     :keyword: MAY
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
 
     A VNF's Heat Orchestration Template's Resource
-    'OS::ContrailV2::ServiceHealthCheck' Resource ID
-    **MAY** use the naming convention
+    ``OS::ContrailV2::ServiceHealthCheck`` Resource ID **MAY** use the naming convention
 
-       * {vm-type}_RSHC_{LEFT|RIGHT}
+    * ``{vm-type}_RSHC_{LEFT|RIGHT}``
 
     where
 
-       * {vm-type} is the vm-type
-       * 'RSHC' signifies that it is the Resource Service Health Check
-       * 'LEFT' is used if the Service Health Check is on the left interface
-       * 'RIGHT' is used if the Service Health Check is on the right interface
+    * ``{vm-type}`` is the vm-type
+    * ``RSHC`` signifies that it is the Resource Service Health Check
+    * ``LEFT`` is used if the Service Health Check is on the left interface
+    * ``RIGHT`` is used if the Service Health Check is on the right interface
 
 OS::ContrailV2::ServiceTemplate
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -950,33 +870,26 @@ OS::ContrailV2::ServiceTemplate
     :id: R-16437
     :target: VNF
     :keyword: MUST
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
+    :validation_mode: static
 
-    A VNF's Heat Orchestration Template's Resource
-    'OS::ContrailV2::ServiceTemplate' Resource ID **MUST**
-    contain the '{vm-type}'.
+    A VNF's Heat Orchestration Template's Resource ``OS::ContrailV2::ServiceTemplate``
+    Resource ID **MUST** contain the ``{vm-type}``.
 
 .. req::
     :id: R-14447
     :target: VNF
     :keyword: MAY
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
 
-    A VNF's Heat Orchestration Template's Resource
-    'OS::ContrailV2::ServiceTemplate' Resource ID **MAY**
-    use the naming convention
+    A VNF's Heat Orchestration Template's Resource ``OS::ContrailV2::ServiceTemplate``
+    Resource ID **MAY** use the naming convention
 
-       * {vm-type}_RST_{index}
+    * ``{vm-type}_RST_{index}``
 
     where
 
-       * {vm-type} is the vm-type
-       * 'RST' signifies that it is the Resource Service Template
-       * '{index}' is is the index
+    * ``{vm-type}`` is the vm-type
+    * ``RST`` signifies that it is the Resource Service Template
+    * ``{index}`` is is the index
 
 OS::ContrailV2::VirtualMachineInterface
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -985,71 +898,64 @@ OS::ContrailV2::VirtualMachineInterface
     :id: R-96253
     :target: VNF
     :keyword: MUST
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's Resource
-    OS::ContrailV2::VirtualMachineInterface that is attaching
-    to an external network Resource ID **MUST**
-    use the naming convention
+    ``OS::ContrailV2::VirtualMachineInterface`` that is attaching to an external network
+    Resource ID **MUST** use the naming convention
 
-       * {vm-type}_{vm-type_index}_{network-role}_vmi_{vmi_index}
+    * ``{vm-type}_{vm-type_index}_{network-role}_vmi_{vmi_index}``
 
     where
 
-       * {vm-type} is the vm-type
-       * {vm-type_index} is the instance of the {vm-type}
-       * {network-role} is the network-role of the network
-         that the port (i.e. virtual machine interface) is attached to
-       * {vmi_index} is the instance of the the vmi on the vm-type
-         attached to the network of {network-role}
+    * ``{vm-type}`` is the vm-type
+    * ``{vm-type_index}`` is the instance of the ``{vm-type}``
+    * ``{network-role}`` is the network-role of the network
+      that the port (i.e. virtual machine interface) is attached to
+    * ``{vmi_index}`` is the instance of the the vmi on the vm-type
+      attached to the network of ``{network-role}``
 
 .. req::
     :id: R-50468
     :target: VNF
     :keyword: MUST
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's Resource
-    OS::ContrailV2::VirtualMachineInterface that is attaching
-    to an internal network Resource ID **MUST** use the naming convention
+    ``OS::ContrailV2::VirtualMachineInterface`` that is attaching to an internal network
+    Resource ID **MUST** use the naming convention
 
-       * {vm-type}_{vm-type_index}_int_{network-role}_vmi_{vmi_index}
+    * ``{vm-type}_{vm-type_index}_int_{network-role}_vmi_{vmi_index}``
 
     where
 
-       * {vm-type} is the vm-type
-       * {vm-type_index} is the instance of the {vm-type}
-       * {network-role} is the network-role of the network
-         that the port (i.e. virtual machine interface) is attached to
-       * {vmi_index} is the instance of the the vmi on the vm-type
-         attached to the network of {network-role}
+    * ``{vm-type}`` is the vm-type
+    * ``{vm-type_index}`` is the instance of the ``{vm-type}``
+    * ``{network-role}`` is the network-role of the network
+      that the port (i.e. virtual machine interface) is attached to
+    * ``{vmi_index}`` is the instance of the the vmi on the vm-type
+      attached to the network of ``{network-role}``
 
 .. req::
     :id: R-54458
     :target: VNF
     :keyword: MUST
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's Resource
-    OS::ContrailV2::VirtualMachineInterface that is attaching to
-    a sub-interface network Resource ID **MUST** use the naming convention
+    ``OS::ContrailV2::VirtualMachineInterface`` that is attaching to a sub-interface
+    network Resource ID **MUST** use the naming convention
 
-       * {vm-type}_{vm-type_index}_subint_{network-role}_vmi_{vmi_index}
+    * ``{vm-type}_{vm-type_index}_subint_{network-role}_vmi_{vmi_index}``
 
     where
 
-       * {vm-type} is the vm-type
-       * {vm-type_index} is the instance of the {vm-type}
-       * {network-role} is the network-role of the network
-         that the port (i.e. virtual machine interface) is attached to
-       * {vmi_index} is the instance of the the vmi on the vm-type
-         attached to the network of {network-role}
+    * ``{vm-type}`` is the vm-type
+    * ``{vm-type_index}`` is the instance of the ``{vm-type}``
+    * ``{network-role}`` is the network-role of the network
+      that the port (i.e. virtual machine interface) is attached to
+    * ``{vmi_index}`` is the instance of the the vmi on the vm-type
+      attached to the network of ``{network-role}``
 
 OS::ContrailV2::VirtualNetwork
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1058,23 +964,21 @@ OS::ContrailV2::VirtualNetwork
     :id: R-99110
     :target: VNF
     :keyword: MUST
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's Resource
-    OS::ContrailV2::VirtualNetwork Resource ID **MUST**
-    use the naming convention
+    ``OS::ContrailV2::VirtualNetwork`` Resource ID **MUST** use the naming convention
 
-       * 'int_{network-role}_network'
+    1) ``int_{network-role}_network``
 
     or
 
-       * 'int_{network-role}_RVN' where RVN represents Resource Virtual Network
+    2) ``int_{network-role}_RVN`` where RVN represents Resource Virtual
+       Network
 
-VNF Heat Orchestration Templates can only create internal networks.
-There is no {index} after {network-role} because {network-role}
-**MUST** be unique in the scope of the VNF's
-Heat Orchestration Template.
+    VNF Heat Orchestration Templates can only create internal networks.
+    There is no ``{index}`` after ``{network-role}`` because ``{network-role}``
+    **MUST** be unique in the scope of the VNF's
+    Heat Orchestration Template.
 
-Note that the first option is preferred.
+Note that option 1 is preferred.

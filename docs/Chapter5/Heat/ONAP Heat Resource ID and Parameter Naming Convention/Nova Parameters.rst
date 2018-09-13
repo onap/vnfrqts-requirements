@@ -6,31 +6,31 @@
 Resource: OS::Nova::Server - Parameters
 -----------------------------------------------------------------------
 
-The resource OS::Nova::Server manages the running virtual machine (VM)
-instance within an OpenStack cloud.
+The OS::Nova::Server resource manages the running virtual machine (VM)
+instance within an OpenStack cloud. (See
+https://docs.openstack.org/developer/heat/template_guide/openstack.html#OS::Nova::Server.)
 
-(See https://docs.openstack.org/heat/latest/template_guide/openstack.html#OS::Nova::Server.)
+The following four properties of the ``OS::Nova::Server``
+resource must follow an
+ONAP specified naming convention.
 
-The following four properties of the OS::Nova::Server must follow
-the ONAP parameter naming convention. The four properties are:
+1. ``image``
 
-1. image
+2. ``flavor``
 
-2. flavor
+3. ``name``
 
-3. name
+4. ``availability_zone``
 
-4. availability_zone
+Requirement R-01455 defines how the ``{vm-type]`` is defined.
 
-Requirement :need:`R-01455` defines how the '{vm-type}' is defined.
-
-Requirement :need:`R-82481` defines how the '{vm-type}' is used.
+Requirement R-82481 defines how the ``{vm-type}`` is used.
 
 The table below provides a summary. The sections that follow provides
 the detailed requirements.
 
-.. csv-table:: **Table 4 OS::Nova::Server Resource Property Parameter Naming Convention**
-   :header: Property Name,Parameter Type,Parameter Name,Parameter Value Provided to Heat
+.. csv-table:: **Table 1 OS::Nova::Server Resource Property Parameter Naming Convention**
+   :header: Resource,Property,Parameter Type,Parameter Name,Parameter Value Provided to Heat
    :align: center
    :widths: auto
 
@@ -50,38 +50,43 @@ Property: image
     :id: R-71152
     :target: VNF
     :keyword: MUST
+    :validation_mode: static
 
-    The VNF's Heat Orchestration Template's Resource
-    'OS::Nova::Server' property 'image' parameter **MUST** be declared as
-    type: 'string'.
+    The VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``
+    property
+    ``image`` parameter **MUST** be declared as type: ``string``.
 
 .. req::
     :id: R-58670
     :target: VNF
     :keyword: MUST
+    :validation_mode: static
 
-    The VNF's Heat Orchestration Template's Resource
-    'OS::Nova::Server' property 'image' parameter name **MUST** follow the
-    naming convention '{vm-type}_image_name'.
+    The VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``
+    property
+    ``image`` parameter name **MUST** follow the naming convention
+    ``{vm-type}_image_name``.
 
 .. req::
     :id: R-91125
     :target: VNF
     :keyword: MUST
+    :validation_mode: static
 
-    The VNF's Heat Orchestration Template's Resource
-    'OS::Nova::Server' property 'image' parameter **MUST** be enumerated in
-    the Heat Orchestration Template's Environment File and a value **MUST** be
-    assigned.
+    The VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``
+    property
+    ``image`` parameter **MUST** be enumerated in the Heat Orchestration
+    Template's Environment File and a value **MUST** be assigned.
 
 .. req::
     :id: R-57282
     :target: VNF
     :keyword: MUST
+    :validation_mode: static
 
-    Each VNF's Heat Orchestration Template's '{vm-type}'
-    **MUST** have a unique parameter name for the 'OS::Nova::Server'
-    property 'image' even if more than one {vm-type} shares the same image.
+    Each VNF's Heat Orchestration Template's ``{vm-type}`` **MUST**
+    have a unique parameter name for the ``OS::Nova::Server`` property
+    ``image`` even if more than one ``{vm-type}`` shares the same image.
 
 *Example Parameter Definition*
 
@@ -102,38 +107,42 @@ Property: flavor
     :id: R-50436
     :target: VNF
     :keyword: MUST
+    :validation_mode: static
 
-    The VNF's Heat Orchestration Template's Resource
-    'OS::Nova::Server' property 'flavor' parameter **MUST** be declared as
-    type: 'string'.
+    The VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``
+    property
+    ``flavor`` parameter **MUST** be declared as type: ``string``.
 
 .. req::
     :id: R-45188
     :target: VNF
     :keyword: MUST
+    :validation_mode: static
 
-    The VNF's Heat Orchestration Template's Resource
-    'OS::Nova::Server' property 'flavor' parameter name **MUST** follow the
-    naming convention '{vm-type}_flavor_name'.
+    The VNF's Heat Orchestration Template's Resource 'OS::Nova::Server' property
+    ``flavor`` parameter name **MUST** follow the naming convention
+    ``{vm-type}_flavor_name``.
 
 .. req::
     :id: R-69431
     :target: VNF
     :keyword: MUST
+    :validation_mode: static
 
-    The VNF's Heat Orchestration Template's Resource
-    'OS::Nova::Server' property 'flavor' parameter **MUST** be enumerated in the
-    Heat Orchestration Template's Environment File and a value **MUST** be
-    assigned.
+    The VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``
+    property
+    ``flavor`` parameter **MUST** be enumerated in the Heat Orchestration
+    Template's Environment File and a value **MUST** be assigned.
 
 .. req::
     :id: R-40499
     :target: VNF
     :keyword: MUST
+    :validation_mode: static
 
-    Each VNF's Heat Orchestration Template's '{vm-type}' **MUST**
-    have a unique parameter name for the 'OS::Nova::Server' property
-    'flavor' even if more than one {vm-type} shares the same flavor.
+    Each VNF's Heat Orchestration Template's ``{vm-type}`` **MUST**
+    have a unique parameter name for the ``OS::Nova::Server`` property
+    ``flavor`` even if more than one ``{vm-type}`` shares the same flavor.
 
 *Example Parameter Definition*
 
@@ -152,64 +161,73 @@ Property: Name
     :id: R-51430
     :target: VNF
     :keyword: MUST
+    :validation_mode: static
 
-    The VNF's Heat Orchestration Template's Resource
-    'OS::Nova::Server' property 'name' parameter **MUST** be declared as
-    either type 'string' or type 'comma\_delimited\_list".
+    The VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``
+    property
+    ``name`` parameter **MUST** be declared as either type ``string``
+    or type ``comma_delimited_list``.
 
 .. req::
     :id: R-54171
     :target: VNF
     :keyword: MUST
+    :validation_mode: static
 
-    When the VNF's Heat Orchestration Template's Resource
-    'OS::Nova::Server' property 'name' parameter is defined as a 'string',
+    When the VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``
+    property ``name`` parameter is defined as a ``string``,
     the parameter name **MUST** follow the naming convention
-    '{vm-type}\_name\_{index}', where {index} is a numeric value that starts
-    at zero and increments by one.
+    ``{vm-type}_name_{index}``, where ``{index}`` is a numeric
+    value that starts at
+    zero and increments by one.
 
 .. req::
     :id: R-40899
     :target: VNF
     :keyword: MUST
+    :validation_mode: static
 
-    When the VNF's Heat Orchestration Template's Resource
-    'OS::Nova::Server' property 'name' parameter is defined as a 'string',
-    a parameter **MUST** be declared for each 'OS::Nova::Server' resource
-    associated with the '{vm-type}'.
+    When the VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``
+    property ``name`` parameter is defined as a ``string``, a parameter
+    **MUST** be delcared for
+    each ``OS::Nova::Server`` resource associated with the ``{vm-type}``.
 
 .. req::
     :id: R-87817
     :target: VNF
     :keyword: MUST
+    :validation_mode: static
 
-    When the VNF's Heat Orchestration Template's Resource
-    'OS::Nova::Server' property 'name' parameter is defined as a
-    'comma_delimited_list', the parameter name **MUST** follow the naming
-    convention '{vm-type}_names'.
+    When the VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``
+    property ``name`` parameter is defined as a ``comma_delimited_list``,
+    the parameter name **MUST** follow the naming convention
+    ``{vm-type}_names``.
 
 .. req::
     :id: R-85800
     :target: VNF
     :keyword: MUST
+    :validation_mode: static
 
-    When the VNF's Heat Orchestration Template's Resource
-    'OS::Nova::Server' property 'name' parameter is defined as a
-    'comma_delimited_list', a parameter **MUST** be delcared once for all
-    'OS::Nova::Server' resources associated with the '{vm-type}'.
+    When the VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``
+    property ``name`` parameter is defined as a ``comma_delimited_list``,
+    a parameter **MUST** be delcared once for all ``OS::Nova::Server`` resources
+    associated with the ``{vm-type}``.
 
 .. req::
     :id: R-22838
     :target: VNF
     :keyword: MUST NOT
+    :validation_mode: static
 
-    The VNF's Heat Orchestration Template's Resource
-    'OS::Nova::Server' property 'name' parameter **MUST NOT** be enumerated
-    in the Heat Orchestration Template's Environment File.
+    The VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``
+    property
+    ``name`` parameter **MUST NOT** be enumerated in the Heat Orchestration
+    Template's Environment File.
 
 If a VNF's Heat Orchestration Template's contains more than three
-OS::Nova::Server resources of a given {vm-type}, the comma\_delimited\_list
-form of the parameter name (i.e., '{vm-type}\_names') should be used to
+OS::Nova::Server resources of a given ``{vm-type}``, the comma_delimited_list
+form of the parameter name (i.e., ``{vm-type}_names``) should be used to
 minimize the number of unique parameters defined in the template.
 
 
@@ -291,15 +309,13 @@ Contrail Issue with Values for OS::Nova::Server Property Name
     :target: VNF
     :keyword: SHOULD NOT
 
-    The VNF's Heat Orchestration Template's Resource
-    'OS::Nova::Server' property 'name' parameter value **SHOULD NOT**
-    contain special characters since the Contrail GUI has a limitation
-    displaying special characters.
+    The VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``
+    property
+    ``name`` parameter value **SHOULD NOT** contain special characters
+    since the Contrail GUI has a limitation displaying special characters.
 
-However, if special characters must be used, the only special characters
-supported are:
-
--- \" ! $ ' (\ \ ) = ~ ^ | @ ` { } [ ] > , . _
+    However, if special characters must be used, the only special characters
+    supported are: --- \" ! $ ' (\ \ ) = ~ ^ | @ ` { } [ ] > , . _
 
 
 Property: availability_zone
@@ -310,33 +326,39 @@ Property: availability_zone
     :id: R-98450
     :target: VNF
     :keyword: MUST
+    :validation_mode: static
 
-    The VNF's Heat Orchestration Template's Resource
-    'OS::Nova::Server' property 'availability\_zone' parameter name
-    **MUST** follow the naming convention 'availability\_zone\_{index}'
-    where the '{index}' **MUST** start at zero and increment by one.
+    The VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``
+    property
+    ``availability_zone`` parameter name **MUST** follow the naming convention
+    ``availability_zone_{index}`` where the ``{index}``
+    **MUST** start at zero and
+    increment by one.
 
 .. req::
     :id: R-23311
     :target: VNF
     :keyword: MUST
+    :validation_mode: static
 
     The VNF's Heat Orchestration Template's Resource
-    'OS::Nova::Server' property 'availability_zone' parameter **MUST**
-    be declared as type: 'string'.
+    ``OS::Nova::Server`` property
+    ``availability_zone`` parameter **MUST** be declared as type: ``string``.
 
-The parameter must not be declared as type 'comma\_delimited\_list',
-ONAP does not support it.
-
+The parameter must not be declared as type ``comma_delimited_list``, ONAP does
+not support it.
 
 .. req::
     :id: R-59568
     :target: VNF
     :keyword: MUST NOT
+    :validation_mode: static
 
-    The VNF's Heat Orchestration Template's Resource
-    'OS::Nova::Server' property 'availability_zone' parameter **MUST NOT**
-    be enumerated in the Heat Orchestration Template's Environment File.
+    The VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``
+    property
+    ``availability_zone`` parameter **MUST NOT** be enumerated in the Heat
+    Orchestration
+    Template's Environment File.
 
 Example Parameter Definition
 
@@ -357,22 +379,23 @@ for the OS::Nova::Server resource property availability_zone.
     :target: VNF
     :keyword: MAY
 
-    A VNF's Heat Orchstration Template that contains an
-    'OS::Nova:Server' Resource **MAY** define a parameter for the property
-    'availability_zone' that is not utilized in any 'OS::Nova::Server'
+    A VNF's Heat Orchestration Template that contains an ``OS::Nova:Server``
+    Resource **MAY** define a parameter for the property
+    ``availability_zone`` that is not utilized in any ``OS::Nova::Server``
     resources in the Heat Orchestration Template.
 
 Example
 ^^^^^^^^^^^
 
 The example below depicts part of a Heat Orchestration Template that
-uses the four OS::Nova::Server properties discussed in this section.
+uses the four ``OS::Nova::Server`` properties discussed in this section.
 
-In the Heat Orchestration Template below, four Virtual
-Machines (OS::Nova::Server) are created: two dns servers with
-{vm-type} set to "dns" and two oam servers with {vm-type} set to "oam".
-Note that the parameter associated with the property name is a
-comma_delimited_list for dns and a string for oam.
+In the Heat Orchestration Template below, four Virtual Machines
+(``OS::Nova::Server``) are created: two dns servers with ``{vm-type}`` set to
+``dns`` and two oam servers with ``{vm-type}`` set to ``oam``.
+Note that the parameter
+associated with the property name is a ``comma_delimited_list`` for ``dns`` and
+a string for ``oam``.
 
 .. code-block:: yaml
 
@@ -466,17 +489,18 @@ Boot Options
     :keyword: MAY
 
     A VNF's Heat Orchestration Template's Virtual Machine
-    (i.e., OS::Nova::Server Resource) **MAY** boot from an image or **MAY**
-    boot from a Cinder Volume.
+    (i.e., ``OS::Nova::Server`` resource) **MAY** boot from an image or
+    **MAY** boot from a Cinder Volume.
 
 .. req::
     :id: R-83706
     :target: VNF
     :keyword: MUST
+    :validation_mode: static
 
     When a VNF's Heat Orchestration Template's Virtual Machine
-    (i.e., 'OS::Nova::Server' Resource) boots from an image, the
-    'OS::Nova::Server' resource property 'image' **MUST** be used.
+    (i.e., ``OS::Nova::Server`` resource) boots from an image, the
+    ``OS::Nova::Server`` resource property ``image`` **MUST** be used.
 
 The requirements associated with
 the 'image' property are detailed in `Property: image`_
@@ -486,11 +510,13 @@ the 'image' property are detailed in `Property: image`_
     :id: R-69588
     :target: VNF
     :keyword: MUST
+    :validation_mode: static
 
     When a VNF's Heat Orchestration Template's Virtual Machine
-    (i.e., 'OS::Nova::Server' Resource) boots from Cinder Volume, the
-    'OS::Nova::Server' resource property 'block_device_mapping' or
-    'block_device_mapping_v2' **MUST** be used.
+    (i.e., ``OS::Nova::Server`` Resource) boots from Cinder Volume, the
+    ``OS::Nova::Server`` resource property
+    ``block_device_mapping`` or ``block_device_mapping_v2``
+    **MUST** be used.
 
 There are currently no heat guidelines
 associated with these two properties:

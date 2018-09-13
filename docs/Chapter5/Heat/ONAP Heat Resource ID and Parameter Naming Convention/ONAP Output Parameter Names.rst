@@ -20,13 +20,10 @@ convention.
     :id: R-97726
     :target: VNF
     :keyword: MUST
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
+    :validation_mode: static
 
-    A VNF's Heat Orchestration Template's Base Module Output
-    Parameter names **MUST** contain {vm-type} and/or {network-role}
-    when appropriate.
+    A VNF's Heat Orchestration Template's Base Module Output Parameter names
+    **MUST** contain ``{vm-type}`` and/or ``{network-role}`` when appropriate.
 
 ONAP Volume Template Output Parameters:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -35,12 +32,11 @@ ONAP Volume Template Output Parameters:
     :id: R-88524
     :target: VNF
     :keyword: MUST
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's Volume Template
-    Output Parameter names **MUST** contain {vm-type} when appropriate.
+    Output Parameter names
+    **MUST** contain ``{vm-type}`` when appropriate.
 
 Predefined Output Parameters
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -64,43 +60,35 @@ or may be a single IP address assigned to one VM.
     :id: R-47874
     :target: VNF
     :keyword: MAY
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
 
     A VNF **MAY** have
-
-     * Only an IPv4 OAM Management IP Address
-     * Only an IPv6 OAM Management IP Address
-     * Both a IPv4 and IPv6 OAM Management IP Addresses
+      * Only an IPv4 OAM Management IP Address
+      * Only an IPv6 OAM Management IP Address
+      * Both a IPv4 and IPv6 OAM Management IP Addresses
 
 .. req::
     :id: R-18683
     :target: VNF
     :keyword: MUST
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
+    :validation_mode: static
 
     If a VNF has one IPv4 OAM Management IP Address and the
     IP Address needs to be inventoried in ONAP's A&AI
     database, an output parameter **MUST** be declared in only one of the
     VNF's Heat Orchestration Templates and the parameter **MUST** be named
-    'oam_management_v4_address'.
+    ``oam_management_v4_address``.
 
 .. req::
     :id: R-94669
     :target: VNF
     :keyword: MUST
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
+    :validation_mode: static
 
     If a VNF has one IPv6 OAM Management IP Address and the
-    IP Address needs to be inventoried in ONAP's AAI
+    IP Address needs to be inventoried in ONAP's A&AI
     database, an output parameter **MUST** be declared in only one of the
     VNF's Heat Orchestration Templates and the parameter **MUST** be named
-    'oam_management_v6_address'.
+    ``oam_management_v6_address``.
 
 The OAM Management IP Address maybe assigned either via
   *  ONAP SDN-C
@@ -110,25 +98,24 @@ The OAM Management IP Address maybe assigned either via
     :id: R-56287
     :target: VNF
     :keyword: MUST
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
+    :validation_mode: static
 
     If the VNF's OAM Management IP Address is assigned by ONAP SDN-C and
     assigned in the VNF's Heat Orchestration Template's via a heat resource
-    'OS::Neutron::Port' property 'fixed_ips' map property
-    'ip_adress' parameter (e.g., '{vm-type}_{network-role}_ip_{index}',
-    '{vm-type}_{network-role}_v6_ip_{index}')
-    and the OAM IP Address is required to be inventoried in ONAP AAI,
+    ``OS::Neutron::Port`` property ``fixed_ips`` map property
+    ``ip_adress`` parameter (e.g., ``{vm-type}_{network-role}_ip_{index}``,
+    ``{vm-type}_{network-role}_v6_ip_{index}``)
+    and the OAM IP Address is required to be inventoried in ONAP A&AI,
     then the parameter **MUST** be echoed in an output statement.
 
-.. code-block:: yaml
+    .. code-block:: yaml
 
-   outputs:
-       oam_management_v4_address:
-         value: {get_param: {vm-type}_{network-role}_ip_{index} }
-       oam_management_v6_address:
-         value: {get_param: {vm-type}_{network-role}_v6_ip_{index} }
+      outputs:
+          oam_management_v4_address:
+            value: {get_param: {vm-type}_{network-role}_ip_{index} }
+          oam_management_v6_address:
+            value: {get_param: {vm-type}_{network-role}_v6_ip_{index} }
+
 
 *Example: ONAP SDN-C Assigned IP Address echoed as
 oam_management_v4_address*
@@ -169,19 +156,17 @@ oam_management_v4_address*
       oam_management_v4_address:
         value: {get_param: admin_oam_ip_0 }
 
-
 .. req::
     :id: R-48987
     :target: VNF
     :keyword: MUST
-    :test: no test found
-    :test_case: no test found
-    :test_file: no test found
+    :validation_mode: static
 
-    If the VNF's OAM Management IP Address is Cloud assigned and
-    and the OAM IP Address is required to be inventoried in ONAP AAI,
-    then the parameter **MUST** be obtained by the resource 'OS::Neutron::Port'
-    attribute 'ip_address'.
+    If the VNF's OAM Management IP Address is cloud assigned and
+    and the OAM IP Address is required to be inventoried in ONAP A&AI,
+    then the parameter **MUST** be obtained by the 
+    resource ``OS::Neutron::Port``
+    attribute ``ip_address``.
 
 .. code-block:: yaml
 
