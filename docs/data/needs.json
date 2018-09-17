@@ -1,5 +1,5 @@
 {
-    "created": "2018-09-17T20:13:00.612639",
+    "created": "2018-09-17T22:07:51.099887",
     "current_version": "casablanca",
     "project": "",
     "versions": {
@@ -21858,7 +21858,7 @@
             "needs_amount": 750
         },
         "casablanca": {
-            "created": "2018-09-17T20:13:00.612574",
+            "created": "2018-09-17T22:07:51.099803",
             "needs": {
                 "R-00011": {
                     "description": "A VNF's Heat Orchestration Template's parameter defined\nin a nested YAML file\n**MUST NOT** have a parameter constraint defined.",
@@ -39204,7 +39204,7 @@
                     "validation_mode": ""
                 },
                 "R-86835": {
-                    "description": "The VNF **MUST** set the default settings for user access\nto sensitive commands and data to deny authorization.",
+                    "description": "The VNF **MUST** set the default settings for user access\nto deny authorization, except for a super user type of account.\nWhen a VNF is added to the network, nothing should be able to use\nit until the super user configures the VNF to allow other users\n(human and application)  have access.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-86835",
@@ -39227,7 +39227,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -40407,7 +40407,7 @@
                     "validation_mode": "static"
                 },
                 "R-92207": {
-                    "description": "The VNF **SHOULD** implement a mechanism for automated and\nfrequent \"system configuration (automated provisioning / closed loop)\"\nauditing.",
+                    "description": "The VNF **SHOULD** provide a mechanism for performing automated\nsystem configuration auditing at configurable time intervals.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-92207",
@@ -40430,7 +40430,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },

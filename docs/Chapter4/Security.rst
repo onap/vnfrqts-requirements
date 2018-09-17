@@ -99,10 +99,10 @@ the product’s lifecycle.
     :id: R-92207
     :target: VNF
     :keyword: SHOULD
+    :updated: casablanca
 
-    The VNF **SHOULD** implement a mechanism for automated and
-    frequent "system configuration (automated provisioning / closed loop)"
-    auditing.
+    The VNF **SHOULD** provide a mechanism for performing automated
+    system configuration auditing at configurable time intervals.
 
 .. req::
     :id: R-23882
@@ -325,9 +325,13 @@ Identity and Access Management Requirements
     :id: R-86835
     :target: VNF
     :keyword: MUST
+    :updated: casablanca
 
     The VNF **MUST** set the default settings for user access
-    to sensitive commands and data to deny authorization.
+    to deny authorization, except for a super user type of account.
+    When a VNF is added to the network, nothing should be able to use
+    it until the super user configures the VNF to allow other users
+    (human and application)  have access.
 
 .. req::
     :id: R-81147
