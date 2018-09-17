@@ -144,15 +144,6 @@ the product’s lifecycle.
     traffic by application (i.e., AVPN, IPSec VPN for Internet routes).
 
 .. req::
-    :id: R-33981
-    :target: VNF
-    :keyword: SHOULD
-
-    The VNF **SHOULD** interoperate with various access control
-    mechanisms for the Network Cloud execution environment (e.g.,
-    Hypervisors, containers).
-
-.. req::
     :id: R-40813
     :target: VNF
     :keyword: SHOULD
@@ -215,25 +206,6 @@ the product’s lifecycle.
 
     The VNF **MUST**, if not using the NCSP's IDAM API, comply
     with the NCSP's credential management policy.
-
-.. req::
-    :id: R-39342
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST**, if not using the NCSP's IDAM API, comply
-    with "password changes (includes default passwords)" policy. Products
-    will support password aging, syntax and other credential management
-    practices on a configurable basis.
-
-.. req::
-    :id: R-40521
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST**, if not using the NCSP's IDAM API, support
-    use of common third party authentication and authorization tools such
-    as TACACS+, RADIUS.
 
 .. req::
     :id: R-41994
@@ -594,28 +566,12 @@ Security Analytics Requirements
     optimized and proprietary in nature.
 
 .. req::
-    :id: R-61648
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST** support event logging, formats, and delivery
-    tools to provide the required degree of event data to ONAP.
-
-.. req::
     :id: R-22367
     :target: VNF
     :keyword: MUST
 
     The VNF **MUST** support detection of malformed packets due to
     software misconfiguration or software vulnerability.
-
-.. req::
-    :id: R-31961
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST** support integrated DPI/monitoring functionality
-    as part of VNFs (e.g., PGW, MME).
 
 .. req::
     :id: R-73223
