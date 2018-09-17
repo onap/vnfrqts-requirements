@@ -258,6 +258,14 @@ the product’s lifecycle.
     The VNF **MUST** provide functionality that enables the Operator to comply
     with requests for information from law enforcement and government agencies.
 
+.. req::
+    :id: R-86261
+    :target: VNF
+    :keyword: MUST NOT
+    :updated: casablanca
+
+    The VNF **MUST NOT** allow vendor access to VNFs remotely.
+
 VNF Identity and Access Management Requirements
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -296,13 +304,6 @@ Identity and Access Management Requirements
     Each layer of the VNF **MUST** support access restriction
     independently of all other layers so that Segregation of Duties
     can be implemented.
-
-.. req::
-    :id: R-86261
-    :target: VNF
-    :keyword: MUST NOT
-
-    The VNF **MUST NOT** allow vendor access to VNFs remotely.
 
 .. req::
     :id: R-59391
