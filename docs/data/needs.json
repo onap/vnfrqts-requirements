@@ -1,5 +1,5 @@
 {
-    "created": "2018-09-13T17:48:57.499647",
+    "created": "2018-09-17T18:00:05.985381",
     "current_version": "casablanca",
     "project": "",
     "versions": {
@@ -21858,7 +21858,7 @@
             "needs_amount": 750
         },
         "casablanca": {
-            "created": "2018-09-13T17:48:57.499635",
+            "created": "2018-09-17T18:00:05.985311",
             "needs": {
                 "R-00011": {
                     "description": "A VNF's Heat Orchestration Template's parameter defined\nin a nested YAML file\n**MUST NOT** have a parameter constraint defined.",
@@ -26058,7 +26058,7 @@
                     "validation_mode": ""
                 },
                 "R-21819": {
-                    "description": "The VNF **MUST** support requests for information from law\nenforcement and government agencies.",
+                    "description": "The VNF **MUST** provide functionality that enables the Operator to comply\nwith requests for information from law enforcement and government agencies.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-21819",
@@ -26067,9 +26067,9 @@
                     "keyword": "MUST",
                     "links": [],
                     "notes": "",
-                    "section_name": "VNF Security Analytics Requirements",
+                    "section_name": "VNF General Security Requirements",
                     "sections": [
-                        "VNF Security Analytics Requirements",
+                        "VNF General Security Requirements",
                         "VNF Security"
                     ],
                     "status": null,
@@ -26081,7 +26081,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -31611,7 +31611,7 @@
                     "validation_mode": "static"
                 },
                 "R-46908": {
-                    "description": "The VNF **MUST**, if not using the NCSP's IDAM API, comply\nwith \"password complexity\" policy. When passwords are used, they shall\nbe complex and shall at least meet the following password construction\nrequirements: (1) be a minimum configurable number of characters in\nlength, (2) include 3 of the 4 following types of characters:\nupper-case alphabetic, lower-case alphabetic, numeric, and special,\n(3) not be the same as the UserID with which they are associated or\nother common strings as specified by the environment, (4) not contain\nrepeating or sequential characters or numbers, (5) not to use special\ncharacters that may have command functions, and (6) new passwords must\nnot contain sequences of three or more characters from the previous\npassword.",
+                    "description": "The VNF **MUST**, if not integrated with the Operator\u2019s Identity\nand Access Management system, comply with \"password complexity\"\npolicy. When passwords are used, they shall be complex and shall at\nleast meet the following password construction requirements: (1) be a\nminimum configurable number of characters in length, (2) include 3 of\nthe 4 following types of characters: upper-case alphabetic, lower-case\nalphabetic, numeric, and special, (3) not be the same as the UserID\nwith which they are associated or other common strings as specified\nby the environment, (4) not contain repeating or sequential characters\nor numbers, (5) not to use special characters that may have command\nfunctions, and (6) new passwords must not contain sequences of three\nor more characters from the previous password.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-46908",
@@ -31620,9 +31620,9 @@
                     "keyword": "MUST",
                     "links": [],
                     "notes": "",
-                    "section_name": "VNF General Security Requirements",
+                    "section_name": "VNF Identity and Access Management Requirements",
                     "sections": [
-                        "VNF General Security Requirements",
+                        "VNF Identity and Access Management Requirements",
                         "VNF Security"
                     ],
                     "status": null,
@@ -31634,7 +31634,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -37564,7 +37564,7 @@
                     "validation_mode": ""
                 },
                 "R-79107": {
-                    "description": "The VNF **MUST**, if not using the NCSP's IDAM API, enforce\na configurable maximum number of Login attempts policy for the users.\nVNF provider must comply with \"terminate idle sessions\" policy.\nInteractive sessions must be terminated, or a secure, locking screensaver\nmust be activated requiring authentication, after a configurable period\nof inactivity. The system-based inactivity timeout for the enterprise\nidentity and access management system must also be configurable.",
+                    "description": "The VNF **MUST**, if not integrated with the Operator's Identity\nand Access Management system, support the ability to disable the\nuserID after a configurable number of consecutive unsuccessful\nauthentication attempts using the same userID.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-79107",
@@ -37573,9 +37573,9 @@
                     "keyword": "MUST",
                     "links": [],
                     "notes": "",
-                    "section_name": "VNF General Security Requirements",
+                    "section_name": "VNF Identity and Access Management Requirements",
                     "sections": [
-                        "VNF General Security Requirements",
+                        "VNF Identity and Access Management Requirements",
                         "VNF Security"
                     ],
                     "status": null,
@@ -37587,7 +37587,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },

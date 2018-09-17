@@ -209,43 +209,12 @@ the product’s lifecycle.
     SSH, SFTP.
 
 .. req::
-    :id: R-79107
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST**, if not using the NCSP's IDAM API, enforce
-    a configurable maximum number of Login attempts policy for the users.
-    VNF provider must comply with "terminate idle sessions" policy.
-    Interactive sessions must be terminated, or a secure, locking screensaver
-    must be activated requiring authentication, after a configurable period
-    of inactivity. The system-based inactivity timeout for the enterprise
-    identity and access management system must also be configurable.
-
-.. req::
     :id: R-35144
     :target: VNF
     :keyword: MUST
 
     The VNF **MUST**, if not using the NCSP's IDAM API, comply
     with the NCSP's credential management policy.
-
-.. req::
-    :id: R-46908
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST**, if not using the NCSP's IDAM API, comply
-    with "password complexity" policy. When passwords are used, they shall
-    be complex and shall at least meet the following password construction
-    requirements: (1) be a minimum configurable number of characters in
-    length, (2) include 3 of the 4 following types of characters:
-    upper-case alphabetic, lower-case alphabetic, numeric, and special,
-    (3) not be the same as the UserID with which they are associated or
-    other common strings as specified by the environment, (4) not contain
-    repeating or sequential characters or numbers, (5) not to use special
-    characters that may have command functions, and (6) new passwords must
-    not contain sequences of three or more characters from the previous
-    password.
 
 .. req::
     :id: R-39342
@@ -307,6 +276,15 @@ the product’s lifecycle.
     The VNF **MUST** allow the Operator to disable or remove any security
     testing tools or programs included in the VNF, e.g., password cracker,
     port scanner.
+
+.. req::
+    :id: R-21819
+    :target: VNF
+    :keyword: MUST
+    :updated: casablanca
+
+    The VNF **MUST** provide functionality that enables the Operator to comply
+    with requests for information from law enforcement and government agencies.
 
 VNF Identity and Access Management Requirements
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -440,6 +418,37 @@ Identity and Access Management Requirements
     The VNF **MUST**, if not integrated with the Operator's Identity and
     Access Management system, support Role-Based Access Control to enforce
     least privilege.
+
+.. req::
+    :id: R-46908
+    :target: VNF
+    :keyword: MUST
+    :updated: casablanca
+
+    The VNF **MUST**, if not integrated with the Operator's Identity
+    and Access Management system, comply with "password complexity"
+    policy. When passwords are used, they shall be complex and shall at
+    least meet the following password construction requirements: (1) be a
+    minimum configurable number of characters in length, (2) include 3 of
+    the 4 following types of characters: upper-case alphabetic, lower-case
+    alphabetic, numeric, and special, (3) not be the same as the UserID
+    with which they are associated or other common strings as specified
+    by the environment, (4) not contain repeating or sequential characters
+    or numbers, (5) not to use special characters that may have command
+    functions, and (6) new passwords must not contain sequences of three
+    or more characters from the previous password.
+
+.. req::
+    :id: R-79107
+    :target: VNF
+    :keyword: MUST
+    :updated: casablanca
+
+    The VNF **MUST**, if not integrated with the Operator's Identity
+    and Access Management system, support the ability to disable the
+    userID after a configurable number of consecutive unsuccessful
+    authentication attempts using the same userID.
+
 
 VNF API Security Requirements
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -842,14 +851,6 @@ Security Analytics Requirements
     anomalous access patterns that may represent fraudulent access or other
     types of attacks, or integrate with tools that implement anomaly and
     abuse detection.
-
-.. req::
-    :id: R-21819
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST** support requests for information from law
-    enforcement and government agencies.
 
 .. req::
     :id: R-04492
