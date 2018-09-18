@@ -181,16 +181,6 @@ the product’s lifecycle.
     authentication and access control of customer or VNF application users.
 
 .. req::
-    :id: R-42681
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST** use the NCSP's IDAM API or comply with
-    the requirements if not using the NCSP's IDAM API, for identification,
-    authentication and access control of OA&M and other system level
-    functions.
-
-.. req::
     :id: R-62498
     :target: VNF
     :keyword: MUST
@@ -838,14 +828,6 @@ Security Analytics Requirements
 
     The VNF **MUST** support the storage of security audit logs
     for agreed period of time for forensic analysis.
-
-.. req::
-    :id: R-57271
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST** provide the capability of generating security
-    audit logs by interacting with the operating system (OS) as appropriate.
 
 .. req::
     :id: R-84160

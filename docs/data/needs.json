@@ -1,5 +1,5 @@
 {
-    "created": "2018-09-17T22:48:57.461306",
+    "created": "2018-09-18T18:51:37.096831",
     "current_version": "casablanca",
     "project": "",
     "versions": {
@@ -21858,7 +21858,7 @@
             "needs_amount": 750
         },
         "casablanca": {
-            "created": "2018-09-17T22:48:57.461236",
+            "created": "2018-09-18T18:51:37.096757",
             "needs": {
                 "R-00011": {
                     "description": "A VNF's Heat Orchestration Template's parameter defined\nin a nested YAML file\n**MUST NOT** have a parameter constraint defined.",
@@ -30526,34 +30526,6 @@
                     "validated_by": "",
                     "validation_mode": ""
                 },
-                "R-42681": {
-                    "description": "The VNF **MUST** use the NCSP's IDAM API or comply with\nthe requirements if not using the NCSP's IDAM API, for identification,\nauthentication and access control of OA&M and other system level\nfunctions.",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-42681",
-                    "impacts": "",
-                    "introduced": "",
-                    "keyword": "MUST",
-                    "links": [],
-                    "notes": "",
-                    "section_name": "VNF General Security Requirements",
-                    "sections": [
-                        "VNF General Security Requirements",
-                        "VNF Security"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "",
-                    "validated_by": "",
-                    "validation_mode": ""
-                },
                 "R-42685": {
                     "description": "A VNF's Heat Orchestration template's Environment File's\n**MAY** contain the ``parameter_merge_strategies:`` section.",
                     "full_title": "",
@@ -33558,34 +33530,6 @@
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-56920",
-                    "impacts": "",
-                    "introduced": "",
-                    "keyword": "MUST",
-                    "links": [],
-                    "notes": "",
-                    "section_name": "VNF Security Analytics Requirements",
-                    "sections": [
-                        "VNF Security Analytics Requirements",
-                        "VNF Security"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "",
-                    "validated_by": "",
-                    "validation_mode": ""
-                },
-                "R-57271": {
-                    "description": "The VNF **MUST** provide the capability of generating security\naudit logs by interacting with the operating system (OS) as appropriate.",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-57271",
                     "impacts": "",
                     "introduced": "",
                     "keyword": "MUST",
@@ -41993,7 +41937,7 @@
                     "validation_mode": "static"
                 }
             },
-            "needs_amount": 707
+            "needs_amount": 705
         }
     }
 }
