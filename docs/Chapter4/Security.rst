@@ -443,15 +443,6 @@ API Requirements
     authorization services (e.g., IDAM).
 
 .. req::
-    :id: R-33488
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST** protect against all denial of service
-    attacks, both volumetric and non-volumetric, or integrate with external
-    denial of service protection tools.
-
-.. req::
     :id: R-21652
     :target: VNF
     :keyword: MUST
@@ -847,6 +838,16 @@ Security Analytics Requirements
 
     The VNF **MUST** be implemented so that it is not vulnerable to OWASP
     Top 10 web application security risks.
+
+.. req::
+    :id: R-33488
+    :target: VNF
+    :keyword: MUST
+    :updated: casablanca
+
+    The VNF **MUST** protect against all denial of service
+    attacks, both volumetric and non-volumetric, or integrate with external
+    denial of service protection tools.
 
 VNF Data Protection Requirements
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

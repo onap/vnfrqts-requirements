@@ -1,5 +1,5 @@
 {
-    "created": "2018-09-18T18:51:37.096831",
+    "created": "2018-09-18T20:45:19.500298",
     "current_version": "casablanca",
     "project": "",
     "versions": {
@@ -21858,7 +21858,7 @@
             "needs_amount": 750
         },
         "casablanca": {
-            "created": "2018-09-18T18:51:37.096757",
+            "created": "2018-09-18T20:45:19.500228",
             "needs": {
                 "R-00011": {
                     "description": "A VNF's Heat Orchestration Template's parameter defined\nin a nested YAML file\n**MUST NOT** have a parameter constraint defined.",
@@ -28637,9 +28637,9 @@
                     "keyword": "MUST",
                     "links": [],
                     "notes": "",
-                    "section_name": "VNF API Security Requirements",
+                    "section_name": "VNF Security Analytics Requirements",
                     "sections": [
-                        "VNF API Security Requirements",
+                        "VNF Security Analytics Requirements",
                         "VNF Security"
                     ],
                     "status": null,
@@ -28651,7 +28651,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
