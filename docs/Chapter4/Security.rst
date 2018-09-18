@@ -209,16 +209,6 @@ the product’s lifecycle.
     protocols such as IPSec, AES.
 
 .. req::
-    :id: R-23135
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST**, if not using the NCSP's IDAM API,
-    authenticate system to system communications where one system
-    accesses the resources of another system, and must never conceal
-    individual accountability.
-
-.. req::
     :id: R-80335
     :target: VNF
     :keyword: MUST
@@ -335,14 +325,6 @@ Identity and Access Management Requirements
     commands relating to VNFs.
 
 .. req::
-    :id: R-49109
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST** encrypt TCP/IP--HTTPS (e.g., TLS v1.2)
-    transmission of data on internal and external networks.
-
-.. req::
     :id: R-39562
     :target: VNF
     :keyword: MUST
@@ -415,6 +397,15 @@ Identity and Access Management Requirements
     and Access Management system, support the ability to disable the
     userID after a configurable number of consecutive unsuccessful
     authentication attempts using the same userID.
+
+.. req::
+    :id: R-23135
+    :target: VNF
+    :keyword: MUST
+    :updated: casablanca
+
+    The VNF **MUST** authenticate all access to protected GUIs, CLIs,
+    and APIs.
 
 
 VNF API Security Requirements
@@ -1077,3 +1068,11 @@ applicable to encryption or protocol meethods.
     validity of a digital certificate by recognizing the identity represented
     by the certificate - the "distinguished name".
 
+.. req::
+    :id: R-49109
+    :target: VNF
+    :keyword: MUST
+    :updated: casablanca
+
+    The VNF **MUST** support HTTP/S using TLS v1.2 or higher
+    with strong cryptographic ciphers.
