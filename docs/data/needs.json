@@ -1,5 +1,5 @@
 {
-    "created": "2018-09-18T22:51:58.508439",
+    "created": "2018-09-20T12:49:06.895999",
     "current_version": "casablanca",
     "project": "",
     "versions": {
@@ -21858,7 +21858,7 @@
             "needs_amount": 750
         },
         "casablanca": {
-            "created": "2018-09-18T22:51:58.508358",
+            "created": "2018-09-20T12:49:06.895999",
             "needs": {
                 "R-00011": {
                     "description": "A VNF's Heat Orchestration Template's parameter defined\nin a nested YAML file\n**MUST NOT** have a parameter constraint defined.",
@@ -24068,6 +24068,34 @@
                     "validated_by": "",
                     "validation_mode": ""
                 },
+                "R-120182": {
+                    "description": "The xNF provider **MUST** indicate specific conditions that may arise, and\nrecommend actions that may be taken at specific thresholds, or if specific\nconditions repeat within a specified time interval, using the semantics and\nsyntax described by the :doc:`VES Event Registration specification<../../../../vnfsdk/module.git/files/VESEventRegistration_3_0>`.",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-120182",
+                    "impacts": "dcae",
+                    "introduced": "casablanca",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "Data Structure Specification of the Event Record",
+                    "sections": [
+                        "Data Structure Specification of the Event Record",
+                        "Monitoring & Management"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "XNF PROVIDER",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": "static"
+                },
                 "R-12110": {
                     "description": "The VNF **MUST NOT** use keys generated or derived from\npredictable functions or values, e.g., values considered predictable\ninclude user identity information, time of day, stored/transmitted data.",
                     "full_title": "",
@@ -24125,6 +24153,34 @@
                     "updated": "",
                     "validated_by": "",
                     "validation_mode": ""
+                },
+                "R-123044": {
+                    "description": "The xNF Provider **MAY** require that specific events, identified by their\n``eventName``, require that certain fields, which are optional in the common\nevent format, must be present when they are published.",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-123044",
+                    "impacts": "dcae",
+                    "introduced": "casablanca",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "Data Structure Specification of the Event Record",
+                    "sections": [
+                        "Data Structure Specification of the Event Record",
+                        "Monitoring & Management"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "XNF PROVIDER",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": "in_service"
                 },
                 "R-12467": {
                     "description": "The VNF **MUST NOT** use compromised encryption algorithms.\nFor example, SHA, DSS, MD5, SHA-1 and Skipjack algorithms.\nAcceptable algorithms can be found in the NIST FIPS publications\n(https://csrc.nist.gov/publications/fips) and in the\nNIST Special Publications (https://csrc.nist.gov/publications/sp).",
@@ -24579,6 +24635,35 @@
                     "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
+                },
+                "R-146931": {
+                    "description": "The xNF **MUST** report exactly one Measurement event per period\nper source name.",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-146931",
+                    "impacts": "",
+                    "introduced": "casablanca",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "Reporting Frequency",
+                    "sections": [
+                        "Reporting Frequency",
+                        "Monitoring & Management Requirements",
+                        "Monitoring & Management"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "XNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": "in_service"
                 },
                 "R-14853": {
                     "description": "The VNF **MUST** respond to a \"move traffic\" [#4.5.2]_ command\nagainst a specific VNFC, moving all existing session elsewhere with\nminimal disruption if a VNF provides a load balancing function across\nmultiple instances of its VNFCs.\n\nNote: Individual VNF performance aspects (e.g., move duration or\ndisruption scope) may require further constraints.",
@@ -25463,7 +25548,7 @@
                     "validation_mode": ""
                 },
                 "R-19624": {
-                    "description": "The xNF **MUST** encode and serialize content delivered to\nONAP using JSON (RFC 7159) plain text format. High-volume data\nis to be encoded and serialized using `Avro <http://avro.apache.org/>`_,\nwhere the Avro [#7.4.1]_ data format are described using JSON.\n\nNote:\n\n    - JSON plain text format is preferred for moderate volume data sets\n      (option 1), as JSON has the advantage of having well-understood simple\n      processing and being human-readable without additional decoding. Examples\n      of moderate volume data sets include the fault alarms and performance\n      alerts, heartbeat messages, measurements used for xNF scaling and syslogs.\n    - Binary format using Avro is preferred for high volume data sets\n      (option 2) such as mobility flow measurements and other high-volume\n      streaming events (such as mobility signaling events or SIP signaling)\n      or bulk data, as this will significantly reduce the volume of data\n      to be transmitted. As of the date of this document, all events are\n      reported using plain text JSON and REST.\n    - Avro content is self-documented, using a JSON schema. The JSON schema is\n      delivered along with the data content\n      (http://avro.apache.org/docs/current/ ). This means the presence and\n      position of data fields can be recognized automatically, as well as the\n      data format, definition and other attributes. Avro content can be\n      serialized as JSON tagged text or as binary. In binary format, the\n      JSON schema is included as a separate data block, so the content is\n      not tagged, further compressing the volume. For streaming data, Avro\n      will read the schema when the stream is established and apply the\n      schema to the received content.",
+                    "description": "The xNF, when leveraging JSON for events, **MUST** encode and serialize\ncontent delivered to ONAP using JSON (RFC 7159) plain text format.\nHigh-volume data is to be encoded and serialized using\n`Avro <http://avro.apache.org/>`_, where the Avro [#7.4.1]_ data\nformat are described using JSON.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-19624",
@@ -26993,6 +27078,35 @@
                     "validated_by": "",
                     "validation_mode": "static"
                 },
+                "R-257367": {
+                    "description": "The xNF, when leveraging Google Protocol Buffers for events, **MUST**\nserialize the events using native Google Protocol Buffers (GPB) where:\n\n   * keys are represented as integers pointing to the system resources for\n     the xNF being monitored\n   * values correspond to integers or strings that identify the operational\n     state of the VNF resource, such a statistics counters and the state of\n     an xNF resource.\n   * required Google Protocol Buffers (GPB) metadata is provided in the\n     form of .proto files.",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-257367",
+                    "impacts": "",
+                    "introduced": "casablanca",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "Google Protocol Buffers (GPB)",
+                    "sections": [
+                        "Google Protocol Buffers (GPB)",
+                        "Monitoring & Management Requirements",
+                        "Monitoring & Management"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "XNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": "in_service"
+                },
                 "R-25877": {
                     "description": "A VNF's Heat Orchestration Template's parameter name\n(i.e., <param name>) **MUST** contain only alphanumeric\ncharacters and underscores ('_').",
                     "full_title": "",
@@ -27566,6 +27680,35 @@
                     "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": "static"
+                },
+                "R-283988": {
+                    "description": "The VNF, when publishing events, **MUST NOT** send information through\nextensible structures if the event specification has explicitly defined\nfields for that information.",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-283988",
+                    "impacts": "dcae",
+                    "introduced": "casablanca",
+                    "keyword": "MUST NOT",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "Miscellaneous",
+                    "sections": [
+                        "Miscellaneous",
+                        "Event Records - Data Structure Description",
+                        "Monitoring & Management"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "VNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": "in_service"
                 },
                 "R-28545": {
                     "description": "The xNF **MUST** conform its YANG model to RFC 6060,\n\"YANG - A Data Modeling Language for the Network Configuration\nProtocol (NETCONF)\".",
@@ -30071,6 +30214,35 @@
                     "validated_by": "",
                     "validation_mode": ""
                 },
+                "R-408813": {
+                    "description": "The VNF, when publishing events, **MUST** pass all information it is\nable to collect even if the information field is identified as optional.\nHowever, if the data cannot be collected, then optional fields can be\nomitted.",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-408813",
+                    "impacts": "dcae",
+                    "introduced": "casablanca",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "Miscellaneous",
+                    "sections": [
+                        "Miscellaneous",
+                        "Event Records - Data Structure Description",
+                        "Monitoring & Management"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "VNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": "none"
+                },
                 "R-40899": {
                     "description": "When the VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``\nproperty ``name`` parameter is defined as a ``string``, a parameter\n**MUST** be delcared for\neach ``OS::Nova::Server`` resource associated with the ``{vm-type}``.",
                     "full_title": "",
@@ -31641,6 +31813,35 @@
                     "validated_by": "",
                     "validation_mode": ""
                 },
+                "R-470963": {
+                    "description": "The VNF, when publishing events, **MUST** leverage camel case to separate\nwords and acronyms used as keys that will be sent through extensible fields.\nWhen an acronym is used as the key, then only the first letter shall be\ncapitalized.",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-470963",
+                    "impacts": "dcae",
+                    "introduced": "casablanca",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "Miscellaneous",
+                    "sections": [
+                        "Miscellaneous",
+                        "Event Records - Data Structure Description",
+                        "Monitoring & Management"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "VNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": "in_service"
+                },
                 "R-47204": {
                     "description": "The VNF **MUST** be capable of protecting the confidentiality and integrity\nof data at rest and in transit from unauthorized access and modification.",
                     "full_title": "",
@@ -32530,6 +32731,34 @@
                     "validated_by": "",
                     "validation_mode": ""
                 },
+                "R-520802": {
+                    "description": "The xNF provider **MUST** provide a YAML file formatted in adherence with\nthe :doc:`VES Event Registration specification<../../../../vnfsdk/module.git/files/VESEventRegistration_3_0>`\nthat defines the following information for each event produced by the VNF:\n\n* ``eventName``\n* Required fields\n* Optional fields\n* Any special handling to be performed for that event",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-520802",
+                    "impacts": "dcae",
+                    "introduced": "casablanca",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "Data Structure Specification of the Event Record",
+                    "sections": [
+                        "Data Structure Specification of the Event Record",
+                        "Monitoring & Management"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "XNF PROVIDER",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": "static"
+                },
                 "R-52425": {
                     "description": "A VNF's port connected to an internal network **MUST**\nuse the port for the purpose of reaching VMs in the same VNF.",
                     "full_title": "",
@@ -32671,6 +32900,35 @@
                     "updated": "",
                     "validated_by": "",
                     "validation_mode": ""
+                },
+                "R-528866": {
+                    "description": "The VNF **MUST** produce VES events that include the following mandatory\nfields in the common event header\n\n * ``domain`` - the event domain enumeration\n * ``eventId`` - the event key unique to the event source\n * ``eventName`` - the unique event name\n * ``lastEpochMicrosec`` - the latest unix time (aka epoch time) associated\n   with the event\n * ``priority`` - the processing priority enumeration\n * ``reportingEntityName`` - name of the entity reporting the event or\n   detecting a problem in another xNF\n * ``sequence`` - the ordering of events communicated by an event source\n * ``sourceName`` - name of the entity experiencing the event issue, which\n   may be detected and reported by a separate reporting entity\n * ``startEpochMicrosec`` - the earliest unix time (aka epoch time)\n   associated with the event\n * ``version`` - the version of the event header\n * ``vesEventListenerVersion`` - Version of the VES event listener API spec\n   that this event is compliant with",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-528866",
+                    "impacts": "dcae",
+                    "introduced": "casablanca",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "Common Event Header",
+                    "sections": [
+                        "Common Event Header",
+                        "Event Records - Data Structure Description",
+                        "Monitoring & Management"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "VNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": "in_service"
                 },
                 "R-53015": {
                     "description": "The xNF **MUST** apply locking based on the sequence of\nNETCONF operations, with the first configuration operation locking\nout all others until completed.",
@@ -33552,6 +33810,34 @@
                     "updated": "",
                     "validated_by": "",
                     "validation_mode": ""
+                },
+                "R-570134": {
+                    "description": "The events produced by the xNF **MUST** must be compliant with the common\nevent format defined in the\n:doc:`VES Event Listener<../../../../vnfsdk/model.git/docs/files/VESEventListener_7_0_1>`\nspecification.",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-570134",
+                    "impacts": "dcae",
+                    "introduced": "casablanca",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "Data Structure Specification of the Event Record",
+                    "sections": [
+                        "Data Structure Specification of the Event Record",
+                        "Monitoring & Management"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "XNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": "in_service"
                 },
                 "R-57282": {
                     "description": "Each VNF's Heat Orchestration Template's ``{vm-type}`` **MUST**\nhave a unique parameter name for the ``OS::Nova::Server`` property\n``image`` even if more than one ``{vm-type}`` shares the same image.",
@@ -35034,6 +35320,35 @@
                     "validated_by": "",
                     "validation_mode": ""
                 },
+                "R-659655": {
+                    "description": "The xNF **SHOULD** leverage the JSON-driven model, as depicted in Figure 2,\nfor data delivery unless there are specific performance or operational\nconcerns agreed upon by the Service Provider that would warrant using an\nalternate model.",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-659655",
+                    "impacts": "dcae",
+                    "introduced": "casablanca",
+                    "keyword": "SHOULD",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "xNF Telemetry using VES/JSON Model",
+                    "sections": [
+                        "xNF Telemetry using VES/JSON Model",
+                        "Transports and Protocols Supporting Resource Interfaces",
+                        "Monitoring & Management"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "XNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": "in_service"
+                },
                 "R-66070": {
                     "description": "The xNF Package **MUST** include xNF Identification Data to\nuniquely identify the resource for a given xNF provider. The identification\ndata must include: an identifier for the xNF, the name of the xNF as was\ngiven by the xNF provider, xNF description, xNF provider, and version.",
                     "full_title": "",
@@ -35771,6 +36086,35 @@
                     "updated": "",
                     "validated_by": "",
                     "validation_mode": ""
+                },
+                "R-697654": {
+                    "description": "The xNF **MAY** leverage the Google Protocol Buffers (GPB) delivery model\ndepicted in Figure 3 to support real-time performance management (PM) data.\nIn this model the VES events are streamed as binary-encoded GBPs over via\nTCP sockets",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-697654",
+                    "impacts": "dcae",
+                    "introduced": "casablanca",
+                    "keyword": "MAY",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "xNF Telemetry using Google Protocol Buffers",
+                    "sections": [
+                        "xNF Telemetry using Google Protocol Buffers",
+                        "Transports and Protocols Supporting Resource Interfaces",
+                        "Monitoring & Management"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "XNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": "in_service"
                 },
                 "R-69874": {
                     "description": "A VNF's ``{network-role}`` assigned to an internal network **MUST**\nbe different than the ``{network-role}`` assigned to the VNF's external\nnetworks.",
@@ -37511,6 +37855,34 @@
                     "validated_by": "",
                     "validation_mode": ""
                 },
+                "R-798933": {
+                    "description": "The xNF **SHOULD** deliver event records that fall into the event domains\nsupported by VES.",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-798933",
+                    "impacts": "dcae",
+                    "introduced": "casblanca",
+                    "keyword": "SHOULD",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "Transports and Protocols Supporting Resource Interfaces",
+                    "sections": [
+                        "Transports and Protocols Supporting Resource Interfaces",
+                        "Monitoring & Management"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "XNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": "in_service"
+                },
                 "R-79952": {
                     "description": "The VNF **SHOULD** support container snapshots if not for rebuild\nand evacuate for rollback or back out mechanism.",
                     "full_title": "",
@@ -37937,6 +38309,63 @@
                     "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": "static"
+                },
+                "R-821473": {
+                    "description": "The xNF MUST produce heartbeat indicators consisting of events containing\nthe common event header only per the VES Listener Specification.",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-821473",
+                    "impacts": "dcae",
+                    "introduced": "casablanca",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "VNF telemetry via standardized interface",
+                    "sections": [
+                        "VNF telemetry via standardized interface",
+                        "Monitoring & Management Requirements",
+                        "Monitoring & Management"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "XNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": "in_service"
+                },
+                "R-821839": {
+                    "description": "The xNF **MUST** deliver event records to ONAP using the common transport\nmechanisms and protocols defined in this document.",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-821839",
+                    "impacts": "dcae",
+                    "introduced": "casblanca",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "Transports and Protocols Supporting Resource Interfaces",
+                    "sections": [
+                        "Transports and Protocols Supporting Resource Interfaces",
+                        "Monitoring & Management"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "XNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": "in_service"
                 },
                 "R-82223": {
                     "description": "The VNF **MUST** be decomposed if the functions have\nsignificantly different scaling characteristics (e.g., signaling\nversus media functions, control versus data plane functions).",
@@ -40148,6 +40577,35 @@
                     "validated_by": "",
                     "validation_mode": ""
                 },
+                "R-908291": {
+                    "description": "The XNF **MAY** leverage bulk xNF telemetry transmission mechanism, as\ndepicted in Figure 4, in instances where other transmission methods are not\npractical or advisable.",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-908291",
+                    "impacts": "dcae, dmaap",
+                    "introduced": "casablanca",
+                    "keyword": "MAY",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "Bulk Telemetry Transmission",
+                    "sections": [
+                        "Bulk Telemetry Transmission",
+                        "Transports and Protocols Supporting Resource Interfaces",
+                        "Monitoring & Management"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "XNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": "in_service"
+                },
                 "R-91125": {
                     "description": "The VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``\nproperty\n``image`` parameter **MUST** be enumerated in the Heat Orchestration\nTemplate's Environment File and a value **MUST** be assigned.",
                     "full_title": "",
@@ -40546,6 +41004,34 @@
                     "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": "static"
+                },
+                "R-932071": {
+                    "description": "The xNF provider **MUST** reach agreement with the Service Provider on\nthe selected methods for encoding, serialization and data delivery\nprior to the on-boarding of the xNF into ONAP SDC Design Studio.",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-932071",
+                    "impacts": "dcae",
+                    "introduced": "casblanca",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "Transports and Protocols Supporting Resource Interfaces",
+                    "sections": [
+                        "Transports and Protocols Supporting Resource Interfaces",
+                        "Monitoring & Management"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "XNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": "none"
                 },
                 "R-93272": {
                     "description": "A VNF **MAY** have one or more ports connected to a unique\nexternal network. All VNF ports connected to the unique external\nnetwork **MUST** have Cloud Assigned IP Addresses\nor **MUST** have ONAP SDN-C assigned IP addresses.",
@@ -41319,6 +41805,35 @@
                     "validated_by": "",
                     "validation_mode": "static"
                 },
+                "R-978752": {
+                    "description": " The xNF providers **MUST** provide to the Service Provider the additional\n following artifacts to support the delivery of high-volume xNF telemetry to\n DCAE via GPB over TLS/TCP:\n\n   * a valid VES Event .proto definition file, to be used validate and\n     decode an event\n   * a valid high volume measurement .proto definition file, to be used for\n     processing high volume events\n   * a supporting PM content metadata file to be used by analytics\n     applications to process high volume measurement events",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-978752",
+                    "impacts": "",
+                    "introduced": "casablanca",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "Google Protocol Buffers (GPB)",
+                    "sections": [
+                        "Google Protocol Buffers (GPB)",
+                        "Monitoring & Management Requirements",
+                        "Monitoring & Management"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "XNF PROVIDER",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": "static"
+                },
                 "R-98138": {
                     "description": "When a VNF's Heat Orchestration Template's resource is associated with a\nsingle internal network, the Resource ID **MUST** contain the text\n``int_{network-role}``.",
                     "full_title": "",
@@ -41937,7 +42452,7 @@
                     "validation_mode": "static"
                 }
             },
-            "needs_amount": 705
+            "needs_amount": 723
         }
     }
 }
