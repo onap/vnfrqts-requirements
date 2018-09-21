@@ -1,5 +1,5 @@
 {
-    "created": "2018-09-20T12:49:06.895999",
+    "created": "2018-09-21T09:04:14.699000",
     "current_version": "casablanca",
     "project": "",
     "versions": {
@@ -21858,7 +21858,7 @@
             "needs_amount": 750
         },
         "casablanca": {
-            "created": "2018-09-20T12:49:06.895999",
+            "created": "2018-09-21T09:04:14.699000",
             "needs": {
                 "R-00011": {
                     "description": "A VNF's Heat Orchestration Template's parameter defined\nin a nested YAML file\n**MUST NOT** have a parameter constraint defined.",
@@ -27079,7 +27079,7 @@
                     "validation_mode": "static"
                 },
                 "R-257367": {
-                    "description": "The xNF, when leveraging Google Protocol Buffers for events, **MUST**\nserialize the events using native Google Protocol Buffers (GPB) where:\n\n   * keys are represented as integers pointing to the system resources for\n     the xNF being monitored\n   * values correspond to integers or strings that identify the operational\n     state of the VNF resource, such a statistics counters and the state of\n     an xNF resource.\n   * required Google Protocol Buffers (GPB) metadata is provided in the\n     form of .proto files.",
+                    "description": "The xNF, when leveraging Google Protocol Buffers for events, **MUST**\nserialize the events using native Google Protocol Buffers (GPB) according\nto the following guidelines:\n\n   * The keys are represented as integers pointing to the system resources\n     for the xNF being monitored\n   * The values correspond to integers or strings that identify the\n     operational state of the VNF resource, such a statistics counters and\n     the state of an xNF resource.\n   * The required Google Protocol Buffers (GPB) metadata is provided in the\n     form of .proto files.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-257367",
@@ -32902,7 +32902,7 @@
                     "validation_mode": ""
                 },
                 "R-528866": {
-                    "description": "The VNF **MUST** produce VES events that include the following mandatory\nfields in the common event header\n\n * ``domain`` - the event domain enumeration\n * ``eventId`` - the event key unique to the event source\n * ``eventName`` - the unique event name\n * ``lastEpochMicrosec`` - the latest unix time (aka epoch time) associated\n   with the event\n * ``priority`` - the processing priority enumeration\n * ``reportingEntityName`` - name of the entity reporting the event or\n   detecting a problem in another xNF\n * ``sequence`` - the ordering of events communicated by an event source\n * ``sourceName`` - name of the entity experiencing the event issue, which\n   may be detected and reported by a separate reporting entity\n * ``startEpochMicrosec`` - the earliest unix time (aka epoch time)\n   associated with the event\n * ``version`` - the version of the event header\n * ``vesEventListenerVersion`` - Version of the VES event listener API spec\n   that this event is compliant with",
+                    "description": "The VNF **MUST** produce VES events that include the following mandatory\nfields in the common event header.\n\n * ``domain`` - the event domain enumeration\n * ``eventId`` - the event key unique to the event source\n * ``eventName`` - the unique event name\n * ``lastEpochMicrosec`` - the latest unix time (aka epoch time) associated\n   with the event\n * ``priority`` - the processing priority enumeration\n * ``reportingEntityName`` - name of the entity reporting the event or\n   detecting a problem in another xNF\n * ``sequence`` - the ordering of events communicated by an event source\n * ``sourceName`` - name of the entity experiencing the event issue, which\n   may be detected and reported by a separate reporting entity\n * ``startEpochMicrosec`` - the earliest unix time (aka epoch time)\n   associated with the event\n * ``version`` - the version of the event header\n * ``vesEventListenerVersion`` - Version of the VES event listener API spec\n   that this event is compliant with",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-528866",
@@ -36088,7 +36088,7 @@
                     "validation_mode": ""
                 },
                 "R-697654": {
-                    "description": "The xNF **MAY** leverage the Google Protocol Buffers (GPB) delivery model\ndepicted in Figure 3 to support real-time performance management (PM) data.\nIn this model the VES events are streamed as binary-encoded GBPs over via\nTCP sockets",
+                    "description": "The xNF **MAY** leverage the Google Protocol Buffers (GPB) delivery model\ndepicted in Figure 3 to support real-time performance management (PM) data.\nIn this model the VES events are streamed as binary-encoded GBPs over via\nTCP sockets.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-697654",
@@ -41806,7 +41806,7 @@
                     "validation_mode": "static"
                 },
                 "R-978752": {
-                    "description": " The xNF providers **MUST** provide to the Service Provider the additional\n following artifacts to support the delivery of high-volume xNF telemetry to\n DCAE via GPB over TLS/TCP:\n\n   * a valid VES Event .proto definition file, to be used validate and\n     decode an event\n   * a valid high volume measurement .proto definition file, to be used for\n     processing high volume events\n   * a supporting PM content metadata file to be used by analytics\n     applications to process high volume measurement events",
+                    "description": "The xNF providers **MUST** provide the Service Provider the following\nartifacts to support the delivery of high-volume xNF telemetry to\nDCAE via GPB over TLS/TCP:\n\n   * A valid VES Event .proto definition file, to be used validate and\n     decode an event\n   * A valid high volume measurement .proto definition file, to be used for\n     processing high volume events\n   * A supporting PM content metadata file to be used by analytics\n     applications to process high volume measurement events",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-978752",

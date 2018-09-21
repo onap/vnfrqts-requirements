@@ -132,7 +132,7 @@ sender and other identifying characteristics related to the domain and event.
    :keyword: MUST
 
    The VNF **MUST** produce VES events that include the following mandatory
-   fields in the common event header
+   fields in the common event header.
 
     * ``domain`` - the event domain enumeration
     * ``eventId`` - the event key unique to the event source
@@ -454,7 +454,7 @@ xNF Telemetry using Google Protocol Buffers
    The xNF **MAY** leverage the Google Protocol Buffers (GPB) delivery model
    depicted in Figure 3 to support real-time performance management (PM) data.
    In this model the VES events are streamed as binary-encoded GBPs over via
-   TCP sockets
+   TCP sockets.
 
 |image2|
 
@@ -570,14 +570,15 @@ Google Protocol Buffers (GPB)
    :validation_mode: in_service
 
    The xNF, when leveraging Google Protocol Buffers for events, **MUST**
-   serialize the events using native Google Protocol Buffers (GPB) where:
+   serialize the events using native Google Protocol Buffers (GPB) according
+   to the following guidelines:
 
-      * keys are represented as integers pointing to the system resources for
-        the xNF being monitored
-      * values correspond to integers or strings that identify the operational
-        state of the VNF resource, such a statistics counters and the state of
-        an xNF resource.
-      * required Google Protocol Buffers (GPB) metadata is provided in the
+      * The keys are represented as integers pointing to the system resources
+        for the xNF being monitored
+      * The values correspond to integers or strings that identify the
+        operational state of the VNF resource, such a statistics counters and
+        the state of an xNF resource.
+      * The required Google Protocol Buffers (GPB) metadata is provided in the
         form of .proto files.
 
 .. req::
@@ -587,15 +588,15 @@ Google Protocol Buffers (GPB)
    :introduced: casablanca
    :validation_mode: static
 
-    The xNF providers **MUST** provide to the Service Provider the additional
-    following artifacts to support the delivery of high-volume xNF telemetry to
-    DCAE via GPB over TLS/TCP:
+   The xNF providers **MUST** provide the Service Provider the following
+   artifacts to support the delivery of high-volume xNF telemetry to
+   DCAE via GPB over TLS/TCP:
 
-      * a valid VES Event .proto definition file, to be used validate and
+      * A valid VES Event .proto definition file, to be used validate and
         decode an event
-      * a valid high volume measurement .proto definition file, to be used for
+      * A valid high volume measurement .proto definition file, to be used for
         processing high volume events
-      * a supporting PM content metadata file to be used by analytics
+      * A supporting PM content metadata file to be used by analytics
         applications to process high volume measurement events
 
 Reporting Frequency
