@@ -246,6 +246,17 @@ the product’s lifecycle.
 
     The VNF **MUST NOT** allow vendor access to VNFs remotely.
 
+.. req::
+   :id: R-638682
+   :target: VNF
+   :keyword: MUST
+   :introduced: casablanca
+   :validation_mode: in_service
+
+   The VNF **MUST** log any security event required by the VNF Requirements to
+   Syslog using LOG_AUTHPRIV for any event that would contain sensitive
+   information and LOG_AUTH for all other relevant events.
+
 VNF Identity and Access Management Requirements
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -288,10 +299,10 @@ Identity and Access Management Requirements
 .. req::
     :id: R-59391
     :target: VNF
-    :keyword: MUST
+    :keyword: MUST NOT
     :updated: casablanca
 
-    The VNF MUST NOT not allow the assumption of the permissions of
+    The VNF **MUST NOT** not allow the assumption of the permissions of
     another account to mask individual accountability.
 
 .. req::

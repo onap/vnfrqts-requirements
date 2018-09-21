@@ -800,6 +800,16 @@ Asynchronous and Synchronous Data Delivery
     in the future as they become standardized and are made available.)
 
 .. req::
+   :id: R-332680
+   :target: XNF
+   :keyword: SHOULD
+   :impacts: dcae
+   :validation_mode: in_service
+
+   The xNF **SHOULD** deliver all syslog messages to the VES Collector per the
+   specifications in Monitoring and Management chapter.
+
+.. req::
     :id: R-46290
     :target: XNF
     :keyword: MUST
