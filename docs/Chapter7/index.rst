@@ -23,6 +23,7 @@ ONAP Management Requirements
     VNF-On-boarding-and-package-management
     Configuration-Management
     Monitoring-And-Management
+    PNF-Plug-and-Play
 
 
 The ONAP platform is the part of the larger Network Function
