@@ -72,6 +72,23 @@ The following rules apply to independent volume Heat templates:
 
 -  Volume modules may utilize nested Heat templates.
 
+.. req:: 
+    :id: R-270358
+    :target: VNF 
+    :keyword: MUST 
+    :validation_mode: static 
+    :updated: casablanca
+
+    A VNF's Heat Orchestration Template's Cinder Volume Template **MUST**
+    contain either
+
+    * An ``OS::Cinder::Volume`` resource
+    * An ``OS::Heat::ResourceGroup`` resource that references a Nested YAML
+      file that contains an ``OS::Cinder::Volume`` resource
+    * A resource that defines the property ``type`` as a Nested YAML file
+      (i.e., static nesting) and the Nested YAML contains
+      an ``OS::Cinder::Volume`` resource
+
 Optional Property availability_zone
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

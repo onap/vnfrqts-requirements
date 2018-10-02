@@ -26,6 +26,24 @@ Requirement R-01455 defines how the ``{vm-type]`` is defined.
 
 Requirement R-82481 defines how the ``{vm-type}`` is used.
 
+.. req::
+    :id: R-304011
+    :target: VNF 
+    :keyword: MUST 
+    :validation_mode: static 
+    :updated: casablanca
+
+    A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource's
+
+    * Resource ID
+    * property ``image`` parameter name
+    * property ``flavor`` parameter name
+    * property ``name`` parameter name
+    
+    **MUST** contain the identical ``{vm-type}``
+    and **MUST** follow the naming conventions defined
+    in R-58670, R-45188, R-54171, R-87817, and R-29751.
+
 The table below provides a summary. The sections that follow provides
 the detailed requirements.
 
@@ -45,6 +63,16 @@ the detailed requirements.
 Property: image
 ^^^^^^^^^^^^^^^
 
+
+.. req::
+    :id: R-901331
+    :target: VNF
+    :keyword: MUST
+    :validation_mode: static
+    :updated: casablanca
+
+    The VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``
+    property ``image`` value **MUST** be be obtained via a ``get_param``.
 
 .. req::
     :id: R-71152
@@ -108,6 +136,16 @@ Property: flavor
 
 
 .. req::
+    :id: R-481670
+    :target: VNF
+    :keyword: MUST
+    :validation_mode: static
+    :updated: casablanca
+
+    The VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``
+    property ``flavor`` value **MUST** be be obtained via a ``get_param``.
+
+.. req::
     :id: R-50436
     :target: VNF
     :keyword: MUST
@@ -164,6 +202,16 @@ Property: flavor
 Property: Name
 ^^^^^^^^^^^^^^^^^
 
+
+.. req::
+    :id: R-663631
+    :target: VNF
+    :keyword: MUST
+    :validation_mode: static
+    :updated: casablanca
+
+    The VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``
+    property ``name`` value **MUST** be be obtained via a ``get_param``.
 
 .. req::
     :id: R-51430
