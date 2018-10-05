@@ -1,5 +1,5 @@
 {
-    "created": "2018-09-25T16:37:04.462000",
+    "created": "2018-10-05T17:32:22.611807",
     "current_version": "casablanca",
     "project": "",
     "versions": {
@@ -21858,7 +21858,7 @@
             "needs_amount": 750
         },
         "casablanca": {
-            "created": "2018-09-25T16:27:04.462000",
+            "created": "2018-10-05T17:32:22.611675",
             "needs": {
                 "R-00011": {
                     "description": "A VNF's Heat Orchestration Template's parameter defined\nin a nested YAML file\n**MUST NOT** have a parameter constraint defined.",
@@ -23705,35 +23705,6 @@
                         "VNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "XNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "",
-                    "validated_by": "",
-                    "validation_mode": ""
-                },
-                "R-10623": {
-                    "description": "Telemetry data delivered using Google Protocol Buffers v3 (proto3)\n**MUST** be serialized in one of the following methods:\n\n  * Key-value Google Protocol Buffers (KV-GPB) is also known as\n    self-describing GPB:\n\n      * keys are strings that correspond to the path of the system\n        resources for the VNF being monitored.\n      * values correspond to integers or strings that identify the\n        operational state of the VNF resource, such a statistics counters\n        and the state of a VNF resource.\n      * VNF providers must supply valid KV-GPB definition file(s) to allow\n        for the decoding of all KV-GPB encoded telemetry messages.\n\n * Native Google Protocol Buffers (GPB) is also known as compact GPB:\n\n      * keys are represented as integers pointing to the system resources for\n        the VNF being monitored.\n      * values correspond to integers or strings that identify the operational\n        state of the VNF resource, such a statistics counters and the state\n        of a VNF resource.\n      * Google Protocol Buffers (GPB) requires metadata in the form of .proto\n        files. VNF providers must supply the necessary GPB .proto files such that\n        GPB telemetry messages can be encoded and decoded.",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-10623",
-                    "impacts": "",
-                    "introduced": "casablanca",
-                    "keyword": "MUST",
-                    "links": [],
-                    "notes": "",
-                    "section_name": "KV-GPB/GPB",
-                    "sections": [
-                        "KV-GPB/GPB",
-                        "Monitoring & Management Requirements",
-                        "Monitoring & Management"
                     ],
                     "status": null,
                     "tags": [],
@@ -27220,7 +27191,7 @@
                     "validation_mode": "in_service"
                 },
                 "R-258352": {
-                    "description": "The PNF **MUST** support & accept the provisioning of an ONAP contact IP address (in IPv4 or IPv6 format).\nNote: It is expected that an external EMS would configure & provision the ONAP contact IP address to the PNF (in either IPv4 or IPv6 format). For the PNF Plug and Play Use Case, this IP address is the service provider's \"\"point of entry\"\" to the DCAE VES Listener.\n\nNote: different service provider's network architecture may also require special setup to allow an external PNF to contact the ONAP installation. For example, in the AT&T network, a maintenance tunnel is used to access ONAP.",
+                    "description": "The PNF **MUST** support & accept the provisioning of an ONAP contact IP address (in IPv4 or IPv6 format).\nNote: For example, it a possibility is that an external EMS would configure & provision the ONAP contact IP address to the PNF (in either IPv4 or IPv6 format). For the PNF Plug and Play Use Case, this IP address is the service provider's \"\"point of entry\"\" to the DCAE VES Listener.\n\nNote: different service provider's network architecture may also require special setup to allow an external PNF to contact the ONAP installation. For example, in the AT&T network, a maintenance tunnel is used to access ONAP.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-258352",
@@ -27508,6 +27479,33 @@
                     "updated": "",
                     "validated_by": "",
                     "validation_mode": ""
+                },
+                "R-270358": {
+                    "description": "A VNF's Heat Orchestration Template's Cinder Volume Template **MUST**\ncontain either\n\n* An ``OS::Cinder::Volume`` resource\n* An ``OS::Heat::ResourceGroup`` resource that references a Nested YAML\n  file that contains an ``OS::Cinder::Volume`` resource\n* A resource that defines the property ``type`` as a Nested YAML file\n  (i.e., static nesting) and the Nested YAML contains\n  an ``OS::Cinder::Volume`` resource",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-270358",
+                    "impacts": "",
+                    "introduced": "",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "ONAP Heat Cinder Volumes",
+                    "sections": [
+                        "ONAP Heat Cinder Volumes"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "VNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "casablanca",
+                    "validated_by": "",
+                    "validation_mode": "static"
                 },
                 "R-27078": {
                     "description": "A VNF's Heat Orchestration template **MUST** contain the\nsection ``heat_template_version:``.",
@@ -28196,34 +28194,6 @@
                     "validated_by": "",
                     "validation_mode": "static"
                 },
-                "R-29865": {
-                    "description": "When a VNF connects to an external network, a network role,\nreferred to as the '{network-role}' **MUST** be assigned to the\nexternal network for use in the VNF's Heat Orchestration Template.",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-29865",
-                    "impacts": "",
-                    "introduced": "",
-                    "keyword": "MUST",
-                    "links": [],
-                    "notes": "",
-                    "section_name": "External Networks",
-                    "sections": [
-                        "External Networks",
-                        "ONAP Heat Networking"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "",
-                    "validated_by": "",
-                    "validation_mode": ""
-                },
                 "R-29872": {
                     "description": "The VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``\nproperty ``network``\nparameter **MUST NOT** be enumerated in the Heat Orchestration\nTemplate's Environment File.",
                     "full_title": "",
@@ -28365,6 +28335,33 @@
                     "updated": "",
                     "validated_by": "",
                     "validation_mode": ""
+                },
+                "R-304011": {
+                    "description": "A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource's\n\n* Resource ID\n* property ``image`` parameter name\n* property ``flavor`` parameter name\n* property ``name`` parameter name\n\n\n**MUST** contain the identical ``{vm-type}``\nand **MUST** follow the naming conventions defined\nin R-58670, R-45188, R-54171, R-87817, and R-29751.",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-304011",
+                    "impacts": "",
+                    "introduced": "",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "Resource: OS::Nova::Server - Parameters",
+                    "sections": [
+                        "Resource: OS::Nova::Server - Parameters"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "VNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "casablanca",
+                    "validated_by": "",
+                    "validation_mode": "static"
                 },
                 "R-30650": {
                     "description": "The VNF **MUST** utilize cloud provided infrastructure and\nVNFs (e.g., virtualized Local Load Balancer) as part of the VNF so\nthat the cloud can manage and provide a consistent service resiliency\nand methods across all VNF's.",
@@ -29268,34 +29265,6 @@
                     "status": null,
                     "tags": [],
                     "target": "XNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "",
-                    "validated_by": "",
-                    "validation_mode": ""
-                },
-                "R-34726": {
-                    "description": "If a VNF's port is connected to an internal network and the port\nis created in the same Heat Orchestration Template as the internal network,\nthen the port resource **MUST** use a 'get_resource' to obtain\nthe network UUID.",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-34726",
-                    "impacts": "",
-                    "introduced": "",
-                    "keyword": "MUST",
-                    "links": [],
-                    "notes": "",
-                    "section_name": "Internal Networks",
-                    "sections": [
-                        "Internal Networks",
-                        "ONAP Heat Networking"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
                     "test": "",
                     "test_case": "",
                     "test_file": "",
@@ -32236,6 +32205,34 @@
                     "validated_by": "",
                     "validation_mode": ""
                 },
+                "R-481670": {
+                    "description": "The VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``\nproperty ``flavor`` value **MUST** be be obtained via a ``get_param``.",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-481670",
+                    "impacts": "",
+                    "introduced": "",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "Property: flavor",
+                    "sections": [
+                        "Property: flavor",
+                        "Resource: OS::Nova::Server - Parameters"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "VNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "casablanca",
+                    "validated_by": "",
+                    "validation_mode": "static"
+                },
                 "R-48247": {
                     "description": "The xNF **MUST** support ONAP Controller's **ConfigRestore** command.",
                     "full_title": "",
@@ -32885,35 +32882,6 @@
                         "VNF Configuration via Ansible Requirements",
                         "Ansible Standards and Capabilities",
                         "Configuration Management"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "XNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "",
-                    "validated_by": "",
-                    "validation_mode": ""
-                },
-                "R-51910": {
-                    "description": "The xNF **MUST** provide all telemetry (e.g., fault event\nrecords, syslog records, performance records etc.) to ONAP using the\nmodel, format and mechanisms described in this section.",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-51910",
-                    "impacts": "",
-                    "introduced": "",
-                    "keyword": "MUST",
-                    "links": [],
-                    "notes": "",
-                    "section_name": "VNF telemetry via standardized interface",
-                    "sections": [
-                        "VNF telemetry via standardized interface",
-                        "Monitoring & Management Requirements",
-                        "Monitoring & Management"
                     ],
                     "status": null,
                     "tags": [],
@@ -35713,6 +35681,34 @@
                     "updated": "",
                     "validated_by": "",
                     "validation_mode": ""
+                },
+                "R-663631": {
+                    "description": "The VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``\nproperty ``name`` value **MUST** be be obtained via a ``get_param``.",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-663631",
+                    "impacts": "",
+                    "introduced": "",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "Property: Name",
+                    "sections": [
+                        "Property: Name",
+                        "Resource: OS::Nova::Server - Parameters"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "VNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "casablanca",
+                    "validated_by": "",
+                    "validation_mode": "static"
                 },
                 "R-66729": {
                     "description": "A VNF's Heat Orchestration Template's Resource that is associated with a\nunique Virtual Machine type **MUST** include ``{vm-type}`` as part of the\nresource ID.",
@@ -40910,6 +40906,34 @@
                     "validated_by": "",
                     "validation_mode": ""
                 },
+                "R-901331": {
+                    "description": "The VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``\nproperty ``image`` value **MUST** be be obtained via a ``get_param``.",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-901331",
+                    "impacts": "",
+                    "introduced": "",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "Property: image",
+                    "sections": [
+                        "Property: image",
+                        "Resource: OS::Nova::Server - Parameters"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "VNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "casablanca",
+                    "validated_by": "",
+                    "validation_mode": "static"
+                },
                 "R-90152": {
                     "description": "A VNF's Heat Orchestration Template's\n``resources:`` section **MUST** contain the declaration of at\nleast one resource.",
                     "full_title": "",
@@ -42123,36 +42147,6 @@
                     "sections": [
                         "Compute, Network, and Storage Requirements",
                         "VNF On-boarding and package management"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "",
-                    "validated_by": "",
-                    "validation_mode": ""
-                },
-                "R-97199": {
-                    "description": "A VNF's Heat Orchestration Template's OS::Nova::Server\nresource **MUST** contain the attribute \"metadata\".",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-97199",
-                    "impacts": "",
-                    "introduced": "",
-                    "keyword": "MUST",
-                    "links": [],
-                    "notes": "",
-                    "section_name": "metadata",
-                    "sections": [
-                        "metadata",
-                        "resources",
-                        "Heat Orchestration Template Structure",
-                        "ONAP Heat Orchestration Template Format"
                     ],
                     "status": null,
                     "tags": [],

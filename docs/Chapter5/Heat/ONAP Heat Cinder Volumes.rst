@@ -72,7 +72,7 @@ The following rules apply to independent volume Heat templates:
 
 -  Volume modules may utilize nested Heat templates.
 
-.. req:: 
+.. req::
     :id: R-270358
     :target: VNF 
     :keyword: MUST 
