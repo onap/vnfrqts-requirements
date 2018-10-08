@@ -1,0 +1,34 @@
+"Info Element
+From ETSI GS NFV-IFA 011","Implementation in
+ETSI NFV-SOL001",Derived from,Description,Supported in ONAP Casablanca release
+l2AddressData,tosca.datatype.nfv.L2AddressData,tosca.datatypes.Root,Describes the information on the MAC addresses to be assigned to the connection point(s) instantiated from the parent Connection Point Descriptor,Y
+L3AddressData,tosca.datatypes.nfv.L3AddressData,tosca.datatypes.Root,"A complex TOSCA data type describe L3AddressData information element, it provides the information on the IP addresses to be assigned to the connection point instantiated from the parent Connection Point Descriptor",Y
+AddressData,tosca.datatypes.nfv.AddressData,tosca.datatypes.Root,"A complex TOSCA data type describe AddressData information elemen, it provides information on the addresses to be assigned to the connection point(s) instantiated from a Connection Point",Y
+VirtualNetworkInterfaceRequirements,tosca.datatypes.nfv.VirtualNetworkInterfaceRequirements,tosca.datatypes.Root,"A complex TOSCA data type describe VirtualNetworkInterfaceRequirements information element, it provides the information to specify requirements on a virtual network interface realizing the CPs instantiated from this CPD",Y
+ConnectivityType,tosca.datatypes.nfv.ConnectivityType,tosca.datatypes.Root,A complex TOSCA data type used to describe ConnectivityType information element,Y
+RequestedAdditionalCapabilityData,tosca.datatypes.nfv.RequestedAdditionalCapability,tosca.datatypes.Root,Describes additional capability for a particular VDU e.g. acceleration,Y
+VirtualMemoryData,tosca.datatypes.nfv.VirtualMemory,tosca.datatypes.Root,Describes virtual memory for virtualized compute descriptor,Y
+VirtualCpuData,tosca.datatypes.nfv.VirtualCpu,tosca.datatypes.Root,Describes virtual CPU (s) for virtualized compute descriptor,Y
+VirtualCpuPinning,tosca.datatypes.nfv.VirtualCpuPinning,tosca.datatypes.Root,Describes CPU pinning configuration for a particular CPU,Y
+VnfcConfigurableProperties,tosca.datatypes.nfv.VnfcConfigurableProperties,tosca.datatypes.Root,Describes additional configurable properties of a VNFC,Y
+VduProfile,tosca.datatypes.nfv.VduProfile,tosca.datatypes.Root,"Describes additional instantiation data for a given VDU used in the a specific deployment flavour.
+
+**Note**: Deployment flavour is not supported in Casablanca release.",N
+VirtualLinkProfile,tosca.datatypes.nfv.VlProfile,tosca.datatypes.Root,"Describes additional instantiation data for a given VL used in the a specific deployment flavour.
+
+**Note**: Deployment flavour is not supported in Casablanca release.",N
+InstantiationLevel,tosca.datatypes.nfv.InstantiationLevel,tosca.datatypes.Root,"Describes a given level of resources to be instantiated within a deployment flavour in term of the number VNFC instances to be created from each VDU.
+
+**Note**: Deployment flavour is not supported in Casablanca release.",N
+VduLevel,tosca.datatypes.nfv.VduLevel,tosca.datatypes.Root,Indicates for a given VDU in a given level the number of instances to deploy,Y
+ScaleInfo,tosca.datatypes.nfv.ScaleInfo,tosca.datatypes.Root,Indicates for a given Scaling Aspect the corresponding Scaling Level,Y
+Inject File,tosca.datatypes.nfv.injectFile,tosca.datatypes.Root,**Note**: ONAP extension used for vCPE use case,Y
+Scaling Aspect,tosca.datatypes.nfv.ScalingAspect,tosca.datatypes.Root,,Y
+Link Bit Rate Requirements,tosca.datatypes.nfv.LinkBitRateRequirements,tosca.datatypes.Root,,Y
+Quality of service data (loss ratio etc.),tosca.datatypes.nfv.Qos,tosca.datatypes.Root,,Y
+Connection point protocol,tosca.datatypes.nfv.CpProtocolData,tosca.datatypes.Root,,Y
+VNF Configurable Properties,tosca.datatypes.nfv.VnfConfigurableProperties,tosca.datatypes.Root,,Y
+VNF Additional Configurable Properties,tosca.datatypes.nfv.VnfAdditionalConfigurableProperties,tosca.datatypes.Root,,Y?
+VnfInfo Modifiable Attributes,tosca.datatypes.nfv.VnfInfoModifiableAttributes,tosca.datatypes.Root,,Y
+VnfInfo Modifiable Attributes Extension,tosca.datatypes.nfv.VnfInfoModifiableAttributesExtensions,tosca.datatypes.Root,,Y
+VnfInfo Modifiable Attributes Metadata,tosca.datatypes.nfv.VnfInfoModifiableAttributesMetadata,tosca.datatypes.Root,,Y
