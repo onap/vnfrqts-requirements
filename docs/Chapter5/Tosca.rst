@@ -13,31 +13,37 @@
    limitations under the License.
 
 
-TOSCA YAML
-----------
+ONAP TOSCA VNFD Requirements
+-----------------------------
 
 
 Introduction
 ^^^^^^^^^^^^
 
-This reference document is the VNF TOSCA Template Requirements for
-ONAP, which provides recommendations and standards for building VNF
-TOSCA templates compatible with ONAP initial implementations of
-Network Cloud. It has the following features:
+The following sub-clauses describe the numbered requirements
+for VNF Descriptor (VNFD) or in other words the VNF Service Template
+based on the most updated draft of ETSI NFV-SOL001 standard for VNF
+Descriptor. The ETSI standard specifies a NFV specific data model using
+TOSCA/YAML data model constructs specified in TOSCA Simple Profile in
+YAML v.1.2.
 
-1. VNF TOSCA template designer supports GUI and CLI.
+The requirements for TOSCA/CSAR based VNF package are described as well
+and they are based on ETSI NFV-SOL004 standard.
 
-2. VNF TOSCA template is aligned to the newest TOSCA protocol, “Working
-   Draft 04-Revision 06”.
+References
+^^^^^^^^^^^^^^^^^^
 
-3. VNF TOSCA template supports HPA features, such as NUMA, Hyper
-   Threading, SRIOV， etc.
+  1. ETSI GS NFV-SOL001 draft v.0.10.0
+  2. TOSCA SIMPLE Profile in YAML v.1.2 
+  3. ETSI GS NFV-SOL004 v.2.5.1
 
 Intended Audience
 ^^^^^^^^^^^^^^^^^^
 
-This document is intended for persons developing VNF TOSCA templates
-that will be orchestrated by ONAP.
+This document is intended for developers of VNF TOSCA templates that
+will be orchestrated by ONAP. The document is also applicable for
+creating RFP’s with the list of required TOSCA/YAML features
+supported by VNF provider.
 
 Scope
 ^^^^^^^^^^^^^^^^
@@ -68,11 +74,133 @@ The VNFD and VNF package are all align to the NFV TOSCA protocol, which
 supports multiple TOSCA template yaml files, and also supports
 self-defined node or other extensions.
 
-NFV TOSCA Template
+VNF CSAR Package
 ^^^^^^^^^^^^^^^^^^^^
 
-TOSCA templates supported by ONAP must follow the requirements
-enumerated in this section.
+CSAR Overview
+~~~~~~~~~~~~~~~~
+
+TOSCA YAML CSAR file is an archive file using the ZIP file format whose
+structure complies with the TOSCA Simple Profile YAML v1.2 Specification.
+The CSAR file may have one of the two following structures:
+
+  - CSAR containing a TOSCA-Metadata directory, which includes the TOSCA.meta
+    metadata file providing an entry information for processing a CSAR file.
+
+  - CSAR containing a single yaml (.yml or .yaml) file at the root of the
+    archive. The yaml file is a TOSCA definition template that contains a
+    metadata section with template_name and template_version metadata. This
+    file is the CSAR Entry-Definitions file.
+
+VNF Package Structure and Format
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. req::
+    :id: R-51347
+    :target: VNF
+    :keyword: MUST
+    :introduced: casablanca
+
+    The VNF package **MUST** be arranged as a CSAR archive as specified in
+    TOSCA Simple Profile in YAML 1.2.
+
+
+.. req::
+    :id: R-87234
+    :target: VNF
+    :keyword: MAY
+    :introduced: casablanca
+
+    The VNF package provided by a VNF vendor **MAY** be either with
+    TOSCA-Metadata directory (CSAR Option 1) or without TOSCA-Metadata
+    directory (CSAR Option 2) as specified in ETSI GS NFV-SOL004. On-boarding
+    entity (ONAP SDC) must support both options.
+
+    **Note:** SDC supports only the CSAR Option 1 in Casablanca. The Option 2
+    will be considered in future ONAP releases,
+
+
+VNF Package Contents
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. req::
+    :id: R-10087
+    :target: VNF
+    :keyword: MUST
+    :introduced: casablanca
+
+    The VNF package **MUST** contain all standard artifacts as specified in
+    ETSI GS NFV-SOL004 including Manifest file, VNFD (or Main TOSCA/YAML
+    based Service Template) and other optional artifacts. CSAR Manifest
+    file as per SOL004 - for example ROOT\\ **MainServiceTemplate.mf**
+
+.. req::
+    :id: R-01123
+    :target: VNF
+    :keyword: MUST
+    :introduced: casablanca
+
+    The VNF package Manifest file **MUST** contain: VNF package meta-data, a
+    list of all artifacts (both internal and external) entry’s including
+    their respected URI’s, an algorithm to calculate a digest and a digest
+    result calculated on the content of each artifacts, as specified in
+    ETSI GS NFV-SOL004. The VNF Package MUST include VNF Identification
+    Data to uniquely identify the resource for a given VNF provider. The
+    identification data must include: an identifier for the VNF, the name
+    of the VNF as was given by the VNF provider, VNF description, VNF
+    provider, and version.
+
+.. req::
+    :id: R-21322
+    :target: VNF
+    :keyword: MUST
+    :introduced: casablanca
+
+    The VNF provider **MUST** provide their testing scripts to support
+    testing as specified in ETSI NFV-SOL004 - Testing directory in CSAR
+
+.. req::
+    :id: R-26885
+    :target: VNF
+    :keyword: MUST
+    :introduced: casablanca
+
+    The VNF provider **MUST** provide the binaries and images needed to
+    instantiate the VNF (VNF and VNFC images) either as:
+
+      - Local artifact in CSAR: ROOT\\Artifacts\\ **VNF_Image.bin**
+      
+      - externally referred (by URI) artifact in Manifest file (also may be
+        referred by VNF Descriptor)
+
+    Note: Currently, ONAP doesn't have the capability of Image management,
+    we upload the image into VIM/VNFM manually.
+
+.. req::
+    :id: R-40820
+    :target: VNF
+    :keyword: MUST
+    :introduced: casablanca
+
+    The VNF provider MUST enumerate all of the open source licenses
+    their VNF(s) incorporate. CSAR License directory as per ETSI SOL004.
+
+    for example ROOT\\Licenses\\ **License_term.txt**
+
+
+VNF Package Authenticity
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Will be added in future releases.
+
+
+VNF Package ONAP Extensions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. TOACA data type extension tosca.datatypes.nfv.injectFile is used for vCPE
+   use case.
+2. ONAP extensions for VNF package that is currently proposed for Dublin
+   release is VES extension described below. 
 
 TOSCA Introduction
 ^^^^^^^^^^^^^^^^^^^
@@ -106,69 +234,220 @@ This section describing TOSCA modeling principles and data model for
 NFV, which shall be based on [TOSCA-1.0] and [TOSCA-Simple-Profile-YAML
 V1.0], or new type based on ETSI NFV requirements, etc.
 
-VNF Descriptor Template
+TOSCA VNF Descriptor 
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The VNF Descriptor (VNFD) describes the topology of the VNF by means of
-ETSI NFV IFA011 [IFA011] terms such as VDUs, Connection Points, Virtual
-Links, External Connection Points, Scaling Aspects, Instantiation Levels
-and Deployment Flavours.
+General
+~~~~~~~~~~
 
-The VNFD (VNF Descriptor) is read by both the NFVO and the VNFM. It
-represents the contract & interface of a VNF and ensures the
-interoperability across the NFV functional blocks.
+.. req::
+    :id: R-35854
+    :target: VNF
+    :keyword: MUST
+    :introduced: casablanca
 
-The main parts of the VNFD are the following:
+    The VNF Descriptor (VNFD) provided by VNF vendor **MUST** comply with
+    TOSCA/YAML based Service template for VNF descriptor specified in
+    ETSI NFV-SOL001.
 
--  VNF topology: it is modeled in a cloud agnostic way using virtualized
-   containers and their connectivity. Virtual Deployment Units (VDU)
-   describe the capabilities of the virtualized containers, such as
-   virtual CPU, RAM, disks; their connectivity is modeled with VDU
-   Connection Point Descriptors (VduCpd), Virtual Link Descriptors (Vld)
-   and VNF External Connection Point Descriptors (VnfExternalCpd);
+    **Note**: As the ETSI NFV-SOL001 is work in progress the below tables
+    summarizes the TOSCA definitions agreed to be part of current version
+    of NFV profile and that VNFD MUST comply with in ONAP Release 2+
+    Requirements.
 
--  VNF deployment aspects: they are described in one or more deployment
-   flavours, including instantiation levels, supported LCM operations,
-   VNF LCM operation configuration parameters, placement constraints
-   (affinity / antiaffinity), minimum and maximum VDU instance numbers,
-   and scaling aspect for horizontal scaling.
 
-The following table defines the TOSCA Type “derived from” values that
-SHALL be used when using the TOSCA Simple Profile for NFV version 1.0
-specification [TOSCA-Simple-Profile-NFV-v1.0] for NFV VNFD with aggreed
-changes from ETSI SOL001 draft.
+.. req::
+    :id: R-65486
+    :target: VNF
+    :keyword: MUST
+    :introduced: casablanca
 
-+---------------------+------------------------------------+-----------------+
-| **ETSI NFV Element**| **TOSCA VNFD**                     | **Derived from**|
-|                     |                                    |                 |
-| **[IFA011]**        | **[TOSCA-Simple-Profile-NFV-v1.0]**|                 |
-+=====================+====================================+=================+
-| VNF                 | tosca.nodes.nfv.VNF                | tosca.nodes.Root|
-+---------------------+------------------------------------+-----------------+
-| Cpd (Connection     | tosca.nodes.nfv.Cp                 | tosca.nodes.Root|
-| Point)              | tosca.nodes.nfv.Cp                 | tosca.nodes.Root|
-+---------------------+------------------------------------+-----------------+
-| VduCpd (internal    | tosca.nodes.nfv.VduCp              | tosca.nodes.\   |
-| connection point)   |                                    | nfv.Cp          |
-+---------------------+------------------------------------+-----------------+
-| VnfVirtualLinkDesc  | tosca.nodes.nfv.VnfVirtualLink     | tosca.nodes.Root|
-| (Virtual Link)      |                                    |                 |
-+---------------------+------------------------------------+-----------------+
-| VDU Virtual Storage | tosca.nodes.nfv.VDU.VirtualStorage | tosca.nodes.Root|
-+---------------------+------------------------------------+-----------------+
-| VDU Virtual Compute | tosca.nodes.nfv.VDU.Compute        | tosca.nodes.Root|
-+---------------------+------------------------------------+-----------------+
-| Software Image      |                                    |                 |
-+---------------------+------------------------------------+-----------------+
-| Deployment Flavour  |                                    |                 |
-+---------------------+------------------------------------+-----------------+
-| Scaling Aspect      |                                    |                 |
-+---------------------+------------------------------------+-----------------+
-| Element Group       |                                    |                 |
-+---------------------+------------------------------------+-----------------+
-| Instantiation       |                                    |                 |
-| Level               |                                    |                 |
-+---------------------+------------------------------------+-----------------+
+    The VNFD **MUST** comply with ETSI GS NFV-SOL001 document endorsing
+    the above mentioned NFV Profile and maintaining the gaps with the
+    requirements specified in ETSI GS NFV-IFA011 standard.
+
+
+.. req::
+    :id: R-17852
+    :target: VNF
+    :keyword: MAY
+    :introduced: casablanca
+
+    The VNFD **MAY** include TOSCA/YAML definitions that are not part of
+    NFV Profile. If provided, these definitions MUST comply with TOSCA
+    Simple Profile in YAML v.1.2.
+
+.. req::
+    :id: R-46527
+    :target: VNF
+    :keyword: MUST
+    :introduced: casablanca
+
+    A VNFD is a deployment template which describes a VNF in terms of
+    deployment and operational behavior requirements. It contains
+    virtualized resources (nodes) requirements as well as connectivity
+    and interfaces requirements and **MUST** comply with info elements
+    specified in ETSI GS NFV-IFA 011. The main parts of the VNFD are
+    the following:
+
+      - VNF topology: it is modeled in a cloud agnostic way using virtualized
+        containers and their connectivity. Virtual Deployment Units (VDU)
+        describe the capabilities of the virtualized containers, such as
+        virtual CPU, RAM, disks; their connectivity is modeled with VDU
+        Connection Point Descriptors (VduCpd), Virtual Link Descriptors
+        (VnfVld) and VNF External Connection Point Descriptors
+        (VnfExternalCpd);
+    
+      - VNF deployment aspects: they are described in one or more
+        deployment flavours, including configurable parameters, instantiation
+        levels, placement constraints (affinity / antiaffinity), minimum and
+        maximum VDU instance numbers. Horizontal scaling is modeled with
+        scaling aspects and the respective scaling levels in the deployment
+        flavours;
+
+    **Note**: The deployment aspects (deployment flavour etc.) are postponed
+    for future ONAP releases. 
+
+      - VNF lifecycle management (LCM) operations: describes the LCM operations
+        supported per deployment flavour, and their input parameters;
+        Note, thatthe actual LCM implementation resides in a different layer,
+        namely referring to additional template artifacts.
+
+.. req::
+    :id: R-15837
+    :target: VNF
+    :keyword: MUST
+    :introduced: casablanca
+
+    The following table defines the major TOSCA  Types specified in
+    ETSI NFV-SOL001 standard draft. The VNFD provided by a VNF vendor
+    **MUST** comply with the below definitions:
+
+
+.. csv-table:: **TOSCA Definition**
+   :file: TOSCA_descriptor.csv
+   :header-rows: 1
+   :align: center
+   :widths: auto
+
+Data Types
+~~~~~~~~~~~~
+
+.. req::
+    :id: R-54356
+    :target: VNF
+    :keyword: MUST
+    :introduced: casablanca
+
+    The below table includes the data types used by NFV node and is based
+    on TOSCA/YAML constructs specified in draft GS NFV-SOL 001. The node
+    data definitions/attributes used in VNFD **MUST** comply with the below
+    table.
+
+
+.. csv-table:: **NFV Data Types**
+   :file: NFV_data_type.csv
+   :header-rows: 1
+   :align: center
+   :widths: auto
+
+.. req::
+    :id: R-54876
+    :target: VNF
+    :keyword: MUST
+    :introduced: casablanca
+
+    The below table describes the data types used for LCM configuration
+    and is based on TOSCA constructs specified in draft GS NFV-SOL 001.
+    The LCM configuration data elements used in VNFD **MUST** comply
+    with the below table.
+
+.. csv-table:: **LCM Configuration**
+   :file: LCM_config.csv
+   :header-rows: 1
+   :align: center
+   :widths: auto
+
+
+Artifact Types
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+No artifact type is currently supported in ONAP. 
+
+
+Capability Types
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. req::
+    :id: R-67895
+    :target: VNF
+    :keyword: MUST
+    :introduced: casablanca
+
+    The VNFD provided by VNF vendor may use the below described TOSCA
+    capabilities. An on-boarding entity (ONAP SDC) **MUST** support them.
+
+      **tosca.capabilities.nfv.VirtualBindable**
+
+        A node type that includes the VirtualBindable capability indicates
+        that it can be pointed by **tosca.relationships.nfv.VirtualBindsTo**
+        relationship type.
+
+      **tosca.capabilities.nfv.VirtualLinkable**
+
+        A node type that includes the VirtualLinkable capability indicates
+        that it can be pointed by **tosca.relationships.nfv.VirtualLinksTo**
+        relationship.
+
+      **tosca.capabilities.nfv.ExtVirtualLinkable**
+
+        A node type that includes the ExtVirtualLinkable capability
+        indicates that it can be pointed by
+        **tosca.relationships.nfv.VirtualLinksTo** relationship.
+
+      **Note**: This capability type is used in Casablanca how it does
+      not exist in the last SOL001 draft
+      
+      **tosca.capabilities.nfv.VirtualCompute** and
+      **tosca.capabilities.nfv.VirtualStorage** includes flavours of VDU
+
+
+Relationship Types
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. req::
+    :id: R-95321
+    :target: VNF
+    :keyword: MUST
+    :introduced: casablanca
+
+    The VNFD provided by VNF vendor may use the below described TOSCA
+    relationships. An on-boarding entity (ONAP SDC) **MUST** support them.
+
+      **tosca.relationships.nfv.VirtualBindsTo**
+
+        This relationship type represents an association relationship between
+        VDU and CP node types.
+
+      **tosca.relationships.nfv.VirtualLinksTo**
+
+        This relationship type represents an association relationship between
+        the VduCpd’s and VirtualLinkDesc node types.
+
+
+Interface Types
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. req::
+    :id: R-32155
+    :target: VNF
+    :keyword: MUST
+    :introduced: casablanca
+
+    The VNFD provided by VNF vendor may use the below described TOSCA
+    interface types. An on-boarding entity (ONAP SDC) **MUST** support them.
+
+      **tosca.interfaces.nfv.vnf.lifecycle.Nfv** supports LCM operations
 
 
 +--------------------------------------------------------------------+
@@ -419,6 +698,14 @@ supports dpdk. Here is an example.
   target\_performance\_parameters:
 
   sw:ovs\_dpdk: "true"
+
+
+VES Requirements
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Note: ONAP proprietary extensions in ETSI SOL004 standards for VES support
+in CSAR package need to be manually loaded in R3 (Casablanca) for VNF and
+PNFs. Platform support will be developed for this in upcoming releases.**
 
 
 NFV TOSCA Type Definition
