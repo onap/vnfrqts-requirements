@@ -1,5 +1,5 @@
 {
-    "created": "2018-10-08T18:45:36.624588",
+    "created": "2018-10-08T19:38:02.954438",
     "current_version": "casablanca",
     "project": "",
     "versions": {
@@ -21858,7 +21858,7 @@
             "needs_amount": 750
         },
         "casablanca": {
-            "created": "2018-10-08T18:45:36.624518",
+            "created": "2018-10-08T19:38:02.954334",
             "needs": {
                 "R-00011": {
                     "description": "A VNF's Heat Orchestration Template's parameter defined\nin a nested YAML file\n**MUST NOT** have a parameter constraint defined.",
@@ -22113,6 +22113,35 @@
                     "title_from_content": "",
                     "type_name": "Requirement",
                     "updated": "casablanca",
+                    "validated_by": "",
+                    "validation_mode": ""
+                },
+                "R-01123": {
+                    "description": "The VNF package Manifest file **MUST** contain: VNF package meta-data, a\nlist of all artifacts (both internal and external) entry\u2019s including\ntheir respected URI\u2019s, an algorithm to calculate a digest and a digest\nresult calculated on the content of each artifacts, as specified in\nETSI GS NFV-SOL004. The VNF Package MUST include VNF Identification\nData to uniquely identify the resource for a given VNF provider. The\nidentification data must include: an identifier for the VNF, the name\nof the VNF as was given by the VNF provider, VNF description, VNF\nprovider, and version.",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-01123",
+                    "impacts": "",
+                    "introduced": "casablanca",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "VNF Package Contents",
+                    "sections": [
+                        "VNF Package Contents",
+                        "VNF CSAR Package",
+                        "ONAP TOSCA VNFD Requirements"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "VNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -23629,6 +23658,35 @@
                     "validated_by": "",
                     "validation_mode": "static"
                 },
+                "R-10087": {
+                    "description": "The VNF package **MUST** contain all standard artifacts as specified in\nETSI GS NFV-SOL004 including Manifest file, VNFD (or Main TOSCA/YAML\nbased Service Template) and other optional artifacts. CSAR Manifest\nfile as per SOL004 - for example ROOT\\\\ **MainServiceTemplate.mf**",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-10087",
+                    "impacts": "",
+                    "introduced": "casablanca",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "VNF Package Contents",
+                    "sections": [
+                        "VNF Package Contents",
+                        "VNF CSAR Package",
+                        "ONAP TOSCA VNFD Requirements"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "VNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": ""
+                },
                 "R-10129": {
                     "description": "The xNF **SHOULD** conform its YANG model to RFC 7223,\n\"A YANG Data Model for Interface Management\".",
                     "full_title": "",
@@ -24860,6 +24918,35 @@
                     "validated_by": "",
                     "validation_mode": ""
                 },
+                "R-15837": {
+                    "description": "The following table defines the major TOSCA  Types specified in\nETSI NFV-SOL001 standard draft. The VNFD provided by a VNF vendor\n**MUST** comply with the below definitions:",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-15837",
+                    "impacts": "",
+                    "introduced": "casablanca",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "General",
+                    "sections": [
+                        "General",
+                        "TOSCA VNF Descriptor",
+                        "ONAP TOSCA VNFD Requirements"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "VNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": ""
+                },
                 "R-15884": {
                     "description": "The VNF **MUST** include the field \"date\" in the Security alarms\n(where applicable and technically feasible).",
                     "full_title": "",
@@ -25306,6 +25393,35 @@
                     "status": null,
                     "tags": [],
                     "target": "XNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": ""
+                },
+                "R-17852": {
+                    "description": "The VNFD **MAY** include TOSCA/YAML definitions that are not part of\nNFV Profile. If provided, these definitions MUST comply with TOSCA\nSimple Profile in YAML v.1.2.",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-17852",
+                    "impacts": "",
+                    "introduced": "casablanca",
+                    "keyword": "MAY",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "General",
+                    "sections": [
+                        "General",
+                        "TOSCA VNF Descriptor",
+                        "ONAP TOSCA VNFD Requirements"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "VNF",
                     "test": "",
                     "test_case": "",
                     "test_file": "",
@@ -26084,6 +26200,35 @@
                     "title_from_content": "",
                     "type_name": "Requirement",
                     "updated": "casablanca",
+                    "validated_by": "",
+                    "validation_mode": ""
+                },
+                "R-21322": {
+                    "description": "The VNF provider **MUST** provide their testing scripts to support\ntesting as specified in ETSI NFV-SOL004 - Testing directory in CSAR",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-21322",
+                    "impacts": "",
+                    "introduced": "casablanca",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "VNF Package Contents",
+                    "sections": [
+                        "VNF Package Contents",
+                        "VNF CSAR Package",
+                        "ONAP TOSCA VNFD Requirements"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "VNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -27480,6 +27625,35 @@
                     "validated_by": "",
                     "validation_mode": ""
                 },
+                "R-26885": {
+                    "description": "The VNF provider **MUST** provide the binaries and images needed to\ninstantiate the VNF (VNF and VNFC images) either as:\n\n  - Local artifact in CSAR: ROOT\\\\Artifacts\\\\ **VNF_Image.bin**\n\n  - externally referred (by URI) artifact in Manifest file (also may be\n    referred by VNF Descriptor)\n\nNote: Currently, ONAP doesn't have the capability of Image management,\nwe upload the image into VIM/VNFM manually.",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-26885",
+                    "impacts": "",
+                    "introduced": "casablanca",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "VNF Package Contents",
+                    "sections": [
+                        "VNF Package Contents",
+                        "VNF CSAR Package",
+                        "ONAP TOSCA VNFD Requirements"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "VNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": ""
+                },
                 "R-270358": {
                     "description": "A VNF's Heat Orchestration Template's Cinder Volume Template **MUST**\ncontain either\n\n* An ``OS::Cinder::Volume`` resource\n* An ``OS::Heat::ResourceGroup`` resource that references a Nested YAML\n  file that contains an ``OS::Cinder::Volume`` resource\n* A resource that defines the property ``type`` as a Nested YAML file\n  (i.e., static nesting) and the Nested YAML contains\n  an ``OS::Cinder::Volume`` resource",
                     "full_title": "",
@@ -28650,6 +28824,35 @@
                     "validated_by": "",
                     "validation_mode": ""
                 },
+                "R-32155": {
+                    "description": "The VNFD provided by VNF vendor may use the below described TOSCA\ninterface types. An on-boarding entity (ONAP SDC) **MUST** support them.\n\n  **tosca.interfaces.nfv.vnf.lifecycle.Nfv** supports LCM operations",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-32155",
+                    "impacts": "",
+                    "introduced": "casablanca",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "Interface Types",
+                    "sections": [
+                        "Interface Types",
+                        "TOSCA VNF Descriptor",
+                        "ONAP TOSCA VNFD Requirements"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "VNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": ""
+                },
                 "R-32217": {
                     "description": "The xNF **MUST** have routable FQDNs that are reachable via\nthe Ansible Server for the endpoints (VMs) of a xNF on which playbooks\nwill be executed. ONAP will initiate requests to the Ansible Server\nfor invocation of playbooks against these end points [#7.3.3]_.",
                     "full_title": "",
@@ -29531,6 +29734,35 @@
                     "validated_by": "",
                     "validation_mode": ""
                 },
+                "R-35854": {
+                    "description": "The VNF Descriptor (VNFD) provided by VNF vendor **MUST** comply with\nTOSCA/YAML based Service template for VNF descriptor specified in\nETSI NFV-SOL001.\n\n**Note**: As the ETSI NFV-SOL001 is work in progress the below tables\nsummarizes the TOSCA definitions agreed to be part of current version\nof NFV profile and that VNFD MUST comply with in ONAP Release 2+\nRequirements.",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-35854",
+                    "impacts": "",
+                    "introduced": "casablanca",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "General",
+                    "sections": [
+                        "General",
+                        "TOSCA VNF Descriptor",
+                        "ONAP TOSCA VNFD Requirements"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "VNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": ""
+                },
                 "R-35960": {
                     "description": "The xNF Package **MUST** include documentation which must include\nall events, severity level (e.g., informational, warning, error) and\ndescriptions including causes/fixes if applicable for the event.",
                     "full_title": "",
@@ -30377,6 +30609,35 @@
                     "title_from_content": "",
                     "type_name": "Requirement",
                     "updated": "casablanca",
+                    "validated_by": "",
+                    "validation_mode": ""
+                },
+                "R-40820": {
+                    "description": "The VNF provider MUST enumerate all of the open source licenses\ntheir VNF(s) incorporate. CSAR License directory as per ETSI SOL004.\n\nfor example ROOT\\\\Licenses\\\\ **License_term.txt**",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-40820",
+                    "impacts": "",
+                    "introduced": "casablanca",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "VNF Package Contents",
+                    "sections": [
+                        "VNF Package Contents",
+                        "VNF CSAR Package",
+                        "ONAP TOSCA VNFD Requirements"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "VNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -31752,6 +32013,35 @@
                     "validated_by": "",
                     "validation_mode": "static"
                 },
+                "R-46527": {
+                    "description": "A VNFD is a deployment template which describes a VNF in terms of\ndeployment and operational behavior requirements. It contains\nvirtualized resources (nodes) requirements as well as connectivity\nand interfaces requirements and **MUST** comply with info elements\nspecified in ETSI GS NFV-IFA 011. The main parts of the VNFD are\nthe following:\n\n  - VNF topology: it is modeled in a cloud agnostic way using virtualized\n    containers and their connectivity. Virtual Deployment Units (VDU)\n    describe the capabilities of the virtualized containers, such as\n    virtual CPU, RAM, disks; their connectivity is modeled with VDU\n    Connection Point Descriptors (VduCpd), Virtual Link Descriptors\n    (VnfVld) and VNF External Connection Point Descriptors\n    (VnfExternalCpd);\n\n  - VNF deployment aspects: they are described in one or more\n    deployment flavours, including configurable parameters, instantiation\n    levels, placement constraints (affinity / antiaffinity), minimum and\n    maximum VDU instance numbers. Horizontal scaling is modeled with\n    scaling aspects and the respective scaling levels in the deployment\n    flavours;\n\n**Note**: The deployment aspects (deployment flavour etc.) are postponed\nfor future ONAP releases.\n\n  - VNF lifecycle management (LCM) operations: describes the LCM operations\n    supported per deployment flavour, and their input parameters;\n    Note, thatthe actual LCM implementation resides in a different layer,\n    namely referring to additional template artifacts.",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-46527",
+                    "impacts": "",
+                    "introduced": "casablanca",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "General",
+                    "sections": [
+                        "General",
+                        "TOSCA VNF Descriptor",
+                        "ONAP TOSCA VNFD Requirements"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "VNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": ""
+                },
                 "R-46567": {
                     "description": "The xNF Package **MUST** include configuration scripts\nfor boot sequence and configuration.",
                     "full_title": "",
@@ -32838,6 +33128,35 @@
                     "validated_by": "",
                     "validation_mode": ""
                 },
+                "R-51347": {
+                    "description": "The VNF package **MUST** be arranged as a CSAR archive as specified in\nTOSCA Simple Profile in YAML 1.2.",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-51347",
+                    "impacts": "",
+                    "introduced": "casablanca",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "VNF Package Structure and Format",
+                    "sections": [
+                        "VNF Package Structure and Format",
+                        "VNF CSAR Package",
+                        "ONAP TOSCA VNFD Requirements"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "VNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": ""
+                },
                 "R-51430": {
                     "description": "The VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``\nproperty\n``name`` parameter **MUST** be declared as either type ``string``\nor type ``comma_delimited_list``.",
                     "full_title": "",
@@ -33384,6 +33703,35 @@
                     "validated_by": "",
                     "validation_mode": "static"
                 },
+                "R-54356": {
+                    "description": "The below table includes the data types used by NFV node and is based\non TOSCA/YAML constructs specified in draft GS NFV-SOL 001. The node\ndata definitions/attributes used in VNFD **MUST** comply with the below\ntable.",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-54356",
+                    "impacts": "",
+                    "introduced": "casablanca",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "Data Types",
+                    "sections": [
+                        "Data Types",
+                        "TOSCA VNF Descriptor",
+                        "ONAP TOSCA VNFD Requirements"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "VNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": ""
+                },
                 "R-54373": {
                     "description": "The xNF **MUST** have Python >= 2.6 on the endpoint VM(s)\nof a xNF on which an Ansible playbook will be executed.",
                     "full_title": "",
@@ -33539,6 +33887,35 @@
                     "sections": [
                         "VNF Security Analytics Requirements",
                         "VNF Security"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "VNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": ""
+                },
+                "R-54876": {
+                    "description": "The below table describes the data types used for LCM configuration\nand is based on TOSCA constructs specified in draft GS NFV-SOL 001.\nThe LCM configuration data elements used in VNFD **MUST** comply\nwith the below table.",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-54876",
+                    "impacts": "",
+                    "introduced": "casablanca",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "Data Types",
+                    "sections": [
+                        "Data Types",
+                        "TOSCA VNF Descriptor",
+                        "ONAP TOSCA VNFD Requirements"
                     ],
                     "status": null,
                     "tags": [],
@@ -35480,6 +35857,35 @@
                     "validated_by": "",
                     "validation_mode": ""
                 },
+                "R-65486": {
+                    "description": "The VNFD **MUST** comply with ETSI GS NFV-SOL001 document endorsing\nthe above mentioned NFV Profile and maintaining the gaps with the\nrequirements specified in ETSI GS NFV-IFA011 standard.",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-65486",
+                    "impacts": "",
+                    "introduced": "casablanca",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "General",
+                    "sections": [
+                        "General",
+                        "TOSCA VNF Descriptor",
+                        "ONAP TOSCA VNFD Requirements"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "VNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": ""
+                },
                 "R-65515": {
                     "description": "The VNF **MUST** provide a mechanism and tool to start VNF\ncontainers (VMs) without impacting service or service quality assuming\nanother VNF in same or other geographical location is processing service\nrequests.",
                     "full_title": "",
@@ -35937,6 +36343,35 @@
                     "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": "static"
+                },
+                "R-67895": {
+                    "description": "The VNFD provided by VNF vendor may use the below described TOSCA\ncapabilities. An on-boarding entity (ONAP SDC) **MUST** support them.\n\n  **tosca.capabilities.nfv.VirtualBindable**\n\n    A node type that includes the VirtualBindable capability indicates\n    that it can be pointed by **tosca.relationships.nfv.VirtualBindsTo**\n    relationship type.\n\n  **tosca.capabilities.nfv.VirtualLinkable**\n\n    A node type that includes the VirtualLinkable capability indicates\n    that it can be pointed by **tosca.relationships.nfv.VirtualLinksTo**\n    relationship.\n\n  **tosca.capabilities.nfv.ExtVirtualLinkable**\n\n    A node type that includes the ExtVirtualLinkable capability\n    indicates that it can be pointed by\n    **tosca.relationships.nfv.VirtualLinksTo** relationship.\n\n  **Note**: This capability type is used in Casablanca how it does\n  not exist in the last SOL001 draft\n\n  **tosca.capabilities.nfv.VirtualCompute** and\n  **tosca.capabilities.nfv.VirtualStorage** includes flavours of VDU",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-67895",
+                    "impacts": "",
+                    "introduced": "casablanca",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "Capability Types",
+                    "sections": [
+                        "Capability Types",
+                        "TOSCA VNF Descriptor",
+                        "ONAP TOSCA VNFD Requirements"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "VNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": ""
                 },
                 "R-67918": {
                     "description": "The VNF **MUST** handle replication race conditions both locally\nand geo-located in the event of a data base instance failure to maintain\nservice continuity.",
@@ -40218,6 +40653,35 @@
                     "validated_by": "",
                     "validation_mode": "static"
                 },
+                "R-87234": {
+                    "description": "The VNF package provided by a VNF vendor **MAY** be either with\nTOSCA-Metadata directory (CSAR Option 1) or without TOSCA-Metadata\ndirectory (CSAR Option 2) as specified in ETSI GS NFV-SOL004. On-boarding\nentity (ONAP SDC) must support both options.\n\n**Note:** SDC supports only the CSAR Option 1 in Casablanca. The Option 2\nwill be considered in future ONAP releases,",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-87234",
+                    "impacts": "",
+                    "introduced": "casablanca",
+                    "keyword": "MAY",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "VNF Package Structure and Format",
+                    "sections": [
+                        "VNF Package Structure and Format",
+                        "VNF CSAR Package",
+                        "ONAP TOSCA VNFD Requirements"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "VNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": ""
+                },
                 "R-87247": {
                     "description": "VNF Heat Orchestration Template's Incremental Module file name\n**MUST** contain only alphanumeric characters and underscores\n'_' and **MUST NOT** contain the case insensitive word ``base``.",
                     "full_title": "",
@@ -41876,6 +42340,35 @@
                     "validated_by": "",
                     "validation_mode": "static"
                 },
+                "R-95321": {
+                    "description": "The VNFD provided by VNF vendor may use the below described TOSCA\nrelationships. An on-boarding entity (ONAP SDC) **MUST** support them.\n\n  **tosca.relationships.nfv.VirtualBindsTo**\n\n    This relationship type represents an association relationship between\n    VDU and CP node types.\n\n  **tosca.relationships.nfv.VirtualLinksTo**\n\n    This relationship type represents an association relationship between\n    the VduCpd\u2019s and VirtualLinkDesc node types.",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-95321",
+                    "impacts": "",
+                    "introduced": "casablanca",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "Relationship Types",
+                    "sections": [
+                        "Relationship Types",
+                        "TOSCA VNF Descriptor",
+                        "ONAP TOSCA VNFD Requirements"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "VNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": ""
+                },
                 "R-95430": {
                     "description": "A VNF's Heat Orchestration Template's OS::Nova::Server Resource\n``metadata`` map value parameter ``vm_role`` **MUST**\nbe declared as type: ``string``.",
                     "full_title": "",
@@ -43035,7 +43528,7 @@
                     "validation_mode": "static"
                 }
             },
-            "needs_amount": 744
+            "needs_amount": 761
         }
     }
 }
