@@ -131,9 +131,10 @@ Template at orchestration time.
     :validation_mode: static
     :updated: casablanca
 
-    A VNF's Heat Orchestration Template's ``OS::Nova::Server`` Resource
-    ``metadata`` map value parameter ``vf_module_id`` **MUST**
-    be declared as type: ``string``.
+    A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource property
+    ``metadata`` key/value pair ``vf_module_id`` parameter **MUST**
+    be declared as ``vf_module_id`` and the parameter **MUST**
+    be defined as type: ``string``.
 
 .. req::
     :id: R-98374
@@ -219,8 +220,9 @@ Template at orchestration time.
     :validation_mode: static
     :updated: casablanca
 
-    A VNF's Heat Orchestration Template's ``OS::Nova::Server`` Resource
-    ``metadata`` map value parameter ``vnf_name`` **MUST NOT**
+    A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
+    property ``metadata`` key/value pair ``vnf_name`` 
+    parameter ``vnf_name`` **MUST NOT**
     have parameter constraints defined.
 
 .. req::
@@ -286,9 +288,11 @@ part of the orchestration process.
     :validation_mode: static
     :updated: casablanca
 
-    A VNF's Heat Orchestration Template's ``OS::Nova::Server`` Resource
-    ``metadata`` map value parameter ``vf_module_name`` **MUST**
-    be declared as type: ``string``.
+    A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
+    property 
+    ``metadata`` key/value pair ``vf_module_name`` parameter **MUST** be
+    declared as ``vf_module_name`` and the parameter **MUST**
+    be defined as type: ``string``.
 
 .. req::
     :id: R-15480
@@ -373,9 +377,9 @@ available for use by other ONAP components and/or north bound systems.
     :validation_mode: static
     :updated: casablanca
 
-    A VNF's Heat Orchestration Template's ``OS::Nova::Server`` Resource
-    ``metadata`` map value parameter ``vm_role`` **MUST NOT**
-    have parameter constraints defined.
+    A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
+    property ``metadata`` key/value pair ``vm_role`` parameter ``vm_role``
+    **MUST NOT** have parameter constraints defined.
 
 .. req::
     :id: R-46823
@@ -554,10 +558,10 @@ vf_module_index
     :validation_mode: static
     :updated: casablanca
 
-    If a VNF's Heat Orchestration Template's ``OS::Nova::Server`` Resource
-    ``metadata`` map value parameter ``vf_module_index`` is passed into a
-    Nested YAML
-    file, the parameter name ``vf_module_index`` **MUST NOT** change.
+    If a VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
+    property ``metadata`` key/value pair ``vf_module_index`` is passed into a
+    Nested YAML file, the key/value pair
+    ``vf_module_index`` **MUST NOT** change.
 
 .. req::
     :id: R-55306
@@ -669,8 +673,9 @@ workload_context
     :validation_mode: static
     :updated: casablanca
 
-    A VNF's Heat Orchestration Template's ``OS::Nova::Server`` Resource
-    ``metadata`` map value parameter ``workload_context`` **MUST NOT**
+    A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
+    property ``metadata`` key/value pair ``workload_context`` 
+    parameter ``workload_context`` **MUST NOT**
     have parameter constraints defined.
 
 .. req::

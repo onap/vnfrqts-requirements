@@ -1,5 +1,5 @@
 {
-    "created": "2018-10-08T18:45:36.624588",
+    "created": "2018-10-08T20:37:27.230153",
     "current_version": "casablanca",
     "project": "",
     "versions": {
@@ -21858,7 +21858,7 @@
             "needs_amount": 750
         },
         "casablanca": {
-            "created": "2018-10-08T18:45:36.624518",
+            "created": "2018-10-08T20:37:27.230135",
             "needs": {
                 "R-00011": {
                     "description": "A VNF's Heat Orchestration Template's parameter defined\nin a nested YAML file\n**MUST NOT** have a parameter constraint defined.",
@@ -26366,7 +26366,7 @@
                     "validation_mode": ""
                 },
                 "R-22441": {
-                    "description": "If a VNF's Heat Orchestration Template's ``OS::Nova::Server`` Resource\n``metadata`` map value parameter ``vf_module_index`` is passed into a\nNested YAML\nfile, the parameter name ``vf_module_index`` **MUST NOT** change.",
+                    "description": "If a VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource\nproperty ``metadata`` key/value pair ``vf_module_index`` is passed into a\nNested YAML file, the key/value pair\n``vf_module_index`` **MUST NOT** change.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-22441",
@@ -29164,7 +29164,7 @@
                     "validation_mode": "static"
                 },
                 "R-34055": {
-                    "description": "A VNF's Heat Orchestration Template's ``OS::Nova::Server`` Resource\n``metadata`` map value parameter ``workload_context`` **MUST NOT**\nhave parameter constraints defined.",
+                    "description": "A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource\nproperty ``metadata`` key/value pair ``workload_context``\nparameter ``workload_context`` **MUST NOT**\nhave parameter constraints defined.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-34055",
@@ -30040,7 +30040,7 @@
                     "validation_mode": "static"
                 },
                 "R-39067": {
-                    "description": "A VNF's Heat Orchestration Template's ``OS::Nova::Server`` Resource\n``metadata`` map value parameter ``vf_module_name`` **MUST**\nbe declared as type: ``string``.",
+                    "description": "A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource\nproperty\n``metadata`` key/value pair ``vf_module_name`` parameter **MUST** be\ndeclared as ``vf_module_name`` and the parameter **MUST**\nbe defined as type: ``string``.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-39067",
@@ -31385,7 +31385,7 @@
                     "validation_mode": ""
                 },
                 "R-44318": {
-                    "description": "A VNF's Heat Orchestration Template's ``OS::Nova::Server`` Resource\n``metadata`` map value parameter ``vnf_name`` **MUST NOT**\nhave parameter constraints defined.",
+                    "description": "A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource\nproperty ``metadata`` key/value pair ``vnf_name``\nparameter ``vnf_name`` **MUST NOT**\nhave parameter constraints defined.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-44318",
@@ -35856,7 +35856,7 @@
                     "validation_mode": "static"
                 },
                 "R-67597": {
-                    "description": "A VNF's Heat Orchestration Template's ``OS::Nova::Server`` Resource\n``metadata`` map value parameter ``vm_role`` **MUST NOT**\nhave parameter constraints defined.",
+                    "description": "A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource\nproperty ``metadata`` key/value pair ``vm_role`` parameter ``vm_role``\n**MUST NOT** have parameter constraints defined.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-67597",
@@ -38756,7 +38756,7 @@
                     "validation_mode": "static"
                 },
                 "R-82134": {
-                    "description": "A VNF's Heat Orchestration Template's ``OS::Nova::Server`` Resource\n``metadata`` map value parameter ``vf_module_id`` **MUST**\nbe declared as type: ``string``.",
+                    "description": "A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource property\n``metadata`` key/value pair ``vf_module_id`` parameter **MUST**\nbe declared as ``vf_module_id`` and the parameter **MUST**\nbe defined as type: ``string``.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-82134",
