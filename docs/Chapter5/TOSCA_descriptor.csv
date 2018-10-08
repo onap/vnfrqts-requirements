@@ -1,0 +1,42 @@
+"Info Element
+
+From ETSI GS NFV-IFA 011","Implementation in
+TOSCA NFV Profile and Endorsement in ETSI GS NFV-SOL001",Derived from,Description,Supported in ONAP Casablanca release
+VNFD,tosca.nodes.nfv.VNF,tosca.nodes.Root,"TOSCA main service template and describes a VNF in terms of deployment and operational behavior requirements, connectivity, interfaces and virtualized resource requirements.",Y
+"VDU Compute Descriptor
+
+**R-09467**",tosca.nodes.nfv.VDU.Compute,tosca.nodes.Root,"Represents VNF-C (or VM) with deployment flavours.
+
+Represents the virtual compute part of a VDU entity which it mainly describes the deployment and operational behavior of a VNFC.
+ 
+**Note**: Currently not directly supported but allowed via tosca.capabilities.nfv.VirtualCompute",Y but different way
+VDU VirtualCompute Descriptor,tosca.capabilities.nfv.VirtualCompute,tosca.capabilities.Root,Represents the virtual compute part of a VDU entity which it mainly describes the deployment and operational behavior of a VNFC,Y
+"VDU VirtualStorage Descriptor
+
+**R-09467**",tosca.nodes.nfv.VDU.VirtualStorage,tosca.nodes.Root,"Represents a virtual storage entity which it describes the deployment and operational behavior of a virtual storage resources.
+
+**Note**: This node type is split into three in latest SOL001 draft how the data model uses an older version for Casablanca release.",Y
+Cpd - Connection Point Descriptor,tosca.nodes.nfv.Cp,tosca.nodes.Root,Represents network connectivity to a compute resource or a VL - abstract type used as parent for the various Cpd types.,Y
+"VduCpd
+
+**R-35851**",tosca.nodes.nfv.VduCp,tosca.nodes.nfv.Cp,Represents a type of TOSCA Cpd node and describes network connectivity between a VNFC instance (based on this VDU) and an internal VL,Y
+"VnfVirtualLinkDesc
+
+**R-35851**",tosca.nodes.nfv.VnfVirtualLink,tosca.nodes.Root,Node type represents a logical internal virtual link,Y
+"VnfExtCpd (External Connection Point)
+
+**R-35851**",tosca.nodes.nfv.VnfExtCp,tosca.nodes.Root,"Represents a logical external connection point, exposed by this VNF enabling connecting with Virtual Link,",N
+"SwImageDesc
+
+
+**R-02454**",tosca.artifacts.nfv.SwImage,tosca.artifacts.Deployment.Image,"Artifact type describes the software image which is directly loaded on the Virtualisation container of the VDU or is to be loaded on a virtual storage resource.
+
+**Note**: Currently not supported in Casablanca release as well as SW image artifact in CSAR",N
+"DeploymentFlavour
+
+VnfDf info element
+
+**R-41215**",tosca.capabilities.nfv.DeploymentFlavour,tosca.capabilities.Root,**Note**: Current ONAP release support a single deployment flavour,N
+"Scaling Aspect
+
+**R-96634** The VNF providerMUSTdescribe scaling capabilities to manage scaling characteristics of the VNF.",tosca.datatypes.nfv.ScalingAspect,tosca.datatypes.Root,TBD in ETSI NFV-SOL001,N

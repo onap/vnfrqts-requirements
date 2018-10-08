@@ -1,0 +1,16 @@
+"Info Element
+
+From ETSI GS NFV-IFA 011","Implementation in
+
+ETSI NFV-SOL001",Derived from,Description,Supported in ONAP Casablanca release
+VnfLcmOperationsConfiguration,tosca.datatypes.nfv.VnfLcmOperationsConfiguration,tosca.datatypes.Root,Represents information to configure lifecycle management operations. Each VNF LCM operation configuration represent as a container for all attributes that effect the invocation of the VNF Lifecycle Management operations ? see below per LCM operation,Y
+InstantiateVnfOpConfig,tosca.datatypes.nfv.VnfInstantiateOperationConfiguration,tosca.datatypes.Root,Represents information that affect the invocation of the InstantiateVnf operation,Y
+ScaleVnfOpConfig,tosca.datatypes.nfv.VnfScaleOperationConfiguration,tosca.datatypes.Root,Represents information that affect the invocation of the ScaleVnf operation,Y
+ScaleVnfToLevelOpConfig,tosca.datatypes.nfv.VnfScaleToLevelOperationConfiguration,tosca.datatypes.Root,Represents information that affect the invocation of the ScaleVnfToLevel operation,Y
+HealVnfOpConfig,tosca.datatypes.nfv.VnfHealOperationConfiguration,tosca.datatypes.Root,Represents information that affect the invocation of the HealVnf operation,Y
+TerminateVnfOpConfig,tosca.datatypes.nfv.VnfTerminateOperationConfiguration,tosca.datatypes.Root,Represents information that affect the invocation of the TerminateVnf,Y
+OperateVnfOpConfig,tosca.datatypes.nfv.VnfOperateOperationConfiguration,tosca.datatypes.Root,Represents information that affect the invocation of the OperateVnf operation,Y
+ChangeVnfFlavourOpConfig,tosca.datatypes.nfv.VnfChangeFlavourOperationConfiguration,tosca.datatypes.Root,Defines attributes for invocation of ChangeVnfFlavour operation,N
+ChangeExtVnfConnectivityOpConfig,tosca.datatypes.nfv.VnfExtConnectivityOperationConfiguration,tosca.datatypes.Root,"Defines attributes for invocation of ChangeExtVnfConnectivty operation.
+
+**Note**: External VNF connectivity is postponed to future ONAP releases.",N
