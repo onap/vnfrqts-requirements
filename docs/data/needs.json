@@ -1,5 +1,5 @@
 {
-    "created": "2018-10-05T17:32:22.611807",
+    "created": "2018-10-08T18:45:36.624588",
     "current_version": "casablanca",
     "project": "",
     "versions": {
@@ -21858,7 +21858,7 @@
             "needs_amount": 750
         },
         "casablanca": {
-            "created": "2018-10-05T17:32:22.611675",
+            "created": "2018-10-08T18:45:36.624518",
             "needs": {
                 "R-00011": {
                     "description": "A VNF's Heat Orchestration Template's parameter defined\nin a nested YAML file\n**MUST NOT** have a parameter constraint defined.",
@@ -29588,7 +29588,7 @@
                     "validation_mode": ""
                 },
                 "R-36542": {
-                    "description": "A VNF's Heat Orchestration Template's ``OS::Nova::Server`` Resource\n``metadata`` map value parameter ``vnf_name`` **MUST NOT**\nbe enumerated in the Heat Orchestration Template's environment file.",
+                    "description": "A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource\nproperty ``metadata`` key/value pair ``vnf_name`` parameter\n``vnf_name`` **MUST NOT**\nbe enumerated in the Heat Orchestration Template's environment file.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-36542",
@@ -39548,7 +39548,7 @@
                     "validation_mode": "static"
                 },
                 "R-85328": {
-                    "description": "A VNF's Heat Orchestration Template's ``OS::Nova::Server`` Resource **MAY**\ncontain the ``metadata`` map value parameter ``vm_role``.",
+                    "description": "A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource property\n``metadata`` **MAY**\ncontain the key/value pair ``vm_role`` and the value **MUST** be\nobtained either via\n\n- ``get_param``\n- hard coded in the key/value pair ``vm_role``.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-85328",
@@ -39799,7 +39799,7 @@
                     "validation_mode": ""
                 },
                 "R-86237": {
-                    "description": "If a VNF's Heat Orchestration Template's ``OS::Nova::Server`` Resource\n``metadata`` map value parameter ``vf_module_id`` is passed into a\nNested YAML\nfile, the parameter name ``vf_module_id`` **MUST NOT** change.",
+                    "description": "If a VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource\nproperty\n``metadata`` key/value pair ``vf_module_id`` is passed into a\nNested YAML\nfile, the key/value pair name ``vf_module_id`` **MUST NOT** change.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-86237",
