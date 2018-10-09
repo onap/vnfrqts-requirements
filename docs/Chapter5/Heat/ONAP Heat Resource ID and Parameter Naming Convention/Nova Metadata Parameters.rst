@@ -56,8 +56,9 @@ Template at orchestration time.
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server``
     resource property
-    ``metadata`` key/value pair ``vnf_id`` parameter ``vnf_id`` **MUST**
-    be declared as type: ``string``.
+    ``metadata`` key/value pair ``vnf_id`` parameter
+    **MUST** be declared as ``vnf_id`` and the parameter **MUST**
+    be defined as type: ``string``.
 
 .. req::
     :id: R-55218
@@ -143,8 +144,9 @@ Template at orchestration time.
     :validation_mode: static
     :updated: casablanca
 
-    A VNF's Heat Orchestration Template's ``OS::Nova::Server`` Resource
-    ``metadata`` map value parameter ``vf_module_id`` **MUST NOT**
+    A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource property
+    ``metadata`` key/value pair ``vf_module_id`` parameter ``vf_module_id``
+    **MUST NOT**
     have parameter constraints defined.
 
 .. req::
@@ -244,9 +246,11 @@ Template at orchestration time.
     :validation_mode: static
     :updated: casablanca
 
-    If a VNF's Heat Orchestration Template's ``OS::Nova::Server`` Resource
-    ``metadata`` map value parameter ``vnf_name`` is passed into a Nested YAML
-    file, the parameter name ``vnf_name`` **MUST NOT** change.
+
+    If a VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
+    property 
+    ``metadata`` key/value pair ``vnf_name`` is passed into a Nested YAML
+    file, the key/value pair name ``vnf_name`` **MUST NOT** change.
 
 *Example 'vnf_name' Parameter Definition*
 
@@ -323,9 +327,10 @@ part of the orchestration process.
     :validation_mode: static
     :updated: casablanca
 
-    If a VNF's Heat Orchestration Template's ``OS::Nova::Server`` Resource
-    metadata map value parameter ``vf_module_name`` is passed into a Nested YAML
-    file, the parameter name ``vf_module_name`` **MUST NOT** change.
+    If a VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
+    property ``metadata`` key/value pair ``vf_module_name`` is passed into a
+    Nested YAML
+    file, the key/value pair name ``vf_module_name`` **MUST NOT** change.
 
 *Example 'vf_module_name' Parameter Definition*
 
@@ -366,9 +371,11 @@ available for use by other ONAP components and/or north bound systems.
     :validation_mode: static
     :updated: casablanca
 
-    A VNF's Heat Orchestration Template's OS::Nova::Server Resource
-    ``metadata`` map value parameter ``vm_role`` **MUST**
-    be declared as type: ``string``.
+    If a VNF's Heat Orchestration Template's ``OS::Nova::Server``
+    resource property
+    ``metadata`` key/value pair ``vm_role`` value is obtained via 
+    ``get_param``, the parameter **MUST** be declared as ``vm_role`` 
+    and the parameter **MUST** be defined as type: ``string``.
 
 .. req::
     :id: R-67597
@@ -570,10 +577,11 @@ vf_module_index
     :validation_mode: static
     :updated: casablanca
 
-    If a VNF's Heat Orchestration Template's ``OS::Nova::Server`` Resource
-    ``metadata`` map value parameter ``vf_module_index`` **MUST NOT**
-    be used in a
-    VNF's Volume Template; it is not supported.
+    A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
+    property ``metadata`` key/value pair ``vf_module_index`` **MUST NOT**
+    be used in a ``OS::Cinder::Volume`` resource and **MUST NOT** be
+    used in VNF's Volume template;
+    it is not supported.
 
 The ``vf_module_index`` parameter indicates which instance of the module is
 being deployed into the VNF.
@@ -767,8 +775,9 @@ environment_context
     :validation_mode: static
     :updated: casablanca
 
-    A VNF's Heat Orchestration Template's ``OS::Nova::Server`` Resource
-    ``metadata`` map value parameter ``environment_context`` **MUST NOT**
+    A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
+    property ``metadata``key/value pair ``environment_context``
+    parameter ``environment_context`` **MUST NOT**
     have parameter constraints defined.
 
 .. req::
