@@ -45,7 +45,8 @@ Template at orchestration time.
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server``
     resource property ``metadata`` **MUST**
-    contain the  key/value pair ``vnf_id``.
+    contain the  key/value pair ``vnf_id``
+    and the value **MUST** be obtained via a ``get_param``.
 
 .. req::
     :id: R-07507
@@ -205,8 +206,9 @@ Template at orchestration time.
     :validation_mode: static
     :updated: casablanca
 
-    A VNF's Heat Orchestration Template's ``OS::Nova::Server`` Resource **MUST**
-    contain the ``metadata`` map value parameter ``vnf_name``.
+    A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource property
+    ``metadata`` **MUST** contain the key/value pair ``vnf_name`` and the
+    value **MUST** be obtained via a ``get_param``.
 
 .. req::
     :id: R-62428
@@ -323,8 +325,10 @@ part of the orchestration process.
     :validation_mode: static
     :updated: casablanca
 
-    A VNF's Heat Orchestration Template's ``OS::Nova::Server`` Resource
-    ``metadata`` map value parameter ``vf_module_name`` **MUST NOT**
+
+    A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
+    property ``metadata`` key/value pair ``vf_module_name`` 
+    parameter ``vf_module_name`` **MUST NOT**
     be enumerated in the Heat Orchestration Template's environment file.
 
 .. req::
@@ -424,9 +428,10 @@ Defining the ``vm_role`` as the ``{vm-type}`` is a recommended convention
     :validation_mode: static
     :updated: casablanca
 
-    If a VNF's Heat Orchestration Template's ``OS::Nova::Server`` Resource
-    ``metadata`` map value parameter ``vm_role`` value **MUST**
-    only contain alphanumeric characters and underscores '_'.
+    A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
+    property ``metadata`` key/value pair ``vm_role`` value **MUST**
+    only contain alphanumeric characters and underscores (i.e., '_').
+
 
 .. req::
     :id: R-70757
@@ -435,9 +440,11 @@ Defining the ``vm_role`` as the ``{vm-type}`` is a recommended convention
     :validation_mode: static
     :updated: casablanca
 
-    If a VNF's Heat Orchestration Template's ``OS::Nova::Server`` Resource
-    ``metadata`` map value parameter ``vm_role`` is passed into a Nested YAML
-    file, the parameter name ``vm_role`` **MUST NOT** change.
+    If a VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
+    property ``metadata`` key/value pair ``vm_role`` is passed into a Nested
+    YAML
+    file, the key/value pair name ``vm_role`` **MUST NOT** change.
+
 
 *Example 'vm_role' Parameter Definition*
 
@@ -541,9 +548,12 @@ vf_module_index
     :validation_mode: static
     :updated: casablanca
 
-    A VNF's Heat Orchestration Template's ``OS::Nova::Server`` Resource
-    ``metadata`` map value parameter ``vf_module_index`` **MUST**
-    be declared as type: ``number``.
+    A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
+    property
+    ``metadata`` key/value pair ``vf_module_index`` parameter **MUST**
+    be declared as ``vf_module_index`` and the parameter **MUST** be
+    defined as type: ``number``.
+
 
 .. req::
     :id: R-09811
@@ -682,9 +692,11 @@ workload_context
     :validation_mode: static
     :updated: casablanca
 
-    A VNF's Heat Orchestration Template's ``OS::Nova::Server`` Resource
-    ``metadata`` map value parameter ``workload_context`` **MUST**
-    be declared as type: ``string``.
+    A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
+    property ``metadata`` key/value pair ``workload_context`` 
+    parameter **MUST**
+    be declared as ``workload_context`` and the parameter **MUST**
+    be defined as type: ``string``.
 
 .. req::
     :id: R-34055
@@ -779,9 +791,10 @@ environment_context
     :validation_mode: static
     :updated: casablanca
 
-    A VNF's Heat Orchestration Template's ``OS::Nova::Server`` Resource
-    ``metadata`` map value parameter ``environment_context`` **MUST**
-    be declared as type: ``string``.
+    A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
+    property ``metadata`` key/value pair ``environment_context`` 
+    parameter **MUST** be declared as ``environment_context`` and the
+    parameter type **MUST** be defined as type: ``string``.
 
 .. req::
     :id: R-56183
@@ -802,8 +815,9 @@ environment_context
     :validation_mode: static
     :updated: casablanca
 
-    A VNF's Heat Orchestration Template's ``OS::Nova::Server`` Resource
-    ``metadata`` map value parameter ``environment_context`` **MUST NOT**
+    A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
+    property 
+    ``metadata`` key/value pair ``environment_context`` **MUST NOT**
     be enumerated in the Heat Orchestration Template's environment file.
 
 .. req::
