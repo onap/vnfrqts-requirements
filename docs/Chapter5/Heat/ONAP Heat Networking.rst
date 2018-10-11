@@ -42,7 +42,7 @@ independently of VNFs.
     :updated: casablanca
 
     A VNF **MAY** be connected to zero, one or more than one external
-    networks.
+    network.
 
 .. req::
     :id: R-57424
@@ -189,8 +189,9 @@ Contrail Heat Resources.
     :validation_mode: static
     :updated: casablanca
 
-    A VNF's port connected to an internal network **MUST NOT** connect
-    the port to VMs in another VNF and/or an external gateway and/or
+    A VNF's port connected to an internal network **MUST NOT** use the port
+    for the purpose of reaching VMs in another VNF and/or an
+    external gateway and/or
     external router.
 
 .. req::

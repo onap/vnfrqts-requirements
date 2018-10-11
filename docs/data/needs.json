@@ -1,5 +1,5 @@
 {
-    "created": "2018-10-11T12:59:57.386364",
+    "created": "2018-10-11T18:36:19.658092",
     "current_version": "casablanca",
     "project": "",
     "versions": {
@@ -21858,7 +21858,7 @@
             "needs_amount": 750
         },
         "casablanca": {
-            "created": "2018-10-11T12:59:57.386344",
+            "created": "2018-10-11T18:36:19.658082",
             "needs": {
                 "R-00011": {
                     "description": "A VNF's Heat Orchestration Template's parameter defined\nin a nested YAML file\n**MUST NOT** have a parameter constraint defined.",
@@ -22004,7 +22004,7 @@
                     "validation_mode": ""
                 },
                 "R-00606": {
-                    "description": "A VNF **MAY** be connected to zero, one or more than one external\nnetworks.",
+                    "description": "A VNF **MAY** be connected to zero, one or more than one external\nnetwork.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-00606",
@@ -23402,7 +23402,7 @@
                     "validation_mode": ""
                 },
                 "R-07577": {
-                    "description": "If the VNF's ports connected to a unique network (internal or external)\nand the port's IP addresses are Cloud Assigned IP Addresses,\nall the IPv4 Addresses **MUST** be from\nthe same subnet and all the IPv6 Addresses **MUST** be from the\nsame subnet.",
+                    "description": "If the VNF's ports connected to a unique network (internal or external)\nand the port's IP addresses are cloud assigned IP Addresses,\nall the IPv4 Addresses **MUST** be from\nthe same subnet and all the IPv6 Addresses **MUST** be from the\nsame subnet.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-07577",
@@ -24635,7 +24635,7 @@
                     "validation_mode": ""
                 },
                 "R-13841": {
-                    "description": "A VNF **MAY** have one or more ports connected to a unique\ninternal network. All VNF ports connected to the unique internal\nnetwork **MUST** have Cloud Assigned IP Addresses\nor **MUST** have statically assigned IP addresses.",
+                    "description": "A VNF **MAY** have one or more ports connected to a unique\ninternal network. All VNF ports connected to the unique internal\nnetwork **MUST** have cloud assigned IP Addresses\nor **MUST** have statically assigned IP addresses.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-13841",
@@ -26880,7 +26880,7 @@
                     "validation_mode": ""
                 },
                 "R-23503": {
-                    "description": "When the VNF's Heat Orchestration Template's Resource\n``OS::Neutron::Port`` is attaching to an external network (per the\nONAP definition, see Requirement Requirement R-57424),\nand an IPv6 address is assigned\nusing the property ``fixed_ips``\nmap property ``ip_address`` and the parameter type is defined as a\n``comma_delimited_list``,\nthe parameter name **MUST** follow the\nnaming convention\n\n  * ``{vm-type}_{network-role}_v6_ips``\n\nwhere\n\n  * ``{vm-type}`` is the {vm-type} associated with the\n    OS::Nova::Server\n  * ``{network-role}`` is the {network-role} of the external\n    network",
+                    "description": "When the VNF's Heat Orchestration Template's Resource\n``OS::Neutron::Port`` is attaching to an external network (per the\nONAP definition, see Requirement R-57424),\nand an IPv6 address is assigned\nusing the property ``fixed_ips``\nmap property ``ip_address`` and the parameter type is defined as a\n``comma_delimited_list``,\nthe parameter name **MUST** follow the\nnaming convention\n\n  * ``{vm-type}_{network-role}_v6_ips``\n\nwhere\n\n  * ``{vm-type}`` is the {vm-type} associated with the\n    OS::Nova::Server\n  * ``{network-role}`` is the {network-role} of the external\n    network",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-23503",
@@ -29678,7 +29678,7 @@
                     "validation_mode": "static"
                 },
                 "R-35735": {
-                    "description": "When the VNF's Heat Orchestration Template's Resource\n``OS::Neutron::Port`` is attaching to an external network (per the\nONAP definition, see Requirement R-57424),\nand an IPv6 Virtual IP (VIP)\naddress is assigned via ONAP automation\nusing the property ``allowed_address_pairs``\nmap property ``ip_address``,\nthe parameter name **MUST** follow the\nnaming convention\n\n  * ``{vm-type}_{network-role}_v6_floating_ip``\n\nwhere\n\n  * ``{vm-type}`` is the {vm-type} associated with the\n    OS::Nova::Server\n  * ``{network-role}`` is the {network-role} of the external\n    network\n\nAnd the parameter **MUST** be declared as type ``string``.",
+                    "description": "When the VNF's Heat Orchestration Template's Resource\n``OS::Neutron::Port`` is attaching to an external network (per the\nONAP definition, see Requirement R-57424),\nand an IPv6 Virtual IP (VIP)\naddress is assigned via ONAP automation\nusing the property ``allowed_address_pairs``\nmap property ``ip_address``,\nthe parameter name **MUST** follow the\nnaming convention\n\n  * ``{vm-type}_{network-role}_floating_v6_ip``\n\nwhere\n\n  * ``{vm-type}`` is the {vm-type} associated with the\n    OS::Nova::Server\n  * ``{network-role}`` is the {network-role} of the external\n    network\n\nAnd the parameter **MUST** be declared as type ``string``.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-35735",
@@ -31986,7 +31986,7 @@
                     "validation_mode": ""
                 },
                 "R-46461": {
-                    "description": "A VNF's port connected to an internal network **MUST NOT** connect\nthe port to VMs in another VNF and/or an external gateway and/or\nexternal router.",
+                    "description": "A VNF's port connected to an internal network **MUST NOT** use the port\nfor the purpose of reaching VMs in another VNF and/or an\nexternal gateway and/or\nexternal router.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-46461",
@@ -39955,7 +39955,7 @@
                     "validation_mode": ""
                 },
                 "R-85235": {
-                    "description": "When the VNF's Heat Orchestration Template's Resource\n``OS::Neutron::Port`` is attaching to an internal network (per the\nONAP definition, see Requirement Requirements R-52425 and R-46461),\nand an IPv4 address is assigned\nusing the property ``fixed_ips``\nmap property ``ip_address`` and the parameter type is defined as a\n``comma_delimited_list``,\nthe parameter name **MUST** follow the\nnaming convention\n\n  * ``{vm-type}_int_{network-role}_ips``\n\nwhere\n\n  * ``{vm-type}`` is the {vm-type} associated with the\n    ``OS::Nova::Server``\n  * ``{network-role}`` is the {network-role} of the internal\n    network",
+                    "description": "When the VNF's Heat Orchestration Template's Resource\n``OS::Neutron::Port`` is attaching to an internal network (per the\nONAP definition, see Requirements R-52425 and R-46461),\nand an IPv4 address is assigned\nusing the property ``fixed_ips``\nmap property ``ip_address`` and the parameter type is defined as a\n``comma_delimited_list``,\nthe parameter name **MUST** follow the\nnaming convention\n\n  * ``{vm-type}_int_{network-role}_ips``\n\nwhere\n\n  * ``{vm-type}`` is the {vm-type} associated with the\n    ``OS::Nova::Server``\n  * ``{network-role}`` is the {network-role} of the internal\n    network",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-85235",

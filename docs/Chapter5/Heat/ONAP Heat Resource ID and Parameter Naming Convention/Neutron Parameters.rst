@@ -81,7 +81,7 @@ Items to Note
 
     A VNF **MAY** have one or more ports connected to a unique
     internal network. All VNF ports connected to the unique internal
-    network **MUST** have Cloud Assigned IP Addresses
+    network **MUST** have cloud assigned IP Addresses
     or **MUST** have statically assigned IP addresses.
 
 .. req::
@@ -92,7 +92,7 @@ Items to Note
     :updated: casablanca
 
     If the VNF's ports connected to a unique network (internal or external)
-    and the port's IP addresses are Cloud Assigned IP Addresses,
+    and the port's IP addresses are cloud assigned IP Addresses,
     all the IPv4 Addresses **MUST** be from
     the same subnet and all the IPv6 Addresses **MUST** be from the
     same subnet.
@@ -491,7 +491,7 @@ the value at orchestration to the Heat Orchestration Template.
 
     When the VNF's Heat Orchestration Template's Resource
     ``OS::Neutron::Port`` is attaching to an external network (per the
-    ONAP definition, see Requirement Requirement R-57424),
+    ONAP definition, see Requirement R-57424),
     and an IPv6 address is assigned
     using the property ``fixed_ips``
     map property ``ip_address`` and the parameter type is defined as a
@@ -601,7 +601,7 @@ Heat Orchestration Template's Environment File.
 
     When the VNF's Heat Orchestration Template's Resource
     ``OS::Neutron::Port`` is attaching to an internal network (per the
-    ONAP definition, see Requirement Requirements R-52425 and R-46461),
+    ONAP definition, see Requirements R-52425 and R-46461),
     and an IPv4 address is assigned
     using the property ``fixed_ips``
     map property ``ip_address`` and the parameter type is defined as a
@@ -1437,7 +1437,7 @@ VIP Assignment, External Networks, Supported by Automation
     the parameter name **MUST** follow the
     naming convention
 
-      * ``{vm-type}_{network-role}_v6_floating_ip``
+      * ``{vm-type}_{network-role}_floating_v6_ip``
 
     where
 
