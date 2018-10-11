@@ -1,5 +1,5 @@
 {
-    "created": "2018-10-10T20:48:45.405167",
+    "created": "2018-10-11T12:59:57.386364",
     "current_version": "casablanca",
     "project": "",
     "versions": {
@@ -21858,7 +21858,7 @@
             "needs_amount": 750
         },
         "casablanca": {
-            "created": "2018-10-10T20:48:45.405167",
+            "created": "2018-10-11T12:59:57.386344",
             "needs": {
                 "R-00011": {
                     "description": "A VNF's Heat Orchestration Template's parameter defined\nin a nested YAML file\n**MUST NOT** have a parameter constraint defined.",
@@ -24807,7 +24807,7 @@
                     "validation_mode": ""
                 },
                 "R-15287": {
-                    "description": "When the VNF's Heat Orchestration Template's\nresource ``OS::Neutron::Port`` is attaching\nto an external network (per the ONAP definition, see\nRequirement R-57424),\nand an IPv6 address is being cloud assigned by OpenStack's DHCP Service\nand the external network IPv6 subnet is to be specified\nusing the property ``fixed_ips``\nmap property ``subnet``/``subnet_id``, the parameter\n**MUST** follow the naming convention\n\n  * ``{network-role}_v6_subnet_id``\n\nwhere\n\n  * ``{network-role}`` is the network role of the network.",
+                    "description": "When the VNF's Heat Orchestration Template's\nresource ``OS::Neutron::Port`` is attaching\nto an external network (per the ONAP definition, see\nRequirement R-57424),\nand an IPv6 address is being cloud assigned by OpenStack's DHCP Service\nand the external network IPv6 subnet is to be specified\nusing the property ``fixed_ips``\nmap property ``subnet``, the parameter\n**MUST** follow the naming convention\n\n  * ``{network-role}_v6_subnet_id``\n\nwhere\n\n  * ``{network-role}`` is the network role of the network.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-15287",
@@ -24816,9 +24816,9 @@
                     "keyword": "MUST",
                     "links": [],
                     "notes": "",
-                    "section_name": "Property: fixed_ips, Map Property: subnet_id",
+                    "section_name": "Property: fixed_ips, Map Property: subnet",
                     "sections": [
-                        "Property: fixed_ips, Map Property: subnet_id",
+                        "Property: fixed_ips, Map Property: subnet",
                         "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
@@ -26427,7 +26427,7 @@
                     "validation_mode": ""
                 },
                 "R-22288": {
-                    "description": "The VNF's Heat Orchestration Template's Resource\n``OS::Neutron::Port`` property ``fixed_ips``\nmap property ``subnet``/``subnet_id`` parameter\n``int_{network-role}_v6_subnet_id``\n**MUST NOT** be enumerated in the\nVNF's Heat Orchestration Template's Environment File.",
+                    "description": "The VNF's Heat Orchestration Template's Resource\n``OS::Neutron::Port`` property ``fixed_ips``\nmap property ``subnet`` parameter\n``int_{network-role}_v6_subnet_id``\n**MUST NOT** be enumerated in the\nVNF's Heat Orchestration Template's Environment File.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-22288",
@@ -26436,9 +26436,9 @@
                     "keyword": "MUST NOT",
                     "links": [],
                     "notes": "",
-                    "section_name": "Property: fixed_ips, Map Property: subnet_id",
+                    "section_name": "Property: fixed_ips, Map Property: subnet",
                     "sections": [
-                        "Property: fixed_ips, Map Property: subnet_id",
+                        "Property: fixed_ips, Map Property: subnet",
                         "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
@@ -30216,7 +30216,7 @@
                     "validation_mode": ""
                 },
                 "R-38236": {
-                    "description": "The VNF's Heat Orchestration Template's\nresource ``OS::Neutron::Port`` property ``fixed_ips``\nmap property ``subnet``/``subnet_id`` parameter\n**MUST** be declared type ``string``.",
+                    "description": "The VNF's Heat Orchestration Template's\nresource ``OS::Neutron::Port`` property ``fixed_ips``\nmap property ``subnet`` parameter\n**MUST** be declared type ``string``.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-38236",
@@ -30225,9 +30225,9 @@
                     "keyword": "MUST",
                     "links": [],
                     "notes": "",
-                    "section_name": "Property: fixed_ips, Map Property: subnet_id",
+                    "section_name": "Property: fixed_ips, Map Property: subnet",
                     "sections": [
-                        "Property: fixed_ips, Map Property: subnet_id",
+                        "Property: fixed_ips, Map Property: subnet",
                         "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
@@ -31814,7 +31814,7 @@
                     "validation_mode": "static"
                 },
                 "R-45602": {
-                    "description": "If a VNF's Port is attached to a network (internal or external)\nand the port's IP addresses are cloud assigned by OpenStack's DHCP\nService, the ``OS::Neutron::Port`` Resource's\n\n* property ``fixed_ips`` map property ``ip_address`` **MUST NOT** be used\n* property ``fixed_ips`` map property ``subnet``/``subnet_id``\n  **MAY** be used",
+                    "description": "If a VNF's Port is attached to a network (internal or external)\nand the port's IP addresses are cloud assigned by OpenStack's DHCP\nService, the ``OS::Neutron::Port`` Resource's\n\n* property ``fixed_ips`` map property ``ip_address`` **MUST NOT** be used\n* property ``fixed_ips`` map property ``subnet``\n  **MAY** be used",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-45602",
@@ -32667,7 +32667,7 @@
                     "validation_mode": ""
                 },
                 "R-48880": {
-                    "description": "If a VNF's Port is attached to an external network and the port's\nIP addresses are assigned by ONAP's SDN-Controller,\nthe ``OS::Neutron::Port`` Resource's\n\n* property ``fixed_ips`` map property ``ip_address`` **MUST** be used\n* property ``fixed_ips`` map property ``subnet``/``subnet_id``\n  **MUST NOT** be used",
+                    "description": "If a VNF's Port is attached to an external network and the port's\nIP addresses are assigned by ONAP's SDN-Controller,\nthe ``OS::Neutron::Port`` Resource's\n\n* property ``fixed_ips`` map property ``ip_address`` **MUST** be used\n* property ``fixed_ips`` map property ``subnet``\n  **MUST NOT** be used",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-48880",
@@ -35348,7 +35348,7 @@
                     "validation_mode": "static"
                 },
                 "R-62802": {
-                    "description": "When the VNF's Heat Orchestration Template's\nresource ``OS::Neutron::Port`` is attaching\nto an external network (per the ONAP definition, see\nRequirement R-57424),\nand an IPv4 address is being cloud assigned by OpenStack's DHCP Service\nand the external network IPv4 subnet is to be specified\nusing the property ``fixed_ips``\nmap property ``subnet``/``subnet_id``, the parameter\n**MUST** follow the naming convention\n\n  * ``{network-role}_subnet_id``\n\nwhere\n\n  * ``{network-role}`` is the network role of the network.",
+                    "description": "When the VNF's Heat Orchestration Template's\nresource ``OS::Neutron::Port`` is attaching\nto an external network (per the ONAP definition, see\nRequirement R-57424),\nand an IPv4 address is being cloud assigned by OpenStack's DHCP Service\nand the external network IPv4 subnet is to be specified\nusing the property ``fixed_ips``\nmap property ``subnet``, the parameter\n**MUST** follow the naming convention\n\n  * ``{network-role}_subnet_id``\n\nwhere\n\n  * ``{network-role}`` is the network role of the network.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-62802",
@@ -35357,9 +35357,9 @@
                     "keyword": "MUST",
                     "links": [],
                     "notes": "",
-                    "section_name": "Property: fixed_ips, Map Property: subnet_id",
+                    "section_name": "Property: fixed_ips, Map Property: subnet",
                     "sections": [
-                        "Property: fixed_ips, Map Property: subnet_id",
+                        "Property: fixed_ips, Map Property: subnet",
                         "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
@@ -36800,7 +36800,7 @@
                     "validation_mode": ""
                 },
                 "R-69634": {
-                    "description": "The VNF's Heat Orchestration Template's Resource\n``OS::Neutron::Port`` property ``fixed_ips``\nmap property ``subnet``/``subnet_id`` parameter\n``int_{network-role}_subnet_id``\n**MUST NOT** be enumerated in the\nVNF's Heat Orchestration Template's Environment File.",
+                    "description": "The VNF's Heat Orchestration Template's Resource\n``OS::Neutron::Port`` property ``fixed_ips``\nmap property ``subnet`` parameter\n``int_{network-role}_subnet_id``\n**MUST NOT** be enumerated in the\nVNF's Heat Orchestration Template's Environment File.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-69634",
@@ -36809,9 +36809,9 @@
                     "keyword": "MUST NOT",
                     "links": [],
                     "notes": "",
-                    "section_name": "Property: fixed_ips, Map Property: subnet_id",
+                    "section_name": "Property: fixed_ips, Map Property: subnet",
                     "sections": [
-                        "Property: fixed_ips, Map Property: subnet_id",
+                        "Property: fixed_ips, Map Property: subnet",
                         "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
@@ -37198,7 +37198,7 @@
                     "validation_mode": ""
                 },
                 "R-70964": {
-                    "description": "If a VNF's Port is attached to an internal network and the port's\nIP addresses are statically assigned by the VNF's Heat Orchestration\\\nTemplate (i.e., enumerated in the Heat Orchestration Template's\nenvironment file), the ``OS::Neutron::Port`` Resource's\n\n* property ``fixed_ips`` map property ``ip_address`` **MUST** be used\n* property ``fixed_ips`` map property ``subnet``/``subnet_id``\n  **MUST NOT** be used",
+                    "description": "If a VNF's Port is attached to an internal network and the port's\nIP addresses are statically assigned by the VNF's Heat Orchestration\\\nTemplate (i.e., enumerated in the Heat Orchestration Template's\nenvironment file), the ``OS::Neutron::Port`` Resource's\n\n* property ``fixed_ips`` map property ``ip_address`` **MUST** be used\n* property ``fixed_ips`` map property ``subnet``\n  **MUST NOT** be used",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-70964",
@@ -38164,7 +38164,7 @@
                     "validation_mode": "static"
                 },
                 "R-76160": {
-                    "description": "When\n\n  * the VNF's Heat Orchestration Template's\n    resource ``OS::Neutron::Port`` in an Incremental Module is attaching\n    to an internal network (per the ONAP definition, see Requirement TBD)\n    that is created in the Base Module, AND\n  * an IPv6 address is being cloud assigned by OpenStack's DHCP Service AND\n  * the internal network IPv6 subnet is to be specified\n    using the property ``fixed_ips`` map property ``subnet``/``subnet_id``,\n\nthe parameter **MUST** follow the naming convention\n``int_{network-role}_v6_subnet_id``,\nwhere ``{network-role}`` is the network role of the internal network.\n\nNote that the parameter **MUST** be defined as an ``output`` parameter in\nthe base module.",
+                    "description": "When\n\n  * the VNF's Heat Orchestration Template's\n    resource ``OS::Neutron::Port`` in an Incremental Module is attaching\n    to an internal network (per the ONAP definition, see Requirements\n    R-52425 and R-46461)\n    that is created in the Base Module, AND\n  * an IPv6 address is being cloud assigned by OpenStack's DHCP Service AND\n  * the internal network IPv6 subnet is to be specified\n    using the property ``fixed_ips`` map property ``subnet``,\n\nthe parameter **MUST** follow the naming convention\n``int_{network-role}_v6_subnet_id``,\nwhere ``{network-role}`` is the network role of the internal network.\n\nNote that the parameter **MUST** be defined as an ``output`` parameter in\nthe base module.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-76160",
@@ -38173,9 +38173,9 @@
                     "keyword": "MUST",
                     "links": [],
                     "notes": "",
-                    "section_name": "Property: fixed_ips, Map Property: subnet_id",
+                    "section_name": "Property: fixed_ips, Map Property: subnet",
                     "sections": [
-                        "Property: fixed_ips, Map Property: subnet_id",
+                        "Property: fixed_ips, Map Property: subnet",
                         "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
@@ -38876,7 +38876,7 @@
                     "validation_mode": "static"
                 },
                 "R-80829": {
-                    "description": "The VNF's Heat Orchestration Template's Resource\n``OS::Neutron::Port`` property ``fixed_ips``\nmap property ``subnet``/``subnet_id`` parameter\n``{network-role}_v6_subnet_id``\n**MUST NOT** be enumerated in the\nVNF's Heat Orchestration Template's Environment File.",
+                    "description": "The VNF's Heat Orchestration Template's Resource\n``OS::Neutron::Port`` property ``fixed_ips``\nmap property ``subnet`` parameter\n``{network-role}_v6_subnet_id``\n**MUST NOT** be enumerated in the\nVNF's Heat Orchestration Template's Environment File.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-80829",
@@ -38885,9 +38885,9 @@
                     "keyword": "MUST NOT",
                     "links": [],
                     "notes": "",
-                    "section_name": "Property: fixed_ips, Map Property: subnet_id",
+                    "section_name": "Property: fixed_ips, Map Property: subnet",
                     "sections": [
-                        "Property: fixed_ips, Map Property: subnet_id",
+                        "Property: fixed_ips, Map Property: subnet",
                         "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
@@ -39586,7 +39586,7 @@
                     "validation_mode": ""
                 },
                 "R-83677": {
-                    "description": "The VNF's Heat Orchestration Template's Resource\n``OS::Neutron::Port`` property ``fixed_ips``\nmap property ``subnet``/``subnet_id`` parameter\n``{network-role}_subnet_id``\n**MUST NOT** be enumerated in the\nVNF's Heat Orchestration Template's Environment File.",
+                    "description": "The VNF's Heat Orchestration Template's Resource\n``OS::Neutron::Port`` property ``fixed_ips``\nmap property ``subnet`` parameter\n``{network-role}_subnet_id``\n**MUST NOT** be enumerated in the\nVNF's Heat Orchestration Template's Environment File.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-83677",
@@ -39595,9 +39595,9 @@
                     "keyword": "MUST NOT",
                     "links": [],
                     "notes": "",
-                    "section_name": "Property: fixed_ips, Map Property: subnet_id",
+                    "section_name": "Property: fixed_ips, Map Property: subnet",
                     "sections": [
-                        "Property: fixed_ips, Map Property: subnet_id",
+                        "Property: fixed_ips, Map Property: subnet",
                         "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
@@ -39702,7 +39702,7 @@
                     "validation_mode": ""
                 },
                 "R-84123": {
-                    "description": "When\n\n  * the VNF's Heat Orchestration Template's\n    resource ``OS::Neutron::Port`` in an Incremental Module is attaching\n    to an internal network (per the ONAP definition, see\n    Requirements R-52425 and R-46461)\n    that is created in the Base Module, AND\n  * an IPv4 address is being cloud assigned by OpenStack's DHCP Service AND\n  * the internal network IPv4 subnet is to be specified\n    using the property ``fixed_ips`` map property ``subnet``/``subnet_id``,\n\nthe parameter **MUST** follow the naming convention\n\n  * ``int_{network-role}_subnet_id``\n\nwhere\n\n  * ``{network-role}`` is the network role of the internal network\n\nNote that the parameter **MUST** be defined as an ``output`` parameter in\nthe base module.",
+                    "description": "When\n\n  * the VNF's Heat Orchestration Template's\n    resource ``OS::Neutron::Port`` in an Incremental Module is attaching\n    to an internal network (per the ONAP definition, see\n    Requirements R-52425 and R-46461)\n    that is created in the Base Module, AND\n  * an IPv4 address is being cloud assigned by OpenStack's DHCP Service AND\n  * the internal network IPv4 subnet is to be specified\n    using the property ``fixed_ips`` map property ``subnet``,\n\nthe parameter **MUST** follow the naming convention\n\n  * ``int_{network-role}_subnet_id``\n\nwhere\n\n  * ``{network-role}`` is the network role of the internal network\n\nNote that the parameter **MUST** be defined as an ``output`` parameter in\nthe base module.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-84123",
@@ -39711,9 +39711,9 @@
                     "keyword": "MUST",
                     "links": [],
                     "notes": "",
-                    "section_name": "Property: fixed_ips, Map Property: subnet_id",
+                    "section_name": "Property: fixed_ips, Map Property: subnet",
                     "sections": [
-                        "Property: fixed_ips, Map Property: subnet_id",
+                        "Property: fixed_ips, Map Property: subnet",
                         "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,

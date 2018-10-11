@@ -17,12 +17,12 @@ naming convention. The four properties are:
 
 1. network
 2. fixed_ips, ip_address
-3. fixed_ips, subnet_id or fixed_ips, subnet
+3. fixed_ips, subnet
 
- * These two properties represent the same construct.
-   ONAP currently has a Sev-2 issues associated with fixed_ips, subnet_id
-   and it is recommended to use fixed_ips, subnet
- * Note that in many examples in this document fixed_ips, subnet_id is used.
+ * Note that earlier versions of this document mentioned the property
+   fixed_ips, subnet_id.  This property has been removed from the document since
+   it has been deprecated.
+   See https://github.com/openstack/heat/blob/stable/ocata/heat/engine/resources/openstack/neutron/port.py
 
 4. allowed_address_pairs, ip_address
 
@@ -109,7 +109,7 @@ Items to Note
     Service, the ``OS::Neutron::Port`` Resource's
 
     * property ``fixed_ips`` map property ``ip_address`` **MUST NOT** be used
-    * property ``fixed_ips`` map property ``subnet``/``subnet_id``
+    * property ``fixed_ips`` map property ``subnet``
       **MAY** be used
 
 .. req::
@@ -135,7 +135,7 @@ Items to Note
     the ``OS::Neutron::Port`` Resource's
 
     * property ``fixed_ips`` map property ``ip_address`` **MUST** be used
-    * property ``fixed_ips`` map property ``subnet``/``subnet_id``
+    * property ``fixed_ips`` map property ``subnet``
       **MUST NOT** be used
 
 .. req::
@@ -162,7 +162,7 @@ Items to Note
     environment file), the ``OS::Neutron::Port`` Resource's
 
     * property ``fixed_ips`` map property ``ip_address`` **MUST** be used
-    * property ``fixed_ips`` map property ``subnet``/``subnet_id``
+    * property ``fixed_ips`` map property ``subnet``
       **MUST NOT** be used
 
 Property: network
@@ -982,11 +982,11 @@ The ``{vm-type}`` has been defined as ``db`` for database.
           - "ip_address": {get_param: db_oam_int_v6_ip_1}
 
 
-Property: fixed_ips, Map Property: subnet_id
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Property: fixed_ips, Map Property: subnet
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The resource ``OS::Neutron::Port`` property ``fixed_ips`` map
-property ``subnet``/``subnet_id`` is used when a
+property ``subnet`` is used when a
 port is requesting an IP assignment via
 OpenStack’s DHCP Service (i.e., cloud assigned).
 
@@ -1001,7 +1001,7 @@ subnet.
 
 If the network (external or internal) that the port is attaching
 to contains two or more subnets, specifying the subnet in the
-``fixed_ips`` map property ``subnet``/``subnet_id`` determines which
+``fixed_ips`` map property ``subnet`` determines which
 subnet the IP address will be assigned from.
 
 If the network (external or internal) that the port is attaching
@@ -1010,7 +1010,7 @@ specified, OpenStack will randomly determine which subnet
 the IP address will be assigned from.
 
 The property ``fixed_ips`` is used to assign IPs to a port. The Map Property
-``subnet_id`` specifies the subnet the IP is assigned from.
+``subnet`` specifies the subnet the IP is assigned from.
 
 .. req::
     :id: R-38236
@@ -1021,7 +1021,7 @@ The property ``fixed_ips`` is used to assign IPs to a port. The Map Property
 
     The VNF's Heat Orchestration Template's
     resource ``OS::Neutron::Port`` property ``fixed_ips``
-    map property ``subnet``/``subnet_id`` parameter
+    map property ``subnet`` parameter
     **MUST** be declared type ``string``.
 
 .. req::
@@ -1038,7 +1038,7 @@ The property ``fixed_ips`` is used to assign IPs to a port. The Map Property
     and an IPv4 address is being cloud assigned by OpenStack's DHCP Service
     and the external network IPv4 subnet is to be specified
     using the property ``fixed_ips``
-    map property ``subnet``/``subnet_id``, the parameter
+    map property ``subnet``, the parameter
     **MUST** follow the naming convention
 
       * ``{network-role}_subnet_id``
@@ -1054,9 +1054,10 @@ The property ``fixed_ips`` is used to assign IPs to a port. The Map Property
     :validation_mode: static
     :updated: casablanca
 
+
     The VNF's Heat Orchestration Template's Resource
     ``OS::Neutron::Port`` property ``fixed_ips``
-    map property ``subnet``/``subnet_id`` parameter
+    map property ``subnet`` parameter
     ``{network-role}_subnet_id``
     **MUST NOT** be enumerated in the
     VNF's Heat Orchestration Template's Environment File.
@@ -1089,7 +1090,7 @@ value at orchestration to the Heat Orchestration Template.
     and an IPv6 address is being cloud assigned by OpenStack's DHCP Service
     and the external network IPv6 subnet is to be specified
     using the property ``fixed_ips``
-    map property ``subnet``/``subnet_id``, the parameter
+    map property ``subnet``, the parameter
     **MUST** follow the naming convention 
 
       * ``{network-role}_v6_subnet_id``
@@ -1107,7 +1108,7 @@ value at orchestration to the Heat Orchestration Template.
 
     The VNF's Heat Orchestration Template's Resource
     ``OS::Neutron::Port`` property ``fixed_ips``
-    map property ``subnet``/``subnet_id`` parameter
+    map property ``subnet`` parameter
     ``{network-role}_v6_subnet_id``
     **MUST NOT** be enumerated in the
     VNF's Heat Orchestration Template's Environment File.
@@ -1135,7 +1136,7 @@ to assign IP addresses.
         parameters:
           network: { get_param: oam_net_id }
           fixed_ips:
-            - subnet_id: { get_param: oam_subnet_id }
+            - subnet: { get_param: oam_subnet_id }
 
 *Example: One Cloud Assigned IPv4 address and one Cloud Assigned IPv6
 address assigned to a network that has at least one IPv4 subnet and one
@@ -1163,8 +1164,8 @@ balancer.
       properties:
         network: { get_param: oam_net_id }
         fixed_ips:
-          - subnet_id: { get_param: oam_subnet_id }
-          - subnet_id: { get_param: oam_v6_subnet_id }
+          - subnet: { get_param: oam_subnet_id }
+          - subnet: { get_param: oam_v6_subnet_id }
 
 .. req::
     :id: R-84123
@@ -1182,7 +1183,7 @@ balancer.
         that is created in the Base Module, AND
       * an IPv4 address is being cloud assigned by OpenStack's DHCP Service AND
       * the internal network IPv4 subnet is to be specified
-        using the property ``fixed_ips`` map property ``subnet``/``subnet_id``,
+        using the property ``fixed_ips`` map property ``subnet``,
 
     the parameter **MUST** follow the naming convention
     
@@ -1204,7 +1205,7 @@ balancer.
 
     The VNF's Heat Orchestration Template's Resource
     ``OS::Neutron::Port`` property ``fixed_ips``
-    map property ``subnet``/``subnet_id`` parameter
+    map property ``subnet`` parameter
     ``int_{network-role}_subnet_id``
     **MUST NOT** be enumerated in the
     VNF's Heat Orchestration Template's Environment File.
@@ -1236,11 +1237,12 @@ input parameter.
 
       * the VNF's Heat Orchestration Template's
         resource ``OS::Neutron::Port`` in an Incremental Module is attaching
-        to an internal network (per the ONAP definition, see Requirement TBD)
+        to an internal network (per the ONAP definition, see Requirements 
+        R-52425 and R-46461)
         that is created in the Base Module, AND
       * an IPv6 address is being cloud assigned by OpenStack's DHCP Service AND
       * the internal network IPv6 subnet is to be specified
-        using the property ``fixed_ips`` map property ``subnet``/``subnet_id``,
+        using the property ``fixed_ips`` map property ``subnet``,
 
     the parameter **MUST** follow the naming convention
     ``int_{network-role}_v6_subnet_id``,
@@ -1258,7 +1260,7 @@ input parameter.
 
     The VNF's Heat Orchestration Template's Resource
     ``OS::Neutron::Port`` property ``fixed_ips``
-    map property ``subnet``/``subnet_id`` parameter
+    map property ``subnet`` parameter
     ``int_{network-role}_v6_subnet_id``
     **MUST NOT** be enumerated in the
     VNF's Heat Orchestration Template's Environment File.
