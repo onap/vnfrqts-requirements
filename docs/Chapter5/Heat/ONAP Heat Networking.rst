@@ -147,7 +147,7 @@ or an external gateway or router
     :keyword: MAY
     :updated: casablanca
 
-    A VNF **MAY** contain zero, one or more than one internal networks.
+    A VNF **MAY** contain zero, one or more than one internal network.
 
 .. req::
     :id: R-35666

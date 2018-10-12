@@ -145,7 +145,7 @@ Module.
     :keyword: MUST
     :validation_mode: static
 
-    The VNF **MUST** have a corresponding environment file for a Base Module.
+    A VNF's Base Module **MUST** have a corresponding Environment File.
 
 .. req::
     :id: R-81725

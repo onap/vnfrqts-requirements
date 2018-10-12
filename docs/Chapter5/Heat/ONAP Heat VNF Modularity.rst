@@ -64,13 +64,23 @@ Incremental Module.
     :validation_mode: static
     :updated: casablanca
 
-    A shared Heat Orchestration Template resource must be defined
-    in the base module. A shared resource is a resource that that will
-    be referenced by another resource that is defined in the Base Module
-    and/or one or more incremental modules. When the shared resource needs
-    to be referenced by a resource in an incremental module, the UUID of
-    the shared resource **MUST** be exposed by declaring an ONAP Base
-    Module Output Parameter.
+
+    A shared Heat Orchestration Template resource is a resource that **MUST**
+    be defined in the base module and will be referenced by one or 
+    more resources in one more more incremental modules.
+
+    The UUID of the shared resource (created in the base module) **MUST** be
+    exposed by declaring a parameter in the
+    ``outputs`` section of the base module.
+
+    For ECOMP to provided the UUID value of the shared resource to the
+    incremental module, the parameter name defined in the ``outputs``
+    section of the base module **MUST** be defined as a parameter
+    in the ``parameters`` section of the incremental module.
+
+    ECOMP will capture the output parameter name and value in the base module
+    and provide the value to the corresponding parameter(s) in the
+    incremental module(s).
 
 When the shared resource needs to be referenced by a resource in an
 incremental module, the UUID of the shared resource must be exposed by

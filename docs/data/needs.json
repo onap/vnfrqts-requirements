@@ -1,5 +1,5 @@
 {
-    "created": "2018-10-11T18:36:19.658092",
+    "created": "2018-10-12T17:13:01.470078",
     "current_version": "casablanca",
     "project": "",
     "versions": {
@@ -21858,7 +21858,7 @@
             "needs_amount": 750
         },
         "casablanca": {
-            "created": "2018-10-11T18:36:19.658082",
+            "created": "2018-10-12T17:13:01.470023",
             "needs": {
                 "R-00011": {
                     "description": "A VNF's Heat Orchestration Template's parameter defined\nin a nested YAML file\n**MUST NOT** have a parameter constraint defined.",
@@ -28341,7 +28341,7 @@
                     "validation_mode": ""
                 },
                 "R-29765": {
-                    "description": "When the VNF's Heat Orchestration Template's Resource\n``OS::Neutron::Port`` is attaching to an internal network (per the\nONAP definition, see Requirement Requirements R-52425 and R-46461),\nand an IPv6 address is assigned\nusing the property ``fixed_ips``\nmap property ``ip_address`` and the parameter type is defined as a\n``comma_delimited_list``,\nthe parameter name **MUST** follow the\nnaming convention\n\n  * ``{vm-type}_int_{network-role}_v6_ips``\n\nwhere\n\n  * ``{vm-type}`` is the {vm-type} associated with the\n    ``OS::Nova::Server``\n  * ``{network-role}`` is the {network-role} of the internal\n    network",
+                    "description": "When the VNF's Heat Orchestration Template's Resource\n``OS::Neutron::Port`` is attaching to an internal network (per the\nONAP definition, see Requirements R-52425 and R-46461),\nand an IPv6 address is assigned\nusing the property ``fixed_ips``\nmap property ``ip_address`` and the parameter type is defined as a\n``comma_delimited_list``,\nthe parameter name **MUST** follow the\nnaming convention\n\n  * ``{vm-type}_int_{network-role}_v6_ips``\n\nwhere\n\n  * ``{vm-type}`` is the {vm-type} associated with the\n    ``OS::Nova::Server``\n  * ``{network-role}`` is the {network-role} of the internal\n    network",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-29765",
@@ -28369,7 +28369,7 @@
                     "validation_mode": "static"
                 },
                 "R-29872": {
-                    "description": "The VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``\nproperty ``network``\nparameter **MUST NOT** be enumerated in the Heat Orchestration\nTemplate's Environment File.",
+                    "description": "The VNF's Heat Orchestration Template's Resource ``OS::Neutron::Port``\nproperty ``network``\nparameter **MUST NOT** be enumerated in the Heat Orchestration\nTemplate's Environment File.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-29872",
@@ -30244,7 +30244,7 @@
                     "validation_mode": "static"
                 },
                 "R-38474": {
-                    "description": "The VNF **MUST** have a corresponding environment file for a Base Module.",
+                    "description": "A VNF's Base Module **MUST** have a corresponding Environment File.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-38474",
@@ -35064,7 +35064,7 @@
                     "validation_mode": ""
                 },
                 "R-61001": {
-                    "description": "A shared Heat Orchestration Template resource must be defined\nin the base module. A shared resource is a resource that that will\nbe referenced by another resource that is defined in the Base Module\nand/or one or more incremental modules. When the shared resource needs\nto be referenced by a resource in an incremental module, the UUID of\nthe shared resource **MUST** be exposed by declaring an ONAP Base\nModule Output Parameter.",
+                    "description": "A shared Heat Orchestration Template resource is a resource that **MUST**\nbe defined in the base module and will be referenced by one or\nmore resources in one more more incremental modules.\n\nThe UUID of the shared resource (created in the base module) **MUST** be\nexposed by declaring a parameter in the\n``outputs`` section of the base module.\n\nFor ECOMP to provided the UUID value of the shared resource to the\nincremental module, the parameter name defined in the ``outputs``\nsection of the base module **MUST** be defined as a parameter\nin the ``parameters`` section of the incremental module.\n\nECOMP will capture the output parameter name and value in the base module\nand provide the value to the corresponding parameter(s) in the\nincremental module(s).",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-61001",
@@ -35320,7 +35320,7 @@
                     "validation_mode": ""
                 },
                 "R-62590": {
-                    "description": "The VNF's Heat Orchestration Template's Resource ``OS::Neutron::Port``\nproperty ``fixed_ips``\nmap property ``ip_address``\nparameter associated with an external network, i.e.,\n\n * ``{vm-type}_{network-role}_ip_{index}``\n * ``{vm-type}_{network-role}_ip_v6_{index}``\n * ``{vm-type}_{network-role}_ips``\n * ``{vm-type}_{network-role}_v6_ips``\n\n\n**MUST NOT** be enumerated in the Heat Orchestration\nTemplate's Environment File.  ONAP provides the IP address\nassignments at orchestration time.",
+                    "description": "The VNF's Heat Orchestration Template's Resource ``OS::Neutron::Port``\nproperty ``fixed_ips``\nmap property ``ip_address``\nparameter associated with an external network, i.e.,\n\n * ``{vm-type}_{network-role}_ip_{index}``\n * ``{vm-type}_{network-role}_v6_ip_{index}``\n * ``{vm-type}_{network-role}_ips``\n * ``{vm-type}_{network-role}_v6_ips``\n\n\n**MUST NOT** be enumerated in the Heat Orchestration\nTemplate's Environment File.  ONAP provides the IP address\nassignments at orchestration time.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-62590",
@@ -40598,7 +40598,7 @@
                     "validation_mode": ""
                 },
                 "R-87096": {
-                    "description": "A VNF **MAY** contain zero, one or more than one internal networks.",
+                    "description": "A VNF **MAY** contain zero, one or more than one internal network.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-87096",
@@ -42027,7 +42027,7 @@
                     "validation_mode": "none"
                 },
                 "R-93272": {
-                    "description": "A VNF **MAY** have one or more ports connected to a unique\nexternal network. All VNF ports connected to the unique external\nnetwork **MUST** have Cloud Assigned IP Addresses\nor **MUST** have ONAP SDN-C assigned IP addresses.",
+                    "description": "A VNF **MAY** have one or more ports connected to a unique\nexternal network. All VNF ports connected to the unique external\nnetwork **MUST** have cloud assigned IP Addresses\nor **MUST** have ONAP SDN-C assigned IP addresses.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-93272",
@@ -42086,7 +42086,7 @@
                     "validation_mode": ""
                 },
                 "R-93496": {
-                    "description": "The VNF's Heat Orchestration Template's Resource ``OS::Neutron::Port``\nproperty ``fixed_ips``\nmap property ``ip_address``\nparameter associated with an internal network, i.e.,\n\n * ``{vm-type}_int_{network-role}_ip_{index}``\n * ``{vm-type}_int_{network-role}_ip_v6_{index}``\n * ``{vm-type}_int_{network-role}_ips``\n * ``{vm-type}_int_{network-role}_v6_ips``\n\n\n**MUST** be enumerated in the Heat Orchestration\nTemplate's Environment File and IP addresses **MUST** be\nassigned.",
+                    "description": "The VNF's Heat Orchestration Template's Resource ``OS::Neutron::Port``\nproperty ``fixed_ips``\nmap property ``ip_address``\nparameter associated with an internal network, i.e.,\n\n * ``{vm-type}_int_{network-role}_ip_{index}``\n * ``{vm-type}_int_{network-role}_v6_ip_{index}``\n * ``{vm-type}_int_{network-role}_ips``\n * ``{vm-type}_int_{network-role}_v6_ips``\n\n\n**MUST** be enumerated in the Heat Orchestration\nTemplate's Environment File and IP addresses **MUST** be\nassigned.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-93496",
@@ -42515,7 +42515,7 @@
                     "validation_mode": "static"
                 },
                 "R-96482": {
-                    "description": "When a VNF's Heat Orchestration Template's resource is associated\nwith a single external network, the Resource ID **MUST** contain the text\n'{network-role}'.",
+                    "description": "When a VNF's Heat Orchestration Template's resource is associated\nwith a single external network, the Resource ID **MUST** contain the text\n``{network-role}``.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-96482",
@@ -43249,7 +43249,7 @@
                     "validation_mode": ""
                 },
                 "R-99110": {
-                    "description": "A VNF's Heat Orchestration Template's Resource\n``OS::ContrailV2::VirtualNetwork`` Resource ID **MUST** use the naming convention\n\n1) ``int_{network-role}_network``\n\nor\n\n2) ``int_{network-role}_RVN`` where RVN represents Resource Virtual\n   Network\n\nVNF Heat Orchestration Templates can only create internal networks.\nThere is no ``{index}`` after ``{network-role}`` because ``{network-role}``\n**MUST** be unique in the scope of the VNF's\nHeat Orchestration Template.",
+                    "description": "A VNF's Heat Orchestration Template's Resource\n``OS::ContrailV2::VirtualNetwork`` Resource ID **MUST** use the naming convention\n\n1) ``int_{network-role}_network``\n\nor\n\n2) ``int_{network-role}_RVN`` where RVN represents Resource Virtual\n   Network\n\nVNF Heat Orchestration Templates can only create internal networks.\nThere is no ``{index}`` after ``{network-role}`` because ``{network-role}``\n**MUST** be unique in the scope of the VNF's\nHeat Orchestration Template.\n\nNote that option 1 is preferred.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-99110",

@@ -70,7 +70,7 @@ Items to Note
 
     A VNF **MAY** have one or more ports connected to a unique
     external network. All VNF ports connected to the unique external
-    network **MUST** have Cloud Assigned IP Addresses
+    network **MUST** have cloud assigned IP Addresses
     or **MUST** have ONAP SDN-C assigned IP addresses.
 
 .. req::
@@ -254,7 +254,7 @@ The output parameter name will be declared as a parameter in the
     :validation_mode: static
     :updated: casablanca
 
-    The VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``
+    The VNF's Heat Orchestration Template's Resource ``OS::Neutron::Port``
     property ``network``
     parameter **MUST NOT** be enumerated in the Heat Orchestration
     Template's Environment File.
@@ -710,7 +710,7 @@ Heat Orchestration Template's Environment File.
 
     When the VNF's Heat Orchestration Template's Resource
     ``OS::Neutron::Port`` is attaching to an internal network (per the
-    ONAP definition, see Requirement Requirements R-52425 and R-46461),
+    ONAP definition, see Requirements R-52425 and R-46461),
     and an IPv6 address is assigned
     using the property ``fixed_ips``
     map property ``ip_address`` and the parameter type is defined as a
@@ -778,7 +778,7 @@ Heat Orchestration Template's Environment File.
     parameter associated with an external network, i.e.,
 
      * ``{vm-type}_{network-role}_ip_{index}``
-     * ``{vm-type}_{network-role}_ip_v6_{index}``
+     * ``{vm-type}_{network-role}_v6_ip_{index}``
      * ``{vm-type}_{network-role}_ips``
      * ``{vm-type}_{network-role}_v6_ips``
 
@@ -800,7 +800,7 @@ Heat Orchestration Template's Environment File.
     parameter associated with an internal network, i.e.,
 
      * ``{vm-type}_int_{network-role}_ip_{index}``
-     * ``{vm-type}_int_{network-role}_ip_v6_{index}``
+     * ``{vm-type}_int_{network-role}_v6_ip_{index}``
      * ``{vm-type}_int_{network-role}_ips``
      * ``{vm-type}_int_{network-role}_v6_ips``
 

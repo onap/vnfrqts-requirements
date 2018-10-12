@@ -39,7 +39,7 @@ Heat Orchestration Template resources are described in :ref:`resources`.
 
     When a VNF's Heat Orchestration Template's resource is associated
     with a single external network, the Resource ID **MUST** contain the text
-    '{network-role}'.
+    ``{network-role}``.
 
 .. req::
     :id: R-98138
@@ -1034,4 +1034,4 @@ OS::ContrailV2::VirtualNetwork
     **MUST** be unique in the scope of the VNF's
     Heat Orchestration Template.
 
-Note that option 1 is preferred.
+    Note that option 1 is preferred.
