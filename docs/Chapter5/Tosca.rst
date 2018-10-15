@@ -169,7 +169,7 @@ VNF Package Contents
     instantiate the VNF (VNF and VNFC images) either as:
 
       - Local artifact in CSAR: ROOT\\Artifacts\\ **VNF_Image.bin**
-      
+
       - externally referred (by URI) artifact in Manifest file (also may be
         referred by VNF Descriptor)
 
