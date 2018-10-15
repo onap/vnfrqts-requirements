@@ -36,17 +36,6 @@ External Networks
       Environment File
 
 .. req::
-    :id: R-73228
-    :target: VNF
-    :keyword: MUST
-    :validation_mode: static
-    :updated: casablanca
-
-    A VNF's Heat Orchestration Template's parameter
-    ``{network-role}_net_fqdn``
-    **MUST** be declared as type ``string``.
-
-.. req::
     :id: R-92193
     :target: VNF
     :keyword: MUST NOT

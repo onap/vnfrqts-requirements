@@ -399,25 +399,6 @@ available for use by other ONAP components and/or north bound systems.
     property ``metadata`` key/value pair ``vm_role`` parameter ``vm_role``
     **MUST NOT** have parameter constraints defined.
 
-.. req::
-    :id: R-46823
-    :target: VNF
-    :keyword: MUST
-    :validation_mode: static
-    :updated: casablanca
-
-    A VNF's Heat Orchestration Template's ``OS::Nova::Server`` Resource
-    ``metadata`` map value parameter ``vm_role`` **MUST**
-    be either
-
-     * enumerated in the VNF's Heat Orchestration Template's environment
-       file.
-
-     * hard coded in the VNF's
-       Heat Orchestration Template's ``OS::Nova::Server`` Resource
-       ``metadata`` property.
-
-
 Defining the ``vm_role`` as the ``{vm-type}`` is a recommended convention
 
 

@@ -1,5 +1,5 @@
 {
-    "created": "2018-10-15T18:25:06.229809",
+    "created": "2018-10-15T15:13:37.861776",
     "current_version": "casablanca",
     "project": "",
     "versions": {
@@ -21858,7 +21858,7 @@
             "needs_amount": 750
         },
         "casablanca": {
-            "created": "2018-10-15T18:25:06.229735",
+            "created": "2018-10-15T15:13:37.861759",
             "needs": {
                 "R-00011": {
                     "description": "A VNF's Heat Orchestration Template's parameter defined\nin a nested YAML file\n**MUST NOT** have a parameter constraint defined.",
@@ -22234,7 +22234,7 @@
                     "validation_mode": ""
                 },
                 "R-01427": {
-                    "description": "The PNF **MUST** support the provisioning of security and authentication parameters (HTTP username and password) in order to be able to authenticate with DCAE (in ONAP).\n\nNote: In R3, a username and password are used with the DCAE VES Event Listener which are used for HTTP Basic Authentication.\n\nNote: The configuration management and provisioning software are specific to a vendor architecture. \"",
+                    "description": "The PNF **MUST** support the provisioning of security and authentication\nparameters (HTTP username and password) in order to be able to authenticate\nwith DCAE (in ONAP).\n\nNote: In R3, a username and password are used with the DCAE VES Event\nListener which are used for HTTP Basic Authentication.\n\nNote: The configuration management and provisioning software are specific\nto a vendor architecture.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-01427",
@@ -22250,7 +22250,7 @@
                     ],
                     "status": null,
                     "tags": [],
-                    "target": "XNF",
+                    "target": "PNF",
                     "test": "",
                     "test_case": "",
                     "test_file": "",
@@ -23778,7 +23778,7 @@
                     "validation_mode": ""
                 },
                 "R-106240": {
-                    "description": "The following VES Events **MUST** be supported by the PNF: pnfRegistration VES Event, HVol VES Event, and Fault VES Event. These are onboarded via the SDC Design Studio.\nNote: these VES Events are emitted from the PNF to support PNF Plug and Play, High Volume Measurements, and Fault events respectively.\"",
+                    "description": "The following VES Events **MUST** be supported by the PNF: pnfRegistration\nVES Event, HVol VES Event, and Fault VES Event. These are onboarded via\nhe SDC Design Studio.\n\nNote: these VES Events are emitted from the PNF to support PNF Plug and\nPlay, High Volume Measurements, and Fault events respectively.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-106240",
@@ -23794,7 +23794,7 @@
                     ],
                     "status": null,
                     "tags": [],
-                    "target": "XNF",
+                    "target": "PNF",
                     "test": "",
                     "test_case": "",
                     "test_file": "",
@@ -25376,7 +25376,7 @@
                     "validation_mode": "static"
                 },
                 "R-17624": {
-                    "description": "The PNF **MAY** support the optional parameters for Service Configuration Parameters.\n\nNote: These are detailed in the Stage 5 PnP\n\nNote: These parameters are optional, and not all PNFs will support any or all of these parameters, it is up to the vendor and service provider to ascertain which ones are supported up to an including all of the ones that have been defined. Note: It is expected that there will be a growing list of supported configuration parameters in future releases of ONAP.\"",
+                    "description": "The PNF **MAY** support the optional parameters for Service\nConfiguration Parameters.\n\nNote: These are detailed in the Stage 5 PnP\n\nNote: These parameters are optional, and not all PNFs will support any\nor all of these parameters, it is up to the vendor and service provider\nto ascertain which ones are supported up to an including all of the ones\nthat have been defined. Note: It is expected that there will be a growing\nlist of supported configuration parameters in future releases of ONAP.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-17624",
@@ -25392,7 +25392,7 @@
                     ],
                     "status": null,
                     "tags": [],
-                    "target": "XNF",
+                    "target": "PNF",
                     "test": "",
                     "test_case": "",
                     "test_file": "",
@@ -27250,7 +27250,7 @@
                     "validation_mode": ""
                 },
                 "R-256347": {
-                    "description": "The PNF **MUST** support the Ansible protocol for a Service Configuration message exchange between the PNF and PNF Controller (in ONAP).\n\nNote: this exchange may be either Ansible, Chef, or NetConf depending on the PNF. Note: The PNF Controller may be VF-C, APP-C or SDN-C based on the PNF and PNF domain. Note: for R3 (Casablanca) only Ansible is supported.\"",
+                    "description": "The PNF **MUST** support the Ansible protocol for a Service Configuration\nmessage exchange between the PNF and PNF Controller (in ONAP).\n\nNote: this exchange may be either Ansible, Chef, or NetConf depending on\nthe PNF. Note: The PNF Controller may be VF-C, APP-C or SDN-C based on the\nPNF and PNF domain. Note: for R3 (Casablanca) only Ansible is supported.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-256347",
@@ -27266,7 +27266,7 @@
                     ],
                     "status": null,
                     "tags": [],
-                    "target": "XNF",
+                    "target": "PNF",
                     "test": "",
                     "test_case": "",
                     "test_file": "",
@@ -27336,7 +27336,7 @@
                     "validation_mode": "in_service"
                 },
                 "R-258352": {
-                    "description": "The PNF **MUST** support & accept the provisioning of an ONAP contact IP address (in IPv4 or IPv6 format).\nNote: For example, it a possibility is that an external EMS would configure & provision the ONAP contact IP address to the PNF (in either IPv4 or IPv6 format). For the PNF Plug and Play Use Case, this IP address is the service provider's \"\"point of entry\"\" to the DCAE VES Listener.\n\nNote: different service provider's network architecture may also require special setup to allow an external PNF to contact the ONAP installation. For example, in the AT&T network, a maintenance tunnel is used to access ONAP.",
+                    "description": "The PNF **MUST** support & accept the provisioning of an ONAP contact IP\naddress (in IPv4 or IPv6 format).\n\nNote: For example, it a possibility is that an external EMS would configure\n& provision the ONAP contact IP address to the PNF (in either IPv4 or\nIPv6 format). For the PNF Plug and Play Use Case, this IP address is the\nservice provider's \"point of entry\" to the DCAE VES Listener.\n\nNote: different service provider's network architecture may also require\nspecial setup to allow an external PNF to contact the ONAP installation.\nFor example, in the AT&T network, a maintenance tunnel is used to access\nONAP.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-258352",
@@ -27352,7 +27352,7 @@
                     ],
                     "status": null,
                     "tags": [],
-                    "target": "XNF",
+                    "target": "PNF",
                     "test": "",
                     "test_case": "",
                     "test_file": "",
@@ -28023,7 +28023,7 @@
                     "validation_mode": "in_service"
                 },
                 "R-284934": {
-                    "description": "If the PNF encounters an error authenticating, reaching the ONAP DCAE VES Event listener or recieves an error response from sending the pnfRegistration VES Event, it **MAY** log the error, and notify the operator.\n\nNote: the design of how errors are logged, retrieved and reported will be a vendor-specific architecture. Reporting faults and errors is also a vendor specific design. It is expected that the PNF shall have a means to log an error and notify a user when a fault condition occurs in trying to contact ONAP, authenticate or send a pnfRegistration event.\"",
+                    "description": "If the PNF encounters an error authenticating, reaching the ONAP DCAE VES\nEvent listener or recieves an error response from sending the pnfRegistration\nVES Event, it **MAY** log the error, and notify the operator.\n\nNote: the design of how errors are logged, retrieved and reported\nwill be a vendor-specific architecture. Reporting faults and errors\nis also a vendor specific design. It is expected that the PNF shall\nhave a means to log an error and notify a user when a fault condition\noccurs in trying to contact ONAP, authenticate or send a pnfRegistration\nevent.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-284934",
@@ -28039,7 +28039,7 @@
                     ],
                     "status": null,
                     "tags": [],
-                    "target": "XNF",
+                    "target": "PNF",
                     "test": "",
                     "test_case": "",
                     "test_file": "",
@@ -30129,7 +30129,7 @@
                     "validation_mode": ""
                 },
                 "R-378131": {
-                    "description": "(Error Case) - If an error is encountered by the PNF during a Service Configuration exchange with ONAP, the PNF **MAY** log the error and notify an operator.",
+                    "description": "(Error Case) - If an error is encountered by the PNF during a\nService Configuration exchange with ONAP, the PNF **MAY** log the\nerror and notify an operator.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-378131",
@@ -30145,7 +30145,7 @@
                     ],
                     "status": null,
                     "tags": [],
-                    "target": "XNF",
+                    "target": "PNF",
                     "test": "",
                     "test_case": "",
                     "test_file": "",
@@ -32070,34 +32070,6 @@
                     "updated": "",
                     "validated_by": "",
                     "validation_mode": ""
-                },
-                "R-46823": {
-                    "description": "A VNF's Heat Orchestration Template's ``OS::Nova::Server`` Resource\n``metadata`` map value parameter ``vm_role`` **MUST**\nbe either\n\n * enumerated in the VNF's Heat Orchestration Template's environment\n   file.\n\n * hard coded in the VNF's\n   Heat Orchestration Template's ``OS::Nova::Server`` Resource\n   ``metadata`` property.",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-46823",
-                    "impacts": "",
-                    "introduced": "",
-                    "keyword": "MUST",
-                    "links": [],
-                    "notes": "",
-                    "section_name": "vm_role",
-                    "sections": [
-                        "vm_role",
-                        "Resource: OS::Nova::Server - Metadata Parameters"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "casablanca",
-                    "validated_by": "",
-                    "validation_mode": "static"
                 },
                 "R-46839": {
                     "description": "A VNF's Heat Orchestration Template's use of ``{vm-type}``\nin all Resource IDs **MUST** be the same case.",
@@ -34242,7 +34214,7 @@
                     "validation_mode": "static"
                 },
                 "R-56718": {
-                    "description": "The PNF Vendor **MAY** (optional) provide software Version(s) to be supported by PNF for SDC Design Studio PNF Model. This is set in the PNF Model property software_versions.",
+                    "description": "The PNF Vendor **MAY** provide software version(s) to be supported by PNF\nfor SDC Design Studio PNF Model. This is set in the PNF Model property\nsoftware_versions.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-56718",
@@ -34258,7 +34230,7 @@
                     ],
                     "status": null,
                     "tags": [],
-                    "target": "XNF",
+                    "target": "PNF",
                     "test": "",
                     "test_case": "",
                     "test_file": "",
@@ -34550,7 +34522,7 @@
                     "validation_mode": ""
                 },
                 "R-579051": {
-                    "description": "The PNF **MAY** support a HTTP connection to the DCAE VES Event Listener.\n\nNote: HTTP is allowed but not recommended.\"",
+                    "description": "The PNF **MAY** support a HTTP connection to the DCAE VES Event Listener.\n\nNote: HTTP is allowed but not recommended.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-579051",
@@ -34566,7 +34538,7 @@
                     ],
                     "status": null,
                     "tags": [],
-                    "target": "XNF",
+                    "target": "PNF",
                     "test": "",
                     "test_case": "",
                     "test_file": "",
@@ -35064,7 +35036,7 @@
                     "validation_mode": ""
                 },
                 "R-61001": {
-                    "description": "A shared Heat Orchestration Template resource is a resource that **MUST**\nbe defined in the base module and will be referenced by one or\nmore resources in one more more incremental modules.\n\nThe UUID of the shared resource (created in the base module) **MUST** be\nexposed by declaring a parameter in the\n``outputs`` section of the base module.\n\nFor ECOMP to provided the UUID value of the shared resource to the\nincremental module, the parameter name defined in the ``outputs``\nsection of the base module **MUST** be defined as a parameter\nin the ``parameters`` section of the incremental module.\n\nECOMP will capture the output parameter name and value in the base module\nand provide the value to the corresponding parameter(s) in the\nincremental module(s).",
+                    "description": "A shared Heat Orchestration Template resource is a resource that **MUST**\nbe defined in the base module and will be referenced by one or\nmore resources in one or more incremental modules.\n\nThe UUID of the shared resource (created in the base module) **MUST** be\nexposed by declaring a parameter in the\n``outputs`` section of the base module.\n\nFor ECOMP to provided the UUID value of the shared resource to the\nincremental module, the parameter name defined in the ``outputs``\nsection of the base module **MUST** be defined as a parameter\nin the ``parameters`` section of the incremental module.\n\nECOMP will capture the output parameter name and value in the base module\nand provide the value to the corresponding parameter(s) in the\nincremental module(s).",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-61001",
@@ -35147,34 +35119,6 @@
                     "updated": "",
                     "validated_by": "",
                     "validation_mode": ""
-                },
-                "R-62177": {
-                    "description": "When using the intrinsic function get_file, the included files\n**MUST** have unique file names within the scope of the VNF.",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-62177",
-                    "impacts": "",
-                    "introduced": "",
-                    "keyword": "MUST",
-                    "links": [],
-                    "notes": "",
-                    "section_name": "Heat Files Support (get_file)",
-                    "sections": [
-                        "Heat Files Support (get_file)",
-                        "ONAP Heat Heat Template Constructs"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "casablanca",
-                    "validated_by": "",
-                    "validation_mode": "static"
                 },
                 "R-62187": {
                     "description": "A VNF's Heat Orchestration Template's Resource ``OS::ContrailV2::InstanceIp``\nthat is configuring an IPv4 Address on a port attached to an internal network\nResource ID **MUST** use the naming convention\n\n*  ``{vm-type}_{vm-type_index}_int_{network-role}_vmi_{vmi_index}_IP_{index}``\n\nwhere\n\n* ``{vm-type}`` is the vm-type\n* ``{vm-type_index}`` is the instance of the ``{vm-type}``\n* ``{network-role}`` is the network-role of the network\n  that the port is attached to\n* ``{vmi_index}`` is the instance of the the virtual machine interface\n  (e.g., port)  on the vm-type\n  attached to the network of ``{network-role}``\n* ``IP`` signifies that an IPv4 address is being configured\n* ``{index}`` is the index of the IPv4 address",
@@ -35547,7 +35491,7 @@
                     "validation_mode": ""
                 },
                 "R-638216": {
-                    "description": "(Error Case) - The PNF **MUST** support a configurable timer to stop the periodicity sending of the pnfRegistration VES event. If this timer expires during a Service Configuration exchange between the PNF and ONAP, it MAY log a time-out error and notify an operator.\n\nNote: It is expected that each vendor will enforce and define a PNF service configuration timeout period. This is because the PNF cannot wait indefinitely as there may also be a technician on-site trying to complete installation & commissioning. The management of the VES event exchange is also a requirement on the PNF to be developed by the PNF vendor.\"",
+                    "description": "(Error Case) - The PNF **MUST** support a configurable timer to stop the\nperiodicity sending of the pnfRegistration VES event. If this timer expires\nduring a Service Configuration exchange between the PNF and ONAP, it\nMAY log a time-out error and notify an operator.\n\nNote: It is expected that each vendor will enforce and define a PNF\nservice configuration timeout period. This is because the PNF cannot\nwait indefinitely as there may also be a technician on-site trying to\ncomplete installation & commissioning. The management of the VES event\nexchange is also a requirement on the PNF to be developed by the PNF\nvendor.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-638216",
@@ -35563,7 +35507,7 @@
                     ],
                     "status": null,
                     "tags": [],
-                    "target": "XNF",
+                    "target": "PNF",
                     "test": "",
                     "test_case": "",
                     "test_file": "",
@@ -36590,7 +36534,7 @@
                     ],
                     "status": null,
                     "tags": [],
-                    "target": "XNF",
+                    "target": "PNF",
                     "test": "",
                     "test_case": "",
                     "test_file": "",
@@ -37142,7 +37086,7 @@
                     "validation_mode": "static"
                 },
                 "R-707977": {
-                    "description": "When the PNF receives a Service configuration from ONAP, the PNF **MUST** cease sending the pnfRegistration VES Event.",
+                    "description": "When the PNF receives a Service configuration from ONAP, the PNF **MUST**\ncease sending the pnfRegistration VES Event.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-707977",
@@ -37158,7 +37102,7 @@
                     ],
                     "status": null,
                     "tags": [],
-                    "target": "XNF",
+                    "target": "PNF",
                     "test": "",
                     "test_case": "",
                     "test_file": "",
@@ -37566,35 +37510,6 @@
                     "updated": "",
                     "validated_by": "",
                     "validation_mode": ""
-                },
-                "R-73228": {
-                    "description": "A VNF's Heat Orchestration Template's parameter\n``{network-role}_net_fqdn``\n**MUST** be declared as type ``string``.",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-73228",
-                    "impacts": "",
-                    "introduced": "",
-                    "keyword": "MUST",
-                    "links": [],
-                    "notes": "",
-                    "section_name": "External Networks",
-                    "sections": [
-                        "External Networks",
-                        "Contrail Network Parameters",
-                        "Contrail Resource Parameters"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "casablanca",
-                    "validated_by": "",
-                    "validation_mode": "static"
                 },
                 "R-73285": {
                     "description": "The xNF **MUST** must encode, address and deliver the data\nas described in the previous paragraphs.",
@@ -38192,7 +38107,7 @@
                     "validation_mode": "static"
                 },
                 "R-763774": {
-                    "description": "The PNF **MUST** support a HTTPS connection to the DCAE VES Event Listener.",
+                    "description": "The PNF **MUST** support a HTTPS connection to the DCAE VES Event\nListener.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-763774",
@@ -38208,7 +38123,7 @@
                     ],
                     "status": null,
                     "tags": [],
-                    "target": "XNF",
+                    "target": "PNF",
                     "test": "",
                     "test_case": "",
                     "test_file": "",
@@ -38622,7 +38537,7 @@
                     "validation_mode": ""
                 },
                 "R-793716": {
-                    "description": "The PNF **MUST** have \"\"ONAP Aware\"\" software which is capable of performing PNF PnP registration with ONAP. The \"\"ONAP Aware\"\" software is capable of performing the PNF PnP Registration with ONAP MUST either be loaded separately or integrated into the PNF software upon physical delivery and installation of the PNF.\n\nNote: It is up to the specific vendor to design the software management functions. \"",
+                    "description": "The PNF **MUST** have \"ONAP Aware\" software which is capable of performing\nPNF PnP registration with ONAP. The \"ONAP Aware\" software is capable of\nperforming the PNF PnP Registration with ONAP MUST either be loaded\nseparately or integrated into the PNF software upon physical delivery\nand installation of the PNF.\n\nNote: It is up to the specific vendor to design the software management\nfunctions.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-793716",
@@ -38638,7 +38553,7 @@
                     ],
                     "status": null,
                     "tags": [],
-                    "target": "XNF",
+                    "target": "PNF",
                     "test": "",
                     "test_case": "",
                     "test_file": "",
@@ -38668,33 +38583,6 @@
                     "status": null,
                     "tags": [],
                     "target": "XNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "",
-                    "validated_by": "",
-                    "validation_mode": ""
-                },
-                "R-79531": {
-                    "description": "The VNF Heat Orchestration Template **MUST** define\n\"outputs\" in the volume template for each Cinder volume\nresource universally unique identifier (UUID) (i.e. ONAP\nVolume Template Output Parameters).",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-79531",
-                    "impacts": "",
-                    "introduced": "",
-                    "keyword": "MUST",
-                    "links": [],
-                    "notes": "",
-                    "section_name": "ONAP Heat Cinder Volumes",
-                    "sections": [
-                        "ONAP Heat Cinder Volumes"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
                     "test": "",
                     "test_case": "",
                     "test_file": "",
@@ -38934,7 +38822,7 @@
                     "validation_mode": ""
                 },
                 "R-809261": {
-                    "description": "The PNF **MUST** use a IP address to contact ONAP.\n\nNote: it is expected that an ONAP operator can ascertain the ONAP IP address or the security gateway to reach ONAP on the VID or ONAP portal GUI. Note: The ONAP contact IP address has been previously configured and provisioned prior to this step.\n\nNote: The ONAP IP address could be provisioned or resolved through FQDN & DNS.",
+                    "description": "The PNF **MUST** use a IP address to contact ONAP.\n\nNote: it is expected that an ONAP operator can ascertain the ONAP IP\naddress or the security gateway to reach ONAP on the VID or ONAP portal\nGUI.\n\nNote: The ONAP contact IP address has been previously configured and\nprovisioned prior to this step.\n\nNote: The ONAP IP address could be provisioned or resolved through\nFQDN & DNS.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-809261",
@@ -38950,7 +38838,7 @@
                     ],
                     "status": null,
                     "tags": [],
-                    "target": "XNF",
+                    "target": "PNF",
                     "test": "",
                     "test_case": "",
                     "test_file": "",
@@ -41172,7 +41060,7 @@
                     "validation_mode": ""
                 },
                 "R-894004": {
-                    "description": "When the PNF sets up a HTTP or HTTPS connection, it **MUST** provide a username and password to the DCAE VES Collector for HTTP Basic Authentication.\n\nNote: HTTP Basic Authentication has 4 steps: Request, Authenticate, Authorization with Username/Password Credentials, and Authentication Status as per RFC7617 and RFC 2617",
+                    "description": "When the PNF sets up a HTTP or HTTPS connection, it **MUST** provide a\nusername and password to the DCAE VES Collector for HTTP Basic\nAuthentication.\n\nNote: HTTP Basic Authentication has 4 steps: Request, Authenticate,\nAuthorization with Username/Password Credentials, and Authentication Status\nas per RFC7617 and RFC 2617.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-894004",
@@ -41188,7 +41076,7 @@
                     ],
                     "status": null,
                     "tags": [],
-                    "target": "XNF",
+                    "target": "PNF",
                     "test": "",
                     "test_case": "",
                     "test_file": "",
@@ -42285,7 +42173,7 @@
                     "validation_mode": ""
                 },
                 "R-952314": {
-                    "description": "If the PNF set up a TLS connection and mutual (two-way) authentication is being used, then the PNF **MUST** provide its own X.509v3 Certificate to the DCAE VES Collector for authentication.\n\nNote: This allows TLS authentication by DCAE VES Collector..\n\nNote: The PNF got its X.509 certificate through Enrollment with an operator certificate authority or a X.509 vendor certificate from the vendor factory CA.\n\nNote: In R3 three authentication options are supported:\n\n(1) HTTP with Username & Password and no TLS\n\n(2) HTTP with Username & Password & TLS with two-way certificate authentication;\n\n(3) HTTP with Username & Password & TLS with server-side certificate authentication.\"",
+                    "description": "If the PNF set up a TLS connection and mutual (two-way) authentication is\nbeing used, then the PNF **MUST** provide its own X.509v3 Certificate to\nthe DCAE VES Collector for authentication.\n\nNote: This allows TLS authentication by DCAE VES Collector.\n\nNote: The PNF got its X.509 certificate through Enrollment with an\noperator certificate authority or a X.509 vendor certificate from the\nvendor factory CA.\n\nNote: In R3 three authentication options are supported:\n\n(1) HTTP with Username & Password and no TLS.\n\n(2) HTTP with Username & Password & TLS with two-way certificate\n    authentication.\n\n(3) HTTP with Username & Password & TLS with server-side\n    certificate authentication.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-952314",
@@ -42301,7 +42189,7 @@
                     ],
                     "status": null,
                     "tags": [],
-                    "target": "XNF",
+                    "target": "PNF",
                     "test": "",
                     "test_case": "",
                     "test_file": "",
@@ -42871,7 +42759,7 @@
                     ],
                     "status": null,
                     "tags": [],
-                    "target": "XNF",
+                    "target": "PNF",
                     "test": "",
                     "test_case": "",
                     "test_file": "",
@@ -42910,7 +42798,7 @@
                     "validation_mode": "static"
                 },
                 "R-981585": {
-                    "description": "The pnfRegistration VES event periodicity **MUST** be configurable.\n\nNote: The PNF uses the service configuration request as a semaphore to stop sending the pnfRegistration sent. See the requirement PNP-5360 requirement.\"",
+                    "description": "The pnfRegistration VES event periodicity **MUST** be configurable.\n\nNote: The PNF uses the service configuration request as a semaphore to\nstop sending the pnfRegistration sent. See the requirement PNP-5360\nrequirement.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-981585",
@@ -42926,7 +42814,7 @@
                     ],
                     "status": null,
                     "tags": [],
-                    "target": "XNF",
+                    "target": "PNF",
                     "test": "",
                     "test_case": "",
                     "test_file": "",
@@ -43528,7 +43416,7 @@
                     "validation_mode": "static"
                 }
             },
-            "needs_amount": 761
+            "needs_amount": 757
         }
     }
 }
