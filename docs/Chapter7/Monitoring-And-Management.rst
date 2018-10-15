@@ -21,9 +21,9 @@ is directly dependent on the interfaces provided by the xNFs’ APIs. These can
 be in the form of asynchronous interfaces for event, fault notifications, and
 autonomous data streams. They can also be synchronous interfaces for on-demand
 requests to retrieve various performance, usage, and other event information.
-It should be understood that events are well structured packages of information,
-identified by an eventName, which are communicated to subscribers who are
-interested in the eventName. Events are simply a way of communicating
+It should be understood that events are well structured packages of
+information, identified by an eventName, which are communicated to subscribers
+who are interested in the eventName. Events are simply a way of communicating
 well-structured packages of information to one or more instances of an Event
 Listener service.
 
@@ -45,15 +45,17 @@ Data Model for Event Records
 
 This section describes the data model for the collection of telemetry data from
 xNFs by Service Providers (SPs) to manage xNF health and run-time life cycle.
-This data model is referred to as the VES Data Model. The VES acronym originally
-stood for Virtual-function Event Streaming, but VES has been generalized to
-support network-function event streaming, whether virtualized or not.
+This data model is referred to as the VES Data Model. The VES acronym
+originally stood for Virtual-function Event Streaming, but VES has been
+generalized to support network-function event streaming, whether virtualized or
+not.
 
 The VES Data Model describes a vendor-agnostic common vocabulary of event
 payloads. Vendor-specific, product-specific or service-specific data is
-supported by the inclusion of a flexible additional information field structure.
-The VES Data Models' common vocabulary is used to drive standard and automated
-data analytics (policy-driven analytics) within the ONAP DCAE Framework.
+supported by the inclusion of a flexible additional information field
+structure. The VES Data Models' common vocabulary is used to drive
+standard and automated data analytics (policy-driven analytics) within the
+ONAP DCAE Framework.
 
 While this document is focused on specifying some of the records from the ONAP
 perspective, there may be other external bodies using the same framework to
@@ -64,10 +66,10 @@ network devices, etc.) and virtual infrastructure managers (cloud controllers,
 SDN controllers). It uses ONAP’s VES Agent to generate VES events from the xNF
 and Intel’s collectD agent to generate infrastructure VES events. Note that any
 configurable parameters for these data records (e.g., frequency, granularity,
-policy-based configuration) will be managed using the “Configuration” framework
-described in the prior sections of this document. The infrastructure metrics have
-been funneled via the ONAP Multi-VIM Project and are now included in current
-specifications.
+policy-based configuration) will be managed using the "Configuration" framework
+described in the prior sections of this document. The infrastructure metrics
+have been funneled via the ONAP Multi-VIM Project and are now included in
+current specifications.
 
 The Data Model consists of:
 
@@ -76,24 +78,25 @@ The Data Model consists of:
 
    * Technology Independent Records: This version of the document specifies the
      model for Fault, Heartbeat, Measurements, Notification, pnfRegistration,
-     State Change, Syslog, and Threshold Crossing Alerts records. In the future,
-     these may be extended to support other types of technology independent
-     records (work is currently progressing to define a new Performance Domain
-     that would be able to support already defined 3GPP Metrics for xNF, e.g.
-     5G RAN device Use Case in Casablanca). Each of these records allows
-     additional fields (name/ value pairs) for extensibility. The xNF provider
-     may use these xNF provider-specific additional fields to provide additional
-     information that may be relevant to the managing systems.
+     State Change, Syslog, and Threshold Crossing Alerts records. In the
+     future, these may be extended to support other types of technology
+     independent records (work is currently progressing to define a new
+     Performance Domain that would be able to support already defined 3GPP
+     Metrics for xNF, e.g. 5G RAN device Use Case in Casablanca). Each of
+     these records allows additional fields (name/ value pairs) for
+     extensibility. The xNF provider may use these xNF provider-specific
+     additional fields to provide additional information that may be relevant
+     to the managing systems.
 
    * Technology Specific Records: This version of the document specifies the
-     model for Mobile Flow records, Signaling and Voice Quality records. In the
-     future, these may be extended to support other types of records (e.g.
-     Network Fabric, Security records, etc.). Each of these records allows
-     additional fields (name/value pairs) for extensibility. The xNF provider
-     can use these xNF-specific additional fields to provide additional
-     information that may be relevant to the managing systems. A placeholder for
-     additional technology specific areas of interest to be defined in the
-     future documents has been depicted.
+     model for Mobile Flow records, Signaling and Voice Quality records.
+     In the future, these may be extended to support other types of records
+     (e.g. Network Fabric, Security records, etc.). Each of these records
+     allows additional fields (name/value pairs) for extensibility. The xNF
+     provider can use these xNF-specific additional fields to provide
+     additional information that may be relevant to the managing systems.
+     A placeholder for additional technology specific areas of interest to
+     be defined in the future documents has been depicted.
 
 |image0|
 
@@ -163,13 +166,14 @@ independent event records:
      etc.
 
    * ``Heartbeat`` - the Heartbeat Record provides an optional structure for
-     communicating information about device health. Heartbeat records would only
-     have the Common Event Header block. An optional heartbeat domain is
-     available to specify information such as heartbeat interval and recommended
-     action upon missing heartbeat interval. Heartbeat avoids the need to ping
-     a device.  A communication failure can be determined via missing heartbeat
-     events being delivered to DCAE and appropriate action (e.g. restart VM,
-     rebuild xNF or create ticket) can be taken by DCAE CLAMP.
+     communicating information about device health. Heartbeat records would
+     only have the Common Event Header block. An optional heartbeat domain is
+     available to specify information such as heartbeat interval and
+     recommended action upon missing heartbeat interval. Heartbeat avoids the
+     need to ping a device.  A communication failure can be determined via
+     missing heartbeat events being delivered to DCAE and appropriate action
+     (e.g. restart VM, rebuild xNF or create ticket) can be taken by DCAE
+     CLAMP.
 
    * ``Measurements`` - the Measurements Record contains information about xNF
      and xNF resource structure and its condition to help in the management of
@@ -195,9 +199,10 @@ independent event records:
      domain ideas.)
 
    * ``pnfRegistration`` - the pnfRegistration Record provides a structure for
-     registration of a physical network function. The pnfRegistration Record can
-     contain information about attributes related to the physical network function
-     including serial number, software revision, unit type and vendor name.
+     registration of a physical network function. The pnfRegistration Record
+     can contain information about attributes related to the physical network
+     function including serial number, software revision, unit type and vendor
+     name.
 
    * ``State Change`` - the State Change Record provides a structure for
      communicating information about data flow through the xNF. The State
@@ -327,10 +332,10 @@ Data Structure Specification of the Event Record
    conditions repeat within a specified time interval, using the semantics and
    syntax described by the :doc:`VES Event Registration specification<../../../../vnfsdk/module.git/files/VESEventRegistration_3_0>`.
 
-**NOTE:** The Service Provider may override xNF provider Event Registrations using
-the ONAP SDC Design Studio to finalizes Service Provider engineering rules
-for the processing of the xNF events.  These changes may modify any of the
-following:
+**NOTE:** The Service Provider may override xNF provider Event
+Registrations using the ONAP SDC Design Studio to finalizes Service
+Provider engineering rules for the processing of the xNF events.
+These changes may modify any of the following:
 
 * Threshold levels
 * Specified actions related to conditions
@@ -461,8 +466,8 @@ xNF Telemetry using Google Protocol Buffers
 Figure 3. xNF Telemetry using Google Protocol Buffers
 
 
-**NOTE:** For high-volume xNF telemetry, native (binary) Google Protocol Buffers
-(GPB) is the preferred serialization method. While supporting the GPB
+**NOTE:** For high-volume xNF telemetry, native (binary) Google Protocol
+Buffers (GPB) is the preferred serialization method. While supporting the GPB
 telemetry delivery approach described above, the default delivery method
 is the VES/REST JSON based model in DCAE. The purpose of the diagram above
 is to illustrate the GPB delivery concept only and not to imply a specific

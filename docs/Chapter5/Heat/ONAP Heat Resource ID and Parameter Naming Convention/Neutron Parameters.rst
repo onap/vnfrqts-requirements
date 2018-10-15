@@ -20,8 +20,8 @@ naming convention. The four properties are:
 3. fixed_ips, subnet
 
  * Note that earlier versions of this document mentioned the property
-   fixed_ips, subnet_id.  This property has been removed from the document since
-   it has been deprecated.
+   fixed_ips, subnet_id.  This property has been removed from the document
+   since it has been deprecated.
    See https://github.com/openstack/heat/blob/stable/ocata/heat/engine/resources/openstack/neutron/port.py
 
 4. allowed_address_pairs, ip_address
@@ -833,8 +833,9 @@ Examples
 *Example: comma_delimited_list parameters for IPv4 and IPv6 Address
 Assignments to an external network*
 
-In this example, the ``{network-role}`` has been defined as ``oam`` to represent
-an oam network and the ``{vm-type}`` has been defined as ``db`` for database.
+In this example, the ``{network-role}`` has been defined as ``oam`` to
+represent an oam network and the ``{vm-type}`` has been defined as ``db``
+for database.
 
 .. code-block:: yaml
 
@@ -1044,7 +1045,7 @@ The property ``fixed_ips`` is used to assign IPs to a port. The Map Property
       * ``{network-role}_subnet_id``
 
     where
-    
+
       * ``{network-role}`` is the network role of the network.
 
 .. req::
@@ -1091,12 +1092,12 @@ value at orchestration to the Heat Orchestration Template.
     and the external network IPv6 subnet is to be specified
     using the property ``fixed_ips``
     map property ``subnet``, the parameter
-    **MUST** follow the naming convention 
+    **MUST** follow the naming convention
 
       * ``{network-role}_v6_subnet_id``
 
-    where 
-      
+    where
+
       * ``{network-role}`` is the network role of the network.
 
 .. req::
@@ -1116,10 +1117,10 @@ value at orchestration to the Heat Orchestration Template.
 *Example: One Cloud Assigned IPv4 Address (DHCP) assigned to a network
 that has two or more IPv4 subnets*
 
-In this example, the ``{network-role}`` has been defined as ``oam`` to represent
-an oam network and the ``{vm-type}`` has been defined as ``lb`` for load
-balancer. The cloud assigned IP Address uses the OpenStack DHCP service
-to assign IP addresses.
+In this example, the ``{network-role}`` has been defined as ``oam`` to
+represent an oam network and the ``{vm-type}`` has been defined as ``lb``
+for load balancer. The cloud assigned IP Address uses the OpenStack
+DHCP service to assign IP addresses.
 
 .. code-block:: yaml
 
@@ -1142,9 +1143,9 @@ to assign IP addresses.
 address assigned to a network that has at least one IPv4 subnet and one
 IPv6 subnet*
 
-In this example, the ``{network-role}`` has been defined as ``oam`` to represent
-an oam network and the ``{vm-type}`` has been defined as ``lb`` for load
-balancer.
+In this example, the ``{network-role}`` has been defined as ``oam`` to
+represent an oam network and the ``{vm-type}`` has been defined as
+``lb`` for load balancer.
 
 .. code-block:: yaml
 
@@ -1186,7 +1187,7 @@ balancer.
         using the property ``fixed_ips`` map property ``subnet``,
 
     the parameter **MUST** follow the naming convention
-    
+
       * ``int_{network-role}_subnet_id``
 
     where
@@ -1237,7 +1238,7 @@ input parameter.
 
       * the VNF's Heat Orchestration Template's
         resource ``OS::Neutron::Port`` in an Incremental Module is attaching
-        to an internal network (per the ONAP definition, see Requirements 
+        to an internal network (per the ONAP definition, see Requirements
         R-52425 and R-46461)
         that is created in the Base Module, AND
       * an IPv6 address is being cloud assigned by OpenStack's DHCP Service AND
@@ -1393,7 +1394,7 @@ VIP Assignment, External Networks, Supported by Automation
         OS::Nova::Server
       * ``{network-role}`` is the {network-role} of the external
         network
-    
+
     And the parameter **MUST** be declared as type ``string``.
 
 .. req::
@@ -1433,7 +1434,7 @@ VIP Assignment, External Networks, Supported by Automation
     and an IPv6 Virtual IP (VIP)
     address is assigned via ONAP automation
     using the property ``allowed_address_pairs``
-    map property ``ip_address``, 
+    map property ``ip_address``,
     the parameter name **MUST** follow the
     naming convention
 

@@ -17,9 +17,11 @@ an environment file.)*
 
 As stated in :need:`R-38474`, :need:`R-81725`, and :need:`R-53433`:
 
+
   * A VNF's Base Module **MUST** have a corresponding Environment File.
   * A VNF's Incremental Module **MUST** have a corresponding Environment File.
-  * A VNF's Cinder Volume Module **MUST** have a corresponding environment File.
+  * A VNF's Cinder Volume Module **MUST** have a corresponding environment
+    File.
 
 A nested heat template must not have an environment file; OpenStack does
 not support it.

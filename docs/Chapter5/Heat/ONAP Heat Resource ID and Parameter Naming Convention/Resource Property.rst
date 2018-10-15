@@ -6,7 +6,7 @@ Resource Property "name"
 ----------------------------
 
 The parameter naming convention of the property ``name`` for the resource
-``OS::Nova::Server`` has been defined in 
+``OS::Nova::Server`` has been defined in
 :ref:`Nova Server - Metadata Parameters`.
 
 This section provides specifies how the property ``name`` for non

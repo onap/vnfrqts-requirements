@@ -37,15 +37,15 @@ single Incremental module or Base module.
 As stated in :need:`R-30395`, a VNF's Cinder Volume Module **MAY** utilize
 nested heat.
 
-As stated in :need:`R-89913`, a VNF's Heat Orchestration Template's Cinder Volume
-Module Output Parameter(s) **MUST** include the
+As stated in :need:`R-89913`, a VNF's Heat Orchestration Template's Cinder
+Volume Module Output Parameter(s) **MUST** include the
 UUID(s) of the Cinder Volumes created in template,
 while others **MAY** be included.
 
-As stated in :need:`R-07443`, a VNF's Heat Orchestration Templates' Cinder Volume
-Module Output Parameter's name and type **MUST** match the input parameter
-name and type in the corresponding Base Module or Incremental Module unless
-the Output Parameter is of the type ``comma_delimited_list``,
+As stated in :need:`R-07443`, a VNF's Heat Orchestration Templates' Cinder
+Volume Module Output Parameter's name and type **MUST** match the input
+parameter name and type in the corresponding Base Module or Incremental
+Module unless the Output Parameter is of the type ``comma_delimited_list``,
 then the corresponding input parameter **MUST** be declared as type ``json``.
 
 A single volume module must create only the volumes
@@ -74,9 +74,9 @@ The following rules apply to independent volume Heat templates:
 
 .. req::
     :id: R-270358
-    :target: VNF 
-    :keyword: MUST 
-    :validation_mode: static 
+    :target: VNF
+    :keyword: MUST
+    :validation_mode: static
     :updated: casablanca
 
     A VNF's Heat Orchestration Template's Cinder Volume Template **MUST**

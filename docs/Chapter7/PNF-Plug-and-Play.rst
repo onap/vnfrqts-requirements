@@ -1,4 +1,3 @@
-
 .. Modifications Copyright © 2017-2018 AT&T Intellectual Property.
 
 .. Licensed under the Creative Commons License, Attribution 4.0 Intl.
@@ -24,117 +23,157 @@ The following are the requirements related to PNF Plug and Play.
 
 .. req::
     :id: R-56718
-    :target: XNF
+    :target: PNF
     :keyword: MAY
     :introduced: casablanca
 
-    The PNF Vendor **MAY** (optional) provide software Version(s) to be supported by PNF for SDC Design Studio PNF Model. This is set in the PNF Model property software_versions.
+    The PNF Vendor **MAY** provide software version(s) to be supported by PNF
+    for SDC Design Studio PNF Model. This is set in the PNF Model property
+    software_versions.
 
 .. req::
     :id: R-106240
-    :target: XNF
+    :target: PNF
     :keyword: MUST
     :introduced: casablanca
 
-    The following VES Events **MUST** be supported by the PNF: pnfRegistration VES Event, HVol VES Event, and Fault VES Event. These are onboarded via the SDC Design Studio.  
-    Note: these VES Events are emitted from the PNF to support PNF Plug and Play, High Volume Measurements, and Fault events respectively."
+    The following VES Events **MUST** be supported by the PNF: pnfRegistration
+    VES Event, HVol VES Event, and Fault VES Event. These are onboarded via
+    he SDC Design Studio.
+
+    Note: these VES Events are emitted from the PNF to support PNF Plug and
+    Play, High Volume Measurements, and Fault events respectively.
 
 .. req::
     :id: R-258352
-    :target: XNF
+    :target: PNF
     :keyword: MUST
     :introduced: casablanca
 
-    The PNF **MUST** support & accept the provisioning of an ONAP contact IP address (in IPv4 or IPv6 format).
-    Note: For example, it a possibility is that an external EMS would configure & provision the ONAP contact IP address to the PNF (in either IPv4 or IPv6 format). For the PNF Plug and Play Use Case, this IP address is the service provider's ""point of entry"" to the DCAE VES Listener. 
+    The PNF **MUST** support & accept the provisioning of an ONAP contact IP
+    address (in IPv4 or IPv6 format).
 
-    Note: different service provider's network architecture may also require special setup to allow an external PNF to contact the ONAP installation. For example, in the AT&T network, a maintenance tunnel is used to access ONAP.
+    Note: For example, it a possibility is that an external EMS would configure
+    & provision the ONAP contact IP address to the PNF (in either IPv4 or
+    IPv6 format). For the PNF Plug and Play Use Case, this IP address is the
+    service provider's "point of entry" to the DCAE VES Listener.
+
+    Note: different service provider's network architecture may also require
+    special setup to allow an external PNF to contact the ONAP installation.
+    For example, in the AT&T network, a maintenance tunnel is used to access
+    ONAP.
 
 .. req::
     :id: R-793716
-    :target: XNF
+    :target: PNF
     :keyword: MUST
     :introduced: casablanca
 
-    The PNF **MUST** have ""ONAP Aware"" software which is capable of performing PNF PnP registration with ONAP. The ""ONAP Aware"" software is capable of performing the PNF PnP Registration with ONAP MUST either be loaded separately or integrated into the PNF software upon physical delivery and installation of the PNF.
+    The PNF **MUST** have "ONAP Aware" software which is capable of performing
+    PNF PnP registration with ONAP. The "ONAP Aware" software is capable of
+    performing the PNF PnP Registration with ONAP MUST either be loaded
+    separately or integrated into the PNF software upon physical delivery
+    and installation of the PNF.
 
-    Note: It is up to the specific vendor to design the software management functions. "
+    Note: It is up to the specific vendor to design the software management
+    functions.
 
 .. req::
     :id: R-01427
-    :target: XNF
+    :target: PNF
     :keyword: MUST
     :introduced: casablanca
- 
-    The PNF **MUST** support the provisioning of security and authentication parameters (HTTP username and password) in order to be able to authenticate with DCAE (in ONAP).
 
-    Note: In R3, a username and password are used with the DCAE VES Event Listener which are used for HTTP Basic Authentication.
+    The PNF **MUST** support the provisioning of security and authentication
+    parameters (HTTP username and password) in order to be able to authenticate
+    with DCAE (in ONAP).
 
-    Note: The configuration management and provisioning software are specific to a vendor architecture. "
+    Note: In R3, a username and password are used with the DCAE VES Event
+    Listener which are used for HTTP Basic Authentication.
+
+    Note: The configuration management and provisioning software are specific
+    to a vendor architecture.
 
 .. req::
     :id: R-894004
-    :target: XNF
+    :target: PNF
     :keyword: MUST
     :introduced: casablanca
 
-    When the PNF sets up a HTTP or HTTPS connection, it **MUST** provide a username and password to the DCAE VES Collector for HTTP Basic Authentication.
+    When the PNF sets up a HTTP or HTTPS connection, it **MUST** provide a
+    username and password to the DCAE VES Collector for HTTP Basic
+    Authentication.
 
-    Note: HTTP Basic Authentication has 4 steps: Request, Authenticate, Authorization with Username/Password Credentials, and Authentication Status as per RFC7617 and RFC 2617
+    Note: HTTP Basic Authentication has 4 steps: Request, Authenticate,
+    Authorization with Username/Password Credentials, and Authentication Status
+    as per RFC7617 and RFC 2617.
 
 .. req::
     :id: R-952314
-    :target: XNF
+    :target: PNF
     :keyword: MUST
     :introduced: casablanca
 
-    If the PNF set up a TLS connection and mutual (two-way) authentication is being used, then the PNF **MUST** provide its own X.509v3 Certificate to the DCAE VES Collector for authentication.
+    If the PNF set up a TLS connection and mutual (two-way) authentication is
+    being used, then the PNF **MUST** provide its own X.509v3 Certificate to
+    the DCAE VES Collector for authentication.
 
-    Note: This allows TLS authentication by DCAE VES Collector..
+    Note: This allows TLS authentication by DCAE VES Collector.
 
-    Note: The PNF got its X.509 certificate through Enrollment with an operator certificate authority or a X.509 vendor certificate from the vendor factory CA.
+    Note: The PNF got its X.509 certificate through Enrollment with an
+    operator certificate authority or a X.509 vendor certificate from the
+    vendor factory CA.
 
     Note: In R3 three authentication options are supported:
 
-    (1) HTTP with Username & Password and no TLS
+    (1) HTTP with Username & Password and no TLS.
 
-    (2) HTTP with Username & Password & TLS with two-way certificate authentication;
+    (2) HTTP with Username & Password & TLS with two-way certificate
+        authentication.
 
-    (3) HTTP with Username & Password & TLS with server-side certificate authentication."
+    (3) HTTP with Username & Password & TLS with server-side
+        certificate authentication.
 
 .. req::
     :id: R-809261
-    :target: XNF
+    :target: PNF
     :keyword: MUST
     :introduced: casablanca
 
     The PNF **MUST** use a IP address to contact ONAP.
 
-    Note: it is expected that an ONAP operator can ascertain the ONAP IP address or the security gateway to reach ONAP on the VID or ONAP portal GUI. Note: The ONAP contact IP address has been previously configured and provisioned prior to this step.
+    Note: it is expected that an ONAP operator can ascertain the ONAP IP
+    address or the security gateway to reach ONAP on the VID or ONAP portal
+    GUI.
 
-    Note: The ONAP IP address could be provisioned or resolved through FQDN & DNS.
+    Note: The ONAP contact IP address has been previously configured and
+    provisioned prior to this step.
+
+    Note: The ONAP IP address could be provisioned or resolved through
+    FQDN & DNS.
 
 .. req::
     :id: R-763774
-    :target: XNF
+    :target: PNF
     :keyword: MUST
     :introduced: casablanca
 
-    The PNF **MUST** support a HTTPS connection to the DCAE VES Event Listener.
+    The PNF **MUST** support a HTTPS connection to the DCAE VES Event
+    Listener.
 
 .. req::
     :id: R-579051
-    :target: XNF
+    :target: PNF
     :keyword: MAY
     :introduced: casablanca
 
     The PNF **MAY** support a HTTP connection to the DCAE VES Event Listener.
 
-    Note: HTTP is allowed but not recommended."
+    Note: HTTP is allowed but not recommended.
 
 .. req::
     :id: R-686466
-    :target: XNF
+    :target: PNF
     :keyword: MUST
     :introduced: casablanca
 
@@ -142,7 +181,7 @@ The following are the requirements related to PNF Plug and Play.
 
 .. req::
     :id: R-980039
-    :target: XNF
+    :target: PNF
     :keyword: MUST
     :introduced: casablanca
 
@@ -150,69 +189,97 @@ The following are the requirements related to PNF Plug and Play.
 
 .. req::
     :id: R-981585
-    :target: XNF
+    :target: PNF
     :keyword: MUST
     :introduced: casablanca
 
     The pnfRegistration VES event periodicity **MUST** be configurable.
 
-    Note: The PNF uses the service configuration request as a semaphore to stop sending the pnfRegistration sent. See the requirement PNP-5360 requirement."
+    Note: The PNF uses the service configuration request as a semaphore to
+    stop sending the pnfRegistration sent. See the requirement PNP-5360
+    requirement.
 
 .. req::
     :id: R-284934
-    :target: XNF
+    :target: PNF
     :keyword: MUST
     :introduced: casablanca
 
-    If the PNF encounters an error authenticating, reaching the ONAP DCAE VES Event listener or recieves an error response from sending the pnfRegistration VES Event, it **MAY** log the error, and notify the operator. 
+    If the PNF encounters an error authenticating, reaching the ONAP DCAE VES
+    Event listener or recieves an error response from sending the pnfRegistration
+    VES Event, it **MAY** log the error, and notify the operator.
 
-    Note: the design of how errors are logged, retrieved and reported will be a vendor-specific architecture. Reporting faults and errors is also a vendor specific design. It is expected that the PNF shall have a means to log an error and notify a user when a fault condition occurs in trying to contact ONAP, authenticate or send a pnfRegistration event."
+    Note: the design of how errors are logged, retrieved and reported
+    will be a vendor-specific architecture. Reporting faults and errors
+    is also a vendor specific design. It is expected that the PNF shall
+    have a means to log an error and notify a user when a fault condition
+    occurs in trying to contact ONAP, authenticate or send a pnfRegistration
+    event.
 
 .. req::
     :id: R-256347
-    :target: XNF
+    :target: PNF
     :keyword: MUST
     :introduced: casablanca
 
-    The PNF **MUST** support the Ansible protocol for a Service Configuration message exchange between the PNF and PNF Controller (in ONAP). 
+    The PNF **MUST** support the Ansible protocol for a Service Configuration
+    message exchange between the PNF and PNF Controller (in ONAP).
 
-    Note: this exchange may be either Ansible, Chef, or NetConf depending on the PNF. Note: The PNF Controller may be VF-C, APP-C or SDN-C based on the PNF and PNF domain. Note: for R3 (Casablanca) only Ansible is supported."
+    Note: this exchange may be either Ansible, Chef, or NetConf depending on
+    the PNF. Note: The PNF Controller may be VF-C, APP-C or SDN-C based on the
+    PNF and PNF domain. Note: for R3 (Casablanca) only Ansible is supported.
 
 .. req::
     :id: R-707977
-    :target: XNF
+    :target: PNF
     :keyword: MUST
     :introduced: casablanca
 
-    When the PNF receives a Service configuration from ONAP, the PNF **MUST** cease sending the pnfRegistration VES Event.
+    When the PNF receives a Service configuration from ONAP, the PNF **MUST**
+    cease sending the pnfRegistration VES Event.
 
 .. req::
     :id: R-17624
-    :target: XNF
+    :target: PNF
     :keyword: MAY
     :introduced: casablanca
 
-    The PNF **MAY** support the optional parameters for Service Configuration Parameters.
+    The PNF **MAY** support the optional parameters for Service
+    Configuration Parameters.
 
-    Note: These are detailed in the Stage 5 PnP 
+    Note: These are detailed in the Stage 5 PnP
 
-    Note: These parameters are optional, and not all PNFs will support any or all of these parameters, it is up to the vendor and service provider to ascertain which ones are supported up to an including all of the ones that have been defined. Note: It is expected that there will be a growing list of supported configuration parameters in future releases of ONAP."
+    Note: These parameters are optional, and not all PNFs will support any
+    or all of these parameters, it is up to the vendor and service provider
+    to ascertain which ones are supported up to an including all of the ones
+    that have been defined. Note: It is expected that there will be a growing
+    list of supported configuration parameters in future releases of ONAP.
 
 .. req::
     :id: R-378131
-    :target: XNF
+    :target: PNF
     :keyword: MAY
     :introduced: casablanca
 
-    (Error Case) - If an error is encountered by the PNF during a Service Configuration exchange with ONAP, the PNF **MAY** log the error and notify an operator.
+    (Error Case) - If an error is encountered by the PNF during a
+    Service Configuration exchange with ONAP, the PNF **MAY** log the
+    error and notify an operator.
 
 .. req::
     :id: R-638216
-    :target: XNF
+    :target: PNF
     :keyword: MUST
     :introduced: casablanca
 
-    (Error Case) - The PNF **MUST** support a configurable timer to stop the periodicity sending of the pnfRegistration VES event. If this timer expires during a Service Configuration exchange between the PNF and ONAP, it MAY log a time-out error and notify an operator.
+    (Error Case) - The PNF **MUST** support a configurable timer to stop the
+    periodicity sending of the pnfRegistration VES event. If this timer expires
+    during a Service Configuration exchange between the PNF and ONAP, it
+    MAY log a time-out error and notify an operator.
 
-    Note: It is expected that each vendor will enforce and define a PNF service configuration timeout period. This is because the PNF cannot wait indefinitely as there may also be a technician on-site trying to complete installation & commissioning. The management of the VES event exchange is also a requirement on the PNF to be developed by the PNF vendor."
+    Note: It is expected that each vendor will enforce and define a PNF
+    service configuration timeout period. This is because the PNF cannot
+    wait indefinitely as there may also be a technician on-site trying to
+    complete installation & commissioning. The management of the VES event
+    exchange is also a requirement on the PNF to be developed by the PNF
+    vendor.
 

@@ -200,7 +200,7 @@ VNF Package ONAP Extensions
 1. TOACA data type extension tosca.datatypes.nfv.injectFile is used for vCPE
    use case.
 2. ONAP extensions for VNF package that is currently proposed for Dublin
-   release is VES extension described below. 
+   release is VES extension described below.
 
 TOSCA Introduction
 ^^^^^^^^^^^^^^^^^^^
@@ -234,7 +234,7 @@ This section describing TOSCA modeling principles and data model for
 NFV, which shall be based on [TOSCA-1.0] and [TOSCA-Simple-Profile-YAML
 V1.0], or new type based on ETSI NFV requirements, etc.
 
-TOSCA VNF Descriptor 
+TOSCA VNF Descriptor
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 General
@@ -297,7 +297,7 @@ General
         Connection Point Descriptors (VduCpd), Virtual Link Descriptors
         (VnfVld) and VNF External Connection Point Descriptors
         (VnfExternalCpd);
-    
+
       - VNF deployment aspects: they are described in one or more
         deployment flavours, including configurable parameters, instantiation
         levels, placement constraints (affinity / antiaffinity), minimum and
@@ -306,7 +306,7 @@ General
         flavours;
 
     **Note**: The deployment aspects (deployment flavour etc.) are postponed
-    for future ONAP releases. 
+    for future ONAP releases.
 
       - VNF lifecycle management (LCM) operations: describes the LCM operations
         supported per deployment flavour, and their input parameters;
@@ -344,7 +344,6 @@ Data Types
     data definitions/attributes used in VNFD **MUST** comply with the below
     table.
 
-
 .. csv-table:: **NFV Data Types**
    :file: NFV_data_type.csv
    :header-rows: 1
@@ -368,12 +367,10 @@ Data Types
    :align: center
    :widths: auto
 
-
 Artifact Types
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-No artifact type is currently supported in ONAP. 
-
+No artifact type is currently supported in ONAP.
 
 Capability Types
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -407,7 +404,7 @@ Capability Types
 
       **Note**: This capability type is used in Casablanca how it does
       not exist in the last SOL001 draft
-      
+
       **tosca.capabilities.nfv.VirtualCompute** and
       **tosca.capabilities.nfv.VirtualStorage** includes flavours of VDU
 

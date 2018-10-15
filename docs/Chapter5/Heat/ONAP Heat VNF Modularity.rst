@@ -22,8 +22,8 @@ As stated in :need:`R-33132`, a VNF's Heat Orchestration Template **MAY** be
      3. a Cinder Volume Module Heat Orchestration Template (referred to as
         Cinder Volume  Module).
 
-As stated in :need:`R-20974`, at orchestration time, the VNF's Base Module **MUST**
-be deployed first, prior to any incremental modules.
+As stated in :need:`R-20974`, at orchestration time, the VNF's Base
+Module **MUST** be deployed first, prior to any incremental modules.
 
 As stated in :need:`R-28980`, :need:`R-86926`, and :need:`R-91497`, a
 VNF's incremental module **MAY** be used for
@@ -66,7 +66,7 @@ Incremental Module.
 
 
     A shared Heat Orchestration Template resource is a resource that **MUST**
-    be defined in the base module and will be referenced by one or 
+    be defined in the base module and will be referenced by one or
     more resources in one more more incremental modules.
 
     The UUID of the shared resource (created in the base module) **MUST** be

@@ -7,8 +7,8 @@
 Resource: OS::Nova::Server - Metadata Parameters
 --------------------------------------------------------------------------------
 
-The ``OS::Nova::Server`` resource property ``metadata`` is an optional OpenStack
-property.
+The ``OS::Nova::Server`` resource property ``metadata`` is an optional
+OpenStack property.
 Table 2 summarizes the mandatory and optional ``metadata`` supported by ONAP.
 The sections that follow provides the requirements associated with each
 ``metadata`` parameter.
@@ -93,7 +93,7 @@ Template at orchestration time.
     :updated: casablanca
 
     If a VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
-    property 
+    property
     ``metadata`` key/value pair ``vnf_id`` is passed into a Nested YAML
     file, the key/value pair name ``vnf_id`` **MUST NOT** change.
 
@@ -123,7 +123,7 @@ Template at orchestration time.
     :validation_mode: static
     :updated: casablanca
 
-    A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource 
+    A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
     property ``metadata`` **MUST**
     contain the key/value pair ``vf_module_id``
     and the value MUST be obtained via a ``get_param``.
@@ -230,7 +230,7 @@ Template at orchestration time.
     :updated: casablanca
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
-    property ``metadata`` key/value pair ``vnf_name`` 
+    property ``metadata`` key/value pair ``vnf_name``
     parameter ``vnf_name`` **MUST NOT**
     have parameter constraints defined.
 
@@ -255,7 +255,7 @@ Template at orchestration time.
 
 
     If a VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
-    property 
+    property
     ``metadata`` key/value pair ``vnf_name`` is passed into a Nested YAML
     file, the key/value pair name ``vnf_name`` **MUST NOT** change.
 
@@ -272,7 +272,7 @@ Template at orchestration time.
 vf_module_name
 ^^^^^^^^^^^^^^^^^^
 
-The ``OS::Nova::Server`` Resource ``metadata`` map value parameter 
+The ``OS::Nova::Server`` Resource ``metadata`` map value parameter
 ``vf_module_name``
 is the deployment name of the heat stack created (e.g., ``<STACK_NAME>``)
 from the
@@ -288,7 +288,7 @@ part of the orchestration process.
     :keyword: SHOULD
     :updated: casablanca
 
-    A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource 
+    A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
     property ``metadata`` **SHOULD**
     contain the key/value pair ``vf_module_name`` and the value **MUST**
     be obtained via a ``get_param``.
@@ -301,7 +301,7 @@ part of the orchestration process.
     :updated: casablanca
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
-    property 
+    property
     ``metadata`` key/value pair ``vf_module_name`` parameter **MUST** be
     declared as ``vf_module_name`` and the parameter **MUST**
     be defined as type: ``string``.
@@ -314,7 +314,7 @@ part of the orchestration process.
     :updated: casablanca
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
-    property 
+    property
     ``metadata`` key/value pair ``vf_module_name`` parameter ``vf_module_name``
     **MUST NOT** have parameter constraints defined.
 
@@ -327,7 +327,7 @@ part of the orchestration process.
 
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
-    property ``metadata`` key/value pair ``vf_module_name`` 
+    property ``metadata`` key/value pair ``vf_module_name``
     parameter ``vf_module_name`` **MUST NOT**
     be enumerated in the Heat Orchestration Template's environment file.
 
@@ -369,7 +369,7 @@ available for use by other ONAP components and/or north bound systems.
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource property
     ``metadata`` **MAY**
-    contain the key/value pair ``vm_role`` and the value **MUST** be 
+    contain the key/value pair ``vm_role`` and the value **MUST** be
     obtained either via
 
     - ``get_param``
@@ -384,8 +384,8 @@ available for use by other ONAP components and/or north bound systems.
 
     If a VNF's Heat Orchestration Template's ``OS::Nova::Server``
     resource property
-    ``metadata`` key/value pair ``vm_role`` value is obtained via 
-    ``get_param``, the parameter **MUST** be declared as ``vm_role`` 
+    ``metadata`` key/value pair ``vm_role`` value is obtained via
+    ``get_param``, the parameter **MUST** be declared as ``vm_role``
     and the parameter **MUST** be defined as type: ``string``.
 
 .. req::
@@ -693,7 +693,7 @@ workload_context
     :updated: casablanca
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
-    property ``metadata`` key/value pair ``workload_context`` 
+    property ``metadata`` key/value pair ``workload_context``
     parameter **MUST**
     be declared as ``workload_context`` and the parameter **MUST**
     be defined as type: ``string``.
@@ -706,7 +706,7 @@ workload_context
     :updated: casablanca
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
-    property ``metadata`` key/value pair ``workload_context`` 
+    property ``metadata`` key/value pair ``workload_context``
     parameter ``workload_context`` **MUST NOT**
     have parameter constraints defined.
 
@@ -719,7 +719,7 @@ workload_context
 
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
-    property ``metadata`` key/value pair ``workload_context`` 
+    property ``metadata`` key/value pair ``workload_context``
     parameter ``workload_context`` **MUST NOT**
     be enumerated in the Heat Orchestration Template's environment file.
 
@@ -731,7 +731,7 @@ workload_context
     :updated: casablanca
 
     If a VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
-    property ``metadata`` key/value pair ``workload_context`` 
+    property ``metadata`` key/value pair ``workload_context``
     is passed into a Nested YAML
     file, the key/value pair name ``workload_context`` **MUST NOT** change.
 
@@ -792,7 +792,7 @@ environment_context
     :updated: casablanca
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
-    property ``metadata`` key/value pair ``environment_context`` 
+    property ``metadata`` key/value pair ``environment_context``
     parameter **MUST** be declared as ``environment_context`` and the
     parameter type **MUST** be defined as type: ``string``.
 
@@ -816,7 +816,7 @@ environment_context
     :updated: casablanca
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
-    property 
+    property
     ``metadata`` key/value pair ``environment_context`` **MUST NOT**
     be enumerated in the Heat Orchestration Template's environment file.
 

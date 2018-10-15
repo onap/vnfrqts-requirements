@@ -171,7 +171,7 @@ oam_management_v4_address*
 
     If the VNF's OAM Management IP Address is cloud assigned and
     and the OAM IP Address is required to be inventoried in ONAP A&AI,
-    then the parameter **MUST** be obtained by the 
+    then the parameter **MUST** be obtained by the
     resource ``OS::Neutron::Port``
     attribute ``ip_address``.
 

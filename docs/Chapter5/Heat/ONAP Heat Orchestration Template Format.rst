@@ -416,8 +416,8 @@ immutable
 
 The parameter attribute ``immutable`` is an OpenStack optional attribute
 that defines whether the parameter is updatable. A Heat Orchestration Template
-stack update fails if ``immutable`` is set to ``true`` and the parameter value is
-changed.  This attribute ``immutable`` defaults to ``false``.
+stack update fails if ``immutable`` is set to ``true`` and the parameter
+value is changed.  This attribute ``immutable`` defaults to ``false``.
 
 .. _resources:
 
@@ -482,10 +482,8 @@ separate block in the resources section with the following syntax.
       condition: <condition name or expression or boolean>
 
 
-
 resource ID
 +++++++++++++
-
 
 .. req::
     :id: R-75141
@@ -517,7 +515,8 @@ type
 +++++
 
 The resource attribute ``type`` is an OpenStack required attribute that
-defines the resource type, such as ``OS::Nova::Server`` or ``OS::Neutron::Port``.
+defines the resource type, such as ``OS::Nova::Server`` or
+``OS::Neutron::Port``.
 
 The resource attribute ``type`` may specify a VNF HEAT
 Orchestration Template Nested YAML file.
@@ -565,7 +564,6 @@ metadata
 
 The resource attribute ``metadata`` is an OpenStack optional attribute.
 
-
 .. req::
     :id: R-67386
     :target: VNF
@@ -575,13 +573,11 @@ The resource attribute ``metadata`` is an OpenStack optional attribute.
     A VNF's Heat Orchestration Template's Resource **MAY** declare the
     attribute ``metadata``.
 
-
 depends_on
 +++++++++++
 
 The resource attribute ``depends_on`` is an OpenStack optional attribute.
 See `Section <https://docs.openstack.org/developer/heat/template_guide/hot_spec.html#hot-spec-resources-dependencies>`__ 9.7 for additional details.
-
 
 .. req::
     :id: R-46968

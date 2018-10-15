@@ -28,9 +28,9 @@ Requirement R-82481 defines how the ``{vm-type}`` is used.
 
 .. req::
     :id: R-304011
-    :target: VNF 
-    :keyword: MUST 
-    :validation_mode: static 
+    :target: VNF
+    :keyword: MUST
+    :validation_mode: static
     :updated: casablanca
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource's
@@ -39,7 +39,7 @@ Requirement R-82481 defines how the ``{vm-type}`` is used.
     * property ``image`` parameter name
     * property ``flavor`` parameter name
     * property ``name`` parameter name
-    
+
 
     **MUST** contain the identical ``{vm-type}``
     and **MUST** follow the naming conventions defined

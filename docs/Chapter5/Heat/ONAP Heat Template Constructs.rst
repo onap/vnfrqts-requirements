@@ -57,7 +57,7 @@ Module may use nested heat.
     A VNF's Heat Orchestration Template **MUST** have no more than
     two levels of nesting.
 
-.. req:: 
+.. req::
     :id: R-70112
     :target: VNF
     :keyword: MUST
@@ -835,7 +835,7 @@ balancer and db for database.
       properties:
         ...
         scheduler_hints:
-        group: {get_resource: lb_server_group} 
+        group: {get_resource: lb_server_group}
 
 Resource Data Synchronization
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
