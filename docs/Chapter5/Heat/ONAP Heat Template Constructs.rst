@@ -662,16 +662,6 @@ that contains the VNF's complete Heat Orchestration Template.
     ``get_file`` **MUST NOT** utilize URL-based file retrieval.
 
 .. req::
-    :id: R-62177
-    :target: VNF
-    :keyword: MUST
-    :validation_mode: static
-    :updated: casablanca
-
-    When using the intrinsic function get_file, the included files
-    **MUST** have unique file names within the scope of the VNF.
-
-.. req::
     :id: R-87848
     :target: VNF
     :keyword: MUST

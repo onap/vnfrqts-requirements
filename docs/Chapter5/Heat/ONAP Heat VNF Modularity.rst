@@ -67,7 +67,7 @@ Incremental Module.
 
     A shared Heat Orchestration Template resource is a resource that **MUST**
     be defined in the base module and will be referenced by one or
-    more resources in one more more incremental modules.
+    more resources in one or more incremental modules.
 
     The UUID of the shared resource (created in the base module) **MUST** be
     exposed by declaring a parameter in the

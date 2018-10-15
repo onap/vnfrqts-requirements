@@ -48,20 +48,9 @@ parameter name and type in the corresponding Base Module or Incremental
 Module unless the Output Parameter is of the type ``comma_delimited_list``,
 then the corresponding input parameter **MUST** be declared as type ``json``.
 
-A single volume module must create only the volumes
-required by a single Incremental module or Base module.
-
-The following rules apply to independent volume Heat templates:
-
-.. req::
-    :id: R-79531
-    :target: VNF
-    :keyword: MUST
-
-    The VNF Heat Orchestration Template **MUST** define
-    "outputs" in the volume template for each Cinder volume
-    resource universally unique identifier (UUID) (i.e. ONAP
-    Volume Template Output Parameters).
+A volume template must define ``outputs`` for each Cinder volume resource
+universally unique identifier (UUID) (i.e. ECOMP Volume Template Output
+Parameters.
 
 -  The VNF Incremental Module or Base Module must define input
    parameters that match each Volume output parameter (i.e., ONAP Volume
