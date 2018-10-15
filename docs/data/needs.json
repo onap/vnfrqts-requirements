@@ -1,5 +1,5 @@
 {
-    "created": "2018-10-15T15:13:37.861776",
+    "created": "2018-10-15T22:34:19.210493",
     "current_version": "casablanca",
     "project": "",
     "versions": {
@@ -21858,7 +21858,7 @@
             "needs_amount": 750
         },
         "casablanca": {
-            "created": "2018-10-15T15:13:37.861759",
+            "created": "2018-10-15T22:34:19.210426",
             "needs": {
                 "R-00011": {
                     "description": "A VNF's Heat Orchestration Template's parameter defined\nin a nested YAML file\n**MUST NOT** have a parameter constraint defined.",
@@ -24137,8 +24137,7 @@
                     "section_name": "Virtual Function - Container Recovery Requirements",
                     "sections": [
                         "Virtual Function - Container Recovery Requirements",
-                        "Controller Interactions With VNF",
-                        "Configuration Management"
+                        "VNF Resiliency"
                     ],
                     "status": null,
                     "tags": [],
@@ -30199,8 +30198,7 @@
                     "section_name": "Virtual Function - Container Recovery Requirements",
                     "sections": [
                         "Virtual Function - Container Recovery Requirements",
-                        "Controller Interactions With VNF",
-                        "Configuration Management"
+                        "VNF Resiliency"
                     ],
                     "status": null,
                     "tags": [],
@@ -32098,6 +32096,34 @@
                     "validated_by": "",
                     "validation_mode": "static"
                 },
+                "R-46851": {
+                    "description": "The VNF **MUST** support ONAP Controller\u2019s Evacuate command.",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-46851",
+                    "impacts": "",
+                    "introduced": "casablanca",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "Virtual Function - Container Recovery Requirements",
+                    "sections": [
+                        "Virtual Function - Container Recovery Requirements",
+                        "VNF Resiliency"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "VNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": ""
+                },
                 "R-46908": {
                     "description": "The VNF **MUST**, if not integrated with the Operator's Identity\nand Access Management system, comply with \"password complexity\"\npolicy. When passwords are used, they shall be complex and shall at\nleast meet the following password construction requirements: (1) be a\nminimum configurable number of characters in length, (2) include 3 of\nthe 4 following types of characters: upper-case alphabetic, lower-case\nalphabetic, numeric, and special, (3) not be the same as the UserID\nwith which they are associated or other common strings as specified\nby the environment, (4) not contain repeating or sequential characters\nor numbers, (5) not to use special characters that may have command\nfunctions, and (6) new passwords must not contain sequences of three\nor more characters from the previous password.",
                     "full_title": "",
@@ -32628,6 +32654,34 @@
                     "status": null,
                     "tags": [],
                     "target": "XNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": ""
+                },
+                "R-48761": {
+                    "description": "The VNF **MUST** support ONAP Controller\u2019s Snapshot command.",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-48761",
+                    "impacts": "",
+                    "introduced": "casablanca",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "Virtual Function - Container Recovery Requirements",
+                    "sections": [
+                        "Virtual Function - Container Recovery Requirements",
+                        "VNF Resiliency"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "VNF",
                     "test": "",
                     "test_case": "",
                     "test_file": "",
@@ -34111,8 +34165,7 @@
                     "section_name": "Virtual Function - Container Recovery Requirements",
                     "sections": [
                         "Virtual Function - Container Recovery Requirements",
-                        "Controller Interactions With VNF",
-                        "Configuration Management"
+                        "VNF Resiliency"
                     ],
                     "status": null,
                     "tags": [],
@@ -38232,8 +38285,7 @@
                     "section_name": "Virtual Function - Container Recovery Requirements",
                     "sections": [
                         "Virtual Function - Container Recovery Requirements",
-                        "Controller Interactions With VNF",
-                        "Configuration Management"
+                        "VNF Resiliency"
                     ],
                     "status": null,
                     "tags": [],
@@ -43416,7 +43468,7 @@
                     "validation_mode": "static"
                 }
             },
-            "needs_amount": 757
+            "needs_amount": 759
         }
     }
 }
