@@ -19,7 +19,7 @@ PNF Plug and Play
 PNF Plug and Play
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The following are the requirements related to PNF Plug and Play.
+The following are the requirements related to PNF Plug-and-Play.
 
 .. req::
     :id: R-56718
