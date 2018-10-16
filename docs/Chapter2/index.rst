@@ -64,13 +64,6 @@ IETF Specifications:
 
 Submitting Feedback
 ------------------------------------
-To report issues on this document, please perform one of the following steps:
-
-    1. Log a JIRA defect against the document within the VNF Requirements
-       (VNFRQTS) project at https://jira.onap.org/projects/VNFRQTS.
-       Note: This will require a Linux Foundation ID to login to JIRA.
-    2. Send an email to onap-discuss@lists.onap.org with subject line
-       starting with the tag [vnfrqts]. Note: This will require subscribing
-       to the onap-discuss email discussion list. Refer to the following
-       instructions to subscribe to the mail list:
-       https://wiki.onap.org/display/DW/Mailing+Lists
+Please refer to the `VNF Requirements - How to Contribute <https://wiki.onap.org/display/DW/VNFRQTS+How+to+Contribute>`__
+guide for instructions on how to create issues or contribute changes to the
+VNF Requirements project.
