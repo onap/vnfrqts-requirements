@@ -141,8 +141,8 @@ VNF Package Contents
     :introduced: casablanca
 
     The VNF package Manifest file **MUST** contain: VNF package meta-data, a
-    list of all artifacts (both internal and external) entry’s including
-    their respected URI’s, an algorithm to calculate a digest and a digest
+    list of all artifacts (both internal and external) entry's including
+    their respected URI's, an algorithm to calculate a digest and a digest
     result calculated on the content of each artifacts, as specified in
     ETSI GS NFV-SOL004. The VNF Package MUST include VNF Identification
     Data to uniquely identify the resource for a given VNF provider. The
@@ -429,7 +429,7 @@ Relationship Types
       **tosca.relationships.nfv.VirtualLinksTo**
 
         This relationship type represents an association relationship between
-        the VduCpd’s and VirtualLinkDesc node types.
+        the VduCpd's and VirtualLinkDesc node types.
 
 
 Interface Types

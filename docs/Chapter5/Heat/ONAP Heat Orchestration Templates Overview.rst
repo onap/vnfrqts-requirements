@@ -10,6 +10,8 @@ ONAP Heat Orchestration Templates Overview
 ONAP supports a modular Heat Orchestration Template design pattern,
 referred to as *VNF Modularity.*
 
+.. heat_onap_vnf_modularity_overview:
+
 ONAP VNF Modularity Overview
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -559,5 +561,3 @@ Orchestration Template at orchestration time.
     A VNF's Heat Orchestration Template's parameter values that are constant
     across all deployments **MUST** be declared in a Heat Orchestration
     Template Environment File.
-
-

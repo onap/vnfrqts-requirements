@@ -1,5 +1,5 @@
 {
-    "created": "2018-10-15T22:34:19.210493",
+    "created": "2018-10-19T12:54:42.782400",
     "current_version": "casablanca",
     "project": "",
     "versions": {
@@ -21858,7 +21858,7 @@
             "needs_amount": 750
         },
         "casablanca": {
-            "created": "2018-10-15T22:34:19.210426",
+            "created": "2018-10-19T12:54:42.782400",
             "needs": {
                 "R-00011": {
                     "description": "A VNF's Heat Orchestration Template's parameter defined\nin a nested YAML file\n**MUST NOT** have a parameter constraint defined.",
@@ -22117,7 +22117,7 @@
                     "validation_mode": ""
                 },
                 "R-01123": {
-                    "description": "The VNF package Manifest file **MUST** contain: VNF package meta-data, a\nlist of all artifacts (both internal and external) entry\u2019s including\ntheir respected URI\u2019s, an algorithm to calculate a digest and a digest\nresult calculated on the content of each artifacts, as specified in\nETSI GS NFV-SOL004. The VNF Package MUST include VNF Identification\nData to uniquely identify the resource for a given VNF provider. The\nidentification data must include: an identifier for the VNF, the name\nof the VNF as was given by the VNF provider, VNF description, VNF\nprovider, and version.",
+                    "description": "The VNF package Manifest file **MUST** contain: VNF package meta-data, a\nlist of all artifacts (both internal and external) entry's including\ntheir respected URI's, an algorithm to calculate a digest and a digest\nresult calculated on the content of each artifacts, as specified in\nETSI GS NFV-SOL004. The VNF Package MUST include VNF Identification\nData to uniquely identify the resource for a given VNF provider. The\nidentification data must include: an identifier for the VNF, the name\nof the VNF as was given by the VNF provider, VNF description, VNF\nprovider, and version.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-01123",
@@ -22587,7 +22587,7 @@
                     "section_name": "workload_context",
                     "sections": [
                         "workload_context",
-                        "Resource: OS::Nova::Server - Metadata Parameters"
+                        "Resource: OS::Nova::Server Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -23356,7 +23356,7 @@
                     "section_name": "vnf_id",
                     "sections": [
                         "vnf_id",
-                        "Resource: OS::Nova::Server - Metadata Parameters"
+                        "Resource: OS::Nova::Server Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -23643,7 +23643,7 @@
                     "section_name": "vf_module_index",
                     "sections": [
                         "vf_module_index",
-                        "Resource: OS::Nova::Server - Metadata Parameters"
+                        "Resource: OS::Nova::Server Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -24447,7 +24447,7 @@
                     "section_name": "environment_context",
                     "sections": [
                         "environment_context",
-                        "Resource: OS::Nova::Server - Metadata Parameters"
+                        "Resource: OS::Nova::Server Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -24874,7 +24874,7 @@
                     "section_name": "vf_module_name",
                     "sections": [
                         "vf_module_name",
-                        "Resource: OS::Nova::Server - Metadata Parameters"
+                        "Resource: OS::Nova::Server Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -25216,7 +25216,7 @@
                     "section_name": "vnf_name",
                     "sections": [
                         "vnf_name",
-                        "Resource: OS::Nova::Server - Metadata Parameters"
+                        "Resource: OS::Nova::Server Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -25901,7 +25901,7 @@
                     "section_name": "environment_context",
                     "sections": [
                         "environment_context",
-                        "Resource: OS::Nova::Server - Metadata Parameters"
+                        "Resource: OS::Nova::Server Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -26075,7 +26075,7 @@
                     "section_name": "vnf_id",
                     "sections": [
                         "vnf_id",
-                        "Resource: OS::Nova::Server - Metadata Parameters"
+                        "Resource: OS::Nova::Server Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -26522,7 +26522,7 @@
                     "section_name": "vf_module_index",
                     "sections": [
                         "vf_module_index",
-                        "Resource: OS::Nova::Server - Metadata Parameters"
+                        "Resource: OS::Nova::Server Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -28995,7 +28995,7 @@
                     "validation_mode": ""
                 },
                 "R-32641": {
-                    "description": "The VNF **MUST** provide the capability to encrypt data on\nnon-volatile memory.Non-volative memory is storage that is\ncapable of retaining data without electrical power, e.g.\nComplementary metal\u2013oxide\u2013semiconductor (CMOS) or hard drives.",
+                    "description": "The VNF **MUST** provide the capability to encrypt data on\nnon-volatile memory.Non-volative memory is storage that is\ncapable of retaining data without electrical power, e.g.\nComplementary metal-oxide-semiconductor (CMOS) or hard drives.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-32641",
@@ -29378,7 +29378,7 @@
                     "section_name": "workload_context",
                     "sections": [
                         "workload_context",
-                        "Resource: OS::Nova::Server - Metadata Parameters"
+                        "Resource: OS::Nova::Server Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -29831,7 +29831,7 @@
                     "section_name": "vnf_name",
                     "sections": [
                         "vnf_name",
-                        "Resource: OS::Nova::Server - Metadata Parameters"
+                        "Resource: OS::Nova::Server Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -30057,7 +30057,7 @@
                     "section_name": "vf_module_index",
                     "sections": [
                         "vf_module_index",
-                        "Resource: OS::Nova::Server - Metadata Parameters"
+                        "Resource: OS::Nova::Server Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -30085,7 +30085,7 @@
                     "section_name": "vnf_id",
                     "sections": [
                         "vnf_id",
-                        "Resource: OS::Nova::Server - Metadata Parameters"
+                        "Resource: OS::Nova::Server Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -30282,7 +30282,7 @@
                     "section_name": "vf_module_name",
                     "sections": [
                         "vf_module_name",
-                        "Resource: OS::Nova::Server - Metadata Parameters"
+                        "Resource: OS::Nova::Server Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -31656,7 +31656,7 @@
                     "section_name": "vnf_name",
                     "sections": [
                         "vnf_name",
-                        "Resource: OS::Nova::Server - Metadata Parameters"
+                        "Resource: OS::Nova::Server Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -31684,7 +31684,7 @@
                     "section_name": "vnf_id",
                     "sections": [
                         "vnf_id",
-                        "Resource: OS::Nova::Server - Metadata Parameters"
+                        "Resource: OS::Nova::Server Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -32097,7 +32097,7 @@
                     "validation_mode": "static"
                 },
                 "R-46851": {
-                    "description": "The VNF **MUST** support ONAP Controller\u2019s Evacuate command.",
+                    "description": "The VNF **MUST** support ONAP Controller's Evacuate command.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-46851",
@@ -32250,7 +32250,7 @@
                     "section_name": "workload_context",
                     "sections": [
                         "workload_context",
-                        "Resource: OS::Nova::Server - Metadata Parameters"
+                        "Resource: OS::Nova::Server Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -32665,7 +32665,7 @@
                     "validation_mode": ""
                 },
                 "R-48761": {
-                    "description": "The VNF **MUST** support ONAP Controller\u2019s Snapshot command.",
+                    "description": "The VNF **MUST** support ONAP Controller's Snapshot command.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-48761",
@@ -32879,7 +32879,7 @@
                     "section_name": "vf_module_name",
                     "sections": [
                         "vf_module_name",
-                        "Resource: OS::Nova::Server - Metadata Parameters"
+                        "Resource: OS::Nova::Server Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -33139,7 +33139,7 @@
                     "section_name": "vf_module_index",
                     "sections": [
                         "vf_module_index",
-                        "Resource: OS::Nova::Server - Metadata Parameters"
+                        "Resource: OS::Nova::Server Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -33714,7 +33714,7 @@
                     "section_name": "vf_module_index",
                     "sections": [
                         "vf_module_index",
-                        "Resource: OS::Nova::Server - Metadata Parameters"
+                        "Resource: OS::Nova::Server Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -33997,7 +33997,7 @@
                     "section_name": "vnf_id",
                     "sections": [
                         "vnf_id",
-                        "Resource: OS::Nova::Server - Metadata Parameters"
+                        "Resource: OS::Nova::Server Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -34025,7 +34025,7 @@
                     "section_name": "vf_module_index",
                     "sections": [
                         "vf_module_index",
-                        "Resource: OS::Nova::Server - Metadata Parameters"
+                        "Resource: OS::Nova::Server Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -34137,7 +34137,7 @@
                     "section_name": "environment_context",
                     "sections": [
                         "environment_context",
-                        "Resource: OS::Nova::Server - Metadata Parameters"
+                        "Resource: OS::Nova::Server Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -35243,7 +35243,7 @@
                     "section_name": "vnf_name",
                     "sections": [
                         "vnf_name",
-                        "Resource: OS::Nova::Server - Metadata Parameters"
+                        "Resource: OS::Nova::Server Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -35385,7 +35385,7 @@
                     "section_name": "environment_context",
                     "sections": [
                         "environment_context",
-                        "Resource: OS::Nova::Server - Metadata Parameters"
+                        "Resource: OS::Nova::Server Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -36271,7 +36271,7 @@
                     "section_name": "vm_role",
                     "sections": [
                         "vm_role",
-                        "Resource: OS::Nova::Server - Metadata Parameters"
+                        "Resource: OS::Nova::Server Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -36411,7 +36411,7 @@
                     "section_name": "vf_module_name",
                     "sections": [
                         "vf_module_name",
-                        "Resource: OS::Nova::Server - Metadata Parameters"
+                        "Resource: OS::Nova::Server Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -37123,7 +37123,7 @@
                     "section_name": "vm_role",
                     "sections": [
                         "vm_role",
-                        "Resource: OS::Nova::Server - Metadata Parameters"
+                        "Resource: OS::Nova::Server Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -37264,7 +37264,7 @@
                     "section_name": "vf_module_id",
                     "sections": [
                         "vf_module_id",
-                        "Resource: OS::Nova::Server - Metadata Parameters"
+                        "Resource: OS::Nova::Server Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -37436,7 +37436,7 @@
                     "section_name": "vnf_name",
                     "sections": [
                         "vnf_name",
-                        "Resource: OS::Nova::Server - Metadata Parameters"
+                        "Resource: OS::Nova::Server Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -37464,7 +37464,7 @@
                     "section_name": "vf_module_id",
                     "sections": [
                         "vf_module_id",
-                        "Resource: OS::Nova::Server - Metadata Parameters"
+                        "Resource: OS::Nova::Server Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -37859,7 +37859,7 @@
                     "section_name": "workload_context",
                     "sections": [
                         "workload_context",
-                        "Resource: OS::Nova::Server - Metadata Parameters"
+                        "Resource: OS::Nova::Server Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -37945,7 +37945,7 @@
                     "section_name": "workload_context",
                     "sections": [
                         "workload_context",
-                        "Resource: OS::Nova::Server - Metadata Parameters"
+                        "Resource: OS::Nova::Server Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -38800,7 +38800,7 @@
                     "section_name": "vf_module_name",
                     "sections": [
                         "vf_module_name",
-                        "Resource: OS::Nova::Server - Metadata Parameters"
+                        "Resource: OS::Nova::Server Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -39143,7 +39143,7 @@
                     "section_name": "vf_module_id",
                     "sections": [
                         "vf_module_id",
-                        "Resource: OS::Nova::Server - Metadata Parameters"
+                        "Resource: OS::Nova::Server Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -39935,7 +39935,7 @@
                     "section_name": "vm_role",
                     "sections": [
                         "vm_role",
-                        "Resource: OS::Nova::Server - Metadata Parameters"
+                        "Resource: OS::Nova::Server Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -40186,7 +40186,7 @@
                     "section_name": "vf_module_id",
                     "sections": [
                         "vf_module_id",
-                        "Resource: OS::Nova::Server - Metadata Parameters"
+                        "Resource: OS::Nova::Server Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -40270,7 +40270,7 @@
                     "section_name": "vm_role",
                     "sections": [
                         "vm_role",
-                        "Resource: OS::Nova::Server - Metadata Parameters"
+                        "Resource: OS::Nova::Server Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -40979,7 +40979,7 @@
                     "section_name": "environment_context",
                     "sections": [
                         "environment_context",
-                        "Resource: OS::Nova::Server - Metadata Parameters"
+                        "Resource: OS::Nova::Server Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -42281,7 +42281,7 @@
                     "validation_mode": "static"
                 },
                 "R-95321": {
-                    "description": "The VNFD provided by VNF vendor may use the below described TOSCA\nrelationships. An on-boarding entity (ONAP SDC) **MUST** support them.\n\n  **tosca.relationships.nfv.VirtualBindsTo**\n\n    This relationship type represents an association relationship between\n    VDU and CP node types.\n\n  **tosca.relationships.nfv.VirtualLinksTo**\n\n    This relationship type represents an association relationship between\n    the VduCpd\u2019s and VirtualLinkDesc node types.",
+                    "description": "The VNFD provided by VNF vendor may use the below described TOSCA\nrelationships. An on-boarding entity (ONAP SDC) **MUST** support them.\n\n  **tosca.relationships.nfv.VirtualBindsTo**\n\n    This relationship type represents an association relationship between\n    VDU and CP node types.\n\n  **tosca.relationships.nfv.VirtualLinksTo**\n\n    This relationship type represents an association relationship between\n    the VduCpd's and VirtualLinkDesc node types.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-95321",
@@ -42322,7 +42322,7 @@
                     "section_name": "vm_role",
                     "sections": [
                         "vm_role",
-                        "Resource: OS::Nova::Server - Metadata Parameters"
+                        "Resource: OS::Nova::Server Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -42919,7 +42919,7 @@
                     "section_name": "vf_module_id",
                     "sections": [
                         "vf_module_id",
-                        "Resource: OS::Nova::Server - Metadata Parameters"
+                        "Resource: OS::Nova::Server Metadata Parameters"
                     ],
                     "status": null,
                     "tags": [],
