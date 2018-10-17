@@ -21,6 +21,12 @@ Version: 3.0.0
 
 :Release Date: In Progress (Casablanca Release)
 
+A detailed summary of all requirement changes per section can be found
+:doc:`here <changes-by-section-casablanca>`.
+
+A higher level summary of changes as well as non-requirement impacting
+changes can be found below.
+
 **New Features**
     - Added R-17528 to Heat section regarding Nested YAML requirements
 
@@ -106,7 +112,9 @@ Version: 1.0.0
     - Initial release of VNF Provider Guidelines and Requirements for
       Open Network Automation Platform (ONAP)
 
-    - This intitial releases is based on seed documents that came from Open-O and Open ECOMP. For details, refer `Seed Document Mappings to VNFRQTS Deliverable Outlines <https://wiki.onap.org/display/DW/Seed+Document+Mappings+to+VNFRQTS+Deliverable+Outlines>`_.
+    - This initial releases is based on seed documents that came from Open-O
+      and Open ECOMP. For details, refer
+      `Seed Document Mappings to VNFRQTS Deliverable Outlines <https://wiki.onap.org/display/DW/Seed+Document+Mappings+to+VNFRQTS+Deliverable+Outlines>`_.
 
     - This release provides a consolidated list of requirements as prototype
       text for RFPs to acquire VNFs to run in an ONAP context. The
@@ -118,8 +126,8 @@ Version: 1.0.0
 **Known Issues**
     - `VNFRQTS-83 Chapter 5, Section B Requirements <https://jira.onap.org/browse/VNFRQTS-83>`_.
 
-    - Heat requirments have not been formatted into the standard
-      format used througout the document.
+    - Heat requirements have not been formatted into the standard
+      format used throughout the document.
 
     - Therefore they are not included in the summary of requirements
       listed in Appendix 8.d.

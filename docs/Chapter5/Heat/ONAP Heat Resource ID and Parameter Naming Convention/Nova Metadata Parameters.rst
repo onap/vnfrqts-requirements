@@ -4,7 +4,7 @@
 
 .. _Nova Server - Metadata Parameters:
 
-Resource: OS::Nova::Server - Metadata Parameters
+Resource: OS::Nova::Server Metadata Parameters
 --------------------------------------------------------------------------------
 
 The ``OS::Nova::Server`` resource property ``metadata`` is an optional

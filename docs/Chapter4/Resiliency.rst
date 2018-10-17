@@ -710,7 +710,7 @@ of a VNF or VM and store it (Openstack).
     :keyword: MUST
     :introduced: casablanca
 
-    The VNF **MUST** support ONAP Controller’s Evacuate command.
+    The VNF **MUST** support ONAP Controller's Evacuate command.
 
 .. req::
     :id: R-48761
@@ -718,4 +718,4 @@ of a VNF or VM and store it (Openstack).
     :keyword: MUST
     :introduced: casablanca
 
-    The VNF **MUST** support ONAP Controller’s Snapshot command.
+    The VNF **MUST** support ONAP Controller's Snapshot command.

@@ -886,7 +886,7 @@ Data Protection Requirements
     The VNF **MUST** provide the capability to encrypt data on
     non-volatile memory.Non-volative memory is storage that is
     capable of retaining data without electrical power, e.g.
-    Complementary metal–oxide–semiconductor (CMOS) or hard drives.
+    Complementary metal-oxide-semiconductor (CMOS) or hard drives.
 
 .. req::
     :id: R-13151

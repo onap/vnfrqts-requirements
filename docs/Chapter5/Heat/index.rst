@@ -11,7 +11,7 @@ Heat
 
     General Guidelines for Heat
     ONAP Heat Orchestration Template Format
-    ONAP Heat Orchestration Templates: Overview
+    ONAP Heat Orchestration Templates Overview
     ONAP Heat Networking
     ONAP Heat Resource ID and Parameter Naming Convention/index
     ONAP Heat VNF Modularity

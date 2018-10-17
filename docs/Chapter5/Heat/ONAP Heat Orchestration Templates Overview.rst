@@ -559,5 +559,3 @@ Orchestration Template at orchestration time.
     A VNF's Heat Orchestration Template's parameter values that are constant
     across all deployments **MUST** be declared in a Heat Orchestration
     Template Environment File.
-
-
