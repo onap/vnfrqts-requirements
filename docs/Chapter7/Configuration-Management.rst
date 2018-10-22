@@ -879,6 +879,9 @@ NETCONF RFCs.
     The xNF **MUST** conform to the NETCONF RFC 6242,
     "Using the Network Configuration Protocol over Secure Shell".
 
+
+.. vnf_rest_apis:
+
 VNF REST APIs
 ^^^^^^^^^^^^^^^
 
@@ -1260,6 +1263,8 @@ Ansible Client Requirements
 
     Note: Ansible Server itself may be used to upload new SSH public
     keys onto supported VNFs.
+
+.. ansible_playbook_requirements:
 
 Ansible Playbook Requirements
 +++++++++++++++++++++++++++++++
