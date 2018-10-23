@@ -32,3 +32,4 @@ sphinxcontrib-swaggerdoc
 sphinxcontrib-plantuml
 xlwt==1.3.0
 PyYAML>=3.10,<4
+pytest

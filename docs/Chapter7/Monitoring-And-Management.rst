@@ -382,7 +382,7 @@ minimizing changes to data delivery.
    :keyword: SHOULD
    :impacts: dcae
    :validation_mode: in_service
-   :introduced: casblanca
+   :introduced: casablanca
 
    The xNF **SHOULD** deliver event records that fall into the event domains
    supported by VES.
@@ -393,7 +393,7 @@ minimizing changes to data delivery.
    :keyword: MUST
    :impacts: dcae
    :validation_mode: in_service
-   :introduced: casblanca
+   :introduced: casablanca
 
    The xNF **MUST** deliver event records to ONAP using the common transport
    mechanisms and protocols defined in this document.
@@ -418,7 +418,7 @@ data sets.
    :keyword: MUST
    :impacts: dcae
    :validation_mode: none
-   :introduced: casblanca
+   :introduced: casablanca
 
    The xNF provider **MUST** reach agreement with the Service Provider on
    the selected methods for encoding, serialization and data delivery
@@ -529,6 +529,7 @@ JSON
     :id: R-19624
     :target: XNF
     :keyword: MUST
+    :updated: casablanca
 
     The xNF, when leveraging JSON for events, **MUST** encode and serialize
     content delivered to ONAP using JSON (RFC 7159) plain text format.
@@ -810,6 +811,7 @@ Asynchronous and Synchronous Data Delivery
    :keyword: SHOULD
    :impacts: dcae
    :validation_mode: in_service
+   :introduced: casablanca
 
    The xNF **SHOULD** deliver all syslog messages to the VES Collector per the
    specifications in Monitoring and Management chapter.

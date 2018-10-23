@@ -44,11 +44,11 @@ Table B1. Ansible JSON File key value description
 |               | value pairs to be    |         |Attribute names (variable   |
 |               | passed to the Ansible|         |names) passed to Ansible    |
 |               | playbook. These      |         |shall follow Ansible valid  |
-|               | values would         |         |variable names: “Variable   |
+|               | values would         |         |variable names: "Variable   |
 |               | correspond to        |         |names should be letters,    |
 |               | instance specific    |         |numbers, and underscores.   |
 |               | parameters that a    |         |Variables should always     |
-|               | playbook may need to |         |start with a letter.”       |
+|               | playbook may need to |         |start with a letter."       |
 |               | execute an action.   |         |                            |
 +---------------+----------------------+---------+----------------------------+
 | NodeList      |Ansible inventory     | Optional|If not provided, pre-loaded |
@@ -110,7 +110,7 @@ Ansible JSON file example:
 
 In the above example, the Ansible Server will:
 
-a. Process the “FileParameters” dictionary and generate a file named
+a. Process the "FileParameters" dictionary and generate a file named
    ‘config.txt’ with contents set to the value of the ‘config.txt’ key.
 
 b. Execute the playbook named ‘<VNFCode>/<Version>/ansible/configure/site.yml’
