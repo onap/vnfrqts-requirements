@@ -945,7 +945,7 @@ model as described in YAML 1.1. Pending on Shitao proposal (see
 NFVIFA(17)000110 discussion paper)
 
 **[editor note]** new relationship type as suggested in Matt
-presentation. Slide 8. With specific rules of “valid\_target\_type”
+presentation. Slide 8. With specific rules of "valid\_target\_type"
 
 +---------------------------+--------------------------------------+
 | **Shorthand Name**        | VirtualStorage                       |

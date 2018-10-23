@@ -27,8 +27,8 @@ ONAP VNF Modularity Overview
 
 With VNF Modularity, a single VNF may be composed from one or more Heat
 Orchestration Templates, each of which represents a subset of the
-overall VNF. These component parts are referred to as “\ *VNF
-Modules*\ ”. During orchestration, these modules are deployed
+overall VNF. These component parts are referred to as "\ *VNF
+Modules*\ ". During orchestration, these modules are deployed
 incrementally to create the complete VNF.
 
 A modular Heat Orchestration Template can be either one of the following
@@ -82,7 +82,7 @@ ONAP supports a modular Heat Orchestration Template design pattern,
 referred to as *VNF Modularity.* With this approach, a single VNF may be
 composed from one or more Heat Orchestration Templates, each of which
 represents a subset of the overall VNF. These component parts are
-referred to as “\ *VNF Modules*\ ”. During orchestration, these modules
+referred to as "\ *VNF Modules*\ ". During orchestration, these modules
 are deployed incrementally to create the complete VNF.
 
 A modular Heat Orchestration Template can be either one of the following
@@ -94,8 +94,8 @@ types:
 
 3. Cinder Volume Module
 
-A VNF must be composed of one “base” module and may be composed of zero
-to many “incremental” modules. The base module must be deployed first,
+A VNF must be composed of one "base" module and may be composed of zero
+to many "incremental" modules. The base module must be deployed first,
 prior to the incremental modules.
 
 ONAP also supports the concept of an optional, independently deployed
@@ -174,8 +174,8 @@ b. Incremental modules for incremental scaling units
 
    ii. May be separated by VM type for multi-dimensional scaling
 
-With no growth units, Option 2 is equivalent to the “One Heat Template
-per VNF” model.
+With no growth units, Option 2 is equivalent to the "One Heat Template
+per VNF" model.
 
 Note that modularization of VNFs is not required. A single Heat
 Orchestration Template (a base module) may still define a complete VNF,
@@ -193,13 +193,13 @@ There are some rules to follow when building modular VNF templates:
    a. Must include all shared resources (e.g., private networks, server
       groups, security groups)
 
-   b. Must expose all shared resources (by UUID) as “outputs” in its
+   b. Must expose all shared resources (by UUID) as "outputs" in its
       associated Heat template (i.e., ONAP Base Module Output
       Parameters)
 
    c. May include initial set of VMs
 
-   d. May be operational as a stand-alone “minimum” configuration of the
+   d. May be operational as a stand-alone "minimum" configuration of the
       VNF
 
 2. VNFs may have one or more incremental modules which:
@@ -221,7 +221,7 @@ There are some rules to follow when building modular VNF templates:
       ii. must not be dependent on other Add-On VNF Modules
 
    e. Multiple instances of an incremental Module may be added to the
-      same VNF (e.g., incrementally grow a VNF by a fixed “add-on”
+      same VNF (e.g., incrementally grow a VNF by a fixed "add-on"
       growth units)
 
 3. Each VNF Module (base or incremental) may have (optional) an

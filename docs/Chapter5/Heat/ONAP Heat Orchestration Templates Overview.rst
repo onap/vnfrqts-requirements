@@ -32,6 +32,7 @@ deployed incrementally to create the complete VNF.
     :id: R-33132
     :target: VNF
     :keyword: MAY
+    :updated: casablanca
 
     A VNF's Heat Orchestration Template **MAY** be
      1.) Base Module Heat Orchestration Template (also referred to as a
@@ -45,6 +46,7 @@ deployed incrementally to create the complete VNF.
     :id: R-37028
     :target: VNF
     :keyword: MUST
+    :updated: casablanca
 
     A VNF **MUST** be composed of one Base Module
 
@@ -59,6 +61,7 @@ deployed incrementally to create the complete VNF.
     :id: R-20974
     :target: VNF
     :keyword: MUST
+    :updated: casablanca
 
     At orchestration time, the VNF's Base Module **MUST**
     be deployed first, prior to any incremental modules.
@@ -132,6 +135,7 @@ on another instance (e.g., during a failover activity).
     :target: VNF
     :keyword: MUST
     :validation_mode: static
+    :updated: casablanca
 
     A VNF's Cinder Volume Module, when it exists, **MUST** be 1:1
     with a Base module or Incremental module.
@@ -144,6 +148,7 @@ Module.
     :target: VNF
     :keyword: MUST
     :validation_mode: static
+    :updated: casablanca
 
     A VNF's Base Module **MUST** have a corresponding Environment File.
 
@@ -152,6 +157,7 @@ Module.
     :target: VNF
     :keyword: MUST
     :validation_mode: static
+    :updated: casablanca
 
     A VNF's Incremental Module **MUST** have a corresponding Environment File
 
@@ -160,6 +166,7 @@ Module.
     :target: VNF
     :keyword: MUST
     :validation_mode: static
+    :updated: casablanca
 
     A VNF's Cinder Volume Module **MUST** have a corresponding environment file
 
@@ -260,6 +267,7 @@ Base Modules
     :target: VNF
     :keyword: MUST
     :validation_mode: static
+    :updated: casablanca
 
     A VNF Heat Orchestration Template's Base Module file name **MUST** include
     case insensitive 'base' in the filename and
@@ -296,6 +304,7 @@ Incremental Modules
     :target: VNF
     :keyword: MUST
     :validation_mode: static
+    :updated: casablanca
 
     VNF Heat Orchestration Template's Incremental Module file name
     **MUST** contain only alphanumeric characters and underscores
@@ -331,6 +340,7 @@ Cinder Volume Modules
     :target: VNF
     :keyword: MUST
     :validation_mode: static
+    :updated: casablanca
 
     A VNF Heat Orchestration Template's Cinder Volume Module **MUST**
     be named identical to the base or incremental module it is supporting with
@@ -341,6 +351,7 @@ Cinder Volume Modules
     :target: VNF
     :keyword: MUST
     :validation_mode: static
+    :updated: casablanca
 
     VNF Heat Orchestration Template's Cinder Volume Module's Environment File
     **MUST** be named identical to the VNF Heat Orchestration Template's
@@ -355,6 +366,7 @@ Nested Heat file
     :target: VNF
     :keyword: MUST
     :validation_mode: static
+    :updated: casablanca
 
     VNF Heat Orchestration Template's Nested YAML file name **MUST** contain
     only alphanumeric characters and underscores '_' and
@@ -453,6 +465,7 @@ ONAP Volume Module Output Parameters
     :target: VNF
     :keyword: MUST
     :validation_mode: static
+    :updated: casablanca
 
     A VNF's Heat Orchestration Template's Cinder Volume Module Output
     Parameter(s)
@@ -470,6 +483,7 @@ template is associated with.
     :target: VNF
     :keyword: MUST
     :validation_mode: static
+    :updated: casablanca
 
     A VNF's Heat Orchestration Templates' Cinder Volume Module Output
     Parameter's name and type **MUST** match the input parameter name and type

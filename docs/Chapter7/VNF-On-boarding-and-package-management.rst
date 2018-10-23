@@ -481,6 +481,7 @@ Testing
     :id: R-43958
     :target: XNF
     :keyword: MUST
+    :updated: casablanca
 
     The xNF Package **MUST** include documentation describing
     the tests that were conducted by the xNF provider and the test results.

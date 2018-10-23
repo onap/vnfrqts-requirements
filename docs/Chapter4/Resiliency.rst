@@ -128,7 +128,7 @@ Avoid performance-sapping data center-to-data center replication delay
 by applying techniques such as caching and persistent transaction paths
 - Eliminate replication delay impact between data centers by using a
 concept of stickiness (i.e., once a client is routed to data center "A",
-the client will stay with Data center “A” until the entire session is
+the client will stay with Data center "A" until the entire session is
 completed).
 
 Minimize Cross Data-Center Traffic Requirements
