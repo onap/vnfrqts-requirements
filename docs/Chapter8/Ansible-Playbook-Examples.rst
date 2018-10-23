@@ -447,7 +447,7 @@ Optional:
  <VNF type>/<Version>/ansible/inventory/group_vars/<VNF instance name>
 
 NOTE: Default groups will be created based on VNFC type, 3 characters,
-on VNFC name. Example: “oam”, “rdb”, “dbs”, “man”, “iox”, “app”,…
+on VNFC name. Example: "oam", "rdb", "dbs", "man", "iox", "app",…
 
 Ansible Directories for other artifacts – VNF (special) other files –
 Optional – Example – License file:
@@ -520,7 +520,7 @@ Ansible Server.
    a. Includes VNF type using VNF function code 4 characters under
       /storage.
 
-   b. Includes VNF “Version” directory as part of the path to store
+   b. Includes VNF "Version" directory as part of the path to store
       playbooks for this VNF version.
 
    c. Include generic ansible root directory. Creating full directory
@@ -603,10 +603,10 @@ example:
    vm\_config\_rdb4\_hostname: vfdb9904vm006
    vm\_config\_rdb4\_provider\_ip\_address: 1xx.2yy.zzz.yyy
 
-NOTE: Please note names in this file shall use underscore “\_” not dots
-“.” or dashes “-“.
+NOTE: Please note names in this file shall use underscore "\_" not dots
+"." or dashes "-".
 
-7. Perform some basic playbook validation running with “--check” option,
+7. Perform some basic playbook validation running with "--check" option,
    running dummy playbooks or other.
 
 NOTE: Each Ansible Server or cluster of Ansible Server will have its own

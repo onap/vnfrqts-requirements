@@ -63,7 +63,7 @@ Table A1. Chef JSON File key value description
 |                | as part of the desired   |         |                      |
 |                | VNF action.              |         |                      |
 +----------------+--------------------------+---------+----------------------+
-| PushJobFlag    | This field indicates     |Mandatory| If set to “True”,    |
+| PushJobFlag    | This field indicates     |Mandatory| If set to "True",    |
 |                | whether the VNF action   |         | ONAP will request a  |
 |                | requires a push Job. Push|         | push job. Ignored    |
 |                | job object will be       |         | otherwise.           |
@@ -73,7 +73,7 @@ Table A1. Chef JSON File key value description
 | CallbackCapable| This field indicates if  | Optional| If Chef cookbook is  |
 |                | the chef-client run      |         | callback capable, VNF|
 |                | invoked by push job      |         | owner is required to |
-|                | corresponding to the VNF |         | set it to “True”.    |
+|                | corresponding to the VNF |         | set it to "True".    |
 |                | action is capable of     |         | Ignored otherwise.   |
 |                | posting results on a     |         |                      |
 |                | callback URL.            |         |                      |
@@ -83,7 +83,7 @@ Table A1. Chef JSON File key value description
 |                | retrieve output generated|         | NodeObject attributes|
 |                | in a chef-client run from|         | [‘PushJobOutput’] for|
 |                | Node object attribute    |         | all nodes in NodeList|
-|                | node[‘PushJobOutput’] for|         | if set to “True”.    |
+|                | node[‘PushJobOutput’] for|         | if set to "True".    |
 |                | this VNF action (e.g., in|         | Ignored otherwise.   |
 |                | Audit).                  |         |                      |
 +----------------+--------------------------+---------+----------------------+
@@ -92,39 +92,39 @@ Chef Template example:
 
 .. code-block:: erb
 
- “Environment”:{
+ "Environment":{
       "name": "HAR",
       "description": "VNF Chef environment for HAR",
       "json\_class": "Chef::Environment",
       "chef\_type": "environment",
       "default\_attributes": { },
       "override\_attributes": {
-            “Retry\_Time”:”50”,
-            “MemCache”: “1024”,
-            “Database\_IP”:”10.10.1.5”
+            "Retry\_Time":"50",
+            "MemCache": "1024",
+            "Database\_IP":"10.10.1.5"
       },
  }
  }
- “Node”: {
-      “name” : “signal.network.com “
+ "Node": {
+      "name" : "signal.network.com "
       "chef\_type": "node",
       "json\_class": "Chef::Node",
       "attributes": {
-            “IPAddress1”: “192.168.1.2”,
-            “IPAddress2”:”135.16.162.5”,
-            “MyRole”:”BE”
+            "IPAddress1": "192.168.1.2",
+            "IPAddress2":"135.16.162.5",
+            "MyRole":"BE"
       },
       "override": {},
       "default": {},
-      “normal”:{},
-      “automatic”:{},
-      “chef\_environment” : “\_default”
+      "normal":{},
+      "automatic":{},
+      "chef\_environment" : "\_default"
       "run\_list": [ "configure\_signal" ]
       },
-      “NodeList”:[“node1.vnf\_a.onap.com”, “node2.vnf\_a.onap.com”],
-      “PushJobFlag”: “True”
-      “CallbackCapable”:True
-      “GetOutputFlag” : “False”
+      "NodeList":["node1.vnf\_a.onap.com", "node2.vnf\_a.onap.com"],
+      "PushJobFlag": "True"
+      "CallbackCapable":True
+      "GetOutputFlag" : "False"
  }
 
 The example JSON file provided by the VNF provider for each VNF action will be
@@ -136,8 +136,8 @@ Some points worth noting regarding the JSON fields:
 a. The JSON file must be created for each action for each VNF.
 
 b. If a VNF action involves multiple endpoints (VMs) of a VNF, ONAP will
-   replicate the “Node” JSON dictionary in the template and post it to
-   each FQDN (i.e., endpoint) in the NodeList after setting the “name”
+   replicate the "Node" JSON dictionary in the template and post it to
+   each FQDN (i.e., endpoint) in the NodeList after setting the "name"
    field in the Node object to be the respective FQDN [#8.1.1]_. Hence, it
    is required that all end points (VMs) of a VNF involved in a VNF
    action support the same set of Node Object attributes.
@@ -185,5 +185,5 @@ Table A2. JSON Dictionary to Post in Callback
 +--------------+----------------------------+---------+-----------------------+
 
 .. [#8.1.1]
-   The “name” field is a mandatory field in a valid Chef Node Object
+   The "name" field is a mandatory field in a valid Chef Node Object
    JSON dictionary.
