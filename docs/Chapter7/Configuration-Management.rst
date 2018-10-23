@@ -880,7 +880,7 @@ NETCONF RFCs.
     "Using the Network Configuration Protocol over Secure Shell".
 
 
-.. vnf_rest_apis:
+.. _vnf_rest_apis:
 
 VNF REST APIs
 ^^^^^^^^^^^^^^^
@@ -1264,7 +1264,7 @@ Ansible Client Requirements
     Note: Ansible Server itself may be used to upload new SSH public
     keys onto supported VNFs.
 
-.. ansible_playbook_requirements:
+.. _ansible_playbook_requirements:
 
 Ansible Playbook Requirements
 +++++++++++++++++++++++++++++++
