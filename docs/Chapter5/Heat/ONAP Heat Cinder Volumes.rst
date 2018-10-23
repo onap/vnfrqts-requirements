@@ -66,7 +66,7 @@ Parameters.
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: casablanca
+    :introduced: casablanca
 
     A VNF's Heat Orchestration Template's Cinder Volume Template **MUST**
     contain either

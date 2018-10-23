@@ -31,7 +31,7 @@ Requirement R-82481 defines how the ``{vm-type}`` is used.
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: casablanca
+    :introduced: casablanca
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource's
 
@@ -70,7 +70,7 @@ Property: image
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: casablanca
+    :introduced: casablanca
 
     The VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``
     property ``image`` value **MUST** be be obtained via a ``get_param``.
@@ -141,7 +141,7 @@ Property: flavor
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: casablanca
+    :introduced: casablanca
 
     The VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``
     property ``flavor`` value **MUST** be be obtained via a ``get_param``.
@@ -209,7 +209,7 @@ Property: Name
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: casablanca
+    :introduced: casablanca
 
     The VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``
     property ``name`` value **MUST** be be obtained via a ``get_param``.

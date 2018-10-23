@@ -36,6 +36,7 @@ This script will generate an summary of the requirements changes between
 two version's of requirements by analyzing the needs.json file.  The template
 can be customized by updating release-requirement-changes.rst.jinja2.
 """
+import csv
 from itertools import groupby, chain
 import json
 import os
@@ -279,15 +280,21 @@ def print_invalid_metadata_report(difference_finder, current_version):
     print()
     print("Requirements Added, but Missing :introduced: Attribute")
     print("----------------------------------------------------")
+    errors = [["reqt_id", "attribute", "value"]]
     for req in difference_finder.new_requirements.values():
         if "introduced" not in req or req["introduced"] != current_version:
+            errors.append([req["id"], ":introduced:", current_version])
             print(req["id"])
     print()
     print("Requirements Changed, but Missing :updated: Attribute")
     print("-----------------------------------------------------")
     for req in difference_finder.changed_requirements.values():
         if "updated" not in req or req["updated"] != current_version:
+            errors.append([req["id"], ":updated:", current_version])
             print(req["id"])
+    with open("invalid_metadata.csv", "w", newline="") as error_report:
+        error_report = csv.writer(error_report)
+        error_report.writerows(errors)
 
 
 if __name__ == "__main__":
@@ -310,3 +317,5 @@ if __name__ == "__main__":
         num_removed=len(differ.removed_requirements),
         num_changed=len(differ.changed_requirements),
     )
+
+

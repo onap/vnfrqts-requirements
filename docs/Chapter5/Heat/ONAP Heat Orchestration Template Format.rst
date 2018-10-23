@@ -12,6 +12,7 @@ As stated above, Heat Orchestration templates must be defined in YAML.
     :id: R-92635
     :keyword: MUST
     :validation_mode: static
+    :introduced: casablanca
 
     A VNF's Heat Orchestration Template **MUST** be compliant with the
     OpenStack Template Guide.
@@ -130,6 +131,7 @@ attributes (e.g., type, label) defined as nested elements.
     :target: VNF
     :keyword: MUST
     :validation_mode: static
+    :updated: casablanca
 
     A VNF Heat Orchestration's template's parameter **MUST** be used
     in a resource with the exception of the parameters for the
@@ -139,6 +141,7 @@ attributes (e.g., type, label) defined as nested elements.
     :id: R-91273
     :target: VNF
     :keyword: MAY NOT
+    :updated: casablanca
 
     A VNF Heat Orchestration's template's parameter for the
     ``OS::Nova::Server`` resource property ``availability_zone``
@@ -181,6 +184,7 @@ type
     :target: VNF
     :keyword: MUST
     :validation_mode: static
+    :updated: casablanca
 
     A VNF's Heat Orchestration Template's parameter type **MUST** be one of
     the following values:
@@ -238,6 +242,7 @@ default
     :target: VNF
     :keyword: MUST
     :validation_mode: static
+    :updated: casablanca
 
     If a VNF Heat Orchestration Template parameter has a default value,
     it **MUST** be enumerated in the environment file.
@@ -275,6 +280,7 @@ that defines a list of constraints to apply to the parameter.
     :target: VNF
     :keyword: MUST
     :validation_mode: static
+    :updated: casablanca
 
     A VNF's Heat Orchestration Template's parameter defined
     in a non-nested YAML file as type
@@ -285,6 +291,7 @@ that defines a list of constraints to apply to the parameter.
     :id: R-40518
     :target: VNF
     :keyword: MAY
+    :updated: casablanca
 
     A VNF's Heat Orchestration Template's parameter defined
     in a non-nested YAML file as type
@@ -294,6 +301,7 @@ that defines a list of constraints to apply to the parameter.
     :id: R-96227
     :target: VNF
     :keyword: MAY
+    :updated: casablanca
 
     A VNF's Heat Orchestration Template's parameter defined
     in a non-nested YAML file as type
@@ -303,6 +311,7 @@ that defines a list of constraints to apply to the parameter.
     :id: R-79817
     :target: VNF
     :keyword: MAY
+    :updated: casablanca
 
     A VNF's Heat Orchestration Template's parameter defined
     in a non-nested YAML file as
@@ -312,6 +321,7 @@ that defines a list of constraints to apply to the parameter.
     :id: R-06613
     :target: VNF
     :keyword: MAY
+    :updated: casablanca
 
     A VNF's Heat Orchestration Template's parameter defined
     in a non-nested YAML file as type
@@ -322,6 +332,7 @@ that defines a list of constraints to apply to the parameter.
     :target: VNF
     :keyword: MUST NOT
     :validation_mode: static
+    :updated: casablanca
 
     A VNF's Heat Orchestration Template's parameter defined
     in a nested YAML file
@@ -448,6 +459,7 @@ resources
     :id: R-40551
     :target: VNF
     :keyword: MAY
+    :updated: casablanca
 
     A VNF's Heat Orchestration Template's Nested YAML files **MAY**
     (or **MAY NOT**) contain the section ``resources:``.
@@ -554,6 +566,7 @@ be provided in place, or via a function
     :target: VNF
     :keyword: MUST
     :validation_mode: static
+    :updated: casablanca
 
     If a VNF's Heat Orchestration Template resource attribute
     ``property:`` uses a nested ``get_param``, the nested
@@ -569,6 +582,7 @@ The resource attribute ``metadata`` is an OpenStack optional attribute.
     :target: VNF
     :keyword: MUST
     :validation_mode: static
+    :introduced: casablanca
 
     A VNF's Heat Orchestration Template's Resource **MAY** declare the
     attribute ``metadata``.
@@ -607,6 +621,7 @@ deletion_policy
     :id: R-43740
     :target: VNF
     :keyword: MAY
+    :updated: casablanca
 
     VNF's Heat Orchestration Template's Resource **MAY** declare the
     attribute ``deletion_policy:``.
@@ -627,6 +642,7 @@ external_id
     :id: R-78569
     :target: VNF
     :keyword: MAY
+    :updated: casablanca
 
     VNF's Heat Orchestration Template's Resource **MAY** declare the
     attribute ``external_id:``.
@@ -675,6 +691,7 @@ A VNF's Heat Orchestration Template's environment file is a yaml text file.
     :target: VNF
     :keyword: MUST
     :validation_mode: static
+    :updated: casablanca
 
     A VNF's Heat Orchestration template **MUST** have a
     corresponding environment file.
@@ -690,6 +707,7 @@ the mandatory parameter section.
     :target: VNF
     :keyword: MUST
     :validation_mode: static
+    :updated: casablanca
 
     A VNF's Heat Orchestration template's Environment File **MUST**
     contain the ``parameters:`` section.
@@ -698,6 +716,7 @@ the mandatory parameter section.
     :id: R-68198
     :target: VNF
     :keyword: MAY
+    :updated: casablanca
 
     A VNF's Heat Orchestration template's Environment File's
     ``parameters:`` section **MAY** (or **MAY NOT**) enumerate parameters.
