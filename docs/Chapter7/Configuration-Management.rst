@@ -47,18 +47,18 @@ Chef, or REST).
 Configuration Commands
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Configure**: The Controller client is requesting that a post-instantiation
+``Configure``: The Controller client is requesting that a post-instantiation
 configuration be applied to the target VNF instance. After the Configure
 action is completed, the VNF instance should be ready for service.
 Note that customer specific configurations may need to be applied using
 the ConfigModify action.
 
-**ConfigModify**: The Controller client is requesting a configuration
+``ConfigModify``: The Controller client is requesting a configuration
 update to a subset of the total configuration parameters of a VNF or to
 apply customer specific configurations. The configuration update is
 typically done while the VNF is in service and should not disrupt traffic.
 
-**ConfigBackup**: The Controller client is requesting a backup of the
+``ConfigBackup``: The Controller client is requesting a backup of the
 configuration parameters where the parameters are stored on the VNF.
 This command is typically requested as part of an orchestration flow
 for scenarios such as a software upgrade. The ConfigBackup is typically
@@ -67,7 +67,7 @@ When the ConfigBackup command is executed, the current VNF configuration
 parameters are saved in storage that is preserved (if there is an existing
 set of backed up parameters, they are overwritten).
 
-**ConfigRestore**: The Controller client is requesting a restore action of
+``ConfigRestore``: The Controller client is requesting a restore action of
 the configuration parameters to the VNF that were saved by ConfigBackup
 command. This command is typically requested as part of an orchestration
 flow for scenarios such as a software upgrade where the software upgrade
@@ -77,13 +77,13 @@ which were backed to persistent preserved storage are applied to the VNF
 (replacing existing parameters). The ConfigRestore is typically done while
 the VNF is not in service (i.e., in a maintenance state).
 
-**ConfigScaleOut**: The Controller client is requesting that a configuration
+``ConfigScaleOut``: The Controller client is requesting that a configuration
 be applied after the VNF instance has been scaled out (i.e., one or more
 additional VM's instantiated to increase capacity). For some VNF's,
 ConfigScaleOut is not needed because the VNF is auto-configured after
 scale-out. This command is being introduced in the Beijing release.
 
-**Audit**: The Controller client is requesting that the current (last known
+``Audit``: The Controller client is requesting that the current (last known
 configuration update) is audited against the running configuration on the VNF.
 
 
@@ -92,88 +92,90 @@ configuration update) is audited against the running configuration on the VNF.
     :target: XNF
     :keyword: MUST
 
-    The xNF **MUST** support ONAP Controller's **Configure** command.
+    The xNF **MUST** support ONAP Controller's ``Configure`` command.
 
 .. req::
     :id: R-19366
     :target: XNF
     :keyword: MUST
 
-    The xNF **MUST** support ONAP Controller's **ConfigModify** command.
+    The xNF **MUST** support ONAP Controller's ``ConfigModify`` command.
 
 .. req::
     :id: R-32981
     :target: XNF
     :keyword: MUST
 
-    The xNF **MUST** support ONAP Controller's **ConfigBackup** command.
+    The xNF **MUST** support ONAP Controller's ``ConfigBackup`` command.
 
 .. req::
     :id: R-48247
     :target: XNF
     :keyword: MUST
 
-    The xNF **MUST** support ONAP Controller's **ConfigRestore** command.
+    The xNF **MUST** support ONAP Controller's ``ConfigRestore`` command.
 
 .. req::
     :id: R-94084
     :target: XNF
     :keyword: MUST
 
-    The xNF **MUST** support ONAP Controller's **ConfigScaleOut** command.
+    The xNF **MUST** support ONAP Controller's ``ConfigScaleOut`` command.
 
 .. req::
     :id: R-56385
     :target: XNF
     :keyword: MUST
 
-    The xNF **MUST** support ONAP Controller's **Audit** command.
+    The xNF **MUST** support ONAP Controller's ``Audit`` command.
 
-LifeCycle Management Related Commands
+Lifecycle Management Related Commands
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **The following commands are needed to support various lifecycle management
 flows where the VNF may need to be removed for service.**
 
-**QuiesceTraffic**: The Controller client is requesting the VNF gracefully
+Full details on the APIs can be found in the :doc:`APPC LCM API Guide <../../../appc.git/docs/APPC LCM API Guide/APPC LCM API Guide>`
+
+``QuiesceTraffic``: The Controller client is requesting the VNF gracefully
 stop traffic (aka block and drain traffic). The method for quiescing traffic
 is specific to the VNF architecture. The action is completed when all
 (in-flight transactions) traffic has stopped.   The VNF remains in an active
 state where the VNF is able to process traffic (initiated using the
 StartTraffic action).
 
-**ResumeTraffic**: The Controller client is requesting the VNF resume
+``ResumeTraffic``: The Controller client is requesting the VNF resume
 processing traffic. The method to resume traffic is specific to the VNF
 architecture.
 
-**StopApplication**: The Controller client is requesting that the application
+``StopApplication``: The Controller client is requesting that the application
 running on the VNF is stopped gracefully (i.e., without traffic loss).
 This is equivalent to quiescing the traffic and then stopping the application
 processes. The processes can be restarted using the StartApplication command.
 
-**StartApplication**: The Controller client is requesting that the application
+``StartApplication``: The Controller client is requesting that the application
 running on the VNF is started. Get ready to process traffic.
 
 **The following commands are needed to support software upgrades, in-place or
 other type of software upgrade. The VNF instance may be removed from service
 for the upgrade.**
 
-**UpgradePrecheck**: The Controller client is requesting a confirmation that
+``UpgradePrecheck``: The Controller client is requesting a confirmation that
 the VNF can (and needs to) be upgraded to a specific software version
 (specified in the request).
 
-**UpgradeSoftware**: The Controller client is requesting that a (in-place)
+``UpgradeSoftware``: The Controller client is requesting that a (in-place)
 software upgrade be performed on the VNF.  The software to be applied is
 pre-loaded to a specified location.
 
-**UpgradePostCheck**: The Controller client is requesting a confirmation that
+``UpgradePostCheck``: The Controller client is requesting a confirmation that
 the VNF software upgrade has been completed successfully (VNF upgraded to
 the new software version).
 
-**UpgradeBackup**: The Controller client is requesting that the VNF is backed
+``UpgradeBackup``: The Controller client is requesting that the VNF is backed
 up prior to the UpgradeSoftware.
 
-**UpgradeBackOut**: The Controller client is requesting that the VNF upgrade
+``UpgradeBackOut``: The Controller client is requesting that the VNF upgrade
 is backed out (in the event that the SoftwareUpgrade or UpgradePostCheck
 failed).
 
@@ -183,68 +185,79 @@ failed).
     :target: XNF
     :keyword: MUST
 
-    The xNF **MUST** support ONAP Controller's **QuiesceTraffic** command.
+    The xNF **MUST** support ONAP Controller's ``QuiesceTraffic`` command.
 
 .. req::
     :id: R-07251
     :target: XNF
     :keyword: MUST
 
-    The xNF **MUST** support ONAP Controller's **ResumeTraffic** command.
+    The xNF **MUST** support ONAP Controller's ``ResumeTraffic`` command.
 
 .. req::
     :id: R-83146
     :target: XNF
     :keyword: MUST
 
-    The xNF **MUST** support ONAP Controller's **StopApplication** command.
+    The xNF **MUST** support ONAP Controller's ``StopApplication`` command.
 
 .. req::
     :id: R-82811
     :target: XNF
     :keyword: MUST
 
-    The xNF **MUST** support ONAP Controller's **StartApplication** command.
+    The xNF **MUST** support ONAP Controller's ``StartApplication`` command.
 
 .. req::
     :id: R-19922
     :target: XNF
     :keyword: MUST
 
-    The xNF **MUST** support ONAP Controller's **UpgradePrecheck** command.
+    The xNF **MUST** support ONAP Controller's ``UpgradePrecheck`` command.
 
 .. req::
     :id: R-49466
     :target: XNF
     :keyword: MUST
 
-    The xNF **MUST** support ONAP Controller's **UpgradeSoftware** command.
+    The xNF **MUST** support ONAP Controller's ``UpgradeSoftware`` command.
 
 .. req::
     :id: R-45856
     :target: XNF
     :keyword: MUST
 
-    The xNF **MUST** support ONAP Controller's **UpgradePostCheck** command.
+    The xNF **MUST** support ONAP Controller's ``UpgradePostCheck`` command.
 
 .. req::
     :id: R-97343
     :target: XNF
     :keyword: MUST
 
-    The xNF **MUST** support ONAP Controller's **UpgradeBackup** command.
+    The xNF **MUST** support ONAP Controller's ``UpgradeBackup`` command.
 
 .. req::
     :id: R-65641
     :target: XNF
     :keyword: MUST
 
-    The xNF **MUST** support ONAP Controller's **UpgradeBackOut** command.
+    The xNF **MUST** support ONAP Controller's ``UpgradeBackOut`` command.
+
+.. req::
+   :id: R-328086
+   :target: XNF
+   :keyword: MUST
+   :introduced: casablanca
+
+   The xNF **MUST**, if serving as a distribution point or anchor point for steering point
+   from source to destination, support the ONAP Controller's
+   ``DistributeTraffic`` command.
+
 
 HealthCheck and Failure Related Commands
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**HealthCheck**: The Controller client is requesting a health check over the
+``HealthCheck``: The Controller client is requesting a health check over the
 entire scope of the VNF.  The VNF must be 100% healthy, ready to take requests
 and provide services, with all VNF required capabilities ready to provide
 services and with all active and standby resources fully ready with no open
@@ -261,7 +274,7 @@ automated fashion.
     :target: XNF
     :keyword: MUST
 
-    The xNF **MUST** support ONAP Controller's **HealthCheck** command.
+    The xNF **MUST** support ONAP Controller's ``HealthCheck`` command.
 
 Notes On Command Support Using Controller Southbound Protocols
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -353,7 +366,7 @@ NETCONF Server Requirements
 
     The xNF **MUST** implement the protocol operation:
     **commit(confirmed, confirm-timeout)** - Commit candidate
-    configuration datastore to the running configuration.
+    configuration data store to the running configuration.
 
 .. req::
     :id: R-18733
@@ -391,7 +404,7 @@ NETCONF Server Requirements
 
     The xNF **MUST** implement the protocol operation:
     **get-config(source, filter)** - Retrieve a (filtered subset of
-    a) configuration from the configuration datastore source.
+    a) configuration from the configuration data store source.
 
 .. req::
     :id: R-11235
@@ -399,7 +412,7 @@ NETCONF Server Requirements
     :keyword: MUST
 
     The xNF **MUST** implement the protocol operation:
-    **kill-session(session)** - Force the termination of **session**.
+    ``kill-session(session)`` - Force the termination of **session**.
 
 .. req::
     :id: R-02597
@@ -407,7 +420,7 @@ NETCONF Server Requirements
     :keyword: MUST
 
     The xNF **MUST** implement the protocol operation:
-    **lock(target)** - Lock the configuration datastore target.
+    ``lock(target)`` - Lock the configuration datastore target.
 
 .. req::
     :id: R-96554
@@ -415,7 +428,7 @@ NETCONF Server Requirements
     :keyword: MUST
 
     The xNF **MUST** implement the protocol operation:
-    **unlock(target)** - Unlock the configuration datastore target.
+    ``unlock(target)`` - Unlock the configuration datastore target.
 
 .. req::
     :id: R-29324
@@ -423,8 +436,8 @@ NETCONF Server Requirements
     :keyword: SHOULD
 
     The xNF **SHOULD** implement the protocol operation:
-    **copy-config(target, source) -** Copy the content of the
-    configuration datastore source to the configuration datastore target.
+    ``copy-config(target, source) -`` Copy the content of the
+    configuration data store source to the configuration data store target.
 
 .. req::
     :id: R-88031
@@ -432,8 +445,8 @@ NETCONF Server Requirements
     :keyword: SHOULD
 
     The xNF **SHOULD** implement the protocol operation:
-    **delete-config(target) -** Delete the named configuration
-    datastore target.
+    ``delete-config(target) -`` Delete the named configuration
+    data store target.
 
 .. req::
     :id: R-97529
@@ -441,7 +454,7 @@ NETCONF Server Requirements
     :keyword: SHOULD
 
     The xNF **SHOULD** implement the protocol operation:
-    **get-schema(identifier, version, format) -** Retrieve the YANG schema.
+    ``get-schema(identifier, version, format) -`` Retrieve the YANG schema.
 
 .. req::
     :id: R-62468
@@ -466,8 +479,8 @@ NETCONF Server Requirements
     :target: XNF
     :keyword: MUST
 
-    The xNF **MUST** support **:partial-lock** and
-    **:partial-unlock** capabilities, defined in RFC 5717. This
+    The xNF **MUST** support ``:partial-lock`` and
+    ``:partial-unlock`` capabilities, defined in RFC 5717. This
     allows multiple independent clients to each write to a different
     part of the <running> configuration at the same time.
 
@@ -476,7 +489,7 @@ NETCONF Server Requirements
     :target: XNF
     :keyword: MUST
 
-    The xNF **MUST** support **:rollback-on-error** value for
+    The xNF **MUST** support ``:rollback-on-error`` value for
     the <error-option> parameter to the <edit-config> operation. If any
     error occurs during the requested edit operation, then the target
     database (usually the running configuration) will be left unaffected.
@@ -488,7 +501,7 @@ NETCONF Server Requirements
     :target: XNF
     :keyword: MUST
 
-    The xNF **MUST** support the **:startup** capability. It
+    The xNF **MUST** support the ``:startup`` capability. It
     will allow the running configuration to be copied to this special
     database. It can also be locked and unlocked.
 
@@ -497,7 +510,7 @@ NETCONF Server Requirements
     :target: XNF
     :keyword: MUST
 
-    The xNF **MUST** support the **:url** value to specify
+    The xNF **MUST** support the ``:url`` value to specify
     protocol operation source and target parameters. The capability URI
     for this feature will indicate which schemes (e.g., file, https, sftp)
     that the server supports within a particular URL value. The 'file'
@@ -509,9 +522,9 @@ NETCONF Server Requirements
     :target: XNF
     :keyword: MUST
 
-    The xNF **MUST** implement both **:candidate** and
-    **:writable-running** capabilities. When both **:candidate** and
-    **:writable-running** are provided then two locks should be supported.
+    The xNF **MUST** implement both ``:candidate`` and
+    ``:writable-running`` capabilities. When both **:candidate** and
+    ``:writable-running`` are provided then two locks should be supported.
 
 .. req::
     :id: R-11499
@@ -524,7 +537,7 @@ NETCONF Server Requirements
     <get-config> operations may be set to 'xpath'. The 'select' attribute
     (which contains the XPath expression) will also be supported by the
     server. A server may support partial XPath retrieval filtering, but
-    it cannot advertise the **:xpath** capability unless the entire XPath
+    it cannot advertise the ``:xpath`` capability unless the entire XPath
     1.0 specification is supported.
 
 .. req::
@@ -532,22 +545,22 @@ NETCONF Server Requirements
     :target: XNF
     :keyword: MUST
 
-    The xNF **MUST** implement the **:validate** capability.
+    The xNF **MUST** implement the ``:validate`` capability.
 
 .. req::
     :id: R-49145
     :target: XNF
     :keyword: MUST
 
-    The xNF **MUST** implement **:confirmed-commit** If
-    **:candidate** is supported.
+    The xNF **MUST** implement ``:confirmed-commit`` If
+    ``:candidate`` is supported.
 
 .. req::
     :id: R-58358
     :target: XNF
     :keyword: MUST
 
-    The xNF **MUST** implement the **:with-defaults** capability
+    The xNF **MUST** implement the ``:with-defaults`` capability
     [RFC6243].
 
 .. req::
@@ -650,7 +663,7 @@ NETCONF Server Requirements
     :keyword: MUST
 
     The xNF **MUST** release locks to prevent permanent lock-outs
-    when the corresponding <partial-unlock> operation succeeds.
+    when the corresponding ```<partial-unlock>`` operation succeeds.
 
 .. req::
     :id: R-63935
@@ -676,7 +689,7 @@ NETCONF Server Requirements
     :target: XNF
     :keyword: MUST
 
-    The xNF **MUST** support simultaneous <commit> operations
+    The xNF **MUST** support simultaneous ``<commit>`` operations
     within the context of this locking requirements framework.
 
 .. req::
@@ -1130,7 +1143,7 @@ action request against a Chef managed VNF.
 
 1. When ONAP receives a request for an action for a Chef Managed VNF, it
    retrieves the corresponding template (based on **action** and
-   **VNF)** from its database and sets necessary values in the
+   **VNF**) from its database and sets necessary values in the
    "Environment", "Node" and "NodeList" keys (if present) from either
    the payload of the received action or internal data.
 
