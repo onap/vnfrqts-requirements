@@ -173,14 +173,6 @@ the product’s lifecycle.
     mitigation recommendations.
 
 .. req::
-    :id: R-78010
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST** use the NCSP's IDAM API for Identification,
-    authentication and access control of customer or VNF application users.
-
-.. req::
     :id: R-62498
     :target: VNF
     :keyword: MUST
@@ -196,17 +188,6 @@ the product’s lifecycle.
 
     The VNF **MUST**, if not using the NCSP's IDAM API, comply
     with the NCSP's credential management policy.
-
-.. req::
-    :id: R-41994
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST**, if not using the NCSP's IDAM API, comply
-    with "No Self-Signed Certificates" policy. Self-signed certificates
-    must be used for encryption only, using specified and approved
-    encryption protocols such as TLS 1.2 or higher or equivalent security
-    protocols such as IPSec, AES.
 
 .. req::
     :id: R-80335
@@ -366,8 +347,8 @@ Identity and Access Management Requirements
     :keyword: MUST
     :updated: casablanca
 
-    The VNF **MUST**, if not integrated the Operator's Identity and Access
-    Management system, support configurable password expiration.
+    The VNF **MUST**, if not integrated with the Operator's Identity and
+    Access Management system, support configurable password expiration.
 
 .. req::
     :id: R-98391
@@ -385,18 +366,18 @@ Identity and Access Management Requirements
     :keyword: MUST
     :updated: casablanca
 
-    The VNF **MUST**, if not integrated with the Operator's Identity
-    and Access Management system, comply with "password complexity"
-    policy. When passwords are used, they shall be complex and shall at
-    least meet the following password construction requirements: (1) be a
-    minimum configurable number of characters in length, (2) include 3 of
-    the 4 following types of characters: upper-case alphabetic, lower-case
-    alphabetic, numeric, and special, (3) not be the same as the UserID
-    with which they are associated or other common strings as specified
-    by the environment, (4) not contain repeating or sequential characters
-    or numbers, (5) not to use special characters that may have command
-    functions, and (6) new passwords must not contain sequences of three
-    or more characters from the previous password.
+    The VNF **MUST**, if not integrated with the Operator’s Identity and
+    Access Management system, comply with “password complexity” policy. When
+    passwords are used, they shall be complex and shall at least meet the
+    following password construction requirements: (1) be a minimum configurable
+    number of characters in length, (2) include 3 of the 4 following types of
+    characters: upper-case alphabetic, lower-case alphabetic, numeric, and
+    special, (3) not be the same as the UserID with which they are associated
+    or other common strings as specified by the environment, (4) not contain
+    repeating or sequential characters or numbers, (5) not to use special
+    characters that may have command functions, and (6) new passwords must
+    not contain sequences of three or more characters from the previous
+    password.
 
 .. req::
     :id: R-79107
@@ -415,9 +396,19 @@ Identity and Access Management Requirements
     :keyword: MUST
     :updated: casablanca
 
-    The VNF **MUST** authenticate all access to protected GUIs, CLIs,
+    The VNF **MUST**, if not integrated with the Operator's identity and
+    access management system, authenticate all access to protected GUIs, CLIs,
     and APIs.
 
+.. req::
+    :id: R-78010
+    :target: VNF
+    :keyword: MUST
+    :updated: casablanca
+
+    The VNF **MUST** integrate with standard identity and access management
+    protocols such as LDAP, TACACS+, Windows Integrated Authentication
+    (Kerberos), SAML federation, or OAuth 2.0.
 
 VNF API Security Requirements
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1087,3 +1078,17 @@ applicable to encryption or protocol meethods.
 
     The VNF **MUST** support HTTP/S using TLS v1.2 or higher
     with strong cryptographic ciphers.
+
+.. req::
+    :id: R-41994
+    :target: VNF
+    :keyword: MUST
+    :updated: casablanca
+
+    The VNF **MUST** support the use of X.509 certificates issued from any
+    Certificate Authority (CA) that is compliant with RFC5280, e.g., a public
+    CA such as DigiCert or Let's Encrypt, or an RFC5280  compliant Operator
+    CA.
+
+    Note: The VNF provider cannot require the use of self-signed certificates
+    in an Operator's run time environment.
