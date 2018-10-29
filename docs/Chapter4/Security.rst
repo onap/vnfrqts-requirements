@@ -101,8 +101,9 @@ the product’s lifecycle.
     :keyword: SHOULD
     :updated: casablanca
 
-    The VNF **SHOULD** provide a mechanism for performing automated
-    system configuration auditing at configurable time intervals.
+    The VNF **SHOULD** provide a mechanism that enables the operators to
+    perform automated system configuration auditing at configurable time
+    intervals.
 
 .. req::
     :id: R-23882
@@ -140,8 +141,9 @@ the product’s lifecycle.
     :keyword: SHOULD
     :updated: casablanca
 
-    The VNF **SHOULD** support Layer 3 VPNs that enable segregation of
-    traffic by application (i.e., AVPN, IPSec VPN for Internet routes).
+    The VNF **SHOULD** support network segregation, i.e., separation of OA&M
+    traffic from signaling and payload traffic, using technologies such as
+    VPN and VLAN.
 
 .. req::
     :id: R-40813
@@ -253,7 +255,8 @@ Identity and Access Management Requirements
     :keyword: MUST
     :updated: casablanca
 
-    The VNF **MUST** allow the creation of multiple IDs so that
+    The VNF **MUST**, if not integrated with the Operator's Identity and
+    Access Management system, support the creation of multiple IDs so that
     individual accountability can be supported.
 
 .. req::
@@ -273,9 +276,9 @@ Identity and Access Management Requirements
     :keyword: MUST
     :updated: casablanca
 
-    Each layer of the VNF **MUST** support access restriction
-    independently of all other layers so that Segregation of Duties
-    can be implemented.
+    Each architectural layer of the VNF (eg. operating system, network,
+    application) **MUST** support access restriction independently of all
+    other layers so that Segregation of Duties can be implemented.
 
 .. req::
     :id: R-59391
@@ -283,8 +286,9 @@ Identity and Access Management Requirements
     :keyword: MUST NOT
     :updated: casablanca
 
-    The VNF **MUST NOT** not allow the assumption of the permissions of
-    another account to mask individual accountability.
+    The VNF **MUST NOT** allow the assumption of the permissions of another
+    account to mask individual accountability. For example, use SUDO when a
+    user requires elevated permissions such as root or admin.
 
 .. req::
     :id: R-64503

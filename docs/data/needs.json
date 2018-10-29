@@ -1,5 +1,5 @@
 {
-    "created": "2018-10-26T21:53:38.098400",
+    "created": "2018-10-29T17:25:21.283162",
     "current_version": "casablanca",
     "project": "",
     "versions": {
@@ -21858,7 +21858,7 @@
             "needs_amount": 750
         },
         "casablanca": {
-            "created": "2018-10-26T21:53:38.098400",
+            "created": "2018-10-29T17:25:21.283084",
             "needs": {
                 "R-00011": {
                     "description": "A VNF's Heat Orchestration Template's parameter defined\nin a nested YAML file\n**MUST NOT** have a parameter constraint defined.",
@@ -25775,7 +25775,7 @@
                     "validation_mode": "static"
                 },
                 "R-19768": {
-                    "description": "The VNF **SHOULD** support Layer 3 VPNs that enable segregation of\ntraffic by application (i.e., AVPN, IPSec VPN for Internet routes).",
+                    "description": "The VNF **SHOULD** support network segregation, i.e., separation of OA&M\ntraffic from signaling and payload traffic, using technologies such as\nVPN and VLAN.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-19768",
@@ -34858,7 +34858,7 @@
                     "validation_mode": ""
                 },
                 "R-59391": {
-                    "description": "The VNF **MUST NOT** not allow the assumption of the permissions of\nanother account to mask individual accountability.",
+                    "description": "The VNF **MUST NOT** allow the assumption of the permissions of another\naccount to mask individual accountability. For example, use SUDO when a\nuser requires elevated permissions such as root or admin.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-59391",
@@ -37367,7 +37367,7 @@
                     "validation_mode": "static"
                 },
                 "R-71787": {
-                    "description": "Each layer of the VNF **MUST** support access restriction\nindependently of all other layers so that Segregation of Duties\ncan be implemented.",
+                    "description": "Each architectural layer of the VNF (eg. operating system, network,\napplication) **MUST** support access restriction independently of all\nother layers so that Segregation of Duties can be implemented.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-71787",
@@ -41771,7 +41771,7 @@
                     "validation_mode": "static"
                 },
                 "R-92207": {
-                    "description": "The VNF **SHOULD** provide a mechanism for performing automated\nsystem configuration auditing at configurable time intervals.",
+                    "description": "The VNF **SHOULD** provide a mechanism that enables the operators to\nperform automated system configuration auditing at configurable time\nintervals.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-92207",
@@ -43247,7 +43247,7 @@
                     "validation_mode": "static"
                 },
                 "R-99174": {
-                    "description": "The VNF **MUST** allow the creation of multiple IDs so that\nindividual accountability can be supported.",
+                    "description": "The VNF **MUST**, if not integrated with the Operator's Identity and\nAccess Management system, support the creation of multiple IDs so that\nindividual accountability can be supported.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-99174",
