@@ -1,5 +1,5 @@
 {
-    "created": "2018-10-29T20:10:50.087477",
+    "created": "2018-10-29T20:49:30.787488",
     "current_version": "casablanca",
     "project": "",
     "versions": {
@@ -21858,7 +21858,7 @@
             "needs_amount": 750
         },
         "casablanca": {
-            "created": "2018-10-29T20:10:50.087392",
+            "created": "2018-10-29T20:49:30.787403",
             "needs": {
                 "R-00011": {
                     "description": "A VNF's Heat Orchestration Template's parameter defined\nin a nested YAML file\n**MUST NOT** have a parameter constraint defined.",
@@ -40231,13 +40231,13 @@
                     "validation_mode": "static"
                 },
                 "R-86261": {
-                    "description": "The VNF **MUST NOT** allow vendor access to VNFs remotely.",
+                    "description": "The VNF **MUST** support the ability to prohibit remote access to the VNF\nvia a host based security mechanism.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-86261",
                     "impacts": "",
                     "introduced": "",
-                    "keyword": "MUST NOT",
+                    "keyword": "MUST",
                     "links": [],
                     "notes": "",
                     "section_name": "VNF General Security Requirements",

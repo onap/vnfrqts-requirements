@@ -224,10 +224,11 @@ the product’s lifecycle.
 .. req::
     :id: R-86261
     :target: VNF
-    :keyword: MUST NOT
+    :keyword: MUST
     :updated: casablanca
 
-    The VNF **MUST NOT** allow vendor access to VNFs remotely.
+    The VNF **MUST** support the ability to prohibit remote access to the VNF
+    via a host based security mechanism.
 
 .. req::
    :id: R-638682
