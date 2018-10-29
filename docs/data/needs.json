@@ -1,5 +1,5 @@
 {
-    "created": "2018-10-29T17:25:21.283162",
+    "created": "2018-10-29T20:10:50.087477",
     "current_version": "casablanca",
     "project": "",
     "versions": {
@@ -21858,7 +21858,7 @@
             "needs_amount": 750
         },
         "casablanca": {
-            "created": "2018-10-29T17:25:21.283084",
+            "created": "2018-10-29T20:10:50.087392",
             "needs": {
                 "R-00011": {
                     "description": "A VNF's Heat Orchestration Template's parameter defined\nin a nested YAML file\n**MUST NOT** have a parameter constraint defined.",
@@ -26482,7 +26482,7 @@
                     "validation_mode": "static"
                 },
                 "R-22367": {
-                    "description": "The VNF **MUST** support detection of malformed packets due to\nsoftware misconfiguration or software vulnerability.",
+                    "description": "The VNF **MUST** support detection of malformed packets due to software\nmisconfiguration or software vulnerability, and generate an error to the\nsyslog console facility.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-22367",
@@ -26505,7 +26505,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -33929,7 +33929,7 @@
                     "validation_mode": ""
                 },
                 "R-54816": {
-                    "description": "The VNF **MUST** support the storage of security audit logs\nfor agreed period of time for forensic analysis.",
+                    "description": "The VNF **MUST** support the storage of security audit logs for a\nconfigurable period of time.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-54816",
@@ -33952,7 +33952,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -34692,13 +34692,13 @@
                     "validation_mode": ""
                 },
                 "R-58370": {
-                    "description": "The VNF **MUST** operate with anti-virus software which produces\nalarms every time a virus is detected.",
+                    "description": "The VNF **SHOULD** operate with anti-virus software which produces alarms\nevery time a virus is detected.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-58370",
                     "impacts": "",
                     "introduced": "",
-                    "keyword": "MUST",
+                    "keyword": "SHOULD",
                     "links": [],
                     "notes": "",
                     "section_name": "VNF Security Analytics Requirements",
@@ -38931,7 +38931,7 @@
                     "validation_mode": ""
                 },
                 "R-81147": {
-                    "description": "The VNF **MUST** have greater restrictions for access and\nexecution, such as up to 3 factors of authentication and restricted\nauthorization, for commands affecting network services, such as\ncommands relating to VNFs.",
+                    "description": "The VNF **MUST** support strong authentication, also known as\nmultifactor authentication, on all protected interfaces exposed by the\nVNF for use by human users. Strong authentication uses at least two of the\nthree different types of authentication factors in order to prove the\nclaimed identity of a user.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-81147",
@@ -38954,7 +38954,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },

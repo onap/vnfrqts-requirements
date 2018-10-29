@@ -314,11 +314,13 @@ Identity and Access Management Requirements
     :id: R-81147
     :target: VNF
     :keyword: MUST
+    :updated: casablanca
 
-    The VNF **MUST** have greater restrictions for access and
-    execution, such as up to 3 factors of authentication and restricted
-    authorization, for commands affecting network services, such as
-    commands relating to VNFs.
+    The VNF **MUST** support strong authentication, also known as
+    multifactor authentication, on all protected interfaces exposed by the
+    VNF for use by human users. Strong authentication uses at least two of the
+    three different types of authentication factors in order to prove the
+    claimed identity of a user.
 
 .. req::
     :id: R-39562
@@ -552,9 +554,11 @@ Security Analytics Requirements
     :id: R-22367
     :target: VNF
     :keyword: MUST
+    :updated: casablanca
 
-    The VNF **MUST** support detection of malformed packets due to
-    software misconfiguration or software vulnerability.
+    The VNF **MUST** support detection of malformed packets due to software
+    misconfiguration or software vulnerability, and generate an error to the
+    syslog console facility.
 
 .. req::
     :id: R-73223
@@ -570,11 +574,11 @@ Security Analytics Requirements
 .. req::
     :id: R-58370
     :target: VNF
-    :keyword: MUST
+    :keyword: SHOULD
     :updated: casablanca
 
-    The VNF **MUST** operate with anti-virus software which produces
-    alarms every time a virus is detected.
+    The VNF **SHOULD** operate with anti-virus software which produces alarms
+    every time a virus is detected.
 
 .. req::
     :id: R-56920
@@ -813,9 +817,10 @@ Security Analytics Requirements
     :id: R-54816
     :target: VNF
     :keyword: MUST
+    :updated: casablanca
 
-    The VNF **MUST** support the storage of security audit logs
-    for agreed period of time for forensic analysis.
+    The VNF **MUST** support the storage of security audit logs for a
+    configurable period of time.
 
 .. req::
     :id: R-84160
