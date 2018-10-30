@@ -295,6 +295,16 @@ the product's lifecycle.
    attempts since then made with that user's ID. This requirement is only
    applicable when the user account is defined locally in the VNF.
 
+.. req::
+   :id: R-842258
+   :target: VNF
+   :keyword: MUST
+   :introduced: casablanca
+
+   The VNF **MUST** include a configuration, e.g., a heat template or CSAR
+   package, that specifies the targetted parameters, e.g. a limited set of
+   ports, over which the VNF will communicate (including internal, external
+   and management communication).
 
 VNF Identity and Access Management Requirements
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -482,6 +492,52 @@ Identity and Access Management Requirements
    manage, and automatically provision user accounts using an Operator
    approved identity lifecycle management tool using a standard protocol,
    e.g., NETCONF API.
+
+.. req::
+   :id: R-931076
+   :target: VNF
+   :keyword: MUST
+   :introduced: casablanca
+
+   The VNF **MUST** support account names that contain at least A-Z, a-z,
+   0-9 character sets and be at least 6 characters in length.
+
+.. req::
+   :id: R-581188
+   :target: VNF
+   :keyword: MUST NOT
+   :introduced: casablanca
+
+   A failed authentication attempt **MUST NOT** identify the reason for the
+   failure to the user, only that the authentication failed.
+
+.. req::
+   :id: R-479386
+   :target: VNF
+   :keyword: MUST NOT
+   :introduced: casablanca
+
+   The VNF **MUST NOT** display "Welcome" notices or messages that could
+   be misinterpreted as extending an invitation to unauthorized users.
+
+.. req::
+   :id: R-231402
+   :target: VNF
+   :keyword: MUST
+   :introduced: casablanca
+
+   The VNF **MUST** provide a means for the user to explicitly logout, thus
+   ending that session for that authenticated user.
+
+.. req::
+   :id: R-45719
+   :target: VNF
+   :keyword: MUST
+   :introduced: casablanca
+
+   The VNF **MUST**, if not integrated with the Operator's Identity and Access
+   Management system, or enforce a configurable "terminate idle sessions"
+   policy by terminating the session after a configurable period of inactivity.
 
 
 VNF API Security Requirements
@@ -918,6 +974,45 @@ Security Analytics Requirements
     The VNF **MUST** protect against all denial of service
     attacks, both volumetric and non-volumetric, or integrate with external
     denial of service protection tools.
+
+.. req::
+   :id: R-629534
+   :target: VNF
+   :keyword: MUST
+   :introduced: casablanca
+
+   The VNF **MUST** be capable of automatically synchronizing the system clock
+   daily with the Operator's trusted time source, to assure accurate time
+   reporting in log files. It is recommended that Coordinated Universal Time
+   (UTC) be used where possible, so as to eliminate ambiguity owing to daylight
+   savings time.
+
+.. req::
+   :id: R-303569
+   :target: VNF
+   :keyword: MUST
+   :introduced: casablanca
+
+   The VNF **MUST** log the Source IP address in the security audit logs.
+
+.. req::
+   :id: R-703767
+   :target: VNF
+   :keyword: MUST
+   :introduced: casablanca
+
+   The VNF **MUST** have the capability to securely transmit the security logs
+   and security events to a remote system before they are purged from the
+   system.
+
+.. req::
+   :id: R-465236
+   :target: VNF
+   :keyword: SHOULD
+   :introduced: casablanca
+
+   The VNF **SHOULD** provide the capability of maintaining the integrity of
+   its static files using a cryptographic method.
 
 VNF Data Protection Requirements
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

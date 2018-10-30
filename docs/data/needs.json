@@ -1,5 +1,5 @@
 {
-    "created": "2018-10-30T15:29:46.177330",
+    "created": "2018-10-30T17:03:41.485897",
     "current_version": "casablanca",
     "project": "",
     "versions": {
@@ -21858,7 +21858,7 @@
             "needs_amount": 750
         },
         "casablanca": {
-            "created": "2018-10-30T15:29:46.177191",
+            "created": "2018-10-30T17:03:41.485853",
             "needs": {
                 "R-00011": {
                     "description": "A VNF's Heat Orchestration Template's parameter defined\nin a nested YAML file\n**MUST NOT** have a parameter constraint defined.",
@@ -26851,6 +26851,34 @@
                     "validated_by": "",
                     "validation_mode": ""
                 },
+                "R-231402": {
+                    "description": "The VNF **MUST** provide a means for the user to explicitly logout, thus\nending that session for that authenticated user.",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-231402",
+                    "impacts": "",
+                    "introduced": "casablanca",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "VNF Identity and Access Management Requirements",
+                    "sections": [
+                        "VNF Identity and Access Management Requirements",
+                        "VNF Security"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "VNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": ""
+                },
                 "R-23311": {
                     "description": "The VNF's Heat Orchestration Template's Resource\n``OS::Nova::Server`` property\n``availability_zone`` parameter **MUST** be declared as type: ``string``.",
                     "full_title": "",
@@ -28583,6 +28611,34 @@
                     "status": null,
                     "tags": [],
                     "target": "XNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": ""
+                },
+                "R-303569": {
+                    "description": "The VNF **MUST** log the Source IP address in the security audit logs.",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-303569",
+                    "impacts": "",
+                    "introduced": "casablanca",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "VNF Security Analytics Requirements",
+                    "sections": [
+                        "VNF Security Analytics Requirements",
+                        "VNF Security"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "VNF",
                     "test": "",
                     "test_case": "",
                     "test_file": "",
@@ -32009,6 +32065,34 @@
                     "validated_by": "",
                     "validation_mode": "static"
                 },
+                "R-45719": {
+                    "description": "The VNF **MUST**, if not integrated with the Operator's Identity and Access\nManagement system, or enforce a configurable \"terminate idle sessions\"\npolicy by terminating the session after a configurable period of inactivity.",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-45719",
+                    "impacts": "",
+                    "introduced": "casablanca",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "VNF Identity and Access Management Requirements",
+                    "sections": [
+                        "VNF Identity and Access Management Requirements",
+                        "VNF Security"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "VNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": ""
+                },
                 "R-45856": {
                     "description": "The xNF **MUST** support ONAP Controller's ``UpgradePostCheck`` command.",
                     "full_title": "",
@@ -32179,6 +32263,34 @@
                     "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": "static"
+                },
+                "R-465236": {
+                    "description": "The VNF **SHOULD** provide the capability of maintaining the integrity of\nits static files using a cryptographic method.",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-465236",
+                    "impacts": "",
+                    "introduced": "casablanca",
+                    "keyword": "SHOULD",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "VNF Security Analytics Requirements",
+                    "sections": [
+                        "VNF Security Analytics Requirements",
+                        "VNF Security"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "VNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": ""
                 },
                 "R-46527": {
                     "description": "A VNFD is a deployment template which describes a VNF in terms of\ndeployment and operational behavior requirements. It contains\nvirtualized resources (nodes) requirements as well as connectivity\nand interfaces requirements and **MUST** comply with info elements\nspecified in ETSI GS NFV-IFA 011. The main parts of the VNFD are\nthe following:\n\n  - VNF topology: it is modeled in a cloud agnostic way using virtualized\n    containers and their connectivity. Virtual Deployment Units (VDU)\n    describe the capabilities of the virtualized containers, such as\n    virtual CPU, RAM, disks; their connectivity is modeled with VDU\n    Connection Point Descriptors (VduCpd), Virtual Link Descriptors\n    (VnfVld) and VNF External Connection Point Descriptors\n    (VnfExternalCpd);\n\n  - VNF deployment aspects: they are described in one or more\n    deployment flavours, including configurable parameters, instantiation\n    levels, placement constraints (affinity / antiaffinity), minimum and\n    maximum VDU instance numbers. Horizontal scaling is modeled with\n    scaling aspects and the respective scaling levels in the deployment\n    flavours;\n\n**Note**: The deployment aspects (deployment flavour etc.) are postponed\nfor future ONAP releases.\n\n  - VNF lifecycle management (LCM) operations: describes the LCM operations\n    supported per deployment flavour, and their input parameters;\n    Note, thatthe actual LCM implementation resides in a different layer,\n    namely referring to additional template artifacts.",
@@ -32604,6 +32716,34 @@
                     "title_from_content": "",
                     "type_name": "Requirement",
                     "updated": "casablanca",
+                    "validated_by": "",
+                    "validation_mode": ""
+                },
+                "R-479386": {
+                    "description": "The VNF **MUST NOT** display \"Welcome\" notices or messages that could\nbe misinterpreted as extending an invitation to unauthorized users.",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-479386",
+                    "impacts": "",
+                    "introduced": "casablanca",
+                    "keyword": "MUST NOT",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "VNF Identity and Access Management Requirements",
+                    "sections": [
+                        "VNF Identity and Access Management Requirements",
+                        "VNF Security"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "VNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -34771,6 +34911,34 @@
                     "validated_by": "",
                     "validation_mode": ""
                 },
+                "R-581188": {
+                    "description": "A failed authentication attempt **MUST NOT** identify the reason for the\nfailure to the user, only that the authentication failed.",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-581188",
+                    "impacts": "",
+                    "introduced": "casablanca",
+                    "keyword": "MUST NOT",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "VNF Identity and Access Management Requirements",
+                    "sections": [
+                        "VNF Identity and Access Management Requirements",
+                        "VNF Security"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "VNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": ""
+                },
                 "R-58301": {
                     "description": "The xNF **SHOULD NOT** use playbooks that make requests to\nCloud resources e.g. Openstack (nova, neutron, glance, heat, etc.);\ntherefore, there is no use for Cloud specific variables like Openstack\nUUIDs in Ansible Playbooks.\n\nRationale: Flows that require interactions with Cloud services e.g.\nOpenstack shall rely on workflows run by an Orchestrator\n(Change Management) or other capability (such as a control loop or\nOperations GUI) outside Ansible Server which can be executed by a\nController such as APPC. There are policies, as part of Control Loop\nmodels, that send remediation action requests to APPC; these are\ntriggered as a response to an event or correlated events published\nto Event Bus.",
                     "full_title": "",
@@ -35540,6 +35708,34 @@
                     "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": "static"
+                },
+                "R-629534": {
+                    "description": "The VNF **MUST** be capable of automatically synchronizing the system clock\ndaily with the Operator's trusted time source, to assure accurate time\nreporting in log files. It is recommended that Coordinated Universal Time\n(UTC) be used where possible, so as to eliminate ambiguity owing to daylight\nsavings time.",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-629534",
+                    "impacts": "",
+                    "introduced": "casablanca",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "VNF Security Analytics Requirements",
+                    "sections": [
+                        "VNF Security Analytics Requirements",
+                        "VNF Security"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "VNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": ""
                 },
                 "R-62954": {
                     "description": "If a VNF's Heat Orchestration Template's ``OS::Nova::Server Resource``\n``metadata`` map value parameter ``environment_context`` is passed into a\nNested YAML\nfile, the parameter name ``environment_context`` **MUST NOT** change.",
@@ -37248,6 +37444,34 @@
                     "updated": "",
                     "validated_by": "",
                     "validation_mode": "static"
+                },
+                "R-703767": {
+                    "description": "The VNF **MUST** have the capability to securely transmit the security logs\nand security events to a remote system before they are purged from the\nsystem.",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-703767",
+                    "impacts": "",
+                    "introduced": "casablanca",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "VNF Security Analytics Requirements",
+                    "sections": [
+                        "VNF Security Analytics Requirements",
+                        "VNF Security"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "VNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": ""
                 },
                 "R-70496": {
                     "description": "The xNF **MUST** implement the protocol operation:\n**commit(confirmed, confirm-timeout)** - Commit candidate\nconfiguration data store to the running configuration.",
@@ -39951,6 +40175,34 @@
                     "validated_by": "",
                     "validation_mode": ""
                 },
+                "R-842258": {
+                    "description": "The VNF **MUST** include a configuration, e.g., a heat template or CSAR\npackage, that specifies the targetted parameters, e.g. a limited set of\nports, over which the VNF will communicate (including internal, external\nand management communication).",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-842258",
+                    "impacts": "",
+                    "introduced": "casablanca",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "VNF General Security Requirements",
+                    "sections": [
+                        "VNF General Security Requirements",
+                        "VNF Security"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "VNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": ""
+                },
                 "R-84322": {
                     "description": "A VNF's Heat Orchestration Template's Resource property parameter that\nis associated with an internal network **MUST** include\n``int_{network-role}`` as part of the parameter name,\nwhere ``int_`` is a hard coded string.",
                     "full_title": "",
@@ -42135,6 +42387,34 @@
                     "validated_by": "",
                     "validation_mode": "static"
                 },
+                "R-931076": {
+                    "description": "The VNF **MUST** support account names that contain at least A-Z, a-z,\n0-9 character sets and be at least 6 characters in length.",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-931076",
+                    "impacts": "",
+                    "introduced": "casablanca",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "VNF Identity and Access Management Requirements",
+                    "sections": [
+                        "VNF Identity and Access Management Requirements",
+                        "VNF Security"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "VNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": ""
+                },
                 "R-93177": {
                     "description": "When the VNF's Heat Orchestration Template's resource\n``OS::Neutron::Port`` is attaching to an internal network (per the\nONAP definition, see Requirements R-52425 and R-46461),\nand the internal network is created in the\nsame Heat Orchestration Template as the ``OS::Neutron::Port``,\nthe ``network`` property value **MUST** obtain the UUID\nof the internal network by using the intrinsic function\n``get_resource``\nand referencing the Resource ID of the internal network.",
                     "full_title": "",
@@ -43693,7 +43973,7 @@
                     "validation_mode": "static"
                 }
             },
-            "needs_amount": 767
+            "needs_amount": 777
         }
     }
 }
