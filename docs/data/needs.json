@@ -1,5 +1,5 @@
 {
-    "created": "2018-10-30T17:03:41.485897",
+    "created": "2018-10-30T22:03:20.607375",
     "current_version": "casablanca",
     "project": "",
     "versions": {
@@ -21858,7 +21858,7 @@
             "needs_amount": 750
         },
         "casablanca": {
-            "created": "2018-10-30T17:03:41.485853",
+            "created": "2018-10-30T22:03:20.607332",
             "needs": {
                 "R-00011": {
                     "description": "A VNF's Heat Orchestration Template's parameter defined\nin a nested YAML file\n**MUST NOT** have a parameter constraint defined.",
@@ -22158,7 +22158,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -22216,7 +22216,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -22485,7 +22485,7 @@
                     "validation_mode": ""
                 },
                 "R-02597": {
-                    "description": "The xNF **MUST** implement the protocol operation:\n``lock(target)`` - Lock the configuration datastore target.",
+                    "description": "The xNF **MUST** implement the protocol operation:\n``lock(target)`` - Lock the configuration data store target.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-02597",
@@ -22497,7 +22497,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -22527,7 +22527,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -22545,7 +22545,7 @@
                     "validation_mode": ""
                 },
                 "R-02651": {
-                    "description": "The xNF **SHOULD** use the Ansible backup feature to save a\ncopy of configuration files before implementing changes to support\noperations such as backing out of software upgrades, configuration\nchanges or other work as this will help backing out of configuration\nchanges when needed.",
+                    "description": "The xNF **SHOULD** use available backup capabilities to save a\ncopy of configuration files before implementing changes to support\noperations such as backing out of software upgrades, configuration\nchanges or other work as this will help backing out of configuration\nchanges when needed.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-02651",
@@ -22557,7 +22557,7 @@
                     "section_name": "Ansible Playbook Requirements",
                     "sections": [
                         "Ansible Playbook Requirements",
-                        "VNF Configuration via Ansible Requirements",
+                        "xNF Configuration via Ansible Requirements",
                         "Ansible Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -22570,7 +22570,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -22715,7 +22715,7 @@
                     "validation_mode": "static"
                 },
                 "R-03465": {
-                    "description": "The xNF **MUST** release locks to prevent permanent lock-outs\nwhen the corresponding ```<partial-unlock>`` operation succeeds.",
+                    "description": "The xNF **MUST** release locks to prevent permanent lock-outs\nwhen the corresponding <partial-unlock> operation succeeds.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-03465",
@@ -22727,7 +22727,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -22843,7 +22843,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -23286,7 +23286,7 @@
                     "validation_mode": ""
                 },
                 "R-07251": {
-                    "description": "The xNF **MUST** support ONAP Controller's ``ResumeTraffic`` command.",
+                    "description": "The xNF **MUST** support APPC/SDN-C ``ResumeTraffic`` command.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-07251",
@@ -23298,7 +23298,7 @@
                     "section_name": "Lifecycle Management Related Commands",
                     "sections": [
                         "Lifecycle Management Related Commands",
-                        "Controller Interactions With VNF",
+                        "Controller Interactions With xNF",
                         "Configuration Management"
                     ],
                     "status": null,
@@ -23310,7 +23310,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -23384,7 +23384,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -23471,7 +23471,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -23700,7 +23700,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -23730,7 +23730,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -23760,7 +23760,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -23818,7 +23818,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -23979,7 +23979,7 @@
                     "validation_mode": "static"
                 },
                 "R-11235": {
-                    "description": "The xNF **MUST** implement the protocol operation:\n``kill-session(session)`` - Force the termination of **session**.",
+                    "description": "The xNF **MUST** implement the protocol operation:\n``kill-session(session``- Force the termination of **session**.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-11235",
@@ -23991,7 +23991,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -24080,7 +24080,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -24249,7 +24249,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -24379,7 +24379,7 @@
                     "validation_mode": ""
                 },
                 "R-12706": {
-                    "description": "The xNF **MUST** support ONAP Controller's ``QuiesceTraffic`` command.",
+                    "description": "The xNF **MUST** support APPC/SDN-C ``QuiesceTraffic`` command.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-12706",
@@ -24391,7 +24391,7 @@
                     "section_name": "Lifecycle Management Related Commands",
                     "sections": [
                         "Lifecycle Management Related Commands",
-                        "Controller Interactions With VNF",
+                        "Controller Interactions With xNF",
                         "Configuration Management"
                     ],
                     "status": null,
@@ -24403,7 +24403,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -24644,7 +24644,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -25015,7 +25015,7 @@
                     "section_name": "Chef Roles/Requirements",
                     "sections": [
                         "Chef Roles/Requirements",
-                        "VNF Configuration via Chef Requirements",
+                        "xNF Configuration via Chef Requirements",
                         "Chef Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -25632,7 +25632,7 @@
                     "validation_mode": ""
                 },
                 "R-18733": {
-                    "description": "The xNF **MUST** implement the protocol operation:\n**discard-changes()** - Revert the candidate configuration\ndatastore to the running configuration.",
+                    "description": "The xNF **MUST** implement the protocol operation:\n``discard-changes()`` - Revert the candidate configuration\ndata store to the running configuration.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-18733",
@@ -25644,7 +25644,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -25717,7 +25717,7 @@
                     "validation_mode": ""
                 },
                 "R-19366": {
-                    "description": "The xNF **MUST** support ONAP Controller's ``ConfigModify`` command.",
+                    "description": "The xNF **MUST** support APPC ``ConfigModify`` command.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-19366",
@@ -25729,7 +25729,7 @@
                     "section_name": "Configuration Commands",
                     "sections": [
                         "Configuration Commands",
-                        "Controller Interactions With VNF",
+                        "Controller Interactions With xNF",
                         "Configuration Management"
                     ],
                     "status": null,
@@ -25741,7 +25741,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -25831,7 +25831,7 @@
                     "validation_mode": ""
                 },
                 "R-19922": {
-                    "description": "The xNF **MUST** support ONAP Controller's ``UpgradePrecheck`` command.",
+                    "description": "The xNF **MUST** support APPC/SDN-C ``UpgradePrecheck`` command.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-19922",
@@ -25843,7 +25843,7 @@
                     "section_name": "Lifecycle Management Related Commands",
                     "sections": [
                         "Lifecycle Management Related Commands",
-                        "Controller Interactions With VNF",
+                        "Controller Interactions With xNF",
                         "Configuration Management"
                     ],
                     "status": null,
@@ -25855,7 +25855,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -25974,7 +25974,7 @@
                     "validation_mode": ""
                 },
                 "R-20353": {
-                    "description": "The xNF **MUST** implement both ``:candidate`` and\n``:writable-running`` capabilities. When both **:candidate** and\n``:writable-running`` are provided then two locks should be supported.",
+                    "description": "The xNF **MUST** implement both ``:candidate`` and\n``:writable-running`` capabilities. When both ``:candidate`` and\n``:writable-running`` are provided then two locks should be supported.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-20353",
@@ -25986,7 +25986,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -26062,7 +26062,7 @@
                     "validation_mode": "static"
                 },
                 "R-20741": {
-                    "description": "The xNF **MUST** support ONAP Controller's ``Configure`` command.",
+                    "description": "The xNF **MUST** support APPC/SDN-C ``Configure`` command.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-20741",
@@ -26074,7 +26074,7 @@
                     "section_name": "Configuration Commands",
                     "sections": [
                         "Configuration Commands",
-                        "Controller Interactions With VNF",
+                        "Controller Interactions With xNF",
                         "Configuration Management"
                     ],
                     "status": null,
@@ -26086,7 +26086,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -26693,7 +26693,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -26779,7 +26779,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -27103,6 +27103,36 @@
                     "validated_by": "",
                     "validation_mode": ""
                 },
+                "R-24189": {
+                    "description": "The xNF provider **MUST** deliver a new set of playbooks that includes\nall updated and unchanged playbooks for any new revision to an existing\nset of playbooks.",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-24189",
+                    "impacts": "",
+                    "introduced": "",
+                    "keyword": "SHOULD",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "Ansible Playbook Requirements",
+                    "sections": [
+                        "Ansible Playbook Requirements",
+                        "xNF Configuration via Ansible Requirements",
+                        "Ansible Standards and Capabilities",
+                        "Configuration Management"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "XNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "casablanca",
+                    "validated_by": "",
+                    "validation_mode": ""
+                },
                 "R-24269": {
                     "description": "The xNF **SHOULD** conform its YANG model to RFC 7407,\n\"A YANG Data Model for SNMP Configuration\", if Netconf used to\nconfigure SNMP engine.",
                     "full_title": "",
@@ -27116,7 +27146,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -27158,6 +27188,36 @@
                     "title_from_content": "",
                     "type_name": "Requirement",
                     "updated": "casablanca",
+                    "validated_by": "",
+                    "validation_mode": ""
+                },
+                "R-24482": {
+                    "description": "The xNF **MUST** provide Ansible playbooks that are designed to run using\nan inventory hosts file in a supported format; with site group that shall\nbe used to add site specific configurations to the target xNF VM(s) as\nneeded.",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-24482",
+                    "impacts": "",
+                    "introduced": "casablanca",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "Ansible Client Requirements",
+                    "sections": [
+                        "Ansible Client Requirements",
+                        "xNF Configuration via Ansible Requirements",
+                        "Ansible Standards and Capabilities",
+                        "Configuration Management"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "XNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -27259,7 +27319,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -27545,7 +27605,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -27689,7 +27749,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -27707,7 +27767,7 @@
                     "validation_mode": ""
                 },
                 "R-26567": {
-                    "description": "The xNF Package **MUST** include a run list of\nroles/cookbooks/recipes, for each supported xNF action, that will\nperform the desired xNF action in its entirety as specified by ONAP\n(see Section 7.c, ONAP Controller APIs and Behavior, for list of xNF\nactions and requirements), when triggered by a chef-client run list\nin JSON file.",
+                    "description": "The xNF Package **MUST** include a run list of\nroles/cookbooks/recipes, for each supported xNF action, that will\nperform the desired xNF action in its entirety as specified by ONAP\n(see Section 7.c, APPC/SDN-C APIs and Behavior, for list of xNF\nactions and requirements), when triggered by a chef-client run list\nin JSON file.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-26567",
@@ -27719,7 +27779,7 @@
                     "section_name": "Chef Roles/Requirements",
                     "sections": [
                         "Chef Roles/Requirements",
-                        "VNF Configuration via Chef Requirements",
+                        "xNF Configuration via Chef Requirements",
                         "Chef Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -27862,7 +27922,7 @@
                     "section_name": "Chef Roles/Requirements",
                     "sections": [
                         "Chef Roles/Requirements",
-                        "VNF Configuration via Chef Requirements",
+                        "xNF Configuration via Chef Requirements",
                         "Chef Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -28202,7 +28262,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -28232,7 +28292,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -28306,7 +28366,7 @@
                     "validation_mode": ""
                 },
                 "R-29324": {
-                    "description": "The xNF **SHOULD** implement the protocol operation:\n``copy-config(target, source) -`` Copy the content of the\nconfiguration data store source to the configuration data store target.",
+                    "description": "The xNF **SHOULD** implement the protocol operation:\n``copy-config(target, source)`` - Copy the content of the\nconfiguration data store source to the configuration data store target.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-29324",
@@ -28318,7 +28378,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -28336,7 +28396,7 @@
                     "validation_mode": ""
                 },
                 "R-29488": {
-                    "description": "The xNF **MUST** implement the protocol operation:\n**get-config(source, filter)** - Retrieve a (filtered subset of\na) configuration from the configuration data store source.",
+                    "description": "The xNF **MUST** implement the protocol operation:\n``get-config(source, filter`` - Retrieve a (filtered subset of\na) configuration from the configuration data store source.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-29488",
@@ -28348,7 +28408,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -28378,7 +28438,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -28744,7 +28804,7 @@
                     "section_name": "Chef Roles/Requirements",
                     "sections": [
                         "Chef Roles/Requirements",
-                        "VNF Configuration via Chef Requirements",
+                        "xNF Configuration via Chef Requirements",
                         "Chef Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -28917,7 +28977,7 @@
                     "section_name": "REST APIs",
                     "sections": [
                         "REST APIs",
-                        "VNF REST APIs",
+                        "xNF REST APIs",
                         "Configuration Management"
                     ],
                     "status": null,
@@ -29021,7 +29081,7 @@
                     "validation_mode": ""
                 },
                 "R-32217": {
-                    "description": "The xNF **MUST** have routable FQDNs that are reachable via\nthe Ansible Server for the endpoints (VMs) of a xNF on which playbooks\nwill be executed. ONAP will initiate requests to the Ansible Server\nfor invocation of playbooks against these end points [#7.3.3]_.",
+                    "description": "The xNF **MUST** have routable management IP addresses or FQDNs that\nare reachable via the Ansible Server for the endpoints (VMs) of a\nxNF that playbooks will target. ONAP will initiate requests to the\nAnsible Server for invocation of playbooks against these end\npoints [#7.3.3]_.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-32217",
@@ -29033,7 +29093,7 @@
                     "section_name": "Ansible Client Requirements",
                     "sections": [
                         "Ansible Client Requirements",
-                        "VNF Configuration via Ansible Requirements",
+                        "xNF Configuration via Ansible Requirements",
                         "Ansible Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -29046,7 +29106,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -29219,7 +29279,7 @@
                     "validation_mode": ""
                 },
                 "R-328086": {
-                    "description": "The xNF **MUST**, if serving as a distribution point or anchor point for steering point\nfrom source to destination, support the ONAP Controller's\n``DistributeTraffic`` command.",
+                    "description": "The xNF **MUST**, if serving as a distribution point or anchor point for\nsteering point from source to destination, support the ONAP Controller's\n``DistributeTraffic`` command.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-328086",
@@ -29231,7 +29291,7 @@
                     "section_name": "Lifecycle Management Related Commands",
                     "sections": [
                         "Lifecycle Management Related Commands",
-                        "Controller Interactions With VNF",
+                        "Controller Interactions With xNF",
                         "Configuration Management"
                     ],
                     "status": null,
@@ -29248,7 +29308,7 @@
                     "validation_mode": ""
                 },
                 "R-32981": {
-                    "description": "The xNF **MUST** support ONAP Controller's ``ConfigBackup`` command.",
+                    "description": "The xNF **MUST** support APPC ``ConfigBackup`` command.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-32981",
@@ -29260,7 +29320,7 @@
                     "section_name": "Configuration Commands",
                     "sections": [
                         "Configuration Commands",
-                        "Controller Interactions With VNF",
+                        "Controller Interactions With xNF",
                         "Configuration Management"
                     ],
                     "status": null,
@@ -29272,7 +29332,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -29346,7 +29406,7 @@
                     "section_name": "Ansible Playbook Requirements",
                     "sections": [
                         "Ansible Playbook Requirements",
-                        "VNF Configuration via Ansible Requirements",
+                        "xNF Configuration via Ansible Requirements",
                         "Ansible Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -29487,7 +29547,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -29517,7 +29577,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -29787,7 +29847,7 @@
                     "validation_mode": ""
                 },
                 "R-35401": {
-                    "description": "The xNF **MUST** support SSH and allow SSH access by the\nAnsible server for the endpoint VM(s) and comply with the Network\nCloud Service Provider guidelines for authentication and access.",
+                    "description": "The xNF **MUST** support SSH and allow SSH access by the\nAnsible server to the endpoint VM(s) and comply with the Network\nCloud Service Provider guidelines for authentication and access.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-35401",
@@ -29799,7 +29859,7 @@
                     "section_name": "Ansible Client Requirements",
                     "sections": [
                         "Ansible Client Requirements",
-                        "VNF Configuration via Ansible Requirements",
+                        "xNF Configuration via Ansible Requirements",
                         "Ansible Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -29812,7 +29872,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -30393,7 +30453,7 @@
                     "section_name": "Chef Roles/Requirements",
                     "sections": [
                         "Chef Roles/Requirements",
-                        "VNF Configuration via Chef Requirements",
+                        "xNF Configuration via Chef Requirements",
                         "Chef Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -30703,7 +30763,7 @@
                     "section_name": "Ansible Playbook Requirements",
                     "sections": [
                         "Ansible Playbook Requirements",
-                        "VNF Configuration via Ansible Requirements",
+                        "xNF Configuration via Ansible Requirements",
                         "Ansible Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -31062,7 +31122,7 @@
                     "validation_mode": ""
                 },
                 "R-41430": {
-                    "description": "The xNF **MUST** support ONAP Controller's ``HealthCheck`` command.",
+                    "description": "The xNF **MUST** support APPC/SDN-C ``HealthCheck`` command.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-41430",
@@ -31074,7 +31134,7 @@
                     "section_name": "HealthCheck and Failure Related Commands",
                     "sections": [
                         "HealthCheck and Failure Related Commands",
-                        "Controller Interactions With VNF",
+                        "Controller Interactions With xNF",
                         "Configuration Management"
                     ],
                     "status": null,
@@ -31086,7 +31146,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -31160,7 +31220,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -31433,7 +31493,7 @@
                     "validation_mode": ""
                 },
                 "R-43253": {
-                    "description": "The xNF **MUST** use playbooks designed to allow Ansible\nServer to infer failure or success based on the \"PLAY_RECAP\" capability.\n\nNote: There are cases where playbooks need to interpret results\nof a task and then determine success or failure and return result\naccordingly (failure for failed tasks).",
+                    "description": "The xNF **MUST** use playbooks designed to allow Ansible\nServer to infer failure or success based on the \"PLAY_RECAP\" capability.\n\n**Note**: There are cases where playbooks need to interpret results\nof a task and then determine success or failure and return result\naccordingly (failure for failed tasks).",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-43253",
@@ -31445,7 +31505,7 @@
                     "section_name": "Ansible Playbook Requirements",
                     "sections": [
                         "Ansible Playbook Requirements",
-                        "VNF Configuration via Ansible Requirements",
+                        "xNF Configuration via Ansible Requirements",
                         "Ansible Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -31520,7 +31580,7 @@
                     "validation_mode": ""
                 },
                 "R-43353": {
-                    "description": "The xNF **MUST** return control from Ansible Playbooks only\nafter tasks are fully complete, signaling that the playbook completed\nall tasks. When starting services, return control only after all services\nare up. This is critical for workflows where the next steps are dependent\non prior tasks being fully completed.",
+                    "description": "The xNF **MUST** return control from Ansible Playbooks only after all\ntasks performed by playbook are fully complete, signaling that the\nplaybook completed all tasks. When starting services, return control\nonly after all services are up. This is critical for workflows where\nthe next steps are dependent on prior tasks being fully completed.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-43353",
@@ -31532,7 +31592,7 @@
                     "section_name": "Ansible Playbook Requirements",
                     "sections": [
                         "Ansible Playbook Requirements",
-                        "VNF Configuration via Ansible Requirements",
+                        "xNF Configuration via Ansible Requirements",
                         "Ansible Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -31545,7 +31605,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -31706,7 +31766,7 @@
                     "section_name": "Chef Roles/Requirements",
                     "sections": [
                         "Chef Roles/Requirements",
-                        "VNF Configuration via Chef Requirements",
+                        "xNF Configuration via Chef Requirements",
                         "Chef Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -31810,7 +31870,7 @@
                     "validation_mode": ""
                 },
                 "R-44281": {
-                    "description": "The xNF **MUST** implement the protocol operation:\n**edit-config(target, default-operation, test-option, error-option,\nconfig)** - Edit the target configuration datastore by merging,\nreplacing, creating, or deleting new config elements.",
+                    "description": "The xNF **MUST** implement the protocol operation:\n``edit-config(target, default-operation, test-option, error-option,\nconfig)`` - Edit the target configuration data store by merging,\nreplacing, creating, or deleting new config elements.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-44281",
@@ -31822,7 +31882,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -32036,6 +32096,36 @@
                     "validated_by": "",
                     "validation_mode": "static"
                 },
+                "R-45197": {
+                    "description": "The xNF **MUST** define the \"from=\" clause to provide the list of IP\naddresses of the Ansible Servers in the Cluster, separated by coma, to\nrestrict use of the SSH key pair to elements that are part of the Ansible\nCluster owner of the issued and assigned mechanized user ID.",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-45197",
+                    "impacts": "",
+                    "introduced": "casablanca",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "Ansible Client Requirements",
+                    "sections": [
+                        "Ansible Client Requirements",
+                        "xNF Configuration via Ansible Requirements",
+                        "Ansible Standards and Capabilities",
+                        "Configuration Management"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "XNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": ""
+                },
                 "R-45602": {
                     "description": "If a VNF's Port is attached to a network (internal or external)\nand the port's IP addresses are cloud assigned by OpenStack's DHCP\nService, the ``OS::Neutron::Port`` Resource's\n\n* property ``fixed_ips`` map property ``ip_address`` **MUST NOT** be used\n* property ``fixed_ips`` map property ``subnet``\n  **MAY** be used",
                     "full_title": "",
@@ -32094,7 +32184,7 @@
                     "validation_mode": ""
                 },
                 "R-45856": {
-                    "description": "The xNF **MUST** support ONAP Controller's ``UpgradePostCheck`` command.",
+                    "description": "The xNF **MUST** support APPC/SDN-C ``UpgradePostCheck`` command.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-45856",
@@ -32106,7 +32196,7 @@
                     "section_name": "Lifecycle Management Related Commands",
                     "sections": [
                         "Lifecycle Management Related Commands",
-                        "Controller Interactions With VNF",
+                        "Controller Interactions With xNF",
                         "Configuration Management"
                     ],
                     "status": null,
@@ -32118,7 +32208,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -32559,7 +32649,7 @@
                     "section_name": "Chef Client Requirements",
                     "sections": [
                         "Chef Client Requirements",
-                        "VNF Configuration via Chef Requirements",
+                        "xNF Configuration via Chef Requirements",
                         "Chef Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -32831,7 +32921,7 @@
                     "validation_mode": "static"
                 },
                 "R-48247": {
-                    "description": "The xNF **MUST** support ONAP Controller's ``ConfigRestore`` command.",
+                    "description": "The xNF **MUST** support APPC ``ConfigRestore`` command.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-48247",
@@ -32843,7 +32933,7 @@
                     "section_name": "Configuration Commands",
                     "sections": [
                         "Configuration Commands",
-                        "Controller Interactions With VNF",
+                        "Controller Interactions With xNF",
                         "Configuration Management"
                     ],
                     "status": null,
@@ -32855,7 +32945,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -32944,7 +33034,7 @@
                     "validation_mode": ""
                 },
                 "R-48698": {
-                    "description": "The xNF **MUST** utilize information from key value pairs\nthat will be provided by the Ansible Server as \"extra-vars\" during\ninvocation to execute the desired xNF action. If the playbook requires\nfiles, they must also be supplied using the methodology detailed in\nthe Ansible Server API, unless they are bundled with playbooks, example,\ngeneric templates.",
+                    "description": "The xNF **MUST** utilize information from key value pairs that will be\nprovided by the Ansible Server as \"extra-vars\" during invocation to\nexecute the desired xNF action. The \"extra-vars\" attribute-value pairs\nare passed to the Ansible Server by an APPC/SDN-C as part of the\nRest API request. If the playbook requires files, they must also be\nsupplied using the methodology detailed in the Ansible Server API, unless\nthey are bundled with playbooks, example, generic templates. Any files\ncontaining instance specific info (attribute-value pairs), not obtainable\nfrom any ONAP inventory databases or other sources, referenced and used an\ninput by playbooks, shall be provisioned (and distributed) in advance of\nuse, e.g., xNF instantiation. Recommendation is to avoid these instance\nspecific, manually created in advance of instantiation, files.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-48698",
@@ -32956,7 +33046,7 @@
                     "section_name": "Ansible Playbook Requirements",
                     "sections": [
                         "Ansible Playbook Requirements",
-                        "VNF Configuration via Ansible Requirements",
+                        "xNF Configuration via Ansible Requirements",
                         "Ansible Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -32969,7 +33059,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -33100,7 +33190,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -33158,7 +33248,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -33260,7 +33350,7 @@
                     "validation_mode": ""
                 },
                 "R-49396": {
-                    "description": "The xNF **MUST** support each ONAP (APPC) xNF action\nby invocation of **one** playbook [#7.3.4]_. The playbook will be responsible\nfor executing all necessary tasks (as well as calling other playbooks)\nto complete the request.",
+                    "description": "The xNF **MUST** support each APPC/SDN-C xNF action\nby invocation of **one** playbook [#7.3.4]_. The playbook will be responsible\nfor executing all necessary tasks (as well as calling other playbooks)\nto complete the request.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-49396",
@@ -33272,7 +33362,66 @@
                     "section_name": "Ansible Playbook Requirements",
                     "sections": [
                         "Ansible Playbook Requirements",
-                        "VNF Configuration via Ansible Requirements",
+                        "xNF Configuration via Ansible Requirements",
+                        "Ansible Standards and Capabilities",
+                        "Configuration Management"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "XNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "casablanca",
+                    "validated_by": "",
+                    "validation_mode": ""
+                },
+                "R-49466": {
+                    "description": "The xNF **MUST** support APPC/SDN-C ``UpgradeSoftware`` command.",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-49466",
+                    "impacts": "",
+                    "introduced": "",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "Lifecycle Management Related Commands",
+                    "sections": [
+                        "Lifecycle Management Related Commands",
+                        "Controller Interactions With xNF",
+                        "Configuration Management"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "XNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "casablanca",
+                    "validated_by": "",
+                    "validation_mode": ""
+                },
+                "R-49751": {
+                    "description": "The xNF **MUST** support Ansible playbooks that are compatible with\nAnsible version 2.6 or later.",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-49751",
+                    "impacts": "",
+                    "introduced": "",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "Ansible Playbook Requirements",
+                    "sections": [
+                        "Ansible Playbook Requirements",
+                        "xNF Configuration via Ansible Requirements",
                         "Ansible Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -33289,20 +33438,21 @@
                     "validated_by": "",
                     "validation_mode": ""
                 },
-                "R-49466": {
-                    "description": "The xNF **MUST** support ONAP Controller's ``UpgradeSoftware`` command.",
+                "R-49911": {
+                    "description": "The xNF provider **MUST** assign a new point release to the updated\nplaybook set. The functionality of a new playbook set must be tested before\nit is deployed to the production.",
                     "full_title": "",
                     "hide_links": "",
-                    "id": "R-49466",
+                    "id": "R-49911",
                     "impacts": "",
                     "introduced": "",
-                    "keyword": "MUST",
+                    "keyword": "SHOULD",
                     "links": [],
                     "notes": "",
-                    "section_name": "Lifecycle Management Related Commands",
+                    "section_name": "Ansible Playbook Requirements",
                     "sections": [
-                        "Lifecycle Management Related Commands",
-                        "Controller Interactions With VNF",
+                        "Ansible Playbook Requirements",
+                        "xNF Configuration via Ansible Requirements",
+                        "Ansible Standards and Capabilities",
                         "Configuration Management"
                     ],
                     "status": null,
@@ -33314,7 +33464,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -33349,7 +33499,7 @@
                     "validation_mode": "static"
                 },
                 "R-50252": {
-                    "description": "The xNF **MUST** write to a specific one text files that\nwill be retrieved and made available by the Ansible Server if, as part\nof a xNF action (e.g., audit), a playbook is required to return any\nxNF information. The text files must be written in the same directory as\nthe one from which the playbook is being executed. A text file must be\ncreated for the xNF playbook run targets/affects, with the name\n'<VNFname>_results.txt' into which any desired output from each\nrespective VM/xNF must be written.",
+                    "description": "The xNF **MUST** write to a response file in JSON format that will be\nretrieved and made available by the Ansible Server if, as part of a xNF\naction (e.g., audit), a playbook is required to return any xNF\ninformation/response. The text files must be written in the main playbook\nhome directory, in JSON format. The JSON file must be created for the xNF\nwith the name '<xNF name>_results.txt'. All playbook output results, for\nall xNF VMs, to be provided as a response to the request, must be written\nto this response file.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-50252",
@@ -33361,7 +33511,7 @@
                     "section_name": "Ansible Playbook Requirements",
                     "sections": [
                         "Ansible Playbook Requirements",
-                        "VNF Configuration via Ansible Requirements",
+                        "xNF Configuration via Ansible Requirements",
                         "Ansible Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -33374,7 +33524,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -33521,7 +33671,7 @@
                     "validation_mode": "static"
                 },
                 "R-51442": {
-                    "description": "The xNF **SHOULD** use playbooks that are designed to\nautomatically 'rollback' to the original state in case of any errors\nfor actions that change state of the xNF (e.g., configure).\n\n    Note: In case rollback at the playbook level is not supported or\n    possible, the xNF provider shall provide alternative locking\n    mechanism (e.g., for a small xNF the rollback mechanism may rely\n    on workflow to terminate and re-instantiate VNF VMs and then re-run\n    playbook(s)). Backing up updated files also recommended to support\n    rollback when soft rollback is feasible.",
+                    "description": "The xNF **SHOULD** use playbooks that are designed to\nautomatically 'rollback' to the original state in case of any errors\nfor actions that change state of the xNF (e.g., configure).\n\n**Note**: In case rollback at the playbook level is not supported or\npossible, the xNF provider shall provide alternative rollback\nmechanism (e.g., for a small xNF the rollback mechanism may rely\non workflow to terminate and re-instantiate VNF VMs and then re-run\nplaybook(s)). Backing up updated files is also recommended to support\nrollback when soft rollback is feasible.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-51442",
@@ -33533,7 +33683,7 @@
                     "section_name": "Ansible Playbook Requirements",
                     "sections": [
                         "Ansible Playbook Requirements",
-                        "VNF Configuration via Ansible Requirements",
+                        "xNF Configuration via Ansible Requirements",
                         "Ansible Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -33546,7 +33696,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -33790,7 +33940,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -33849,7 +33999,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -33993,7 +34143,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -34080,7 +34230,7 @@
                     "section_name": "Ansible Client Requirements",
                     "sections": [
                         "Ansible Client Requirements",
-                        "VNF Configuration via Ansible Requirements",
+                        "xNF Configuration via Ansible Requirements",
                         "Ansible Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -34519,7 +34669,7 @@
                     "validation_mode": "static"
                 },
                 "R-56385": {
-                    "description": "The xNF **MUST** support ONAP Controller's ``Audit`` command.",
+                    "description": "The xNF **MUST** support APPC ``Audit`` command.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-56385",
@@ -34531,7 +34681,7 @@
                     "section_name": "Configuration Commands",
                     "sections": [
                         "Configuration Commands",
-                        "Controller Interactions With VNF",
+                        "Controller Interactions With xNF",
                         "Configuration Management"
                     ],
                     "status": null,
@@ -34543,7 +34693,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -34940,7 +35090,7 @@
                     "validation_mode": ""
                 },
                 "R-58301": {
-                    "description": "The xNF **SHOULD NOT** use playbooks that make requests to\nCloud resources e.g. Openstack (nova, neutron, glance, heat, etc.);\ntherefore, there is no use for Cloud specific variables like Openstack\nUUIDs in Ansible Playbooks.\n\nRationale: Flows that require interactions with Cloud services e.g.\nOpenstack shall rely on workflows run by an Orchestrator\n(Change Management) or other capability (such as a control loop or\nOperations GUI) outside Ansible Server which can be executed by a\nController such as APPC. There are policies, as part of Control Loop\nmodels, that send remediation action requests to APPC; these are\ntriggered as a response to an event or correlated events published\nto Event Bus.",
+                    "description": "The xNF **SHOULD NOT** use playbooks that make requests to\nCloud resources e.g. Openstack (nova, neutron, glance, heat, etc.);\ntherefore, there is no use for Cloud specific variables like Openstack\nUUIDs in Ansible Playbook related artifacts.\n\n**Rationale**: Flows that require interactions with Cloud services e.g.\nOpenstack shall rely on workflows run by an Orchestrator\n(Change Management) or other capability (such as a control loop or\nOperations GUI) outside Ansible Server which can be executed by a\nAPPC/SDN-C. There are policies, as part of Control Loop\nmodels, that send remediation action requests to an APPC/SDN-C; these\nare triggered as a response to an event or correlated events published\nto Event Bus.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-58301",
@@ -34952,7 +35102,7 @@
                     "section_name": "Ansible Playbook Requirements",
                     "sections": [
                         "Ansible Playbook Requirements",
-                        "VNF Configuration via Ansible Requirements",
+                        "xNF Configuration via Ansible Requirements",
                         "Ansible Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -34965,7 +35115,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -34982,7 +35132,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -35291,7 +35441,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -35366,7 +35516,7 @@
                     "validation_mode": "static"
                 },
                 "R-60106": {
-                    "description": "The xNF **MUST** implement the protocol operation:\n**get(filter)** - Retrieve (a filtered subset of) the running\nconfiguration and device state information. This should include\nthe list of xNF supported schemas.",
+                    "description": "The xNF **MUST** implement the protocol operation:\n``get(filter)`` - Retrieve (a filtered subset of) the running\nconfiguration and device state information. This should include\nthe list of xNF supported schemas.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-60106",
@@ -35378,7 +35528,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -35408,7 +35558,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -35493,7 +35643,7 @@
                     "section_name": "Chef Roles/Requirements",
                     "sections": [
                         "Chef Roles/Requirements",
-                        "VNF Configuration via Chef Requirements",
+                        "xNF Configuration via Chef Requirements",
                         "Chef Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -35608,7 +35758,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -35977,7 +36127,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -36007,7 +36157,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -36335,7 +36485,7 @@
                     "validation_mode": ""
                 },
                 "R-65641": {
-                    "description": "The xNF **MUST** support ONAP Controller's ``UpgradeBackOut`` command.",
+                    "description": "The xNF **MUST** support APPC/SDN-C ``UpgradeBackOut`` command.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-65641",
@@ -36347,7 +36497,7 @@
                     "section_name": "Lifecycle Management Related Commands",
                     "sections": [
                         "Lifecycle Management Related Commands",
-                        "Controller Interactions With VNF",
+                        "Controller Interactions With xNF",
                         "Configuration Management"
                     ],
                     "status": null,
@@ -36359,7 +36509,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -36376,7 +36526,7 @@
                     "section_name": "Chef Roles/Requirements",
                     "sections": [
                         "Chef Roles/Requirements",
-                        "VNF Configuration via Chef Requirements",
+                        "xNF Configuration via Chef Requirements",
                         "Chef Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -36518,7 +36668,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -36548,13 +36698,43 @@
                     "section_name": "Chef Client Requirements",
                     "sections": [
                         "Chef Client Requirements",
-                        "VNF Configuration via Chef Requirements",
+                        "xNF Configuration via Chef Requirements",
                         "Chef Standards and Capabilities",
                         "Configuration Management"
                     ],
                     "status": null,
                     "tags": [],
                     "target": "VNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": ""
+                },
+                "R-67124": {
+                    "description": "The xNF **MUST** provide Ansible playbooks that are designed to run using\nan inventory hosts file in a supported format; with group names matching\nVNFC 3-character string adding \"vip\" for groups with virtual IP addresses\nshared by multiple VMs as seen in examples provided in Appendix.",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-67124",
+                    "impacts": "",
+                    "introduced": "casablanca",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "Ansible Client Requirements",
+                    "sections": [
+                        "Ansible Client Requirements",
+                        "xNF Configuration via Ansible Requirements",
+                        "Ansible Standards and Capabilities",
+                        "Configuration Management"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "XNF",
                     "test": "",
                     "test_case": "",
                     "test_file": "",
@@ -36889,7 +37069,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -37004,7 +37184,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -37474,7 +37654,7 @@
                     "validation_mode": ""
                 },
                 "R-70496": {
-                    "description": "The xNF **MUST** implement the protocol operation:\n**commit(confirmed, confirm-timeout)** - Commit candidate\nconfiguration data store to the running configuration.",
+                    "description": "The xNF **MUST** implement the protocol operation:\n``commit(confirmed, confirm-timeout)`` - Commit candidate\nconfiguration data store to the running configuration.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-70496",
@@ -37486,7 +37666,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -37799,7 +37979,7 @@
                     "section_name": "Chef Client Requirements",
                     "sections": [
                         "Chef Client Requirements",
-                        "VNF Configuration via Chef Requirements",
+                        "xNF Configuration via Chef Requirements",
                         "Chef Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -38014,6 +38194,36 @@
                     "validated_by": "",
                     "validation_mode": ""
                 },
+                "R-73459": {
+                    "description": "The xNF **MUST** provide the ability to include a \"from=\" clause in SSH\npublic keys associated with mechanized user IDs created for an Ansible\nServer cluster to use for xNF VM authentication.",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-73459",
+                    "impacts": "",
+                    "introduced": "casablanca",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "Ansible Client Requirements",
+                    "sections": [
+                        "Ansible Client Requirements",
+                        "xNF Configuration via Ansible Requirements",
+                        "Ansible Standards and Capabilities",
+                        "Configuration Management"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "XNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": ""
+                },
                 "R-73468": {
                     "description": "The xNF **MUST** allow the NETCONF server connection\nparameters to be configurable during virtual machine instantiation\nthrough Heat templates where SSH keys, usernames, passwords, SSH\nservice and SSH port numbers are Heat template parameters.",
                     "full_title": "",
@@ -38027,7 +38237,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -38846,7 +39056,7 @@
                     "section_name": "Chef Roles/Requirements",
                     "sections": [
                         "Chef Roles/Requirements",
-                        "VNF Configuration via Chef Requirements",
+                        "xNF Configuration via Chef Requirements",
                         "Chef Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -38876,7 +39086,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -38992,7 +39202,7 @@
                     "section_name": "Chef Client Requirements",
                     "sections": [
                         "Chef Client Requirements",
-                        "VNF Configuration via Chef Requirements",
+                        "xNF Configuration via Chef Requirements",
                         "Chef Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -39277,7 +39487,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -39523,7 +39733,7 @@
                     "validation_mode": ""
                 },
                 "R-82018": {
-                    "description": "The xNF **MUST** load the Ansible Server SSH public key onto xNF\nVM(s) as part of instantiation. This will allow the Ansible Server\nto authenticate to perform post-instantiation configuration without\nmanual intervention and without requiring specific xNF login IDs and\npasswords.\n\nCAUTION: For VNFs configured using Ansible, to eliminate the need\nfor manual steps, post-instantiation and pre-configuration, to\nupload of SSH public keys, SSH public keys loaded during (heat)\ninstantiation shall be preserved and not removed by (heat) embedded\n(userdata) scripts.",
+                    "description": "The xNF **MUST** load the Ansible Server SSH public key onto xNF\nVM(s) /root/.ssh/authorized_keys as part of instantiation. Alternative,\nis for Ansible Server SSH public key to be loaded onto xNF VM(s) under\n/home/<Mechanized user ID>/.ssh/authorized_keys as part of instantiation,\nwhen a Mechanized user ID is created during instantiation, and Configure\nand all playbooks are designed to use a mechanized user ID only for\nauthentication (never using root authentication during Configure playbook\nrun). This will allow the Ansible Server to authenticate to perform\npost-instantiation configuration without manual intervention and without\nrequiring specific xNF login IDs and passwords.\n\n*CAUTION*: For xNFs configured using Ansible, to eliminate the need\nfor manual steps, post-instantiation and pre-configuration, to\nupload of SSH public keys, SSH public keys loaded during (heat)\ninstantiation shall be preserved and not removed by (heat) embedded\n(userdata) scripts.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-82018",
@@ -39535,7 +39745,7 @@
                     "section_name": "Ansible Client Requirements",
                     "sections": [
                         "Ansible Client Requirements",
-                        "VNF Configuration via Ansible Requirements",
+                        "xNF Configuration via Ansible Requirements",
                         "Ansible Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -39548,7 +39758,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -39775,7 +39985,7 @@
                     "validation_mode": "static"
                 },
                 "R-82811": {
-                    "description": "The xNF **MUST** support ONAP Controller's ``StartApplication`` command.",
+                    "description": "The xNF **MUST** support APPC ``StartApplication`` command.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-82811",
@@ -39787,7 +39997,7 @@
                     "section_name": "Lifecycle Management Related Commands",
                     "sections": [
                         "Lifecycle Management Related Commands",
-                        "Controller Interactions With VNF",
+                        "Controller Interactions With xNF",
                         "Configuration Management"
                     ],
                     "status": null,
@@ -39799,7 +40009,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -39832,7 +40042,7 @@
                     "validation_mode": "static"
                 },
                 "R-83146": {
-                    "description": "The xNF **MUST** support ONAP Controller's ``StopApplication`` command.",
+                    "description": "The xNF **MUST** support APPC ``StopApplication`` command.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-83146",
@@ -39844,7 +40054,7 @@
                     "section_name": "Lifecycle Management Related Commands",
                     "sections": [
                         "Lifecycle Management Related Commands",
-                        "Controller Interactions With VNF",
+                        "Controller Interactions With xNF",
                         "Configuration Management"
                     ],
                     "status": null,
@@ -39856,7 +40066,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -40043,7 +40253,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -40073,7 +40283,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -41226,7 +41436,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -41312,7 +41522,7 @@
                     "section_name": "Configuration Management",
                     "sections": [
                         "Configuration Management",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -41330,7 +41540,7 @@
                     "validation_mode": ""
                 },
                 "R-88031": {
-                    "description": "The xNF **SHOULD** implement the protocol operation:\n``delete-config(target) -`` Delete the named configuration\ndata store target.",
+                    "description": "The xNF **SHOULD** implement the protocol operation:\n``delete-config(target)`` - Delete the named configuration\ndata store target.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-88031",
@@ -41342,7 +41552,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -41531,7 +41741,7 @@
                     "validation_mode": "static"
                 },
                 "R-88899": {
-                    "description": "The xNF **MUST** support simultaneous ``<commit>`` operations\nwithin the context of this locking requirements framework.",
+                    "description": "The xNF **MUST** support simultaneous <commit> operations\nwithin the context of this locking requirements framework.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-88899",
@@ -41543,7 +41753,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -41729,7 +41939,7 @@
                     "validation_mode": "static"
                 },
                 "R-90007": {
-                    "description": "The xNF **MUST** implement the protocol operation:\n**close-session()**- Gracefully close the current session.",
+                    "description": "The xNF **MUST** implement the protocol operation:\n``close-session()`` - Gracefully close the current session.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-90007",
@@ -41741,7 +41951,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -42131,7 +42341,7 @@
                     "validation_mode": ""
                 },
                 "R-91745": {
-                    "description": "The xNF **MUST** update the Ansible Server and other entities\nstoring and using the SSH keys for authentication when the SSH\nkeys used by Ansible are regenerated/updated.\n\nNote: Ansible Server itself may be used to upload new SSH public\nkeys onto supported VNFs.",
+                    "description": "The xNF **MUST** update the Ansible Server and other entities\nstoring and using the SSH keys for authentication when the SSH\nkeys used by Ansible are regenerated/updated.\n\n**Note**: Ansible Server itself may be used to upload new SSH public\nkeys onto supported xNFs.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-91745",
@@ -42143,7 +42353,7 @@
                     "section_name": "Ansible Client Requirements",
                     "sections": [
                         "Ansible Client Requirements",
-                        "VNF Configuration via Ansible Requirements",
+                        "xNF Configuration via Ansible Requirements",
                         "Ansible Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -42302,7 +42512,7 @@
                     "validation_mode": "static"
                 },
                 "R-92866": {
-                    "description": "The xNF **MUST** include as part of post-instantiation configuration\ndone by Ansible Playbooks the removal/update of the SSH public key from\n/root/.ssh/authorized_keys, and  update of SSH keys loaded through\ninstantiation to support Ansible. This may include download and install of\nnew SSH keys and new mechanized IDs.",
+                    "description": "The xNF **MUST** include as part of post-instantiation configuration\ndone by Ansible Playbooks the removal/update of the SSH public key from\n/root/.ssh/authorized_keys, and update of SSH keys loaded through\ninstantiation to support Ansible. This may include creating Mechanized user\nID(s) used by the Ansible Server(s) on VNF VM(s) and uploading and\ninstalling new SSH keys used by the mechanized use ID(s).",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-92866",
@@ -42314,7 +42524,7 @@
                     "section_name": "Ansible Client Requirements",
                     "sections": [
                         "Ansible Client Requirements",
-                        "VNF Configuration via Ansible Requirements",
+                        "xNF Configuration via Ansible Requirements",
                         "Ansible Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -42327,7 +42537,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -42513,7 +42723,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -42587,7 +42797,7 @@
                     "validation_mode": ""
                 },
                 "R-94084": {
-                    "description": "The xNF **MUST** support ONAP Controller's ``ConfigScaleOut`` command.",
+                    "description": "The xNF **MUST** support APPC/SDN-C ``ConfigScaleOut`` command.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-94084",
@@ -42599,7 +42809,7 @@
                     "section_name": "Configuration Commands",
                     "sections": [
                         "Configuration Commands",
-                        "Controller Interactions With VNF",
+                        "Controller Interactions With xNF",
                         "Configuration Management"
                     ],
                     "status": null,
@@ -42611,7 +42821,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -42669,6 +42879,36 @@
                     "title_from_content": "",
                     "type_name": "Requirement",
                     "updated": "casablanca",
+                    "validated_by": "",
+                    "validation_mode": ""
+                },
+                "R-94567": {
+                    "description": "The xNF **MUST** provide Ansible playbooks that are designed to run using\nan inventory hosts file in a supported format with only IP addresses or\nIP addresses and VM/xNF names.",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-94567",
+                    "impacts": "",
+                    "introduced": "casablanca",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "Ansible Client Requirements",
+                    "sections": [
+                        "Ansible Client Requirements",
+                        "xNF Configuration via Ansible Requirements",
+                        "Ansible Standards and Capabilities",
+                        "Configuration Management"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "XNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -42883,7 +43123,7 @@
                     "section_name": "Configuration Management",
                     "sections": [
                         "Configuration Management",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -42987,7 +43227,7 @@
                     "validation_mode": "static"
                 },
                 "R-96554": {
-                    "description": "The xNF **MUST** implement the protocol operation:\n``unlock(target)`` - Unlock the configuration datastore target.",
+                    "description": "The xNF **MUST** implement the protocol operation:\n``unlock(target)`` - Unlock the configuration data store target.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-96554",
@@ -42999,7 +43239,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -43156,7 +43396,7 @@
                     "validation_mode": ""
                 },
                 "R-97343": {
-                    "description": "The xNF **MUST** support ONAP Controller's ``UpgradeBackup`` command.",
+                    "description": "The xNF **MUST** support APPC/SDN-C ``UpgradeBackup`` command.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-97343",
@@ -43168,7 +43408,37 @@
                     "section_name": "Lifecycle Management Related Commands",
                     "sections": [
                         "Lifecycle Management Related Commands",
-                        "Controller Interactions With VNF",
+                        "Controller Interactions With xNF",
+                        "Configuration Management"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "XNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "casablanca",
+                    "validated_by": "",
+                    "validation_mode": ""
+                },
+                "R-97345": {
+                    "description": "The xNF **MUST** permit authentication, using root account, only right\nafter instantiation and until post-instantiation configuration is\ncompleted.",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-97345",
+                    "impacts": "",
+                    "introduced": "casablanca",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "Ansible Client Requirements",
+                    "sections": [
+                        "Ansible Client Requirements",
+                        "xNF Configuration via Ansible Requirements",
+                        "Ansible Standards and Capabilities",
                         "Configuration Management"
                     ],
                     "status": null,
@@ -43212,8 +43482,38 @@
                     "validated_by": "",
                     "validation_mode": ""
                 },
+                "R-97451": {
+                    "description": "The xNF **MUST** provide the ability to remove root access once\npost-instantiation configuration (Configure) is completed.",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-97451",
+                    "impacts": "",
+                    "introduced": "casablanca",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "Ansible Client Requirements",
+                    "sections": [
+                        "Ansible Client Requirements",
+                        "xNF Configuration via Ansible Requirements",
+                        "Ansible Standards and Capabilities",
+                        "Configuration Management"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "XNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": ""
+                },
                 "R-97529": {
-                    "description": "The xNF **SHOULD** implement the protocol operation:\n``get-schema(identifier, version, format) -`` Retrieve the YANG schema.",
+                    "description": "The xNF **SHOULD** implement the protocol operation:\n``get-schema(identifier, version, format)`` - Retrieve the YANG schema.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-97529",
@@ -43225,7 +43525,7 @@
                     "section_name": "NETCONF Server Requirements",
                     "sections": [
                         "NETCONF Server Requirements",
-                        "VNF Configuration via NETCONF Requirements",
+                        "xNF Configuration via NETCONF Requirements",
                         "NETCONF Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -43648,7 +43948,7 @@
                     "section_name": "Chef Roles/Requirements",
                     "sections": [
                         "Chef Roles/Requirements",
-                        "VNF Configuration via Chef Requirements",
+                        "xNF Configuration via Chef Requirements",
                         "Chef Standards and Capabilities",
                         "Configuration Management"
                     ],
@@ -43973,7 +44273,7 @@
                     "validation_mode": "static"
                 }
             },
-            "needs_amount": 777
+            "needs_amount": 787
         }
     }
 }

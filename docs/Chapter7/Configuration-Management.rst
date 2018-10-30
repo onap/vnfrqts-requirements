@@ -16,118 +16,130 @@
 Configuration Management
 ------------------------
 
-Controller Interactions With VNF
+Controller Interactions With xNF
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-ONAP Controllers (such as APPC) expose a northbound API to clients
-(such as SO) in order for the clients to initiate an activity
-(aka command) on a VNF.   ONAP controllers interact with VNFs through
-Network and Application Adapters to perform configuration and other
-lifecycle management activities within NFV environment.
-The standardized models, protocols and mechanisms by which network
-functions are configured are equally applicable to VNFs and PNFs.
+APPC/SDN-C expose a northbound API to clients (such as SO) in order for
+the clients to initiate an activity (aka command) on a xNF. APPC/SDN-C
+interact with xNFs through Network and Application Adapters to perform
+configuration and other lifecycle management activities within NFV environment.
+The standardized models, protocols and mechanisms by which network functions
+are configured are equally applicable to VNFs and PNFs.
 
 This section describes the list of commands that should be supported
-by the VNF.   The following sections describe the standard protocols
+by the xNF. The following sections describe the standard protocols
 that are supported (NETCONF, Chef, Ansible, and REST).
 
-The commands below are expected to be supported on all VNF's, unless
+The commands below are expected to be supported on all xNF's, unless
 noted otherwise, either directly (via the NETCONF or REST interface)
-or indirectly (via a Chef Cookbook or Ansible server).  Note that there
-are additional commands offered to northbound clients that are not shown
-below, as these commands either act internally on the Controller itself
-or depend upon network cloud components for implementation (thus, these
-actions do not put any special requirement on the VNF provider).
+or indirectly (via a Chef Cookbook or Ansible server).
 
-The commands allow for parametric data to be passed from the controller
-to the VNF or Ansible/Chef server in the request.  The format of the
+**Note that there are additional commands offered to northbound clients that
+are not shown below, as these commands either act internally on APPC/SDN-C
+itself or depend upon network cloud components for implementation (thus, these
+actions do not put any special requirement on the xNF provider).**
+
+The commands allow for parametric data to be passed from APPC/SDN-C
+to the xNF or Ansible/Chef server in the request. The format of the
 parameter data can be either xml (for NETCONF) or JSON (for Ansible,
 Chef, or REST).
 
 Configuration Commands
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``Configure``: The Controller client is requesting that a post-instantiation
-configuration be applied to the target VNF instance. After the Configure
-action is completed, the VNF instance should be ready for service.
+``Configure``: The APPC/SDN-C client is requesting that a post-instantiation
+configuration be applied to the target xNF. After the Configure
+action is completed, the xNF instance should be ready for service.
 Note that customer specific configurations may need to be applied using
-the ConfigModify action.
+the ConfigModify action. This command requires exclusive access rights of
+the xNF.
 
-``ConfigModify``: The Controller client is requesting a configuration
-update to a subset of the total configuration parameters of a VNF or to
+``ConfigModify``: The APPC client is requesting a configuration
+update to a subset of the total configuration parameters of an xNF or to
 apply customer specific configurations. The configuration update is
-typically done while the VNF is in service and should not disrupt traffic.
+typically done while the xNF is in service and should not disrupt traffic.
+This command requires exclusive access rights of the xNF.
 
-``ConfigBackup``: The Controller client is requesting a backup of the
-configuration parameters where the parameters are stored on the VNF.
+``ConfigBackup``: The APPC client is requesting a backup of the
+configuration parameters where the parameters are stored on the xNF.
 This command is typically requested as part of an orchestration flow
 for scenarios such as a software upgrade. The ConfigBackup is typically
-done while the VNF is not in service (i.e., in a maintenance state).
-When the ConfigBackup command is executed, the current VNF configuration
+done while the xNF is not in service (i.e., in a maintenance state).
+When the ConfigBackup command is executed, the current xNF configuration
 parameters are saved in storage that is preserved (if there is an existing
-set of backed up parameters, they are overwritten).
+set of backed up parameters, they are overwritten). This command requires
+exclusive access rights of the xNF.
 
-``ConfigRestore``: The Controller client is requesting a restore action of
-the configuration parameters to the VNF that were saved by ConfigBackup
+``ConfigRestore``: The APPC client is requesting a restore action of
+the configuration parameters to the xNF that were saved by ConfigBackup
 command. This command is typically requested as part of an orchestration
 flow for scenarios such as a software upgrade where the software upgrade
-may have failed and the VNF needs to be rolled back to the prior configuration.
-When the ConfigRestore command is executed, the VNF configuration parameters
-which were backed to persistent preserved storage are applied to the VNF
+may have failed and the xNF needs to be rolled back to the prior configuration.
+When the ConfigRestore command is executed, the xNF configuration parameters
+which were backed to persistent preserved storage are applied to the xNF
 (replacing existing parameters). The ConfigRestore is typically done while
-the VNF is not in service (i.e., in a maintenance state).
+the xNF is not in service (i.e., in a maintenance state). This command
+requires exclusive access rights of the xNF.
 
-``ConfigScaleOut``: The Controller client is requesting that a configuration
+``ConfigScaleOut``: The APPC/SDN-C client is requesting that a configuration
 be applied after the VNF instance has been scaled out (i.e., one or more
 additional VM's instantiated to increase capacity). For some VNF's,
 ConfigScaleOut is not needed because the VNF is auto-configured after
-scale-out. This command is being introduced in the Beijing release.
+scale-out. This command is being introduced in the Beijing release to support
+manual Scale Out and will be extended to support Auto ScaleOut in Casablanca
+release. This command requires exclusive access rights of the VNF.
 
-``Audit``: The Controller client is requesting that the current (last known
-configuration update) is audited against the running configuration on the VNF.
-
+``Audit``: The APPC client is requesting that the current (last known
+configuration update) is audited against the running configuration on the VNF
+(Openstack).
 
 .. req::
     :id: R-20741
     :target: XNF
     :keyword: MUST
+    :updated: casablanca
 
-    The xNF **MUST** support ONAP Controller's ``Configure`` command.
+    The xNF **MUST** support APPC/SDN-C ``Configure`` command.
 
 .. req::
     :id: R-19366
     :target: XNF
     :keyword: MUST
+    :updated: casablanca
 
-    The xNF **MUST** support ONAP Controller's ``ConfigModify`` command.
+    The xNF **MUST** support APPC ``ConfigModify`` command.
 
 .. req::
     :id: R-32981
     :target: XNF
     :keyword: MUST
+    :updated: casablanca
 
-    The xNF **MUST** support ONAP Controller's ``ConfigBackup`` command.
+    The xNF **MUST** support APPC ``ConfigBackup`` command.
 
 .. req::
     :id: R-48247
     :target: XNF
     :keyword: MUST
+    :updated: casablanca
 
-    The xNF **MUST** support ONAP Controller's ``ConfigRestore`` command.
+    The xNF **MUST** support APPC ``ConfigRestore`` command.
 
 .. req::
     :id: R-94084
     :target: XNF
     :keyword: MUST
+    :updated: casablanca
 
-    The xNF **MUST** support ONAP Controller's ``ConfigScaleOut`` command.
+    The xNF **MUST** support APPC/SDN-C ``ConfigScaleOut`` command.
 
 .. req::
     :id: R-56385
     :target: XNF
     :keyword: MUST
+    :updated: casablanca
 
-    The xNF **MUST** support ONAP Controller's ``Audit`` command.
+    The xNF **MUST** support APPC ``Audit`` command.
 
 Lifecycle Management Related Commands
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -137,162 +149,199 @@ flows where the VNF may need to be removed for service.**
 
 Full details on the APIs can be found in the :doc:`APPC LCM API Guide <../../../appc.git/docs/APPC LCM API Guide/APPC LCM API Guide>`
 
-``QuiesceTraffic``: The Controller client is requesting the VNF gracefully
-stop traffic (aka block and drain traffic). The method for quiescing traffic
-is specific to the VNF architecture. The action is completed when all
-(in-flight transactions) traffic has stopped.   The VNF remains in an active
-state where the VNF is able to process traffic (initiated using the
-StartTraffic action).
+``DistributeTraffic`` The APPC/SDN-C client is requesting a change to
+traffic distribution (redistribution) done by a traffic balancing/distribution
+entity (aka anchor point) or mechanism. This action targets the traffic
+balancing/distribution entity, in some cases DNS, other cases a load balancer
+external to the VNF instance, as examples. Traffic distribution (weight)
+changes intended to take a VNF instance out of service are completed only
+when all in-flight traffic/transactions have been completed. To complete
+the traffic redistribution process, gracefully taking a VNF instance
+out-of-service, without dropping in-flight calls or sessions, QuiesceTraffic
+command may need to follow traffic distribution changes (assigning weight 0
+or very low weight to VNF instance). The VNF application remains in an active
+state.
 
-``ResumeTraffic``: The Controller client is requesting the VNF resume
-processing traffic. The method to resume traffic is specific to the VNF
+``QuiesceTraffic`` The APPC/SDN-C client is requesting the xNF gracefully
+stop traffic (aka block and drain traffic). The method for quiescing traffic
+is specific to the xNF architecture. The action is completed when all
+(in-flight transactions) traffic has stopped. The xNF remains in an active
+state where the xNF is able to process traffic (initiated using the
+ResumeTraffic action).
+
+``ResumeTraffic``: The APPC/SDN-C client is requesting the xNF resume
+processing traffic. The method to resume traffic is specific to the xNF
 architecture.
 
-``StopApplication``: The Controller client is requesting that the application
-running on the VNF is stopped gracefully (i.e., without traffic loss).
+``StopApplication``: The APPC client is requesting that the application
+running on the xNF is stopped gracefully (i.e., without traffic loss).
 This is equivalent to quiescing the traffic and then stopping the application
 processes. The processes can be restarted using the StartApplication command.
 
-``StartApplication``: The Controller client is requesting that the application
-running on the VNF is started. Get ready to process traffic.
+``StartApplication``: The APPC client is requesting that the application
+running on the xNF is started. Get ready to process traffic. Traffic processing
+can be resumed using the ResumeTraffic command.
 
 **The following commands are needed to support software upgrades, in-place or
-other type of software upgrade. The VNF instance may be removed from service
+other type of software upgrade. The xNF instance may be removed from service
 for the upgrade.**
 
-``UpgradePrecheck``: The Controller client is requesting a confirmation that
-the VNF can (and needs to) be upgraded to a specific software version
-(specified in the request).
+``UpgradePrecheck``: The APPC/SDN-C client is requesting a confirmation that
+the xNF can (and needs to) be upgraded to a specific software version
+(specified in the request). Checking software installed and running on
+the xNF matches software version, intended to be upgraded, is one of the
+recommended checks.
 
-``UpgradeSoftware``: The Controller client is requesting that a (in-place)
-software upgrade be performed on the VNF.  The software to be applied is
+``UpgradeSoftware``: The APPC/SDN-C client is requesting that a (in-place)
+software upgrade be performed on the xNF.  The software to be applied is
 pre-loaded to a specified location.
 
-``UpgradePostCheck``: The Controller client is requesting a confirmation that
-the VNF software upgrade has been completed successfully (VNF upgraded to
-the new software version).
+``UpgradePostCheck``: The APPC/SDN-C client is requesting a confirmation that
+the xNF software upgrade has been completed successfully (xNF upgraded to
+the new software version). Checking software installed and running on the xNF
+matches software version, of the newly upgraded software, is one of the
+recommended checks.
 
-``UpgradeBackup``: The Controller client is requesting that the VNF is backed
+``UpgradeBackup``: The APPC/SDN-C client is requesting that the xNF is backed
 up prior to the UpgradeSoftware.
 
-``UpgradeBackOut``: The Controller client is requesting that the VNF upgrade
+``UpgradeBackOut``: The APPC/SDN-C client is requesting that the xNF upgrade
 is backed out (in the event that the SoftwareUpgrade or UpgradePostCheck
 failed).
 
+.. req::
+    :id: R-328086
+    :target: XNF
+    :keyword: MUST
+    :introduced: casablanca
+
+    The xNF **MUST**, if serving as a distribution point or anchor point for
+    steering point from source to destination, support the ONAP Controller's
+    ``DistributeTraffic`` command.
 
 .. req::
     :id: R-12706
     :target: XNF
     :keyword: MUST
+    :updated: casablanca
 
-    The xNF **MUST** support ONAP Controller's ``QuiesceTraffic`` command.
+    The xNF **MUST** support APPC/SDN-C ``QuiesceTraffic`` command.
 
 .. req::
     :id: R-07251
     :target: XNF
     :keyword: MUST
+    :updated: casablanca
 
-    The xNF **MUST** support ONAP Controller's ``ResumeTraffic`` command.
+    The xNF **MUST** support APPC/SDN-C ``ResumeTraffic`` command.
 
 .. req::
     :id: R-83146
     :target: XNF
     :keyword: MUST
+    :updated: casablanca
 
-    The xNF **MUST** support ONAP Controller's ``StopApplication`` command.
+    The xNF **MUST** support APPC ``StopApplication`` command.
 
 .. req::
     :id: R-82811
     :target: XNF
     :keyword: MUST
+    :updated: casablanca
 
-    The xNF **MUST** support ONAP Controller's ``StartApplication`` command.
+    The xNF **MUST** support APPC ``StartApplication`` command.
 
 .. req::
     :id: R-19922
     :target: XNF
     :keyword: MUST
+    :updated: casablanca
 
-    The xNF **MUST** support ONAP Controller's ``UpgradePrecheck`` command.
+    The xNF **MUST** support APPC/SDN-C ``UpgradePrecheck`` command.
 
 .. req::
     :id: R-49466
     :target: XNF
     :keyword: MUST
+    :updated: casablanca
 
-    The xNF **MUST** support ONAP Controller's ``UpgradeSoftware`` command.
+    The xNF **MUST** support APPC/SDN-C ``UpgradeSoftware`` command.
 
 .. req::
     :id: R-45856
     :target: XNF
     :keyword: MUST
+    :updated: casablanca
 
-    The xNF **MUST** support ONAP Controller's ``UpgradePostCheck`` command.
+    The xNF **MUST** support APPC/SDN-C ``UpgradePostCheck`` command.
 
 .. req::
     :id: R-97343
     :target: XNF
     :keyword: MUST
+    :updated: casablanca
 
-    The xNF **MUST** support ONAP Controller's ``UpgradeBackup`` command.
+    The xNF **MUST** support APPC/SDN-C ``UpgradeBackup`` command.
 
 .. req::
     :id: R-65641
     :target: XNF
     :keyword: MUST
+    :updated: casablanca
 
-    The xNF **MUST** support ONAP Controller's ``UpgradeBackOut`` command.
-
-.. req::
-   :id: R-328086
-   :target: XNF
-   :keyword: MUST
-   :introduced: casablanca
-
-   The xNF **MUST**, if serving as a distribution point or anchor point for steering point
-   from source to destination, support the ONAP Controller's
-   ``DistributeTraffic`` command.
+    The xNF **MUST** support APPC/SDN-C ``UpgradeBackOut`` command.
 
 
 HealthCheck and Failure Related Commands
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``HealthCheck``: The Controller client is requesting a health check over the
-entire scope of the VNF.  The VNF must be 100% healthy, ready to take requests
-and provide services, with all VNF required capabilities ready to provide
+``HealthCheck`` The APPC/SDN-C client is requesting a health check over the
+entire scope of the xNF. The xNF must be 100% healthy, ready to take requests
+and provide services, with all xNF required capabilities ready to provide
 services and with all active and standby resources fully ready with no open
-MINOR, MAJOR or CRITICAL alarms.
+MINOR, MAJOR or CRITICAL alarms. This is expected to be the default in the
+event that no parameter is passed to the Healthcheck playbook, cookbook, etc.
 
-Note: In addition to the commands above, the Controller supports a set of
+Some xNFs may support and desire to run partial healthchecks and receive a
+successful response when partial health check completes without errors.
+The parameter name used by HealthCheck playbook to request non-default
+partial health check is healthcheck_type. Example of health check types
+could be healthcheck_type=GuestOS, healthcheck_type=noDB,
+healthcheck_type=noConnections, healthcheck_type=IgnoreAlarms, etc..
+This attribute-value pair may be passed by the Orchestrator or Workflow
+or other (northbound) APPC/SDN-C clients to the APPC/SDN-C as part of the
+request.
+
+**Note**: In addition to the commands above, the APPC/SDN-C supports a set of
 Openstack failure recovery related commands that are executed on-demand or via
-Control Loop at the VM level.  The VNF must support these commands in a fully
+Control Loop at the VM level. The VNF must support these commands in a fully
 automated fashion.
-
 
 .. req::
     :id: R-41430
     :target: XNF
     :keyword: MUST
+    :updated: casablanca
 
-    The xNF **MUST** support ONAP Controller's ``HealthCheck`` command.
+    The xNF **MUST** support APPC/SDN-C ``HealthCheck`` command.
 
-Notes On Command Support Using Controller Southbound Protocols
+Notes On Command Support Using APPC/SDN-C Southbound Protocols
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The ONAP Controllers are designed to support a standard set of protocols in
-order to communicate with the VNF instance.  The supported protocols are
+APPC/SDN-C are designed to support a standard set of protocols in
+order to communicate with the xNF instance. The supported protocols are
 NETCONF, Ansible, Chef, and REST.
 
-NETCONF and REST require the VNF to implement a server which supports the RPC
+NETCONF and REST require the xNF to implement a server which supports the RPC
 or REST calls.
 
 Ansible and Chef require the use of a Ansible or Chef server which communicates
-with the Controller (northbound) and the VNF VM's (southbound).
+with the APPC/SDN-C (northbound) and the xNF VM's (southbound).
 
 The vendor must select which protocol to support for the commands listed above.
 Notes:
 
-* NETCONF is most suitable for configuration related commands
+* NETCONF is most suitable for configuration related commands.
 
 * Ansible and Chef are suitable for any command.
   Ansible has the advantage that it is agentless.
@@ -308,13 +357,13 @@ the `ONAP SDNC project <https://onap.readthedocs.io/en/latest/submodules/sdnc/oa
 NETCONF Standards and Capabilities
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-ONAP Controllers and their Adapters utilize device YANG model and
-NETCONF APIs to make the required changes in the VNF state and
-configuration. The VNF providers must provide the Device YANG model and
+APPC/SDN-C and their Adapters utilize device YANG model and
+NETCONF APIs to make the required changes in the xNF state and
+configuration. The xNF providers must provide the Device YANG model and
 NETCONF server supporting NETCONF APIs to comply with target ONAP and
 industry standards.
 
-VNF Configuration via NETCONF Requirements
+xNF Configuration via NETCONF Requirements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Configuration Management
@@ -357,7 +406,7 @@ NETCONF Server Requirements
     :keyword: MUST
 
     The xNF **MUST** implement the protocol operation:
-    **close-session()**- Gracefully close the current session.
+    ``close-session()`` - Gracefully close the current session.
 
 .. req::
     :id: R-70496
@@ -365,7 +414,7 @@ NETCONF Server Requirements
     :keyword: MUST
 
     The xNF **MUST** implement the protocol operation:
-    **commit(confirmed, confirm-timeout)** - Commit candidate
+    ``commit(confirmed, confirm-timeout)`` - Commit candidate
     configuration data store to the running configuration.
 
 .. req::
@@ -374,8 +423,8 @@ NETCONF Server Requirements
     :keyword: MUST
 
     The xNF **MUST** implement the protocol operation:
-    **discard-changes()** - Revert the candidate configuration
-    datastore to the running configuration.
+    ``discard-changes()`` - Revert the candidate configuration
+    data store to the running configuration.
 
 .. req::
     :id: R-44281
@@ -383,8 +432,8 @@ NETCONF Server Requirements
     :keyword: MUST
 
     The xNF **MUST** implement the protocol operation:
-    **edit-config(target, default-operation, test-option, error-option,
-    config)** - Edit the target configuration datastore by merging,
+    ``edit-config(target, default-operation, test-option, error-option,
+    config)`` - Edit the target configuration data store by merging,
     replacing, creating, or deleting new config elements.
 
 .. req::
@@ -393,7 +442,7 @@ NETCONF Server Requirements
     :keyword: MUST
 
     The xNF **MUST** implement the protocol operation:
-    **get(filter)** - Retrieve (a filtered subset of) the running
+    ``get(filter)`` - Retrieve (a filtered subset of) the running
     configuration and device state information. This should include
     the list of xNF supported schemas.
 
@@ -403,7 +452,7 @@ NETCONF Server Requirements
     :keyword: MUST
 
     The xNF **MUST** implement the protocol operation:
-    **get-config(source, filter)** - Retrieve a (filtered subset of
+    ``get-config(source, filter`` - Retrieve a (filtered subset of
     a) configuration from the configuration data store source.
 
 .. req::
@@ -412,7 +461,7 @@ NETCONF Server Requirements
     :keyword: MUST
 
     The xNF **MUST** implement the protocol operation:
-    ``kill-session(session)`` - Force the termination of **session**.
+    ``kill-session(session``- Force the termination of **session**.
 
 .. req::
     :id: R-02597
@@ -420,7 +469,7 @@ NETCONF Server Requirements
     :keyword: MUST
 
     The xNF **MUST** implement the protocol operation:
-    ``lock(target)`` - Lock the configuration datastore target.
+    ``lock(target)`` - Lock the configuration data store target.
 
 .. req::
     :id: R-96554
@@ -428,7 +477,7 @@ NETCONF Server Requirements
     :keyword: MUST
 
     The xNF **MUST** implement the protocol operation:
-    ``unlock(target)`` - Unlock the configuration datastore target.
+    ``unlock(target)`` - Unlock the configuration data store target.
 
 .. req::
     :id: R-29324
@@ -436,7 +485,7 @@ NETCONF Server Requirements
     :keyword: SHOULD
 
     The xNF **SHOULD** implement the protocol operation:
-    ``copy-config(target, source) -`` Copy the content of the
+    ``copy-config(target, source)`` - Copy the content of the
     configuration data store source to the configuration data store target.
 
 .. req::
@@ -445,7 +494,7 @@ NETCONF Server Requirements
     :keyword: SHOULD
 
     The xNF **SHOULD** implement the protocol operation:
-    ``delete-config(target) -`` Delete the named configuration
+    ``delete-config(target)`` - Delete the named configuration
     data store target.
 
 .. req::
@@ -454,7 +503,7 @@ NETCONF Server Requirements
     :keyword: SHOULD
 
     The xNF **SHOULD** implement the protocol operation:
-    ``get-schema(identifier, version, format) -`` Retrieve the YANG schema.
+    ``get-schema(identifier, version, format)`` - Retrieve the YANG schema.
 
 .. req::
     :id: R-62468
@@ -523,7 +572,7 @@ NETCONF Server Requirements
     :keyword: MUST
 
     The xNF **MUST** implement both ``:candidate`` and
-    ``:writable-running`` capabilities. When both **:candidate** and
+    ``:writable-running`` capabilities. When both ``:candidate`` and
     ``:writable-running`` are provided then two locks should be supported.
 
 .. req::
@@ -663,7 +712,7 @@ NETCONF Server Requirements
     :keyword: MUST
 
     The xNF **MUST** release locks to prevent permanent lock-outs
-    when the corresponding ```<partial-unlock>`` operation succeeds.
+    when the corresponding <partial-unlock> operation succeeds.
 
 .. req::
     :id: R-63935
@@ -689,7 +738,7 @@ NETCONF Server Requirements
     :target: XNF
     :keyword: MUST
 
-    The xNF **MUST** support simultaneous ``<commit>`` operations
+    The xNF **MUST** support simultaneous <commit> operations
     within the context of this locking requirements framework.
 
 .. req::
@@ -892,10 +941,7 @@ NETCONF RFCs.
     The xNF **MUST** conform to the NETCONF RFC 6242,
     "Using the Network Configuration Protocol over Secure Shell".
 
-
-.. _vnf_rest_apis:
-
-VNF REST APIs
+xNF REST APIs
 ^^^^^^^^^^^^^^^
 
 HealthCheck is a command for which no NETCONF support exists.
@@ -904,24 +950,17 @@ Therefore, this must be supported using a RESTful interface
 (defined in sections `Chef Standards and Capabilities`_ and
 `Ansible Standards and Capabilities`_).
 
-HealthCheck Definition: The VNF level HealthCheck is a check over
-the entire scope of the VNF. The VNF must be 100% healthy, ready
-to take requests and provide services, with all VNF required
-capabilities ready to provide services and with all active and
-standby resources fully ready with no open MINOR, MAJOR or CRITICAL
-alarms.  NOTE: A switch may need to be turned on, but the VNF should
-be ready to take service requests or be already processing service
-requests successfully.
+See section 7.3.1.4 for the definition of Full Healthcheck and Partial
+Healthchecks.
 
-The VNF must provide a REST formatted GET RPCs to support HealthCheck
+The xNF must provide a REST formatted GET RPCs to support HealthCheck
 queries via the GET method over HTTP(s).
 
 The port number, url, and other authentication information is provided
-by the VNF provider.
+by the xNF provider.
 
 REST APIs
 ~~~~~~~~~
-
 
 .. req::
     :id: R-31809
@@ -966,23 +1005,23 @@ or unhealthy response:
 Chef Standards and Capabilities
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-ONAP will support configuration of VNFs via Chef subject to the
+ONAP will support configuration of xNFs via Chef subject to the
 requirements and guidelines defined in this section.
 
 The Chef configuration management mechanism follows a client-server
-model. It requires the presence of a Chef-Client on the VNF that will be
+model. It requires the presence of a Chef-Client on the xNF that will be
 directly managed by a Chef Server. The Chef-client will register with
 the appropriate Chef Server and are managed via 'cookbooks' and
 configuration attributes loaded on the Chef Server which contain all
-necessary information to execute the appropriate actions on the VNF via
+necessary information to execute the appropriate actions on the xNF via
 the Chef-client.
 
 ONAP will utilize the open source Chef Server, invoke the documented
-Chef REST APIs to manage the VNF and requires the use of open source
-Chef-Client and Push Jobs Client on the VNF
+Chef REST APIs to manage the xNF and requires the use of open source
+Chef-Client and Push Jobs Client on the xNF
 (https://downloads.chef.io/).
 
-VNF Configuration via Chef Requirements
+xNF Configuration via Chef Requirements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Chef Client Requirements
@@ -1027,7 +1066,6 @@ Chef Client Requirements
 Chef Roles/Requirements
 ++++++++++++++++++++++++++
 
-
 .. req::
     :id: R-27310
     :target: XNF
@@ -1045,7 +1083,7 @@ Chef Roles/Requirements
     The xNF Package **MUST** include a run list of
     roles/cookbooks/recipes, for each supported xNF action, that will
     perform the desired xNF action in its entirety as specified by ONAP
-    (see Section 7.c, ONAP Controller APIs and Behavior, for list of xNF
+    (see Section 7.c, APPC/SDN-C APIs and Behavior, for list of xNF
     actions and requirements), when triggered by a chef-client run list
     in JSON file.
 
@@ -1139,11 +1177,11 @@ ONAP Chef API Usage
 ~~~~~~~~~~~~~~~~~~~
 
 This section outlines the workflow that ONAP invokes when it receives an
-action request against a Chef managed VNF.
+action request against a Chef managed xNF.
 
-1. When ONAP receives a request for an action for a Chef Managed VNF, it
+1. When ONAP receives a request for an action for a Chef Managed xNF, it
    retrieves the corresponding template (based on **action** and
-   **VNF**) from its database and sets necessary values in the
+   **xNF**) from its database and sets necessary values in the
    "Environment", "Node" and "NodeList" keys (if present) from either
    the payload of the received action or internal data.
 
@@ -1162,7 +1200,7 @@ action request against a Chef managed VNF.
 
 4. If PushJobFlag is set to "True" in the template, ONAP requests a push
    job against all the nodes in the NodeList to trigger
-   chef-client\ **.** It will not invoke any other command via the push
+   chef-client. It will not invoke any other command via the push
    job. ONAP will include a callback URL in the push job request and a
    unique Request Id. An example push job posted by ONAP is listed
    below:
@@ -1171,8 +1209,8 @@ action request against a Chef managed VNF.
 
   {
    "command": "chef-client"
-   "run\_timeout": 300
-   "nodes": ["node1.vnf\_a.onap.com", "node2.vnf\_a.onap.com"]
+   "run_timeout": 300
+   "nodes": ["node1.vnf_a.onap.com", "node2.vnf_a.onap.com"]
      "env": {
               "RequestId":"8279-abcd-aksdj-19231"
               "CallbackUrl":"<callback>"
@@ -1192,18 +1230,18 @@ action request against a Chef managed VNF.
 Ansible Standards and Capabilities
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-ONAP will support configuration of VNFs via Ansible subject to the
+ONAP will support configuration of xNFs via Ansible subject to the
 requirements and guidelines defined in this section.
 
-Ansible allows agentless management of VNFs/VMs/VNFCs via execution
+Ansible allows agentless management of xNFs/VMs/VNFCs via execution
 of 'playbooks' over ssh. The 'playbooks' are a structured set of
 tasks which contain all the necessary resources and execution capabilities
 to take the necessary action on one or more target VMs (and/or VNFCs)
 of the VNF. ONAP will utilize the framework of an Ansible Server that
-will host all Ansible artifacts and run playbooks to manage VNFs that support
+will host all Ansible artifacts and run playbooks to manage xNFs that support
 Ansible.
 
-VNF Configuration via Ansible Requirements
+xNF Configuration via Ansible Requirements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Ansible Client Requirements
@@ -1214,11 +1252,13 @@ Ansible Client Requirements
     :id: R-32217
     :target: XNF
     :keyword: MUST
+    :updated: casablanca
 
-    The xNF **MUST** have routable FQDNs that are reachable via
-    the Ansible Server for the endpoints (VMs) of a xNF on which playbooks
-    will be executed. ONAP will initiate requests to the Ansible Server
-    for invocation of playbooks against these end points [#7.3.3]_.
+    The xNF **MUST** have routable management IP addresses or FQDNs that
+    are reachable via the Ansible Server for the endpoints (VMs) of a
+    xNF that playbooks will target. ONAP will initiate requests to the
+    Ansible Server for invocation of playbooks against these end
+    points [#7.3.3]_.
 
 .. req::
     :id: R-54373
@@ -1232,23 +1272,30 @@ Ansible Client Requirements
     :id: R-35401
     :target: XNF
     :keyword: MUST
+    :updated: casablanca
 
     The xNF **MUST** support SSH and allow SSH access by the
-    Ansible server for the endpoint VM(s) and comply with the Network
+    Ansible server to the endpoint VM(s) and comply with the Network
     Cloud Service Provider guidelines for authentication and access.
 
 .. req::
     :id: R-82018
     :target: XNF
     :keyword: MUST
+    :updated: casablanca
 
     The xNF **MUST** load the Ansible Server SSH public key onto xNF
-    VM(s) as part of instantiation. This will allow the Ansible Server
-    to authenticate to perform post-instantiation configuration without
-    manual intervention and without requiring specific xNF login IDs and
-    passwords.
+    VM(s) /root/.ssh/authorized_keys as part of instantiation. Alternative,
+    is for Ansible Server SSH public key to be loaded onto xNF VM(s) under
+    /home/<Mechanized user ID>/.ssh/authorized_keys as part of instantiation,
+    when a Mechanized user ID is created during instantiation, and Configure
+    and all playbooks are designed to use a mechanized user ID only for
+    authentication (never using root authentication during Configure playbook
+    run). This will allow the Ansible Server to authenticate to perform
+    post-instantiation configuration without manual intervention and without
+    requiring specific xNF login IDs and passwords.
 
-    CAUTION: For VNFs configured using Ansible, to eliminate the need
+    *CAUTION*: For xNFs configured using Ansible, to eliminate the need
     for manual steps, post-instantiation and pre-configuration, to
     upload of SSH public keys, SSH public keys loaded during (heat)
     instantiation shall be preserved and not removed by (heat) embedded
@@ -1258,12 +1305,33 @@ Ansible Client Requirements
     :id: R-92866
     :target: XNF
     :keyword: MUST
+    :updated: casablanca
 
     The xNF **MUST** include as part of post-instantiation configuration
     done by Ansible Playbooks the removal/update of the SSH public key from
-    /root/.ssh/authorized_keys, and  update of SSH keys loaded through
-    instantiation to support Ansible. This may include download and install of
-    new SSH keys and new mechanized IDs.
+    /root/.ssh/authorized_keys, and update of SSH keys loaded through
+    instantiation to support Ansible. This may include creating Mechanized user
+    ID(s) used by the Ansible Server(s) on VNF VM(s) and uploading and
+    installing new SSH keys used by the mechanized use ID(s).
+
+.. req::
+    :id: R-97345
+    :target: XNF
+    :keyword: MUST
+    :introduced: casablanca
+
+    The xNF **MUST** permit authentication, using root account, only right
+    after instantiation and until post-instantiation configuration is
+    completed. 
+
+.. req::
+    :id: R-97451
+    :target: XNF
+    :keyword: MUST
+    :introduced: casablanca
+    
+    The xNF **MUST** provide the ability to remove root access once
+    post-instantiation configuration (Configure) is completed. 
 
 .. req::
     :id: R-91745
@@ -1274,10 +1342,61 @@ Ansible Client Requirements
     storing and using the SSH keys for authentication when the SSH
     keys used by Ansible are regenerated/updated.
 
-    Note: Ansible Server itself may be used to upload new SSH public
-    keys onto supported VNFs.
+    **Note**: Ansible Server itself may be used to upload new SSH public
+    keys onto supported xNFs.
 
-.. _ansible_playbook_requirements:
+.. req::
+    :id: R-73459
+    :target: XNF
+    :keyword: MUST
+    :introduced: casablanca
+
+    The xNF **MUST** provide the ability to include a "from=" clause in SSH
+    public keys associated with mechanized user IDs created for an Ansible
+    Server cluster to use for xNF VM authentication.
+
+.. req::
+    :id: R-45197
+    :target: XNF
+    :keyword: MUST
+    :introduced: casablanca
+
+    The xNF **MUST** define the "from=" clause to provide the list of IP
+    addresses of the Ansible Servers in the Cluster, separated by coma, to
+    restrict use of the SSH key pair to elements that are part of the Ansible
+    Cluster owner of the issued and assigned mechanized user ID. 
+
+.. req::
+    :id: R-94567
+    :target: XNF
+    :keyword: MUST
+    :introduced: casablanca
+
+    The xNF **MUST** provide Ansible playbooks that are designed to run using
+    an inventory hosts file in a supported format with only IP addresses or
+    IP addresses and VM/xNF names.
+
+.. req::
+    :id: R-67124
+    :target: XNF
+    :keyword: MUST
+    :introduced: casablanca
+
+    The xNF **MUST** provide Ansible playbooks that are designed to run using
+    an inventory hosts file in a supported format; with group names matching
+    VNFC 3-character string adding "vip" for groups with virtual IP addresses
+    shared by multiple VMs as seen in examples provided in Appendix.
+
+.. req::
+    :id: R-24482
+    :target: XNF
+    :keyword: MUST
+    :introduced: casablanca
+
+    The xNF **MUST** provide Ansible playbooks that are designed to run using
+    an inventory hosts file in a supported format; with site group that shall
+    be used to add site specific configurations to the target xNF VM(s) as
+    needed.
 
 Ansible Playbook Requirements
 +++++++++++++++++++++++++++++++
@@ -1286,6 +1405,13 @@ An Ansible playbook is a collection of tasks that is executed on the
 Ansible server (local host) and/or the target VM (s) in order to
 complete the desired action.
 
+.. req::
+    :id: R-49751
+    :target: XNF
+    :keyword: MUST
+
+    The xNF **MUST** support Ansible playbooks that are compatible with
+    Ansible version 2.6 or later. 
 
 .. req::
     :id: R-40293
@@ -1299,8 +1425,9 @@ complete the desired action.
     :id: R-49396
     :target: XNF
     :keyword: MUST
+    :updated: casablanca
 
-    The xNF **MUST** support each ONAP (APPC) xNF action
+    The xNF **MUST** support each APPC/SDN-C xNF action
     by invocation of **one** playbook [#7.3.4]_. The playbook will be responsible
     for executing all necessary tasks (as well as calling other playbooks)
     to complete the request.
@@ -1317,15 +1444,22 @@ complete the desired action.
     :id: R-48698
     :target: XNF
     :keyword: MUST
+    :updated: casablanca
 
-    The xNF **MUST** utilize information from key value pairs
-    that will be provided by the Ansible Server as "extra-vars" during
-    invocation to execute the desired xNF action. If the playbook requires
-    files, they must also be supplied using the methodology detailed in
-    the Ansible Server API, unless they are bundled with playbooks, example,
-    generic templates.
+    The xNF **MUST** utilize information from key value pairs that will be
+    provided by the Ansible Server as "extra-vars" during invocation to
+    execute the desired xNF action. The "extra-vars" attribute-value pairs
+    are passed to the Ansible Server by an APPC/SDN-C as part of the
+    Rest API request. If the playbook requires files, they must also be
+    supplied using the methodology detailed in the Ansible Server API, unless
+    they are bundled with playbooks, example, generic templates. Any files
+    containing instance specific info (attribute-value pairs), not obtainable
+    from any ONAP inventory databases or other sources, referenced and used an
+    input by playbooks, shall be provisioned (and distributed) in advance of
+    use, e.g., xNF instantiation. Recommendation is to avoid these instance
+    specific, manually created in advance of instantiation, files.
 
-The Ansible Server will determine if a playbook invoked to execute a
+The Ansible Server will determine if a playbook invoked to execute an
 xNF action finished successfully or not using the "PLAY_RECAP" summary
 in Ansible log.  The playbook will be considered to successfully finish
 only if the "PLAY RECAP" section at the end of playbook execution output
@@ -1341,7 +1475,7 @@ will be considered to have failed.
     The xNF **MUST** use playbooks designed to allow Ansible
     Server to infer failure or success based on the "PLAY_RECAP" capability.
 
-    Note: There are cases where playbooks need to interpret results
+    **Note**: There are cases where playbooks need to interpret results
     of a task and then determine success or failure and return result
     accordingly (failure for failed tasks).
 
@@ -1349,57 +1483,61 @@ will be considered to have failed.
     :id: R-50252
     :target: XNF
     :keyword: MUST
+    :updated: casablanca
 
-    The xNF **MUST** write to a specific one text files that
-    will be retrieved and made available by the Ansible Server if, as part
-    of a xNF action (e.g., audit), a playbook is required to return any
-    xNF information. The text files must be written in the same directory as
-    the one from which the playbook is being executed. A text file must be
-    created for the xNF playbook run targets/affects, with the name
-    '<VNFname>_results.txt' into which any desired output from each
-    respective VM/xNF must be written.
+    The xNF **MUST** write to a response file in JSON format that will be
+    retrieved and made available by the Ansible Server if, as part of a xNF
+    action (e.g., audit), a playbook is required to return any xNF
+    information/response. The text files must be written in the main playbook
+    home directory, in JSON format. The JSON file must be created for the xNF
+    with the name '<xNF name>_results.txt'. All playbook output results, for
+    all xNF VMs, to be provided as a response to the request, must be written
+    to this response file. 
 
 .. req::
     :id: R-51442
     :target: XNF
     :keyword: SHOULD
+    :updated: casablanca
 
     The xNF **SHOULD** use playbooks that are designed to
     automatically 'rollback' to the original state in case of any errors
     for actions that change state of the xNF (e.g., configure).
 
-        Note: In case rollback at the playbook level is not supported or
-        possible, the xNF provider shall provide alternative locking
-        mechanism (e.g., for a small xNF the rollback mechanism may rely
-        on workflow to terminate and re-instantiate VNF VMs and then re-run
-        playbook(s)). Backing up updated files also recommended to support
-        rollback when soft rollback is feasible.
+    **Note**: In case rollback at the playbook level is not supported or
+    possible, the xNF provider shall provide alternative rollback
+    mechanism (e.g., for a small xNF the rollback mechanism may rely
+    on workflow to terminate and re-instantiate VNF VMs and then re-run
+    playbook(s)). Backing up updated files is also recommended to support
+    rollback when soft rollback is feasible.
 
 .. req::
     :id: R-58301
     :target: XNF
     :keyword: SHOULD NOT
+    :updated: casablanca
 
     The xNF **SHOULD NOT** use playbooks that make requests to
     Cloud resources e.g. Openstack (nova, neutron, glance, heat, etc.);
     therefore, there is no use for Cloud specific variables like Openstack
-    UUIDs in Ansible Playbooks.
+    UUIDs in Ansible Playbook related artifacts.
 
-    Rationale: Flows that require interactions with Cloud services e.g.
+    **Rationale**: Flows that require interactions with Cloud services e.g.
     Openstack shall rely on workflows run by an Orchestrator
     (Change Management) or other capability (such as a control loop or
     Operations GUI) outside Ansible Server which can be executed by a
-    Controller such as APPC. There are policies, as part of Control Loop
-    models, that send remediation action requests to APPC; these are
-    triggered as a response to an event or correlated events published
+    APPC/SDN-C. There are policies, as part of Control Loop
+    models, that send remediation action requests to an APPC/SDN-C; these
+    are triggered as a response to an event or correlated events published
     to Event Bus.
 
 .. req::
     :id: R-02651
     :target: XNF
     :keyword: SHOULD
+    :updated: casablanca
 
-    The xNF **SHOULD** use the Ansible backup feature to save a
+    The xNF **SHOULD** use available backup capabilities to save a
     copy of configuration files before implementing changes to support
     operations such as backing out of software upgrades, configuration
     changes or other work as this will help backing out of configuration
@@ -1409,41 +1547,44 @@ will be considered to have failed.
     :id: R-43353
     :target: XNF
     :keyword: MUST
+    :updated: casablanca
 
-    The xNF **MUST** return control from Ansible Playbooks only
-    after tasks are fully complete, signaling that the playbook completed
-    all tasks. When starting services, return control only after all services
-    are up. This is critical for workflows where the next steps are dependent
-    on prior tasks being fully completed.
+    The xNF **MUST** return control from Ansible Playbooks only after all
+    tasks performed by playbook are fully complete, signaling that the
+    playbook completed all tasks. When starting services, return control
+    only after all services are up. This is critical for workflows where
+    the next steps are dependent on prior tasks being fully completed.
 
 Detailed examples:
 
-StopApplication Playbook – StopApplication Playbook shall return control
-and a completion status only after VNF application is fully stopped, all
-processes/services stopped.
-StartApplication Playbook – StartApplication Playbook shall return control
-and a completion status only after all VNF application services are fully up,
-all processes/services started and ready to provide services. NOTE: Start
-Playbook should not be declared complete/done after starting one or several
-processes that start the other processes.
+``StopApplication Playbook`` – StopApplication Playbook shall return control
+and a completion status response only after xNF application is fully stopped,
+all processes/services stopped.
+
+``StartApplication Playbook`` – StartApplication Playbook shall return control
+and a completion status only after all xNF application services are fully up,
+all processes/services started and ready to provide services.
+
+**NOTE**: Start Playbook should not be declared complete/done after starting
+one or several processes that start the other processes.
 
 HealthCheck Playbook:
 
 SUCCESS – HealthCheck success shall be returned (return code 0) by a
-Playbook or Cookbook only when VNF is 100% healthy, ready to take requests
-and provide services, with all VNF required capabilities ready to provide
+Playbook or Cookbook only when xNF is 100% healthy, ready to take requests
+and provide services, with all xNF required capabilities ready to provide
 services and with all active and standby resources fully ready with no
 open MINOR, MAJOR or CRITICAL alarms.
 
-NOTE: In some cases, a switch may need to be turned on, but a VNF
+NOTE: In some cases, a switch may need to be turned on, but a xNF
 reported as healthy, should be ready to take service requests or be
 already processing service requests successfully.
 
-A successful execution of a health-check playbook shall also create one
-file per VNF VM, named after the VNF instance name followed by
-"_results.txt (<vnf_instance>_results.txt) to indicate health-check was
-executed and completed successfully, example: vfdb9904v_results.txt,
-with the following contents:
+A successful execution of a health-check playbook shall create one response
+file (per xNF) in JSON format, named after the xNF instance, followed by
+"_results.txt" (<xNF instance name>_results.txt) to be provided as a response
+to the requestor, indicating  health-check was executed and completed
+successfully, example: vfdb9904v_results.txt, with the following contents:
 
 .. code-block:: java
 
@@ -1463,20 +1604,22 @@ Example:
    "state": "healthy",
    "time": "2018-03-16:1139"
   }
-..
+
+
+**NOTE**: See section 7.3.1.4 for comments on support of partial health checks.
 
 FAILURE – A health check playbook shall return a non-zero return code in
-case VNF is not 100% healthy because one or more VNF application processes
+case xNF is not 100% healthy because one or more xNF application processes
 are stopped or not ready to take service requests or because critical or
 non-critical resources are not ready or because there are open MINOR, MAJOR
-or CRITICAL traps/alarms or because there are issues with the VNF that
-need attention even if they do not impact services provided by the VNF.
+or CRITICAL traps/alarms or because there are issues with the xNF that
+need attention even if they do not impact services provided by the xNF.
 
-A failed health-check playbook shall also create one file per VNF,
-named after the VNF instance name, followed by
-"_results.txt to indicate health-check was executed and found issues
-in the health of the VNF. This is to differentiate from failure to
-run health-check playbook or playbook tasks to verify the health of the VNF,
+A failed health-check playbook shall also create one file (per xNF), in
+JSON format, named after the xNF instance name, followed by "_results.txt"
+to indicate health-check was executed and found issues in the health of
+the xNF. This is to differentiate from failure to run health-check playbook
+or playbook tasks to verify the health of the xNF,
 example: vfdb9904v_results.txt, with the following contents:
 
 .. code-block:: java
@@ -1492,7 +1635,7 @@ example: vfdb9904v_results.txt, with the following contents:
   ],
   "time": "2018-03-16:4044"
  }
-..
+
 
 Example:
 
@@ -1510,54 +1653,87 @@ Example:
   ],
   "time": "2018-03-16:4044"
  }
-..
-
-See `VNF REST APIs`_ for additional details on HealthCheck.
 
 
+See `xNF REST APIs`_ for additional details on HealthCheck.
 
-ONAP Controller / Ansible API Usage
+Some xNFs may support and desire to run partial health checks and receive
+a successful response when partial health check completes without errors.
+The parameter name used by HealthCheck playbook to request non-default
+partial health check is healthcheck_type. Example of health check types
+could be healthcheck_type=GuestOS, healthcheck_type=noDB,
+healthcheck_type=noConnections, healthcheck_type=IgnoreAlarms, etc.. This
+attribute-value pair may be passed by Orchestrator or Workflow or other
+(northbound) APPC/SDN-C clients to APPC/SDN-C as part of the request.
+
+By default, when no argument/parameter is passed, healthcheck playbook
+performs a full xNF health check.
+
+.. req::
+    :id: R-24189
+    :target: XNF
+    :keyword: SHOULD
+    :updated: casablanca
+
+    The xNF provider **MUST** deliver a new set of playbooks that includes
+    all updated and unchanged playbooks for any new revision to an existing
+    set of playbooks.
+
+.. req::
+    :id: R-49911
+    :target: XNF
+    :keyword: SHOULD
+    :updated: casablanca
+
+    The xNF provider **MUST** assign a new point release to the updated
+    playbook set. The functionality of a new playbook set must be tested before
+    it is deployed to the production.
+
+
+Ansible API Usage
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This section outlines the workflow that ONAP Controller invokes when
-it receives an action request against an Ansible managed VNF.
+This section outlines the workflow that APPC/SDN-C invokes when
+it receives an action request against an Ansible managed xNF.
 
- #. When ONAP Controller receives a request for an action for an
-    AnsibleManaged VNF, it retrieves the corresponding template (based
-    on **action** and **VNF**) from its database and sets necessary
+ #. When APPC/SDN-C receives a request for an action for an
+    Ansible managed xNF, it retrieves the corresponding template (based
+    on **action** and **xNF Type**) from its database and sets necessary
     values (such as an Id, NodeList, and EnvParameters) from either
-    information in the request or data obtained from other sources.
+    information either in the request or data obtained from other sources,
+    inventory database, is an example of such sources.
     This is referred to as the payload that is sent as a JSON object
-    to the Ansible server.
- #. The ONAP Controller sends a request to the Ansible server to
+    to the Ansible server as part of the Rest API request.
+ #. The APPC/SDN-C sends a request to the Ansible server to
     execute the action.
- #. The ONAP Controller polls the Ansible Server for result (success
-    or failure).  The ONAP Controllers has a timeout value which is
-    contained in the template.   If the result is not available when the
-    timeout is reached, the ONAP Controller stops polling and returns a
-    timeout error to the requester.   The Ansible Server continues to
-    process the request.
+ #. The APPC/SDN-C, after sending a request to the Ansible server,
+    polls it to get results(success or failure). The APPC/SDN-C has a
+    timeout value which is contained in the action request template. Different
+    actions can set different timeout values (default setting is 600 seconds).
+    If the result is not available when the timeout is reached, the APPC/SDN-C
+    stops polling and returns a timeout error to the requester.
+    The Ansible Server continues to process the request.
 
 
-Support of Controller Commands And Southbound Protocols
+Support of APPC/SDN-C Commands And Southbound Protocols
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The following table summarizes the commands and possible protocols selected.
 Note that the HealthCheck can also be supported via REST.
 
-Table 8. ONAP Controller APIs and NETCONF Commands
+Table 8. APPC/SDN-C APIs and NETCONF Commands
 
 +-------------+--------------------+--------------------+--------------------+
 |**Command**  |**NETCONF Support** |**Chef Support**    |**Ansible**         |
 +=============+====================+====================+====================+
-|General      |For each RPC, the   |VNF Vendor must     |VNF Vendor must     |
+|General      |For each RPC, the   |xNF Vendor must     |VNF Vendor must     |
 |Comments     |appropriate RPC     |provide any         |provide an Ansible  |
 |             |operation is listed.|necessary roles,    |playbook to retrieve|
 |             |                    |cookbooks, recipes  |the running         |
 |             |                    |to retrieve the     |configuration from a|
 |             |                    |running             |VNF and place the   |
 |             |                    |configuration from  |output on the       |
-|             |                    |a VNF and place it  |Ansible server in   |
+|             |                    |a xNF and place it  |Ansible server in   |
 |             |                    |in the respective   |a manner aligned    |
 |             |                    |Node Objects        |with playbook       |
 |             |                    |'PushJobOutput'     |requirements listed |
@@ -1568,7 +1744,7 @@ Table 8. ONAP Controller APIs and NETCONF Commands
 |             |                    |run.                |in the JSON file.   |
 |             |                    |                    |                    |
 |             |                    |The JSON file for   |NodeList must list  |
-|             |                    |this VNF action is  |IP addresses or DNS |
+|             |                    |this xNF action is  |IP addresses or DNS |
 |             |                    |required to set     |supported FQDNs of  |
 |             |                    |"PushJobFlag" to    |an example VNF      |
 |             |                    |"True" and          |on which to         |
@@ -1602,7 +1778,7 @@ Table 8. ONAP Controller APIs and NETCONF Commands
 +-------------+--------------------+--------------------+--------------------+
 |Configure,   |The <edit-config>   |Supported via a     |Supported via a     |
 |ModifyConfig |operation loads all |cookbook that       |playbook that       |
-|             |or part of a        |updates the VNF     |updates the VNF     |
+|             |or part of a        |updates the xNF     |updates the VNF     |
 |             |specified data set  |configuration.      |configuration.      |
 |             |to the specified    |                    |                    |
 |             |target database. If |                    |                    |
@@ -1640,7 +1816,7 @@ Table 8. ONAP Controller APIs and NETCONF Commands
 
 .. [#7.3.2]
    Recall that the Node Object **is required** to be identical across
-   all VMs of a VNF invoked as part of the action except for the "name".
+   all VMs of a xNF invoked as part of the action except for the "name".
 
 .. [#7.3.3]
    Upstream elements must provide the appropriate FQDN in the request to
