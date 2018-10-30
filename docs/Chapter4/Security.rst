@@ -73,7 +73,7 @@ and other state of the art security solutions. The VNF is expected to
 function reliably within such an environment and the developer is
 expected to understand and accommodate such controls and can expected
 to supply responsive interoperability support and testing throughout
-the product’s lifecycle.
+the product's lifecycle.
 
 
 .. req::
@@ -241,6 +241,61 @@ the product’s lifecycle.
    Syslog using LOG_AUTHPRIV for any event that would contain sensitive
    information and LOG_AUTH for all other relevant events.
 
+.. req::
+   :id: R-756950
+   :target: VNF
+   :keyword: MUST
+   :introduced: casablanca
+
+   The VNF **MUST** be operable without the use of Network File System (NFS).
+
+.. req::
+   :id: R-240760
+   :target: VNF
+   :keyword: MUST NOT
+   :introduced: casablanca
+
+   The VNF **MUST NOT** contain any backdoors.
+
+.. req::
+   :id: R-256267
+   :target: VNF
+   :keyword: MUST
+   :introduced: casablanca
+
+   If SNMP is utilized, the VNF **MUST** support at least SNMPv3 with
+   message authentication.
+
+.. req::
+   :id: R-258686
+   :target: VNF
+   :keyword: MUST NOT
+   :introduced: casablanca
+
+   The VNF application processes **MUST NOT** run as root.
+
+.. req::
+   :id: R-118669
+   :target: VNF
+   :keyword: MUST
+   :introduced: casablanca
+
+   Login access (e.g., shell access) to the operating system layer, whether
+   interactive or as part of an automated process, **MUST** be through an
+   encrypted protocol such as SSH or TLS.
+
+.. req::
+   :id: R-343842
+   :target: VNF
+   :keyword: MUST
+   :introduced: casablanca
+
+   The VNF **MUST**, after a successful login at command line or a GUI,
+   display the last valid login date and time and the number of unsuccessful
+   attempts since then made with that user's ID. This requirement is only
+   applicable when the user account is defined locally in the VNF.
+
+
 VNF Identity and Access Management Requirements
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -373,8 +428,8 @@ Identity and Access Management Requirements
     :keyword: MUST
     :updated: casablanca
 
-    The VNF **MUST**, if not integrated with the Operator’s Identity and
-    Access Management system, comply with “password complexity” policy. When
+    The VNF **MUST**, if not integrated with the Operator's Identity and
+    Access Management system, comply with "password complexity" policy. When
     passwords are used, they shall be complex and shall at least meet the
     following password construction requirements: (1) be a minimum configurable
     number of characters in length, (2) include 3 of the 4 following types of
@@ -416,6 +471,18 @@ Identity and Access Management Requirements
     The VNF **MUST** integrate with standard identity and access management
     protocols such as LDAP, TACACS+, Windows Integrated Authentication
     (Kerberos), SAML federation, or OAuth 2.0.
+
+.. req::
+   :id: R-814377
+   :target: VNF
+   :keyword: MUST
+   :introduced: casablanca
+
+   The VNF **MUST** have the capability of allowing the Operator to create,
+   manage, and automatically provision user accounts using an Operator
+   approved identity lifecycle management tool using a standard protocol,
+   e.g., NETCONF API.
+
 
 VNF API Security Requirements
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

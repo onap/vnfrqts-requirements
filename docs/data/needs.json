@@ -1,5 +1,5 @@
 {
-    "created": "2018-10-29T20:49:30.787488",
+    "created": "2018-10-30T15:29:46.177330",
     "current_version": "casablanca",
     "project": "",
     "versions": {
@@ -21858,7 +21858,7 @@
             "needs_amount": 750
         },
         "casablanca": {
-            "created": "2018-10-29T20:49:30.787403",
+            "created": "2018-10-30T15:29:46.177191",
             "needs": {
                 "R-00011": {
                     "description": "A VNF's Heat Orchestration Template's parameter defined\nin a nested YAML file\n**MUST NOT** have a parameter constraint defined.",
@@ -24138,6 +24138,34 @@
                     "sections": [
                         "Virtual Function - Container Recovery Requirements",
                         "VNF Resiliency"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "VNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": ""
+                },
+                "R-118669": {
+                    "description": "Login access (e.g., shell access) to the operating system layer, whether\ninteractive or as part of an automated process, **MUST** be through an\nencrypted protocol such as SSH or TLS.",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-118669",
+                    "impacts": "",
+                    "introduced": "casablanca",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "VNF General Security Requirements",
+                    "sections": [
+                        "VNF General Security Requirements",
+                        "VNF Security"
                     ],
                     "status": null,
                     "tags": [],
@@ -27019,6 +27047,34 @@
                     "validated_by": "",
                     "validation_mode": ""
                 },
+                "R-240760": {
+                    "description": "The VNF **MUST NOT** contain any backdoors.",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-240760",
+                    "impacts": "",
+                    "introduced": "casablanca",
+                    "keyword": "MUST NOT",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "VNF General Security Requirements",
+                    "sections": [
+                        "VNF General Security Requirements",
+                        "VNF Security"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "VNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": ""
+                },
                 "R-24269": {
                     "description": "The xNF **SHOULD** conform its YANG model to RFC 7407,\n\"A YANG Data Model for SNMP Configuration\", if Netconf used to\nconfigure SNMP engine.",
                     "full_title": "",
@@ -27248,6 +27304,34 @@
                     "validated_by": "",
                     "validation_mode": ""
                 },
+                "R-256267": {
+                    "description": "If SNMP is utilized, the VNF **MUST** support at least SNMPv3 with\nmessage authentication.",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-256267",
+                    "impacts": "",
+                    "introduced": "casablanca",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "VNF General Security Requirements",
+                    "sections": [
+                        "VNF General Security Requirements",
+                        "VNF Security"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "VNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": ""
+                },
                 "R-256347": {
                     "description": "The PNF **MUST** support the Ansible protocol for a Service Configuration\nmessage exchange between the PNF and PNF Controller (in ONAP).\n\nNote: this exchange may be either Ansible, Chef, or NetConf depending on\nthe PNF. Note: The PNF Controller may be VF-C, APP-C or SDN-C based on the\nPNF and PNF domain. Note: for R3 (Casablanca) only Ansible is supported.",
                     "full_title": "",
@@ -27352,6 +27436,34 @@
                     "status": null,
                     "tags": [],
                     "target": "PNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": ""
+                },
+                "R-258686": {
+                    "description": "The VNF application processes **MUST NOT** run as root.",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-258686",
+                    "impacts": "",
+                    "introduced": "casablanca",
+                    "keyword": "MUST NOT",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "VNF General Security Requirements",
+                    "sections": [
+                        "VNF General Security Requirements",
+                        "VNF Security"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "VNF",
                     "test": "",
                     "test_case": "",
                     "test_file": "",
@@ -29421,6 +29533,34 @@
                     "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": "static"
+                },
+                "R-343842": {
+                    "description": "The VNF **MUST**, after a successful login at command line or a GUI,\ndisplay the last valid login date and time and the number of unsuccessful\nattempts since then made with that user's ID. This requirement is only\napplicable when the user account is defined locally in the VNF.",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-343842",
+                    "impacts": "",
+                    "introduced": "casablanca",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "VNF General Security Requirements",
+                    "sections": [
+                        "VNF General Security Requirements",
+                        "VNF Security"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "VNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": ""
                 },
                 "R-34484": {
                     "description": "The VNF **SHOULD** create a single component VNF for VNFCs\nthat can be used by other VNFs.",
@@ -32154,7 +32294,7 @@
                     "validation_mode": ""
                 },
                 "R-46908": {
-                    "description": "The VNF **MUST**, if not integrated with the Operator\u2019s Identity and\nAccess Management system, comply with \u201cpassword complexity\u201d policy. When\npasswords are used, they shall be complex and shall at least meet the\nfollowing password construction requirements: (1) be a minimum configurable\nnumber of characters in length, (2) include 3 of the 4 following types of\ncharacters: upper-case alphabetic, lower-case alphabetic, numeric, and\nspecial, (3) not be the same as the UserID with which they are associated\nor other common strings as specified by the environment, (4) not contain\nrepeating or sequential characters or numbers, (5) not to use special\ncharacters that may have command functions, and (6) new passwords must\nnot contain sequences of three or more characters from the previous\npassword.",
+                    "description": "The VNF **MUST**, if not integrated with the Operator's Identity and\nAccess Management system, comply with \"password complexity\" policy. When\npasswords are used, they shall be complex and shall at least meet the\nfollowing password construction requirements: (1) be a minimum configurable\nnumber of characters in length, (2) include 3 of the 4 following types of\ncharacters: upper-case alphabetic, lower-case alphabetic, numeric, and\nspecial, (3) not be the same as the UserID with which they are associated\nor other common strings as specified by the environment, (4) not contain\nrepeating or sequential characters or numbers, (5) not to use special\ncharacters that may have command functions, and (6) new passwords must\nnot contain sequences of three or more characters from the previous\npassword.",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-46908",
@@ -38046,6 +38186,34 @@
                     "validated_by": "",
                     "validation_mode": ""
                 },
+                "R-756950": {
+                    "description": "The VNF **MUST** be operable without the use of Network File System (NFS).",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-756950",
+                    "impacts": "",
+                    "introduced": "casablanca",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "VNF General Security Requirements",
+                    "sections": [
+                        "VNF General Security Requirements",
+                        "VNF Security"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "VNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": ""
+                },
                 "R-75850": {
                     "description": "The VNF **SHOULD** decouple persistent data from the VNFC\nand keep it in its own datastore that can be reached by all instances\nof the VNFC requiring the data.",
                     "full_title": "",
@@ -39015,6 +39183,34 @@
                     "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": "static"
+                },
+                "R-814377": {
+                    "description": "The VNF **MUST** have the capability of allowing the Operator to create,\nmanage, and automatically provision user accounts using an Operator\napproved identity lifecycle management tool using a standard protocol,\ne.g., NETCONF API.",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-814377",
+                    "impacts": "",
+                    "introduced": "casablanca",
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "section_name": "VNF Identity and Access Management Requirements",
+                    "sections": [
+                        "VNF Identity and Access Management Requirements",
+                        "VNF Security"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "VNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": ""
                 },
                 "R-81725": {
                     "description": "A VNF's Incremental Module **MUST** have a corresponding Environment File",
@@ -43497,7 +43693,7 @@
                     "validation_mode": "static"
                 }
             },
-            "needs_amount": 760
+            "needs_amount": 767
         }
     }
 }
