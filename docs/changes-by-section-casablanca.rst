@@ -27,10 +27,554 @@ navigate to the
 Summary of Changes
 ------------------
 
-* **Requirements Added:** 70
-* **Requirements Changed:** 187
-* **Requirements Removed:** 61
+* **Requirements Added:** 102
+* **Requirements Changed:** 232
+* **Requirements Removed:** 63
 
+
+Configuration Management > Ansible Standards and Capabilities > xNF Configuration via Ansible Requirements > Ansible Client Requirements
+----------------------------------------------------------------------------------------------------------------------------------------
+
+
+Requirements Added
+~~~~~~~~~~~~~~~~~~
+    
+
+.. container:: note
+
+    :need:`R-24482`
+
+    The xNF **MUST** provide Ansible playbooks that are designed to run using
+    an inventory hosts file in a supported format; with site group that shall
+    be used to add site specific configurations to the target xNF VM(s) as
+    needed.
+    
+
+.. container:: note
+
+    :need:`R-45197`
+
+    The xNF **MUST** define the "from=" clause to provide the list of IP
+    addresses of the Ansible Servers in the Cluster, separated by coma, to
+    restrict use of the SSH key pair to elements that are part of the Ansible
+    Cluster owner of the issued and assigned mechanized user ID.
+    
+
+.. container:: note
+
+    :need:`R-67124`
+
+    The xNF **MUST** provide Ansible playbooks that are designed to run using
+    an inventory hosts file in a supported format; with group names matching
+    VNFC 3-character string adding "vip" for groups with virtual IP addresses
+    shared by multiple VMs as seen in examples provided in Appendix.
+    
+
+.. container:: note
+
+    :need:`R-73459`
+
+    The xNF **MUST** provide the ability to include a "from=" clause in SSH
+    public keys associated with mechanized user IDs created for an Ansible
+    Server cluster to use for xNF VM authentication.
+    
+
+.. container:: note
+
+    :need:`R-94567`
+
+    The xNF **MUST** provide Ansible playbooks that are designed to run using
+    an inventory hosts file in a supported format with only IP addresses or
+    IP addresses and VM/xNF names.
+    
+
+.. container:: note
+
+    :need:`R-97345`
+
+    The xNF **MUST** permit authentication, using root account, only right
+    after instantiation and until post-instantiation configuration is
+    completed.
+    
+
+.. container:: note
+
+    :need:`R-97451`
+
+    The xNF **MUST** provide the ability to remove root access once
+    post-instantiation configuration (Configure) is completed.
+    
+
+Requirements Changed
+~~~~~~~~~~~~~~~~~~~~
+    
+
+.. container:: note
+
+    :need:`R-32217`
+
+    The xNF **MUST** have routable management IP addresses or FQDNs that
+    are reachable via the Ansible Server for the endpoints (VMs) of a
+    xNF that playbooks will target. ONAP will initiate requests to the
+    Ansible Server for invocation of playbooks against these end
+    points [#7.3.3]_.
+    
+
+.. container:: note
+
+    :need:`R-91745`
+
+    The xNF **MUST** update the Ansible Server and other entities
+    storing and using the SSH keys for authentication when the SSH
+    keys used by Ansible are regenerated/updated.
+
+    **Note**: Ansible Server itself may be used to upload new SSH public
+    keys onto supported xNFs.
+    
+
+.. container:: note
+
+    :need:`R-82018`
+
+    The xNF **MUST** load the Ansible Server SSH public key onto xNF
+    VM(s) /root/.ssh/authorized_keys as part of instantiation. Alternative,
+    is for Ansible Server SSH public key to be loaded onto xNF VM(s) under
+    /home/<Mechanized user ID>/.ssh/authorized_keys as part of instantiation,
+    when a Mechanized user ID is created during instantiation, and Configure
+    and all playbooks are designed to use a mechanized user ID only for
+    authentication (never using root authentication during Configure playbook
+    run). This will allow the Ansible Server to authenticate to perform
+    post-instantiation configuration without manual intervention and without
+    requiring specific xNF login IDs and passwords.
+
+    *CAUTION*: For xNFs configured using Ansible, to eliminate the need
+    for manual steps, post-instantiation and pre-configuration, to
+    upload of SSH public keys, SSH public keys loaded during (heat)
+    instantiation shall be preserved and not removed by (heat) embedded
+    (userdata) scripts.
+    
+
+.. container:: note
+
+    :need:`R-35401`
+
+    The xNF **MUST** support SSH and allow SSH access by the
+    Ansible server to the endpoint VM(s) and comply with the Network
+    Cloud Service Provider guidelines for authentication and access.
+    
+
+.. container:: note
+
+    :need:`R-92866`
+
+    The xNF **MUST** include as part of post-instantiation configuration
+    done by Ansible Playbooks the removal/update of the SSH public key from
+    /root/.ssh/authorized_keys, and update of SSH keys loaded through
+    instantiation to support Ansible. This may include creating Mechanized user
+    ID(s) used by the Ansible Server(s) on VNF VM(s) and uploading and
+    installing new SSH keys used by the mechanized use ID(s).
+    
+
+Configuration Management > Ansible Standards and Capabilities > xNF Configuration via Ansible Requirements > Ansible Playbook Requirements
+------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Requirements Added
+~~~~~~~~~~~~~~~~~~
+    
+
+.. container:: note
+
+    :need:`R-24189`
+
+    The xNF provider **MUST** deliver a new set of playbooks that includes
+    all updated and unchanged playbooks for any new revision to an existing
+    set of playbooks.
+    
+
+.. container:: note
+
+    :need:`R-49751`
+
+    The xNF **MUST** support Ansible playbooks that are compatible with
+    Ansible version 2.6 or later.
+    
+
+.. container:: note
+
+    :need:`R-49911`
+
+    The xNF provider **MUST** assign a new point release to the updated
+    playbook set. The functionality of a new playbook set must be tested before
+    it is deployed to the production.
+    
+
+Requirements Changed
+~~~~~~~~~~~~~~~~~~~~
+    
+
+.. container:: note
+
+    :need:`R-48698`
+
+    The xNF **MUST** utilize information from key value pairs that will be
+    provided by the Ansible Server as "extra-vars" during invocation to
+    execute the desired xNF action. The "extra-vars" attribute-value pairs
+    are passed to the Ansible Server by an APPC/SDN-C as part of the
+    Rest API request. If the playbook requires files, they must also be
+    supplied using the methodology detailed in the Ansible Server API, unless
+    they are bundled with playbooks, example, generic templates. Any files
+    containing instance specific info (attribute-value pairs), not obtainable
+    from any ONAP inventory databases or other sources, referenced and used an
+    input by playbooks, shall be provisioned (and distributed) in advance of
+    use, e.g., xNF instantiation. Recommendation is to avoid these instance
+    specific, manually created in advance of instantiation, files.
+    
+
+.. container:: note
+
+    :need:`R-43353`
+
+    The xNF **MUST** return control from Ansible Playbooks only after all
+    tasks performed by playbook are fully complete, signaling that the
+    playbook completed all tasks. When starting services, return control
+    only after all services are up. This is critical for workflows where
+    the next steps are dependent on prior tasks being fully completed.
+    
+
+.. container:: note
+
+    :need:`R-51442`
+
+    The xNF **SHOULD** use playbooks that are designed to
+    automatically 'rollback' to the original state in case of any errors
+    for actions that change state of the xNF (e.g., configure).
+
+    **Note**: In case rollback at the playbook level is not supported or
+    possible, the xNF provider shall provide alternative rollback
+    mechanism (e.g., for a small xNF the rollback mechanism may rely
+    on workflow to terminate and re-instantiate VNF VMs and then re-run
+    playbook(s)). Backing up updated files is also recommended to support
+    rollback when soft rollback is feasible.
+    
+
+.. container:: note
+
+    :need:`R-50252`
+
+    The xNF **MUST** write to a response file in JSON format that will be
+    retrieved and made available by the Ansible Server if, as part of a xNF
+    action (e.g., audit), a playbook is required to return any xNF
+    information/response. The text files must be written in the main playbook
+    home directory, in JSON format. The JSON file must be created for the xNF
+    with the name '<xNF name>_results.txt'. All playbook output results, for
+    all xNF VMs, to be provided as a response to the request, must be written
+    to this response file.
+    
+
+.. container:: note
+
+    :need:`R-49396`
+
+    The xNF **MUST** support each APPC/SDN-C xNF action
+    by invocation of **one** playbook [#7.3.4]_. The playbook will be responsible
+    for executing all necessary tasks (as well as calling other playbooks)
+    to complete the request.
+    
+
+.. container:: note
+
+    :need:`R-02651`
+
+    The xNF **SHOULD** use available backup capabilities to save a
+    copy of configuration files before implementing changes to support
+    operations such as backing out of software upgrades, configuration
+    changes or other work as this will help backing out of configuration
+    changes when needed.
+    
+
+.. container:: note
+
+    :need:`R-58301`
+
+    The xNF **SHOULD NOT** use playbooks that make requests to
+    Cloud resources e.g. Openstack (nova, neutron, glance, heat, etc.);
+    therefore, there is no use for Cloud specific variables like Openstack
+    UUIDs in Ansible Playbook related artifacts.
+
+    **Rationale**: Flows that require interactions with Cloud services e.g.
+    Openstack shall rely on workflows run by an Orchestrator
+    (Change Management) or other capability (such as a control loop or
+    Operations GUI) outside Ansible Server which can be executed by a
+    APPC/SDN-C. There are policies, as part of Control Loop
+    models, that send remediation action requests to an APPC/SDN-C; these
+    are triggered as a response to an event or correlated events published
+    to Event Bus.
+    
+
+Configuration Management > Chef Standards and Capabilities > xNF Configuration via Chef Requirements > Chef Roles/Requirements
+------------------------------------------------------------------------------------------------------------------------------
+
+
+Requirements Changed
+~~~~~~~~~~~~~~~~~~~~
+    
+
+.. container:: note
+
+    :need:`R-26567`
+
+    The xNF Package **MUST** include a run list of
+    roles/cookbooks/recipes, for each supported xNF action, that will
+    perform the desired xNF action in its entirety as specified by ONAP
+    (see Section 7.c, APPC/SDN-C APIs and Behavior, for list of xNF
+    actions and requirements), when triggered by a chef-client run list
+    in JSON file.
+    
+
+Configuration Management > Controller Interactions With xNF > Configuration Commands
+------------------------------------------------------------------------------------
+
+
+Requirements Changed
+~~~~~~~~~~~~~~~~~~~~
+    
+
+.. container:: note
+
+    :need:`R-20741`
+
+    The xNF **MUST** support APPC/SDN-C ``Configure`` command.
+    
+
+.. container:: note
+
+    :need:`R-94084`
+
+    The xNF **MUST** support APPC/SDN-C ``ConfigScaleOut`` command.
+    
+
+.. container:: note
+
+    :need:`R-32981`
+
+    The xNF **MUST** support APPC ``ConfigBackup`` command.
+    
+
+.. container:: note
+
+    :need:`R-48247`
+
+    The xNF **MUST** support APPC ``ConfigRestore`` command.
+    
+
+.. container:: note
+
+    :need:`R-56385`
+
+    The xNF **MUST** support APPC ``Audit`` command.
+    
+
+.. container:: note
+
+    :need:`R-19366`
+
+    The xNF **MUST** support APPC ``ConfigModify`` command.
+    
+
+Configuration Management > Controller Interactions With xNF > HealthCheck and Failure Related Commands
+------------------------------------------------------------------------------------------------------
+
+
+Requirements Changed
+~~~~~~~~~~~~~~~~~~~~
+    
+
+.. container:: note
+
+    :need:`R-41430`
+
+    The xNF **MUST** support APPC/SDN-C ``HealthCheck`` command.
+    
+
+Configuration Management > Controller Interactions With xNF > Lifecycle Management Related Commands
+---------------------------------------------------------------------------------------------------
+
+
+Requirements Added
+~~~~~~~~~~~~~~~~~~
+    
+
+.. container:: note
+
+    :need:`R-328086`
+
+    The xNF **MUST**, if serving as a distribution point or anchor point for
+    steering point from source to destination, support the ONAP Controller's
+    ``DistributeTraffic`` command.
+    
+
+Requirements Changed
+~~~~~~~~~~~~~~~~~~~~
+    
+
+.. container:: note
+
+    :need:`R-12706`
+
+    The xNF **MUST** support APPC/SDN-C ``QuiesceTraffic`` command.
+    
+
+.. container:: note
+
+    :need:`R-49466`
+
+    The xNF **MUST** support APPC/SDN-C ``UpgradeSoftware`` command.
+    
+
+.. container:: note
+
+    :need:`R-82811`
+
+    The xNF **MUST** support APPC ``StartApplication`` command.
+    
+
+.. container:: note
+
+    :need:`R-07251`
+
+    The xNF **MUST** support APPC/SDN-C ``ResumeTraffic`` command.
+    
+
+.. container:: note
+
+    :need:`R-45856`
+
+    The xNF **MUST** support APPC/SDN-C ``UpgradePostCheck`` command.
+    
+
+.. container:: note
+
+    :need:`R-65641`
+
+    The xNF **MUST** support APPC/SDN-C ``UpgradeBackOut`` command.
+    
+
+.. container:: note
+
+    :need:`R-83146`
+
+    The xNF **MUST** support APPC ``StopApplication`` command.
+    
+
+.. container:: note
+
+    :need:`R-97343`
+
+    The xNF **MUST** support APPC/SDN-C ``UpgradeBackup`` command.
+    
+
+.. container:: note
+
+    :need:`R-19922`
+
+    The xNF **MUST** support APPC/SDN-C ``UpgradePrecheck`` command.
+    
+
+Configuration Management > NETCONF Standards and Capabilities > xNF Configuration via NETCONF Requirements > NETCONF Server Requirements
+----------------------------------------------------------------------------------------------------------------------------------------
+
+
+Requirements Changed
+~~~~~~~~~~~~~~~~~~~~
+    
+
+.. container:: note
+
+    :need:`R-18733`
+
+    The xNF **MUST** implement the protocol operation:
+    ``discard-changes()`` - Revert the candidate configuration
+    data store to the running configuration.
+    
+
+.. container:: note
+
+    :need:`R-29488`
+
+    The xNF **MUST** implement the protocol operation:
+    ``get-config(source, filter`` - Retrieve a (filtered subset of
+    a) configuration from the configuration data store source.
+    
+
+.. container:: note
+
+    :need:`R-70496`
+
+    The xNF **MUST** implement the protocol operation:
+    ``commit(confirmed, confirm-timeout)`` - Commit candidate
+    configuration data store to the running configuration.
+    
+
+.. container:: note
+
+    :need:`R-44281`
+
+    The xNF **MUST** implement the protocol operation:
+    ``edit-config(target, default-operation, test-option, error-option,
+    config)`` - Edit the target configuration data store by merging,
+    replacing, creating, or deleting new config elements.
+    
+
+.. container:: note
+
+    :need:`R-02597`
+
+    The xNF **MUST** implement the protocol operation:
+    ``lock(target)`` - Lock the configuration data store target.
+    
+
+.. container:: note
+
+    :need:`R-90007`
+
+    The xNF **MUST** implement the protocol operation:
+    ``close-session()`` - Gracefully close the current session.
+    
+
+.. container:: note
+
+    :need:`R-11235`
+
+    The xNF **MUST** implement the protocol operation:
+    ``kill-session(session``- Force the termination of **session**.
+    
+
+.. container:: note
+
+    :need:`R-96554`
+
+    The xNF **MUST** implement the protocol operation:
+    ``unlock(target)`` - Unlock the configuration data store target.
+    
+
+.. container:: note
+
+    :need:`R-88031`
+
+    The xNF **SHOULD** implement the protocol operation:
+    ``delete-config(target)`` - Delete the named configuration
+    data store target.
+    
+
+.. container:: note
+
+    :need:`R-29324`
+
+    The xNF **SHOULD** implement the protocol operation:
+    ``copy-config(target, source)`` - Copy the content of the
+    configuration data store source to the configuration data store target.
+    
 
 Contrail Resource Parameters > Contrail Network Parameters > External Networks
 ------------------------------------------------------------------------------
@@ -173,7 +717,7 @@ Requirements Removed
     **MUST** be declared as type 'string'.
     
 
-Heat > ONAP Resource ID and Parameter Naming Convention > Resource: OS::Nova::Server – Metadata Parameters > vm_role
+Heat > ONAP Resource ID and Parameter Naming Convention > Resource: OS::Nova::Server â€“ Metadata Parameters > vm_role
 --------------------------------------------------------------------------------------------------------------------
 
 
@@ -621,6 +1165,18 @@ Requirements Changed
 
 .. container:: note
 
+    :need:`R-05050`
+
+    A VNF's Heat Orchestration Templates intrinsic function
+    ``get_file`` <content key> **MAY** be used:
+
+        * more than once in a VNF's Heat Orchestration Template
+        * in two or more of a VNF's Heat Orchestration Templates
+        * in a VNF's Heat Orchestration Templates nested YAML file
+    
+
+.. container:: note
+
     :need:`R-76718`
 
     If a VNF's Heat Orchestration Template uses the intrinsic function
@@ -645,18 +1201,6 @@ Requirements Changed
     single, flat directory per VNF. A VNF's Heat Orchestration
     Template's ``get_file`` target files **MUST** be in the same
     directory hierarchy as the VNF's Heat Orchestration Templates.
-    
-
-.. container:: note
-
-    :need:`R-05050`
-
-    A VNF's Heat Orchestration Templates intrinsic function
-    ``get_file`` <content key> **MAY** be used:
-
-        * more than once in a VNF's Heat Orchestration Template
-        * in two or more of a VNF's Heat Orchestration Templates
-        * in a VNF's Heat Orchestration Templates nested YAML file
     
 
 ONAP Heat Heat Template Constructs > Nested Heat Templates > Nested Heat Template Requirements
@@ -702,6 +1246,16 @@ Requirements Changed
 
 .. container:: note
 
+    :need:`R-46461`
+
+    A VNF's port connected to an internal network **MUST NOT** use the port
+    for the purpose of reaching VMs in another VNF and/or an
+    external gateway and/or
+    external router.
+    
+
+.. container:: note
+
     :need:`R-52425`
 
     A VNF's port connected to an internal network **MUST**
@@ -713,16 +1267,6 @@ Requirements Changed
     :need:`R-87096`
 
     A VNF **MAY** contain zero, one or more than one internal network.
-    
-
-.. container:: note
-
-    :need:`R-46461`
-
-    A VNF's port connected to an internal network **MUST NOT** use the port
-    for the purpose of reaching VMs in another VNF and/or an
-    external gateway and/or
-    external router.
     
 
 ONAP Heat Orchestration Template Format
@@ -759,18 +1303,18 @@ Requirements Changed
 
 .. container:: note
 
-    :need:`R-03324`
-
-    A VNF's Heat Orchestration template's Environment File **MUST**
-    contain the ``parameters:`` section.
-    
-
-.. container:: note
-
     :need:`R-68198`
 
     A VNF's Heat Orchestration template's Environment File's
     ``parameters:`` section **MAY** (or **MAY NOT**) enumerate parameters.
+    
+
+.. container:: note
+
+    :need:`R-03324`
+
+    A VNF's Heat Orchestration template's Environment File **MUST**
+    contain the ``parameters:`` section.
     
 
 ONAP Heat Orchestration Template Format > Heat Orchestration Template Structure > parameters
@@ -809,11 +1353,12 @@ Requirements Changed
 
 .. container:: note
 
-    :need:`R-79817`
+    :need:`R-88863`
 
     A VNF's Heat Orchestration Template's parameter defined
-    in a non-nested YAML file as
-    type ``comma_delimited_list`` **MAY** have a parameter constraint defined.
+    in a non-nested YAML file as type
+    ``number`` **MUST** have a parameter constraint of ``range`` or
+    ``allowed_values`` defined.
     
 
 .. container:: note
@@ -827,21 +1372,11 @@ Requirements Changed
 
 .. container:: note
 
-    :need:`R-96227`
+    :need:`R-06613`
 
     A VNF's Heat Orchestration Template's parameter defined
     in a non-nested YAML file as type
-    ``json`` **MAY** have a parameter constraint defined.
-    
-
-.. container:: note
-
-    :need:`R-88863`
-
-    A VNF's Heat Orchestration Template's parameter defined
-    in a non-nested YAML file as type
-    ``number`` **MUST** have a parameter constraint of ``range`` or
-    ``allowed_values`` defined.
+    ``boolean`` **MAY** have a parameter constraint defined.
     
 
 .. container:: note
@@ -855,11 +1390,20 @@ Requirements Changed
 
 .. container:: note
 
-    :need:`R-06613`
+    :need:`R-96227`
 
     A VNF's Heat Orchestration Template's parameter defined
     in a non-nested YAML file as type
-    ``boolean`` **MAY** have a parameter constraint defined.
+    ``json`` **MAY** have a parameter constraint defined.
+    
+
+.. container:: note
+
+    :need:`R-79817`
+
+    A VNF's Heat Orchestration Template's parameter defined
+    in a non-nested YAML file as
+    type ``comma_delimited_list`` **MAY** have a parameter constraint defined.
     
 
 ONAP Heat Orchestration Template Format > Heat Orchestration Template Structure > parameters > default
@@ -1020,20 +1564,20 @@ Requirements Changed
 
 .. container:: note
 
-    :need:`R-82732`
-
-    A VNF Heat Orchestration Template's Cinder Volume Module **MUST**
-    be named identical to the base or incremental module it is supporting with
-    ``_volume`` appended.
-    
-
-.. container:: note
-
     :need:`R-31141`
 
     VNF Heat Orchestration Template's Cinder Volume Module's Environment File
     **MUST** be named identical to the VNF Heat Orchestration Template's
     Cinder Volume Module with ``.y[a]ml`` replaced with ``.env``.
+    
+
+.. container:: note
+
+    :need:`R-82732`
+
+    A VNF Heat Orchestration Template's Cinder Volume Module **MUST**
+    be named identical to the base or incremental module it is supporting with
+    ``_volume`` appended.
     
 
 ONAP Heat Orchestration Templates Overview > ONAP Heat Orchestration Template Filenames > Incremental Modules
@@ -1080,6 +1624,28 @@ Requirements Changed
 
 .. container:: note
 
+    :need:`R-38474`
+
+    A VNF's Base Module **MUST** have a corresponding Environment File.
+    
+
+.. container:: note
+
+    :need:`R-20974`
+
+    At orchestration time, the VNF's Base Module **MUST**
+    be deployed first, prior to any incremental modules.
+    
+
+.. container:: note
+
+    :need:`R-53433`
+
+    A VNF's Cinder Volume Module **MUST** have a corresponding environment file
+    
+
+.. container:: note
+
     :need:`R-11200`
 
     A VNF's Cinder Volume Module, when it exists, **MUST** be 1:1
@@ -1101,21 +1667,6 @@ Requirements Changed
 
 .. container:: note
 
-    :need:`R-37028`
-
-    A VNF **MUST** be composed of one Base Module
-    
-
-.. container:: note
-
-    :need:`R-20974`
-
-    At orchestration time, the VNF's Base Module **MUST**
-    be deployed first, prior to any incremental modules.
-    
-
-.. container:: note
-
     :need:`R-81725`
 
     A VNF's Incremental Module **MUST** have a corresponding Environment File
@@ -1123,16 +1674,9 @@ Requirements Changed
 
 .. container:: note
 
-    :need:`R-53433`
+    :need:`R-37028`
 
-    A VNF's Cinder Volume Module **MUST** have a corresponding environment file
-    
-
-.. container:: note
-
-    :need:`R-38474`
-
-    A VNF's Base Module **MUST** have a corresponding Environment File.
+    A VNF **MUST** be composed of one Base Module
     
 
 ONAP Heat Orchestration Templates Overview > Output Parameters > ONAP Volume Module Output Parameters
@@ -1205,17 +1749,6 @@ Requirements Changed
 
 .. container:: note
 
-    :need:`R-48987`
-
-    If the VNF's OAM Management IP Address is cloud assigned and
-    and the OAM IP Address is required to be inventoried in ONAP A&AI,
-    then the parameter **MUST** be obtained by the
-    resource ``OS::Neutron::Port``
-    attribute ``ip_address``.
-    
-
-.. container:: note
-
     :need:`R-56287`
 
     If the VNF's OAM Management IP Address is assigned by ONAP SDN-C and
@@ -1233,6 +1766,17 @@ Requirements Changed
             value: {get_param: {vm-type}_{network-role}_ip_{index} }
           oam_management_v6_address:
             value: {get_param: {vm-type}_{network-role}_v6_ip_{index} }
+    
+
+.. container:: note
+
+    :need:`R-48987`
+
+    If the VNF's OAM Management IP Address is cloud assigned and
+    and the OAM IP Address is required to be inventoried in ONAP A&AI,
+    then the parameter **MUST** be obtained by the
+    resource ``OS::Neutron::Port``
+    attribute ``ip_address``.
     
 
 .. container:: note
@@ -1799,6 +2343,26 @@ Requirements Changed
 
 .. container:: note
 
+    :need:`R-98138`
+
+    When a VNF's Heat Orchestration Template's resource is associated with a
+    single internal network, the Resource ID **MUST** contain the text
+    ``int_{network-role}``.
+    
+
+.. container:: note
+
+    :need:`R-67793`
+
+    When a VNF's Heat Orchestration Template's resource is associated
+    with more than one ``{vm-type}`` and/or more than one internal and/or
+    external network, the Resource ID **MUST** not contain the ``{vm-type}``
+    and/or ``{network-role}``/``int_{network-role}``. It also should contain the
+    term ``shared`` and/or contain text that identifies the VNF.
+    
+
+.. container:: note
+
     :need:`R-82115`
 
     When a VNF's Heat Orchestration Template's resource is associated with a
@@ -1837,26 +2401,6 @@ Requirements Changed
       ``{vm-type}`` and the ``int_{network-role}`` and when this occurs
       underscores **MUST** separate the three values.
       (e.g., ``{vm-type}_{index}_int_{network-role}``).
-    
-
-.. container:: note
-
-    :need:`R-67793`
-
-    When a VNF's Heat Orchestration Template's resource is associated
-    with more than one ``{vm-type}`` and/or more than one internal and/or
-    external network, the Resource ID **MUST** not contain the ``{vm-type}``
-    and/or ``{network-role}``/``int_{network-role}``. It also should contain the
-    term ``shared`` and/or contain text that identifies the VNF.
-    
-
-.. container:: note
-
-    :need:`R-98138`
-
-    When a VNF's Heat Orchestration Template's resource is associated with a
-    single internal network, the Resource ID **MUST** contain the text
-    ``int_{network-role}``.
     
 
 Resource IDs > Contrail Heat Resources Resource ID Naming Convention > OS::ContrailV2::VirtualNetwork
@@ -1970,32 +2514,6 @@ Requirements Changed
 
 .. container:: note
 
-    :need:`R-41492`
-
-    When the VNF's Heat Orchestration Template's Resource
-    ``OS::Neutron::Port`` is attaching to an external network (per the
-    ONAP definition, see Requirement R-57424),
-    and an IPv4 Virtual IP (VIP)
-    address is assigned via ONAP automation
-    using the property ``allowed_address_pairs``
-    map property ``ip_address`` and
-    the parameter name **MUST** follow the
-    naming convention
-
-      * ``{vm-type}_{network-role}_floating_ip``
-
-    where
-
-      * ``{vm-type}`` is the {vm-type} associated with the
-        OS::Nova::Server
-      * ``{network-role}`` is the {network-role} of the external
-        network
-
-    And the parameter **MUST** be declared as type ``string``.
-    
-
-.. container:: note
-
     :need:`R-35735`
 
     When the VNF's Heat Orchestration Template's Resource
@@ -2020,6 +2538,32 @@ Requirements Changed
     And the parameter **MUST** be declared as type ``string``.
     
 
+.. container:: note
+
+    :need:`R-41492`
+
+    When the VNF's Heat Orchestration Template's Resource
+    ``OS::Neutron::Port`` is attaching to an external network (per the
+    ONAP definition, see Requirement R-57424),
+    and an IPv4 Virtual IP (VIP)
+    address is assigned via ONAP automation
+    using the property ``allowed_address_pairs``
+    map property ``ip_address`` and
+    the parameter name **MUST** follow the
+    naming convention
+
+      * ``{vm-type}_{network-role}_floating_ip``
+
+    where
+
+      * ``{vm-type}`` is the {vm-type} associated with the
+        OS::Nova::Server
+      * ``{network-role}`` is the {network-role} of the external
+        network
+
+    And the parameter **MUST** be declared as type ``string``.
+    
+
 Resource: OS::Neutron::Port - Parameters > Property: fixed_ips, Map Property: ip_address
 ----------------------------------------------------------------------------------------
 
@@ -2030,106 +2574,26 @@ Requirements Changed
 
 .. container:: note
 
-    :need:`R-40971`
-
-    When the VNF's Heat Orchestration Template's Resource
-    ``OS::Neutron::Port`` is attaching to an external network (per the
-    ONAP definition, see Requirement R-57424),
-    and an IPv4 address is assigned
-    using the property ``fixed_ips``
-    map property ``ip_address`` and the parameter type is defined as a string,
-    the parameter name **MUST** follow the
-    naming convention
-
-      * ``{vm-type}_{network-role}_ip_{index}``
-
-      where
-
-      * ``{vm-type}`` is the {vm-type} associated with the
-        ``OS::Nova::Server``
-      * ``{network-role}`` is the {network-role} of the external
-        network
-      * the value for ``{index}`` must start at zero (0) and increment by one
-    
-
-.. container:: note
-
-    :need:`R-98569`
+    :need:`R-28795`
 
     The VNF's Heat Orchestration Template's Resource
     ``OS::Neutron::Port`` property ``fixed_ips``
     map property ``ip_address`` parameter
-    ``{vm-type}_int_{network-role}_v6_ips``
+    ``{vm-type}_int_{network-role}_ip_{index}``
     **MUST** be enumerated in the
     VNF's Heat Orchestration Template's Environment File.
     
 
 .. container:: note
 
-    :need:`R-04697`
-
-    When the VNF's Heat Orchestration Template's Resource
-    ``OS::Neutron::Port`` is attaching to an external network (per the
-    ONAP definition, see Requirement R-57424),
-    and an IPv4 address is assigned
-    using the property ``fixed_ips``
-    map property ``ip_address`` and the parameter type is defined as a
-    ``comma_delimited_list``,
-    the parameter name **MUST** follow the
-    naming convention
-
-      * ``{vm-type}_{network-role}_ips``
-
-      where
-
-      * ``{vm-type}`` is the {vm-type} associated with the
-        ``OS::Nova::Server``
-      * ``{network-role}`` is the {network-role} of the external
-        network
-    
-
-.. container:: note
-
-    :need:`R-90206`
+    :need:`R-39841`
 
     The VNF's Heat Orchestration Template's Resource
     ``OS::Neutron::Port`` property ``fixed_ips``
     map property ``ip_address`` parameter
-    ``{vm-type}_int_{network-role}_int_ips``
-    **MUST** be enumerated in the
-    VNF's Heat Orchestration Template's Environment File.
-    
-
-.. container:: note
-
-    :need:`R-87123`
-
-    The VNF's Heat Orchestration Template's Resource
-    ``OS::Neutron::Port`` property ``fixed_ips``
-    map property ``ip_address`` parameter
-    ``{vm-type}_{network-role}_v6_ip_{index}``
+    ``{vm-type}_{network-role}_ip_{index}``
     **MUST NOT** be enumerated in the
     VNF's Heat Orchestration Template's Environment File.
-    
-
-.. container:: note
-
-    :need:`R-93496`
-
-    The VNF's Heat Orchestration Template's Resource ``OS::Neutron::Port``
-    property ``fixed_ips``
-    map property ``ip_address``
-    parameter associated with an internal network, i.e.,
-
-     * ``{vm-type}_int_{network-role}_ip_{index}``
-     * ``{vm-type}_int_{network-role}_v6_ip_{index}``
-     * ``{vm-type}_int_{network-role}_ips``
-     * ``{vm-type}_int_{network-role}_v6_ips``
-
-
-    **MUST** be enumerated in the Heat Orchestration
-    Template's Environment File and IP addresses **MUST** be
-    assigned.
     
 
 .. container:: note
@@ -2154,79 +2618,6 @@ Requirements Changed
         ``OS::Nova::Server``
       * ``{network-role}`` is the {network-role} of the internal
         network
-    
-
-.. container:: note
-
-    :need:`R-23503`
-
-    When the VNF's Heat Orchestration Template's Resource
-    ``OS::Neutron::Port`` is attaching to an external network (per the
-    ONAP definition, see Requirement R-57424),
-    and an IPv6 address is assigned
-    using the property ``fixed_ips``
-    map property ``ip_address`` and the parameter type is defined as a
-    ``comma_delimited_list``,
-    the parameter name **MUST** follow the
-    naming convention
-
-      * ``{vm-type}_{network-role}_v6_ips``
-
-    where
-
-      * ``{vm-type}`` is the {vm-type} associated with the
-        OS::Nova::Server
-      * ``{network-role}`` is the {network-role} of the external
-        network
-    
-
-.. container:: note
-
-    :need:`R-27818`
-
-    When the VNF's Heat Orchestration Template's Resource
-    ``OS::Neutron::Port`` is attaching to an internal network (per the
-    ONAP definition, see RRequirements R-52425 and R-46461),
-    and an IPv6 address is assigned
-    using the property ``fixed_ips``
-    map property ``ip_address`` and the parameter type is defined as a
-    ``string``,
-    the parameter name **MUST** follow the
-    naming convention
-
-      * ``{vm-type}_int_{network-role}_v6_ip_{index}``
-
-    where
-
-      * ``{vm-type}`` is the {vm-type} associated with the
-        ``OS::Nova::Server``
-      * ``{network-role}`` is the {network-role} of the internal
-        network
-      * the value for ``{index}`` must start at zero (0) and increment by one
-    
-
-.. container:: note
-
-    :need:`R-71577`
-
-    When the VNF's Heat Orchestration Template's Resource
-    ``OS::Neutron::Port`` is attaching to an external network (per the
-    ONAP definition, see Requirement R-57424),
-    and an IPv6 address is assigned
-    using the property ``fixed_ips``
-    map property ``ip_address`` and the parameter type is defined as a string,
-    the parameter name **MUST** follow the
-    naming convention
-
-      * ``{vm-type}_{network-role}_v6_ip_{index}``
-
-      where
-
-      * ``{vm-type}`` is the {vm-type} associated with the
-        OS::Nova::Server
-      * ``{network-role}`` is the {network-role} of the external
-        network
-      * the value for ``{index}`` must start at zero (0) and increment by one
     
 
 .. container:: note
@@ -2256,46 +2647,106 @@ Requirements Changed
 
 .. container:: note
 
-    :need:`R-28795`
+    :need:`R-90206`
 
     The VNF's Heat Orchestration Template's Resource
     ``OS::Neutron::Port`` property ``fixed_ips``
     map property ``ip_address`` parameter
-    ``{vm-type}_int_{network-role}_ip_{index}``
+    ``{vm-type}_int_{network-role}_int_ips``
     **MUST** be enumerated in the
     VNF's Heat Orchestration Template's Environment File.
     
 
 .. container:: note
 
-    :need:`R-62590`
+    :need:`R-23503`
+
+    When the VNF's Heat Orchestration Template's Resource
+    ``OS::Neutron::Port`` is attaching to an external network (per the
+    ONAP definition, see Requirement R-57424),
+    and an IPv6 address is assigned
+    using the property ``fixed_ips``
+    map property ``ip_address`` and the parameter type is defined as a
+    ``comma_delimited_list``,
+    the parameter name **MUST** follow the
+    naming convention
+
+      * ``{vm-type}_{network-role}_v6_ips``
+
+    where
+
+      * ``{vm-type}`` is the {vm-type} associated with the
+        OS::Nova::Server
+      * ``{network-role}`` is the {network-role} of the external
+        network
+    
+
+.. container:: note
+
+    :need:`R-87123`
+
+    The VNF's Heat Orchestration Template's Resource
+    ``OS::Neutron::Port`` property ``fixed_ips``
+    map property ``ip_address`` parameter
+    ``{vm-type}_{network-role}_v6_ip_{index}``
+    **MUST NOT** be enumerated in the
+    VNF's Heat Orchestration Template's Environment File.
+    
+
+.. container:: note
+
+    :need:`R-98569`
+
+    The VNF's Heat Orchestration Template's Resource
+    ``OS::Neutron::Port`` property ``fixed_ips``
+    map property ``ip_address`` parameter
+    ``{vm-type}_int_{network-role}_v6_ips``
+    **MUST** be enumerated in the
+    VNF's Heat Orchestration Template's Environment File.
+    
+
+.. container:: note
+
+    :need:`R-93496`
 
     The VNF's Heat Orchestration Template's Resource ``OS::Neutron::Port``
     property ``fixed_ips``
     map property ``ip_address``
-    parameter associated with an external network, i.e.,
+    parameter associated with an internal network, i.e.,
 
-     * ``{vm-type}_{network-role}_ip_{index}``
-     * ``{vm-type}_{network-role}_v6_ip_{index}``
-     * ``{vm-type}_{network-role}_ips``
-     * ``{vm-type}_{network-role}_v6_ips``
+     * ``{vm-type}_int_{network-role}_ip_{index}``
+     * ``{vm-type}_int_{network-role}_v6_ip_{index}``
+     * ``{vm-type}_int_{network-role}_ips``
+     * ``{vm-type}_int_{network-role}_v6_ips``
 
 
-    **MUST NOT** be enumerated in the Heat Orchestration
-    Template's Environment File.  ONAP provides the IP address
-    assignments at orchestration time.
+    **MUST** be enumerated in the Heat Orchestration
+    Template's Environment File and IP addresses **MUST** be
+    assigned.
     
 
 .. container:: note
 
-    :need:`R-97201`
+    :need:`R-40971`
 
-    The VNF's Heat Orchestration Template's Resource
-    ``OS::Neutron::Port`` property ``fixed_ips``
-    map property ``ip_address`` parameter
-    ``{vm-type}_int_{network-role}_v6_ip_{index}``
-    **MUST** be enumerated in the
-    VNF's Heat Orchestration Template's Environment File.
+    When the VNF's Heat Orchestration Template's Resource
+    ``OS::Neutron::Port`` is attaching to an external network (per the
+    ONAP definition, see Requirement R-57424),
+    and an IPv4 address is assigned
+    using the property ``fixed_ips``
+    map property ``ip_address`` and the parameter type is defined as a string,
+    the parameter name **MUST** follow the
+    naming convention
+
+      * ``{vm-type}_{network-role}_ip_{index}``
+
+      where
+
+      * ``{vm-type}`` is the {vm-type} associated with the
+        ``OS::Nova::Server``
+      * ``{network-role}`` is the {network-role} of the external
+        network
+      * the value for ``{index}`` must start at zero (0) and increment by one
     
 
 .. container:: note
@@ -2324,14 +2775,107 @@ Requirements Changed
 
 .. container:: note
 
-    :need:`R-39841`
+    :need:`R-71577`
+
+    When the VNF's Heat Orchestration Template's Resource
+    ``OS::Neutron::Port`` is attaching to an external network (per the
+    ONAP definition, see Requirement R-57424),
+    and an IPv6 address is assigned
+    using the property ``fixed_ips``
+    map property ``ip_address`` and the parameter type is defined as a string,
+    the parameter name **MUST** follow the
+    naming convention
+
+      * ``{vm-type}_{network-role}_v6_ip_{index}``
+
+      where
+
+      * ``{vm-type}`` is the {vm-type} associated with the
+        OS::Nova::Server
+      * ``{network-role}`` is the {network-role} of the external
+        network
+      * the value for ``{index}`` must start at zero (0) and increment by one
+    
+
+.. container:: note
+
+    :need:`R-62590`
+
+    The VNF's Heat Orchestration Template's Resource ``OS::Neutron::Port``
+    property ``fixed_ips``
+    map property ``ip_address``
+    parameter associated with an external network, i.e.,
+
+     * ``{vm-type}_{network-role}_ip_{index}``
+     * ``{vm-type}_{network-role}_v6_ip_{index}``
+     * ``{vm-type}_{network-role}_ips``
+     * ``{vm-type}_{network-role}_v6_ips``
+
+
+    **MUST NOT** be enumerated in the Heat Orchestration
+    Template's Environment File.  ONAP provides the IP address
+    assignments at orchestration time.
+    
+
+.. container:: note
+
+    :need:`R-04697`
+
+    When the VNF's Heat Orchestration Template's Resource
+    ``OS::Neutron::Port`` is attaching to an external network (per the
+    ONAP definition, see Requirement R-57424),
+    and an IPv4 address is assigned
+    using the property ``fixed_ips``
+    map property ``ip_address`` and the parameter type is defined as a
+    ``comma_delimited_list``,
+    the parameter name **MUST** follow the
+    naming convention
+
+      * ``{vm-type}_{network-role}_ips``
+
+      where
+
+      * ``{vm-type}`` is the {vm-type} associated with the
+        ``OS::Nova::Server``
+      * ``{network-role}`` is the {network-role} of the external
+        network
+    
+
+.. container:: note
+
+    :need:`R-97201`
 
     The VNF's Heat Orchestration Template's Resource
     ``OS::Neutron::Port`` property ``fixed_ips``
     map property ``ip_address`` parameter
-    ``{vm-type}_{network-role}_ip_{index}``
-    **MUST NOT** be enumerated in the
+    ``{vm-type}_int_{network-role}_v6_ip_{index}``
+    **MUST** be enumerated in the
     VNF's Heat Orchestration Template's Environment File.
+    
+
+.. container:: note
+
+    :need:`R-27818`
+
+    When the VNF's Heat Orchestration Template's Resource
+    ``OS::Neutron::Port`` is attaching to an internal network (per the
+    ONAP definition, see RRequirements R-52425 and R-46461),
+    and an IPv6 address is assigned
+    using the property ``fixed_ips``
+    map property ``ip_address`` and the parameter type is defined as a
+    ``string``,
+    the parameter name **MUST** follow the
+    naming convention
+
+      * ``{vm-type}_int_{network-role}_v6_ip_{index}``
+
+    where
+
+      * ``{vm-type}`` is the {vm-type} associated with the
+        ``OS::Nova::Server``
+      * ``{network-role}`` is the {network-role} of the internal
+        network
+      * the value for ``{index}`` must start at zero (0) and increment by one
     
 
 Resource: OS::Neutron::Port - Parameters > Property: fixed_ips, Map Property: subnet
@@ -2340,84 +2884,6 @@ Resource: OS::Neutron::Port - Parameters > Property: fixed_ips, Map Property: su
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
-
-.. container:: note
-
-    :need:`R-38236`
-
-    The VNF's Heat Orchestration Template's
-    resource ``OS::Neutron::Port`` property ``fixed_ips``
-    map property ``subnet`` parameter
-    **MUST** be declared type ``string``.
-    
-
-.. container:: note
-
-    :need:`R-76160`
-
-    When
-
-      * the VNF's Heat Orchestration Template's
-        resource ``OS::Neutron::Port`` in an Incremental Module is attaching
-        to an internal network (per the ONAP definition, see Requirements
-        R-52425 and R-46461)
-        that is created in the Base Module, AND
-      * an IPv6 address is being cloud assigned by OpenStack's DHCP Service AND
-      * the internal network IPv6 subnet is to be specified
-        using the property ``fixed_ips`` map property ``subnet``,
-
-    the parameter **MUST** follow the naming convention
-    ``int_{network-role}_v6_subnet_id``,
-    where ``{network-role}`` is the network role of the internal network.
-
-    Note that the parameter **MUST** be defined as an ``output`` parameter in
-    the base module.
-    
-
-.. container:: note
-
-    :need:`R-22288`
-
-    The VNF's Heat Orchestration Template's Resource
-    ``OS::Neutron::Port`` property ``fixed_ips``
-    map property ``subnet`` parameter
-    ``int_{network-role}_v6_subnet_id``
-    **MUST NOT** be enumerated in the
-    VNF's Heat Orchestration Template's Environment File.
-    
-
-.. container:: note
-
-    :need:`R-83677`
-
-    The VNF's Heat Orchestration Template's Resource
-    ``OS::Neutron::Port`` property ``fixed_ips``
-    map property ``subnet`` parameter
-    ``{network-role}_subnet_id``
-    **MUST NOT** be enumerated in the
-    VNF's Heat Orchestration Template's Environment File.
-    
-
-.. container:: note
-
-    :need:`R-15287`
-
-    When the VNF's Heat Orchestration Template's
-    resource ``OS::Neutron::Port`` is attaching
-    to an external network (per the ONAP definition, see
-    Requirement R-57424),
-    and an IPv6 address is being cloud assigned by OpenStack's DHCP Service
-    and the external network IPv6 subnet is to be specified
-    using the property ``fixed_ips``
-    map property ``subnet``, the parameter
-    **MUST** follow the naming convention
-
-      * ``{network-role}_v6_subnet_id``
-
-    where
-
-      * ``{network-role}`` is the network role of the network.
     
 
 .. container:: note
@@ -2449,30 +2915,6 @@ Requirements Changed
 
 .. container:: note
 
-    :need:`R-80829`
-
-    The VNF's Heat Orchestration Template's Resource
-    ``OS::Neutron::Port`` property ``fixed_ips``
-    map property ``subnet`` parameter
-    ``{network-role}_v6_subnet_id``
-    **MUST NOT** be enumerated in the
-    VNF's Heat Orchestration Template's Environment File.
-    
-
-.. container:: note
-
-    :need:`R-69634`
-
-    The VNF's Heat Orchestration Template's Resource
-    ``OS::Neutron::Port`` property ``fixed_ips``
-    map property ``subnet`` parameter
-    ``int_{network-role}_subnet_id``
-    **MUST NOT** be enumerated in the
-    VNF's Heat Orchestration Template's Environment File.
-    
-
-.. container:: note
-
     :need:`R-62802`
 
     When the VNF's Heat Orchestration Template's
@@ -2492,12 +2934,124 @@ Requirements Changed
       * ``{network-role}`` is the network role of the network.
     
 
+.. container:: note
+
+    :need:`R-22288`
+
+    The VNF's Heat Orchestration Template's Resource
+    ``OS::Neutron::Port`` property ``fixed_ips``
+    map property ``subnet`` parameter
+    ``int_{network-role}_v6_subnet_id``
+    **MUST NOT** be enumerated in the
+    VNF's Heat Orchestration Template's Environment File.
+    
+
+.. container:: note
+
+    :need:`R-76160`
+
+    When
+
+      * the VNF's Heat Orchestration Template's
+        resource ``OS::Neutron::Port`` in an Incremental Module is attaching
+        to an internal network (per the ONAP definition, see Requirements
+        R-52425 and R-46461)
+        that is created in the Base Module, AND
+      * an IPv6 address is being cloud assigned by OpenStack's DHCP Service AND
+      * the internal network IPv6 subnet is to be specified
+        using the property ``fixed_ips`` map property ``subnet``,
+
+    the parameter **MUST** follow the naming convention
+    ``int_{network-role}_v6_subnet_id``,
+    where ``{network-role}`` is the network role of the internal network.
+
+    Note that the parameter **MUST** be defined as an ``output`` parameter in
+    the base module.
+    
+
+.. container:: note
+
+    :need:`R-15287`
+
+    When the VNF's Heat Orchestration Template's
+    resource ``OS::Neutron::Port`` is attaching
+    to an external network (per the ONAP definition, see
+    Requirement R-57424),
+    and an IPv6 address is being cloud assigned by OpenStack's DHCP Service
+    and the external network IPv6 subnet is to be specified
+    using the property ``fixed_ips``
+    map property ``subnet``, the parameter
+    **MUST** follow the naming convention
+
+      * ``{network-role}_v6_subnet_id``
+
+    where
+
+      * ``{network-role}`` is the network role of the network.
+    
+
+.. container:: note
+
+    :need:`R-83677`
+
+    The VNF's Heat Orchestration Template's Resource
+    ``OS::Neutron::Port`` property ``fixed_ips``
+    map property ``subnet`` parameter
+    ``{network-role}_subnet_id``
+    **MUST NOT** be enumerated in the
+    VNF's Heat Orchestration Template's Environment File.
+    
+
+.. container:: note
+
+    :need:`R-80829`
+
+    The VNF's Heat Orchestration Template's Resource
+    ``OS::Neutron::Port`` property ``fixed_ips``
+    map property ``subnet`` parameter
+    ``{network-role}_v6_subnet_id``
+    **MUST NOT** be enumerated in the
+    VNF's Heat Orchestration Template's Environment File.
+    
+
+.. container:: note
+
+    :need:`R-38236`
+
+    The VNF's Heat Orchestration Template's
+    resource ``OS::Neutron::Port`` property ``fixed_ips``
+    map property ``subnet`` parameter
+    **MUST** be declared type ``string``.
+    
+
+.. container:: note
+
+    :need:`R-69634`
+
+    The VNF's Heat Orchestration Template's Resource
+    ``OS::Neutron::Port`` property ``fixed_ips``
+    map property ``subnet`` parameter
+    ``int_{network-role}_subnet_id``
+    **MUST NOT** be enumerated in the
+    VNF's Heat Orchestration Template's Environment File.
+    
+
 Resource: OS::Neutron::Port - Parameters > Property: network
 ------------------------------------------------------------
 
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
+    
+
+.. container:: note
+
+    :need:`R-29872`
+
+    The VNF's Heat Orchestration Template's Resource ``OS::Neutron::Port``
+    property ``network``
+    parameter **MUST NOT** be enumerated in the Heat Orchestration
+    Template's Environment File.
     
 
 .. container:: note
@@ -2531,16 +3085,6 @@ Requirements Changed
     of the internal network by using the intrinsic function
     ``get_resource``
     and referencing the Resource ID of the internal network.
-    
-
-.. container:: note
-
-    :need:`R-29872`
-
-    The VNF's Heat Orchestration Template's Resource ``OS::Neutron::Port``
-    property ``network``
-    parameter **MUST NOT** be enumerated in the Heat Orchestration
-    Template's Environment File.
     
 
 .. container:: note
@@ -2610,12 +3154,12 @@ Requirements Changed
 
 .. container:: note
 
-    :need:`R-51430`
+    :need:`R-40899`
 
-    The VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``
-    property
-    ``name`` parameter **MUST** be declared as either type ``string``
-    or type ``comma_delimited_list``.
+    When the VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``
+    property ``name`` parameter is defined as a ``string``, a parameter
+    **MUST** be delcared for
+    each ``OS::Nova::Server`` resource associated with the ``{vm-type}``.
     
 
 .. container:: note
@@ -2632,12 +3176,12 @@ Requirements Changed
 
 .. container:: note
 
-    :need:`R-40899`
+    :need:`R-51430`
 
-    When the VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``
-    property ``name`` parameter is defined as a ``string``, a parameter
-    **MUST** be delcared for
-    each ``OS::Nova::Server`` resource associated with the ``{vm-type}``.
+    The VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``
+    property
+    ``name`` parameter **MUST** be declared as either type ``string``
+    or type ``comma_delimited_list``.
     
 
 Resource: OS::Nova::Server - Parameters > Property: Name > Contrail Issue with Values for OS::Nova::Server Property Name
@@ -2733,6 +3277,16 @@ Requirements Changed
 
 .. container:: note
 
+    :need:`R-13194`
+
+    A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
+    property
+    ``metadata`` key/value pair ``environment_context`` **MUST NOT**
+    be enumerated in the Heat Orchestration Template's environment file.
+    
+
+.. container:: note
+
     :need:`R-56183`
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
@@ -2751,52 +3305,12 @@ Requirements Changed
     parameter type **MUST** be defined as type: ``string``.
     
 
-.. container:: note
-
-    :need:`R-13194`
-
-    A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
-    property
-    ``metadata`` key/value pair ``environment_context`` **MUST NOT**
-    be enumerated in the Heat Orchestration Template's environment file.
-    
-
 Resource: OS::Nova::Server Metadata Parameters > vf_module_id
 -------------------------------------------------------------
 
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
-
-.. container:: note
-
-    :need:`R-98374`
-
-    A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource property
-    ``metadata`` key/value pair ``vf_module_id`` parameter ``vf_module_id``
-    **MUST NOT**
-    have parameter constraints defined.
-    
-
-.. container:: note
-
-    :need:`R-71493`
-
-    A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
-    property ``metadata`` **MUST**
-    contain the key/value pair ``vf_module_id``
-    and the value MUST be obtained via a ``get_param``.
-    
-
-.. container:: note
-
-    :need:`R-72871`
-
-    A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource property
-    ``metadata`` key/value pair ``vf_module_id`` parameter ``vf_module_id``
-    **MUST NOT**
-    be enumerated in the Heat Orchestration Template's environment file.
     
 
 .. container:: note
@@ -2812,12 +3326,42 @@ Requirements Changed
 
 .. container:: note
 
+    :need:`R-71493`
+
+    A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
+    property ``metadata`` **MUST**
+    contain the key/value pair ``vf_module_id``
+    and the value MUST be obtained via a ``get_param``.
+    
+
+.. container:: note
+
     :need:`R-82134`
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource property
     ``metadata`` key/value pair ``vf_module_id`` parameter **MUST**
     be declared as ``vf_module_id`` and the parameter **MUST**
     be defined as type: ``string``.
+    
+
+.. container:: note
+
+    :need:`R-98374`
+
+    A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource property
+    ``metadata`` key/value pair ``vf_module_id`` parameter ``vf_module_id``
+    **MUST NOT**
+    have parameter constraints defined.
+    
+
+.. container:: note
+
+    :need:`R-72871`
+
+    A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource property
+    ``metadata`` key/value pair ``vf_module_id`` parameter ``vf_module_id``
+    **MUST NOT**
+    be enumerated in the Heat Orchestration Template's environment file.
     
 
 Resource: OS::Nova::Server Metadata Parameters > vf_module_index
@@ -2841,21 +3385,31 @@ Requirements Changed
 
 .. container:: note
 
+    :need:`R-09811`
+
+    A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
+    property ``metadata`` key/value pair ``vf_module_index`` **MUST NOT**
+    have parameter constraints defined.
+    
+
+.. container:: note
+
+    :need:`R-22441`
+
+    If a VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
+    property ``metadata`` key/value pair ``vf_module_index`` is passed into a
+    Nested YAML file, the key/value pair
+    ``vf_module_index`` **MUST NOT** change.
+    
+
+.. container:: note
+
     :need:`R-50816`
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server``
     resource  property ``metadata`` **MAY**
     contain the key/value pair ``vf_module_index``
     and the value **MUST** be obtained via a ``get_param``.
-    
-
-.. container:: note
-
-    :need:`R-09811`
-
-    A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
-    property ``metadata`` key/value pair ``vf_module_index`` **MUST NOT**
-    have parameter constraints defined.
     
 
 .. container:: note
@@ -2880,53 +3434,12 @@ Requirements Changed
     defined as type: ``number``.
     
 
-.. container:: note
-
-    :need:`R-22441`
-
-    If a VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
-    property ``metadata`` key/value pair ``vf_module_index`` is passed into a
-    Nested YAML file, the key/value pair
-    ``vf_module_index`` **MUST NOT** change.
-    
-
 Resource: OS::Nova::Server Metadata Parameters > vf_module_name
 ---------------------------------------------------------------
 
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
-
-.. container:: note
-
-    :need:`R-15480`
-
-    A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
-    property
-    ``metadata`` key/value pair ``vf_module_name`` parameter ``vf_module_name``
-    **MUST NOT** have parameter constraints defined.
-    
-
-.. container:: note
-
-    :need:`R-80374`
-
-    A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
-    property ``metadata`` key/value pair ``vf_module_name``
-    parameter ``vf_module_name`` **MUST NOT**
-    be enumerated in the Heat Orchestration Template's environment file.
-    
-
-.. container:: note
-
-    :need:`R-39067`
-
-    A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
-    property
-    ``metadata`` key/value pair ``vf_module_name`` parameter **MUST** be
-    declared as ``vf_module_name`` and the parameter **MUST**
-    be defined as type: ``string``.
     
 
 .. container:: note
@@ -2949,6 +3462,37 @@ Requirements Changed
     file, the key/value pair name ``vf_module_name`` **MUST NOT** change.
     
 
+.. container:: note
+
+    :need:`R-80374`
+
+    A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
+    property ``metadata`` key/value pair ``vf_module_name``
+    parameter ``vf_module_name`` **MUST NOT**
+    be enumerated in the Heat Orchestration Template's environment file.
+    
+
+.. container:: note
+
+    :need:`R-15480`
+
+    A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
+    property
+    ``metadata`` key/value pair ``vf_module_name`` parameter ``vf_module_name``
+    **MUST NOT** have parameter constraints defined.
+    
+
+.. container:: note
+
+    :need:`R-39067`
+
+    A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
+    property
+    ``metadata`` key/value pair ``vf_module_name`` parameter **MUST** be
+    declared as ``vf_module_name`` and the parameter **MUST**
+    be defined as type: ``string``.
+    
+
 Resource: OS::Nova::Server Metadata Parameters > vm_role
 --------------------------------------------------------
 
@@ -2968,21 +3512,21 @@ Requirements Changed
 
 .. container:: note
 
-    :need:`R-86476`
-
-    A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
-    property ``metadata`` key/value pair ``vm_role`` value **MUST**
-    only contain alphanumeric characters and underscores (i.e., '_').
-    
-
-.. container:: note
-
     :need:`R-70757`
 
     If a VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
     property ``metadata`` key/value pair ``vm_role`` is passed into a Nested
     YAML
     file, the key/value pair name ``vm_role`` **MUST NOT** change.
+    
+
+.. container:: note
+
+    :need:`R-86476`
+
+    A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
+    property ``metadata`` key/value pair ``vm_role`` value **MUST**
+    only contain alphanumeric characters and underscores (i.e., '_').
     
 
 .. container:: note
@@ -3019,32 +3563,22 @@ Requirements Changed
 
 .. container:: note
 
-    :need:`R-55218`
-
-    A VNF's Heat Orchestration Template's ``OS::Nova::Server``
-    resource property
-    ``metadata`` key/value pair ``vnf_id`` parameter ``vnf_id`` **MUST NOT**
-    have parameter constraints defined.
-    
-
-.. container:: note
-
-    :need:`R-37437`
-
-    A VNF's Heat Orchestration Template's ``OS::Nova::Server``
-    resource property ``metadata`` **MUST**
-    contain the  key/value pair ``vnf_id``
-    and the value **MUST** be obtained via a ``get_param``.
-    
-
-.. container:: note
-
     :need:`R-44491`
 
     If a VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
     property
     ``metadata`` key/value pair ``vnf_id`` is passed into a Nested YAML
     file, the key/value pair name ``vnf_id`` **MUST NOT** change.
+    
+
+.. container:: note
+
+    :need:`R-20856`
+
+    A VNF's Heat Orchestration Template's ``OS::Nova::Server``
+    resource property
+    ``metadata`` key/value pair ``vnf_id`` parameter ``vnf_id`` **MUST NOT**
+    be enumerated in the Heat Orchestration Template's environment file.
     
 
 .. container:: note
@@ -3060,12 +3594,22 @@ Requirements Changed
 
 .. container:: note
 
-    :need:`R-20856`
+    :need:`R-37437`
+
+    A VNF's Heat Orchestration Template's ``OS::Nova::Server``
+    resource property ``metadata`` **MUST**
+    contain the  key/value pair ``vnf_id``
+    and the value **MUST** be obtained via a ``get_param``.
+    
+
+.. container:: note
+
+    :need:`R-55218`
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server``
     resource property
     ``metadata`` key/value pair ``vnf_id`` parameter ``vnf_id`` **MUST NOT**
-    be enumerated in the Heat Orchestration Template's environment file.
+    have parameter constraints defined.
     
 
 Resource: OS::Nova::Server Metadata Parameters > vnf_name
@@ -3088,12 +3632,11 @@ Requirements Changed
 
 .. container:: note
 
-    :need:`R-16576`
+    :need:`R-72483`
 
-    If a VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
-    property
-    ``metadata`` key/value pair ``vnf_name`` is passed into a Nested YAML
-    file, the key/value pair name ``vnf_name`` **MUST NOT** change.
+    A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource property
+    ``metadata`` **MUST** contain the key/value pair ``vnf_name`` and the
+    value **MUST** be obtained via a ``get_param``.
     
 
 .. container:: note
@@ -3108,15 +3651,6 @@ Requirements Changed
 
 .. container:: note
 
-    :need:`R-72483`
-
-    A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource property
-    ``metadata`` **MUST** contain the key/value pair ``vnf_name`` and the
-    value **MUST** be obtained via a ``get_param``.
-    
-
-.. container:: note
-
     :need:`R-62428`
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
@@ -3125,32 +3659,22 @@ Requirements Changed
     type: ``string``.
     
 
+.. container:: note
+
+    :need:`R-16576`
+
+    If a VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
+    property
+    ``metadata`` key/value pair ``vnf_name`` is passed into a Nested YAML
+    file, the key/value pair name ``vnf_name`` **MUST NOT** change.
+    
+
 Resource: OS::Nova::Server Metadata Parameters > workload_context
 -----------------------------------------------------------------
 
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
-
-.. container:: note
-
-    :need:`R-34055`
-
-    A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
-    property ``metadata`` key/value pair ``workload_context``
-    parameter ``workload_context`` **MUST NOT**
-    have parameter constraints defined.
-    
-
-.. container:: note
-
-    :need:`R-75202`
-
-    If a VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
-    property ``metadata`` key/value pair ``workload_context``
-    is passed into a Nested YAML
-    file, the key/value pair name ``workload_context`` **MUST NOT** change.
     
 
 .. container:: note
@@ -3174,6 +3698,26 @@ Requirements Changed
     be enumerated in the Heat Orchestration Template's environment file.
     
 
+.. container:: note
+
+    :need:`R-34055`
+
+    A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
+    property ``metadata`` key/value pair ``workload_context``
+    parameter ``workload_context`` **MUST NOT**
+    have parameter constraints defined.
+    
+
+.. container:: note
+
+    :need:`R-75202`
+
+    If a VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
+    property ``metadata`` key/value pair ``workload_context``
+    is passed into a Nested YAML
+    file, the key/value pair name ``workload_context`` **MUST NOT** change.
+    
+
 VNF On-boarding and package management > Resource Description
 -------------------------------------------------------------
 
@@ -3186,7 +3730,16 @@ Requirements Added
 
     :need:`R-22346`
 
-    The VNF package MUST provide `VES Event Registration <https://onap.readthedocs.io/en/latest/submodules/vnfsdk/model.git/docs/files/VESEventRegistration.html>`_ for all VES events provided by that xNF.
+    The VNF package MUST provide :doc:`VES Event Registration <../../../../vnfsdk/module.git/files/VESEventRegistration_3_0>`
+    for all VES events provided by that xNF.
+    
+
+.. container:: note
+
+    :need:`R-384337`
+
+    The VNF documentation **MUST** contain a list of the files within the VNF
+    package that are static during the VNF's runtime.
     
 
 VNF On-boarding and package management > Testing
@@ -3355,14 +3908,6 @@ Requirements Changed
 
 .. container:: note
 
-    :need:`R-49109`
-
-    The VNF **MUST** support HTTP/S using TLS v1.2 or higher
-    with strong cryptographic ciphers.
-    
-
-.. container:: note
-
     :need:`R-48080`
 
     The VNF **SHOULD** support an automated certificate management protocol
@@ -3378,12 +3923,41 @@ Requirements Changed
     external encryption service.
     
 
+.. container:: note
+
+    :need:`R-41994`
+
+    The VNF **MUST** support the use of X.509 certificates issued from any
+    Certificate Authority (CA) that is compliant with RFC5280, e.g., a public
+    CA such as DigiCert or Let's Encrypt, or an RFC5280  compliant Operator
+    CA.
+
+    Note: The VNF provider cannot require the use of self-signed certificates
+    in an Operator's run time environment.
+    
+
+.. container:: note
+
+    :need:`R-49109`
+
+    The VNF **MUST** support HTTP/S using TLS v1.2 or higher
+    with strong cryptographic ciphers.
+    
+
 VNF Security > VNF Data Protection Requirements
 -----------------------------------------------
 
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
+    
+
+.. container:: note
+
+    :need:`R-69610`
+
+    The VNF **MUST** provide the capability of using X.509 certificates
+    issued by an external Certificate Authority.
     
 
 .. container:: note
@@ -3396,18 +3970,20 @@ Requirements Changed
 
 .. container:: note
 
-    :need:`R-95864`
+    :need:`R-47204`
 
-    The VNF **MUST** support digital certificates that comply with X.509
-    standards.
+    The VNF **MUST** be capable of protecting the confidentiality and integrity
+    of data at rest and in transit from unauthorized access and modification.
     
 
 .. container:: note
 
-    :need:`R-69610`
+    :need:`R-32641`
 
-    The VNF **MUST** provide the capability of using X.509 certificates
-    issued by an external Certificate Authority.
+    The VNF **MUST** provide the capability to encrypt data on
+    non-volatile memory.Non-volative memory is storage that is
+    capable of retaining data without electrical power, e.g.
+    Complementary metal-oxide-semiconductor (CMOS) or hard drives.
     
 
 .. container:: note
@@ -3421,12 +3997,21 @@ Requirements Changed
 
 .. container:: note
 
-    :need:`R-32641`
+    :need:`R-95864`
 
-    The VNF **MUST** provide the capability to encrypt data on
-    non-volatile memory.Non-volative memory is storage that is
-    capable of retaining data without electrical power, e.g.
-    Complementary metal-oxide-semiconductor (CMOS) or hard drives.
+    The VNF **MUST** support digital certificates that comply with X.509
+    standards.
+    
+
+.. container:: note
+
+    :need:`R-02170`
+
+    The VNF **MUST** use, whenever possible, standard implementations
+    of security applications, protocols, and formats, e.g., S/MIME, TLS, SSH,
+    IPSec, X.509 digital certificates for cryptographic implementations.
+    These implementations must be purchased from reputable vendors or obtained
+    from reputable open source communities and must not be developed in-house.
     
 
 .. container:: note
@@ -3446,25 +4031,6 @@ Requirements Changed
     Acceptable algorithms can be found in the NIST FIPS publications
     (https://csrc.nist.gov/publications/fips) and in the
     NIST Special Publications (https://csrc.nist.gov/publications/sp).
-    
-
-.. container:: note
-
-    :need:`R-02170`
-
-    The VNF **MUST** use, whenever possible, standard implementations
-    of security applications, protocols, and formats, e.g., S/MIME, TLS, SSH,
-    IPSec, X.509 digital certificates for cryptographic implementations.
-    These implementations must be purchased from reputable vendors or obtained
-    from reputable open source communities and must not be developed in-house.
-    
-
-.. container:: note
-
-    :need:`R-47204`
-
-    The VNF **MUST** be capable of protecting the confidentiality and integrity
-    of data at rest and in transit from unauthorized access and modification.
     
 
 Requirements Removed
@@ -3498,11 +4064,81 @@ Requirements Added
 
 .. container:: note
 
+    :need:`R-118669`
+
+    Login access (e.g., shell access) to the operating system layer, whether
+    interactive or as part of an automated process, **MUST** be through an
+    encrypted protocol such as SSH or TLS.
+    
+
+.. container:: note
+
+    :need:`R-240760`
+
+    The VNF **MUST NOT** contain any backdoors.
+    
+
+.. container:: note
+
+    :need:`R-256267`
+
+    If SNMP is utilized, the VNF **MUST** support at least SNMPv3 with
+    message authentication.
+    
+
+.. container:: note
+
+    :need:`R-258686`
+
+    The VNF application processes **MUST NOT** run as root.
+    
+
+.. container:: note
+
+    :need:`R-343842`
+
+    The VNF **MUST**, after a successful login at command line or a GUI,
+    display the last valid login date and time and the number of unsuccessful
+    attempts since then made with that user's ID. This requirement is only
+    applicable when the user account is defined locally in the VNF.
+    
+
+.. container:: note
+
     :need:`R-638682`
 
     The VNF **MUST** log any security event required by the VNF Requirements to
     Syslog using LOG_AUTHPRIV for any event that would contain sensitive
     information and LOG_AUTH for all other relevant events.
+    
+
+.. container:: note
+
+    :need:`R-756950`
+
+    The VNF **MUST** be operable without the use of Network File System (NFS).
+    
+
+.. container:: note
+
+    :need:`R-842258`
+
+    The VNF **MUST** include a configuration, e.g., a heat template or CSAR
+    package, that specifies the targetted parameters, e.g. a limited set of
+    ports, over which the VNF will communicate (including internal, external
+    and management communication).
+    
+
+.. container:: note
+
+    :need:`R-872986`
+
+    The VNF **MUST** store Authentication Credentials used to authenticate to
+    other systems encrypted except where there is a technical need to store
+    the password unencrypted in which case it must be protected using other
+    security techniques that include the use of file and directory permissions.
+    Ideally, credentials SHOULD rely on a HW Root of Trust, such as a
+    TPM or HSM.
     
 
 Requirements Changed
@@ -3511,10 +4147,10 @@ Requirements Changed
 
 .. container:: note
 
-    :need:`R-21819`
+    :need:`R-62498`
 
-    The VNF **MUST** provide functionality that enables the Operator to comply
-    with requests for information from law enforcement and government agencies.
+    The VNF **MUST** support encrypted access protocols, e.g., TLS,
+    SSH, SFTP.
     
 
 .. container:: note
@@ -3523,31 +4159,6 @@ Requirements Changed
 
     The VNF **SHOULD** provide the capability for the Operator to run security
     vulnerability scans of the operating system and all application layers.
-    
-
-.. container:: note
-
-    :need:`R-92207`
-
-    The VNF **SHOULD** provide a mechanism for performing automated
-    system configuration auditing at configurable time intervals.
-    
-
-.. container:: note
-
-    :need:`R-19082`
-
-    The VNF **MUST** allow the Operator to disable or remove any security
-    testing tools or programs included in the VNF, e.g., password cracker,
-    port scanner.
-    
-
-.. container:: note
-
-    :need:`R-40813`
-
-    The VNF **SHOULD** support the use of virtual trusted platform
-    module.
     
 
 .. container:: note
@@ -3563,18 +4174,26 @@ Requirements Changed
 
     :need:`R-19768`
 
-    The VNF **SHOULD** support Layer 3 VPNs that enable segregation of
-    traffic by application (i.e., AVPN, IPSec VPN for Internet routes).
+    The VNF **SHOULD** support network segregation, i.e., separation of OA&M
+    traffic from signaling and payload traffic, using technologies such as
+    VPN and VLAN.
     
 
 .. container:: note
 
-    :need:`R-69649`
+    :need:`R-19082`
 
-    The VNF Provider **MUST** have patches available for vulnerabilities
-    in the VNF as soon as possible. Patching shall be controlled via change
-    control process with vulnerabilities disclosed along with
-    mitigation recommendations.
+    The VNF **MUST** allow the Operator to disable or remove any security
+    testing tools or programs included in the VNF, e.g., password cracker,
+    port scanner.
+    
+
+.. container:: note
+
+    :need:`R-86261`
+
+    The VNF **MUST** support the ability to prohibit remote access to the VNF
+    via a host based security mechanism.
     
 
 .. container:: note
@@ -3591,6 +4210,24 @@ Requirements Changed
 
 .. container:: note
 
+    :need:`R-80335`
+
+    For all GUI and command-line interfaces, the VNF **MUST** provide the
+    ability to present a warning notice that is set by the Operator. A warning
+    notice is a formal statement of resource intent presented to everyone
+    who accesses the system.
+    
+
+.. container:: note
+
+    :need:`R-21819`
+
+    The VNF **MUST** provide functionality that enables the Operator to comply
+    with requests for information from law enforcement and government agencies.
+    
+
+.. container:: note
+
     :need:`R-23740`
 
     The VNF **MUST** implement and enforce the principle of least privilege
@@ -3599,20 +4236,29 @@ Requirements Changed
 
 .. container:: note
 
-    :need:`R-62498`
+    :need:`R-40813`
 
-    The VNF **MUST** support encrypted access protocols, e.g., TLS,
-    SSH, SFTP.
+    The VNF **SHOULD** support the use of virtual trusted platform
+    module.
     
 
 .. container:: note
 
-    :need:`R-80335`
+    :need:`R-69649`
 
-    For all GUI and command-line interfaces, the VNF **MUST** provide the
-    ability to present a warning notice that is set by the Operator. A warning
-    notice is a formal statement of resource intent presented to everyone
-    who accesses the system.
+    The VNF Provider **MUST** have patches available for vulnerabilities
+    in the VNF as soon as possible. Patching shall be controlled via change
+    control process with vulnerabilities disclosed along with
+    mitigation recommendations.
+    
+
+.. container:: note
+
+    :need:`R-92207`
+
+    The VNF **SHOULD** provide a mechanism that enables the operators to
+    perform automated system configuration auditing at configurable time
+    intervals.
     
 
 Requirements Removed
@@ -3634,6 +4280,14 @@ Requirements Removed
     The VNF **SHOULD** interoperate with various access control
     mechanisms for the Network Cloud execution environment (e.g.,
     Hypervisors, containers).
+    
+
+.. container:: note
+
+    R-35144
+
+    The VNF **MUST**, if not using the NCSP's IDAM API, comply
+    with the NCSP's credential management policy.
     
 
 .. container:: note
@@ -3732,16 +4386,80 @@ VNF Security > VNF Identity and Access Management Requirements
 --------------------------------------------------------------
 
 
+Requirements Added
+~~~~~~~~~~~~~~~~~~
+    
+
+.. container:: note
+
+    :need:`R-231402`
+
+    The VNF **MUST** provide a means for the user to explicitly logout, thus
+    ending that session for that authenticated user.
+    
+
+.. container:: note
+
+    :need:`R-45719`
+
+    The VNF **MUST**, if not integrated with the Operator's Identity and Access
+    Management system, or enforce a configurable "terminate idle sessions"
+    policy by terminating the session after a configurable period of inactivity.
+    
+
+.. container:: note
+
+    :need:`R-479386`
+
+    The VNF **MUST NOT** display "Welcome" notices or messages that could
+    be misinterpreted as extending an invitation to unauthorized users.
+    
+
+.. container:: note
+
+    :need:`R-581188`
+
+    A failed authentication attempt **MUST NOT** identify the reason for the
+    failure to the user, only that the authentication failed.
+    
+
+.. container:: note
+
+    :need:`R-814377`
+
+    The VNF **MUST** have the capability of allowing the Operator to create,
+    manage, and automatically provision user accounts using an Operator
+    approved identity lifecycle management tool using a standard protocol,
+    e.g., NETCONF API.
+    
+
+.. container:: note
+
+    :need:`R-844011`
+
+    The VNF MUST not store authentication credentials to itself in clear
+    text or any reversible form and must use salting.
+    
+
+.. container:: note
+
+    :need:`R-931076`
+
+    The VNF **MUST** support account names that contain at least A-Z, a-z,
+    0-9 character sets and be at least 6 characters in length.
+    
+
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
     
 
 .. container:: note
 
-    :need:`R-59391`
+    :need:`R-23135`
 
-    The VNF **MUST NOT** not allow the assumption of the permissions of
-    another account to mask individual accountability.
+    The VNF **MUST**, if not integrated with the Operator's identity and
+    access management system, authenticate all access to protected GUIs, CLIs,
+    and APIs.
     
 
 .. container:: note
@@ -3754,82 +4472,11 @@ Requirements Changed
 
 .. container:: note
 
-    :need:`R-75041`
+    :need:`R-78010`
 
-    The VNF **MUST**, if not integrated the Operator's Identity and Access
-    Management system, support configurable password expiration.
-    
-
-.. container:: note
-
-    :need:`R-99174`
-
-    The VNF **MUST** allow the creation of multiple IDs so that
-    individual accountability can be supported.
-    
-
-.. container:: note
-
-    :need:`R-23135`
-
-    The VNF **MUST** authenticate all access to protected GUIs, CLIs,
-    and APIs.
-    
-
-.. container:: note
-
-    :need:`R-46908`
-
-    The VNF **MUST**, if not integrated with the Operator's Identity
-    and Access Management system, comply with "password complexity"
-    policy. When passwords are used, they shall be complex and shall at
-    least meet the following password construction requirements: (1) be a
-    minimum configurable number of characters in length, (2) include 3 of
-    the 4 following types of characters: upper-case alphabetic, lower-case
-    alphabetic, numeric, and special, (3) not be the same as the UserID
-    with which they are associated or other common strings as specified
-    by the environment, (4) not contain repeating or sequential characters
-    or numbers, (5) not to use special characters that may have command
-    functions, and (6) new passwords must not contain sequences of three
-    or more characters from the previous password.
-    
-
-.. container:: note
-
-    :need:`R-42874`
-
-    The VNF **MUST** allow the Operator to restrict access based on
-    the assigned permissions associated with an ID in order to support
-    Least Privilege (no more privilege than required to perform job
-    functions).
-    
-
-.. container:: note
-
-    :need:`R-98391`
-
-    The VNF **MUST**, if not integrated with the Operator's Identity and
-    Access Management system, support Role-Based Access Control to enforce
-    least privilege.
-    
-
-.. container:: note
-
-    :need:`R-71787`
-
-    Each layer of the VNF **MUST** support access restriction
-    independently of all other layers so that Segregation of Duties
-    can be implemented.
-    
-
-.. container:: note
-
-    :need:`R-79107`
-
-    The VNF **MUST**, if not integrated with the Operator's Identity
-    and Access Management system, support the ability to disable the
-    userID after a configurable number of consecutive unsuccessful
-    authentication attempts using the same userID.
+    The VNF **MUST** integrate with standard identity and access management
+    protocols such as LDAP, TACACS+, Windows Integrated Authentication
+    (Kerberos), SAML federation, or OAuth 2.0.
     
 
 .. container:: note
@@ -3845,10 +4492,103 @@ Requirements Changed
 
 .. container:: note
 
+    :need:`R-59391`
+
+    The VNF **MUST NOT** allow the assumption of the permissions of another
+    account to mask individual accountability. For example, use SUDO when a
+    user requires elevated permissions such as root or admin.
+    
+
+.. container:: note
+
+    :need:`R-75041`
+
+    The VNF **MUST**, if not integrated with the Operator's Identity and
+    Access Management system, support configurable password expiration.
+    
+
+.. container:: note
+
+    :need:`R-71787`
+
+    Each architectural layer of the VNF (eg. operating system, network,
+    application) **MUST** support access restriction independently of all
+    other layers so that Segregation of Duties can be implemented.
+    
+
+.. container:: note
+
+    :need:`R-79107`
+
+    The VNF **MUST**, if not integrated with the Operator's Identity
+    and Access Management system, support the ability to disable the
+    userID after a configurable number of consecutive unsuccessful
+    authentication attempts using the same userID.
+    
+
+.. container:: note
+
+    :need:`R-46908`
+
+    The VNF **MUST**, if not integrated with the Operator's Identity and
+    Access Management system, comply with "password complexity" policy. When
+    passwords are used, they shall be complex and shall at least meet the
+    following password construction requirements: (1) be a minimum configurable
+    number of characters in length, (2) include 3 of the 4 following types of
+    characters: upper-case alphabetic, lower-case alphabetic, numeric, and
+    special, (3) not be the same as the UserID with which they are associated
+    or other common strings as specified by the environment, (4) not contain
+    repeating or sequential characters or numbers, (5) not to use special
+    characters that may have command functions, and (6) new passwords must
+    not contain sequences of three or more characters from the previous
+    password.
+    
+
+.. container:: note
+
     :need:`R-85419`
 
     The VNF **SHOULD** support OAuth 2.0 authorization using an external
     Authorization Server.
+    
+
+.. container:: note
+
+    :need:`R-98391`
+
+    The VNF **MUST**, if not integrated with the Operator's Identity and
+    Access Management system, support Role-Based Access Control to enforce
+    least privilege.
+    
+
+.. container:: note
+
+    :need:`R-99174`
+
+    The VNF **MUST**, if not integrated with the Operator's Identity and
+    Access Management system, support the creation of multiple IDs so that
+    individual accountability can be supported.
+    
+
+.. container:: note
+
+    :need:`R-81147`
+
+    The VNF **MUST** support strong authentication, also known as
+    multifactor authentication, on all protected interfaces exposed by the
+    VNF for use by human users. Strong authentication uses at least two of the
+    three different types of authentication factors in order to prove the
+    claimed identity of a user.
+    
+
+.. container:: note
+
+    :need:`R-42874`
+
+    The VNF **MUST** allow the Operator to restrict access based on
+    the assigned permissions associated with an ID in order to support
+    Least Privilege (no more privilege than required to perform job
+    functions).
     
 
 Requirements Removed
@@ -3963,6 +4703,14 @@ Requirements Removed
 
 .. container:: note
 
+    R-64503
+
+    The VNF **MUST** provide minimum privileges for initial
+    and default settings for new user accounts.
+    
+
+.. container:: note
+
     R-72243
 
     The VNF **MUST** provide or support the Identity and Access
@@ -4019,25 +4767,106 @@ VNF Security > VNF Security Analytics Requirements
 --------------------------------------------------
 
 
+Requirements Added
+~~~~~~~~~~~~~~~~~~
+    
+
+.. container:: note
+
+    :need:`R-303569`
+
+    The VNF **MUST** log the Source IP address in the security audit logs.
+    
+
+.. container:: note
+
+    :need:`R-465236`
+
+    The VNF **SHOULD** provide the capability of maintaining the integrity of
+    its static files using a cryptographic method.
+    
+
+.. container:: note
+
+    :need:`R-629534`
+
+    The VNF **MUST** be capable of automatically synchronizing the system clock
+    daily with the Operator's trusted time source, to assure accurate time
+    reporting in log files. It is recommended that Coordinated Universal Time
+    (UTC) be used where possible, so as to eliminate ambiguity owing to daylight
+    savings time.
+    
+
+.. container:: note
+
+    :need:`R-703767`
+
+    The VNF **MUST** have the capability to securely transmit the security logs
+    and security events to a remote system before they are purged from the
+    system.
+    
+
+.. container:: note
+
+    :need:`R-859208`
+
+    The VNF **MUST** log automated remote activities performed with
+    elevated privileges.
+    
+
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
     
 
 .. container:: note
 
-    :need:`R-74958`
+    :need:`R-07617`
 
-    The VNF **MUST** activate security alarms automatically when
-    it detects an unsuccessful attempt to gain permissions
-    or assume the identity of another user.
+    The VNF **MUST** log success and unsuccessful creation, removal, or
+    change to the inherent privilege level of users.
     
 
 .. container:: note
 
-    :need:`R-29705`
+    :need:`R-22367`
 
-    The VNF **MUST** restrict changing the criticality level of a
-    system security alarm to users with administrative privileges.
+    The VNF **MUST** support detection of malformed packets due to software
+    misconfiguration or software vulnerability, and generate an error to the
+    syslog console facility.
+    
+
+.. container:: note
+
+    :need:`R-34552`
+
+    The VNF **MUST** be implemented so that it is not vulnerable to OWASP
+    Top 10 web application security risks.
+    
+
+.. container:: note
+
+    :need:`R-54520`
+
+    The VNF **MUST** log successful and unsuccessful authentication
+    attempts, e.g., authentication associated with a transaction,
+    authentication to create a session, authentication to assume elevated
+    privilege.
+    
+
+.. container:: note
+
+    :need:`R-58370`
+
+    The VNF **SHOULD** operate with anti-virus software which produces alarms
+    every time a virus is detected.
+    
+
+.. container:: note
+
+    :need:`R-94525`
+
+    The VNF **MUST** log connections to the network listeners of the
+    resource.
     
 
 .. container:: note
@@ -4060,42 +4889,10 @@ Requirements Changed
 
 .. container:: note
 
-    :need:`R-94525`
+    :need:`R-29705`
 
-    The VNF **MUST** log connections to the network listeners of the
-    resource.
-    
-
-.. container:: note
-
-    :need:`R-04492`
-
-    The VNF **MUST** generate security audit logs that can be sent
-    to Security Analytics Tools for analysis.
-    
-
-.. container:: note
-
-    :need:`R-07617`
-
-    The VNF **MUST** log success and unsuccessful creation, removal, or
-    change to the inherent privilege level of users.
-    
-
-.. container:: note
-
-    :need:`R-34552`
-
-    The VNF **MUST** be implemented so that it is not vulnerable to OWASP
-    Top 10 web application security risks.
-    
-
-.. container:: note
-
-    :need:`R-58370`
-
-    The VNF **MUST** operate with anti-virus software which produces
-    alarms every time a virus is detected.
+    The VNF **MUST** restrict changing the criticality level of a
+    system security alarm to users with administrative privileges.
     
 
 .. container:: note
@@ -4108,20 +4905,35 @@ Requirements Changed
 
 .. container:: note
 
-    :need:`R-54520`
-
-    The VNF **MUST** log successful and unsuccessful authentication
-    attempts, e.g., authentication associated with a transaction,
-    authentication to create a session, authentication to assume elevated
-    privilege.
-    
-
-.. container:: note
-
     :need:`R-30932`
 
     The VNF **MUST** log successful and unsuccessful access to VNF
     resources, including data.
+    
+
+.. container:: note
+
+    :need:`R-04492`
+
+    The VNF **MUST** generate security audit logs that can be sent
+    to Security Analytics Tools for analysis.
+    
+
+.. container:: note
+
+    :need:`R-74958`
+
+    The VNF **MUST** activate security alarms automatically when
+    it detects an unsuccessful attempt to gain permissions
+    or assume the identity of another user.
+    
+
+.. container:: note
+
+    :need:`R-54816`
+
+    The VNF **MUST** support the storage of security audit logs for a
+    configurable period of time.
     
 
 Requirements Removed
@@ -4202,15 +5014,6 @@ Requirements Changed
 
 .. container:: note
 
-    :need:`R-96983`
-
-    A VNF's Heat Orchestration Template's Resource ID that is associated
-    with an internal network **MUST** include ``int_{network-role}`` as part
-    of the Resource ID, where ``int_`` is a hard coded string.
-    
-
-.. container:: note
-
     :need:`R-26506`
 
     A VNF's Heat Orchestration Template's ``{network-role}`` **MUST** contain
@@ -4229,38 +5032,21 @@ Requirements Changed
     where ``int_`` is a hard coded string.
     
 
+.. container:: note
+
+    :need:`R-96983`
+
+    A VNF's Heat Orchestration Template's Resource ID that is associated
+    with an internal network **MUST** include ``int_{network-role}`` as part
+    of the Resource ID, where ``int_`` is a hard coded string.
+    
+
 {vm-type}
 ---------
 
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
-
-.. container:: note
-
-    :need:`R-01455`
-
-    When a VNF's Heat Orchestration Template creates a Virtual Machine
-    (i.e., ``OS::Nova::Server``),
-    each "class" of VMs **MUST** be assigned a VNF unique
-    ``{vm-type}``; where "class" defines VMs that
-    **MUST** have the following identical characteristics:
-
-      1.) ``OS::Nova::Server`` resource property ``flavor`` value
-
-      2.) ``OS::Nova::Server`` resource property ``image`` value
-
-      3.) Cinder Volume attachments
-
-        - Each VM in the "class" **MUST** have the identical Cinder Volume
-          configuration
-
-      4.) Network attachments and IP address requirements
-
-        - Each VM in the "class" **MUST** have the the identical number of
-          ports connecting to the identical networks and requiring the identical
-          IP address configuration.
     
 
 .. container:: note
@@ -4290,4 +5076,30 @@ Requirements Changed
     alphanumeric characters and/or underscores '_' and **MUST NOT**
     contain any of the following strings:
     ``_int`` or ``int_`` or ``_int_``.
+    
+
+.. container:: note
+
+    :need:`R-01455`
+
+    When a VNF's Heat Orchestration Template creates a Virtual Machine
+    (i.e., ``OS::Nova::Server``),
+    each "class" of VMs **MUST** be assigned a VNF unique
+    ``{vm-type}``; where "class" defines VMs that
+    **MUST** have the following identical characteristics:
+
+      1.) ``OS::Nova::Server`` resource property ``flavor`` value
+
+      2.) ``OS::Nova::Server`` resource property ``image`` value
+
+      3.) Cinder Volume attachments
+
+        - Each VM in the "class" **MUST** have the identical Cinder Volume
+          configuration
+
+      4.) Network attachments and IP address requirements
+
+        - Each VM in the "class" **MUST** have the the identical number of
+          ports connecting to the identical networks and requiring the identical
+          IP address configuration.
     

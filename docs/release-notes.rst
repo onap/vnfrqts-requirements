@@ -28,20 +28,46 @@ A higher level summary of changes as well as non-requirement impacting
 changes can be found below.
 
 **New Features**
-    - Added R-17528 to Heat section regarding Nested YAML requirements
+    - Updated the Security requirements in Chapter 4 (Added, Removed, Reworded,
+      or Moved)
+    - Created new cybersecurity section in Chapter 4
+    - Changed the theme of the documents
+    - Moved Requirements list from Chapter 8 to Chapter 9
+    - Added a downloadable, dynamic JSON of all requirements, separated by
+      versions.  This is available on the Requirements List page.
+    - Updated the hierarchy and moved the VNF Requirements to a higher level in
+      the doc project
+    - Updated and created new wiki material on how to contribute
+    - Created enumerated requirements for TOSCA
+    - Updated Heat requirements
+    - Created new section for PNF Plug-and-Play with associated requirements
+    - Updated Management requirements
+    - Updated section for VES support
+    - Introduced new directive for requirements to use metadata
+    - Update test description annex
 
 **Bug Fixes**
+    - Fixed typos
+    - Fixed broken links
+    - Fixing formatting in examples to print properly
+    - Fixed formatting of tables
 
 **Known Issues**
+    - Links that refer to "latest" version are static.  Please report
+      any broken links.
 
 **Security Issues**
     - None
 
 **Upgrade Notes**
+    - If you would like to add requirements, you **MUST** follow
+      `instructions on Wiki <https://wiki.onap.org/display/DW/VNFRQTS+How+to+Contribute>`__.
 
 **Deprecation Notes**
+    - None
 
 **Other**
+    - None
 
 Version: 2.0.0
 --------------
@@ -124,7 +150,7 @@ Version: 1.0.0
     - None
 
 **Known Issues**
-    - `VNFRQTS-83 Chapter 5, Section B Requirements <https://jira.onap.org/browse/VNFRQTS-83>`_.
+    - `VNFRQTS-83 Chapter 5, Section B Requirements <https://jira.onap.org/browse/VNFRQTS-83>`__.
 
     - Heat requirements have not been formatted into the standard
       format used throughout the document.
@@ -150,4 +176,3 @@ Version: 1.0.0
 ===========
 
 End of Release Notes
-

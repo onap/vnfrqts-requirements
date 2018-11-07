@@ -150,6 +150,8 @@ class DifferenceFinder:
                     "id": r_id,
                     "description": current_text,
                     "sections": sections,
+                    "introduced": self.current_requirements[r_id].get("introduced"),
+                    "updated": self.current_requirements[r_id].get("updated")
                 }
         return result
 

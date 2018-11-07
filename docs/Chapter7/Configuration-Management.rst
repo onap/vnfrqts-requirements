@@ -405,6 +405,7 @@ NETCONF Server Requirements
     :id: R-90007
     :target: XNF
     :keyword: MUST
+    :updated: casablanca
 
     The xNF **MUST** implement the protocol operation:
     ``close-session()`` - Gracefully close the current session.
@@ -413,6 +414,7 @@ NETCONF Server Requirements
     :id: R-70496
     :target: XNF
     :keyword: MUST
+    :updated: casablanca
 
     The xNF **MUST** implement the protocol operation:
     ``commit(confirmed, confirm-timeout)`` - Commit candidate
@@ -422,6 +424,7 @@ NETCONF Server Requirements
     :id: R-18733
     :target: XNF
     :keyword: MUST
+    :updated: casablanca
 
     The xNF **MUST** implement the protocol operation:
     ``discard-changes()`` - Revert the candidate configuration
@@ -431,6 +434,7 @@ NETCONF Server Requirements
     :id: R-44281
     :target: XNF
     :keyword: MUST
+    :updated: casablanca
 
     The xNF **MUST** implement the protocol operation:
     ``edit-config(target, default-operation, test-option, error-option,
@@ -451,6 +455,7 @@ NETCONF Server Requirements
     :id: R-29488
     :target: XNF
     :keyword: MUST
+    :updated: casablanca
 
     The xNF **MUST** implement the protocol operation:
     ``get-config(source, filter`` - Retrieve a (filtered subset of
@@ -460,6 +465,7 @@ NETCONF Server Requirements
     :id: R-11235
     :target: XNF
     :keyword: MUST
+    :updated: casablanca
 
     The xNF **MUST** implement the protocol operation:
     ``kill-session(session``- Force the termination of **session**.
@@ -468,6 +474,7 @@ NETCONF Server Requirements
     :id: R-02597
     :target: XNF
     :keyword: MUST
+    :updated: casablanca
 
     The xNF **MUST** implement the protocol operation:
     ``lock(target)`` - Lock the configuration data store target.
@@ -476,6 +483,7 @@ NETCONF Server Requirements
     :id: R-96554
     :target: XNF
     :keyword: MUST
+    :updated: casablanca
 
     The xNF **MUST** implement the protocol operation:
     ``unlock(target)`` - Unlock the configuration data store target.
@@ -484,6 +492,7 @@ NETCONF Server Requirements
     :id: R-29324
     :target: XNF
     :keyword: SHOULD
+    :updated: casablanca
 
     The xNF **SHOULD** implement the protocol operation:
     ``copy-config(target, source)`` - Copy the content of the
@@ -493,6 +502,7 @@ NETCONF Server Requirements
     :id: R-88031
     :target: XNF
     :keyword: SHOULD
+    :updated: casablanca
 
     The xNF **SHOULD** implement the protocol operation:
     ``delete-config(target)`` - Delete the named configuration
@@ -1080,6 +1090,7 @@ Chef Roles/Requirements
     :id: R-26567
     :target: XNF
     :keyword: MUST
+    :updated: casablanca
 
     The xNF Package **MUST** include a run list of
     roles/cookbooks/recipes, for each supported xNF action, that will
@@ -1338,6 +1349,7 @@ Ansible Client Requirements
     :id: R-91745
     :target: XNF
     :keyword: MUST
+    :updated: casablanca
 
     The xNF **MUST** update the Ansible Server and other entities
     storing and using the SSH keys for authentication when the SSH
@@ -1410,6 +1422,7 @@ complete the desired action.
     :id: R-49751
     :target: XNF
     :keyword: MUST
+    :introduced: casablanca
 
     The xNF **MUST** support Ansible playbooks that are compatible with
     Ansible version 2.6 or later. 
@@ -1674,7 +1687,7 @@ performs a full xNF health check.
     :id: R-24189
     :target: XNF
     :keyword: SHOULD
-    :updated: casablanca
+    :introduced: casablanca
 
     The xNF provider **MUST** deliver a new set of playbooks that includes
     all updated and unchanged playbooks for any new revision to an existing
@@ -1685,6 +1698,7 @@ performs a full xNF health check.
     :target: XNF
     :keyword: SHOULD
     :updated: casablanca
+    :introduced: casablanca
 
     The xNF provider **MUST** assign a new point release to the updated
     playbook set. The functionality of a new playbook set must be tested before
