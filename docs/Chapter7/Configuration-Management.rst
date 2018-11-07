@@ -31,6 +31,7 @@ by the xNF. The following sections describe the standard protocols
 that are supported (NETCONF, Chef, Ansible, and REST).
 
 The commands below are expected to be supported on all xNF's, unless
+The commands below are expected to be supported on all xNF's, unless
 noted otherwise, either directly (via the NETCONF or REST interface)
 or indirectly (via a Chef Cookbook or Ansible server).
 

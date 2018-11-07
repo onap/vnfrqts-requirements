@@ -134,6 +134,15 @@ Resource Description
 
     The VNF package MUST provide `VES Event Registration <https://onap.readthedocs.io/en/latest/submodules/vnfsdk/model.git/docs/files/VESEventRegistration.html>`_ for all VES events provided by that xNF.
 
+.. req::
+   :id: R-384337
+   :target: VNF
+   :keyword: MUST
+   :introduced: casablanca
+
+   The VNF documentation **MUST** contain a list of the files within the VNF
+   package that are static during the VNF's runtime.
+
 
 Resource Configuration
 ^^^^^^^^^^^^^^^^^^^^^^^

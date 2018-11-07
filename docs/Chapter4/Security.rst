@@ -184,12 +184,17 @@ the product's lifecycle.
     SSH, SFTP.
 
 .. req::
-    :id: R-35144
-    :target: VNF
-    :keyword: MUST
+   :id: R-872986
+   :target: VNF
+   :keyword: MUST
+   :introduced: casablanca
 
-    The VNF **MUST**, if not using the NCSP's IDAM API, comply
-    with the NCSP's credential management policy.
+   The VNF **MUST** store Authentication Credentials used to authenticate to
+   other systems encrypted except where there is a technical need to store
+   the password unencrypted in which case it must be protected using other
+   security techniques that include the use of file and directory permissions.
+   Ideally, credentials SHOULD rely on a HW Root of Trust, such as a
+   TPM or HSM.
 
 .. req::
     :id: R-80335
@@ -357,14 +362,6 @@ Identity and Access Management Requirements
     user requires elevated permissions such as root or admin.
 
 .. req::
-    :id: R-64503
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST** provide minimum privileges for initial
-    and default settings for new user accounts.
-
-.. req::
     :id: R-86835
     :target: VNF
     :keyword: MUST
@@ -450,6 +447,15 @@ Identity and Access Management Requirements
     characters that may have command functions, and (6) new passwords must
     not contain sequences of three or more characters from the previous
     password.
+
+.. req::
+   :id: R-844011
+   :target: VNF
+   :keyword: MUST
+   :introduced: casablanca
+
+   The VNF MUST not store authentication credentials to itself in clear
+   text or any reversible form and must use salting.
 
 .. req::
     :id: R-79107
@@ -1013,6 +1019,15 @@ Security Analytics Requirements
 
    The VNF **SHOULD** provide the capability of maintaining the integrity of
    its static files using a cryptographic method.
+
+.. req::
+   :id: R-859208
+   :target: VNF
+   :keyword: MUST
+   :introduced: casablanca
+
+   The VNF **MUST** log automated remote activities performed with
+   elevated privileges.
 
 VNF Data Protection Requirements
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
