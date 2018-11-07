@@ -132,7 +132,8 @@ Resource Description
     :introduced: casablanca
     :validation_mode: static
 
-    The VNF package MUST provide `VES Event Registration <https://onap.readthedocs.io/en/latest/submodules/vnfsdk/model.git/docs/files/VESEventRegistration.html>`_ for all VES events provided by that xNF.
+    The VNF package MUST provide :doc:`VES Event Registration <../../../../vnfsdk/module.git/files/VESEventRegistration_3_0>`
+    for all VES events provided by that xNF.
 
 .. req::
    :id: R-384337
