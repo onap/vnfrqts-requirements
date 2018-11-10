@@ -10,7 +10,7 @@ ONAP Heat Heat Template Constructs
 .. _Nested Heat Templates:
 
 Nested Heat Templates
-^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^
 
 ONAP supports nested Heat templates per the OpenStack specifications.
 Nested templates may be suitable for larger VNFs that contain many
@@ -21,7 +21,7 @@ either statically by repeated definition or dynamically by using the
 resource OS::Heat::ResourceGroup.
 
 Nested Heat Template Requirements
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ONAP supports nested Heat Orchestration Templates.
 
@@ -189,7 +189,7 @@ array from the perspective of the parent template.
     **MUST NOT** contain an ``OS::Nova::Server`` resource.
 
 Nested Heat Template Example: Static
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 incremental.yaml
 
@@ -252,10 +252,10 @@ nested.yaml
       metadata:
         vnf_id: { get_param: vnf_id }
         vf_module_id: { get_param: vf_module_id }
-        vnf_name {get_param: vnf_name }
+        vnf_name: {get_param: vnf_name }
 
 Use of Heat ResourceGroup
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The OS::Heat::ResourceGroup is a useful Heat element for creating
 multiple instances of a given resource or collection of resources.
@@ -315,7 +315,7 @@ You can then reference within the nested template as:
 { get_param: [names, {get_param: index} ] }
 
 OS::Heat::ResourceGroup Property count
-++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++
 
 
 .. req::
@@ -345,7 +345,7 @@ This is required for ONAP to build the TOSCA model for the VNF.
         index: index
 
 Availability Zone and ResourceGroups
-++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++
 
 The resource OS::Heat::ResourceGroup and the property availability_zone
 has been an "issue" with a few VNFs since ONAP only supports
@@ -439,12 +439,12 @@ az_list_generate.yaml
         { get_param: availability_zone_0 },
         { get_param: availability_zone_1 },
         { get_param: availability_zone_0 },
-        { get_param: availability_zone_1 },
+        { get_param: availability_zone_1 }
   ]
 
 
 Nested Heat Template Example: OS::Heat::ResourceGroup
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 In this example, ocgapp_volume.yml creates volumes using a
 OS::Heat::ResourceGroup that uses nested heat by calling
@@ -597,7 +597,7 @@ ocgapp.yml
         instance_uuid: {get_resource: ocgapp_server_1}
 
 External References
-^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^
 
 Heat templates *must not* reference any HTTP-based resource
 definitions, any HTTP-based nested configurations, or any HTTP-based
@@ -626,7 +626,7 @@ information. The purpose of using an URI is to give the namespace a
 unique name.
 
 Heat Files Support (get_file)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Heat Templates may contain the inclusion of text files into Heat
 templates via the Heat get_file directive. This may be used, for
@@ -691,7 +691,7 @@ must be in a single, flat directory.
         * in a VNF's Heat Orchestration Templates nested YAML file
 
 Key Pairs
-^^^^^^^^^^
+^^^^^^^^^
 
 When Nova Servers are created via Heat templates, they may be passed a
 "keypair" which provides an ssh key to the 'root' login on the newly
@@ -756,7 +756,7 @@ of lb (for load balancer)):*
         save_private_key: false
 
 Security Groups
-^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^
 
 OpenStack allows a tenant to create Security groups and define rules
 within the security groups.
@@ -771,7 +771,7 @@ network or it can vary by VM (i.e., {vm-type}) and network type (i.e.,
 {network-role}).
 
 Anti-Affinity and Affinity Rules
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Anti-affinity or affinity rules are supported using normal OpenStack
 OS::Nova::ServerGroup resources. Separate ServerGroups are typically
@@ -828,7 +828,7 @@ balancer and db for database.
         group: {get_resource: lb_server_group}
 
 Resource Data Synchronization
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 For cases where synchronization is required in the orchestration of Heat
 resources, two approaches are recommended:
@@ -893,5 +893,3 @@ oam server.
         volume_id: {get_param: oam_vol_1}
         mountpoint: /dev/vdb
         instance_uuid: {get_resource: oam_server_01}
-
-
