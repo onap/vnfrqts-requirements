@@ -164,17 +164,13 @@ Template's ``OS::Nova::Server`` Resource ``metadata`` map value parameter
 ``environment_context`` is passed into a Nested YAML file, the parameter
 name ``environment_context`` **MUST NOT** change.
 
-With nested templates, outputs are required to expose any resource
-properties of the child templates to the parent template. Those would
-not explicitly be declared as parameters but simply referenced as
-``get_attribute`` targets against the "parent" resource.
-
-A parameter declared in the outputs: section of a nested template can
-be accessed from the parent template as an attribute (i.e., via
-``get_attr``) of the "pseudo resource" whose type is in the nested
-template. In the case of a ``OS::Heat::ResourceGroup``, an output will be
-an attribute of the ``OS::Heat::ResourceGroup`` itself, and will be an
-array from the perspective of the parent template.
+If a VNF's Heat Orchestration Template's nested YAML file is
+required to expose a resource property to the invoking Heat Orchestration
+Template, an ``outputs:`` statement
+must be used in the nested YAML file.  The invoking template
+references the property by using the intrinsic function ``get_attr``
+that targets the resource invoking the nested YAML file and references
+the parameter defined in the ``outputs`` section.
 
 .. req::
     :id: R-17528
