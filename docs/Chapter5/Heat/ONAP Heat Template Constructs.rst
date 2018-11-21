@@ -79,16 +79,6 @@ As stated in requirement :need:`R-99646`, a VNF's YAML files
 (i.e, Heat Orchestration Template files and Nested files) **MUST**
 have a unique name in the scope of the VNF.
 
-.. req::
-    :id: R-52530
-    :target: VNF
-    :keyword: MUST
-    :validation_mode: static
-    :updated: casablanca
-
-    A VNF's Heat Orchestration Template's Nested YAML file
-    **MUST** be in the same directory hierarchy as the VNF's Heat
-    Orchestration Templates.
 
 .. req::
     :id: R-90022
@@ -624,13 +614,12 @@ unique name.
 Heat Files Support (get_file)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Heat Templates may contain the inclusion of text files into Heat
-templates via the Heat get_file directive. This may be used, for
-example, to define a common "user-data" script, or to inject files into
-a VM on startup via the "personality" property.
+A VNF's Heat Orchestration Template may contain the inclusion of text files 
+containing scripts or configuration files.  The ``get_file`` intrinsic
+function returns the content of a file into a Heat Orchestration Template.
 
-Support for Heat Files is subject to the following limitations:
-
+The support for the ``get_file`` intrinsic function in ECOMP is subject to the
+following limitations:
 
 .. req::
     :id: R-76718
@@ -643,9 +632,9 @@ Support for Heat Files is subject to the following limitations:
     ``get_file``, the ``get_file`` target **MUST** be referenced in
     the Heat Orchestration Template by file name.
 
-The ``get_file`` target files are on-boarded to SDC in the same package
+The ``get_file`` target files are on-boarded to SDC in the same zip file
 that contains the VNF's complete Heat Orchestration Template.
-
+See requirement R-511776. 
 
 .. req::
     :id: R-41888
@@ -657,21 +646,6 @@ that contains the VNF's complete Heat Orchestration Template.
     A VNF's Heat Orchestration Template intrinsic function
     ``get_file`` **MUST NOT** utilize URL-based file retrieval.
 
-.. req::
-    :id: R-87848
-    :target: VNF
-    :keyword: MUST
-    :validation_mode: static
-    :updated: casablanca
-
-    When using the intrinsic function get_file, ONAP does not support
-    a directory hierarchy for included files. All files must be in a
-    single, flat directory per VNF. A VNF's Heat Orchestration
-    Template's ``get_file`` target files **MUST** be in the same
-    directory hierarchy as the VNF's Heat Orchestration Templates.
-
-ONAP does not support a hierarchical structure.  A VNF's YAML files
-must be in a single, flat directory.
 
 .. req::
     :id: R-05050

@@ -1,6 +1,5 @@
 {
-    "created": "2018-11-21T20:39:47.043717",
-    "current_version": "dublin",
+    "created": "2018-11-26T20:46:04.913880",
     "project": "",
     "versions": {
         "beijing": {
@@ -45910,7 +45909,7 @@
             "needs_amount": 789
         },
         "dublin": {
-            "created": "2018-11-21T20:39:47.043717",
+            "created": "2018-11-26T20:46:04.913866",
             "needs": {
                 "R-00011": {
                     "description": "A VNF's Heat Orchestration Template's parameter defined\nin a nested YAML file\n**MUST NOT** have a parameter constraint defined.",
@@ -54889,6 +54888,38 @@
                     "validated_by": "",
                     "validation_mode": ""
                 },
+                "R-348813": {
+                    "description": "The VNF's Heat Orchestration Template's ZIP file **MUST NOT** include\na binary image file.",
+                    "docname": "Chapter5/Heat/ONAP Heat Orchestration Templates Overview",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-348813",
+                    "impacts": "",
+                    "introduced": "",
+                    "is_need": true,
+                    "is_part": false,
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "parts": {},
+                    "section_name": "ONAP VNF On-Boarding",
+                    "sections": [
+                        "ONAP VNF On-Boarding",
+                        "ONAP Heat Orchestration Templates Overview"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": ""
+                },
                 "R-34957": {
                     "description": "The VNF **MUST** provide a method of metrics gathering for each\nlayer's performance to identify/document variances in the allocations so\nthey can be addressed.",
                     "docname": "Chapter4/Resiliency",
@@ -59277,6 +59308,38 @@
                     "title_from_content": "",
                     "type_name": "Requirement",
                     "updated": "casablanca",
+                    "validated_by": "",
+                    "validation_mode": ""
+                },
+                "R-511776": {
+                    "description": "When a VNF's Heat Orchestration Template is ready\nto be on-boarded to ONAP,\nall files composing the VNF Heat Orchestration Template\n**MUST** be placed in a flat (i.e., non-hierarchical) directory and\narchived using ZIP.  The resulting ZIP file is uploaded into ONAP.",
+                    "docname": "Chapter5/Heat/ONAP Heat Orchestration Templates Overview",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-511776",
+                    "impacts": "",
+                    "introduced": "",
+                    "is_need": true,
+                    "is_part": false,
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "parts": {},
+                    "section_name": "ONAP VNF On-Boarding",
+                    "sections": [
+                        "ONAP VNF On-Boarding",
+                        "ONAP Heat Orchestration Templates Overview"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
                     "validated_by": "",
                     "validation_mode": ""
                 },
