@@ -786,20 +786,3 @@ ONAP implementation does not support the Environment File resource_registry
 section.  The resource_registry section allows for the definition of custom
 resources.
 
-SDC Treatment of Environment Files
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Parameter values enumerated in the environment file are used by SDC as
-the default value. However, the SDC user may use the SDC GUI to
-overwrite the default values in the environment file.
-
-SDC generates a new environment file for distribution to MSO based on
-the uploaded environment file and the user provided GUI updates. The
-user uploaded environment file is discarded when the new file is
-created.
-
-ONAP has requirements for what parameters must be enumerated in the
-environment file and what parameter must not be enumerated in the
-environment file. See :ref:`Output Parameters` and
-:ref:`ONAP Heat Resource ID and Parameter Naming Convention` for more details.
-

@@ -575,3 +575,41 @@ Orchestration Template at orchestration time.
     A VNF's Heat Orchestration Template's parameter values that are constant
     across all deployments **MUST** be declared in a Heat Orchestration
     Template Environment File.
+
+ONAP VNF On-Boarding
+^^^^^^^^^^^^^^^^^^^^
+
+.. req::
+    :id: R-511776
+    :keyword: MUST
+
+    When a VNF's Heat Orchestration Template is ready
+    to be on-boarded to ONAP,
+    all files composing the VNF Heat Orchestration Template
+    **MUST** be placed in a flat (i.e., non-hierarchical) directory and
+    archived using ZIP.  The resulting ZIP file is uploaded into ONAP.
+
+The VNF's Heat Orchestration Template's ZIP file must include
+the base module YAML file (R-37028) and corresponding environment file
+(R-38474).  
+
+The VNF's Heat Orchestration Template's ZIP file **MAY** include
+
+* One or more incremental module YAML files (R-13196) and corresponding
+  environment files (R-81725).
+* One or more volume module YAML files (R-03251) and corresponding 
+  environment files (R-53433). 
+* One or more nested YAML files (R-36582, R-56721, R-30395).
+* One or more files that are retrieved via the intrinsic function
+  ``get_file``.  The ``get_file`` function returns the content of a file
+  into a Heat Orchestration Template. It is generally used as a file
+  inclusion mechanism for files containing scripts or configuration files.
+  (See Section 9.3)
+
+.. req::
+    :id: R-348813
+    :keyword: MUST
+
+    The VNF's Heat Orchestration Template's ZIP file **MUST NOT** include
+    a binary image file.
+
