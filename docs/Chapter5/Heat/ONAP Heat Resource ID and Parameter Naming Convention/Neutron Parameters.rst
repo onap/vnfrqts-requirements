@@ -85,19 +85,6 @@ Items to Note
     or **MUST** have statically assigned IP addresses.
 
 .. req::
-    :id: R-07577
-    :target: VNF
-    :keyword: MUST
-    :validation_mode: static
-    :updated: casablanca
-
-    If the VNF's ports connected to a unique network (internal or external)
-    and the port's IP addresses are cloud assigned IP Addresses,
-    all the IPv4 Addresses **MUST** be from
-    the same subnet and all the IPv6 Addresses **MUST** be from the
-    same subnet.
-
-.. req::
     :id: R-45602
     :target: VNF
     :keyword: MUST NOT
@@ -1048,6 +1035,10 @@ The property ``fixed_ips`` is used to assign IPs to a port. The Map Property
 
       * ``{network-role}`` is the network role of the network.
 
+
+Note that ONAP only supports cloud assigned IP addresses from one IPv4 subnet
+of a given network.
+
 .. req::
     :id: R-83677
     :target: VNF
@@ -1099,6 +1090,9 @@ value at orchestration to the Heat Orchestration Template.
     where
 
       * ``{network-role}`` is the network role of the network.
+
+Note that ONAP only supports cloud assigned IP addresses from one IPv6 subnet
+of a given network.
 
 .. req::
     :id: R-80829
