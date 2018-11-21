@@ -1,5 +1,6 @@
 {
     "created": "2018-11-26T20:46:04.913880",
+    "current_version": "dublin",
     "project": "",
     "versions": {
         "beijing": {
@@ -47668,6 +47669,39 @@
                     "validated_by": "",
                     "validation_mode": ""
                 },
+                "R-07577": {
+                    "description": "If the VNF's ports connected to a unique network (internal or external)\nand the port's IP addresses are cloud assigned IP Addresses,\nall the IPv4 Addresses **MUST** be from\nthe same subnet and all the IPv6 Addresses **MUST** be from the\nsame subnet.",
+                    "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Neutron Parameters",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-07577",
+                    "impacts": "",
+                    "introduced": "",
+                    "is_need": true,
+                    "is_part": false,
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "parts": {},
+                    "section_name": "Items to Note",
+                    "sections": [
+                        "Items to Note",
+                        "Introduction",
+                        "Resource: OS::Neutron::Port - Parameters"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "VNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "casablanca",
+                    "validated_by": "",
+                    "validation_mode": "static"
+                },
                 "R-07617": {
                     "description": "The VNF **MUST** log success and unsuccessful creation, removal, or\nchange to the inherent privilege level of users.",
                     "docname": "Chapter4/Security",
@@ -63206,6 +63240,39 @@
                     "validated_by": "",
                     "validation_mode": ""
                 },
+                "R-681859": {
+                    "description": "A VNF's Heat Orchestration Template's ``OS::Neutron::Port`` resource's\n\n* Resource ID (defined in R-20453)\n* property ``network`` parameter name (defined in R-62983 and\n  R-86182)\n* property ``fixed_ips``, map property ``ip_address`` parameter name\n  (defined in R-40971, R-04697, R-71577, R-23503, R-78380, R-85235,\n  R-27818, and R-29765)\n* property ``fixed_ips``, map property ``subnet`` parameter name\n  (defined in R-62802, R-15287, R-84123, R-76160)\n* property ``allowed_address_pairs`` parameter name (defined in\n  R-41492 and R-83418)\n\n**MUST** contain the identical ``{network-role}``.",
+                    "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Neutron Parameters",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-681859",
+                    "impacts": "",
+                    "introduced": "",
+                    "is_need": true,
+                    "is_part": false,
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "parts": {},
+                    "section_name": "Items to Note",
+                    "sections": [
+                        "Items to Note",
+                        "Introduction",
+                        "Resource: OS::Neutron::Port - Parameters"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": ""
+                },
                 "R-68198": {
                     "description": "A VNF's Heat Orchestration template's Environment File's\n``parameters:`` section **MAY** (or **MAY NOT**) enumerate parameters.",
                     "docname": "Chapter5/Heat/ONAP Heat Orchestration Template Format",
@@ -71567,7 +71634,7 @@
                     "validation_mode": "static"
                 }
             },
-            "needs_amount": 788
+            "needs_amount": 790
         }
     }
 }
