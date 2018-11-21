@@ -165,6 +165,25 @@ Items to Note
     * property ``fixed_ips`` map property ``subnet``
       **MUST NOT** be used
 
+.. req::
+    :id: R-681859
+    :keyword: MUST
+
+    A VNF's Heat Orchestration Template's ``OS::Neutron::Port`` resource's
+
+    * Resource ID (defined in R-20453)
+    * property ``network`` parameter name (defined in R-62983 and
+      R-86182)
+    * property ``fixed_ips``, map property ``ip_address`` parameter name
+      (defined in R-40971, R-04697, R-71577, R-23503, R-78380, R-85235,
+      R-27818, and R-29765)
+    * property ``fixed_ips``, map property ``subnet`` parameter name
+      (defined in R-62802, R-15287, R-84123, R-76160)
+    * property ``allowed_address_pairs`` parameter name (defined in 
+      R-41492 and R-83418)
+    
+    **MUST** contain the identical ``{network-role}``.
+
 Property: network
 ^^^^^^^^^^^^^^^^^^
 
