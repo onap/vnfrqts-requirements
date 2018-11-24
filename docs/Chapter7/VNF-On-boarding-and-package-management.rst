@@ -127,12 +127,12 @@ Resource Description
 
 .. req::
     :id: R-22346
-    :target: VNF PACKAGE
+    :target: XNF PACKAGE
     :keyword: MUST
     :introduced: casablanca
     :validation_mode: static
 
-    The VNF package MUST provide :doc:`VES Event Registration <../../../../vnfsdk/module.git/files/VESEventRegistration_3_0>`
+    The xNF package MUST provide :doc:`VES Event Registration <../../../../vnfsdk/module.git/files/VESEventRegistration_3_0>`
     for all VES events provided by that xNF.
 
 .. req::
