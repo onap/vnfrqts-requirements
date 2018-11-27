@@ -60,15 +60,6 @@ deployed incrementally to create the complete VNF.
     A VNF **MAY** be composed of zero to many Incremental Modules.
 
 .. req::
-    :id: R-20974
-    :target: VNF
-    :keyword: MUST
-    :updated: casablanca
-
-    At orchestration time, the VNF's Base Module **MUST**
-    be deployed first, prior to any incremental modules.
-
-.. req::
     :id: R-28980
     :target: VNF
     :keyword: MAY
@@ -591,14 +582,14 @@ ONAP VNF On-Boarding
 
 The VNF's Heat Orchestration Template's ZIP file must include
 the base module YAML file (R-37028) and corresponding environment file
-(R-38474).  
+(R-38474).
 
 The VNF's Heat Orchestration Template's ZIP file **MAY** include
 
 * One or more incremental module YAML files (R-13196) and corresponding
   environment files (R-81725).
-* One or more volume module YAML files (R-03251) and corresponding 
-  environment files (R-53433). 
+* One or more volume module YAML files (R-03251) and corresponding
+  environment files (R-53433).
 * One or more nested YAML files (R-36582, R-56721, R-30395).
 * One or more files that are retrieved via the intrinsic function
   ``get_file``.  The ``get_file`` function returns the content of a file

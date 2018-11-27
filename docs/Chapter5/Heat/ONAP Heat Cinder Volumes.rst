@@ -49,7 +49,7 @@ Module unless the Output Parameter is of the type ``comma_delimited_list``,
 then the corresponding input parameter **MUST** be declared as type ``json``.
 
 A volume template must define ``outputs`` for each Cinder volume resource
-universally unique identifier (UUID) (i.e. ECOMP Volume Template Output
+universally unique identifier (UUID) (i.e. ONAP Volume Template Output
 Parameters.
 
 -  The VNF Incremental Module or Base Module must define input

@@ -234,7 +234,7 @@ instance_ip_address*
 
 The property instance_ip_address uses the same parameter naming
 convention as the property fixed_ips and Map Property ip_address in
-OS::Neutron::Port. The resource is assigning an ECOMP SDN-C Assigned IP
+OS::Neutron::Port. The resource is assigning an ONAP SDN-C Assigned IP
 Address. The {network-role} has been defined as oam_protected to
 represent an oam protected network and the {vm-type} has been defined as
 fw for firewall.

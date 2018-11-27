@@ -58,40 +58,6 @@ independently of VNFs.
     use the port for the purpose of reaching VMs in the same VNF.
 
 .. req::
-    :id: R-69014
-    :target: VNF
-    :keyword: MUST
-    :validation_mode: static
-    :updated: casablanca
-
-    When a VNF connects to an external network, a network role, referred to
-    as the ``{network-role}`` **MUST** be assigned to the external network for
-    use in the VNF's Heat Orchestration Template.
-
-.. req::
-    :id: R-05201
-    :target: VNF
-    :keyword: MUST
-    :validation_mode: static
-    :updated: casablanca
-
-    When a VNF connects to two or more external networks, each external
-    network **MUST** be assigned a unique ``{network-role}``
-    in the context of the VNF for use in the VNF's Heat Orchestration
-    Template.
-
-.. req::
-    :id: R-83015
-    :target: VNF
-    :keyword: MUST
-    :validation_mode: static
-    :updated: casablanca
-
-    A VNF's ``{network-role}`` assigned to an external network **MUST**
-    be different than the ``{network-role}`` assigned to the VNF's
-    internal networks, if internal networks exist.
-
-.. req::
     :id: R-99794
     :target: VNF
     :keyword: MUST
@@ -101,33 +67,9 @@ independently of VNFs.
     An external network **MUST** have one subnet. An external network
     **MAY** have more than one subnet.
 
-Note that this document refers to ``{network-role}`` which in reality
-is the ``{network-role-tag}``.  The value of the
-``{network-role}`` / ``{network-role-tag}``
-is determined by the designer of the VNF's Heat Orchestration Template and
-there is no requirement for ``{network-role}`` / ``{network-role-tag}``
-uniqueness across Heat Orchestration Templates for
-different VNFs.
-
-When an external network is created by ONAP, the network is assigned a
-``{network-role}``.  The ``{network-role}`` of the network is not required to
-match the ``{network-role}`` of the VNF Heat Orchestration Template.
-
-For example, the VNF Heat Orchestration Template can assign a
-``{network-role}``
-of ``oam`` to a network which attaches to an external network with a
-``{network-role}`` of ``oam_protected_1`` .
-
-When the Heat Orchestration Template is on-boarded into ONAP
-  * each ``{network-role}`` value in the Heat Orchestration Template
-    is mapped to the ``{network-role-tag}`` in the ONAP
-    data structure.
-  * each ``OS::Neutron::Port`` is associated with the external network it is
-    connecting to, thus creating the VNF Heat Orchestration Template
-    ``{network-role}`` / ``{network-role-tag}``
-    to external network ``{network-role}`` mapping.
-
-ONAP enforces a naming convention for parameters associated with
+ONAP enforces a naming convention for
+resource IDs and resource property
+parameters associated with
 external networks. :ref:`ONAP Heat Resource ID and Parameter Naming Convention`
 provides additional details.
 
@@ -193,39 +135,6 @@ Contrail Heat Resources.
     for the purpose of reaching VMs in another VNF and/or an
     external gateway and/or
     external router.
-
-.. req::
-    :id: R-68936
-    :target: VNF
-    :keyword: MUST
-    :validation_mode: static
-    :updated: casablanca
-
-    When a VNF creates an internal network, a network role, referred to as
-    the ``{network-role}`` **MUST** be assigned to the internal network
-    for use in the VNF's Heat Orchestration Template.
-
-.. req::
-    :id: R-32025
-    :target: VNF
-    :keyword: MUST
-    :validation_mode: static
-    :updated: casablanca
-
-    When a VNF creates two or more internal networks, each internal
-    network **MUST** be assigned a unique ``{network-role}`` in the context
-    of the VNF for use in the VNF's Heat Orchestration Template.
-
-.. req::
-    :id: R-69874
-    :target: VNF
-    :keyword: MUST
-    :validation_mode: static
-    :updated: casablanca
-
-    A VNF's ``{network-role}`` assigned to an internal network **MUST**
-    be different than the ``{network-role}`` assigned to the VNF's external
-    networks.
 
 .. req::
     :id: R-16241

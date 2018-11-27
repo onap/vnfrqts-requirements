@@ -62,27 +62,15 @@ This will be described in the forth coming sections.
 Items to Note
 ~~~~~~~~~~~~~~
 
-.. req::
-    :id: R-93272
-    :target: VNF
-    :keyword: MAY
-    :updated: casablanca
+A VNF **MAY** have one or more ports connected to a unique
+external network. All VNF ports connected to the unique external
+network **MUST** have cloud assigned IP Addresses
+or **MUST** have ONAP SDN-C assigned IP addresses.
 
-    A VNF **MAY** have one or more ports connected to a unique
-    external network. All VNF ports connected to the unique external
-    network **MUST** have cloud assigned IP Addresses
-    or **MUST** have ONAP SDN-C assigned IP addresses.
-
-.. req::
-    :id: R-13841
-    :target: VNF
-    :keyword: MAY
-    :updated: casablanca
-
-    A VNF **MAY** have one or more ports connected to a unique
-    internal network. All VNF ports connected to the unique internal
-    network **MUST** have cloud assigned IP Addresses
-    or **MUST** have statically assigned IP addresses.
+A VNF **MAY** have one or more ports connected to a unique
+internal network. All VNF ports connected to the unique internal
+network **MUST** have cloud assigned IP Addresses
+or **MUST** have statically assigned IP addresses.
 
 .. req::
     :id: R-45602
