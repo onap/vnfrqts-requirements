@@ -22,7 +22,7 @@ As stated in :need:`R-33132`, a VNF's Heat Orchestration Template **MAY** be
      3. a Cinder Volume Module Heat Orchestration Template (referred to as
         Cinder Volume  Module).
 
-As stated in :need:`R-20974`, at orchestration time, the VNF's Base
+At orchestration time, the VNF's Base
 Module **MUST** be deployed first, prior to any incremental modules.
 
 As stated in :need:`R-28980`, :need:`R-86926`, and :need:`R-91497`, a
@@ -36,11 +36,8 @@ As stated in :need:`R-68122`, a VNF's incremental module **MAY** be deployed
 more than once, either during initial VNF deployment and/or scale out
 
 As stated in :need:`R-37028` and :need:`R-13196`, a VNF **MUST** be composed
-of one Base Module and *MAY** be composed of zero to many Incremental
+of one Base Module and **MAY** be composed of zero to many Incremental
 Modules.
-
-As stated in :need:`R-20974`, at orchestration time, the VNF's Base Module
-**MUST** be deployed first, prior to any incremental modules.
 
 ONAP also supports the concept of an optional, independently deployed
 Cinder volume via a separate Heat Orchestration Templates, referred to
@@ -73,12 +70,12 @@ Incremental Module.
     exposed by declaring a parameter in the
     ``outputs`` section of the base module.
 
-    For ECOMP to provided the UUID value of the shared resource to the
+    For ONAP to provided the UUID value of the shared resource to the
     incremental module, the parameter name defined in the ``outputs``
     section of the base module **MUST** be defined as a parameter
     in the ``parameters`` section of the incremental module.
 
-    ECOMP will capture the output parameter name and value in the base module
+    ONAP will capture the output parameter name and value in the base module
     and provide the value to the corresponding parameter(s) in the
     incremental module(s).
 

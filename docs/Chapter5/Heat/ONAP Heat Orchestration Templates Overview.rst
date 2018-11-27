@@ -60,15 +60,6 @@ deployed incrementally to create the complete VNF.
     A VNF **MAY** be composed of zero to many Incremental Modules.
 
 .. req::
-    :id: R-20974
-    :target: VNF
-    :keyword: MUST
-    :updated: casablanca
-
-    At orchestration time, the VNF's Base Module **MUST**
-    be deployed first, prior to any incremental modules.
-
-.. req::
     :id: R-28980
     :target: VNF
     :keyword: MAY

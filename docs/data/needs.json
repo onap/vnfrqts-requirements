@@ -1,5 +1,5 @@
 {
-    "created": "2018-11-26T20:46:04.913880",
+    "created": "2018-11-27T18:42:30.067398",
     "current_version": "dublin",
     "project": "",
     "versions": {
@@ -45910,7 +45910,7 @@
             "needs_amount": 789
         },
         "dublin": {
-            "created": "2018-11-26T20:46:04.913866",
+            "created": "2018-11-27T18:42:30.067379",
             "needs": {
                 "R-00011": {
                     "description": "A VNF's Heat Orchestration Template's parameter defined\nin a nested YAML file\n**MUST NOT** have a parameter constraint defined.",
@@ -47279,8 +47279,8 @@
                     "validation_mode": ""
                 },
                 "R-05201": {
-                    "description": "When a VNF connects to two or more external networks, each external\nnetwork **MUST** be assigned a unique ``{network-role}``\nin the context of the VNF for use in the VNF's Heat Orchestration\nTemplate.",
-                    "docname": "Chapter5/Heat/ONAP Heat Networking",
+                    "description": "When a VNF connects to two or more unique networks, each\nnetwork **MUST** be assigned a unique ``{network-role}``\nin the context of the VNF for use in the VNF's Heat Orchestration\nTemplate.",
+                    "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/{network-role}",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-05201",
@@ -47292,10 +47292,9 @@
                     "links": [],
                     "notes": "",
                     "parts": {},
-                    "section_name": "External Networks",
+                    "section_name": "{network-role}",
                     "sections": [
-                        "External Networks",
-                        "ONAP Heat Networking"
+                        "{network-role}"
                     ],
                     "status": null,
                     "tags": [],
@@ -47668,39 +47667,6 @@
                     "updated": "",
                     "validated_by": "",
                     "validation_mode": ""
-                },
-                "R-07577": {
-                    "description": "If the VNF's ports connected to a unique network (internal or external)\nand the port's IP addresses are cloud assigned IP Addresses,\nall the IPv4 Addresses **MUST** be from\nthe same subnet and all the IPv6 Addresses **MUST** be from the\nsame subnet.",
-                    "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Neutron Parameters",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-07577",
-                    "impacts": "",
-                    "introduced": "",
-                    "is_need": true,
-                    "is_part": false,
-                    "keyword": "MUST",
-                    "links": [],
-                    "notes": "",
-                    "parts": {},
-                    "section_name": "Items to Note",
-                    "sections": [
-                        "Items to Note",
-                        "Introduction",
-                        "Resource: OS::Neutron::Port - Parameters"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "casablanca",
-                    "validated_by": "",
-                    "validation_mode": "static"
                 },
                 "R-07617": {
                     "description": "The VNF **MUST** log success and unsuccessful creation, removal, or\nchange to the inherent privilege level of users.",
@@ -49102,39 +49068,6 @@
                     "title_from_content": "",
                     "type_name": "Requirement",
                     "updated": "",
-                    "validated_by": "",
-                    "validation_mode": ""
-                },
-                "R-13841": {
-                    "description": "A VNF **MAY** have one or more ports connected to a unique\ninternal network. All VNF ports connected to the unique internal\nnetwork **MUST** have cloud assigned IP Addresses\nor **MUST** have statically assigned IP addresses.",
-                    "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Neutron Parameters",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-13841",
-                    "impacts": "",
-                    "introduced": "",
-                    "is_need": true,
-                    "is_part": false,
-                    "keyword": "MAY",
-                    "links": [],
-                    "notes": "",
-                    "parts": {},
-                    "section_name": "Items to Note",
-                    "sections": [
-                        "Items to Note",
-                        "Introduction",
-                        "Resource: OS::Neutron::Port - Parameters"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -50830,38 +50763,6 @@
                     "validated_by": "",
                     "validation_mode": "static"
                 },
-                "R-20974": {
-                    "description": "At orchestration time, the VNF's Base Module **MUST**\nbe deployed first, prior to any incremental modules.",
-                    "docname": "Chapter5/Heat/ONAP Heat Orchestration Templates Overview",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-20974",
-                    "impacts": "",
-                    "introduced": "",
-                    "is_need": true,
-                    "is_part": false,
-                    "keyword": "MUST",
-                    "links": [],
-                    "notes": "",
-                    "parts": {},
-                    "section_name": "ONAP VNF Modularity Overview",
-                    "sections": [
-                        "ONAP VNF Modularity Overview",
-                        "ONAP Heat Orchestration Templates Overview"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "casablanca",
-                    "validated_by": "",
-                    "validation_mode": ""
-                },
                 "R-21210": {
                     "description": "The VNF **MUST** implement the following input validation control\non APIs: Validate that any input file has a correct and valid\nMultipurpose Internet Mail Extensions (MIME) type. Input files\nshould be tested for spoofed MIME types.",
                     "docname": "Chapter4/Security",
@@ -51182,7 +51083,7 @@
                     "validation_mode": "static"
                 },
                 "R-22346": {
-                    "description": "The VNF package MUST provide :doc:`VES Event Registration <../../../../vnfsdk/module.git/files/VESEventRegistration_3_0>`\nfor all VES events provided by that xNF.",
+                    "description": "The xNF package MUST provide :doc:`VES Event Registration <../../../../vnfsdk/module.git/files/VESEventRegistration_3_0>`\nfor all VES events provided by that xNF.",
                     "docname": "Chapter7/VNF-On-boarding-and-package-management",
                     "full_title": "",
                     "hide_links": "",
@@ -51202,7 +51103,7 @@
                     ],
                     "status": null,
                     "tags": [],
-                    "target": "VNF PACKAGE",
+                    "target": "XNF PACKAGE",
                     "test": "",
                     "test_case": "",
                     "test_file": "",
@@ -53754,7 +53655,7 @@
                     "validation_mode": ""
                 },
                 "R-304011": {
-                    "description": "A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource's\n\n* Resource ID\n* property ``image`` parameter name\n* property ``flavor`` parameter name\n* property ``name`` parameter name\n\n\n**MUST** contain the identical ``{vm-type}``\nand **MUST** follow the naming conventions defined\nin R-58670, R-45188, R-54171, R-87817, and R-29751.",
+                    "description": "A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource's\n\n* Resource ID (defined in R-29751)\n* property ``image`` parameter name (defined in R-58670)\n* property ``flavor`` parameter name (defined in R-45188)\n* property ``name`` parameter name (defined in R-54171 & R-87817)\n* property port referenced OS::Neutron::Port Resource ID\n  (defined in R-58670)\n\n**MUST** contain the identical ``{vm-type}``\nand **MUST** follow the naming conventions defined\nin R-58670, R-45188, R-54171, R-87817, and R-29751.  And the ``{index}`` in\nthe ``OS::Nova::Server`` Resource ID (defined in R-29751) **MUST** match\nthe ``{vm-type_index}`` defined in\nthe ``OS::Nova::Server`` property ``port``\nreferenced ``OS::Neutron::Port`` Resource ID.",
                     "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Nova Parameters",
                     "full_title": "",
                     "hide_links": "",
@@ -54044,38 +53945,6 @@
                     "updated": "",
                     "validated_by": "",
                     "validation_mode": ""
-                },
-                "R-32025": {
-                    "description": "When a VNF creates two or more internal networks, each internal\nnetwork **MUST** be assigned a unique ``{network-role}`` in the context\nof the VNF for use in the VNF's Heat Orchestration Template.",
-                    "docname": "Chapter5/Heat/ONAP Heat Networking",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-32025",
-                    "impacts": "",
-                    "introduced": "",
-                    "is_need": true,
-                    "is_part": false,
-                    "keyword": "MUST",
-                    "links": [],
-                    "notes": "",
-                    "parts": {},
-                    "section_name": "Internal Networks",
-                    "sections": [
-                        "Internal Networks",
-                        "ONAP Heat Networking"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "casablanca",
-                    "validated_by": "",
-                    "validation_mode": "static"
                 },
                 "R-32094": {
                     "description": "A VNF's Heat Orchestration Template parameter declaration **MAY**\ncontain the attribute ``label:``.",
@@ -56344,38 +56213,6 @@
                     "updated": "",
                     "validated_by": "",
                     "validation_mode": "none"
-                },
-                "R-40899": {
-                    "description": "When the VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``\nproperty ``name`` parameter is defined as a ``string``, a parameter\n**MUST** be delcared for\neach ``OS::Nova::Server`` resource associated with the ``{vm-type}``.",
-                    "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Nova Parameters",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-40899",
-                    "impacts": "",
-                    "introduced": "",
-                    "is_need": true,
-                    "is_part": false,
-                    "keyword": "MUST",
-                    "links": [],
-                    "notes": "",
-                    "parts": {},
-                    "section_name": "Property: Name",
-                    "sections": [
-                        "Property: Name",
-                        "Resource: OS::Nova::Server - Parameters"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "casablanca",
-                    "validated_by": "",
-                    "validation_mode": "static"
                 },
                 "R-40971": {
                     "description": "When the VNF's Heat Orchestration Template's Resource\n``OS::Neutron::Port`` is attaching to an external network (per the\nONAP definition, see Requirement R-57424),\nand an IPv4 address is assigned\nusing the property ``fixed_ips``\nmap property ``ip_address`` and the parameter type is defined as a string,\nthe parameter name **MUST** follow the\nnaming convention\n\n  * ``{vm-type}_{network-role}_ip_{index}``\n\n  where\n\n  * ``{vm-type}`` is the {vm-type} associated with the\n    ``OS::Nova::Server``\n  * ``{network-role}`` is the {network-role} of the external\n    network\n  * the value for ``{index}`` must start at zero (0) and increment by one",
@@ -59604,39 +59441,6 @@
                     "validated_by": "",
                     "validation_mode": ""
                 },
-                "R-52530": {
-                    "description": "A VNF's Heat Orchestration Template's Nested YAML file\n**MUST** be in the same directory hierarchy as the VNF's Heat\nOrchestration Templates.",
-                    "docname": "Chapter5/Heat/ONAP Heat Template Constructs",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-52530",
-                    "impacts": "",
-                    "introduced": "",
-                    "is_need": true,
-                    "is_part": false,
-                    "keyword": "MUST",
-                    "links": [],
-                    "notes": "",
-                    "parts": {},
-                    "section_name": "Nested Heat Template Requirements",
-                    "sections": [
-                        "Nested Heat Template Requirements",
-                        "Nested Heat Templates",
-                        "ONAP Heat Heat Template Constructs"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "casablanca",
-                    "validated_by": "",
-                    "validation_mode": "static"
-                },
                 "R-52753": {
                     "description": "VNF's Heat Orchestration Template's Base Module's output parameter's\nname and type **MUST** match the VNF's Heat Orchestration Template's\nincremental Module's name and type unless the output parameter is of\ntype ``comma_delimited_list``, then the corresponding input parameter\n**MUST** be declared as type ``json``.",
                     "docname": "Chapter5/Heat/ONAP Heat Orchestration Templates Overview",
@@ -61616,7 +61420,7 @@
                     "validation_mode": ""
                 },
                 "R-61001": {
-                    "description": "A shared Heat Orchestration Template resource is a resource that **MUST**\nbe defined in the base module and will be referenced by one or\nmore resources in one or more incremental modules.\n\nThe UUID of the shared resource (created in the base module) **MUST** be\nexposed by declaring a parameter in the\n``outputs`` section of the base module.\n\nFor ECOMP to provided the UUID value of the shared resource to the\nincremental module, the parameter name defined in the ``outputs``\nsection of the base module **MUST** be defined as a parameter\nin the ``parameters`` section of the incremental module.\n\nECOMP will capture the output parameter name and value in the base module\nand provide the value to the corresponding parameter(s) in the\nincremental module(s).",
+                    "description": "A shared Heat Orchestration Template resource is a resource that **MUST**\nbe defined in the base module and will be referenced by one or\nmore resources in one or more incremental modules.\n\nThe UUID of the shared resource (created in the base module) **MUST** be\nexposed by declaring a parameter in the\n``outputs`` section of the base module.\n\nFor ONAP to provided the UUID value of the shared resource to the\nincremental module, the parameter name defined in the ``outputs``\nsection of the base module **MUST** be defined as a parameter\nin the ``parameters`` section of the incremental module.\n\nONAP will capture the output parameter name and value in the base module\nand provide the value to the corresponding parameter(s) in the\nincremental module(s).",
                     "docname": "Chapter5/Heat/ONAP Heat VNF Modularity",
                     "full_title": "",
                     "hide_links": "",
@@ -63404,38 +63208,6 @@
                     "validated_by": "",
                     "validation_mode": ""
                 },
-                "R-68936": {
-                    "description": "When a VNF creates an internal network, a network role, referred to as\nthe ``{network-role}`` **MUST** be assigned to the internal network\nfor use in the VNF's Heat Orchestration Template.",
-                    "docname": "Chapter5/Heat/ONAP Heat Networking",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-68936",
-                    "impacts": "",
-                    "introduced": "",
-                    "is_need": true,
-                    "is_part": false,
-                    "keyword": "MUST",
-                    "links": [],
-                    "notes": "",
-                    "parts": {},
-                    "section_name": "Internal Networks",
-                    "sections": [
-                        "Internal Networks",
-                        "ONAP Heat Networking"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "casablanca",
-                    "validated_by": "",
-                    "validation_mode": "static"
-                },
                 "R-68990": {
                     "description": "The xNF **MUST** support the ``:startup`` capability. It\nwill allow the running configuration to be copied to this special\ndatabase. It can also be locked and unlocked.",
                     "docname": "Chapter7/Configuration-Management",
@@ -63471,8 +63243,8 @@
                     "validation_mode": ""
                 },
                 "R-69014": {
-                    "description": "When a VNF connects to an external network, a network role, referred to\nas the ``{network-role}`` **MUST** be assigned to the external network for\nuse in the VNF's Heat Orchestration Template.",
-                    "docname": "Chapter5/Heat/ONAP Heat Networking",
+                    "description": "When a VNF's port connects to an internal network or external network,\na network role, referred to\nas the ``{network-role}`` **MUST** be assigned to the network for\nuse in the VNF's Heat Orchestration Template.  The ``{network-role}``\nis used in the VNF's Heat Orchestration Template resource IDs\nand resource property parameter names.",
+                    "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/{network-role}",
                     "full_title": "",
                     "hide_links": "",
                     "id": "R-69014",
@@ -63484,10 +63256,9 @@
                     "links": [],
                     "notes": "",
                     "parts": {},
-                    "section_name": "External Networks",
+                    "section_name": "{network-role}",
                     "sections": [
-                        "External Networks",
-                        "ONAP Heat Networking"
+                        "{network-role}"
                     ],
                     "status": null,
                     "tags": [],
@@ -63758,38 +63529,6 @@
                     "updated": "",
                     "validated_by": "",
                     "validation_mode": "in_service"
-                },
-                "R-69874": {
-                    "description": "A VNF's ``{network-role}`` assigned to an internal network **MUST**\nbe different than the ``{network-role}`` assigned to the VNF's external\nnetworks.",
-                    "docname": "Chapter5/Heat/ONAP Heat Networking",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-69874",
-                    "impacts": "",
-                    "introduced": "",
-                    "is_need": true,
-                    "is_part": false,
-                    "keyword": "MUST",
-                    "links": [],
-                    "notes": "",
-                    "parts": {},
-                    "section_name": "Internal Networks",
-                    "sections": [
-                        "Internal Networks",
-                        "ONAP Heat Networking"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "casablanca",
-                    "validated_by": "",
-                    "validation_mode": "static"
                 },
                 "R-69877": {
                     "description": "The xNF Package **MUST** include documentation for each KPI,\nidentify the suggested actions that need to be performed when a\nthreshold crossing alert event is recorded.",
@@ -66678,38 +66417,6 @@
                     "validated_by": "",
                     "validation_mode": ""
                 },
-                "R-83015": {
-                    "description": "A VNF's ``{network-role}`` assigned to an external network **MUST**\nbe different than the ``{network-role}`` assigned to the VNF's\ninternal networks, if internal networks exist.",
-                    "docname": "Chapter5/Heat/ONAP Heat Networking",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-83015",
-                    "impacts": "",
-                    "introduced": "",
-                    "is_need": true,
-                    "is_part": false,
-                    "keyword": "MUST",
-                    "links": [],
-                    "notes": "",
-                    "parts": {},
-                    "section_name": "External Networks",
-                    "sections": [
-                        "External Networks",
-                        "ONAP Heat Networking"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "casablanca",
-                    "validated_by": "",
-                    "validation_mode": "static"
-                },
                 "R-83146": {
                     "description": "The xNF **MUST** support APPC ``StopApplication`` command.",
                     "docname": "Chapter7/Configuration-Management",
@@ -67503,38 +67210,6 @@
                     "section_name": "Resource Property \u201cname\u201d",
                     "sections": [
                         "Resource Property \u201cname\u201d"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "casablanca",
-                    "validated_by": "",
-                    "validation_mode": "static"
-                },
-                "R-85800": {
-                    "description": "When the VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``\nproperty ``name`` parameter is defined as a ``comma_delimited_list``,\na parameter **MUST** be delcared once for all ``OS::Nova::Server`` resources\nassociated with the ``{vm-type}``.",
-                    "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Nova Parameters",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-85800",
-                    "impacts": "",
-                    "introduced": "",
-                    "is_need": true,
-                    "is_part": false,
-                    "keyword": "MUST",
-                    "links": [],
-                    "notes": "",
-                    "parts": {},
-                    "section_name": "Property: Name",
-                    "sections": [
-                        "Property: Name",
-                        "Resource: OS::Nova::Server - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -68436,38 +68111,6 @@
                     "sections": [
                         "Property: Name",
                         "Resource: OS::Nova::Server - Parameters"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "casablanca",
-                    "validated_by": "",
-                    "validation_mode": "static"
-                },
-                "R-87848": {
-                    "description": "When using the intrinsic function get_file, ONAP does not support\na directory hierarchy for included files. All files must be in a\nsingle, flat directory per VNF. A VNF's Heat Orchestration\nTemplate's ``get_file`` target files **MUST** be in the same\ndirectory hierarchy as the VNF's Heat Orchestration Templates.",
-                    "docname": "Chapter5/Heat/ONAP Heat Template Constructs",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-87848",
-                    "impacts": "",
-                    "introduced": "",
-                    "is_need": true,
-                    "is_part": false,
-                    "keyword": "MUST",
-                    "links": [],
-                    "notes": "",
-                    "parts": {},
-                    "section_name": "Heat Files Support (get_file)",
-                    "sections": [
-                        "Heat Files Support (get_file)",
-                        "ONAP Heat Heat Template Constructs"
                     ],
                     "status": null,
                     "tags": [],
@@ -69817,39 +69460,6 @@
                     "updated": "",
                     "validated_by": "",
                     "validation_mode": "none"
-                },
-                "R-93272": {
-                    "description": "A VNF **MAY** have one or more ports connected to a unique\nexternal network. All VNF ports connected to the unique external\nnetwork **MUST** have cloud assigned IP Addresses\nor **MUST** have ONAP SDN-C assigned IP addresses.",
-                    "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Neutron Parameters",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-93272",
-                    "impacts": "",
-                    "introduced": "",
-                    "is_need": true,
-                    "is_part": false,
-                    "keyword": "MAY",
-                    "links": [],
-                    "notes": "",
-                    "parts": {},
-                    "section_name": "Items to Note",
-                    "sections": [
-                        "Items to Note",
-                        "Introduction",
-                        "Resource: OS::Neutron::Port - Parameters"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "casablanca",
-                    "validated_by": "",
-                    "validation_mode": ""
                 },
                 "R-93443": {
                     "description": "The xNF **MUST** define all data models in YANG [RFC6020],\nand the mapping to NETCONF shall follow the rules defined in this RFC.",
@@ -71634,7 +71244,7 @@
                     "validation_mode": "static"
                 }
             },
-            "needs_amount": 790
+            "needs_amount": 780
         }
     }
 }

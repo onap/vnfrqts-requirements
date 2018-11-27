@@ -618,7 +618,7 @@ A VNF's Heat Orchestration Template may contain the inclusion of text files
 containing scripts or configuration files.  The ``get_file`` intrinsic
 function returns the content of a file into a Heat Orchestration Template.
 
-The support for the ``get_file`` intrinsic function in ECOMP is subject to the
+The support for the ``get_file`` intrinsic function in ONAP is subject to the
 following limitations:
 
 .. req::
