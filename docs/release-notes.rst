@@ -19,7 +19,7 @@ VNF Requirements Release Notes
 Version: 3.0.0
 --------------
 
-:Release Date: In Progress (Casablanca Release)
+:Release Date: 2018-11-30
 
 A detailed summary of all requirement changes per section can be found
 :doc:`here <changes-by-section-casablanca>`.
