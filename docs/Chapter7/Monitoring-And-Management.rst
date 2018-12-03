@@ -874,6 +874,38 @@ Security
     Information (SPI) or certain proprietary data, in addition to applying the
     regular procedures for securing access and delivery.
 
+.. req::
+    :id: R-01427
+    :target: XNF
+    :keyword: MUST
+    :introduced: casablanca
+    :updated: dublin
+
+    The xNF **MUST** support the provisioning of security and authentication
+    parameters (HTTP username and password) in order to be able to authenticate
+    with DCAE (in ONAP).
+
+    Note: In R3, a username and password are used with the DCAE VES Event
+    Listener which are used for HTTP Basic Authentication.
+
+    Note: The configuration management and provisioning software are specific
+    to a vendor architecture.
+
+.. req::
+    :id: R-894004
+    :target: XNF
+    :keyword: MUST
+    :introduced: casablanca
+    :updated: dublin
+
+    When the xNF sets up a HTTP or HTTPS connection to the collector, it **MUST**
+    provide a username and password to the DCAE VES Collector for HTTP Basic
+    Authentication.
+
+    Note: HTTP Basic Authentication has 4 steps: Request, Authenticate,
+    Authorization with Username/Password Credentials, and Authentication Status
+    as per RFC7617 and RFC 2617.
+
 Bulk Performance Measurement
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
