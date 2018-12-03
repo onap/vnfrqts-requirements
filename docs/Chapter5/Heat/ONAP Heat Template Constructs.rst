@@ -57,16 +57,10 @@ Module may use nested heat.
     A VNF's Heat Orchestration Template **MUST** have no more than
     two levels of nesting.
 
-.. req::
-    :id: R-70112
-    :target: VNF
-    :keyword: MUST
-    :validation_mode: static
-    :introduced: casablanca
 
-    A VNF's Heat Orchestration Template **MUST** reference a Nested YAML
-    file by name. The use of ``resource_registry`` in the VNF's Heat
-    Orchestration Templates Environment File **MUST NOT** be used.
+A VNF's Heat Orchestration Template must reference a Nested YAML
+file by name. The use of ``resource_registry`` in the VNF's Heat
+Orchestration Templates Environment File must not be used.
 
 Two levels of nesting is defined as follows:  A base module, incremental
 module, or cinder volume module references a nested heat file either

@@ -287,7 +287,7 @@ base.yaml
 
   resources:
     int_oam_network:
-      type: OS::Neutron::Network
+      type: OS::Neutron::Net
       properties:
         name: {… }
   . . .

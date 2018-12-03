@@ -426,15 +426,7 @@ other VNFs.
 
     VNF's Heat Orchestration Template's Base Module's output parameter's
     name and type **MUST** match the VNF's Heat Orchestration Template's
-    incremental Module's name and type unless the output parameter is of
-    type ``comma_delimited_list``, then the corresponding input parameter
-    **MUST** be declared as type ``json``.
-
-If the Output parameter has a comma_delimited_list value (e.g., a collection
-of UUIDs from a Resource Group), then the corresponding input parameter must
-be declared as type ``json`` and not a ``comma_delimited_list``,
-which is actually a string value with embedded commas.
-
+    incremental Module's name and type.
 
 .. req::
     :id: R-22608
@@ -480,15 +472,7 @@ template is associated with.
 
     A VNF's Heat Orchestration Templates' Cinder Volume Module Output
     Parameter's name and type **MUST** match the input parameter name and type
-    in the corresponding Base Module or Incremental Module unless the Output
-    Parameter is of the type ``comma_delimited_list``, then the corresponding
-    input parameter **MUST** be declared as type ``json``.
-
-If the Output parameter has a comma_delimited_list value (e.g., a collection
-of UUIDs from a Resource Group), then the corresponding input parameter must
-be declared as type json and not a comma_delimited_list, which is actually
-a string value with embedded commas.
-
+    in the corresponding Base Module or Incremental Module.
 
 .. req::
     :id: R-20547

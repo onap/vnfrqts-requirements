@@ -45,8 +45,7 @@ while others **MAY** be included.
 As stated in :need:`R-07443`, a VNF's Heat Orchestration Templates' Cinder
 Volume Module Output Parameter's name and type **MUST** match the input
 parameter name and type in the corresponding Base Module or Incremental
-Module unless the Output Parameter is of the type ``comma_delimited_list``,
-then the corresponding input parameter **MUST** be declared as type ``json``.
+Module.
 
 A volume template must define ``outputs`` for each Cinder volume resource
 universally unique identifier (UUID) (i.e. ONAP Volume Template Output

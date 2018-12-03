@@ -1294,18 +1294,12 @@ Note that the management of the VIP IP addresses (i.e. transferring
 ownership between active and standby VMs) is the responsibility of
 the VNF application.
 
-.. req::
-    :id: R-62300
-    :target: VNF
-    :keyword: MUST
-    :validation_mode: static
-    :updated: casablanca
 
-    If a VNF has two or more ports that require a Virtual IP Address (VIP),
-    a VNF's Heat Orchestration Template's Resource
-    ``OS::Neutron::Port`` property ``allowed_address_pairs``
-    map property ``ip_address`` parameter
-    **MUST** be used.
+If a VNF has two or more ports that require a Virtual IP Address (VIP),
+a VNF's Heat Orchestration Template's Resource
+``OS::Neutron::Port`` property ``allowed_address_pairs``
+map property ``ip_address`` parameter
+must be used.
 
 The ``allowed_address_pairs`` is an optional property. It is not required.
 
