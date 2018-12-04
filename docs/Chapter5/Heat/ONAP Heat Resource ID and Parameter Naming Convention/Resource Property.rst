@@ -25,9 +25,23 @@ some resources do not support the property.
     for a non ``OS::Nova::Server`` resource, the intrinsic function
     ``str_replace`` **MUST** be used in conjunction with the ONAP
     supplied metadata parameter ``vnf_name`` to generate a unique value.
+    Additional data **MAY** be used in the ``str_replace`` construct
+    to generate a unique value.
 
 This approach prevents the enumeration of a unique value for the property
 ``name`` in a per instance environment file.
+
+In most cases the use of the metadata value ``vnf_name`` will create
+a unique property name.  If this does not create a unique value,
+additional dynamic or constant data can be added to the ``str_replace``
+construct.
+
+For example, the Heat Orchestration Template pseudo parameter
+``OS::stack_name`` can be used in the ``str_replace`` construct.
+
+For resources created in a nested heat file invoked by an
+``OS::Heat::ResourceGroup``, the ``index`` can be used to
+construct a unique value.
 
 .. req::
     :id: R-99812
@@ -40,29 +54,7 @@ This approach prevents the enumeration of a unique value for the property
     for a non ``OS::Nova::Server`` resource **MUST NOT** be declared
     in the VNF's Heat Orchestration Template's Environment File.
 
-In most cases the use of the metadata value ``vnf_name`` is required to create
-a unique property name.  If this will not provide a unique value,
-additional options include:
 
- - Using the Heat Orchestration Template pseudo parameter
-   ``OS::stack_name`` in the str_replace construct
- - Resources created in a nested heat file invoked by an
-   ``OS::Heat::ResourceGroup`` can use the ``index`` to construct a unique name
-
-.. req::
-    :id: R-32408
-    :target: VNF
-    :keyword: MUST
-    :validation_mode: static
-    :updated: casablanca
-
-    If a VNF's Heat Orchestration Template property ``name``
-    for a non ``OS::Nova::Server`` resource uses the intrinsic function
-    ``str_replace`` in conjunction with the ONAP
-    supplied metadata parameter ``vnf_name`` and does not create
-    a unique value, additional data **MUST** be used in the
-    ``str_replace`` to create a unique value, such as ``OS::stack_name``
-    and/or the ``OS::Heat::ResourceGroup`` ``index``.
 
 *Example: Property 'name' for resource 'OS::Neutron::SecurityGroup'*
 

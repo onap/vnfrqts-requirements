@@ -7,4 +7,18 @@
 ONAP Heat Support of Environment Files
 -----------------------------------------
 
-<section deleted>
+
+.. req::
+    :id: R-599443
+    :target: VNF
+    :keyword: MUST
+    :validation_mode: static
+    :updated: casablanca
+
+    A parameter enumerated in a
+    VNF's Heat Orchestration Template's environment file **MUST** be declared
+    in the
+    corresponding VNF's Heat Orchestration Template's YAML file's
+    ``parameters:`` section.
+
+Note that this is an ONAP requirement.  This is not required by OpenStack.
