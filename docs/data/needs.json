@@ -1,5 +1,5 @@
 {
-    "created": "2018-11-07T12:53:57.615885",
+    "created": "2018-12-04T20:20:46.241070",
     "current_version": "casablanca",
     "project": "",
     "versions": {
@@ -21858,7 +21858,7 @@
             "needs_amount": 750
         },
         "casablanca": {
-            "created": "2018-11-07T12:53:57.615875",
+            "created": "2018-12-04T20:20:46.241024",
             "needs": {
                 "R-00011": {
                     "description": "A VNF's Heat Orchestration Template's parameter defined\nin a nested YAML file\n**MUST NOT** have a parameter constraint defined.",
@@ -31987,7 +31987,7 @@
                     "validation_mode": ""
                 },
                 "R-42018": {
-                    "description": "The xNF Package **MUST** include documentation which must include\nall events (fault, measurement for xNF Scaling, Syslogs, State Change\nand Mobile Flow), that need to be collected at each VM, VNFC (defined in `VNF Guidelines <https://onap.readthedocs.io/en/latest/submodules/vnfrqts/guidelines.git/docs/vnf_guidelines/vnf_guidelines.html>`__ ) and for the overall xNF.",
+                    "description": "The xNF Package **MUST** include documentation which must include\nall events (fault, measurement for xNF Scaling, Syslogs, State Change\nand Mobile Flow), that need to be collected at each VM, VNFC (defined in `VNF Guidelines <https://onap.readthedocs.io/en/casablanca/submodules/vnfrqts/guidelines.git/docs/vnf_guidelines.html>`__ ) and for the overall xNF.",
                     "docname": "Chapter7/VNF-On-boarding-and-package-management",
                     "full_title": "",
                     "hide_links": "",
@@ -39524,7 +39524,7 @@
                     "validation_mode": ""
                 },
                 "R-74763": {
-                    "description": "The xNF provider **MUST** provide an artifact per xNF that contains\nall of the xNF Event Records supported. The artifact should include\nreference to the specific release of the xNF Event Stream Common Event\nData Model document it is based on. (e.g.,\n`VES Event Listener <https://onap.readthedocs.io/en/latest/submodules/vnfsdk/model.git/docs/files/VESEventListener.html>`__)",
+                    "description": "The xNF provider **MUST** provide an artifact per xNF that contains\nall of the xNF Event Records supported. The artifact should include\nreference to the specific release of the xNF Event Stream Common Event\nData Model document it is based on. (e.g.,\n`VES Event Listener <https://onap.readthedocs.io/en/casablanca/submodules/vnfsdk/model.git/docs/files/VESEventListener.html>`__)",
                     "docname": "Chapter7/VNF-On-boarding-and-package-management",
                     "full_title": "",
                     "hide_links": "",

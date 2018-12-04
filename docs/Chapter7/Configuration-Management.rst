@@ -351,9 +351,10 @@ Notes:
 
 
 Additional details can be found in the
-`ONAP Application Controller (APPC) API Guide <https://onap.readthedocs.io/en/latest/submodules/appc.git/docs/index.html>`_,
-`ONAP VF-C project <https://onap.readthedocs.io/en/latest/submodules/vfc/nfvo/lcm.git/docs/index.html>`_ and
-the `ONAP SDNC project <https://onap.readthedocs.io/en/latest/submodules/sdnc/oam.git/docs/index.html>`_.
+`ONAP Application Controller (APPC) API Guide <https://onap.readthedocs.io/en/casablanca/submodules/appc.git/docs/index.html>`_,
+`ONAP VF-C project <https://onap.readthedocs.io/en/casablanca/submodules/vfc/nfvo/lcm.git/docs/index.html>`_ and
+the `ONAP SDNC project <https://onap.readthedocs.io/en/casablanca/submodules/sdnc/oam.git/docs/index.html>`_.
+
 
 NETCONF Standards and Capabilities
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
