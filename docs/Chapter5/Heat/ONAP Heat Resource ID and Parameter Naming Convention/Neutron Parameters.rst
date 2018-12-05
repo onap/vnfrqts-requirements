@@ -324,22 +324,21 @@ IPv4 and/or IPv6 addresses.
 
     When the VNF's Heat Orchestration Template's Resource
     ``OS::Neutron::Port`` is attaching to an external network (per the
-    ONAP definition, see Requirement R-57424),
+    ECOMP definition, see Requirement R-57424),
     and an IPv4 address is assigned
     using the property ``fixed_ips``
     map property ``ip_address`` and the parameter type is defined as a string,
     the parameter name **MUST** follow the
     naming convention
 
-      * ``{vm-type}_{network-role}_ip_{index}``
+    * ``{vm-type}_{network-role}_ip_{index}``
 
-      where
+    where
 
-      * ``{vm-type}`` is the {vm-type} associated with the
-        ``OS::Nova::Server``
-      * ``{network-role}`` is the {network-role} of the external
-        network
-      * the value for ``{index}`` must start at zero (0) and increment by one
+    * ``{vm-type}`` is the {vm-type} associated with the ``OS::Nova::Server``
+    * ``{network-role}`` is the {network-role} of the external network
+    * ``{index}`` is a numeric value that **MUST** start at zero in a
+      VNF's Heat Orchestration Template and **MUST** increment by one
 
 .. req::
     :id: R-39841
@@ -432,22 +431,22 @@ Parameter Definition*
 
     When the VNF's Heat Orchestration Template's Resource
     ``OS::Neutron::Port`` is attaching to an external network (per the
-    ONAP definition, see Requirement R-57424),
+    ECOMP definition, see Requirement R-57424),
     and an IPv6 address is assigned
     using the property ``fixed_ips``
     map property ``ip_address`` and the parameter type is defined as a string,
     the parameter name **MUST** follow the
     naming convention
 
-      * ``{vm-type}_{network-role}_v6_ip_{index}``
+    * ``{vm-type}_{network-role}_v6_ip_{index}``
 
-      where
+    where
 
-      * ``{vm-type}`` is the {vm-type} associated with the
-        OS::Nova::Server
-      * ``{network-role}`` is the {network-role} of the external
-        network
-      * the value for ``{index}`` must start at zero (0) and increment by one
+    * ``{vm-type}`` is the {vm-type} associated with the
+      ``OS::Nova::Server``
+    * ``{network-role}`` is the {network-role} of the external network
+    * ``{index}`` is a numeric value that **MUST** start at zero in a
+      VNF's Heat Orchestration Template and **MUST** increment by one
 
 .. req::
     :id: R-87123
@@ -540,7 +539,7 @@ Definition*
 
     When the VNF's Heat Orchestration Template's Resource
     ``OS::Neutron::Port`` is attaching to an internal network (per the
-    ONAP definition, see Requirements R-52425 and R-46461),
+    ECOMP definition, see Requirements R-52425 and R-46461),
     and an IPv4 address is assigned
     using the property ``fixed_ips``
     map property ``ip_address`` and the parameter type is
@@ -548,15 +547,15 @@ Definition*
     the parameter name **MUST** follow the
     naming convention
 
-      * ``{vm-type}_int_{network-role}_ip_{index}``
+    * ``{vm-type}_int_{network-role}_ip_{index}``
 
     where
 
-      * ``{vm-type}`` is the {vm-type} associated with the
-        OS::Nova::Server
-      * ``{network-role}`` is the {network-role} of the internal
-        network
-      * the value for ``{index`` must start at zero (0) and increment by one
+    * ``{vm-type}`` is the {vm-type} associated with the
+      ``OS::Nova::Server``
+    * ``{network-role}`` is the {network-role} of the internal network
+    * ``{index}`` is a numeric value that **MUST** start at zero in a
+      VNF's Heat Orchestration Template and **MUST** increment by one
 
 .. req::
     :id: R-28795
@@ -648,7 +647,7 @@ Heat Orchestration Template's Environment File.
 
     When the VNF's Heat Orchestration Template's Resource
     ``OS::Neutron::Port`` is attaching to an internal network (per the
-    ONAP definition, see RRequirements R-52425 and R-46461),
+    ECOMP definition, see Requirements R-52425 and R-46461),
     and an IPv6 address is assigned
     using the property ``fixed_ips``
     map property ``ip_address`` and the parameter type is defined as a
@@ -656,15 +655,14 @@ Heat Orchestration Template's Environment File.
     the parameter name **MUST** follow the
     naming convention
 
-      * ``{vm-type}_int_{network-role}_v6_ip_{index}``
+    * ``{vm-type}_int_{network-role}_v6_ip_{index}``
 
     where
 
-      * ``{vm-type}`` is the {vm-type} associated with the
-        ``OS::Nova::Server``
-      * ``{network-role}`` is the {network-role} of the internal
-        network
-      * the value for ``{index}`` must start at zero (0) and increment by one
+    * ``{vm-type}`` is the {vm-type} associated with the ``OS::Nova::Server``
+    * ``{network-role}`` is the {network-role} of the internal network
+    * ``{index}`` is a numeric value that **MUST** start at zero in a
+      VNF's Heat Orchestration Template and **MUST** increment by one
 
 
 .. req::

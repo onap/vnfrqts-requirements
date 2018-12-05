@@ -243,8 +243,8 @@ Property: Name
     property ``name`` parameter is defined as a ``string``,
     the parameter name **MUST** follow the naming convention
     ``{vm-type}_name_{index}``, where ``{index}`` is a numeric
-    value that starts at
-    zero and increments by one.
+    value that **MUST** start at
+    zero in a VNF Orchestration Template and increments by one.
 
 .. req::
     :id: R-87817
@@ -376,10 +376,13 @@ Property: availability_zone
     :updated: casablanca
 
     The VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``
-    property
-    ``availability_zone`` parameter name **MUST** follow the naming convention
-    ``availability_zone_{index}`` where the ``{index}``
-    **MUST** start at zero and
+    property ``availability_zone`` parameter name 
+    **MUST** follow the naming convention
+    
+    * ``availability_zone_{index}`` 
+
+    where ``{index}`` is a numeric value that **MUST** start at zero
+    in a VNF's Heat Orchestration Templates and **MUST**
     increment by one.
 
 .. req::

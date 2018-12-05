@@ -35,6 +35,13 @@
           ports connecting to the identical networks and requiring the identical
           IP address configuration.
 
+The ``{vm-type}`` will be used in a VNF's Heat Orchestration Template's
+
+* Resource IDs 
+* Resource property parameter names
+
+Requirements in this document will explain it in further detail.
+
 .. req::
     :id: R-82481
     :target: VNF
@@ -55,17 +62,6 @@
      ``vf_module_name``, ``vm_role``,
      ``vf_module_index``, ``environment_context``, ``workload_context``)
      **MUST NOT** be prefixed with a common ``{vm-type}`` identifier.
-
-.. req::
-    :id: R-66729
-    :target: VNF
-    :keyword: MUST
-    :validation_mode: static
-    :updated: casablanca
-
-    A VNF's Heat Orchestration Template's Resource that is associated with a
-    unique Virtual Machine type **MUST** include ``{vm-type}`` as part of the
-    resource ID.
 
 .. req::
     :id: R-98407

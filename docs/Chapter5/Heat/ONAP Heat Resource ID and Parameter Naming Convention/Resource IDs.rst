@@ -130,8 +130,16 @@ Heat Orchestration Template resources are described in :ref:`resources`.
     :updated: casablanca
 
     When a VNF's Heat Orchestration Template's Resource ID contains an
-    ``{index}`` value (e.g. multiple VMs of same ``{vm-type}``), the ``{index}``
-    **MUST** start at zero and increment by one.
+    ``{index}``, the ``{index}`` is a numeric value that **MUST** start at
+    zero and **MUST** increment by one.  
+
+    As stated in R-16447,
+    *a VNF's <resource ID> MUST be unique across all Heat
+    Orchestration Templates and all HEAT Orchestration Template
+    Nested YAML files that are used to create the VNF*.  While the ``{index}``
+    will start at zero in the VNF, the ``{index}`` may not start at zero
+    in a given Heat Orchestration Template or HEAT Orchestration Template
+    Nested YAML file. 
 
 OpenStack Heat Resources Resource ID Naming Convention
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
