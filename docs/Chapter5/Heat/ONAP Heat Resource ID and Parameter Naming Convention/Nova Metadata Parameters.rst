@@ -85,18 +85,6 @@ Template at orchestration time.
     ``metadata`` key/value pair ``vnf_id`` parameter ``vnf_id`` **MUST NOT**
     be enumerated in the Heat Orchestration Template's environment file.
 
-.. req::
-    :id: R-44491
-    :target: VNF
-    :keyword: MUST NOT
-    :validation_mode: static
-    :updated: casablanca
-
-    If a VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
-    property
-    ``metadata`` key/value pair ``vnf_id`` is passed into a Nested YAML
-    file, the key/value pair name ``vnf_id`` **MUST NOT** change.
-
 *Example 'vnf_id' Parameter Definition*
 
 .. code-block:: yaml
@@ -163,21 +151,6 @@ Template at orchestration time.
     ``metadata`` key/value pair ``vf_module_id`` parameter ``vf_module_id``
     **MUST NOT**
     be enumerated in the Heat Orchestration Template's environment file.
-
-
-.. req::
-    :id: R-86237
-    :target: VNF
-    :keyword: MUST NOT
-    :validation_mode: static
-    :updated: casablanca
-
-    If a VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
-    property
-    ``metadata`` key/value pair ``vf_module_id`` is passed into a
-    Nested YAML
-    file, the key/value pair name ``vf_module_id`` **MUST NOT** change.
-
 
 *Example 'vf_module_id' Parameter Definition*
 
@@ -246,18 +219,6 @@ Template at orchestration time.
     ``vnf_name`` **MUST NOT**
     be enumerated in the Heat Orchestration Template's environment file.
 
-.. req::
-    :id: R-16576
-    :target: VNF
-    :keyword: MUST NOT
-    :validation_mode: static
-    :updated: casablanca
-
-
-    If a VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
-    property
-    ``metadata`` key/value pair ``vnf_name`` is passed into a Nested YAML
-    file, the key/value pair name ``vnf_name`` **MUST NOT** change.
 
 *Example 'vnf_name' Parameter Definition*
 
@@ -331,17 +292,6 @@ part of the orchestration process.
     parameter ``vf_module_name`` **MUST NOT**
     be enumerated in the Heat Orchestration Template's environment file.
 
-.. req::
-    :id: R-49177
-    :target: VNF
-    :keyword: MUST
-    :validation_mode: static
-    :updated: casablanca
-
-    If a VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
-    property ``metadata`` key/value pair ``vf_module_name`` is passed into a
-    Nested YAML
-    file, the key/value pair name ``vf_module_name`` **MUST NOT** change.
 
 *Example 'vf_module_name' Parameter Definition*
 
@@ -412,19 +362,6 @@ Defining the ``vm_role`` as the ``{vm-type}`` is a recommended convention
     A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
     property ``metadata`` key/value pair ``vm_role`` value **MUST**
     only contain alphanumeric characters and underscores (i.e., '_').
-
-
-.. req::
-    :id: R-70757
-    :target: VNF
-    :keyword: MUST NOT
-    :validation_mode: static
-    :updated: casablanca
-
-    If a VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
-    property ``metadata`` key/value pair ``vm_role`` is passed into a Nested
-    YAML
-    file, the key/value pair name ``vm_role`` **MUST NOT** change.
 
 
 *Example 'vm_role' Parameter Definition*
@@ -562,18 +499,6 @@ vf_module_index
     be enumerated in the Heat Orchestration Template's environment file.
 
 .. req::
-    :id: R-22441
-    :target: VNF
-    :keyword: MUST NOT
-    :validation_mode: static
-    :updated: casablanca
-
-    If a VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
-    property ``metadata`` key/value pair ``vf_module_index`` is passed into a
-    Nested YAML file, the key/value pair
-    ``vf_module_index`` **MUST NOT** change.
-
-.. req::
     :id: R-55306
     :target: VNF
     :keyword: MUST NOT
@@ -704,19 +629,6 @@ workload_context
     parameter ``workload_context`` **MUST NOT**
     be enumerated in the Heat Orchestration Template's environment file.
 
-.. req::
-    :id: R-75202
-    :target: VNF
-    :keyword: MUST NOT
-    :validation_mode: static
-    :updated: casablanca
-
-    If a VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
-    property ``metadata`` key/value pair ``workload_context``
-    is passed into a Nested YAML
-    file, the key/value pair name ``workload_context`` **MUST NOT** change.
-
-
 The 'workload\_context' parameter value will be chosen by the Service Model
 Distribution context client in VID and will be supplied to the
 Heat Orchestration Template by ONAP at orchestration time.
@@ -800,18 +712,6 @@ environment_context
     property
     ``metadata`` key/value pair ``environment_context`` **MUST NOT**
     be enumerated in the Heat Orchestration Template's environment file.
-
-.. req::
-    :id: R-62954
-    :target: VNF
-    :keyword: MUST NOT
-    :validation_mode: static
-    :updated: casablanca
-
-    If a VNF's Heat Orchestration Template's ``OS::Nova::Server Resource``
-    ``metadata`` map value parameter ``environment_context`` is passed into a
-    Nested YAML
-    file, the parameter name ``environment_context`` **MUST NOT** change.
 
 The 'environment_context' parameter value will be defined by the
 service designer as part of the service model during the SDC
