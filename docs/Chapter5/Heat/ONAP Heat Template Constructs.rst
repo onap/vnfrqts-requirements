@@ -33,6 +33,7 @@ Module may use nested heat.
     :id: R-00228
     :target: VNF
     :keyword: MAY
+    :updated: casablanca
 
     A VNF's Heat Orchestration Template **MAY**
     reference the nested heat statically by repeated definition.
@@ -47,20 +48,22 @@ Module may use nested heat.
     reference the nested heat dynamically using the resource
     ``OS::Heat::ResourceGroup``.
 
+A VNF's Heat Orchestration Template must
+reference a Nested YAML file by name.
+The use of ``resource_registry`` in the VNF's Heat Orchestration Templates
+Environment File must not be used (as stated in R-67231).
+
+As stated in requirement R-99646, a VNF's YAML files
+(i.e, Heat Orchestration Template files and Nested files) **MUST**
+have a unique name in the scope of the VNF.
+
 .. req::
     :id: R-60011
-    :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: casablanca
 
-    A VNF's Heat Orchestration Template **MUST** have no more than
-    two levels of nesting.
-
-
-A VNF's Heat Orchestration Template must reference a Nested YAML
-file by name. The use of ``resource_registry`` in the VNF's Heat
-Orchestration Templates Environment File must not be used.
+    A VNF's Heat Orchestration Template **MUST** have no more than two
+    levels of nesting.
 
 Two levels of nesting is defined as follows:  A base module, incremental
 module, or cinder volume module references a nested heat file either
@@ -69,104 +72,79 @@ The referenced YAML heat file is the first level of nested heat.
 If first level nested YAML file references a nested heat file, that file is
 the second level of nested heat.
 
-As stated in requirement :need:`R-99646`, a VNF's YAML files
-(i.e, Heat Orchestration Template files and Nested files) **MUST**
-have a unique name in the scope of the VNF.
+.. req::
+    :id: R-17528
+    :keyword: MUST
+    :updated: casablanca
 
+    A VNF's Heat Orchestration Template's first level Nested YAML file
+    **MUST NOT** contain more than one ``OS::Nova::Server`` resource.
+    A VNF's Heat Orchestration Template's second level Nested YAML file 
+    **MUST NOT** contain an ``OS::Nova::Server`` resource.  
+
+.. req::
+    :id: R-708564
+    :keyword: MUST
+    :updated: casablanca
+
+    If a VNF's Heat Orchestration Template's resource invokes a nested
+    YAML file, either statically or dynamically, the names of the parameters
+    passed into the nested YAML file **MUST NOT** change.
+
+
+This requirement was introduced with Generic Resource API (GR-API).
+GR-API creates the new VNFC Object.  
+SDN-C matches the ``{vm-type}`` in the ``OS::Nova::Server`` resource in the
+nested YAML file to the corresponding nfc_naming_code.
+If the ``{vm-type}`` name changes when the parameter names are passed into
+the nested YAML file, SDN-C will not be able to match the
+``{vm-type}`` to the nfc_naming_code, breaking the assignment logic
+and ONAP assigns a default value (i.e., "DEFAULT"). 
+Instantiation will succeed with the incorrect VNFC Object 
+(i.e, contains the DEFAULT value).  However, the default VNFC object will
+cause issues for other ONAP applications/features.
+
+
+.. req::
+    :id: R-11041
+    :keyword: MUST
+    :updated: casablanca
+
+    All parameters defined in a VNFs Nested YAML file
+    **MUST**  be passed in as properties of the resource calling
+    the nested yaml file.
 
 .. req::
     :id: R-90022
-    :target: VNF
     :keyword: MAY
+    :updated: casablanca
 
-    A VNF's Nested YAML file **MAY** be invoked more than
-    once by a VNF's Heat Orchestration Template.
+    A VNF's Nested YAML file **MAY** be invoked more than once by
+    a VNF's Heat Orchestration Template.
 
 .. req::
     :id: R-04344
-    :target: VNF
     :keyword: MAY
+    :updated: casablanca
 
     A VNF's Nested YAML file **MAY** be invoked by more than one of
     a VNF's Heat Orchestration Templates (when the VNF is composed of two
     or more Heat Orchestration Templates).
 
-Note that as stated in requirement :need:`R-00011`, a VNF's Heat Orchestration
-Template's Nested YAML file's parameter's **MUST NOT** have a parameter
+Note that as
+stated in requirement R-00011, a VNF's Heat Orchestration Template's
+Nested YAML file's parameter's **SHOULD NOT** have a parameter
 constraint defined.
 
-.. req::
-    :id: R-11041
-    :target: VNF
-    :keyword: MUST
-    :validation_mode: static
-    :updated: casablanca
 
-    All parameters defined in a VNFs Nested YAML file
-    **MUST** be passed in as properties of the resource calling
-    the nested yaml file.
+If a VNF's Heat Orchestration Template's nested YAML file is required to
+expose a resource property to the invoking Heat OrchestrationTemplate,
+an ``outputs:`` statement must be used in the nested YAML file.
+The invoking template references the property by using the intrinsic
+function ``get_attr`` that targets the resource invoking the nested YAML 
+file and references the parameter defined in the ``outputs`` section.
 
-Note that:
 
-As stated in Requirement :need:`R-44491`, if a VNF's Heat Orchestration
-Template's ``OS::Nova::Server`` Resource ``metadata`` map value parameter
-``vnf_id`` is passed into a Nested YAML file, the parameter name
-``vnf_id`` **MUST NOT** change.
-
-As stated in Requirement :need:`R-86237`, if a VNF's Heat Orchestration
-Template's ``OS::Nova::Server`` Resource ``metadata`` map value parameter
-``vf_module_id`` is passed into a Nested YAML file, the parameter name
-``vf_module_id`` **MUST NOT** change.
-
-As stated in Requirement :need:`R-16576`, if a VNF's Heat Orchestration
-Template's ``OS::Nova::Server`` Resource ``metadata`` map value parameter
-``vnf_name`` is passed into a Nested YAML file, the parameter name
-``vnf_name`` **MUST NOT** change.
-
-As stated in Requirement :need:`R-49177`, if a VNF's Heat Orchestration
-Template's ``OS::Nova::Server`` Resource ``metadata`` map value parameter
-``vf_module_name`` is passed into a Nested YAML file, the parameter name
-``vf_module_name`` **MUST NOT** change.
-
-As stated in Requirement :need:`R-70757`, if a VNF's Heat Orchestration
-Template's ``OS::Nova::Server`` Resource ``metadata`` map value parameter
-``vm_role`` is passed into a Nested YAML file, the parameter name
-``vm_role`` **MUST NOT** change.
-
-As stated in Requirement :need:`R-22441`, if a VNF's Heat Orchestration
-Template's ``OS::Nova::Server`` Resource ``metadata`` map value parameter
-``vf_module_index`` is passed into a Nested YAML file, the parameter
-name ``vf_module_index`` **MUST NOT** change.
-
-As stated in Requirement :need:`R-75202`, if a VNF's Heat Orchestration
-Template's ``OS::Nova::Server`` Resource ``metadata`` map value parameter
-``workload_context`` is passed into a Nested YAML file, the parameter
-name ``workload_context`` **MUST NOT** change.
-
-As stated in Requirement :need:`R-62954`, if a VNF's Heat Orchestration
-Template's ``OS::Nova::Server`` Resource ``metadata`` map value parameter
-``environment_context`` is passed into a Nested YAML file, the parameter
-name ``environment_context`` **MUST NOT** change.
-
-If a VNF's Heat Orchestration Template's nested YAML file is
-required to expose a resource property to the invoking Heat Orchestration
-Template, an ``outputs:`` statement
-must be used in the nested YAML file.  The invoking template
-references the property by using the intrinsic function ``get_attr``
-that targets the resource invoking the nested YAML file and references
-the parameter defined in the ``outputs`` section.
-
-.. req::
-    :id: R-17528
-    :target: VNF
-    :keyword: MUST
-    :validation_mode: static
-    :updated: casablanca
-
-    A VNF's Heat Orchestration Template's first level Nested YAML file
-    **MUST NOT** contain more than one ``OS::Nova::Server`` resource.
-    A VNF's Heat Orchestration Template's second level Nested YAML file
-    **MUST NOT** contain an ``OS::Nova::Server`` resource.
 
 Nested Heat Template Example: Static
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -181,34 +159,21 @@ incremental.yaml
       properties:
         dns_image_name: { get_param: dns_image_name }
         dns_flavor_name: { get_param: dns_flavor_name }
-        availability_zone: { get_param: availability_zone_0 }
-        security_group: { get_param: DNS_shared_sec_grp_id }
-        oam_net_id: { get_param: oam_protected_net_id }
-        dns_oam_ip: { get_param: dns_oam_ip_0 }
-        dns_name: { get_param: dns_name_0 }
+        availability_zone_0: { get_param: availability_zone_0 }
+        DNS_shared_sec_grp_id: { get_param: DNS_shared_sec_grp_id }
+        oam_protected_net_id: { get_param: oam_protected_net_id }
+        dns_oam_ip_0: { get_param: dns_oam_ip_0 }
+        dns_name_0: { get_param: dns_name_0 }
         vnf_name: { get_param: vnf_name }
         vnf_id: { get_param: vnf_id }
         vf_module_id: {get_param: vf_module_id}
 
-    dns_server_1:
-      type: nested.yaml
-      properties:
-        dns_image_name: { get_param: dns_image_name }
-        dns_flavor_name: { get_param: dns_flavor_name }
-        availability_zone: { get_param: availability_zone_1 }
-        security_group: { get_param: DNS_shared_sec_grp_id }
-        oam_net_id: { get_param: oam_protected_net_id }
-        dns_oam_ip: { get_param: dns_oam_ip_1 }
-        dns_name: { get_param: dns_name_1 }
-        vnf_name: { get_param: vnf_name }
-        vnf_id: { get_param: vnf_id }
-        vf_module_id: {get_param: vf_module_id}
 
 nested.yaml
 
 .. code-block:: yaml
 
-  dns_oam_0_port:
+  dns_0_oam_protected_port_0:
     type: OS::Neutron::Port
     properties:
       name:
@@ -216,23 +181,22 @@ nested.yaml
           template: VNF_NAME_dns_oam_port
           params:
             VNF_NAME: {get_param: vnf_name}
-      network: { get_param: oam_net_id }
-      fixed_ips: [{ "ip_address": { get_param: dns_oam_ip }}]
-      security_groups: [{ get_param: security_group }]
-
-  dns_servers:
+      network: { get_param: oam_protected_net_id }
+      fixed_ips: [{ "ip_address": { get_param: dns_oam_ip_0 }}]
+      security_groups: [{ get_param: DNS_shared_sec_grp_id }]
+  dns_server_0:
     type: OS::Nova::Server
     properties:
       name: { get_param: dns_names }
       image: { get_param: dns_image_name }
       flavor: { get_param: dns_flavor_name }
-      availability_zone: { get_param: availability_zone }
+      availability_zone: { get_param: availability_zone_0 }
       networks:
-      - port: { get_resource: dns_oam_0_port }
+      - port: { get_resource: ns_0_oam_protected_port_0 }
       metadata:
         vnf_id: { get_param: vnf_id }
         vf_module_id: { get_param: vf_module_id }
-        vnf_name: {get_param: vnf_name }
+        vnf_name {get_param: vnf_name }
 
 Use of Heat ResourceGroup
 ~~~~~~~~~~~~~~~~~~~~~~~~~
