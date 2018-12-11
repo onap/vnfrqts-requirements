@@ -33,3 +33,4 @@ Purpose
       xNFs for compliance with ONAP; ONAP projects such as the VNF
       Validation Project will uses these xNFs requirements to build test
       cases to validate xNFs for compliance with ONAP.
+
