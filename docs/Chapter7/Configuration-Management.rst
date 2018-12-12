@@ -1334,7 +1334,7 @@ Ansible Client Requirements
 
     The xNF **MUST** permit authentication, using root account, only right
     after instantiation and until post-instantiation configuration is
-    completed. 
+    completed.
 
 .. req::
     :id: R-97451
