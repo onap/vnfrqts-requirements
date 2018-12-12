@@ -1341,7 +1341,7 @@ Ansible Client Requirements
     :target: XNF
     :keyword: MUST
     :introduced: casablanca
-    
+
     The xNF **MUST** provide the ability to remove root access once
     post-instantiation configuration (Configure) is completed. 
 

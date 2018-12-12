@@ -1,5 +1,5 @@
 {
-    "created": "2018-12-03T10:32:05.973553",
+    "created": "2018-12-12T19:04:40.917222",
     "current_version": "dublin",
     "project": "",
     "versions": {
@@ -45910,7 +45910,7 @@
             "needs_amount": 789
         },
         "dublin": {
-            "created": "2018-12-03T10:32:05.973520",
+            "created": "2018-12-12T19:04:40.917158",
             "needs": {
                 "R-00011": {
                     "description": "A VNF's Heat Orchestration Template's parameter defined\nin a nested YAML file\n**MUST NOT** have a parameter constraint defined.",
@@ -46071,7 +46071,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -47107,14 +47107,14 @@
                     ],
                     "status": null,
                     "tags": [],
-                    "target": "VNF",
+                    "target": "",
                     "test": "",
                     "test_case": "",
                     "test_file": "",
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -47571,7 +47571,7 @@
                     "validation_mode": ""
                 },
                 "R-07443": {
-                    "description": "A VNF's Heat Orchestration Templates' Cinder Volume Module Output\nParameter's name and type **MUST** match the input parameter name and type\nin the corresponding Base Module or Incremental Module unless the Output\nParameter is of the type ``comma_delimited_list``, then the corresponding\ninput parameter **MUST** be declared as type ``json``.",
+                    "description": "A VNF's Heat Orchestration Templates' Cinder Volume Module Output\nParameter's name and type **MUST** match the input parameter name and type\nin the corresponding Base Module or Incremental Module.",
                     "docname": "Chapter5/Heat/ONAP Heat Orchestration Templates Overview",
                     "full_title": "",
                     "hide_links": "",
@@ -48198,7 +48198,7 @@
                     "validation_mode": "static"
                 },
                 "R-11041": {
-                    "description": "All parameters defined in a VNFs Nested YAML file\n**MUST** be passed in as properties of the resource calling\nthe nested yaml file.",
+                    "description": "All parameters defined in a VNFs Nested YAML file\n**MUST**  be passed in as properties of the resource calling\nthe nested yaml file.",
                     "docname": "Chapter5/Heat/ONAP Heat Template Constructs",
                     "full_title": "",
                     "hide_links": "",
@@ -48219,7 +48219,7 @@
                     ],
                     "status": null,
                     "tags": [],
-                    "target": "VNF",
+                    "target": "",
                     "test": "",
                     "test_case": "",
                     "test_file": "",
@@ -48228,7 +48228,7 @@
                     "type_name": "Requirement",
                     "updated": "casablanca",
                     "validated_by": "",
-                    "validation_mode": "static"
+                    "validation_mode": ""
                 },
                 "R-11168": {
                     "description": "A VNF's Heat Orchestration Template's Resource ID that is associated with\nan external network **MUST** include the ``{network-role}`` as part\nof the resource ID.",
@@ -48429,7 +48429,7 @@
                     "validation_mode": ""
                 },
                 "R-11690": {
-                    "description": "When a VNF's Heat Orchestration Template's Resource ID contains an\n``{index}`` value (e.g. multiple VMs of same ``{vm-type}``), the ``{index}``\n**MUST** start at zero and increment by one.",
+                    "description": "When a VNF's Heat Orchestration Template's Resource ID contains an\n``{index}``, the ``{index}`` is a numeric value that **MUST** start at\nzero and **MUST** increment by one.\n\nAs stated in R-16447,\n*a VNF's <resource ID> MUST be unique across all Heat\nOrchestration Templates and all HEAT Orchestration Template\nNested YAML files that are used to create the VNF*.  While the ``{index}``\nwill start at zero in the VNF, the ``{index}`` may not start at zero\nin a given Heat Orchestration Template or HEAT Orchestration Template\nNested YAML file.",
                     "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Resource IDs",
                     "full_title": "",
                     "hide_links": "",
@@ -49689,38 +49689,6 @@
                     "validated_by": "",
                     "validation_mode": ""
                 },
-                "R-16576": {
-                    "description": "If a VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource\nproperty\n``metadata`` key/value pair ``vnf_name`` is passed into a Nested YAML\nfile, the key/value pair name ``vnf_name`` **MUST NOT** change.",
-                    "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Nova Metadata Parameters",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-16576",
-                    "impacts": "",
-                    "introduced": "",
-                    "is_need": true,
-                    "is_part": false,
-                    "keyword": "MUST NOT",
-                    "links": [],
-                    "notes": "",
-                    "parts": {},
-                    "section_name": "vnf_name",
-                    "sections": [
-                        "vnf_name",
-                        "Resource: OS::Nova::Server Metadata Parameters"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "casablanca",
-                    "validated_by": "",
-                    "validation_mode": "static"
-                },
                 "R-16777": {
                     "description": "The xNF provider **MUST** provide a JSON file for each\nsupported action for the xNF. The JSON file must contain key value\npairs with all relevant values populated with sample data that illustrates\nits usage. The fields and their description are defined in Table B1\nin the Appendix.",
                     "docname": "Chapter7/VNF-On-boarding-and-package-management",
@@ -49873,7 +49841,7 @@
                     ],
                     "status": null,
                     "tags": [],
-                    "target": "VNF",
+                    "target": "",
                     "test": "",
                     "test_case": "",
                     "test_file": "",
@@ -49882,7 +49850,7 @@
                     "type_name": "Requirement",
                     "updated": "casablanca",
                     "validated_by": "",
-                    "validation_mode": "static"
+                    "validation_mode": ""
                 },
                 "R-17624": {
                     "description": "The PNF **MAY** support the optional parameters for Service\nConfiguration Parameters.\n\nNote: These are detailed in the Stage 5 PnP\n\nNote: These parameters are optional, and not all PNFs will support any\nor all of these parameters, it is up to the vendor and service provider\nto ascertain which ones are supported up to an including all of the ones\nthat have been defined. Note: It is expected that there will be a growing\nlist of supported configuration parameters in future releases of ONAP.",
@@ -51146,38 +51114,6 @@
                     "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
-                },
-                "R-22441": {
-                    "description": "If a VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource\nproperty ``metadata`` key/value pair ``vf_module_index`` is passed into a\nNested YAML file, the key/value pair\n``vf_module_index`` **MUST NOT** change.",
-                    "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Nova Metadata Parameters",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-22441",
-                    "impacts": "",
-                    "introduced": "",
-                    "is_need": true,
-                    "is_part": false,
-                    "keyword": "MUST NOT",
-                    "links": [],
-                    "notes": "",
-                    "parts": {},
-                    "section_name": "vf_module_index",
-                    "sections": [
-                        "vf_module_index",
-                        "Resource: OS::Nova::Server Metadata Parameters"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "casablanca",
-                    "validated_by": "",
-                    "validation_mode": "static"
                 },
                 "R-22589": {
                     "description": "A VNF's Heat Orchestration Template parameter declaration\n**MAY** contain the attribute ``immutable:``.",
@@ -52843,7 +52779,7 @@
                     "validation_mode": ""
                 },
                 "R-27818": {
-                    "description": "When the VNF's Heat Orchestration Template's Resource\n``OS::Neutron::Port`` is attaching to an internal network (per the\nONAP definition, see RRequirements R-52425 and R-46461),\nand an IPv6 address is assigned\nusing the property ``fixed_ips``\nmap property ``ip_address`` and the parameter type is defined as a\n``string``,\nthe parameter name **MUST** follow the\nnaming convention\n\n  * ``{vm-type}_int_{network-role}_v6_ip_{index}``\n\nwhere\n\n  * ``{vm-type}`` is the {vm-type} associated with the\n    ``OS::Nova::Server``\n  * ``{network-role}`` is the {network-role} of the internal\n    network\n  * the value for ``{index}`` must start at zero (0) and increment by one",
+                    "description": "When the VNF's Heat Orchestration Template's Resource\n``OS::Neutron::Port`` is attaching to an internal network (per the\nECOMP definition, see Requirements R-52425 and R-46461),\nand an IPv6 address is assigned\nusing the property ``fixed_ips``\nmap property ``ip_address`` and the parameter type is defined as a\n``string``,\nthe parameter name **MUST** follow the\nnaming convention\n\n* ``{vm-type}_int_{network-role}_v6_ip_{index}``\n\nwhere\n\n* ``{vm-type}`` is the {vm-type} associated with the ``OS::Nova::Server``\n* ``{network-role}`` is the {network-role} of the internal network\n* ``{index}`` is a numeric value that **MUST** start at zero in a\n  VNF's Heat Orchestration Template and **MUST** increment by one",
                     "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Neutron Parameters",
                     "full_title": "",
                     "hide_links": "",
@@ -54065,37 +54001,6 @@
                     "section_name": "{vm-type}",
                     "sections": [
                         "{vm-type}"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "casablanca",
-                    "validated_by": "",
-                    "validation_mode": "static"
-                },
-                "R-32408": {
-                    "description": "If a VNF's Heat Orchestration Template property ``name``\nfor a non ``OS::Nova::Server`` resource uses the intrinsic function\n``str_replace`` in conjunction with the ONAP\nsupplied metadata parameter ``vnf_name`` and does not create\na unique value, additional data **MUST** be used in the\n``str_replace`` to create a unique value, such as ``OS::stack_name``\nand/or the ``OS::Heat::ResourceGroup`` ``index``.",
-                    "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Resource Property",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-32408",
-                    "impacts": "",
-                    "introduced": "",
-                    "is_need": true,
-                    "is_part": false,
-                    "keyword": "MUST",
-                    "links": [],
-                    "notes": "",
-                    "parts": {},
-                    "section_name": "Resource Property \u201cname\u201d",
-                    "sections": [
-                        "Resource Property \u201cname\u201d"
                     ],
                     "status": null,
                     "tags": [],
@@ -56216,7 +56121,7 @@
                     "validation_mode": "none"
                 },
                 "R-40971": {
-                    "description": "When the VNF's Heat Orchestration Template's Resource\n``OS::Neutron::Port`` is attaching to an external network (per the\nONAP definition, see Requirement R-57424),\nand an IPv4 address is assigned\nusing the property ``fixed_ips``\nmap property ``ip_address`` and the parameter type is defined as a string,\nthe parameter name **MUST** follow the\nnaming convention\n\n  * ``{vm-type}_{network-role}_ip_{index}``\n\n  where\n\n  * ``{vm-type}`` is the {vm-type} associated with the\n    ``OS::Nova::Server``\n  * ``{network-role}`` is the {network-role} of the external\n    network\n  * the value for ``{index}`` must start at zero (0) and increment by one",
+                    "description": "When the VNF's Heat Orchestration Template's Resource\n``OS::Neutron::Port`` is attaching to an external network (per the\nECOMP definition, see Requirement R-57424),\nand an IPv4 address is assigned\nusing the property ``fixed_ips``\nmap property ``ip_address`` and the parameter type is defined as a string,\nthe parameter name **MUST** follow the\nnaming convention\n\n* ``{vm-type}_{network-role}_ip_{index}``\n\nwhere\n\n* ``{vm-type}`` is the {vm-type} associated with the ``OS::Nova::Server``\n* ``{network-role}`` is the {network-role} of the external network\n* ``{index}`` is a numeric value that **MUST** start at zero in a\n  VNF's Heat Orchestration Template and **MUST** increment by one",
                     "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Neutron Parameters",
                     "full_title": "",
                     "hide_links": "",
@@ -57279,38 +57184,6 @@
                     "section_name": "vnf_name",
                     "sections": [
                         "vnf_name",
-                        "Resource: OS::Nova::Server Metadata Parameters"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "casablanca",
-                    "validated_by": "",
-                    "validation_mode": "static"
-                },
-                "R-44491": {
-                    "description": "If a VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource\nproperty\n``metadata`` key/value pair ``vnf_id`` is passed into a Nested YAML\nfile, the key/value pair name ``vnf_id`` **MUST NOT** change.",
-                    "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Nova Metadata Parameters",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-44491",
-                    "impacts": "",
-                    "introduced": "",
-                    "is_need": true,
-                    "is_part": false,
-                    "keyword": "MUST NOT",
-                    "links": [],
-                    "notes": "",
-                    "parts": {},
-                    "section_name": "vnf_id",
-                    "sections": [
-                        "vnf_id",
                         "Resource: OS::Nova::Server Metadata Parameters"
                     ],
                     "status": null,
@@ -58787,38 +58660,6 @@
                     "validated_by": "",
                     "validation_mode": ""
                 },
-                "R-49177": {
-                    "description": "If a VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource\nproperty ``metadata`` key/value pair ``vf_module_name`` is passed into a\nNested YAML\nfile, the key/value pair name ``vf_module_name`` **MUST NOT** change.",
-                    "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Nova Metadata Parameters",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-49177",
-                    "impacts": "",
-                    "introduced": "",
-                    "is_need": true,
-                    "is_part": false,
-                    "keyword": "MUST",
-                    "links": [],
-                    "notes": "",
-                    "parts": {},
-                    "section_name": "vf_module_name",
-                    "sections": [
-                        "vf_module_name",
-                        "Resource: OS::Nova::Server Metadata Parameters"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "casablanca",
-                    "validated_by": "",
-                    "validation_mode": "static"
-                },
                 "R-49224": {
                     "description": "The VNF **MUST** provide unique traceability of a transaction\nthrough its life cycle to ensure quick and efficient troubleshooting.",
                     "docname": "Chapter4/Resiliency",
@@ -59443,7 +59284,7 @@
                     "validation_mode": ""
                 },
                 "R-52753": {
-                    "description": "VNF's Heat Orchestration Template's Base Module's output parameter's\nname and type **MUST** match the VNF's Heat Orchestration Template's\nincremental Module's name and type unless the output parameter is of\ntype ``comma_delimited_list``, then the corresponding input parameter\n**MUST** be declared as type ``json``.",
+                    "description": "VNF's Heat Orchestration Template's Base Module's output parameter's\nname and type **MUST** match the VNF's Heat Orchestration Template's\nincremental Module's name and type.",
                     "docname": "Chapter5/Heat/ONAP Heat Orchestration Templates Overview",
                     "full_title": "",
                     "hide_links": "",
@@ -59740,7 +59581,7 @@
                     "validation_mode": "static"
                 },
                 "R-54171": {
-                    "description": "When the VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``\nproperty ``name`` parameter is defined as a ``string``,\nthe parameter name **MUST** follow the naming convention\n``{vm-type}_name_{index}``, where ``{index}`` is a numeric\nvalue that starts at\nzero and increments by one.",
+                    "description": "When the VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``\nproperty ``name`` parameter is defined as a ``string``,\nthe parameter name **MUST** follow the naming convention\n``{vm-type}_name_{index}``, where ``{index}`` is a numeric\nvalue that **MUST** start at\nzero in a VNF Orchestration Template and increments by one.",
                     "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Nova Parameters",
                     "full_title": "",
                     "hide_links": "",
@@ -61319,8 +61160,39 @@
                     "validated_by": "",
                     "validation_mode": ""
                 },
+                "R-599443": {
+                    "description": "A parameter enumerated in a\nVNF's Heat Orchestration Template's environment file **MUST** be declared\nin the\ncorresponding VNF's Heat Orchestration Template's YAML file's\n``parameters:`` section.",
+                    "docname": "Chapter5/Heat/ONAP Heat Support of Environment Files",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-599443",
+                    "impacts": "",
+                    "introduced": "",
+                    "is_need": true,
+                    "is_part": false,
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "parts": {},
+                    "section_name": "ONAP Heat Support of Environment Files",
+                    "sections": [
+                        "ONAP Heat Support of Environment Files"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "VNF",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "casablanca",
+                    "validated_by": "",
+                    "validation_mode": "static"
+                },
                 "R-60011": {
-                    "description": "A VNF's Heat Orchestration Template **MUST** have no more than\ntwo levels of nesting.",
+                    "description": "A VNF's Heat Orchestration Template **MUST** have no more than two\nlevels of nesting.",
                     "docname": "Chapter5/Heat/ONAP Heat Template Constructs",
                     "full_title": "",
                     "hide_links": "",
@@ -61341,7 +61213,7 @@
                     ],
                     "status": null,
                     "tags": [],
-                    "target": "VNF",
+                    "target": "",
                     "test": "",
                     "test_case": "",
                     "test_file": "",
@@ -61350,7 +61222,7 @@
                     "type_name": "Requirement",
                     "updated": "casablanca",
                     "validated_by": "",
-                    "validation_mode": "static"
+                    "validation_mode": ""
                 },
                 "R-60106": {
                     "description": "The xNF **MUST** implement the protocol operation:\n``get(filter)`` - Retrieve (a filtered subset of) the running\nconfiguration and device state information. This should include\nthe list of xNF supported schemas.",
@@ -61536,38 +61408,6 @@
                         "OS::ContrailV2::InstanceIp",
                         "Contrail Heat Resources Resource ID Naming Convention",
                         "Resource IDs"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "casablanca",
-                    "validated_by": "",
-                    "validation_mode": "static"
-                },
-                "R-62300": {
-                    "description": "If a VNF has two or more ports that require a Virtual IP Address (VIP),\na VNF's Heat Orchestration Template's Resource\n``OS::Neutron::Port`` property ``allowed_address_pairs``\nmap property ``ip_address`` parameter\n**MUST** be used.",
-                    "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Neutron Parameters",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-62300",
-                    "impacts": "",
-                    "introduced": "",
-                    "is_need": true,
-                    "is_part": false,
-                    "keyword": "MUST",
-                    "links": [],
-                    "notes": "",
-                    "parts": {},
-                    "section_name": "Property: allowed_address_pairs, Map Property: ip_address",
-                    "sections": [
-                        "Property: allowed_address_pairs, Map Property: ip_address",
-                        "Resource: OS::Neutron::Port - Parameters"
                     ],
                     "status": null,
                     "tags": [],
@@ -61775,38 +61615,6 @@
                     "updated": "",
                     "validated_by": "",
                     "validation_mode": ""
-                },
-                "R-62954": {
-                    "description": "If a VNF's Heat Orchestration Template's ``OS::Nova::Server Resource``\n``metadata`` map value parameter ``environment_context`` is passed into a\nNested YAML\nfile, the parameter name ``environment_context`` **MUST NOT** change.",
-                    "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Nova Metadata Parameters",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-62954",
-                    "impacts": "",
-                    "introduced": "",
-                    "is_need": true,
-                    "is_part": false,
-                    "keyword": "MUST NOT",
-                    "links": [],
-                    "notes": "",
-                    "parts": {},
-                    "section_name": "environment_context",
-                    "sections": [
-                        "environment_context",
-                        "Resource: OS::Nova::Server Metadata Parameters"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "casablanca",
-                    "validated_by": "",
-                    "validation_mode": "static"
                 },
                 "R-62983": {
                     "description": "When the VNF's Heat Orchestration Template's Resource\n``OS::Neutron::Port`` is attaching to an external network (per the\nONAP definition, see Requirement R-57424), the\n``network`` parameter name **MUST**\n\n  * follow the naming convention ``{network-role}_net_id`` if the Neutron\n    network UUID value is used to reference the network\n  * follow the naming convention ``{network-role}_net_name`` if the\n    OpenStack network name is used to reference the network.\n\nwhere ``{network-role}`` is the network-role of the external network\nand a ``get_param`` **MUST** be used as the intrinsic function.",
@@ -62586,37 +62394,6 @@
                     "title_from_content": "",
                     "type_name": "Requirement",
                     "updated": "",
-                    "validated_by": "",
-                    "validation_mode": "static"
-                },
-                "R-66729": {
-                    "description": "A VNF's Heat Orchestration Template's Resource that is associated with a\nunique Virtual Machine type **MUST** include ``{vm-type}`` as part of the\nresource ID.",
-                    "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/{vm-type}",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-66729",
-                    "impacts": "",
-                    "introduced": "",
-                    "is_need": true,
-                    "is_part": false,
-                    "keyword": "MUST",
-                    "links": [],
-                    "notes": "",
-                    "parts": {},
-                    "section_name": "{vm-type}",
-                    "sections": [
-                        "{vm-type}"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": "static"
                 },
@@ -63595,39 +63372,6 @@
                     "validated_by": "",
                     "validation_mode": ""
                 },
-                "R-70112": {
-                    "description": "A VNF's Heat Orchestration Template **MUST** reference a Nested YAML\nfile by name. The use of ``resource_registry`` in the VNF's Heat\nOrchestration Templates Environment File **MUST NOT** be used.",
-                    "docname": "Chapter5/Heat/ONAP Heat Template Constructs",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-70112",
-                    "impacts": "",
-                    "introduced": "casablanca",
-                    "is_need": true,
-                    "is_part": false,
-                    "keyword": "MUST",
-                    "links": [],
-                    "notes": "",
-                    "parts": {},
-                    "section_name": "Nested Heat Template Requirements",
-                    "sections": [
-                        "Nested Heat Template Requirements",
-                        "Nested Heat Templates",
-                        "ONAP Heat Heat Template Constructs"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "",
-                    "validated_by": "",
-                    "validation_mode": "static"
-                },
                 "R-70266": {
                     "description": "The xNF **MUST** respond to an ONAP request to deliver the\ncurrent data for any of the record types defined in\n`Event Records - Data Structure Description`_ by returning the requested\nrecord, populated with the current field values. (Currently the defined\nrecord types include fault fields, mobile flow fields, measurements for\nxNF scaling fields, and syslog fields. Other record types will be added\nin the future as they become standardized and are made available.)",
                     "docname": "Chapter7/Monitoring-And-Management",
@@ -63760,38 +63504,6 @@
                     "validated_by": "",
                     "validation_mode": ""
                 },
-                "R-70757": {
-                    "description": "If a VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource\nproperty ``metadata`` key/value pair ``vm_role`` is passed into a Nested\nYAML\nfile, the key/value pair name ``vm_role`` **MUST NOT** change.",
-                    "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Nova Metadata Parameters",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-70757",
-                    "impacts": "",
-                    "introduced": "",
-                    "is_need": true,
-                    "is_part": false,
-                    "keyword": "MUST NOT",
-                    "links": [],
-                    "notes": "",
-                    "parts": {},
-                    "section_name": "vm_role",
-                    "sections": [
-                        "vm_role",
-                        "Resource: OS::Nova::Server Metadata Parameters"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "casablanca",
-                    "validated_by": "",
-                    "validation_mode": "static"
-                },
                 "R-707977": {
                     "description": "When the PNF receives a Service configuration from ONAP, the PNF **MUST**\ncease sending the pnfRegistration VES Event.",
                     "docname": "Chapter7/PNF-Plug-and-Play",
@@ -63821,6 +63533,39 @@
                     "title_from_content": "",
                     "type_name": "Requirement",
                     "updated": "",
+                    "validated_by": "",
+                    "validation_mode": ""
+                },
+                "R-708564": {
+                    "description": "If a VNF's Heat Orchestration Template's resource invokes a nested\nYAML file, either statically or dynamically, the names of the parameters\npassed into the nested YAML file **MUST NOT** change.",
+                    "docname": "Chapter5/Heat/ONAP Heat Template Constructs",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-708564",
+                    "impacts": "",
+                    "introduced": "",
+                    "is_need": true,
+                    "is_part": false,
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "parts": {},
+                    "section_name": "Nested Heat Template Requirements",
+                    "sections": [
+                        "Nested Heat Template Requirements",
+                        "Nested Heat Templates",
+                        "ONAP Heat Heat Template Constructs"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -63954,7 +63699,7 @@
                     "validation_mode": "static"
                 },
                 "R-71577": {
-                    "description": "When the VNF's Heat Orchestration Template's Resource\n``OS::Neutron::Port`` is attaching to an external network (per the\nONAP definition, see Requirement R-57424),\nand an IPv6 address is assigned\nusing the property ``fixed_ips``\nmap property ``ip_address`` and the parameter type is defined as a string,\nthe parameter name **MUST** follow the\nnaming convention\n\n  * ``{vm-type}_{network-role}_v6_ip_{index}``\n\n  where\n\n  * ``{vm-type}`` is the {vm-type} associated with the\n    OS::Nova::Server\n  * ``{network-role}`` is the {network-role} of the external\n    network\n  * the value for ``{index}`` must start at zero (0) and increment by one",
+                    "description": "When the VNF's Heat Orchestration Template's Resource\n``OS::Neutron::Port`` is attaching to an external network (per the\nECOMP definition, see Requirement R-57424),\nand an IPv6 address is assigned\nusing the property ``fixed_ips``\nmap property ``ip_address`` and the parameter type is defined as a string,\nthe parameter name **MUST** follow the\nnaming convention\n\n* ``{vm-type}_{network-role}_v6_ip_{index}``\n\nwhere\n\n* ``{vm-type}`` is the {vm-type} associated with the\n  ``OS::Nova::Server``\n* ``{network-role}`` is the {network-role} of the external network\n* ``{index}`` is a numeric value that **MUST** start at zero in a\n  VNF's Heat Orchestration Template and **MUST** increment by one",
                     "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Neutron Parameters",
                     "full_title": "",
                     "hide_links": "",
@@ -64732,38 +64477,6 @@
                     "validated_by": "",
                     "validation_mode": "static"
                 },
-                "R-75202": {
-                    "description": "If a VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource\nproperty ``metadata`` key/value pair ``workload_context``\nis passed into a Nested YAML\nfile, the key/value pair name ``workload_context`` **MUST NOT** change.",
-                    "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Nova Metadata Parameters",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-75202",
-                    "impacts": "",
-                    "introduced": "",
-                    "is_need": true,
-                    "is_part": false,
-                    "keyword": "MUST NOT",
-                    "links": [],
-                    "notes": "",
-                    "parts": {},
-                    "section_name": "workload_context",
-                    "sections": [
-                        "workload_context",
-                        "Resource: OS::Nova::Server Metadata Parameters"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "casablanca",
-                    "validated_by": "",
-                    "validation_mode": "static"
-                },
                 "R-75343": {
                     "description": "The VNF **MUST** provide the capability of testing the\nvalidity of a digital certificate by recognizing the identity represented\nby the certificate - the \"distinguished name\".",
                     "docname": "Chapter4/Security",
@@ -65381,7 +65094,7 @@
                     "validation_mode": ""
                 },
                 "R-78380": {
-                    "description": "When the VNF's Heat Orchestration Template's Resource\n``OS::Neutron::Port`` is attaching to an internal network (per the\nONAP definition, see Requirements R-52425 and R-46461),\nand an IPv4 address is assigned\nusing the property ``fixed_ips``\nmap property ``ip_address`` and the parameter type is\ndefined as a ``string``,\nthe parameter name **MUST** follow the\nnaming convention\n\n  * ``{vm-type}_int_{network-role}_ip_{index}``\n\nwhere\n\n  * ``{vm-type}`` is the {vm-type} associated with the\n    OS::Nova::Server\n  * ``{network-role}`` is the {network-role} of the internal\n    network\n  * the value for ``{index`` must start at zero (0) and increment by one",
+                    "description": "When the VNF's Heat Orchestration Template's Resource\n``OS::Neutron::Port`` is attaching to an internal network (per the\nECOMP definition, see Requirements R-52425 and R-46461),\nand an IPv4 address is assigned\nusing the property ``fixed_ips``\nmap property ``ip_address`` and the parameter type is\ndefined as a ``string``,\nthe parameter name **MUST** follow the\nnaming convention\n\n* ``{vm-type}_int_{network-role}_ip_{index}``\n\nwhere\n\n* ``{vm-type}`` is the {vm-type} associated with the\n  ``OS::Nova::Server``\n* ``{network-role}`` is the {network-role} of the internal network\n* ``{index}`` is a numeric value that **MUST** start at zero in a\n  VNF's Heat Orchestration Template and **MUST** increment by one",
                     "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Neutron Parameters",
                     "full_title": "",
                     "hide_links": "",
@@ -67195,7 +66908,7 @@
                     "validation_mode": ""
                 },
                 "R-85734": {
-                    "description": "If a VNF's Heat Orchestration Template contains the property ``name``\nfor a non ``OS::Nova::Server`` resource, the intrinsic function\n``str_replace`` **MUST** be used in conjunction with the ONAP\nsupplied metadata parameter ``vnf_name`` to generate a unique value.",
+                    "description": "If a VNF's Heat Orchestration Template contains the property ``name``\nfor a non ``OS::Nova::Server`` resource, the intrinsic function\n``str_replace`` **MUST** be used in conjunction with the ONAP\nsupplied metadata parameter ``vnf_name`` to generate a unique value.\nAdditional data **MAY** be used in the ``str_replace`` construct\nto generate a unique value.",
                     "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Resource Property",
                     "full_title": "",
                     "hide_links": "",
@@ -67384,38 +67097,6 @@
                     "updated": "",
                     "validated_by": "",
                     "validation_mode": ""
-                },
-                "R-86237": {
-                    "description": "If a VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource\nproperty\n``metadata`` key/value pair ``vf_module_id`` is passed into a\nNested YAML\nfile, the key/value pair name ``vf_module_id`` **MUST NOT** change.",
-                    "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Nova Metadata Parameters",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-86237",
-                    "impacts": "",
-                    "introduced": "",
-                    "is_need": true,
-                    "is_part": false,
-                    "keyword": "MUST NOT",
-                    "links": [],
-                    "notes": "",
-                    "parts": {},
-                    "section_name": "vf_module_id",
-                    "sections": [
-                        "vf_module_id",
-                        "Resource: OS::Nova::Server Metadata Parameters"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "casablanca",
-                    "validated_by": "",
-                    "validation_mode": "static"
                 },
                 "R-86261": {
                     "description": "The VNF **MUST** support the ability to prohibit remote access to the VNF\nvia a host based security mechanism.",
@@ -68651,7 +68332,7 @@
                     "validation_mode": ""
                 },
                 "R-90022": {
-                    "description": "A VNF's Nested YAML file **MAY** be invoked more than\nonce by a VNF's Heat Orchestration Template.",
+                    "description": "A VNF's Nested YAML file **MAY** be invoked more than once by\na VNF's Heat Orchestration Template.",
                     "docname": "Chapter5/Heat/ONAP Heat Template Constructs",
                     "full_title": "",
                     "hide_links": "",
@@ -68672,14 +68353,14 @@
                     ],
                     "status": null,
                     "tags": [],
-                    "target": "VNF",
+                    "target": "",
                     "test": "",
                     "test_case": "",
                     "test_file": "",
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "",
+                    "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
                 },
@@ -70700,7 +70381,7 @@
                     "validation_mode": "static"
                 },
                 "R-98450": {
-                    "description": "The VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``\nproperty\n``availability_zone`` parameter name **MUST** follow the naming convention\n``availability_zone_{index}`` where the ``{index}``\n**MUST** start at zero and\nincrement by one.",
+                    "description": "The VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``\nproperty ``availability_zone`` parameter name\n**MUST** follow the naming convention\n\n* ``availability_zone_{index}``\n\nwhere ``{index}`` is a numeric value that **MUST** start at zero\nin a VNF's Heat Orchestration Templates and **MUST**\nincrement by one.",
                     "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Nova Parameters",
                     "full_title": "",
                     "hide_links": "",
@@ -71246,7 +70927,7 @@
                     "validation_mode": "static"
                 }
             },
-            "needs_amount": 780
+            "needs_amount": 770
         }
     }
 }
