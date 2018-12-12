@@ -384,13 +384,13 @@ OS::Neutron::Port
 .. req::
     :id: R-27469
     :target: VNF
-    :keyword: MUST
-    :validation_mode: static
-    :updated: casablanca
+    :keyword: SHOULD
+    :validation_mode: none
+    :updated: dublin
 
     A VNF's Heat Orchestration Template's Resource ``OS::Neutron::Port``
-    that is creating a *Reserve Port* with an IPv4 address Resource ID **MUST**
-    use the naming convention
+    that is creating a *Reserve Port* with an IPv4 address Resource ID
+    **SHOULD** use the naming convention
 
     * ``reserve_port_{vm-type}_{network-role}_floating_ip_{index}``
 
@@ -405,13 +405,13 @@ OS::Neutron::Port
 .. req::
     :id: R-68520
     :target: VNF
-    :keyword: MUST
-    :validation_mode: static
-    :updated: casablanca
+    :keyword: SHOULD
+    :validation_mode: none
+    :updated: dublin
 
     A VNF's Heat Orchestration Template's Resource ``OS::Neutron::Port``
-    that is creating a *Reserve Port* with an IPv6 address Resource ID **MUST**
-    use the naming convention
+    that is creating a *Reserve Port* with an IPv6 address Resource ID
+    **SHOULD** use the naming convention
 
     * ``reserve_port_{vm-type}_{network-role}_floating_v6_ip_{index}``
 

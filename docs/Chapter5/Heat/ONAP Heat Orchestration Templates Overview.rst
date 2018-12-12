@@ -98,7 +98,7 @@ after initial VNF deployment to add capacity.
     :target: VNF
     :keyword: MAY
 
-    A VNF's Heat Orchestration Template's Resource OS::Heat::CinderVolume
+    A VNF's Heat Orchestration Template's Resource ``OS::Heat::CinderVolume``
     **MAY** be defined in a Base Module.
 
 .. req::
@@ -106,7 +106,7 @@ after initial VNF deployment to add capacity.
     :target: VNF
     :keyword: MAY
 
-    A VNF's Heat Orchestration Template's Resource OS::Heat::CinderVolume
+    A VNF's Heat Orchestration Template's Resource ``OS::Heat::CinderVolume``
     **MAY** be defined in an Incremental Module.
 
 .. req::
@@ -114,14 +114,14 @@ after initial VNF deployment to add capacity.
     :target: VNF
     :keyword: MAY
 
-    A VNF's Heat Orchestration Template's Resource OS::Heat::CinderVolume
+    A VNF's Heat Orchestration Template's Resource ``OS::Heat::CinderVolume``
     **MAY** be defined in a Cinder Volume Module.
 
 ONAP also supports the concept of an optional, independently deployed Cinder
 volume via a separate Heat Orchestration Templates, referred to as a Cinder
 Volume Module. This allows the volume to persist after a Virtual Machine
 (VM) (i.e., OS::Nova::Server) is deleted, allowing the volume to be reused
-on another instance (e.g., during a failover activity).
+on another instance (e.g., during a fail over activity).
 
 .. req::
     :id: R-11200
@@ -339,6 +339,22 @@ Cinder Volume Modules
     be named identical to the base or incremental module it is supporting with
     ``_volume`` appended.
 
+
+.. req::
+    :id: R-589037
+    :keyword: MUST
+    :validation_mode: static
+    :introduced: dublin
+
+    A VNF Heat Orchestration Template's Cinder Volume Module resources section
+    **MUST** only be defined using one of the following:
+  
+    * one of more ``OS::Cinder::Volume`` resources
+    * one or more ``OS::Heat::ResourceGroup`` resources that call a nested YAML
+      file that contains only ``OS::Cinder::Volume`` resources
+    * a resource that calls a nested YAML file (static nesting) that contains
+      only ``OS::Cinder::Volume`` resources
+
 .. req::
     :id: R-31141
     :target: VNF
@@ -455,8 +471,7 @@ ONAP Volume Module Output Parameters
     A VNF's Heat Orchestration Template's Cinder Volume Module Output
     Parameter(s)
     **MUST** include the
-    UUID(s) of the Cinder Volumes created in template,
-    while others **MAY** be included.
+    UUID(s) of the Cinder Volumes created in template.
 
 A VNF's Heat Orchestration Template's Cinder Volume Module Output Parameter(s)
 are only available for the module (base or incremental) that the volume
