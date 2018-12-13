@@ -566,11 +566,20 @@ be provided in place, or via a function
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: casablanca
+    :updated: dublin
 
     If a VNF's Heat Orchestration Template resource attribute
     ``property:`` uses a nested ``get_param``, the nested
     ``get_param`` **MUST** reference an index.
+
+    That is, to obtain a property value, two ``get_param`` intrinsic
+    functions are used.  The second ``get_param`` must be used
+    to obtain an index value used to reference a parameter value in
+    a parameter defined as ``type: comma_delimited_list``.  For
+    example:
+
+    * ``name: {get_param: [ name, get_param: index ] }``
+
 
 metadata
 ++++++++++
