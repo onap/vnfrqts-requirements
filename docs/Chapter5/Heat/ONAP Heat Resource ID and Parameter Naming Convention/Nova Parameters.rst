@@ -40,7 +40,7 @@ Requirement R-82481 defines how the ``{vm-type}`` is used.
     * property ``flavor`` parameter name (defined in R-45188)
     * property ``name`` parameter name (defined in R-54171 & R-87817)
     * property port referenced OS::Neutron::Port Resource ID
-      (defined in R-58670)
+      (defined in R-20453)
 
     **MUST** contain the identical ``{vm-type}``
     and **MUST** follow the naming conventions defined
@@ -48,7 +48,7 @@ Requirement R-82481 defines how the ``{vm-type}`` is used.
     the ``OS::Nova::Server`` Resource ID (defined in R-29751) **MUST** match
     the ``{vm-type_index}`` defined in
     the ``OS::Nova::Server`` property ``port``
-    referenced ``OS::Neutron::Port`` Resource ID.
+    referenced ``OS::Neutron::Port`` Resource ID (defined in R-20453).
 
 
 The table below provides a summary. The sections that follow provides

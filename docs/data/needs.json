@@ -1,5 +1,5 @@
 {
-    "created": "2018-12-12T19:04:40.917222",
+    "created": "2018-12-17T18:45:56.649188",
     "current_version": "dublin",
     "project": "",
     "versions": {
@@ -45910,7 +45910,7 @@
             "needs_amount": 789
         },
         "dublin": {
-            "created": "2018-12-12T19:04:40.917158",
+            "created": "2018-12-17T18:45:56.649167",
             "needs": {
                 "R-00011": {
                     "description": "A VNF's Heat Orchestration Template's parameter defined\nin a nested YAML file\n**MUST NOT** have a parameter constraint defined.",
@@ -46371,7 +46371,7 @@
                     "validation_mode": ""
                 },
                 "R-01455": {
-                    "description": "When a VNF's Heat Orchestration Template creates a Virtual Machine\n(i.e., ``OS::Nova::Server``),\neach \"class\" of VMs **MUST** be assigned a VNF unique\n``{vm-type}``; where \"class\" defines VMs that\n**MUST** have the following identical characteristics:\n\n  1.) ``OS::Nova::Server`` resource property ``flavor`` value\n\n  2.) ``OS::Nova::Server`` resource property ``image`` value\n\n  3.) Cinder Volume attachments\n\n    - Each VM in the \"class\" **MUST** have the identical Cinder Volume\n      configuration\n\n  4.) Network attachments and IP address requirements\n\n    - Each VM in the \"class\" **MUST** have the the identical number of\n      ports connecting to the identical networks and requiring the identical\n      IP address configuration.",
+                    "description": "When a VNF's Heat Orchestration Template creates a Virtual Machine\n(i.e., ``OS::Nova::Server``),\neach \"class\" of VMs **MUST** be assigned a VNF unique\n``{vm-type}``; where \"class\" defines VMs that\n**MUST** have the following identical characteristics:\n\n  1.) ``OS::Nova::Server`` resource property ``flavor`` value\n\n  2.) ``OS::Nova::Server`` resource property ``image`` value\n\n  3.) Cinder Volume attachments\n\n    - Each VM in the \"class\" **MUST** have the identical Cinder Volume\n      configuration\n\n  4.) Network attachments and IP address requirements\n\n    - Each VM in the \"class\" **MUST** have the identical number of\n      ports connecting to the identical networks and requiring the identical\n      IP address configuration.",
                     "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/{vm-type}",
                     "full_title": "",
                     "hide_links": "",
@@ -46824,7 +46824,7 @@
                     "validation_mode": ""
                 },
                 "R-03251": {
-                    "description": "A VNF's Heat Orchestration Template's Resource OS::Heat::CinderVolume\n**MAY** be defined in a Cinder Volume Module.",
+                    "description": "A VNF's Heat Orchestration Template's Resource ``OS::Heat::CinderVolume``\n**MAY** be defined in a Cinder Volume Module.",
                     "docname": "Chapter5/Heat/ONAP Heat Orchestration Templates Overview",
                     "full_title": "",
                     "hide_links": "",
@@ -48164,7 +48164,7 @@
                     "validation_mode": "static"
                 },
                 "R-10834": {
-                    "description": "If a VNF's Heat Orchestration Template resource attribute\n``property:`` uses a nested ``get_param``, the nested\n``get_param`` **MUST** reference an index.",
+                    "description": "If a VNF's Heat Orchestration Template resource attribute\n``property:`` uses a nested ``get_param``, the nested\n``get_param`` **MUST** reference an index.\n\nThat is, to obtain a property value, two ``get_param`` intrinsic\nfunctions are used.  The second ``get_param`` must be used\nto obtain an index value used to reference a parameter value in\na parameter defined as ``type: comma_delimited_list``.  For\nexample:\n\n* ``name: {get_param: [ name, get_param: index ] }``",
                     "docname": "Chapter5/Heat/ONAP Heat Orchestration Template Format",
                     "full_title": "",
                     "hide_links": "",
@@ -48193,7 +48193,7 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "casablanca",
+                    "updated": "dublin",
                     "validated_by": "",
                     "validation_mode": "static"
                 },
@@ -50538,7 +50538,7 @@
                     "validation_mode": ""
                 },
                 "R-20453": {
-                    "description": "A VNF's Heat Orchestration Template's Resource ``OS::Neutron::Port``\nthat is attaching to an external network Resource ID\n**MUST** use the naming convention\n\n* ``{vm-type}_{vm-type_index}_{network-role}_port_{port-index}``\n\nwhere\n\n* ``{vm-type}`` is the vm-type\n* ``{vm-type_index}`` is the instance of the ``{vm-type}``\n* ``{network-role}`` is the network-role of the network\n  that the port is attached to\n* ``{port-index}`` is the instance of the the port on the vm-type\n  attached to the network of ``{network-role}``",
+                    "description": "A VNF's Heat Orchestration Template's Resource ``OS::Neutron::Port``\nthat is attaching to an external network Resource ID\n**MUST** use the naming convention\n\n* ``{vm-type}_{vm-type_index}_{network-role}_port_{port-index}``\n\nwhere\n\n* ``{vm-type}`` is the vm-type\n* ``{vm-type_index}`` is the instance of the ``{vm-type}``\n* ``{network-role}`` is the network-role of the network\n  that the port is attached to\n* ``{port-index}`` is the instance of the port on the vm-type\n  attached to the network of ``{network-role}``",
                     "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Resource IDs",
                     "full_title": "",
                     "hide_links": "",
@@ -50700,7 +50700,7 @@
                     "validation_mode": ""
                 },
                 "R-20947": {
-                    "description": "A VNF's Heat Orchestration Template's Resource ``OS::ContrailV2::InstanceIp``\nthat is configuring an IPv4 Address on a sub-interface port attached to a\nsub-interface network Resource ID **MUST** use the naming convention\n\n*  ``{vm-type}_{vm-type_index}_subint_{network-role}_vmi_{vmi_index}_IP_{index}``\n\nwhere\n\n* ``{vm-type}`` is the vm-type\n* ``{vm-type_index}`` is the instance of the ``{vm-type}``\n* ``{network-role}`` is the network-role of the network\n  that the port is attached to\n* ``{vmi_index}`` is the instance of the the virtual machine interface\n  (e.g., port)  on the vm-type\n  attached to the network of ``{network-role}``\n* ``IP`` signifies that an IPv4 address is being configured\n* ``{index}`` is the index of the IPv4 address",
+                    "description": "A VNF's Heat Orchestration Template's Resource ``OS::ContrailV2::InstanceIp``\nthat is configuring an IPv4 Address on a sub-interface port attached to a\nsub-interface network Resource ID **MUST** use the naming convention\n\n*  ``{vm-type}_{vm-type_index}_subint_{network-role}_vmi_{vmi_index}_IP_{index}``\n\nwhere\n\n* ``{vm-type}`` is the vm-type\n* ``{vm-type_index}`` is the instance of the ``{vm-type}``\n* ``{network-role}`` is the network-role of the network\n  that the port is attached to\n* ``{vmi_index}`` is the instance of the virtual machine interface\n  (e.g., port)  on the vm-type\n  attached to the network of ``{network-role}``\n* ``IP`` signifies that an IPv4 address is being configured\n* ``{index}`` is the index of the IPv4 address",
                     "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Resource IDs",
                     "full_title": "",
                     "hide_links": "",
@@ -52355,7 +52355,7 @@
                     "validation_mode": "static"
                 },
                 "R-26351": {
-                    "description": "A VNF's Heat Orchestration Template's Resource ``OS::Neutron::Port``\nthat is attaching to an internal network Resource ID **MUST**\nuse the naming convention\n\n* ``{vm-type}_{vm-type_index}_int_{network-role}_port_{port-index}``\n\nwhere\n\n* ``{vm-type}`` is the vm-type\n* ``{vm-type_index}`` is the instance of the ``{vm-type}``\n* ``{network-role}`` is the network-role of the network\n  that the port is attached to\n* ``{port-index}`` is the instance of the the port on the vm-type\n  attached to the network of ``{network-role}``",
+                    "description": "A VNF's Heat Orchestration Template's Resource ``OS::Neutron::Port``\nthat is attaching to an internal network Resource ID **MUST**\nuse the naming convention\n\n* ``{vm-type}_{vm-type_index}_int_{network-role}_port_{port-index}``\n\nwhere\n\n* ``{vm-type}`` is the vm-type\n* ``{vm-type_index}`` is the instance of the ``{vm-type}``\n* ``{network-role}`` is the network-role of the network\n  that the port is attached to\n* ``{port-index}`` is the instance of the port on the vm-type\n  attached to the network of ``{network-role}``",
                     "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Resource IDs",
                     "full_title": "",
                     "hide_links": "",
@@ -52682,7 +52682,7 @@
                     "validation_mode": ""
                 },
                 "R-27469": {
-                    "description": "A VNF's Heat Orchestration Template's Resource ``OS::Neutron::Port``\nthat is creating a *Reserve Port* with an IPv4 address Resource ID **MUST**\nuse the naming convention\n\n* ``reserve_port_{vm-type}_{network-role}_floating_ip_{index}``\n\nwhere\n\n* ``{vm-type}`` is the vm-type\n* ``{network-role}`` is the network-role of the network\n  that the port is attached to\n* ``{index}`` is the instance of the IPv4 *Reserve Port*\n  for the vm-type attached to the network of ``{network-role}``",
+                    "description": "A VNF's Heat Orchestration Template's Resource ``OS::Neutron::Port``\nthat is creating a *Reserve Port* with an IPv4 address Resource ID\n**SHOULD** use the naming convention\n\n* ``reserve_port_{vm-type}_{network-role}_floating_ip_{index}``\n\nwhere\n\n* ``{vm-type}`` is the vm-type\n* ``{network-role}`` is the network-role of the network\n  that the port is attached to\n* ``{index}`` is the instance of the IPv4 *Reserve Port*\n  for the vm-type attached to the network of ``{network-role}``",
                     "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Resource IDs",
                     "full_title": "",
                     "hide_links": "",
@@ -52691,7 +52691,7 @@
                     "introduced": "",
                     "is_need": true,
                     "is_part": false,
-                    "keyword": "MUST",
+                    "keyword": "SHOULD",
                     "links": [],
                     "notes": "",
                     "parts": {},
@@ -52710,9 +52710,9 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "casablanca",
+                    "updated": "dublin",
                     "validated_by": "",
-                    "validation_mode": "static"
+                    "validation_mode": "none"
                 },
                 "R-27511": {
                     "description": "The VNF provider **MUST** provide the ability to scale\nup a VNF provider supplied product during growth and scale down a\nVNF provider supplied product during decline without \"real-time\"\nrestrictions based upon VNF provider permissions.",
@@ -53592,7 +53592,7 @@
                     "validation_mode": ""
                 },
                 "R-304011": {
-                    "description": "A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource's\n\n* Resource ID (defined in R-29751)\n* property ``image`` parameter name (defined in R-58670)\n* property ``flavor`` parameter name (defined in R-45188)\n* property ``name`` parameter name (defined in R-54171 & R-87817)\n* property port referenced OS::Neutron::Port Resource ID\n  (defined in R-58670)\n\n**MUST** contain the identical ``{vm-type}``\nand **MUST** follow the naming conventions defined\nin R-58670, R-45188, R-54171, R-87817, and R-29751.  And the ``{index}`` in\nthe ``OS::Nova::Server`` Resource ID (defined in R-29751) **MUST** match\nthe ``{vm-type_index}`` defined in\nthe ``OS::Nova::Server`` property ``port``\nreferenced ``OS::Neutron::Port`` Resource ID.",
+                    "description": "A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource's\n\n* Resource ID (defined in R-29751)\n* property ``image`` parameter name (defined in R-58670)\n* property ``flavor`` parameter name (defined in R-45188)\n* property ``name`` parameter name (defined in R-54171 & R-87817)\n* property port referenced OS::Neutron::Port Resource ID\n  (defined in R-20453)\n\n**MUST** contain the identical ``{vm-type}``\nand **MUST** follow the naming conventions defined\nin R-58670, R-45188, R-54171, R-87817, and R-29751.  And the ``{index}`` in\nthe ``OS::Nova::Server`` Resource ID (defined in R-29751) **MUST** match\nthe ``{vm-type_index}`` defined in\nthe ``OS::Nova::Server`` property ``port``\nreferenced ``OS::Neutron::Port`` Resource ID (defined in R-20453).",
                     "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Nova Parameters",
                     "full_title": "",
                     "hide_links": "",
@@ -57492,7 +57492,7 @@
                     "validation_mode": ""
                 },
                 "R-46119": {
-                    "description": "A VNF's Heat Orchestration Template's Resource OS::Heat::CinderVolume\n**MAY** be defined in a Base Module.",
+                    "description": "A VNF's Heat Orchestration Template's Resource ``OS::Heat::CinderVolume``\n**MAY** be defined in a Base Module.",
                     "docname": "Chapter5/Heat/ONAP Heat Orchestration Templates Overview",
                     "full_title": "",
                     "hide_links": "",
@@ -57524,7 +57524,7 @@
                     "validation_mode": ""
                 },
                 "R-46128": {
-                    "description": "A VNF's Heat Orchestration Template's Resource ``OS::ContrailV2::InstanceIp``\nthat is configuring an IPv6 Address on a port attached to an external network\nResource ID **MUST** use the naming convention\n\n*  ``{vm-type}_{vm-type_index}_{network-role}_vmi_{vmi_index}_v6_IP_{index}``\n\nwhere\n\n* ``{vm-type}`` is the vm-type\n* ``{vm-type_index}`` is the instance of the ``{vm-type}``\n* ``{network-role}`` is the network-role of the network\n  that the port is attached to\n* ``{vmi_index}`` is the instance of the the virtual machine interface\n  (e.g., port)  on the vm-type\n  attached to the network of {network-role}\n* ``v6_IP`` signifies that an IPv6 address is being configured\n* ``{index}`` is the index of the IPv6 address",
+                    "description": "A VNF's Heat Orchestration Template's Resource ``OS::ContrailV2::InstanceIp``\nthat is configuring an IPv6 Address on a port attached to an external network\nResource ID **MUST** use the naming convention\n\n*  ``{vm-type}_{vm-type_index}_{network-role}_vmi_{vmi_index}_v6_IP_{index}``\n\nwhere\n\n* ``{vm-type}`` is the vm-type\n* ``{vm-type_index}`` is the instance of the ``{vm-type}``\n* ``{network-role}`` is the network-role of the network\n  that the port is attached to\n* ``{vmi_index}`` is the instance of the virtual machine interface\n  (e.g., port)  on the vm-type\n  attached to the network of {network-role}\n* ``v6_IP`` signifies that an IPv6 address is being configured\n* ``{index}`` is the index of the IPv6 address",
                     "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Resource IDs",
                     "full_title": "",
                     "hide_links": "",
@@ -58960,7 +58960,7 @@
                     "validation_mode": "static"
                 },
                 "R-50468": {
-                    "description": "A VNF's Heat Orchestration Template's Resource\n``OS::ContrailV2::VirtualMachineInterface`` that is attaching to an internal network\nResource ID **MUST** use the naming convention\n\n* ``{vm-type}_{vm-type_index}_int_{network-role}_vmi_{vmi_index}``\n\nwhere\n\n* ``{vm-type}`` is the vm-type\n* ``{vm-type_index}`` is the instance of the ``{vm-type}``\n* ``{network-role}`` is the network-role of the network\n  that the port (i.e. virtual machine interface) is attached to\n* ``{vmi_index}`` is the instance of the the vmi on the vm-type\n  attached to the network of ``{network-role}``",
+                    "description": "A VNF's Heat Orchestration Template's Resource\n``OS::ContrailV2::VirtualMachineInterface`` that is attaching to an internal network\nResource ID **MUST** use the naming convention\n\n* ``{vm-type}_{vm-type_index}_int_{network-role}_vmi_{vmi_index}``\n\nwhere\n\n* ``{vm-type}`` is the vm-type\n* ``{vm-type_index}`` is the instance of the ``{vm-type}``\n* ``{network-role}`` is the network-role of the network\n  that the port (i.e. virtual machine interface) is attached to\n* ``{vmi_index}`` is the instance of the vmi on the vm-type\n  attached to the network of ``{network-role}``",
                     "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Resource IDs",
                     "full_title": "",
                     "hide_links": "",
@@ -59416,7 +59416,7 @@
                     "validation_mode": ""
                 },
                 "R-53310": {
-                    "description": "A VNF's Heat Orchestration Template's Resource ``OS::ContrailV2::InstanceIp``\nthat is configuring an IPv4 Address on a port attached to an external network\nResource ID **MUST** use the naming convention\n\n*  ``{vm-type}_{vm-type_index}_{network-role}_vmi_{vmi_index}_IP_{index}``\n\nwhere\n\n* ``{vm-type}`` is the vm-type\n* ``{vm-type_index}`` is the instance of the {vm-type}\n* ``{network-role}`` is the network-role of the network that the port is attached to\n* ``{vmi_index}`` is the instance of the the virtual machine interface\n  (e.g., port)  on the vm-type attached to the network of {network-role}\n* ``IP`` signifies that an IPv4 address is being configured\n* ``{index}`` is the index of the IPv4 address",
+                    "description": "A VNF's Heat Orchestration Template's Resource ``OS::ContrailV2::InstanceIp``\nthat is configuring an IPv4 Address on a port attached to an external network\nResource ID **MUST** use the naming convention\n\n*  ``{vm-type}_{vm-type_index}_{network-role}_vmi_{vmi_index}_IP_{index}``\n\nwhere\n\n* ``{vm-type}`` is the vm-type\n* ``{vm-type_index}`` is the instance of the {vm-type}\n* ``{network-role}`` is the network-role of the network that the port is attached to\n* ``{vmi_index}`` is the instance of the virtual machine interface\n  (e.g., port)  on the vm-type attached to the network of {network-role}\n* ``IP`` signifies that an IPv4 address is being configured\n* ``{index}`` is the index of the IPv4 address",
                     "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Resource IDs",
                     "full_title": "",
                     "hide_links": "",
@@ -59777,7 +59777,7 @@
                     "validation_mode": ""
                 },
                 "R-54458": {
-                    "description": "A VNF's Heat Orchestration Template's Resource\n``OS::ContrailV2::VirtualMachineInterface`` that is attaching to a sub-interface\nnetwork Resource ID **MUST** use the naming convention\n\n* ``{vm-type}_{vm-type_index}_subint_{network-role}_vmi_{vmi_index}``\n\nwhere\n\n* ``{vm-type}`` is the vm-type\n* ``{vm-type_index}`` is the instance of the ``{vm-type}``\n* ``{network-role}`` is the network-role of the network\n  that the port (i.e. virtual machine interface) is attached to\n* ``{vmi_index}`` is the instance of the the vmi on the vm-type\n  attached to the network of ``{network-role}``",
+                    "description": "A VNF's Heat Orchestration Template's Resource\n``OS::ContrailV2::VirtualMachineInterface`` that is attaching to a sub-interface\nnetwork Resource ID **MUST** use the naming convention\n\n* ``{vm-type}_{vm-type_index}_subint_{network-role}_vmi_{vmi_index}``\n\nwhere\n\n* ``{vm-type}`` is the vm-type\n* ``{vm-type_index}`` is the instance of the ``{vm-type}``\n* ``{network-role}`` is the network-role of the network\n  that the port (i.e. virtual machine interface) is attached to\n* ``{vmi_index}`` is the instance of the vmi on the vm-type\n  attached to the network of ``{network-role}``",
                     "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Resource IDs",
                     "full_title": "",
                     "hide_links": "",
@@ -60933,6 +60933,39 @@
                     "validated_by": "",
                     "validation_mode": ""
                 },
+                "R-589037": {
+                    "description": "A VNF Heat Orchestration Template's Cinder Volume Module resources section\n**MUST** only be defined using one of the following:\n\n* one of more ``OS::Cinder::Volume`` resources\n* one or more ``OS::Heat::ResourceGroup`` resources that call a nested YAML\n  file that contains only ``OS::Cinder::Volume`` resources\n* a resource that calls a nested YAML file (static nesting) that contains\n  only ``OS::Cinder::Volume`` resources",
+                    "docname": "Chapter5/Heat/ONAP Heat Orchestration Templates Overview",
+                    "full_title": "",
+                    "hide_links": "",
+                    "id": "R-589037",
+                    "impacts": "",
+                    "introduced": "dublin",
+                    "is_need": true,
+                    "is_part": false,
+                    "keyword": "MUST",
+                    "links": [],
+                    "notes": "",
+                    "parts": {},
+                    "section_name": "Cinder Volume Modules",
+                    "sections": [
+                        "Cinder Volume Modules",
+                        "ONAP Heat Orchestration Template Filenames",
+                        "ONAP Heat Orchestration Templates Overview"
+                    ],
+                    "status": null,
+                    "tags": [],
+                    "target": "",
+                    "test": "",
+                    "test_case": "",
+                    "test_file": "",
+                    "title": "",
+                    "title_from_content": "",
+                    "type_name": "Requirement",
+                    "updated": "",
+                    "validated_by": "",
+                    "validation_mode": "static"
+                },
                 "R-58964": {
                     "description": "The VNF **MUST** provide the capability to restrict read\nand write access to data handled by the VNF.",
                     "docname": "Chapter4/Security",
@@ -61390,7 +61423,7 @@
                     "validation_mode": ""
                 },
                 "R-62187": {
-                    "description": "A VNF's Heat Orchestration Template's Resource ``OS::ContrailV2::InstanceIp``\nthat is configuring an IPv4 Address on a port attached to an internal network\nResource ID **MUST** use the naming convention\n\n*  ``{vm-type}_{vm-type_index}_int_{network-role}_vmi_{vmi_index}_IP_{index}``\n\nwhere\n\n* ``{vm-type}`` is the vm-type\n* ``{vm-type_index}`` is the instance of the ``{vm-type}``\n* ``{network-role}`` is the network-role of the network\n  that the port is attached to\n* ``{vmi_index}`` is the instance of the the virtual machine interface\n  (e.g., port)  on the vm-type\n  attached to the network of ``{network-role}``\n* ``IP`` signifies that an IPv4 address is being configured\n* ``{index}`` is the index of the IPv4 address",
+                    "description": "A VNF's Heat Orchestration Template's Resource ``OS::ContrailV2::InstanceIp``\nthat is configuring an IPv4 Address on a port attached to an internal network\nResource ID **MUST** use the naming convention\n\n*  ``{vm-type}_{vm-type_index}_int_{network-role}_vmi_{vmi_index}_IP_{index}``\n\nwhere\n\n* ``{vm-type}`` is the vm-type\n* ``{vm-type_index}`` is the instance of the ``{vm-type}``\n* ``{network-role}`` is the network-role of the network\n  that the port is attached to\n* ``{vmi_index}`` is the instance of the virtual machine interface\n  (e.g., port)  on the vm-type\n  attached to the network of ``{network-role}``\n* ``IP`` signifies that an IPv4 address is being configured\n* ``{index}`` is the index of the IPv4 address",
                     "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Resource IDs",
                     "full_title": "",
                     "hide_links": "",
@@ -61945,7 +61978,7 @@
                     "validation_mode": ""
                 },
                 "R-64197": {
-                    "description": "A VNF's Heat Orchestration Template's Resource ``OS::Heat::ResourceGroup``\nResource ID that creates sub-interfaces **MUST** use the naming convention\n\n* ``{vm-type}_{vm-type_index}_subint_{network-role}_port_{port-index}_subinterfaces``\n\nwhere\n\n* ``{vm-type}`` is the vm-type\n* ``{vm-type_index}`` is the instance of the ``{vm-type}``\n* ``{network-role}`` is the network-role of the networks\n  that the sub-interfaces attach to\n* ``{port-index}`` is the instance of the the port on the vm-type\n  attached to the network of ``{network-role}``",
+                    "description": "A VNF's Heat Orchestration Template's Resource ``OS::Heat::ResourceGroup``\nResource ID that creates sub-interfaces **MUST** use the naming convention\n\n* ``{vm-type}_{vm-type_index}_subint_{network-role}_port_{port-index}_subinterfaces``\n\nwhere\n\n* ``{vm-type}`` is the vm-type\n* ``{vm-type_index}`` is the instance of the ``{vm-type}``\n* ``{network-role}`` is the network-role of the networks\n  that the sub-interfaces attach to\n* ``{port-index}`` is the instance of the port on the vm-type\n  attached to the network of ``{network-role}``",
                     "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Resource IDs",
                     "full_title": "",
                     "hide_links": "",
@@ -62168,7 +62201,7 @@
                     "validation_mode": ""
                 },
                 "R-65516": {
-                    "description": "A VNF's Heat Orchestration Template's Resource ``OS::Nova::Keypair`` applies to\nall Virtual Machines in the the VNF, the Resource ID **SHOULD** use the naming\nconvention\n\n* ``{vnf-type}_keypair``\n\nwhere\n\n* ``{vnf-type}`` describes the VNF",
+                    "description": "A VNF's Heat Orchestration Template's Resource ``OS::Nova::Keypair`` applies to\nall Virtual Machines in the VNF, the Resource ID **SHOULD** use the naming\nconvention\n\n* ``{vnf-type}_keypair``\n\nwhere\n\n* ``{vnf-type}`` describes the VNF",
                     "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Resource IDs",
                     "full_title": "",
                     "hide_links": "",
@@ -62922,7 +62955,7 @@
                     "validation_mode": ""
                 },
                 "R-68520": {
-                    "description": "A VNF's Heat Orchestration Template's Resource ``OS::Neutron::Port``\nthat is creating a *Reserve Port* with an IPv6 address Resource ID **MUST**\nuse the naming convention\n\n* ``reserve_port_{vm-type}_{network-role}_floating_v6_ip_{index}``\n\nwhere\n\n* ``{vm-type}`` is the vm-type\n* ``{network-role}`` is the network-role of the network\n  that the port is attached to\n* ``{index}`` is the instance of the IPv6 *Reserve Port*\n  for the vm-type attached to the network of ``{network-role}``",
+                    "description": "A VNF's Heat Orchestration Template's Resource ``OS::Neutron::Port``\nthat is creating a *Reserve Port* with an IPv6 address Resource ID\n**SHOULD** use the naming convention\n\n* ``reserve_port_{vm-type}_{network-role}_floating_v6_ip_{index}``\n\nwhere\n\n* ``{vm-type}`` is the vm-type\n* ``{network-role}`` is the network-role of the network\n  that the port is attached to\n* ``{index}`` is the instance of the IPv6 *Reserve Port*\n  for the vm-type attached to the network of ``{network-role}``",
                     "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Resource IDs",
                     "full_title": "",
                     "hide_links": "",
@@ -62931,7 +62964,7 @@
                     "introduced": "",
                     "is_need": true,
                     "is_part": false,
-                    "keyword": "MUST",
+                    "keyword": "SHOULD",
                     "links": [],
                     "notes": "",
                     "parts": {},
@@ -62950,9 +62983,9 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "casablanca",
+                    "updated": "dublin",
                     "validated_by": "",
-                    "validation_mode": "static"
+                    "validation_mode": "none"
                 },
                 "R-686466": {
                     "description": "The PNF **MUST** support sending a pnfRegistration VES event.",
@@ -67709,7 +67742,7 @@
                     "validation_mode": "static"
                 },
                 "R-87563": {
-                    "description": "A VNF's Heat Orchestration Template's Resource ``OS::ContrailV2::InstanceIp``\nthat is configuring an IPv6 Address on a port attached to an internal network\nResource ID **MUST** use the naming convention\n\n*  ``{vm-type}_{vm-type_index}_int_{network-role}_vmi_{vmi_index}_v6_IP_{index}``\n\nwhere\n\n* ``{vm-type}`` is the vm-type\n* ``{vm-type_index}`` is the instance of the ``{vm-type}``\n* ``{network-role}`` is the network-role of the network\n  that the port is attached to\n* ``{vmi_index}`` is the instance of the the virtual machine interface\n  (e.g., port)  on the vm-type\n  attached to the network of ``{network-role}``\n* ``v6_IP`` signifies that an IPv6 address is being configured\n* ``{index}`` is the index of the IPv6 address",
+                    "description": "A VNF's Heat Orchestration Template's Resource ``OS::ContrailV2::InstanceIp``\nthat is configuring an IPv6 Address on a port attached to an internal network\nResource ID **MUST** use the naming convention\n\n*  ``{vm-type}_{vm-type_index}_int_{network-role}_vmi_{vmi_index}_v6_IP_{index}``\n\nwhere\n\n* ``{vm-type}`` is the vm-type\n* ``{vm-type_index}`` is the instance of the ``{vm-type}``\n* ``{network-role}`` is the network-role of the network\n  that the port is attached to\n* ``{vmi_index}`` is the instance of the virtual machine interface\n  (e.g., port)  on the vm-type\n  attached to the network of ``{network-role}``\n* ``v6_IP`` signifies that an IPv6 address is being configured\n* ``{index}`` is the index of the IPv6 address",
                     "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Resource IDs",
                     "full_title": "",
                     "hide_links": "",
@@ -68004,7 +68037,7 @@
                     "validation_mode": ""
                 },
                 "R-88540": {
-                    "description": "A VNF's Heat Orchestration Template's Resource ``OS::ContrailV2::InstanceIp``\nthat is configuring an IPv6 Address on a sub-interface port attached to a\nsub-interface network Resource ID **MUST**\nuse the naming convention\n\n*  ``{vm-type}_{vm-type_index}_subint_{network-role}_vmi_{vmi_index}_v6_IP_{index}``\n\nwhere\n\n* ``{vm-type}`` is the vm-type\n* ``{vm-type_index}`` is the instance of the ``{vm-type}``\n* ``{network-role}`` is the network-role of the network\n  that the port is attached to\n* ``{vmi_index}`` is the instance of the the virtual machine interface\n  (e.g., port)  on the vm-type\n  attached to the network of ``{network-role}``\n* ``v6_IP`` signifies that an IPv6 address is being configured\n* ``{index}`` is the index of the IPv6 address",
+                    "description": "A VNF's Heat Orchestration Template's Resource ``OS::ContrailV2::InstanceIp``\nthat is configuring an IPv6 Address on a sub-interface port attached to a\nsub-interface network Resource ID **MUST**\nuse the naming convention\n\n*  ``{vm-type}_{vm-type_index}_subint_{network-role}_vmi_{vmi_index}_v6_IP_{index}``\n\nwhere\n\n* ``{vm-type}`` is the vm-type\n* ``{vm-type_index}`` is the instance of the ``{vm-type}``\n* ``{network-role}`` is the network-role of the network\n  that the port is attached to\n* ``{vmi_index}`` is the instance of the virtual machine interface\n  (e.g., port)  on the vm-type\n  attached to the network of ``{network-role}``\n* ``v6_IP`` signifies that an IPv6 address is being configured\n* ``{index}`` is the index of the IPv6 address",
                     "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Resource IDs",
                     "full_title": "",
                     "hide_links": "",
@@ -68265,7 +68298,7 @@
                     "validation_mode": ""
                 },
                 "R-89913": {
-                    "description": "A VNF's Heat Orchestration Template's Cinder Volume Module Output\nParameter(s)\n**MUST** include the\nUUID(s) of the Cinder Volumes created in template,\nwhile others **MAY** be included.",
+                    "description": "A VNF's Heat Orchestration Template's Cinder Volume Module Output\nParameter(s)\n**MUST** include the\nUUID(s) of the Cinder Volumes created in template.",
                     "docname": "Chapter5/Heat/ONAP Heat Orchestration Templates Overview",
                     "full_title": "",
                     "hide_links": "",
@@ -68561,7 +68594,7 @@
                     "validation_mode": ""
                 },
                 "R-90748": {
-                    "description": "A VNF's Heat Orchestration Template's Resource OS::Heat::CinderVolume\n**MAY** be defined in an Incremental Module.",
+                    "description": "A VNF's Heat Orchestration Template's Resource ``OS::Heat::CinderVolume``\n**MAY** be defined in an Incremental Module.",
                     "docname": "Chapter5/Heat/ONAP Heat Orchestration Templates Overview",
                     "full_title": "",
                     "hide_links": "",
@@ -69669,7 +69702,7 @@
                     "validation_mode": ""
                 },
                 "R-96253": {
-                    "description": "A VNF's Heat Orchestration Template's Resource\n``OS::ContrailV2::VirtualMachineInterface`` that is attaching to an external network\nResource ID **MUST** use the naming convention\n\n* ``{vm-type}_{vm-type_index}_{network-role}_vmi_{vmi_index}``\n\nwhere\n\n* ``{vm-type}`` is the vm-type\n* ``{vm-type_index}`` is the instance of the ``{vm-type}``\n* ``{network-role}`` is the network-role of the network\n  that the port (i.e. virtual machine interface) is attached to\n* ``{vmi_index}`` is the instance of the the vmi on the vm-type\n  attached to the network of ``{network-role}``",
+                    "description": "A VNF's Heat Orchestration Template's Resource\n``OS::ContrailV2::VirtualMachineInterface`` that is attaching to an external network\nResource ID **MUST** use the naming convention\n\n* ``{vm-type}_{vm-type_index}_{network-role}_vmi_{vmi_index}``\n\nwhere\n\n* ``{vm-type}`` is the vm-type\n* ``{vm-type_index}`` is the instance of the ``{vm-type}``\n* ``{network-role}`` is the network-role of the network\n  that the port (i.e. virtual machine interface) is attached to\n* ``{vmi_index}`` is the instance of the vmi on the vm-type\n  attached to the network of ``{network-role}``",
                     "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Resource IDs",
                     "full_title": "",
                     "hide_links": "",
@@ -70927,7 +70960,7 @@
                     "validation_mode": "static"
                 }
             },
-            "needs_amount": 770
+            "needs_amount": 771
         }
     }
 }

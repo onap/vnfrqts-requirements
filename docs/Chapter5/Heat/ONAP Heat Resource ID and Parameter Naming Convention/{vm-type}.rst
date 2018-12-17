@@ -31,7 +31,7 @@
 
       4.) Network attachments and IP address requirements
 
-        - Each VM in the "class" **MUST** have the the identical number of
+        - Each VM in the "class" **MUST** have the identical number of
           ports connecting to the identical networks and requiring the identical
           IP address configuration.
 

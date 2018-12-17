@@ -281,7 +281,7 @@ that is is creating sub-interfaces.
     * ``{vm-type_index}`` is the instance of the ``{vm-type}``
     * ``{network-role}`` is the network-role of the networks
       that the sub-interfaces attach to
-    * ``{port-index}`` is the instance of the the port on the vm-type
+    * ``{port-index}`` is the instance of the port on the vm-type
       attached to the network of ``{network-role}``
 
 OS::Heat::SoftwareConfig
@@ -356,7 +356,7 @@ OS::Neutron::Port
     * ``{vm-type_index}`` is the instance of the ``{vm-type}``
     * ``{network-role}`` is the network-role of the network
       that the port is attached to
-    * ``{port-index}`` is the instance of the the port on the vm-type
+    * ``{port-index}`` is the instance of the port on the vm-type
       attached to the network of ``{network-role}``
 
 .. req::
@@ -378,7 +378,7 @@ OS::Neutron::Port
     * ``{vm-type_index}`` is the instance of the ``{vm-type}``
     * ``{network-role}`` is the network-role of the network
       that the port is attached to
-    * ``{port-index}`` is the instance of the the port on the vm-type
+    * ``{port-index}`` is the instance of the port on the vm-type
       attached to the network of ``{network-role}``
 
 .. req::
@@ -574,7 +574,7 @@ OS::Nova::Keypair
     :updated: casablanca
 
     A VNF's Heat Orchestration Template's Resource ``OS::Nova::Keypair`` applies to
-    all Virtual Machines in the the VNF, the Resource ID **SHOULD** use the naming
+    all Virtual Machines in the VNF, the Resource ID **SHOULD** use the naming
     convention
 
     * ``{vnf-type}_keypair``
@@ -658,7 +658,7 @@ OS::ContrailV2::InstanceIp
     * ``{vm-type}`` is the vm-type
     * ``{vm-type_index}`` is the instance of the {vm-type}
     * ``{network-role}`` is the network-role of the network that the port is attached to
-    * ``{vmi_index}`` is the instance of the the virtual machine interface
+    * ``{vmi_index}`` is the instance of the virtual machine interface
       (e.g., port)  on the vm-type attached to the network of {network-role}
     * ``IP`` signifies that an IPv4 address is being configured
     * ``{index}`` is the index of the IPv4 address
@@ -682,7 +682,7 @@ OS::ContrailV2::InstanceIp
     * ``{vm-type_index}`` is the instance of the ``{vm-type}``
     * ``{network-role}`` is the network-role of the network
       that the port is attached to
-    * ``{vmi_index}`` is the instance of the the virtual machine interface
+    * ``{vmi_index}`` is the instance of the virtual machine interface
       (e.g., port)  on the vm-type
       attached to the network of {network-role}
     * ``v6_IP`` signifies that an IPv6 address is being configured
@@ -707,7 +707,7 @@ OS::ContrailV2::InstanceIp
     * ``{vm-type_index}`` is the instance of the ``{vm-type}``
     * ``{network-role}`` is the network-role of the network
       that the port is attached to
-    * ``{vmi_index}`` is the instance of the the virtual machine interface
+    * ``{vmi_index}`` is the instance of the virtual machine interface
       (e.g., port)  on the vm-type
       attached to the network of ``{network-role}``
     * ``IP`` signifies that an IPv4 address is being configured
@@ -732,7 +732,7 @@ OS::ContrailV2::InstanceIp
     * ``{vm-type_index}`` is the instance of the ``{vm-type}``
     * ``{network-role}`` is the network-role of the network
       that the port is attached to
-    * ``{vmi_index}`` is the instance of the the virtual machine interface
+    * ``{vmi_index}`` is the instance of the virtual machine interface
       (e.g., port)  on the vm-type
       attached to the network of ``{network-role}``
     * ``v6_IP`` signifies that an IPv6 address is being configured
@@ -757,7 +757,7 @@ OS::ContrailV2::InstanceIp
     * ``{vm-type_index}`` is the instance of the ``{vm-type}``
     * ``{network-role}`` is the network-role of the network
       that the port is attached to
-    * ``{vmi_index}`` is the instance of the the virtual machine interface
+    * ``{vmi_index}`` is the instance of the virtual machine interface
       (e.g., port)  on the vm-type
       attached to the network of ``{network-role}``
     * ``IP`` signifies that an IPv4 address is being configured
@@ -783,7 +783,7 @@ OS::ContrailV2::InstanceIp
     * ``{vm-type_index}`` is the instance of the ``{vm-type}``
     * ``{network-role}`` is the network-role of the network
       that the port is attached to
-    * ``{vmi_index}`` is the instance of the the virtual machine interface
+    * ``{vmi_index}`` is the instance of the virtual machine interface
       (e.g., port)  on the vm-type
       attached to the network of ``{network-role}``
     * ``v6_IP`` signifies that an IPv6 address is being configured
@@ -970,7 +970,7 @@ OS::ContrailV2::VirtualMachineInterface
     * ``{vm-type_index}`` is the instance of the ``{vm-type}``
     * ``{network-role}`` is the network-role of the network
       that the port (i.e. virtual machine interface) is attached to
-    * ``{vmi_index}`` is the instance of the the vmi on the vm-type
+    * ``{vmi_index}`` is the instance of the vmi on the vm-type
       attached to the network of ``{network-role}``
 
 .. req::
@@ -992,7 +992,7 @@ OS::ContrailV2::VirtualMachineInterface
     * ``{vm-type_index}`` is the instance of the ``{vm-type}``
     * ``{network-role}`` is the network-role of the network
       that the port (i.e. virtual machine interface) is attached to
-    * ``{vmi_index}`` is the instance of the the vmi on the vm-type
+    * ``{vmi_index}`` is the instance of the vmi on the vm-type
       attached to the network of ``{network-role}``
 
 .. req::
@@ -1014,7 +1014,7 @@ OS::ContrailV2::VirtualMachineInterface
     * ``{vm-type_index}`` is the instance of the ``{vm-type}``
     * ``{network-role}`` is the network-role of the network
       that the port (i.e. virtual machine interface) is attached to
-    * ``{vmi_index}`` is the instance of the the vmi on the vm-type
+    * ``{vmi_index}`` is the instance of the vmi on the vm-type
       attached to the network of ``{network-role}``
 
 OS::ContrailV2::VirtualNetwork
