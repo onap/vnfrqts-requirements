@@ -31,13 +31,13 @@
 
       4.) Network attachments and IP address requirements
 
-        - Each VM in the "class" **MUST** have the the identical number of
+        - Each VM in the "class" **MUST** have the identical number of
           ports connecting to the identical networks and requiring the identical
           IP address configuration.
 
 The ``{vm-type}`` will be used in a VNF's Heat Orchestration Template's
 
-* Resource IDs 
+* Resource IDs
 * Resource property parameter names
 
 Requirements in this document will explain it in further detail.
