@@ -1,5 +1,5 @@
 {
-    "created": "2018-12-17T18:45:56.649188",
+    "created": "2018-12-18T15:29:21.631864",
     "current_version": "dublin",
     "project": "",
     "versions": {
@@ -45910,10 +45910,10 @@
             "needs_amount": 789
         },
         "dublin": {
-            "created": "2018-12-17T18:45:56.649167",
+            "created": "2018-12-18T15:29:21.631843",
             "needs": {
                 "R-00011": {
-                    "description": "A VNF's Heat Orchestration Template's parameter defined\nin a nested YAML file\n**MUST NOT** have a parameter constraint defined.",
+                    "description": "A VNF's Heat Orchestration Template's parameter defined\nin a nested YAML file\n**SHOULD NOT** have a parameter constraint defined.",
                     "docname": "Chapter5/Heat/ONAP Heat Orchestration Template Format",
                     "full_title": "",
                     "hide_links": "",
@@ -45922,7 +45922,7 @@
                     "introduced": "",
                     "is_need": true,
                     "is_part": false,
-                    "keyword": "MUST NOT",
+                    "keyword": "SHOULD NOT",
                     "links": [],
                     "notes": "",
                     "parts": {},
@@ -49106,7 +49106,7 @@
                     "validation_mode": ""
                 },
                 "R-14447": {
-                    "description": "A VNF's Heat Orchestration Template's Resource ``OS::ContrailV2::ServiceTemplate``\nResource ID **MAY** use the naming convention\n\n* ``{vm-type}_RST_{index}``\n\nwhere\n\n* ``{vm-type}`` is the vm-type\n* ``RST`` signifies that it is the Resource Service Template\n* ``{index}`` is is the index",
+                    "description": "A VNF's Heat Orchestration Template's Resource ``OS::ContrailV2::ServiceTemplate``\nResource ID **MAY** use the naming convention\n\n* ``{vm-type}_RST_{index}``\n\nwhere\n\n* ``{vm-type}`` is the vm-type\n* ``RST`` signifies that it is the Resource Service Template\n* ``{index}`` is the index",
                     "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Resource IDs",
                     "full_title": "",
                     "hide_links": "",
@@ -50571,7 +50571,7 @@
                     "validation_mode": "static"
                 },
                 "R-20547": {
-                    "description": "When an ONAP Volume Module Output Parameter is declared as an input\nparameter in a base or an incremental module Heat Orchestration\nTemplate, parameter constraints **MUST NOT** be declared.",
+                    "description": "When an ONAP Volume Module Output Parameter is declared as an input\nparameter in a base or an incremental module Heat Orchestration\nTemplate, parameter constraints **SHOULD NOT** be declared.",
                     "docname": "Chapter5/Heat/ONAP Heat Orchestration Templates Overview",
                     "full_title": "",
                     "hide_links": "",
@@ -50580,7 +50580,7 @@
                     "introduced": "",
                     "is_need": true,
                     "is_part": false,
-                    "keyword": "MUST NOT",
+                    "keyword": "SHOULD NOT",
                     "links": [],
                     "notes": "",
                     "parts": {},
@@ -51150,7 +51150,7 @@
                     "validation_mode": ""
                 },
                 "R-22608": {
-                    "description": "When a VNF's Heat Orchestration Template's Base Module's output\nparameter is declared as an input parameter in an Incremental Module,\nthe parameter attribute ``constraints:`` **MUST NOT** be declared.",
+                    "description": "When a VNF's Heat Orchestration Template's Base Module's output\nparameter is declared as an input parameter in an Incremental Module,\nthe parameter attribute ``constraints:`` **SHOULD NOT** be declared.",
                     "docname": "Chapter5/Heat/ONAP Heat Orchestration Templates Overview",
                     "full_title": "",
                     "hide_links": "",
@@ -51159,7 +51159,7 @@
                     "introduced": "",
                     "is_need": true,
                     "is_part": false,
-                    "keyword": "MUST NOT",
+                    "keyword": "SHOULD NOT",
                     "links": [],
                     "notes": "",
                     "parts": {},
@@ -59581,7 +59581,7 @@
                     "validation_mode": "static"
                 },
                 "R-54171": {
-                    "description": "When the VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``\nproperty ``name`` parameter is defined as a ``string``,\nthe parameter name **MUST** follow the naming convention\n``{vm-type}_name_{index}``, where ``{index}`` is a numeric\nvalue that **MUST** start at\nzero in a VNF Orchestration Template and increments by one.",
+                    "description": "When the VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``\nproperty ``name`` parameter is defined as a ``string``,\nthe parameter name **MUST** follow the naming convention\n``{vm-type}_name_{index}``, where ``{index}`` is a numeric\nvalue that **MUST** start at\nzero  in a VNF's Heat Orchestration Template and **MUST** increment by one.",
                     "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Nova Parameters",
                     "full_title": "",
                     "hide_links": "",
@@ -68070,7 +68070,7 @@
                     "validation_mode": "static"
                 },
                 "R-88863": {
-                    "description": "A VNF's Heat Orchestration Template's parameter defined\nin a non-nested YAML file as type\n``number`` **MUST** have a parameter constraint of ``range`` or\n``allowed_values`` defined.",
+                    "description": "A VNF's Heat Orchestration Template's parameter defined\nin a non-nested YAML file as type\n``number`` **MAY** have a parameter constraint defined.",
                     "docname": "Chapter5/Heat/ONAP Heat Orchestration Template Format",
                     "full_title": "",
                     "hide_links": "",
@@ -68079,7 +68079,7 @@
                     "introduced": "",
                     "is_need": true,
                     "is_part": false,
-                    "keyword": "MUST",
+                    "keyword": "MAY",
                     "links": [],
                     "notes": "",
                     "parts": {},

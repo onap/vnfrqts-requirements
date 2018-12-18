@@ -44,7 +44,8 @@ Requirement R-82481 defines how the ``{vm-type}`` is used.
 
     **MUST** contain the identical ``{vm-type}``
     and **MUST** follow the naming conventions defined
-    in R-58670, R-45188, R-54171, R-87817, and R-29751.  And the ``{index}`` in
+    in R-58670, R-45188, R-54171, R-
+    , and R-29751.  And the ``{index}`` in
     the ``OS::Nova::Server`` Resource ID (defined in R-29751) **MUST** match
     the ``{vm-type_index}`` defined in
     the ``OS::Nova::Server`` property ``port``
@@ -244,7 +245,7 @@ Property: Name
     the parameter name **MUST** follow the naming convention
     ``{vm-type}_name_{index}``, where ``{index}`` is a numeric
     value that **MUST** start at
-    zero in a VNF Orchestration Template and increments by one.
+    zero in a VNF's Heat Orchestration Template and **MUST** increment by one.
 
 .. req::
     :id: R-87817

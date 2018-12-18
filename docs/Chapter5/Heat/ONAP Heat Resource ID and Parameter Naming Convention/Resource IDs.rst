@@ -261,7 +261,7 @@ OS::Heat::ResourceGroup
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 There is only a mandatory naming convention for a 'OS::Heat::ResourceGroup'
-that is is creating sub-interfaces.
+that is creating sub-interfaces.
 
 .. req::
     :id: R-64197
@@ -946,7 +946,7 @@ OS::ContrailV2::ServiceTemplate
 
     * ``{vm-type}`` is the vm-type
     * ``RST`` signifies that it is the Resource Service Template
-    * ``{index}`` is is the index
+    * ``{index}`` is the index
 
 OS::ContrailV2::VirtualMachineInterface
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

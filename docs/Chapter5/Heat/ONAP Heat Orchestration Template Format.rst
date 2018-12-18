@@ -278,14 +278,13 @@ that defines a list of constraints to apply to the parameter.
 .. req::
     :id: R-88863
     :target: VNF
-    :keyword: MUST
+    :keyword: MAY
     :validation_mode: static
     :updated: casablanca
 
     A VNF's Heat Orchestration Template's parameter defined
     in a non-nested YAML file as type
-    ``number`` **MUST** have a parameter constraint of ``range`` or
-    ``allowed_values`` defined.
+    ``number`` **MAY** have a parameter constraint defined.
 
 .. req::
     :id: R-40518
@@ -330,13 +329,13 @@ that defines a list of constraints to apply to the parameter.
 .. req::
     :id: R-00011
     :target: VNF
-    :keyword: MUST NOT
+    :keyword: SHOULD NOT
     :validation_mode: static
     :updated: casablanca
 
     A VNF's Heat Orchestration Template's parameter defined
     in a nested YAML file
-    **MUST NOT** have a parameter constraint defined.
+    **SHOULD NOT** have a parameter constraint defined.
 
 The constraints block of a parameter definition defines additional
 validation constraints that apply to the value of the parameter.

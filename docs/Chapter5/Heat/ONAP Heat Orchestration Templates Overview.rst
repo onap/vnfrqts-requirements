@@ -447,12 +447,12 @@ other VNFs.
 .. req::
     :id: R-22608
     :target: VNF
-    :keyword: MUST NOT
+    :keyword: SHOULD NOT
     :validation_mode: static
 
     When a VNF's Heat Orchestration Template's Base Module's output
     parameter is declared as an input parameter in an Incremental Module,
-    the parameter attribute ``constraints:`` **MUST NOT** be declared.
+    the parameter attribute ``constraints:`` **SHOULD NOT** be declared.
 
 Additional details on ONAP Base Module Output Parameters are provided in
 :ref:`ONAP Output Parameter Names` and ONAP VNF Modularity.
@@ -492,12 +492,12 @@ template is associated with.
 .. req::
     :id: R-20547
     :target: VNF
-    :keyword: MUST NOT
+    :keyword: SHOULD NOT
     :validation_mode: static
 
     When an ONAP Volume Module Output Parameter is declared as an input
     parameter in a base or an incremental module Heat Orchestration
-    Template, parameter constraints **MUST NOT** be declared.
+    Template, parameter constraints **SHOULD NOT** be declared.
 
 Additional details on ONAP Base Module Output Parameters are provided in
 :ref:`ONAP Output Parameter Names` and :ref:`ONAP Heat Cinder Volumes`.
