@@ -244,7 +244,7 @@ Property: Name
     the parameter name **MUST** follow the naming convention
     ``{vm-type}_name_{index}``, where ``{index}`` is a numeric
     value that **MUST** start at
-    zero in a VNF Orchestration Template and increments by one.
+    zero  in a VNF's Heat Orchestration Template and **MUST** increment by one. 
 
 .. req::
     :id: R-87817
