@@ -1,5 +1,5 @@
 {
-    "created": "2018-12-18T15:29:21.631864",
+    "created": "2018-12-19T14:43:29.335600",
     "current_version": "dublin",
     "project": "",
     "versions": {
@@ -45910,7 +45910,7 @@
             "needs_amount": 789
         },
         "dublin": {
-            "created": "2018-12-18T15:29:21.631843",
+            "created": "2018-12-19T14:43:29.335582",
             "needs": {
                 "R-00011": {
                     "description": "A VNF's Heat Orchestration Template's parameter defined\nin a nested YAML file\n**SHOULD NOT** have a parameter constraint defined.",
@@ -52779,7 +52779,7 @@
                     "validation_mode": ""
                 },
                 "R-27818": {
-                    "description": "When the VNF's Heat Orchestration Template's Resource\n``OS::Neutron::Port`` is attaching to an internal network (per the\nECOMP definition, see Requirements R-52425 and R-46461),\nand an IPv6 address is assigned\nusing the property ``fixed_ips``\nmap property ``ip_address`` and the parameter type is defined as a\n``string``,\nthe parameter name **MUST** follow the\nnaming convention\n\n* ``{vm-type}_int_{network-role}_v6_ip_{index}``\n\nwhere\n\n* ``{vm-type}`` is the {vm-type} associated with the ``OS::Nova::Server``\n* ``{network-role}`` is the {network-role} of the internal network\n* ``{index}`` is a numeric value that **MUST** start at zero in a\n  VNF's Heat Orchestration Template and **MUST** increment by one",
+                    "description": "When the VNF's Heat Orchestration Template's Resource\n``OS::Neutron::Port`` is attaching to an internal network (per the\nONAP definition, see Requirements R-52425 and R-46461),\nand an IPv6 address is assigned\nusing the property ``fixed_ips``\nmap property ``ip_address`` and the parameter type is defined as a\n``string``,\nthe parameter name **MUST** follow the\nnaming convention\n\n* ``{vm-type}_int_{network-role}_v6_ip_{index}``\n\nwhere\n\n* ``{vm-type}`` is the {vm-type} associated with the ``OS::Nova::Server``\n* ``{network-role}`` is the {network-role} of the internal network\n* ``{index}`` is a numeric value that **MUST** start at zero in a\n  VNF's Heat Orchestration Template and **MUST** increment by one",
                     "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Neutron Parameters",
                     "full_title": "",
                     "hide_links": "",
@@ -53592,7 +53592,7 @@
                     "validation_mode": ""
                 },
                 "R-304011": {
-                    "description": "A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource's\n\n* Resource ID (defined in R-29751)\n* property ``image`` parameter name (defined in R-58670)\n* property ``flavor`` parameter name (defined in R-45188)\n* property ``name`` parameter name (defined in R-54171 & R-87817)\n* property port referenced OS::Neutron::Port Resource ID\n  (defined in R-20453)\n\n**MUST** contain the identical ``{vm-type}``\nand **MUST** follow the naming conventions defined\nin R-58670, R-45188, R-54171, R-87817, and R-29751.  And the ``{index}`` in\nthe ``OS::Nova::Server`` Resource ID (defined in R-29751) **MUST** match\nthe ``{vm-type_index}`` defined in\nthe ``OS::Nova::Server`` property ``port``\nreferenced ``OS::Neutron::Port`` Resource ID (defined in R-20453).",
+                    "description": "A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource's\n\n* Resource ID (defined in R-29751)\n* property ``image`` parameter name (defined in R-58670)\n* property ``flavor`` parameter name (defined in R-45188)\n* property ``name`` parameter name (defined in R-54171 & R-87817)\n* property port referenced OS::Neutron::Port Resource ID\n  (defined in R-20453)\n\n**MUST** contain the identical ``{vm-type}``\nand **MUST** follow the naming conventions defined\nin R-58670, R-45188, R-54171, R-\n, and R-29751.  And the ``{index}`` in\nthe ``OS::Nova::Server`` Resource ID (defined in R-29751) **MUST** match\nthe ``{vm-type_index}`` defined in\nthe ``OS::Nova::Server`` property ``port``\nreferenced ``OS::Neutron::Port`` Resource ID (defined in R-20453).",
                     "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Nova Parameters",
                     "full_title": "",
                     "hide_links": "",
@@ -56121,7 +56121,7 @@
                     "validation_mode": "none"
                 },
                 "R-40971": {
-                    "description": "When the VNF's Heat Orchestration Template's Resource\n``OS::Neutron::Port`` is attaching to an external network (per the\nECOMP definition, see Requirement R-57424),\nand an IPv4 address is assigned\nusing the property ``fixed_ips``\nmap property ``ip_address`` and the parameter type is defined as a string,\nthe parameter name **MUST** follow the\nnaming convention\n\n* ``{vm-type}_{network-role}_ip_{index}``\n\nwhere\n\n* ``{vm-type}`` is the {vm-type} associated with the ``OS::Nova::Server``\n* ``{network-role}`` is the {network-role} of the external network\n* ``{index}`` is a numeric value that **MUST** start at zero in a\n  VNF's Heat Orchestration Template and **MUST** increment by one",
+                    "description": "When the VNF's Heat Orchestration Template's Resource\n``OS::Neutron::Port`` is attaching to an external network (per the\nONAP definition, see Requirement R-57424),\nand an IPv4 address is assigned\nusing the property ``fixed_ips``\nmap property ``ip_address`` and the parameter type is defined as a string,\nthe parameter name **MUST** follow the\nnaming convention\n\n* ``{vm-type}_{network-role}_ip_{index}``\n\nwhere\n\n* ``{vm-type}`` is the {vm-type} associated with the ``OS::Nova::Server``\n* ``{network-role}`` is the {network-role} of the external network\n* ``{index}`` is a numeric value that **MUST** start at zero in a\n  VNF's Heat Orchestration Template and **MUST** increment by one",
                     "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Neutron Parameters",
                     "full_title": "",
                     "hide_links": "",
@@ -59581,7 +59581,7 @@
                     "validation_mode": "static"
                 },
                 "R-54171": {
-                    "description": "When the VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``\nproperty ``name`` parameter is defined as a ``string``,\nthe parameter name **MUST** follow the naming convention\n``{vm-type}_name_{index}``, where ``{index}`` is a numeric\nvalue that **MUST** start at\nzero  in a VNF's Heat Orchestration Template and **MUST** increment by one.",
+                    "description": "When the VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``\nproperty ``name`` parameter is defined as a ``string``,\nthe parameter name **MUST** follow the naming convention\n``{vm-type}_name_{index}``, where ``{index}`` is a numeric\nvalue that **MUST** start at\nzero in a VNF's Heat Orchestration Template and **MUST** increment by one.",
                     "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Nova Parameters",
                     "full_title": "",
                     "hide_links": "",
@@ -63732,7 +63732,7 @@
                     "validation_mode": "static"
                 },
                 "R-71577": {
-                    "description": "When the VNF's Heat Orchestration Template's Resource\n``OS::Neutron::Port`` is attaching to an external network (per the\nECOMP definition, see Requirement R-57424),\nand an IPv6 address is assigned\nusing the property ``fixed_ips``\nmap property ``ip_address`` and the parameter type is defined as a string,\nthe parameter name **MUST** follow the\nnaming convention\n\n* ``{vm-type}_{network-role}_v6_ip_{index}``\n\nwhere\n\n* ``{vm-type}`` is the {vm-type} associated with the\n  ``OS::Nova::Server``\n* ``{network-role}`` is the {network-role} of the external network\n* ``{index}`` is a numeric value that **MUST** start at zero in a\n  VNF's Heat Orchestration Template and **MUST** increment by one",
+                    "description": "When the VNF's Heat Orchestration Template's Resource\n``OS::Neutron::Port`` is attaching to an external network (per the\nONAP definition, see Requirement R-57424),\nand an IPv6 address is assigned\nusing the property ``fixed_ips``\nmap property ``ip_address`` and the parameter type is defined as a string,\nthe parameter name **MUST** follow the\nnaming convention\n\n* ``{vm-type}_{network-role}_v6_ip_{index}``\n\nwhere\n\n* ``{vm-type}`` is the {vm-type} associated with the\n  ``OS::Nova::Server``\n* ``{network-role}`` is the {network-role} of the external network\n* ``{index}`` is a numeric value that **MUST** start at zero in a\n  VNF's Heat Orchestration Template and **MUST** increment by one",
                     "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Neutron Parameters",
                     "full_title": "",
                     "hide_links": "",
@@ -65127,7 +65127,7 @@
                     "validation_mode": ""
                 },
                 "R-78380": {
-                    "description": "When the VNF's Heat Orchestration Template's Resource\n``OS::Neutron::Port`` is attaching to an internal network (per the\nECOMP definition, see Requirements R-52425 and R-46461),\nand an IPv4 address is assigned\nusing the property ``fixed_ips``\nmap property ``ip_address`` and the parameter type is\ndefined as a ``string``,\nthe parameter name **MUST** follow the\nnaming convention\n\n* ``{vm-type}_int_{network-role}_ip_{index}``\n\nwhere\n\n* ``{vm-type}`` is the {vm-type} associated with the\n  ``OS::Nova::Server``\n* ``{network-role}`` is the {network-role} of the internal network\n* ``{index}`` is a numeric value that **MUST** start at zero in a\n  VNF's Heat Orchestration Template and **MUST** increment by one",
+                    "description": "When the VNF's Heat Orchestration Template's Resource\n``OS::Neutron::Port`` is attaching to an internal network (per the\nONAP definition, see Requirements R-52425 and R-46461),\nand an IPv4 address is assigned\nusing the property ``fixed_ips``\nmap property ``ip_address`` and the parameter type is\ndefined as a ``string``,\nthe parameter name **MUST** follow the\nnaming convention\n\n* ``{vm-type}_int_{network-role}_ip_{index}``\n\nwhere\n\n* ``{vm-type}`` is the {vm-type} associated with the\n  ``OS::Nova::Server``\n* ``{network-role}`` is the {network-role} of the internal network\n* ``{index}`` is a numeric value that **MUST** start at zero in a\n  VNF's Heat Orchestration Template and **MUST** increment by one",
                     "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Neutron Parameters",
                     "full_title": "",
                     "hide_links": "",

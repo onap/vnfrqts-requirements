@@ -324,7 +324,7 @@ IPv4 and/or IPv6 addresses.
 
     When the VNF's Heat Orchestration Template's Resource
     ``OS::Neutron::Port`` is attaching to an external network (per the
-    ECOMP definition, see Requirement R-57424),
+    ONAP definition, see Requirement R-57424),
     and an IPv4 address is assigned
     using the property ``fixed_ips``
     map property ``ip_address`` and the parameter type is defined as a string,
@@ -431,7 +431,7 @@ Parameter Definition*
 
     When the VNF's Heat Orchestration Template's Resource
     ``OS::Neutron::Port`` is attaching to an external network (per the
-    ECOMP definition, see Requirement R-57424),
+    ONAP definition, see Requirement R-57424),
     and an IPv6 address is assigned
     using the property ``fixed_ips``
     map property ``ip_address`` and the parameter type is defined as a string,
@@ -539,7 +539,7 @@ Definition*
 
     When the VNF's Heat Orchestration Template's Resource
     ``OS::Neutron::Port`` is attaching to an internal network (per the
-    ECOMP definition, see Requirements R-52425 and R-46461),
+    ONAP definition, see Requirements R-52425 and R-46461),
     and an IPv4 address is assigned
     using the property ``fixed_ips``
     map property ``ip_address`` and the parameter type is
@@ -647,7 +647,7 @@ Heat Orchestration Template's Environment File.
 
     When the VNF's Heat Orchestration Template's Resource
     ``OS::Neutron::Port`` is attaching to an internal network (per the
-    ECOMP definition, see Requirements R-52425 and R-46461),
+    ONAP definition, see Requirements R-52425 and R-46461),
     and an IPv6 address is assigned
     using the property ``fixed_ips``
     map property ``ip_address`` and the parameter type is defined as a

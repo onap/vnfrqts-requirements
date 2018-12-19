@@ -141,7 +141,7 @@ there is no requirement for ``{network-role}`` / ``{network-role-tag}``
 uniqueness across Heat Orchestration Templates for
 different VNFs.
 
-When an external network is created by ECOMP, the network is also assigned a
+When an external network is created by ONAP, the network is also assigned a
 ``{network-role}``.  The ``{network-role}`` of the network is not required to
 match the ``{network-role}`` of the VNF Heat Orchestration Template.
 
@@ -150,9 +150,9 @@ For example, the VNF Heat Orchestration Template can assign a
 of ``oam`` to a network which attaches to an external network with a
 ``{network-role}`` of ``oam_protected`` .
 
-When the Heat Orchestration Template is on-boarded into ECOMP
+When the Heat Orchestration Template is on-boarded into ONAP
   * each ``{network-role}`` value in the Heat Orchestration Template
-    is mapped to the ``{network-role-tag}`` in the ECOMP
+    is mapped to the ``{network-role-tag}`` in the ONAP
     data structure.
   * each ``OS::Neutron::Port`` is associated with the external network it is
     connecting to, thus creating the VNF Heat Orchestration Template
