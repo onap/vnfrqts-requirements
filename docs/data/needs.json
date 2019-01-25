@@ -1,5 +1,5 @@
 {
-    "created": "2018-12-19T19:29:53.158345",
+    "created": "2019-01-25T22:08:12.540674",
     "current_version": "dublin",
     "project": "",
     "versions": {
@@ -45910,7 +45910,7 @@
             "needs_amount": 789
         },
         "dublin": {
-            "created": "2018-12-19T19:29:53.158326",
+            "created": "2019-01-25T22:08:12.540520",
             "needs": {
                 "R-00011": {
                     "description": "A VNF's Heat Orchestration Template's parameter defined\nin a nested YAML file\n**SHOULD NOT** have a parameter constraint defined.",
@@ -59002,7 +59002,7 @@
                     "introduced": "",
                     "is_need": true,
                     "is_part": false,
-                    "keyword": "MAY",
+                    "keyword": "MUST",
                     "links": [],
                     "notes": "",
                     "parts": {},
@@ -62768,7 +62768,7 @@
                     "introduced": "",
                     "is_need": true,
                     "is_part": false,
-                    "keyword": "SHOULD",
+                    "keyword": "MUST",
                     "links": [],
                     "notes": "",
                     "parts": {},

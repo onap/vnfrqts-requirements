@@ -246,7 +246,7 @@ part of the orchestration process.
 .. req::
     :id: R-68023
     :target: VNF
-    :keyword: SHOULD
+    :keyword: MUST
     :updated: casablanca
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
@@ -451,7 +451,7 @@ vf_module_index
 .. req::
     :id: R-50816
     :target: VNF
-    :keyword: MAY
+    :keyword: MUST
     :updated: casablanca
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server``
