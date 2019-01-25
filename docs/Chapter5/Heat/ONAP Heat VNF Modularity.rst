@@ -58,7 +58,7 @@ Incremental Module.
     :id: R-61001
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
+    :validation_mode: none
     :updated: casablanca
 
 

@@ -552,7 +552,7 @@ Boot Options
     :id: R-83706
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
+    :validation_mode: none
     :updated: casablanca
 
     When a VNF's Heat Orchestration Template's Virtual Machine
@@ -567,7 +567,7 @@ the 'image' property are detailed in `Property: image`_
     :id: R-69588
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
+    :validation_mode: none
     :updated: casablanca
 
     When a VNF's Heat Orchestration Template's Virtual Machine

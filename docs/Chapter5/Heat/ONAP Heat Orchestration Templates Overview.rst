@@ -531,7 +531,7 @@ ONAP does not support the use of heat stack-update command for scaling
     :id: R-43413
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
+    :validation_mode: none
 
     A VNF **MUST** utilize a modular Heat Orchestration Template design to
     support scaling (growth/de-growth).
@@ -547,7 +547,7 @@ Scope of a Heat Orchestration Template
     :id: R-59482
     :target: VNF
     :keyword: MUST NOT
-    :validation_mode: static
+    :validation_mode: none
 
     A VNF's Heat Orchestration Template **MUST NOT** be VNF instance
     specific or cloud site specific.

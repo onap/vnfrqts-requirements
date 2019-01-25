@@ -588,7 +588,7 @@ The resource attribute ``metadata`` is an OpenStack optional attribute.
 .. req::
     :id: R-67386
     :target: VNF
-    :keyword: MUST
+    :keyword: MAY
     :validation_mode: static
     :introduced: casablanca
 

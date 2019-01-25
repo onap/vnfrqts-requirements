@@ -48,7 +48,7 @@ independently of VNFs.
     :id: R-57424
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
+    :validation_mode: none
     :updated: casablanca
 
     A VNF's port connected to an external network **MUST**
@@ -61,7 +61,7 @@ independently of VNFs.
     :id: R-99794
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
+    :validation_mode: none
     :updated: casablanca
 
     An external network **MUST** have one subnet. An external network
@@ -118,7 +118,7 @@ Contrail Heat Resources.
     :id: R-52425
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
+    :validation_mode: none
     :updated: casablanca
 
     A VNF's port connected to an internal network **MUST**
@@ -128,7 +128,7 @@ Contrail Heat Resources.
     :id: R-46461
     :target: VNF
     :keyword: MUST NOT
-    :validation_mode: static
+    :validation_mode: none
     :updated: casablanca
 
     A VNF's port connected to an internal network **MUST NOT** use the port

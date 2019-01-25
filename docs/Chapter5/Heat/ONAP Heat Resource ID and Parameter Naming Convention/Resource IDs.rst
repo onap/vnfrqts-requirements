@@ -23,7 +23,7 @@ Heat Orchestration Template resources are described in :ref:`resources`.
     :id: R-54517
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
+    :validation_mode: none
     :updated: casablanca
 
     When a VNF's Heat Orchestration Template's resource is associated with
@@ -34,7 +34,7 @@ Heat Orchestration Template resources are described in :ref:`resources`.
     :id: R-96482
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
+    :validation_mode: none
     :updated: casablanca
 
     When a VNF's Heat Orchestration Template's resource is associated
@@ -45,7 +45,7 @@ Heat Orchestration Template resources are described in :ref:`resources`.
     :id: R-98138
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
+    :validation_mode: none
     :updated: casablanca
 
     When a VNF's Heat Orchestration Template's resource is associated with a
@@ -56,7 +56,7 @@ Heat Orchestration Template resources are described in :ref:`resources`.
     :id: R-82115
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
+    :validation_mode: none
     :updated: casablanca
 
     When a VNF's Heat Orchestration Template's resource is associated with a
@@ -80,7 +80,7 @@ Heat Orchestration Template resources are described in :ref:`resources`.
     :id: R-82551
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
+    :validation_mode: none
     :updated: casablanca
 
     When a VNF's Heat Orchestration Template's resource is associated with a
@@ -102,7 +102,7 @@ Heat Orchestration Template resources are described in :ref:`resources`.
     :id: R-67793
     :target: VNF
     :keyword: MUST NOT
-    :validation_mode: static
+    :validation_mode: none
     :updated: casablanca
 
     When a VNF's Heat Orchestration Template's resource is associated

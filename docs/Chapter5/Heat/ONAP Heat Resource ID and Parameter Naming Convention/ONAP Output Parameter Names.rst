@@ -20,7 +20,7 @@ convention.
     :id: R-97726
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
+    :validation_mode: none
     :updated: casablanca
 
     A VNF's Heat Orchestration Template's Base Module Output Parameter names
@@ -33,7 +33,7 @@ ONAP Volume Template Output Parameters:
     :id: R-88524
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
+    :validation_mode: none
     :updated: casablanca
 
     A VNF's Heat Orchestration Template's Volume Template
@@ -103,7 +103,7 @@ The OAM Management IP Address maybe assigned either via
     :id: R-56287
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
+    :validation_mode: none
     :updated: casablanca
 
     If the VNF's OAM Management IP Address is assigned by ONAP SDN-C and
@@ -166,7 +166,7 @@ oam_management_v4_address*
     :id: R-48987
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
+    :validation_mode: none
     :updated: casablanca
 
     If the VNF's OAM Management IP Address is cloud assigned and

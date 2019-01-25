@@ -1,5 +1,5 @@
 {
-    "created": "2018-12-19T19:29:53.158345",
+    "created": "2019-01-25T23:15:47.976656",
     "current_version": "dublin",
     "project": "",
     "versions": {
@@ -45910,7 +45910,7 @@
             "needs_amount": 789
         },
         "dublin": {
-            "created": "2018-12-19T19:29:53.158326",
+            "created": "2019-01-25T23:15:47.976584",
             "needs": {
                 "R-00011": {
                     "description": "A VNF's Heat Orchestration Template's parameter defined\nin a nested YAML file\n**SHOULD NOT** have a parameter constraint defined.",
@@ -47308,7 +47308,7 @@
                     "type_name": "Requirement",
                     "updated": "casablanca",
                     "validated_by": "",
-                    "validation_mode": "static"
+                    "validation_mode": "none"
                 },
                 "R-05257": {
                     "description": "A VNF's Heat Orchestration Template's **MUST NOT**\ncontain the Resource ``OS::Neutron::FloatingIP``.",
@@ -48259,7 +48259,7 @@
                     "type_name": "Requirement",
                     "updated": "casablanca",
                     "validated_by": "",
-                    "validation_mode": "static"
+                    "validation_mode": "none"
                 },
                 "R-11200": {
                     "description": "A VNF's Cinder Volume Module, when it exists, **MUST** be 1:1\nwith a Base module or Incremental module.",
@@ -50826,7 +50826,7 @@
                     "type_name": "Requirement",
                     "updated": "casablanca",
                     "validated_by": "",
-                    "validation_mode": "static"
+                    "validation_mode": "none"
                 },
                 "R-21511": {
                     "description": "A VNF's Heat Orchestration Template's use of ``{network-role}``\nin all Resource IDs **MUST** be the same case.",
@@ -50857,7 +50857,7 @@
                     "type_name": "Requirement",
                     "updated": "casablanca",
                     "validated_by": "",
-                    "validation_mode": "static"
+                    "validation_mode": "none"
                 },
                 "R-21558": {
                     "description": "The VNF **SHOULD** use intelligent routing by having knowledge\nof multiple downstream/upstream endpoints that are exposed to it, to\nensure there is no dependency on external services (such as load balancers)\nto switch to alternate endpoints.",
@@ -56834,7 +56834,7 @@
                     "type_name": "Requirement",
                     "updated": "",
                     "validated_by": "",
-                    "validation_mode": "static"
+                    "validation_mode": "none"
                 },
                 "R-43740": {
                     "description": "VNF's Heat Orchestration Template's Resource **MAY** declare the\nattribute ``deletion_policy:``.",
@@ -57392,7 +57392,7 @@
                     "type_name": "Requirement",
                     "updated": "casablanca",
                     "validated_by": "",
-                    "validation_mode": "static"
+                    "validation_mode": "none"
                 },
                 "R-45719": {
                     "description": "The VNF **MUST**, if not integrated with the Operator's Identity and Access\nManagement system, or enforce a configurable \"terminate idle sessions\"\npolicy by terminating the session after a configurable period of inactivity.",
@@ -57619,7 +57619,7 @@
                     "type_name": "Requirement",
                     "updated": "casablanca",
                     "validated_by": "",
-                    "validation_mode": "static"
+                    "validation_mode": "none"
                 },
                 "R-465236": {
                     "description": "The VNF **SHOULD** provide the capability of maintaining the integrity of\nits static files using a cryptographic method.",
@@ -58493,7 +58493,7 @@
                     "type_name": "Requirement",
                     "updated": "casablanca",
                     "validated_by": "",
-                    "validation_mode": "static"
+                    "validation_mode": "none"
                 },
                 "R-48917": {
                     "description": "The VNF **MUST** monitor for and alert on (both sender and\nreceiver) errant, running longer than expected and missing file transfers,\nso as to minimize the impact due to file transfer errors.",
@@ -58558,7 +58558,7 @@
                     "type_name": "Requirement",
                     "updated": "casablanca",
                     "validated_by": "",
-                    "validation_mode": "static"
+                    "validation_mode": "none"
                 },
                 "R-49036": {
                     "description": "The xNF **SHOULD** conform its YANG model to RFC 7277,\n\"A YANG Data Model for IP Management\".",
@@ -59002,7 +59002,7 @@
                     "introduced": "",
                     "is_need": true,
                     "is_part": false,
-                    "keyword": "MAY",
+                    "keyword": "MUST",
                     "links": [],
                     "notes": "",
                     "parts": {},
@@ -59249,7 +59249,7 @@
                     "type_name": "Requirement",
                     "updated": "casablanca",
                     "validated_by": "",
-                    "validation_mode": "static"
+                    "validation_mode": "none"
                 },
                 "R-52499": {
                     "description": "The VNF **MUST** meet their own resiliency goals and not rely\non the Network Cloud.",
@@ -59838,7 +59838,7 @@
                     "type_name": "Requirement",
                     "updated": "casablanca",
                     "validated_by": "",
-                    "validation_mode": "static"
+                    "validation_mode": "none"
                 },
                 "R-54520": {
                     "description": "The VNF **MUST** log successful and unsuccessful authentication\nattempts, e.g., authentication associated with a transaction,\nauthentication to create a session, authentication to assume elevated\nprivilege.",
@@ -60224,7 +60224,7 @@
                     "type_name": "Requirement",
                     "updated": "casablanca",
                     "validated_by": "",
-                    "validation_mode": "static"
+                    "validation_mode": "none"
                 },
                 "R-56385": {
                     "description": "The xNF **MUST** support APPC ``Audit`` command.",
@@ -60577,7 +60577,7 @@
                     "type_name": "Requirement",
                     "updated": "casablanca",
                     "validated_by": "",
-                    "validation_mode": "static"
+                    "validation_mode": "none"
                 },
                 "R-57617": {
                     "description": "The VNF **MUST** include the field \"success/failure\" in the\nSecurity alarms (where applicable and technically feasible).",
@@ -60867,7 +60867,7 @@
                     "type_name": "Requirement",
                     "updated": "casablanca",
                     "validated_by": "",
-                    "validation_mode": "static"
+                    "validation_mode": "none"
                 },
                 "R-58670": {
                     "description": "The VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``\nproperty\n``image`` parameter name **MUST** follow the naming convention\n``{vm-type}_image_name``.",
@@ -61093,7 +61093,7 @@
                     "type_name": "Requirement",
                     "updated": "",
                     "validated_by": "",
-                    "validation_mode": "static"
+                    "validation_mode": "none"
                 },
                 "R-59568": {
                     "description": "The VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``\nproperty\n``availability_zone`` parameter **MUST NOT** be enumerated in the Heat\nOrchestration\nTemplate's Environment File.",
@@ -61354,7 +61354,7 @@
                     "type_name": "Requirement",
                     "updated": "casablanca",
                     "validated_by": "",
-                    "validation_mode": "static"
+                    "validation_mode": "none"
                 },
                 "R-61354": {
                     "description": "The VNF **MUST** provide a mechanism (e.g., access control list) to\npermit and/or restrict access to services on the VNF by source,\ndestination, protocol, and/or port.",
@@ -62574,7 +62574,7 @@
                     "introduced": "casablanca",
                     "is_need": true,
                     "is_part": false,
-                    "keyword": "MUST",
+                    "keyword": "MAY",
                     "links": [],
                     "notes": "",
                     "parts": {},
@@ -62691,7 +62691,7 @@
                     "type_name": "Requirement",
                     "updated": "casablanca",
                     "validated_by": "",
-                    "validation_mode": "static"
+                    "validation_mode": "none"
                 },
                 "R-67895": {
                     "description": "The VNFD provided by VNF vendor may use the below described TOSCA\ncapabilities. An on-boarding entity (ONAP SDC) **MUST** support them.\n\n  **tosca.capabilities.nfv.VirtualBindable**\n\n    A node type that includes the VirtualBindable capability indicates\n    that it can be pointed by **tosca.relationships.nfv.VirtualBindsTo**\n    relationship type.\n\n  **tosca.capabilities.nfv.VirtualLinkable**\n\n    A node type that includes the VirtualLinkable capability indicates\n    that it can be pointed by **tosca.relationships.nfv.VirtualLinksTo**\n    relationship.\n\n  **tosca.capabilities.nfv.ExtVirtualLinkable**\n\n    A node type that includes the ExtVirtualLinkable capability\n    indicates that it can be pointed by\n    **tosca.relationships.nfv.VirtualLinksTo** relationship.\n\n  **Note**: This capability type is used in Casablanca how it does\n  not exist in the last SOL001 draft\n\n  **tosca.capabilities.nfv.VirtualCompute** and\n  **tosca.capabilities.nfv.VirtualStorage** includes flavours of VDU",
@@ -62768,7 +62768,7 @@
                     "introduced": "",
                     "is_need": true,
                     "is_part": false,
-                    "keyword": "SHOULD",
+                    "keyword": "MUST",
                     "links": [],
                     "notes": "",
                     "parts": {},
@@ -63082,7 +63082,7 @@
                     "type_name": "Requirement",
                     "updated": "casablanca",
                     "validated_by": "",
-                    "validation_mode": "static"
+                    "validation_mode": "none"
                 },
                 "R-69431": {
                     "description": "The VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``\nproperty\n``flavor`` parameter **MUST** be enumerated in the Heat Orchestration\nTemplate's Environment File and a value **MUST** be assigned.",
@@ -63178,7 +63178,7 @@
                     "type_name": "Requirement",
                     "updated": "casablanca",
                     "validated_by": "",
-                    "validation_mode": "static"
+                    "validation_mode": "none"
                 },
                 "R-69610": {
                     "description": "The VNF **MUST** provide the capability of using X.509 certificates\nissued by an external Certificate Authority.",
@@ -63665,7 +63665,7 @@
                     "type_name": "Requirement",
                     "updated": "casablanca",
                     "validated_by": "",
-                    "validation_mode": "static"
+                    "validation_mode": "none"
                 },
                 "R-71152": {
                     "description": "The VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``\nproperty\n``image`` parameter **MUST** be declared as type: ``string``.",
@@ -65906,7 +65906,7 @@
                     "type_name": "Requirement",
                     "updated": "casablanca",
                     "validated_by": "",
-                    "validation_mode": "static"
+                    "validation_mode": "none"
                 },
                 "R-82134": {
                     "description": "A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource property\n``metadata`` key/value pair ``vf_module_id`` parameter **MUST**\nbe declared as ``vf_module_id`` and the parameter **MUST**\nbe defined as type: ``string``.",
@@ -66096,7 +66096,7 @@
                     "type_name": "Requirement",
                     "updated": "casablanca",
                     "validated_by": "",
-                    "validation_mode": "static"
+                    "validation_mode": "none"
                 },
                 "R-82732": {
                     "description": "A VNF Heat Orchestration Template's Cinder Volume Module **MUST**\nbe named identical to the base or incremental module it is supporting with\n``_volume`` appended.",
@@ -66389,7 +66389,7 @@
                     "type_name": "Requirement",
                     "updated": "casablanca",
                     "validated_by": "",
-                    "validation_mode": "static"
+                    "validation_mode": "none"
                 },
                 "R-83790": {
                     "description": "The xNF **MUST** implement the ``:validate`` capability.",
@@ -66617,7 +66617,7 @@
                     "type_name": "Requirement",
                     "updated": "casablanca",
                     "validated_by": "",
-                    "validation_mode": "static"
+                    "validation_mode": "none"
                 },
                 "R-84366": {
                     "description": "The xNF Package **MUST** include documentation describing\nxNF Functional APIs that are utilized to build network and\napplication services. This document describes the externally exposed\nfunctional inputs and outputs for the xNF, including interface\nformat and protocols supported.",
@@ -68002,7 +68002,7 @@
                     "type_name": "Requirement",
                     "updated": "casablanca",
                     "validated_by": "",
-                    "validation_mode": "static"
+                    "validation_mode": "none"
                 },
                 "R-88536": {
                     "description": "A VNF's Heat Orchestration Template's OS::Nova::Server\nResource **SHOULD** contain the metadata map value parameter\n'environment_context'.",
@@ -69763,7 +69763,7 @@
                     "type_name": "Requirement",
                     "updated": "casablanca",
                     "validated_by": "",
-                    "validation_mode": "static"
+                    "validation_mode": "none"
                 },
                 "R-96554": {
                     "description": "The xNF **MUST** implement the protocol operation:\n``unlock(target)`` - Unlock the configuration data store target.",
@@ -69860,7 +69860,7 @@
                     "type_name": "Requirement",
                     "updated": "casablanca",
                     "validated_by": "",
-                    "validation_mode": "static"
+                    "validation_mode": "none"
                 },
                 "R-97102": {
                     "description": "The VNF Package **MUST** include VM requirements via a Heat\ntemplate that provides the necessary data for VM specifications\nfor all VNF components - for hypervisor, CPU, memory, storage.",
@@ -70155,7 +70155,7 @@
                     "type_name": "Requirement",
                     "updated": "casablanca",
                     "validated_by": "",
-                    "validation_mode": "static"
+                    "validation_mode": "none"
                 },
                 "R-978752": {
                     "description": "The xNF providers **MUST** provide the Service Provider the following\nartifacts to support the delivery of high-volume xNF telemetry to\nDCAE via GPB over TLS/TCP:\n\n   * A valid VES Event .proto definition file, to be used validate and\n     decode an event\n   * A valid high volume measurement .proto definition file, to be used for\n     processing high volume events\n   * A supporting PM content metadata file to be used by analytics\n     applications to process high volume measurement events",
@@ -70251,7 +70251,7 @@
                     "type_name": "Requirement",
                     "updated": "casablanca",
                     "validated_by": "",
-                    "validation_mode": "static"
+                    "validation_mode": "none"
                 },
                 "R-981585": {
                     "description": "The pnfRegistration VES event periodicity **MUST** be configurable.\n\nNote: The PNF uses the service configuration request as a semaphore to\nstop sending the pnfRegistration sent. See the requirement PNP-5360\nrequirement.",
@@ -70894,7 +70894,7 @@
                     "type_name": "Requirement",
                     "updated": "casablanca",
                     "validated_by": "",
-                    "validation_mode": "static"
+                    "validation_mode": "none"
                 },
                 "R-99798": {
                     "description": "A VNF's Heat Orchestration Template's Virtual Machine\n(i.e., ``OS::Nova::Server`` resource) **MAY** boot from an image or\n**MAY** boot from a Cinder Volume.",

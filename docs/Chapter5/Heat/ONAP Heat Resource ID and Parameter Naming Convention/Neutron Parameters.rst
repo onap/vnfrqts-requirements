@@ -76,7 +76,7 @@ or **MUST** have statically assigned IP addresses.
     :id: R-45602
     :target: VNF
     :keyword: MUST NOT
-    :validation_mode: static
+    :validation_mode: none
     :updated: casablanca
 
     If a VNF's Port is attached to a network (internal or external)
@@ -102,7 +102,7 @@ or **MUST** have statically assigned IP addresses.
     :id: R-48880
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
+    :validation_mode: none
     :updated: casablanca
 
     If a VNF's Port is attached to an external network and the port's
@@ -128,7 +128,7 @@ or **MUST** have statically assigned IP addresses.
     :id: R-70964
     :target: VNF
     :keyword: MUST NOT
-    :validation_mode: static
+    :validation_mode: none
     :updated: casablanca
 
     If a VNF's Port is attached to an internal network and the port's

@@ -9,7 +9,7 @@
     :id: R-69014
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
+    :validation_mode: none
     :updated: casablanca
 
     When a VNF's port connects to an internal network or external network,
@@ -23,7 +23,7 @@
     :id: R-05201
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
+    :validation_mode: none
     :updated: casablanca
 
     When a VNF connects to two or more unique networks, each
@@ -35,7 +35,7 @@
     :id: R-21330
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
+    :validation_mode: none
     :updated: casablanca
 
     A VNF's Heat Orchestration Template's Resource property parameter that is
@@ -46,7 +46,7 @@
     :id: R-11168
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
+    :validation_mode: none
     :updated: casablanca
 
     A VNF's Heat Orchestration Template's Resource ID that is associated with
@@ -57,7 +57,7 @@
     :id: R-84322
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
+    :validation_mode: none
     :updated: casablanca
 
     A VNF's Heat Orchestration Template's Resource property parameter that
@@ -69,7 +69,7 @@
     :id: R-96983
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
+    :validation_mode: none
     :updated: casablanca
 
     A VNF's Heat Orchestration Template's Resource ID that is associated
@@ -106,7 +106,7 @@ For example, if a VNF has a '{vm-type}' of 'oam' and a
     :id: R-58424
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
+    :validation_mode: none
     :updated: casablanca
 
     A VNF's Heat Orchestration Template's use of ``{network-role}``
@@ -116,7 +116,7 @@ For example, if a VNF has a '{vm-type}' of 'oam' and a
     :id: R-21511
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
+    :validation_mode: none
     :updated: casablanca
 
     A VNF's Heat Orchestration Template's use of ``{network-role}``
