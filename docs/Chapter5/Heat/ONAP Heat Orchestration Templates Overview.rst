@@ -49,6 +49,7 @@ deployed incrementally to create the complete VNF.
     :target: VNF
     :keyword: MUST
     :updated: casablanca
+    :validation_mode: static
 
     A VNF **MUST** be composed of one Base Module
 
@@ -572,6 +573,7 @@ ONAP VNF On-Boarding
 .. req::
     :id: R-511776
     :keyword: MUST
+    :validation_mode: static
 
     When a VNF's Heat Orchestration Template is ready
     to be on-boarded to ONAP,
@@ -599,6 +601,7 @@ The VNF's Heat Orchestration Template's ZIP file **MAY** include
 .. req::
     :id: R-348813
     :keyword: MUST
+    :validation_mode: static
 
     The VNF's Heat Orchestration Template's ZIP file **MUST NOT** include
     a binary image file.

@@ -61,6 +61,7 @@ have a unique name in the scope of the VNF.
     :id: R-60011
     :keyword: MUST
     :updated: casablanca
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template **MUST** have no more than two
     levels of nesting.
@@ -76,6 +77,7 @@ the second level of nested heat.
     :id: R-17528
     :keyword: MUST
     :updated: casablanca
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's first level Nested YAML file
     **MUST NOT** contain more than one ``OS::Nova::Server`` resource.
@@ -86,6 +88,7 @@ the second level of nested heat.
     :id: R-708564
     :keyword: MUST
     :updated: casablanca
+    :validation_mode: static
 
     If a VNF's Heat Orchestration Template's resource invokes a nested
     YAML file, either statically or dynamically, the names of the parameters
@@ -109,6 +112,7 @@ cause issues for other ONAP applications/features.
     :id: R-11041
     :keyword: MUST
     :updated: casablanca
+    :validation_mode: static
 
     All parameters defined in a VNFs Nested YAML file
     **MUST**  be passed in as properties of the resource calling

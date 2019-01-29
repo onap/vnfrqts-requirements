@@ -1,5 +1,5 @@
 {
-    "created": "2019-01-25T23:15:47.976656",
+    "created": "2019-01-29T22:28:48.655323",
     "current_version": "dublin",
     "project": "",
     "versions": {
@@ -45910,7 +45910,7 @@
             "needs_amount": 789
         },
         "dublin": {
-            "created": "2019-01-25T23:15:47.976584",
+            "created": "2019-01-29T22:28:48.655303",
             "needs": {
                 "R-00011": {
                     "description": "A VNF's Heat Orchestration Template's parameter defined\nin a nested YAML file\n**SHOULD NOT** have a parameter constraint defined.",
@@ -48228,7 +48228,7 @@
                     "type_name": "Requirement",
                     "updated": "casablanca",
                     "validated_by": "",
-                    "validation_mode": ""
+                    "validation_mode": "static"
                 },
                 "R-11168": {
                     "description": "A VNF's Heat Orchestration Template's Resource ID that is associated with\nan external network **MUST** include the ``{network-role}`` as part\nof the resource ID.",
@@ -49850,7 +49850,7 @@
                     "type_name": "Requirement",
                     "updated": "casablanca",
                     "validated_by": "",
-                    "validation_mode": ""
+                    "validation_mode": "static"
                 },
                 "R-17624": {
                     "description": "The PNF **MAY** support the optional parameters for Service\nConfiguration Parameters.\n\nNote: These are detailed in the Stage 5 PnP\n\nNote: These parameters are optional, and not all PNFs will support any\nor all of these parameters, it is up to the vendor and service provider\nto ascertain which ones are supported up to an including all of the ones\nthat have been defined. Note: It is expected that there will be a growing\nlist of supported configuration parameters in future releases of ONAP.",
@@ -54727,7 +54727,7 @@
                     "type_name": "Requirement",
                     "updated": "",
                     "validated_by": "",
-                    "validation_mode": ""
+                    "validation_mode": "static"
                 },
                 "R-34957": {
                     "description": "The VNF **MUST** provide a method of metrics gathering for each\nlayer's performance to identify/document variances in the allocations so\nthey can be addressed.",
@@ -55342,7 +55342,7 @@
                     "type_name": "Requirement",
                     "updated": "casablanca",
                     "validated_by": "",
-                    "validation_mode": ""
+                    "validation_mode": "static"
                 },
                 "R-37039": {
                     "description": "A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource\nproperty\n``metadata`` key/value pair ``vf_module_index`` parameter\n``vf_module_index`` **MUST NOT**\nbe enumerated in the Heat Orchestration Template's environment file.",
@@ -59022,7 +59022,7 @@
                     "type_name": "Requirement",
                     "updated": "casablanca",
                     "validated_by": "",
-                    "validation_mode": ""
+                    "validation_mode": "static"
                 },
                 "R-511776": {
                     "description": "When a VNF's Heat Orchestration Template is ready\nto be on-boarded to ONAP,\nall files composing the VNF Heat Orchestration Template\n**MUST** be placed in a flat (i.e., non-hierarchical) directory and\narchived using ZIP.  The resulting ZIP file is uploaded into ONAP.",
@@ -59054,7 +59054,7 @@
                     "type_name": "Requirement",
                     "updated": "",
                     "validated_by": "",
-                    "validation_mode": ""
+                    "validation_mode": "static"
                 },
                 "R-51347": {
                     "description": "The VNF package **MUST** be arranged as a CSAR archive as specified in\nTOSCA Simple Profile in YAML 1.2.",
@@ -61255,7 +61255,7 @@
                     "type_name": "Requirement",
                     "updated": "casablanca",
                     "validated_by": "",
-                    "validation_mode": ""
+                    "validation_mode": "static"
                 },
                 "R-60106": {
                     "description": "The xNF **MUST** implement the protocol operation:\n``get(filter)`` - Retrieve (a filtered subset of) the running\nconfiguration and device state information. This should include\nthe list of xNF supported schemas.",
@@ -62788,7 +62788,7 @@
                     "type_name": "Requirement",
                     "updated": "casablanca",
                     "validated_by": "",
-                    "validation_mode": ""
+                    "validation_mode": "static"
                 },
                 "R-68122": {
                     "description": "A VNF's incremental module **MAY** be deployed more than once,\neither during initial VNF deployment and/or scale out.",
@@ -62877,7 +62877,7 @@
                     ],
                     "status": null,
                     "tags": [],
-                    "target": "",
+                    "target": "VNF",
                     "test": "",
                     "test_case": "",
                     "test_file": "",
@@ -62886,7 +62886,7 @@
                     "type_name": "Requirement",
                     "updated": "",
                     "validated_by": "",
-                    "validation_mode": ""
+                    "validation_mode": "none"
                 },
                 "R-68198": {
                     "description": "A VNF's Heat Orchestration template's Environment File's\n``parameters:`` section **MAY** (or **MAY NOT**) enumerate parameters.",
@@ -63600,7 +63600,7 @@
                     "type_name": "Requirement",
                     "updated": "casablanca",
                     "validated_by": "",
-                    "validation_mode": ""
+                    "validation_mode": "static"
                 },
                 "R-70933": {
                     "description": "The VNF **MUST** provide the ability to migrate to newer\nversions of cryptographic algorithms and protocols with minimal impact.",

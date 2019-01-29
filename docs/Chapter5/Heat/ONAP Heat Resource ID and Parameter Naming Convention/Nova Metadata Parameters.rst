@@ -247,6 +247,7 @@ part of the orchestration process.
     :id: R-68023
     :target: VNF
     :keyword: MUST
+    :validation_mode: static
     :updated: casablanca
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
@@ -453,6 +454,7 @@ vf_module_index
     :target: VNF
     :keyword: MUST
     :updated: casablanca
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server``
     resource  property ``metadata`` **MAY**
