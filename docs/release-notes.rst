@@ -16,6 +16,36 @@
 VNF Requirements Release Notes
 ==============================
 
+Version: 3.0.1
+--------------
+
+:Release Date: 2019-1-30
+
+**New Features**
+    - No new features added during Casablanca Maintenance release
+
+**Bug Fixes**
+    - Fixed typos
+    - Fixed metadata errors
+
+**Known Issues**
+    - Links that refer to "latest" version are static.  Please report
+      any broken links.
+
+**Security Issues**
+    - None
+
+**Upgrade Notes**
+    - If you would like to add requirements, you **MUST** follow
+      `instructions on Wiki <https://wiki.onap.org/display/DW/VNFRQTS+How+to+Contribute>`__.
+
+**Deprecation Notes**
+    - None
+
+**Other**
+    - None
+
+
 Version: 3.0.0
 --------------
 
