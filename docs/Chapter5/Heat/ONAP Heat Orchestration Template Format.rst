@@ -241,7 +241,7 @@ default
     :id: R-26124
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
+    :validation_mode: none
     :updated: casablanca
 
     If a VNF Heat Orchestration Template parameter has a default value,

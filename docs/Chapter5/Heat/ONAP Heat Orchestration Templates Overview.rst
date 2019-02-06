@@ -439,7 +439,7 @@ other VNFs.
     :id: R-52753
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
+    :validation_mode: none
 
     VNF's Heat Orchestration Template's Base Module's output parameter's
     name and type **MUST** match the VNF's Heat Orchestration Template's
@@ -523,7 +523,7 @@ ONAP does not support the use of heat stack-update command for scaling
     :id: R-39349
     :target: VNF
     :keyword: MUST NOT
-    :validation_mode: static
+    :validation_mode: none
 
     A VNF Heat Orchestration Template **MUST NOT** be designed to utilize the
     OpenStack ``heat stack-update`` command for scaling (growth/de-growth).
@@ -561,7 +561,7 @@ Orchestration Template at orchestration time.
     :id: R-01896
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
+    :validation_mode: none
 
     A VNF's Heat Orchestration Template's parameter values that are constant
     across all deployments **MUST** be declared in a Heat Orchestration
