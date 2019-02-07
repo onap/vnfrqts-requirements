@@ -12,6 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
+.. _vnf_configuration_management:
 
 Configuration Management
 ------------------------
@@ -952,6 +953,8 @@ NETCONF RFCs.
     The xNF **MUST** conform to the NETCONF RFC 6242,
     "Using the Network Configuration Protocol over Secure Shell".
 
+.. _xnf_rest_apis:
+
 xNF REST APIs
 ^^^^^^^^^^^^^^^
 
@@ -1238,6 +1241,8 @@ action request against a Chef managed xNF.
    CallbackCapable is not set to "True", ONAP will retrieve any output
    from each node where the push job has finished by accessing the Node
    Object attribute node['PushJobOutput'].
+
+.. _ansible_playbook_requirements:
 
 Ansible Standards and Capabilities
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
