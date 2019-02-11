@@ -311,7 +311,7 @@ Data Structure Specification of the Event Record
    :impacts: dcae
 
    The xNF provider **MUST** provide a YAML file formatted in adherence with
-   the :doc:`VES Event Registration specification<../../../../vnfsdk/module.git/files/VESEventRegistration_3_0>`
+   the :doc:`VES Event Registration specification <../../../../vnfsdk/model.git/docs/files/VESEventRegistration_3_0>`
    that defines the following information for each event produced by the VNF:
 
    * ``eventName``
@@ -330,7 +330,7 @@ Data Structure Specification of the Event Record
    The xNF provider **MUST** indicate specific conditions that may arise, and
    recommend actions that may be taken at specific thresholds, or if specific
    conditions repeat within a specified time interval, using the semantics and
-   syntax described by the :doc:`VES Event Registration specification<../../../../vnfsdk/module.git/files/VESEventRegistration_3_0>`.
+   syntax described by the :doc:`VES Event Registration specification <../../../../vnfsdk/model.git/docs/files/VESEventRegistration_3_0>`.
 
 **NOTE:** The Service Provider may override xNF provider Event
 Registrations using the ONAP SDC Design Studio to finalizes Service

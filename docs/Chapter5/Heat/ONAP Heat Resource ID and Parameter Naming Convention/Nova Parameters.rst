@@ -8,7 +8,7 @@ Resource: OS::Nova::Server - Parameters
 
 The OS::Nova::Server resource manages the running virtual machine (VM)
 instance within an OpenStack cloud. (See
-https://docs.openstack.org/developer/heat/template_guide/openstack.html#OS::Nova::Server.)
+https://docs.openstack.org/developer/heat/template_guide/openstack.html#OS::Nova::Server)
 
 The following four properties of the ``OS::Nova::Server``
 resource must follow an

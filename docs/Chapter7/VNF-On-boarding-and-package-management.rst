@@ -132,7 +132,7 @@ Resource Description
     :introduced: casablanca
     :validation_mode: static
 
-    The xNF package MUST provide :doc:`VES Event Registration <../../../../vnfsdk/module.git/files/VESEventRegistration_3_0>`
+    The xNF package MUST provide :doc:`VES Event Registration <../../../../vnfsdk/model.git/docs/files/VESEventRegistration_3_0>`
     for all VES events provided by that xNF.
 
 .. req::
