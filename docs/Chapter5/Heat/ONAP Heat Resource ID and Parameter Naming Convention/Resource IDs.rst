@@ -260,29 +260,9 @@ OS::Heat::MultipartMime
 OS::Heat::ResourceGroup
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-There is only a mandatory naming convention for a 'OS::Heat::ResourceGroup'
-that is creating sub-interfaces.
+There is no mandatory naming convention for
+the resource 'OS::Heat::ResourceGroup'.
 
-.. req::
-    :id: R-64197
-    :target: VNF
-    :keyword: MUST
-    :validation_mode: static
-    :updated: casablanca
-
-    A VNF's Heat Orchestration Template's Resource ``OS::Heat::ResourceGroup``
-    Resource ID that creates sub-interfaces **MUST** use the naming convention
-
-    * ``{vm-type}_{vm-type_index}_subint_{network-role}_port_{port-index}_subinterfaces``
-
-    where
-
-    * ``{vm-type}`` is the vm-type
-    * ``{vm-type_index}`` is the instance of the ``{vm-type}``
-    * ``{network-role}`` is the network-role of the networks
-      that the sub-interfaces attach to
-    * ``{port-index}`` is the instance of the port on the vm-type
-      attached to the network of ``{network-role}``
 
 OS::Heat::SoftwareConfig
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -738,56 +718,6 @@ OS::ContrailV2::InstanceIp
     * ``v6_IP`` signifies that an IPv6 address is being configured
     * ``{index}`` is the index of the IPv6 address
 
-.. req::
-    :id: R-20947
-    :target: VNF
-    :keyword: MUST
-    :validation_mode: static
-    :updated: casablanca
-
-    A VNF's Heat Orchestration Template's Resource ``OS::ContrailV2::InstanceIp``
-    that is configuring an IPv4 Address on a sub-interface port attached to a
-    sub-interface network Resource ID **MUST** use the naming convention
-
-    *  ``{vm-type}_{vm-type_index}_subint_{network-role}_vmi_{vmi_index}_IP_{index}``
-
-    where
-
-    * ``{vm-type}`` is the vm-type
-    * ``{vm-type_index}`` is the instance of the ``{vm-type}``
-    * ``{network-role}`` is the network-role of the network
-      that the port is attached to
-    * ``{vmi_index}`` is the instance of the virtual machine interface
-      (e.g., port)  on the vm-type
-      attached to the network of ``{network-role}``
-    * ``IP`` signifies that an IPv4 address is being configured
-    * ``{index}`` is the index of the IPv4 address
-
-.. req::
-    :id: R-88540
-    :target: VNF
-    :keyword: MUST
-    :validation_mode: static
-    :updated: casablanca
-
-    A VNF's Heat Orchestration Template's Resource ``OS::ContrailV2::InstanceIp``
-    that is configuring an IPv6 Address on a sub-interface port attached to a
-    sub-interface network Resource ID **MUST**
-    use the naming convention
-
-    *  ``{vm-type}_{vm-type_index}_subint_{network-role}_vmi_{vmi_index}_v6_IP_{index}``
-
-    where
-
-    * ``{vm-type}`` is the vm-type
-    * ``{vm-type_index}`` is the instance of the ``{vm-type}``
-    * ``{network-role}`` is the network-role of the network
-      that the port is attached to
-    * ``{vmi_index}`` is the instance of the virtual machine interface
-      (e.g., port)  on the vm-type
-      attached to the network of ``{network-role}``
-    * ``v6_IP`` signifies that an IPv6 address is being configured
-    * ``{index}`` is the index of the IPv6 address
 
 OS::ContrailV2::InterfaceRouteTable
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -995,27 +925,6 @@ OS::ContrailV2::VirtualMachineInterface
     * ``{vmi_index}`` is the instance of the vmi on the vm-type
       attached to the network of ``{network-role}``
 
-.. req::
-    :id: R-54458
-    :target: VNF
-    :keyword: MUST
-    :validation_mode: static
-    :updated: casablanca
-
-    A VNF's Heat Orchestration Template's Resource
-    ``OS::ContrailV2::VirtualMachineInterface`` that is attaching to a sub-interface
-    network Resource ID **MUST** use the naming convention
-
-    * ``{vm-type}_{vm-type_index}_subint_{network-role}_vmi_{vmi_index}``
-
-    where
-
-    * ``{vm-type}`` is the vm-type
-    * ``{vm-type_index}`` is the instance of the ``{vm-type}``
-    * ``{network-role}`` is the network-role of the network
-      that the port (i.e. virtual machine interface) is attached to
-    * ``{vmi_index}`` is the instance of the vmi on the vm-type
-      attached to the network of ``{network-role}``
 
 OS::ContrailV2::VirtualNetwork
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
