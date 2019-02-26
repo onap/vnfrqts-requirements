@@ -47,7 +47,7 @@ Requirements in this document will explain it in further detail.
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: casablanca
+    :updated: dublin
 
     A VNF's Heat Orchestration Template's Resource property parameter that is
     associated with a unique Virtual Machine type **MUST** include
@@ -56,11 +56,17 @@ Requirements in this document will explain it in further detail.
      1.) The Resource ``OS::Nova::Server`` property ``availability_zone``
      parameter **MUST NOT** be prefixed with a common ``{vm-type}`` identifier,
 
-     2.) The Resource ``OS::Nova::Server`` eight mandatory and optional
-     ``metadata``
-     parameters (i.e., ``vnf_name``, ``vnf_id``, ``vf_module_id``,
-     ``vf_module_name``, ``vm_role``,
-     ``vf_module_index``, ``environment_context``, ``workload_context``)
+     2.) The Resource ``OS::Nova::Server`` mandatory and optional
+     ``metadata`` parameters
+     
+     * ``vnf_name``
+     * ``vnf_id``
+     * ``vf_module_id``
+     * ``vf_module_name``
+     * ``vf_module_index``
+     * ``environment_context``
+     * ``workload_context``
+
      **MUST NOT** be prefixed with a common ``{vm-type}`` identifier.
 
 .. req::

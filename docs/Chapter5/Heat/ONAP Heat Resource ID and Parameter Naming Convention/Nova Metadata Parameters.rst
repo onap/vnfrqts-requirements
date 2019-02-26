@@ -307,10 +307,8 @@ part of the orchestration process.
 vm_role
 ^^^^^^^^^
 
-The ``OS::Nova::Server`` Resource ``metadata`` map value parameter ``vm-role``
+The ``OS::Nova::Server`` Resource ``metadata`` map value parameter ``vm_role``
 is a ``metadata`` tag that describes the role of the Virtual Machine.
-The ``vm_role`` is stored in ONAP’s A&AI module and is
-available for use by other ONAP components and/or north bound systems.
 
 .. req::
     :id: R-85328
@@ -331,13 +329,16 @@ available for use by other ONAP components and/or north bound systems.
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: casablanca
+    :updated: dublin
 
     If a VNF's Heat Orchestration Template's ``OS::Nova::Server``
     resource property
     ``metadata`` key/value pair ``vm_role`` value is obtained via
-    ``get_param``, the parameter **MUST** be declared as ``vm_role``
-    and the parameter **MUST** be defined as type: ``string``.
+    ``get_param``, the parameter **MAY** be declared as
+
+    * ``vm_role`` and the parameter defined as ``type: string``.
+    * ``vm_roles`` and the parameter defined as ``type: comma_delimited_list``.
+    * ``{vm-type}_vm_role`` and the parameter defined as ``type: string``.
 
 .. req::
     :id: R-67597
@@ -375,7 +376,7 @@ Defining the ``vm_role`` as the ``{vm-type}`` is a recommended convention
       type: string
       description: Unique role for this VM
 
-*Example: 'vm-role' Definition: Hard Coded in
+*Example: 'vm_role' Definition: Hard Coded in
 OS::Nova::Resource metadata property*
 
 .. code-block:: yaml
@@ -389,7 +390,7 @@ OS::Nova::Resource metadata property*
         metadata:
           vm_role: dns
 
-*Example 'vm-role' Definition: Defined in Environment file
+*Example 'vm_role' Definition: Defined in Environment file
 and retrieved via 'get_param'*
 
 .. code-block:: yaml
