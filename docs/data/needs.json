@@ -1,5 +1,5 @@
 {
-    "created": "2019-02-06T21:42:46.108417",
+    "created": "2019-02-27T19:10:34.402992",
     "current_version": "dublin",
     "project": "",
     "versions": {
@@ -45910,7 +45910,7 @@
             "needs_amount": 789
         },
         "dublin": {
-            "created": "2019-02-06T21:42:46.108340",
+            "created": "2019-02-27T19:10:34.402875",
             "needs": {
                 "R-00011": {
                     "description": "A VNF's Heat Orchestration Template's parameter defined\nin a nested YAML file\n**SHOULD NOT** have a parameter constraint defined.",
@@ -46495,7 +46495,7 @@
                     "type_name": "Requirement",
                     "updated": "",
                     "validated_by": "",
-                    "validation_mode": "static"
+                    "validation_mode": "none"
                 },
                 "R-02164": {
                     "description": "When a VNF's Heat Orchestration Template's Contrail resource\nhas a property that\nreferences an external network that requires the network's\nFully Qualified Domain Name (FQDN), the property parameter\n\n* **MUST** follow the format ``{network-role}_net_fqdn``\n* **MUST** be declared as type ``string``\n* **MUST NOT** be enumerated in the VNF's Heat Orchestration Template's\n  Environment File",
@@ -48524,7 +48524,7 @@
                     "validation_mode": ""
                 },
                 "R-120182": {
-                    "description": "The xNF provider **MUST** indicate specific conditions that may arise, and\nrecommend actions that may be taken at specific thresholds, or if specific\nconditions repeat within a specified time interval, using the semantics and\nsyntax described by the :doc:`VES Event Registration specification<../../../../vnfsdk/module.git/files/VESEventRegistration_3_0>`.",
+                    "description": "The xNF provider **MUST** indicate specific conditions that may arise, and\nrecommend actions that may be taken at specific thresholds, or if specific\nconditions repeat within a specified time interval, using the semantics and\nsyntax described by the :doc:`VES Event Registration specification <../../../../vnfsdk/model.git/docs/files/VESEventRegistration_3_0>`.",
                     "docname": "Chapter7/Monitoring-And-Management",
                     "full_title": "",
                     "hide_links": "",
@@ -50699,39 +50699,6 @@
                     "validated_by": "",
                     "validation_mode": ""
                 },
-                "R-20947": {
-                    "description": "A VNF's Heat Orchestration Template's Resource ``OS::ContrailV2::InstanceIp``\nthat is configuring an IPv4 Address on a sub-interface port attached to a\nsub-interface network Resource ID **MUST** use the naming convention\n\n*  ``{vm-type}_{vm-type_index}_subint_{network-role}_vmi_{vmi_index}_IP_{index}``\n\nwhere\n\n* ``{vm-type}`` is the vm-type\n* ``{vm-type_index}`` is the instance of the ``{vm-type}``\n* ``{network-role}`` is the network-role of the network\n  that the port is attached to\n* ``{vmi_index}`` is the instance of the virtual machine interface\n  (e.g., port)  on the vm-type\n  attached to the network of ``{network-role}``\n* ``IP`` signifies that an IPv4 address is being configured\n* ``{index}`` is the index of the IPv4 address",
-                    "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Resource IDs",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-20947",
-                    "impacts": "",
-                    "introduced": "",
-                    "is_need": true,
-                    "is_part": false,
-                    "keyword": "MUST",
-                    "links": [],
-                    "notes": "",
-                    "parts": {},
-                    "section_name": "OS::ContrailV2::InstanceIp",
-                    "sections": [
-                        "OS::ContrailV2::InstanceIp",
-                        "Contrail Heat Resources Resource ID Naming Convention",
-                        "Resource IDs"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "casablanca",
-                    "validated_by": "",
-                    "validation_mode": "static"
-                },
                 "R-21210": {
                     "description": "The VNF **MUST** implement the following input validation control\non APIs: Validate that any input file has a correct and valid\nMultipurpose Internet Mail Extensions (MIME) type. Input files\nshould be tested for spoofed MIME types.",
                     "docname": "Chapter4/Security",
@@ -51052,7 +51019,7 @@
                     "validation_mode": "static"
                 },
                 "R-22346": {
-                    "description": "The xNF package MUST provide :doc:`VES Event Registration <../../../../vnfsdk/module.git/files/VESEventRegistration_3_0>`\nfor all VES events provided by that xNF.",
+                    "description": "The xNF package MUST provide :doc:`VES Event Registration <../../../../vnfsdk/model.git/docs/files/VESEventRegistration_3_0>`\nfor all VES events provided by that xNF.",
                     "docname": "Chapter7/VNF-On-boarding-and-package-management",
                     "full_title": "",
                     "hide_links": "",
@@ -52352,7 +52319,7 @@
                     "type_name": "Requirement",
                     "updated": "casablanca",
                     "validated_by": "",
-                    "validation_mode": "static"
+                    "validation_mode": "none"
                 },
                 "R-26351": {
                     "description": "A VNF's Heat Orchestration Template's Resource ``OS::Neutron::Port``\nthat is attaching to an internal network Resource ID **MUST**\nuse the naming convention\n\n* ``{vm-type}_{vm-type_index}_int_{network-role}_port_{port-index}``\n\nwhere\n\n* ``{vm-type}`` is the vm-type\n* ``{vm-type_index}`` is the instance of the ``{vm-type}``\n* ``{network-role}`` is the network-role of the network\n  that the port is attached to\n* ``{port-index}`` is the instance of the port on the vm-type\n  attached to the network of ``{network-role}``",
@@ -55695,7 +55662,7 @@
                     "type_name": "Requirement",
                     "updated": "",
                     "validated_by": "",
-                    "validation_mode": "static"
+                    "validation_mode": "none"
                 },
                 "R-39402": {
                     "description": "A VNF's Heat Orchestration Template **MUST** contain the\nsection ``description:``.",
@@ -59188,7 +59155,7 @@
                     "validation_mode": ""
                 },
                 "R-520802": {
-                    "description": "The xNF provider **MUST** provide a YAML file formatted in adherence with\nthe :doc:`VES Event Registration specification<../../../../vnfsdk/module.git/files/VESEventRegistration_3_0>`\nthat defines the following information for each event produced by the VNF:\n\n* ``eventName``\n* Required fields\n* Optional fields\n* Any special handling to be performed for that event",
+                    "description": "The xNF provider **MUST** provide a YAML file formatted in adherence with\nthe :doc:`VES Event Registration specification <../../../../vnfsdk/model.git/docs/files/VESEventRegistration_3_0>`\nthat defines the following information for each event produced by the VNF:\n\n* ``eventName``\n* Required fields\n* Optional fields\n* Any special handling to be performed for that event",
                     "docname": "Chapter7/Monitoring-And-Management",
                     "full_title": "",
                     "hide_links": "",
@@ -59314,7 +59281,7 @@
                     "type_name": "Requirement",
                     "updated": "",
                     "validated_by": "",
-                    "validation_mode": "static"
+                    "validation_mode": "none"
                 },
                 "R-52870": {
                     "description": "The VNF **MUST** provide a method of metrics gathering\nand analysis to evaluate the resiliency of the software from both\na granular as well as a holistic standpoint. This includes, but is\nnot limited to thread utilization, errors, timeouts, and retries.",
@@ -59775,39 +59742,6 @@
                     "updated": "",
                     "validated_by": "",
                     "validation_mode": ""
-                },
-                "R-54458": {
-                    "description": "A VNF's Heat Orchestration Template's Resource\n``OS::ContrailV2::VirtualMachineInterface`` that is attaching to a sub-interface\nnetwork Resource ID **MUST** use the naming convention\n\n* ``{vm-type}_{vm-type_index}_subint_{network-role}_vmi_{vmi_index}``\n\nwhere\n\n* ``{vm-type}`` is the vm-type\n* ``{vm-type_index}`` is the instance of the ``{vm-type}``\n* ``{network-role}`` is the network-role of the network\n  that the port (i.e. virtual machine interface) is attached to\n* ``{vmi_index}`` is the instance of the vmi on the vm-type\n  attached to the network of ``{network-role}``",
-                    "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Resource IDs",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-54458",
-                    "impacts": "",
-                    "introduced": "",
-                    "is_need": true,
-                    "is_part": false,
-                    "keyword": "MUST",
-                    "links": [],
-                    "notes": "",
-                    "parts": {},
-                    "section_name": "OS::ContrailV2::VirtualMachineInterface",
-                    "sections": [
-                        "OS::ContrailV2::VirtualMachineInterface",
-                        "Contrail Heat Resources Resource ID Naming Convention",
-                        "Resource IDs"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "casablanca",
-                    "validated_by": "",
-                    "validation_mode": "static"
                 },
                 "R-54517": {
                     "description": "When a VNF's Heat Orchestration Template's resource is associated with\na single ``{vm-type}``, the Resource ID **MUST** contain the\n``{vm-type}``.",
@@ -61976,39 +61910,6 @@
                     "updated": "casablanca",
                     "validated_by": "",
                     "validation_mode": ""
-                },
-                "R-64197": {
-                    "description": "A VNF's Heat Orchestration Template's Resource ``OS::Heat::ResourceGroup``\nResource ID that creates sub-interfaces **MUST** use the naming convention\n\n* ``{vm-type}_{vm-type_index}_subint_{network-role}_port_{port-index}_subinterfaces``\n\nwhere\n\n* ``{vm-type}`` is the vm-type\n* ``{vm-type_index}`` is the instance of the ``{vm-type}``\n* ``{network-role}`` is the network-role of the networks\n  that the sub-interfaces attach to\n* ``{port-index}`` is the instance of the port on the vm-type\n  attached to the network of ``{network-role}``",
-                    "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Resource IDs",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-64197",
-                    "impacts": "",
-                    "introduced": "",
-                    "is_need": true,
-                    "is_part": false,
-                    "keyword": "MUST",
-                    "links": [],
-                    "notes": "",
-                    "parts": {},
-                    "section_name": "OS::Heat::ResourceGroup",
-                    "sections": [
-                        "OS::Heat::ResourceGroup",
-                        "OpenStack Heat Resources Resource ID Naming Convention",
-                        "Resource IDs"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "casablanca",
-                    "validated_by": "",
-                    "validation_mode": "static"
                 },
                 "R-64445": {
                     "description": "The VNF **MUST** support the ability of a requestor of the\nservice to determine the version (and therefore capabilities) of the\nservice so that Network Cloud Service Provider can understand the\ncapabilities of the service.",
@@ -66037,7 +65938,7 @@
                     "validation_mode": ""
                 },
                 "R-82481": {
-                    "description": "A VNF's Heat Orchestration Template's Resource property parameter that is\nassociated with a unique Virtual Machine type **MUST** include\n``{vm-type}`` as part of the parameter name with two exceptions:\n\n 1.) The Resource ``OS::Nova::Server`` property ``availability_zone``\n parameter **MUST NOT** be prefixed with a common ``{vm-type}`` identifier,\n\n 2.) The Resource ``OS::Nova::Server`` eight mandatory and optional\n ``metadata``\n parameters (i.e., ``vnf_name``, ``vnf_id``, ``vf_module_id``,\n ``vf_module_name``, ``vm_role``,\n ``vf_module_index``, ``environment_context``, ``workload_context``)\n **MUST NOT** be prefixed with a common ``{vm-type}`` identifier.",
+                    "description": "A VNF's Heat Orchestration Template's Resource property parameter that is\nassociated with a unique Virtual Machine type **MUST** include\n``{vm-type}`` as part of the parameter name with two exceptions:\n\n 1.) The Resource ``OS::Nova::Server`` property ``availability_zone``\n parameter **MUST NOT** be prefixed with a common ``{vm-type}`` identifier,\n\n 2.) The Resource ``OS::Nova::Server`` mandatory and optional\n ``metadata`` parameters\n\n * ``vnf_name``\n * ``vnf_id``\n * ``vf_module_id``\n * ``vf_module_name``\n * ``vf_module_index``\n * ``environment_context``\n * ``workload_context``\n\n **MUST NOT** be prefixed with a common ``{vm-type}`` identifier.",
                     "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/{vm-type}",
                     "full_title": "",
                     "hide_links": "",
@@ -66063,9 +65964,9 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "casablanca",
+                    "updated": "dublin",
                     "validated_by": "",
-                    "validation_mode": "static"
+                    "validation_mode": "none"
                 },
                 "R-82551": {
                     "description": "When a VNF's Heat Orchestration Template's resource is associated with a\nsingle ``{vm-type}`` and a single internal network, the Resource ID **MUST**\ncontain both the ``{vm-type}`` and the ``int_{network-role}`` and\n\n- the ``{vm-type}`` **MUST** appear before the ``int_{network-role}`` and\n  **MUST** be separated by an underscore '_'\n\n  - (e.g., ``{vm-type}_int_{network-role}``,\n    ``{vm-type}_{index}_int_{network-role}``)\n\n- note that an ``{index}`` value **MAY** separate the\n  ``{vm-type}`` and the ``int_{network-role}`` and when this occurs\n  underscores **MUST** separate the three values.\n  (e.g., ``{vm-type}_{index}_int_{network-role}``).",
@@ -68036,39 +67937,6 @@
                     "validated_by": "",
                     "validation_mode": ""
                 },
-                "R-88540": {
-                    "description": "A VNF's Heat Orchestration Template's Resource ``OS::ContrailV2::InstanceIp``\nthat is configuring an IPv6 Address on a sub-interface port attached to a\nsub-interface network Resource ID **MUST**\nuse the naming convention\n\n*  ``{vm-type}_{vm-type_index}_subint_{network-role}_vmi_{vmi_index}_v6_IP_{index}``\n\nwhere\n\n* ``{vm-type}`` is the vm-type\n* ``{vm-type_index}`` is the instance of the ``{vm-type}``\n* ``{network-role}`` is the network-role of the network\n  that the port is attached to\n* ``{vmi_index}`` is the instance of the virtual machine interface\n  (e.g., port)  on the vm-type\n  attached to the network of ``{network-role}``\n* ``v6_IP`` signifies that an IPv6 address is being configured\n* ``{index}`` is the index of the IPv6 address",
-                    "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Resource IDs",
-                    "full_title": "",
-                    "hide_links": "",
-                    "id": "R-88540",
-                    "impacts": "",
-                    "introduced": "",
-                    "is_need": true,
-                    "is_part": false,
-                    "keyword": "MUST",
-                    "links": [],
-                    "notes": "",
-                    "parts": {},
-                    "section_name": "OS::ContrailV2::InstanceIp",
-                    "sections": [
-                        "OS::ContrailV2::InstanceIp",
-                        "Contrail Heat Resources Resource ID Naming Convention",
-                        "Resource IDs"
-                    ],
-                    "status": null,
-                    "tags": [],
-                    "target": "VNF",
-                    "test": "",
-                    "test_case": "",
-                    "test_file": "",
-                    "title": "",
-                    "title_from_content": "",
-                    "type_name": "Requirement",
-                    "updated": "casablanca",
-                    "validated_by": "",
-                    "validation_mode": "static"
-                },
                 "R-88863": {
                     "description": "A VNF's Heat Orchestration Template's parameter defined\nin a non-nested YAML file as type\n``number`` **MAY** have a parameter constraint defined.",
                     "docname": "Chapter5/Heat/ONAP Heat Orchestration Template Format",
@@ -69570,7 +69438,7 @@
                     "validation_mode": ""
                 },
                 "R-95430": {
-                    "description": "If a VNF's Heat Orchestration Template's ``OS::Nova::Server``\nresource property\n``metadata`` key/value pair ``vm_role`` value is obtained via\n``get_param``, the parameter **MUST** be declared as ``vm_role``\nand the parameter **MUST** be defined as type: ``string``.",
+                    "description": "If a VNF's Heat Orchestration Template's ``OS::Nova::Server``\nresource property\n``metadata`` key/value pair ``vm_role`` value is obtained via\n``get_param``, the parameter **MAY** be declared as\n\n* ``vm_role`` and the parameter defined as ``type: string``.\n* ``vm_roles`` and the parameter defined as ``type: comma_delimited_list``.\n* ``{vm-type}_vm_role`` and the parameter defined as ``type: string``.",
                     "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Nova Metadata Parameters",
                     "full_title": "",
                     "hide_links": "",
@@ -69579,7 +69447,7 @@
                     "introduced": "",
                     "is_need": true,
                     "is_part": false,
-                    "keyword": "MUST",
+                    "keyword": "MAY",
                     "links": [],
                     "notes": "",
                     "parts": {},
@@ -69597,9 +69465,9 @@
                     "title": "",
                     "title_from_content": "",
                     "type_name": "Requirement",
-                    "updated": "casablanca",
+                    "updated": "dublin",
                     "validated_by": "",
-                    "validation_mode": "static"
+                    "validation_mode": "none"
                 },
                 "R-95864": {
                     "description": "The VNF **MUST** support digital certificates that comply with X.509\nstandards.",
@@ -70960,7 +70828,7 @@
                     "validation_mode": "static"
                 }
             },
-            "needs_amount": 771
+            "needs_amount": 767
         }
     }
 }

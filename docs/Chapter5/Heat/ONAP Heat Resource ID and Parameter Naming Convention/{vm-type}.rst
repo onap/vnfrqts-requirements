@@ -58,7 +58,7 @@ Requirements in this document will explain it in further detail.
 
      2.) The Resource ``OS::Nova::Server`` mandatory and optional
      ``metadata`` parameters
-     
+
      * ``vnf_name``
      * ``vnf_id``
      * ``vf_module_id``
