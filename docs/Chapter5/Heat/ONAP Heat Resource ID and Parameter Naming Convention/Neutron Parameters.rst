@@ -1352,17 +1352,6 @@ VIP Assignment, External Networks, Supported by Automation
     be instantiated in the same Base Module Heat Orchestration Template
     or in the same Incremental Module Heat Orchestration Template.
 
-.. req::
-    :id: R-98748
-    :target: VNF
-    :keyword: MUST
-    :validation_mode: static
-    :updated: casablanca
-
-    The VNF's Heat Orchestration Template's Resource
-    ``OS::Neutron::Port`` property ``allowed_address_pairs``
-    map property ``ip_address`` parameter
-    **MUST** be declared as type ``string``.
 
 .. req::
     :id: R-41492
@@ -1467,6 +1456,117 @@ VIP Assignment, External Networks, Supported by Automation
     {vm-type}_{network-role}_floating_v6_ip:
       type: string
       description: VIP for {vm-type} VMs on the {network-role} network
+
+.. req::
+    :id: R-159016
+    :keyword: MUST NOT
+    :updated: dublin
+    :validation_mode: static
+    :target: VNF
+
+    When the VNF's Heat Orchestration Template's Resource
+    ``OS::Neutron::Port`` is attaching to an external network (per the
+    ECOMP definition, see Requirement R-57424),
+    and an IPv4 and/or IPv6 Virtual IP (VIP)
+    address is assigned via ECOMP automation
+    using the property ``allowed_address_pairs``
+    map property ``ip_address``, the
+    parameter **MUST NOT** be declared as ``type: comma_deliited_list``.
+
+
+
+.. req::
+    :id: R-717227
+    :keyword: MUST
+    :updated: dublin
+    :validation_mode: static
+    :target: VNF
+
+    When the VNF's Heat Orchestration Template's Resource
+    ``OS::Neutron::Port`` is attaching to an internal network (per the
+    ECOMP definition, see Requirements R-52425 and R-46461),
+    and an IPv4 Virtual IP (VIP)
+    address is assigned using the property ``allowed_address_pairs``
+    map property ``ip_address``,
+    the parameter name **MUST** follow the
+    naming convention
+
+      * ``{vm-type}_int_{network-role}_floating_ip``
+
+    where
+
+      * ``{vm-type}`` is the {vm-type} associated with the
+        OS::Nova::Server
+      * ``{network-role}`` is the {network-role} of the external
+        network
+    
+    And the parameter **MUST** be declared as ``type: string``
+    and **MUST** be enumerated in the environment file.
+
+    OR 
+
+    the parameter name **MUST** follow the
+    naming convention
+
+      * ``{vm-type}_int_{network-role}_floating_ips``
+
+    where
+
+      * ``{vm-type}`` is the {vm-type} associated with the
+        OS::Nova::Server
+      * ``{network-role}`` is the {network-role} of the external
+        network
+    
+    And the parameter **MUST** be declared as ``type: comma_delimited_list``
+    and **MUST** be enumerated in the environment file.
+
+
+.. req::
+    :id: R-805572
+    :keyword: MUST
+    :updated: dublin
+    :validation_mode: static
+    :target: VNF
+
+    When the VNF's Heat Orchestration Template's Resource
+    ``OS::Neutron::Port`` is attaching to an internal network (per the
+    ECOMP definition, see Requirements R-52425 and R-46461),
+    and an IPv6 Virtual IP (VIP)
+    address is assigned
+    using the property ``allowed_address_pairs``
+    map property ``ip_address``, 
+    the parameter name **MUST** follow the
+    naming convention
+
+      * ``{vm-type}_int_{network-role}_floating_v6_ip``
+
+    where
+
+      * ``{vm-type}`` is the {vm-type} associated with the
+        OS::Nova::Server
+      * ``{network-role}`` is the {network-role} of the external
+        network
+
+    And the parameter **MUST** be declared as ``type: string``
+    and **MUST** be enumerated in the environment file
+
+    OR
+
+    the parameter name **MUST** follow the
+    naming convention
+
+      * ``{vm-type}_int_{network-role}_floating_v6_ips``
+
+    where
+
+      * ``{vm-type}`` is the {vm-type} associated with the
+        OS::Nova::Server
+      * ``{network-role}`` is the {network-role} of the external
+        network
+
+    And the parameter **MUST** be declared as ``type: comma_delimited_list``
+    and **MUST** be enumerated in the environment file.
+
 
 Note that these parameters are **not** intended to represent an OpenStack
 "Floating IP", for which OpenStack manages a pool of public IP
