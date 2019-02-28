@@ -20,7 +20,7 @@ This appendix provides a consolidated list of requirements that can be
 searched and exported in a variety of formats.
 
 Additionally, a JSON version of the requirements can be
-:download:`downloaded here<../data/needs.json>`
+`downloaded here <https://nexus.onap.org/content/sites/raw/org.onap.vnfrqts.requirements/master/needs.json>`_.
 
 .. needtable::
    :style: datatables
