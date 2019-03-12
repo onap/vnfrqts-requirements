@@ -20,15 +20,16 @@ ONAP TOSCA VNFD Requirements
 Introduction
 ^^^^^^^^^^^^
 
-The following sub-clauses describe the numbered requirements
-for VNF Descriptor (VNFD) or in other words the VNF Service Template
-based on the most updated draft of ETSI NFV-SOL001 standard for VNF
-Descriptor. The ETSI standard specifies a NFV specific data model using
-TOSCA/YAML data model constructs specified in TOSCA Simple Profile in
-YAML v.1.2.
+The following sub-clauses describe the numbered requirements for VNF 
+Descriptor (VNFD) and PNF Descriptor (PNFD) or in other words the VNF/PNF 
+Service Template based on the most updated draft of ETSI NFV-SOL001 standard 
+for VNF/PNF Descriptor. The ETSI standard specifies a NFV specific data 
+model using TOSCA/YAML data model constructs specified in TOSCA Simple 
+Profile in YAML v.1.2.
 
-The requirements for TOSCA/CSAR based VNF package are described as well
+The requirements for TOSCA/CSAR based VNF/PNF package are described as well
 and they are based on ETSI NFV-SOL004 standard.
+
 
 References
 ^^^^^^^^^^^^^^^^^^
