@@ -13,8 +13,8 @@
    limitations under the License.
 
 
-VNF Modeling Requirements
-=========================
+VNF and PNF Modeling Requirements
+=================================
 
 .. toctree::
     :maxdepth: 2
