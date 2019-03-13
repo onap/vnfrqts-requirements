@@ -13,7 +13,7 @@
    limitations under the License.
 
 
-VNF Modeling Requirements
+VNF/PNF Modeling Requirements
 =========================
 
 .. toctree::
