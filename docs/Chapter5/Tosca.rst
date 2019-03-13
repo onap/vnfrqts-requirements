@@ -74,7 +74,7 @@ The VNFD and VNF package are all align to the NFV TOSCA protocol, which
 supports multiple TOSCA template yaml files, and also supports
 self-defined node or other extensions.
 
-VNF CSAR Package
+VNF/PNF CSAR Package
 ^^^^^^^^^^^^^^^^^^^^
 
 CSAR Overview
