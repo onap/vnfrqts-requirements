@@ -30,13 +30,12 @@ Profile in YAML v.1.2.
 The requirements for TOSCA/CSAR based VNF/PNF package are described as well
 and they are based on ETSI NFV-SOL004 standard.
 
-
 References
 ^^^^^^^^^^^^^^^^^^
 
-  1. ETSI GS NFV-SOL001 draft v.0.10.0
+  1. ETSI GS NFV-SOL001 v.2.5.1
   2. TOSCA SIMPLE Profile in YAML v.1.2
-  3. ETSI GS NFV-SOL004 v.2.5.1
+  3. ETSI GS NFV-SOL004 v.2.6.1
 
 Intended Audience
 ^^^^^^^^^^^^^^^^^^
