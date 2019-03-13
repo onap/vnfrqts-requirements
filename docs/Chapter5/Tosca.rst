@@ -59,21 +59,21 @@ associated with this format.
 Overview
 ^^^^^^^^^^^^^^^^
 
-The document includes three charters to help the VNF providers to use the
-VNF model design tools and understand the VNF package structure and VNF
-TOSCA templates.
+The document includes three charters to help the VNF or PNF providers to
+use the VNF or PNF model design tools and understand the VNF or PNF package
+structure and VNF or PNF TOSCA templates.
 
-In the ONAP, VNF Package and VNFD template can be designed by manually
-or via model designer tools. VNF model designer tools can provide the
-GUI and CLI tools for the VNF provider to develop the VNF Package and VNFD
-template.
+In the ONAP, VNF or PNF Package and VNFD or PNFD template can be designed by
+manually or via model designer tools. VNF or PNF model designer tools can
+provide the GUI and CLI tools for the VNF or PNF provider to develop the
+VNF or PNF Package and VNFD or PNFD template.
 
-The VNF package structure is align to the NFV TOSCA protocol, and
-supports CSAR
+The VNF or PNF package structure is align to the NFV TOSCA protocol,
+and supports CSAR
 
-The VNFD and VNF package are all align to the NFV TOSCA protocol, which
-supports multiple TOSCA template yaml files, and also supports
-self-defined node or other extensions.
+The VNFD or PNFD and VNF or PNF package are all align to the NFV TOSCA
+protocol, which supports multiple TOSCA template yaml files, and also
+supports self-defined node or other extensions.
 
 VNF or PNF CSAR Package
 ^^^^^^^^^^^^^^^^^^^^^^
