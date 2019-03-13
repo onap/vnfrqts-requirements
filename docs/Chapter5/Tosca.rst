@@ -35,7 +35,7 @@ References
 
   1. ETSI GS NFV-SOL001 v.2.5.1
   2. TOSCA SIMPLE Profile in YAML v.1.2
-  3. ETSI GS NFV-SOL004 v.2.6.1
+  3. ETSI GS NFV-SOL004 v.2.6.1 + NFV CR NFVSOL(18)000746r3.
 
 Intended Audience
 ^^^^^^^^^^^^^^^^^^
