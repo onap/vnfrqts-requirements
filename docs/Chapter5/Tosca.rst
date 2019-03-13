@@ -13,7 +13,7 @@
    limitations under the License.
 
 
-ONAP TOSCA VNFD Requirements
+ONAP TOSCA VNFD/VNFD Requirements
 -----------------------------
 
 
