@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b715068e_3dcd38d2",
+        "filename": "docs/Chapter5/Tosca.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 3967
+      },
+      "writtenOn": "2019-03-15T13:10:10Z",
+      "side": 1,
+      "message": "may be removed and covered in 580/581",
+      "range": {
+        "startLine": 147,
+        "startChar": 27,
+        "endLine": 151,
+        "endChar": 55
+      },
+      "revId": "35df869c61127aad390ce819f2cfb3c6cf34e9cb",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
