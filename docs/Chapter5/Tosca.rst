@@ -125,14 +125,14 @@ VNF Package Contents
 
 .. req::
     :id: R-10087
-    :target: VNF
+    :target: VNF or PNF
     :keyword: MUST
-    :introduced: casablanca
+    :updated: dublin, :introduced: casablanca
 
-    The VNF package **MUST** contain all standard artifacts as specified in
-    ETSI GS NFV-SOL004 including Manifest file, VNFD (or Main TOSCA/YAML
-    based Service Template) and other optional artifacts. CSAR Manifest
-    file as per SOL004 - for example ROOT\\ **MainServiceTemplate.mf**
+    The VNF or PNF package **MUST** contain all standard artifacts as specified
+    in ETSI GS NFV-SOL004 including Manifest file, VNFD or PNFD (or Main 
+    TOSCA/YAML based Service Template) and other optional artifacts. CSAR 
+    Manifest file as per SOL004 - for example ROOT\\ **MainServiceTemplate.mf**
 
 .. req::
     :id: R-01123
