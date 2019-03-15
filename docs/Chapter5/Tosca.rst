@@ -97,12 +97,13 @@ VNF Package Structure and Format
 
 .. req::
     :id: R-51347
-    :target: VNF
+    :target: VNF or PNF
     :keyword: MUST
     :introduced: casablanca
+    :updated: dublin
 
-    The VNF package **MUST** be arranged as a CSAR archive as specified in
-    TOSCA Simple Profile in YAML 1.2.
+    The VNF or PNF CSAR package **MUST** be arranged as a CSAR archive as
+    specified in TOSCA Simple Profile in YAML 1.2.
 
 
 .. req::
