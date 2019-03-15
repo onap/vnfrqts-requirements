@@ -137,19 +137,16 @@ VNF Package Contents
 
 .. req::
     :id: R-01123
-    :target: VNF
+    :target: VNF or PNF
     :keyword: MUST
     :introduced: casablanca
+    :updated: dublin
 
-    The VNF package Manifest file **MUST** contain: VNF package meta-data, a
-    list of all artifacts (both internal and external) entry's including
-    their respected URI's, an algorithm to calculate a digest and a digest
-    result calculated on the content of each artifacts, as specified in
-    ETSI GS NFV-SOL004. The VNF Package MUST include VNF Identification
-    Data to uniquely identify the resource for a given VNF provider. The
-    identification data must include: an identifier for the VNF, the name
-    of the VNF as was given by the VNF provider, VNF description, VNF
-    provider, and version.
+    The VNF or PNF package Manifest file **MUST** contain: VNF or PNF package
+    meta-data, a list of all artifacts (both internal and external) entry's
+    including their respected URI's, an algorithm to calculate a digest and
+    a digest result calculated on the content of each artifacts, as specified
+    in ETSI GS NFV-SOL004.
 
 .. req::
     :id: R-21322
