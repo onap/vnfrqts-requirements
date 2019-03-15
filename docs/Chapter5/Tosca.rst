@@ -187,6 +187,22 @@ VNF Package Contents
 
     for example ROOT\\Licenses\\ **License_term.txt**
 
+.. req::
+    :id: R-293901
+    :target: VNF or PNF
+    :keyword: MUST
+    :introduced: dublin
+
+    For a VNF or PNF  package CSAR with TOSCA-Metadata, CSAR containing a
+    TOSCA-Metadata directory, which includes the TOSCA.meta metadata
+    file.
+    The TOSCA.meta metadata file includes block_0 with the
+    Entry-Definitions keyword pointing to a TOSCA definitions YAML file
+    used as entry for parsing the contents of the overall CSAR archive.
+
+    Additional keyname extension **MUST** be included as following:
+      - ETSI-Entry-Manifest
+      - ETSI-Entry-Change-Log
 
 VNF Package Authenticity
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
