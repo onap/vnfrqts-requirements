@@ -187,6 +187,14 @@ VNF Package Contents
 
     for example ROOT\\Licenses\\ **License_term.txt**
 
+.. req::
+    :id: R-221914
+    :target: VNF or PNF
+    :keyword: MUST
+    :introduced: dublin
+    
+    The VNF or PNF  package **MUST** contain a humanly readable text
+    file describing any change in the constituency of the VNF/PNF package.
 
 VNF Package Authenticity
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
