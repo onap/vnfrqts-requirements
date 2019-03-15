@@ -188,11 +188,23 @@ VNF Package Contents
     for example ROOT\\Licenses\\ **License_term.txt**
 
 
-VNF Package Authenticity
+VNF/PNF Package Authenticity
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Will be added in future releases.
+VNF/PNF package shall support a method for authenticity and integrity assurance. 
+Note, Option2 specified in SOL004 is supported in Dublin release.
 
+.. req::
+    :id: R-444945
+    :target: VNF or PNF
+    :keyword: MUST
+    :introduced: dublin
+
+    The complete CSAR file **MUST** be digitally signed with the VNF or PNF provider
+    private key. The VNF or PNF provider delivers one zip file consisting of the
+    CSAR file, a signature file and a certificate file that includes the VNF or PNF
+    provider public key. The certificate may also be included in the signature
+    container, if the signature format allows that.
 
 VNF Package ONAP Extensions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
