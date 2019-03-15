@@ -187,6 +187,18 @@ VNF Package Contents
 
     for example ROOT\\Licenses\\ **License_term.txt**
 
+.. req::
+    :id: R-146092
+    :target: VNF/PNF
+    :keyword: MUST
+    :introduced: Dublin
+    
+    The VNF/PNF  package Manifest file MUST contain: non-mano artifact set 
+    with following ONAP public tag:
+	- onap_ves_events
+	- onap_pm_dictionary
+	- onap_yang_module
+	- onap_others
 
 VNF Package Authenticity
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
