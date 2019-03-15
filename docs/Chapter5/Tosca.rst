@@ -107,17 +107,16 @@ VNF Package Structure and Format
 
 .. req::
     :id: R-87234
-    :target: VNF
-    :keyword: MAY
-    :introduced: casablanca
+    :target: VNF/PNF
+    :keyword: SHOULD
+    :introduced: Dublin
 
-    The VNF package provided by a VNF vendor **MAY** be either with
-    TOSCA-Metadata directory (CSAR Option 1) or without TOSCA-Metadata
-    directory (CSAR Option 2) as specified in ETSI GS NFV-SOL004. On-boarding
-    entity (ONAP SDC) must support both options.
+    The VNF/PNF package provided by a VNF/PNF vendor **SHOULD** be either 
+    with TOSCA-Metadata directory (CSAR Option 1) or without TOSCA-Metadata
+    directory (CSAR Option 2) as specified in ETSI GS NFV-SOL004. 
 
-    **Note:** SDC supports only the CSAR Option 1 in Casablanca. The Option 2
-    will be considered in future ONAP releases,
+    **Note:** SDC supports only the CSAR Option 1 in Dublin. The Option 2
+    will be considered in future ONAP releases.
 
 
 VNF Package Contents
