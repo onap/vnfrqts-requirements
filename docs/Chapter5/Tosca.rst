@@ -447,6 +447,51 @@ Interface Types
       **tosca.interfaces.nfv.vnf.lifecycle.Nfv** supports LCM operations
 
 
+TOSCA PNF Descriptor
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+General
+~~~~~~~~~~
+
+
+Data Types
+~~~~~~~~~~~~~~
+
+
+Artifact Types
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Capability Types
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Requirements Types
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Relationship Types
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Interface Types
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Node Types
+~~~~~~~~~~~~~~
+
+
+Group Types
+~~~~~~~~~~~~~~
+
+
+Policy Types
+~~~~~~~~~~~~~~
+
+
+
 +--------------------------------------------------------------------+
 | +--------------------------------------------------------------+   |
 | | tosca\_definitions\_version: tosca\_simple\_yaml\_1\_0       |   |
