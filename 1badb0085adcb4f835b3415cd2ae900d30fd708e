@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ae711ae9_6f2f4fac",
+        "filename": "docs/Chapter5/Tosca.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2019-03-18T14:55:08Z",
+      "side": 1,
+      "message": "XNF",
+      "revId": "1badb0085adcb4f835b3415cd2ae900d30fd708e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "556aadf7_9631a5d5",
+        "filename": "docs/Chapter5/Tosca.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2019-03-18T14:55:08Z",
+      "side": 1,
+      "message": "keep :introduced: as casablanca, add :updated: dublin for changes",
+      "revId": "1badb0085adcb4f835b3415cd2ae900d30fd708e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa0db509_d49dc8b6",
+        "filename": "docs/Chapter5/Tosca.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2019-03-18T14:55:08Z",
+      "side": 1,
+      "message": "Use XNF vs. VNF/PNF",
+      "revId": "1badb0085adcb4f835b3415cd2ae900d30fd708e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
