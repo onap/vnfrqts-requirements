@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "72e62d54_9b50c265",
+        "filename": "docs/Chapter5/Tosca.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2019-03-18T15:02:26Z",
+      "side": 1,
+      "message": "XNF",
+      "revId": "310b1ef90dfa059e059f550498bfff5e5c5f63f0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da5cc663_b9361956",
+        "filename": "docs/Chapter5/Tosca.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2019-03-18T15:02:26Z",
+      "side": 1,
+      "message": "lowercase dublin",
+      "revId": "310b1ef90dfa059e059f550498bfff5e5c5f63f0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "772740a1_e1a92976",
+        "filename": "docs/Chapter5/Tosca.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2019-03-18T15:02:26Z",
+      "side": 1,
+      "message": "Can we link to the artifact specification that should be associated with this public tag?  For example, what specification dictates what is provided with the onap_yang_model, onap_ves_events, etc.",
+      "range": {
+        "startLine": 196,
+        "startChar": 53,
+        "endLine": 196,
+        "endChar": 74
+      },
+      "revId": "310b1ef90dfa059e059f550498bfff5e5c5f63f0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "66d402c1_bb914a66",
+        "filename": "docs/Chapter5/Tosca.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2019-03-18T15:02:26Z",
+      "side": 1,
+      "message": "XNF",
+      "range": {
+        "startLine": 196,
+        "startChar": 7,
+        "endLine": 196,
+        "endChar": 15
+      },
+      "revId": "310b1ef90dfa059e059f550498bfff5e5c5f63f0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
