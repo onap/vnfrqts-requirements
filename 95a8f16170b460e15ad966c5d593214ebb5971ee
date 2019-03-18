@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9e090081_9b4b40de",
+        "filename": "docs/Chapter5/Tosca.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2019-03-18T14:53:21Z",
+      "side": 1,
+      "message": "the standard target for a requirement that applies to both VNF and PNF is XNF. That\u0027s what\u0027s used elsewhere in the document.",
+      "revId": "95a8f16170b460e15ad966c5d593214ebb5971ee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96376ef0_bfbd18ba",
+        "filename": "docs/Chapter5/Tosca.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2019-03-18T14:53:21Z",
+      "side": 1,
+      "message": "if you\u0027re changing a requirement, then you can add the tag :updated: dublin (lowercase).  This allows us to keep track of when a requirement was introduced and last modified.",
+      "revId": "95a8f16170b460e15ad966c5d593214ebb5971ee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5edd0bb_9eb5c074",
+        "filename": "docs/Chapter5/Tosca.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2019-03-18T14:53:21Z",
+      "side": 1,
+      "message": "Similar to the comment above - use XNF",
+      "revId": "95a8f16170b460e15ad966c5d593214ebb5971ee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
