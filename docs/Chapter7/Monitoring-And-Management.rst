@@ -940,6 +940,18 @@ Bulk Performance Measurement
     The xNF **SHOULD** support the data schema defined in 3GPP TS 32.435, when
     supporting the event-driven bulk transfer of monitoring data.
 
+.. req::
+    :id: R-807129
+    :target: VNF or PNF
+    :keyword: SHOULD
+    :introduced: dublin
+    :impacts: dcae, dmaap
+
+    The VNF or PNF *SHOULD* report the files in FileReady for as long as they are available 
+    at VNF or PNF.    
+    Recommended period is at least 24 hours.
+
+
 
 .. |image0| image:: ../Data_Model_For_Event_Records.png
 
