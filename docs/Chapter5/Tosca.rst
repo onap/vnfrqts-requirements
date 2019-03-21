@@ -459,6 +459,21 @@ General
 Data Types
 ~~~~~~~~~~~~~~
 
+.. req::
+    :id: R-484843
+    :target: PNF
+    :keyword: MUST
+    :introduced: dublin
+
+    The PNFD provided by a PNF vendor **MUST** comply with the following Data Types as specified
+    in ETSI NFV-SOL001 standard :
+	- tosca.datatypes.nfv.CpProtocolData
+	- tosca.datatypes.nfv.AddressData
+	- tosca.datatypes.nfv.L2AddressData
+	- tosca.datatypes.nfv.L3AddressData
+	- tosca.datatypes.nfv.LocationInfo
+	- tosca.datatypes.nfv.CivicAddressElement
+
 
 Artifact Types
 ~~~~~~~~~~~~~~~~~~~~~~~~
