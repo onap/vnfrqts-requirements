@@ -475,6 +475,16 @@ Requirements Types
 Relationship Types
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
+.. req::
+    :id: R-64064
+    :target: PNF
+    :keyword: MUST
+    :introduced: dublin
+
+    The PNFD provided by a PNF vendor **MUST** comply with the following Relationship Types as
+    specified in ETSI NFV-SOL001 standard :
+	- tosca.datatypes.nfv.VirtualLinksTo
+
 
 Interface Types
 ~~~~~~~~~~~~~~~~~~~~~~~~
