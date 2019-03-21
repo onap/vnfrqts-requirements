@@ -604,6 +604,16 @@ No group type is currently supported in ONAP.
 Policy Types
 ~~~~~~~~~~~~~~
 
+.. req::
+    :id: R-596064
+    :target: PNF
+    :keyword: MUST
+    :introduced: dublin
+
+    The PNFD provided by a PNF vendor **MUST** comply with the following Policy
+    Types as specified in ETSI NFV-SOL001 standard:
+
+      - tosca.datatypes.nfv.SecurityGroupRule
 
 
 +--------------------------------------------------------------------+
