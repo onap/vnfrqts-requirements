@@ -455,6 +455,27 @@ TOSCA PNF Descriptor
 General
 ~~~~~~~~~~
 
+.. req::
+    :id: R-24632
+    :target: PNF
+    :keyword: MUST
+    :introduced: Dublin
+    
+    The PNF Descriptor (PNFD) provided by PNF vendor **MUST** comply with TOSCA/YAML based 
+    Service template for PNF descriptor specified in ETSI NFV-SOL001.
+
+
+.. req::
+    :id: R-998862
+    :target: PNF
+    :keyword: MUST
+    :introduced: Dublin
+
+    The PNFD provided by a PNF vendor **MUST** comply with the following TOSCA Types as 
+    specified in ETSI NFV-SOL001 standard :
+	- tosca.nodes.nfv.PNF
+	- tosca.nodes.nfv.PnfExtCp
+
 
 Data Types
 ~~~~~~~~~~~~~~
