@@ -463,6 +463,8 @@ Data Types
 Artifact Types
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
+No artifact type is currently supported in ONAP.
+
 
 Capability Types
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -475,9 +477,14 @@ Requirements Types
 Relationship Types
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
+No requirements type is currently supported in ONAP.
+
+
 
 Interface Types
 ~~~~~~~~~~~~~~~~~~~~~~~~
+
+No interface type is currently supported in ONAP.
 
 
 Node Types
@@ -486,6 +493,8 @@ Node Types
 
 Group Types
 ~~~~~~~~~~~~~~
+
+No group type is currently supported in ONAP.
 
 
 Policy Types
