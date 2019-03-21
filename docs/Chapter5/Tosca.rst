@@ -538,6 +538,17 @@ No artifact type is currently supported in ONAP.
 Capability Types
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
+.. req::
+    :id: R-177937
+    :target: PNF
+    :keyword: MUST
+    :introduced: dublin
+
+    The PNFD provided by a PNF vendor **MUST** comply with the following
+    Capabilities Types as specified in ETSI NFV-SOL001 standard:
+
+      - tosca.datatypes.nfv.VirtualLinkable
+
 
 Requirements Types
 ~~~~~~~~~~~~~~~~~~~~~~~~
