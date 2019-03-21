@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "275c9d54_6a2af13a",
+        "filename": "docs/Chapter5/Tosca.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 3967
+      },
+      "writtenOn": "2019-03-21T15:04:58Z",
+      "side": 1,
+      "message": "MUST",
+      "range": {
+        "startLine": 111,
+        "startChar": 14,
+        "endLine": 111,
+        "endChar": 20
+      },
+      "revId": "9858e317db585cc3e8006695ff225f4e4a68c0a9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2cb497dc_9914db16",
+        "filename": "docs/Chapter5/Tosca.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 3967
+      },
+      "writtenOn": "2019-03-21T15:04:58Z",
+      "side": 1,
+      "message": "MUST",
+      "range": {
+        "startLine": 115,
+        "startChar": 61,
+        "endLine": 115,
+        "endChar": 67
+      },
+      "revId": "9858e317db585cc3e8006695ff225f4e4a68c0a9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
