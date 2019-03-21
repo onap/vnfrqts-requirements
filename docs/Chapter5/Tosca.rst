@@ -578,6 +578,22 @@ No interface type is currently supported in ONAP.
 Node Types
 ~~~~~~~~~~~~~~
 
+.. req::
+    :id: R-535009
+    :target: PNF
+    :keyword: MUST
+    :introduced: dublin
+
+    The PNFD provided by a PNF vendor **MUST** comply with the following Node
+    Types as specified in ETSI NFV-SOL001 standard:
+
+      - tosca.datatypes.nfv.PNF   tosca.nodes.nfv.PNF
+
+      - tosca.datatypes.nfv.PnfExtCp   tosca.nodes.nfv.PnfExtCp
+
+      - tosca.datatypes.nfv.Cp  tosca.nodes.nfv.Cp
+
+
 
 Group Types
 ~~~~~~~~~~~~~~
