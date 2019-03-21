@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ddcd9a24_d6a25659",
+        "filename": "docs/Chapter5/Tosca.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2019-03-21T22:02:16Z",
+      "side": 1,
+      "message": "Unfortunately the term VNF Package has been used loosely through the document.  I don\u0027t think it\u0027s been firmly established that a VNF package always equates to a CSAR.  As it stands, a VNF can be packaged as an archive of Heat files or a CSAR.  Perhaps we add a qualifier such as The VNF or PNF CSAR Package **MUST** be arranged as specified in TOSCA Simple Profile in YAML 1.2.",
+      "revId": "1854b087353c4c39a4f0a00af95c8705494ba886",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
