@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "467eecaa_f9b068d2",
+        "filename": "docs/Chapter5/Tosca.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2019-03-21T21:56:02Z",
+      "side": 1,
+      "message": "What is a keyname extension?  I could not find this term in the TOSCA spec.  I couldn\u0027t tell from this requirement if this is supposed to be in the TOSCA definitions file or in the TOSCA.meta file.",
+      "range": {
+        "startLine": 203,
+        "startChar": 15,
+        "endLine": 203,
+        "endChar": 32
+      },
+      "revId": "c8d404ecd9b8571df85e5f47b1af002cc5836e76",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
