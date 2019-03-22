@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4c9fcb64_cb1f811c",
+        "filename": "docs/Chapter5/Tosca.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2019-03-22T17:07:05Z",
+      "side": 1,
+      "message": "If SDC only supports CSAR Option 1, then shouldn\u0027t the requirement be that you must use that option?",
+      "revId": "1e588a608891f8e75ac69efdb27564e17b24c128",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
