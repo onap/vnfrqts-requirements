@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "27e2c245_2e1e817c",
+        "filename": "docs/Chapter7/Configuration-Management.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 959,
+      "author": {
+        "id": 5279
+      },
+      "writtenOn": "2019-03-25T10:27:50Z",
+      "side": 1,
+      "message": "Change to SHOULD to match requirement text",
+      "revId": "fed53d4c67de1345dc2b9e7b90a0222557f46221",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
