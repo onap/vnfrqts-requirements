@@ -406,14 +406,15 @@ Resource Control Loop
 
 .. req::
     :id: R-74763
-    :target: XNF
+    :target: VNF or PNF HEAT
     :keyword: MUST
 
-    The xNF provider **MUST** provide an artifact per xNF that contains
-    all of the xNF Event Records supported. The artifact should include
-    reference to the specific release of the xNF Event Stream Common Event
-    Data Model document it is based on. (e.g.,
+    The VNF or PNF provider **MUST** provide an artifact per VNF or PNF that contains
+    all of the xNF Event Records supported. The artifact should include reference to
+    the specific release of the VNF or PNF Event Stream Common Event Data Model document
+    it is based on. (e.g.,
     `VES Event Listener <https://onap.readthedocs.io/en/latest/submodules/vnfsdk/model.git/docs/files/VESEventListener.html>`__)
+
 
 Compute, Network, and Storage Requirements
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
