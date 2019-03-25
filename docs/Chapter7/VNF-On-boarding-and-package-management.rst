@@ -159,13 +159,12 @@ Configuration Management via NETCONF/YANG
 
 .. req::
     :id: R-30278
-    :target: XNF
+    :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
-    The xNF provider **MUST** provide a Resource/Device YANG model
-    as a foundation for creating the YANG model for configuration. This will
-    include xNF attributes/parameters and valid values/attributes configurable
-    by policy.
+    The VNF or PNF provider **MUST** provide a Resource/Device YANG model
+    as a foundation for creating the YANG model for configuration.
 
 Configuration Management via Chef
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
