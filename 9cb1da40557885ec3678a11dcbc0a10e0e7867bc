@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b36de3f1_078e26a5",
+        "filename": "docs/Chapter7/VNF-On-boarding-and-package-management.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 3967
+      },
+      "writtenOn": "2019-03-25T14:37:04Z",
+      "side": 1,
+      "message": "no PNF",
+      "range": {
+        "startLine": 409,
+        "startChar": 17,
+        "endLine": 409,
+        "endChar": 23
+      },
+      "revId": "9cb1da40557885ec3678a11dcbc0a10e0e7867bc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
