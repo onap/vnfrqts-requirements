@@ -119,11 +119,12 @@ Resource Description
 
 .. req::
     :id: R-98617
-    :target: XNF
+    :target: VNF
     :keyword: MUST
 
-    The xNF provider **MUST** provide information regarding any
-    dependency (e.g., affinity, anti-affinity) with other xNFs and resources.
+    For HEAT package, the VNF provider **MUST** provide information regarding any
+    dependency (e.g., affinity, anti-affinity) with other VNFs and resources.
+
 
 .. req::
     :id: R-22346
