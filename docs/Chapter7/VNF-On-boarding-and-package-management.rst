@@ -40,11 +40,11 @@ Resource Description
 
 .. req::
     :id: R-77707
-    :target: XNF
+    :target: VNF HEAT
     :keyword: MUST
 
-    The xNF provider **MUST** include a Manifest File that
-    contains a list of all the components in the xNF package.
+    For HEAT package, VNF provider **MUST** include a Manifest File that
+    contains a list of all the components in the VNF package.
 
 .. req::
     :id: R-66070
