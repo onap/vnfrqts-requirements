@@ -486,32 +486,30 @@ Compute, Network, and Storage Requirements
 Testing
 ^^^^^^^^^^
 
-
 .. req::
     :id: R-43958
-    :target: XNF
+    :target: VNF
     :keyword: MUST
-    :updated: casablanca
 
-    The xNF Package **MUST** include documentation describing
-    the tests that were conducted by the xNF provider and the test results.
+    The VNF Package **MUST** include documentation describing
+    the tests that were conducted by the VNF provider and the test results.
 
 .. req::
     :id: R-04298
-    :target: XNF
+    :target: VNF
     :keyword: MUST
 
-    The xNF provider **MUST** provide their testing scripts to
+    The VNF provider **MUST** provide their testing scripts to
     support testing.
 
 .. req::
     :id: R-58775
-    :target: XNF
+    :target: VNF
     :keyword: MUST
 
-    The xNF provider **MUST** provide software components that
-    can be packaged with/near the xNF, if needed, to simulate any functions
-    or systems that connect to the xNF system under test. This component is
+    The VNF provider **MUST** provide software components that
+    can be packaged with/near the VNF, if needed, to simulate any functions
+    or systems that connect to the VNF system under test. This component is
     necessary only if the existing testing environment does not have the
     necessary simulators.
 
