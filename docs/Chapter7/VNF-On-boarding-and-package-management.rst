@@ -387,16 +387,7 @@ Resource Control Loop
     The xNF Package **MUST** include documentation describing
     the characteristics for the xNF reliability and high availability.
 
-.. req::
-    :id: R-74763
-    :target: XNF
-    :keyword: MUST
 
-    The xNF provider **MUST** provide an artifact per xNF that contains
-    all of the xNF Event Records supported. The artifact should include
-    reference to the specific release of the xNF Event Stream Common Event
-    Data Model document it is based on. (e.g.,
-    `VES Event Listener <https://onap.readthedocs.io/en/latest/submodules/vnfsdk/model.git/docs/files/VESEventListener.html>`__)
 
 Compute, Network, and Storage Requirements
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
