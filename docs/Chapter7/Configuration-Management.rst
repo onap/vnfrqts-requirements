@@ -812,15 +812,6 @@ conform, and those where applicable, that suppliers need to use.
 
 
 .. req::
-    :id: R-28545
-    :target: XNF
-    :keyword: MUST
-
-    The xNF **MUST** conform its YANG model to RFC 6060,
-    "YANG - A Data Modeling Language for the Network Configuration
-    Protocol (NETCONF)".
-
-.. req::
     :id: R-22700
     :target: XNF
     :keyword: MUST
