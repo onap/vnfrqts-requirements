@@ -953,6 +953,16 @@ NETCONF RFCs.
     The xNF **MUST** conform to the NETCONF RFC 6242,
     "Using the Network Configuration Protocol over Secure Shell".
 
+.. req::
+    :id: R-997907
+    :target: VNF or PNF
+    :keyword: SHOULD
+    :introduced: dublin
+
+    The VNF or PNF **SHOULD** support TLS as secure transport for the NETCONF
+    protocol according to [RFC7589].
+
+
 .. _xnf_rest_apis:
 
 xNF REST APIs
