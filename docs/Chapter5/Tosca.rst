@@ -120,6 +120,14 @@ VNF Package Structure and Format
     **Note:** SDC supports only the CSAR Option 1 in Casablanca. The Option 2
     will be considered in future ONAP releases,
 
+.. req::
+    :id: R-506221
+    :target: VNF or PNF CSAR PACKAGE
+    :keyword: MUST
+    :introduced: dublin
+
+    The VNF or PNF TOSCA CSAR file **MUST** be a zip file with .csar extension.
+
 
 VNF Package Contents
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
