@@ -469,11 +469,11 @@ Compute, Network, and Storage Requirements
 
 .. req::
     :id: R-26881
-    :target: XNF
+    :target: VNF
     :keyword: MUST
 
-    The xNF provider **MUST** provide the binaries and images
-    needed to instantiate the xNF (xNF and VNFC images).
+    The VNF provider **MUST** provide the binaries and images
+    needed to instantiate the VNF (VNF and VNFC images).
 
 .. req::
     :id: R-96634
