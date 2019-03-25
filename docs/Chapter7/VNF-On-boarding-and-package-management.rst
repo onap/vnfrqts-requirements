@@ -421,13 +421,12 @@ Compute, Network, and Storage Requirements
 
 .. req::
     :id: R-35851
-    :target: XNF
+    :target: VNF HEAT
     :keyword: MUST
 
-    The xNF Package **MUST** include xNF topology that describes
-    basic network and application connectivity internal and external to the
-    xNF including Link type, KPIs, Bandwidth, latency, jitter, QoS (if
-    applicable) for each interface.
+    For HEAT package, the VNF Package **MUST** include VNF topology that describes basic network
+    and application connectivity internal and external to the VNF including Link type, KPIs, 
+    Bandwidth, latency, jitter, QoS (if applicable) for each interface.
 
 .. req::
     :id: R-97102
