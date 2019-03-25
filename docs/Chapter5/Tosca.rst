@@ -202,6 +202,21 @@ VNF Package Contents
 
       - onap_others
 
+.. req::
+    :id: R-795126
+    :target: VNF TOSCA CSAR package manifest  
+    :keyword: MUST
+    :introduced: dublin
+
+    The VNF TOSCA CSAR package Manifest file MUST start with the VNF package metadata 
+    in the form of a name-value pairs. Each pair shall appear on a different line. 
+    The name is specified as following:
+        vnf_provider_id
+        vnf_product_name
+        vnf_release_date_time
+        vnf_package_version
+
+
 VNF or PNF Package Authenticity
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
