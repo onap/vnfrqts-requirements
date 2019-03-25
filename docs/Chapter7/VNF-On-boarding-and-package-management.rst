@@ -37,15 +37,6 @@ and GS NFV IFA011 V0.3.0 (2015-10) - Network Functions Virtualization
 Resource Description
 ^^^^^^^^^^^^^^^^^^^^^^
 
-
-.. req::
-    :id: R-77707
-    :target: XNF
-    :keyword: MUST
-
-    The xNF provider **MUST** include a Manifest File that
-    contains a list of all the components in the xNF package.
-
 .. req::
     :id: R-66070
     :target: XNF
