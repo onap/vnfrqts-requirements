@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f2912d15_752f5196",
+        "filename": "docs/Chapter7/Configuration-Management.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 963,
+      "author": {
+        "id": 5279
+      },
+      "writtenOn": "2019-03-25T14:41:26Z",
+      "side": 1,
+      "message": "typo: (p)rotocol",
+      "revId": "6db8f0a35d48032b179c9d2d64286d4370693aed",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
