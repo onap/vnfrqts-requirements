@@ -119,7 +119,7 @@ Resource Description
 
 .. req::
     :id: R-98617
-    :target: VNF
+    :target: VNF HEAT
     :keyword: MUST
 
     For HEAT package, the VNF provider **MUST** provide information regarding any
