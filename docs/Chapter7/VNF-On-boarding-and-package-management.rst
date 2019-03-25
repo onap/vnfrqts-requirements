@@ -477,11 +477,11 @@ Compute, Network, and Storage Requirements
 
 .. req::
     :id: R-96634
-    :target: XNF
+    :target: VNF or PNF
     :keyword: MUST
 
-    The xNF provider **MUST** describe scaling capabilities
-    to manage scaling characteristics of the xNF.
+    The VNF or PNF package **MUST** be arranged as a CSAR archive as specified in
+    TOSCA Simple Profile in YAML 1.2.
 
 Testing
 ^^^^^^^^^^
