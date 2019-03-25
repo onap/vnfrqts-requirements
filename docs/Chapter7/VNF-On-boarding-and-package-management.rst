@@ -294,14 +294,6 @@ Resource Control Loop
     all events (fault, measurement for xNF Scaling, Syslogs, State Change
     and Mobile Flow), that need to be collected at each VM, VNFC (defined in `VNF Guidelines <https://onap.readthedocs.io/en/latest/submodules/vnfrqts/guidelines.git/docs/vnf_guidelines/vnf_guidelines.html>`__ ) and for the overall xNF.
 
-.. req::
-    :id: R-27711
-    :target: XNF
-    :keyword: MUST
-
-    The xNF provider **MUST** provide an XML file that contains a
-    list of xNF error codes, descriptions of the error, and possible
-    causes/corrective action.
 
 .. req::
     :id: R-01478
