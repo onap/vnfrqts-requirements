@@ -22,6 +22,29 @@
       "revId": "9cb1da40557885ec3678a11dcbc0a10e0e7867bc",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "66f9fa85_8b10c332",
+        "filename": "docs/Chapter7/VNF-On-boarding-and-package-management.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2019-03-25T15:14:22Z",
+      "side": 1,
+      "message": "This is not related to Heat so Heat can be removed.  The target would be VNF Provider.  I would think this would apply to any Network Function that would produce VES events.  Is there a reason PNFs would not produce VES?",
+      "range": {
+        "startLine": 409,
+        "startChar": 23,
+        "endLine": 409,
+        "endChar": 28
+      },
+      "revId": "9cb1da40557885ec3678a11dcbc0a10e0e7867bc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
