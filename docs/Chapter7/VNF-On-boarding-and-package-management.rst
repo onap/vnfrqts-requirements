@@ -460,11 +460,14 @@ Compute, Network, and Storage Requirements
 
 .. req::
     :id: R-96634
-    :target: XNF
+    :target: VNF or PNF PROVIDER
     :keyword: MUST
+    :updated: dublin
 
-    The xNF provider **MUST** describe scaling capabilities
-    to manage scaling characteristics of the xNF.
+    The VNF or PNF Provider **MUST** provide human readable documentation
+    (not in the on-boarding package) to describe scaling capabilities to manage
+    scaling characteristics of the VNF or PNF.
+
 
 Testing
 ^^^^^^^^^^
