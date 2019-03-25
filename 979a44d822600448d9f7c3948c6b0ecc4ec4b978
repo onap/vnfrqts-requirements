@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d2db3a20_3522b75f",
+        "filename": "docs/Chapter7/VNF-On-boarding-and-package-management.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 3271
+      },
+      "writtenOn": "2019-03-25T16:02:17Z",
+      "side": 1,
+      "message": "Not a valid target",
+      "range": {
+        "startLine": 424,
+        "startChar": 4,
+        "endLine": 424,
+        "endChar": 21
+      },
+      "revId": "979a44d822600448d9f7c3948c6b0ecc4ec4b978",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16308fa7_5e3600a1",
+        "filename": "docs/Chapter7/VNF-On-boarding-and-package-management.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 3271
+      },
+      "writtenOn": "2019-03-25T16:02:17Z",
+      "side": 1,
+      "message": "This should be reworded",
+      "range": {
+        "startLine": 427,
+        "startChar": 3,
+        "endLine": 427,
+        "endChar": 47
+      },
+      "revId": "979a44d822600448d9f7c3948c6b0ecc4ec4b978",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
