@@ -43,11 +43,13 @@ import os
 import re
 import sys
 import argparse
+import requests
+import warnings
 from operator import itemgetter
 
 import jinja2
 
-REQ_JSON_URL = "https://onap.readthedocs.io/en/latest/_downloads/needs.json"
+NEEDS_JSON_URL = "https://nexus.onap.org/service/local/repositories/raw/content/org.onap.vnfrqts.requirements/master/needs.json"
 NEEDS_PATH = "docs/data/needs.json"
 JINJA_TEMPLATE = "release-requirement-changes.rst.jinja2"
 
@@ -192,6 +194,26 @@ def load_requirements(path):
         return json.load(req_file)
 
 
+def load_current_requirements():
+    """Loads dict of current requirements or empty dict if file doesn't exist"""
+    try:
+        r = requests.get(NEEDS_JSON_URL)
+        if r.headers.get("content-type") == "application/json":
+            with open(NEEDS_PATH, "wb") as needs:
+                needs.write(r.content)
+        else:
+            warnings.warn(
+                (
+                    "Unexpected content-type ({}) encountered downloading "
+                    + "requirements.json, using last saved copy"
+                ).format(r.headers.get("content-type"))
+            )
+    except requests.exceptions.RequestException as e:
+        warnings.warn("Error downloading latest JSON, using last saved copy.")
+        warnings.warn(UserWarning(e))
+    with open(NEEDS_PATH, "r") as f:
+        return json.load(f)
+
 def parse_args():
     """Parse the command-line arguments and return the arguments:
 
@@ -276,7 +298,7 @@ def render_to_file(template_path, output_path, **context):
 
 def print_invalid_metadata_report(difference_finder, current_version):
     """Write a report to the console for any instances where differences
-    are detected, but teh appropriate :introduced: or :updated: metadata
+    are detected, but the appropriate :introduced: or :updated: metadata
     is not applied to the requirement."""
     print("Validating Metadata...")
     print()
@@ -301,7 +323,7 @@ def print_invalid_metadata_report(difference_finder, current_version):
 
 if __name__ == "__main__":
     args = parse_args()
-    requirements = load_requirements(NEEDS_PATH)
+    requirements = load_current_requirements()
     differ = DifferenceFinder(requirements,
                               args.current_version,
                               args.prior_version)
@@ -319,5 +341,4 @@ if __name__ == "__main__":
         num_removed=len(differ.removed_requirements),
         num_changed=len(differ.changed_requirements),
     )
-
 
