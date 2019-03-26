@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ef225792_0aec362f",
+        "filename": "docs/Chapter5/Tosca.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 4936
+      },
+      "writtenOn": "2019-03-26T14:48:20Z",
+      "side": 1,
+      "message": "covered by security requirement",
+      "parentUuid": "85d4a681_27f31c7a",
+      "range": {
+        "startLine": 133,
+        "startChar": 48,
+        "endLine": 133,
+        "endChar": 66
+      },
+      "revId": "167830845a1c4d3a331260389662bf1fe34fcfb9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3a3e3f6_6ccce98e",
         "filename": "docs/Chapter5/Tosca.rst",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2019-03-21T21:31:40Z",
       "side": 1,
       "message": "I don\u0027t think we can say it MUST include optional artifacts. Perhaps it should just say \"The VNF or PNF CSAR package **MUST** include all artifacts required by ETSI GS NFV-SOL004\"",
+      "range": {
+        "startLine": 135,
+        "startChar": 43,
+        "endLine": 135,
+        "endChar": 67
+      },
+      "revId": "167830845a1c4d3a331260389662bf1fe34fcfb9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "235794ac_8e717959",
+        "filename": "docs/Chapter5/Tosca.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 4936
+      },
+      "writtenOn": "2019-03-26T14:48:20Z",
+      "side": 1,
+      "message": "It\u0027s fine with me. Update it and help to check it",
+      "parentUuid": "e3a3e3f6_6ccce98e",
       "range": {
         "startLine": 135,
         "startChar": 43,
