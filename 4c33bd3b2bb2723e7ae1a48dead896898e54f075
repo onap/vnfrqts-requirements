@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f87b6f75_c5119120",
+        "filename": "docs/Chapter5/Tosca.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 4936
+      },
+      "writtenOn": "2019-03-26T15:37:12Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "343054c0_7d7d824f",
+      "revId": "4c33bd3b2bb2723e7ae1a48dead896898e54f075",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "acb16c68_31be2bb0",
         "filename": "docs/Chapter5/Tosca.rst",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2019-03-25T15:51:00Z",
       "side": 1,
       "message": "VNF or PNF CSAR package",
+      "revId": "4c33bd3b2bb2723e7ae1a48dead896898e54f075",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "01395349_6a5ea92f",
+        "filename": "docs/Chapter5/Tosca.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 4936
+      },
+      "writtenOn": "2019-03-26T15:37:12Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "acb16c68_31be2bb0",
       "revId": "4c33bd3b2bb2723e7ae1a48dead896898e54f075",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
@@ -82,6 +118,30 @@
     },
     {
       "key": {
+        "uuid": "ded717da_55fd0e29",
+        "filename": "docs/Chapter5/Tosca.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 4936
+      },
+      "writtenOn": "2019-03-26T15:37:12Z",
+      "side": 1,
+      "message": "Will be supported in the future releases.",
+      "parentUuid": "b2aa428d_0957729c",
+      "range": {
+        "startLine": 223,
+        "startChar": 10,
+        "endLine": 223,
+        "endChar": 13
+      },
+      "revId": "4c33bd3b2bb2723e7ae1a48dead896898e54f075",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a2aa843_82833a60",
         "filename": "docs/Chapter5/Tosca.rst",
         "patchSetId": 1
@@ -93,6 +153,30 @@
       "writtenOn": "2019-03-25T15:51:00Z",
       "side": 1,
       "message": "I think the target can just be VNF or PNF CSAR for consistency",
+      "range": {
+        "startLine": 233,
+        "startChar": 35,
+        "endLine": 233,
+        "endChar": 47
+      },
+      "revId": "4c33bd3b2bb2723e7ae1a48dead896898e54f075",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "07bd0047_c8795ef5",
+        "filename": "docs/Chapter5/Tosca.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 4936
+      },
+      "writtenOn": "2019-03-26T15:37:12Z",
+      "side": 1,
+      "message": "the comments from Steven. \nMaybe discuss it on meeting.",
+      "parentUuid": "1a2aa843_82833a60",
       "range": {
         "startLine": 233,
         "startChar": 35,
@@ -151,6 +235,54 @@
     },
     {
       "key": {
+        "uuid": "d44bc8b0_ac0ba945",
+        "filename": "docs/Chapter5/Tosca.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 4936
+      },
+      "writtenOn": "2019-03-26T15:37:12Z",
+      "side": 1,
+      "message": "update it",
+      "parentUuid": "b695934d_1569e3b8",
+      "range": {
+        "startLine": 237,
+        "startChar": 5,
+        "endLine": 237,
+        "endChar": 28
+      },
+      "revId": "4c33bd3b2bb2723e7ae1a48dead896898e54f075",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b124193_e3d4ba12",
+        "filename": "docs/Chapter5/Tosca.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 4936
+      },
+      "writtenOn": "2019-03-26T15:37:12Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "bd410b7c_0cb4a988",
+      "range": {
+        "startLine": 237,
+        "startChar": 70,
+        "endLine": 237,
+        "endChar": 74
+      },
+      "revId": "4c33bd3b2bb2723e7ae1a48dead896898e54f075",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e6571e7_9d7b1074",
         "filename": "docs/Chapter5/Tosca.rst",
         "patchSetId": 1
@@ -162,6 +294,30 @@
       "writtenOn": "2019-03-25T15:51:00Z",
       "side": 1,
       "message": "VNF or PNF CSAR",
+      "range": {
+        "startLine": 249,
+        "startChar": 14,
+        "endLine": 249,
+        "endChar": 47
+      },
+      "revId": "4c33bd3b2bb2723e7ae1a48dead896898e54f075",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a2e27fe2_6a8da325",
+        "filename": "docs/Chapter5/Tosca.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 4936
+      },
+      "writtenOn": "2019-03-26T15:37:12Z",
+      "side": 1,
+      "message": "comemtn from steve",
+      "parentUuid": "0e6571e7_9d7b1074",
       "range": {
         "startLine": 249,
         "startChar": 14,
@@ -220,6 +376,54 @@
     },
     {
       "key": {
+        "uuid": "a007cf63_a129f511",
+        "filename": "docs/Chapter5/Tosca.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 4936
+      },
+      "writtenOn": "2019-03-26T15:37:12Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9a6cc26b_19aecd76",
+      "range": {
+        "startLine": 253,
+        "startChar": 4,
+        "endLine": 253,
+        "endChar": 28
+      },
+      "revId": "4c33bd3b2bb2723e7ae1a48dead896898e54f075",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "72e12540_b7996264",
+        "filename": "docs/Chapter5/Tosca.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 4936
+      },
+      "writtenOn": "2019-03-26T15:37:12Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "23131394_06824d61",
+      "range": {
+        "startLine": 253,
+        "startChar": 53,
+        "endLine": 253,
+        "endChar": 57
+      },
+      "revId": "4c33bd3b2bb2723e7ae1a48dead896898e54f075",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "637a9ea4_7a7ada5e",
         "filename": "docs/Chapter5/Tosca.rst",
         "patchSetId": 1
@@ -231,6 +435,30 @@
       "writtenOn": "2019-03-25T15:51:00Z",
       "side": 1,
       "message": "What is the pre-defined naming convention? If it\u0027s defined elsewhere can we provide a reference?",
+      "range": {
+        "startLine": 257,
+        "startChar": 28,
+        "endLine": 257,
+        "endChar": 57
+      },
+      "revId": "4c33bd3b2bb2723e7ae1a48dead896898e54f075",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae2e7a0e_ba70b7be",
+        "filename": "docs/Chapter5/Tosca.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 4936
+      },
+      "writtenOn": "2019-03-26T15:37:12Z",
+      "side": 1,
+      "message": "TOSCA pre-defined",
+      "parentUuid": "637a9ea4_7a7ada5e",
       "range": {
         "startLine": 257,
         "startChar": 28,
