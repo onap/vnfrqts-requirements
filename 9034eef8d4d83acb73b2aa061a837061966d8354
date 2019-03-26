@@ -22,6 +22,30 @@
       "revId": "9034eef8d4d83acb73b2aa061a837061966d8354",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2277e85d_3a9f7240",
+        "filename": "docs/Chapter7/VNF-On-boarding-and-package-management.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 4936
+      },
+      "writtenOn": "2019-03-26T14:44:48Z",
+      "side": 1,
+      "message": "remvoe it",
+      "parentUuid": "50a5edde_71ad0e26",
+      "range": {
+        "startLine": 175,
+        "startChar": 67,
+        "endLine": 177,
+        "endChar": 14
+      },
+      "revId": "9034eef8d4d83acb73b2aa061a837061966d8354",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
