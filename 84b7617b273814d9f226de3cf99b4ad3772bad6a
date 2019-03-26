@@ -16,6 +16,24 @@
       "revId": "84b7617b273814d9f226de3cf99b4ad3772bad6a",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42c32d04_eae9a1f8",
+        "filename": "docs/Chapter7/VNF-On-boarding-and-package-management.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 4936
+      },
+      "writtenOn": "2019-03-26T14:42:38Z",
+      "side": 1,
+      "message": "VES registration is already covered by another Requirement\nFM dictionary is also covered by Requirement\nThis is 20/3 meeting conclustion to remove this R-.",
+      "parentUuid": "e77cf735_b5931462",
+      "revId": "84b7617b273814d9f226de3cf99b4ad3772bad6a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
