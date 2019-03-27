@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f76c7e5d_7f864d68",
+        "filename": "docs/Chapter7/VNF-On-boarding-and-package-management.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2019-03-27T20:54:28Z",
+      "side": 1,
+      "message": "There\u0027s really no way to describe a dependency with another VNF through Heat.  In ONAP, that would be its own distinct, independent set of Heat.  I think this this requirement should be related to documentation.\n\ntarget: VNF PROVIDER\n\nThe VNF Provider **MUST** provide documentation regarding any dependency (e.g. affinity, anti-affinity) the VNF has on other VNFs and resources.",
+      "revId": "89dbeaaf4975937018504805fef443221c4d0670",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
