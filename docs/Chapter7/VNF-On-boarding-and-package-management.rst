@@ -110,11 +110,11 @@ Resource Description
 
 .. req::
     :id: R-98617
-    :target: XNF
+    :target: VNF PROVIDER
     :keyword: MUST
 
-    The xNF provider **MUST** provide information regarding any
-    dependency (e.g., affinity, anti-affinity) with other xNFs and resources.
+    The VNF Provider **MUST** provide documentation regarding any dependency
+    (e.g. affinity, anti-affinity) the VNF has on other VNFs and resources.
 
 .. req::
     :id: R-22346
