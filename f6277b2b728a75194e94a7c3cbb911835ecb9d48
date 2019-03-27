@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "af44daac_625acf7b",
+        "filename": "docs/Chapter7/VNF-On-boarding-and-package-management.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 4936
+      },
+      "writtenOn": "2019-03-27T15:23:23Z",
+      "side": 1,
+      "message": "remove this requirement based on conclustion of 27/3 meeting because there is no such requirement for VNF HEAT. For CSAR, another requirement covers it.",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 61
+      },
+      "revId": "f6277b2b728a75194e94a7c3cbb911835ecb9d48",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
