@@ -22,11 +22,31 @@ Introduction
   to VNFs and within the control of the VNF provider. The current list
   of VNF Requirement targets is:
 
-    - The VNF
-    - The VNFC
-    - The VNF Provider
-    - The VNF Heat Orchestration Template
-    - The VNF Package
++---------------------+-------------------------------------------------------+
+| Target              | When is it used                                       |
++=====================+=======================================================+
+| VNF                 | Functional behavior of a VNF                          |
++---------------------+-------------------------------------------------------+
+| PNF                 | Functional behavior of a PNF                          |
++---------------------+-------------------------------------------------------+
+| VNF or PNF          | Function behavior to both VNFs and PNFs               |
++---------------------+-------------------------------------------------------+
+| {VNF|PNF|VNF or PNF}| Something the provider of the VNF, PNF, or VNF/PNF    |
+| Provider            | must do. This is often used to describe delivering    |
+|                     | artifacts or specific documentation that may not be   |
+|                     | part of a standard VNF package format.                |
++---------------------+-------------------------------------------------------+
+| VNF HEAT PACKAGE    | The archive/zip file that includes Heat templates. The|
+|                     | subject of the requirement my be further refined (Ex: |
+|                     | Heat Environment File), but the metadata stay at the  |
+|                     | package level.                                        |
++---------------------+-------------------------------------------------------+
+| {VNF|PNF|VNF or PNF}| A requirement related to the contents of what should  |
+| CSAR PACKAGE        | be in the CSAR package. The subject of the requirement|
+|                     | might be further refined (ex: CSAR manifest file, VNF |
+|                     | Descriptor, etc.), but the :target: metadata would    |
+|                     | stay at the package level.                            |
++---------------------+-------------------------------------------------------+
 - Chapter 4 contains the xNF requirements involving the design and
   development of xNFs. These requirements help VNFs/PNFs operate
   efficiently within a cloud environment. Requirements cover design,
