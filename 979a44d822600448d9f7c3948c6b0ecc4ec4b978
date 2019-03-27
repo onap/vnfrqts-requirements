@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "1139f4ac_704f112d",
+        "filename": "docs/Chapter7/VNF-On-boarding-and-package-management.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3271
+      },
+      "writtenOn": "2019-03-27T22:18:07Z",
+      "side": 1,
+      "message": "I don\u0027t believe this requirement is valid for heat, should it be removed?",
+      "revId": "979a44d822600448d9f7c3948c6b0ecc4ec4b978",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d2db3a20_3522b75f",
         "filename": "docs/Chapter7/VNF-On-boarding-and-package-management.rst",
         "patchSetId": 1
