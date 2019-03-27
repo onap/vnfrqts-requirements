@@ -634,20 +634,23 @@ NETCONF Server Requirements
 
 .. req::
     :id: R-93443
-    :target: XNF
+    :target: VNF or PNF
     :keyword: MUST
 
-    The xNF **MUST** define all data models in YANG [RFC6020],
-    and the mapping to NETCONF shall follow the rules defined in this RFC.
+    The VNF or PNF **MUST** define all data models in YANG 1.0 [RFC6020] or
+    YANG 1.1 [RFC7950]. A combination of YANG 1.0 and YANG 1.1 modules is
+    allowed subject to the rules in [RFC7950] section 12. The mapping to
+    NETCONF shall follow the rules defined in this RFC.
 
 .. req::
     :id: R-26115
-    :target: XNF
+    :target: VNF or PNF
     :keyword: MUST
 
-    The xNF **MUST** follow the data model upgrade rules defined
-    in [RFC6020] section 10. All deviations from section 10 rules shall
-    be handled by a built-in automatic upgrade mechanism.
+    The VNF or PNF **MUST** follow the data model update rules defined in
+    [RFC6020] section 10 for YANG 1.0 modules, and [RFC7950] section 11
+    for YANG 1.1 modules. All deviations from the aforementioned update
+    rules shall be handled by a built-in  automatic upgrade mechanism.
 
 .. req::
     :id: R-10716
