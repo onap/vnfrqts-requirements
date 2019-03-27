@@ -39,7 +39,6 @@ Configuration Management > Ansible Standards and Capabilities > xNF Configuratio
 Requirements Added
 ~~~~~~~~~~~~~~~~~~
     
-
 .. container:: note
 
     :need:`R-24482`
