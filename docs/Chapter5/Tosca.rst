@@ -202,6 +202,17 @@ VNF Package Contents
 
       - onap_others
 
+.. req::
+    :id: R-221914
+    :target: VNF or PNF
+    :keyword: MUST
+    :introduced: dublin
+
+    The VNF or PNF package **MUST** contain a a human-readable change log text
+    file. The Change Log file keeps a history describing any changes in the VNF
+    or PNF package. The Change Log file is kept up to date continuously from
+    the creation of the CSAR package.
+
 VNF or PNF Package Authenticity
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
