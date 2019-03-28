@@ -26,4 +26,3 @@ Additionally, a JSON version of the requirements can be
    :style: datatables
    :columns: id;content;target;keyword;section_name
 
-
