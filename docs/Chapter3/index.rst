@@ -32,7 +32,7 @@ Introduction
 | VNF or PNF          | Function behavior to both VNFs and PNFs               |
 +---------------------+-------------------------------------------------------+
 | {VNF|PNF|VNF or PNF}| Something the provider of the VNF, PNF, or VNF/PNF    |
-| Provider            | must do. This is often used to describe delivering    |
+| PROVIDER            | must do. This is often used to describe delivering    |
 |                     | artifacts or specific documentation that may not be   |
 |                     | part of a standard VNF package format.                |
 +---------------------+-------------------------------------------------------+
