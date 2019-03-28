@@ -277,23 +277,71 @@ VNF Package Contents
       - vnf_package_version
 
 
-VNF or PNF Package Authenticity
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+VNF or PNF Package Authenticity and Integrity
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-VNF or PNF package shall support a method for authenticity and integrity
-assurance. Note, Option 2 specified in SOL004 is supported in Dublin release.
+VNF or PNF CSAR package shall support a method for authenticity and integrity
+assurance. According to ETSI SOL004 the onboarding package shall be secured.
+ETSI SOL004 provides two options:
+
+Option 1 - One Digest for each components of the VNF or PNF package. The table
+of hashes is included in the manifest file, which is signed with the VNF or PNF
+provider private key. A signing certificate including the provider’s public key
+shall be included in the package.
+
+Option 2 - The complete CSAR file shall be digitally signed with the provider
+private key. The provider delivers one zip file consisting of the CSAR file, a
+signature file and a certificate file that includes the VNF provider public
+key.
+
+*Dublin release note*
+
+    - VNFSDK pre-onboarding validation procedure:
+
+      - Option 1: specified in ETSI SOL004 is supported.
+
+      - Option 2: Will be supported in the future releases.
+
+    - SDC onboarding procedure:
+
+      - Option 1: specified in ETSI SOL004 is supported.
+
+      - Option 2: Will be supported in the future releases.
 
 .. req::
-    :id: R-444945
-    :target: VNF or PNF
+    :id: R-787965
+    :target: VNF or PNF CSAR PACKAGE
     :keyword: MUST
     :introduced: dublin
 
-    The complete CSAR file **MUST** be digitally signed with the VNF or PNF
+    If the VNF or PNF CSAR Package utilizes Option 2 for package security, then
+    the complete CSAR file **MUST** be digitally signed with the VNF or PNF
     provider private key. The VNF or PNF provider delivers one zip file
     consisting of the CSAR file, a signature file and a certificate file that
     includes the VNF or PNF provider public key. The certificate may also be
-    included in the signaturecontainer, if the signature format allows that.
+    included in the signature container, if the signature format allows that.
+    The VNF or PNF provider creates a zip file consisting of the CSAR file with
+    .csar extension, signature and certificate files. The signature and
+    certificate files must be siblings of the CSAR file with extensions .cms
+    and .cert respectively.
+
+
+.. req::
+    :id: R-130206
+    :target: VNF or PNF CSAR PACKAGE
+    :keyword: MUST
+    :introduced: dublin
+
+    If the VNF or PNF CSAR Package utilizes Option 2 for package security, then
+    the complete CSAR file **MUST** contain a Digest (a.k.a. hash) for each of
+    the components of the VNF or PNF package. The table of hashes is included
+    in the package manifest file, which is signed with the VNF or PNF provider
+    private key. In addition, the VNF or PNF provider MUST include a signing
+    certificate that includes the VNF or PNF provider public key, following a
+    TOSCA pre-defined naming convention and located either at the root of the
+    archive or in a predefined location specified by the TOSCA.meta file with
+    the corresponding entry named "ETSI-Entry-Certificate".
+
 
 VNF Package ONAP Extensions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
