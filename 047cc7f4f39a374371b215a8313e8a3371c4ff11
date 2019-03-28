@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "481c1ca3_561c5f3d",
+        "filename": "docs/Chapter7/VNF-On-boarding-and-package-management.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 4936
+      },
+      "writtenOn": "2019-03-28T07:48:23Z",
+      "side": 1,
+      "message": "Accordign to section 3, the target update to VNF package",
+      "range": {
+        "startLine": 51,
+        "startChar": 13,
+        "endLine": 51,
+        "endChar": 21
+      },
+      "revId": "047cc7f4f39a374371b215a8313e8a3371c4ff11",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
