@@ -16,6 +16,24 @@
       "revId": "89dbeaaf4975937018504805fef443221c4d0670",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a7cfc97_9c72a8d4",
+        "filename": "docs/Chapter7/VNF-On-boarding-and-package-management.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 4936
+      },
+      "writtenOn": "2019-03-28T07:56:59Z",
+      "side": 1,
+      "message": "It\u0027s OK for me. Update it",
+      "parentUuid": "f76c7e5d_7f864d68",
+      "revId": "89dbeaaf4975937018504805fef443221c4d0670",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
