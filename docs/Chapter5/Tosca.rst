@@ -242,7 +242,7 @@ VNF Package Contents
 
 .. req::
     :id: R-57019
-    :target: PNF CSAR PACKAGE  
+    :target: PNF CSAR PACKAGE
     :keyword: MUST
     :introduced: dublin
 
@@ -257,6 +257,25 @@ VNF Package Contents
       - pnfd_release_date_time
 
       - pnfd_archive_version
+
+.. req::
+    :id: R-795126
+    :target: VNF CSAR PACKAGE
+    :keyword: MUST
+    :introduced: dublin
+
+    The VNF TOSCA CSAR package Manifest file **MUST** start with the VNF
+    package metadata in the form of a name-value pairs. Each pair shall appear
+    on a different line. The name is specified as following:
+
+      - vnf_provider_id
+
+      - vnf_product_name
+
+      - vnf_release_date_time
+
+      - vnf_package_version
+
 
 VNF or PNF Package Authenticity
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
