@@ -240,6 +240,24 @@ VNF Package Contents
     or PNF package. The Change Log file is kept up to date continuously from
     the creation of the CSAR package.
 
+.. req::
+    :id: R-57019
+    :target: PNF CSAR PACKAGE  
+    :keyword: MUST
+    :introduced: dublin
+
+    The PNF TOSCA CSAR PACKAGE Manifest file **MUST** start with the PNF
+    package metadata in the form of a name-value pairs. Each pair shall appear
+    on a different line. The name is specified as following:
+
+      - pnfd_provider
+
+      - pnfd_name
+
+      - pnfd_release_date_time
+
+      - pnfd_archive_version
+
 VNF or PNF Package Authenticity
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
