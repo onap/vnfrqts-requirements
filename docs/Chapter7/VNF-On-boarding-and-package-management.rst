@@ -39,13 +39,14 @@ Resource Description
 
 .. req::
     :id: R-66070
-    :target: XNF
+    :target: VNF Package
     :keyword: MUST
+    :updated: dublin
 
-    The xNF Package **MUST** include xNF Identification Data to
-    uniquely identify the resource for a given xNF provider. The identification
-    data must include: an identifier for the xNF, the name of the xNF as was
-    given by the xNF provider, xNF description, xNF provider, and version.
+    For HEAT package, the VNF Package **MUST** include VNF Identification Data to
+    uniquely identify the resource for a given VNF provider. The identification
+    data must include: an identifier for the VNF, the name of the VNF as was
+    given by the VNF provider, VNF description, VNF provider, and version.
 
 .. req::
     :id: R-69565
