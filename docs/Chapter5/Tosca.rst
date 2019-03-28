@@ -189,10 +189,28 @@ VNF Package Contents
     :keyword: MUST
     :introduced: casablanca
 
-    The VNF provider MUST enumerate all of the open source licenses
+    The VNF provider **MUST** enumerate all of the open source licenses
     their VNF(s) incorporate. CSAR License directory as per ETSI SOL004.
 
     for example ROOT\\Licenses\\ **License_term.txt**
+
+.. req::
+    :id: R-293901
+    :target: VNF or PNF CSAR PACKAGE
+    :keyword: MUST
+    :introduced: dublin
+
+    The VNF or PNF CSAR PACKAGE with TOSCA-Metadata **MUST** include following
+    additional keywords pointing to TOSCA files:
+    
+      - ETSI-Entry-Manifest
+
+      - ETSI-Entry-Change-Log
+
+    Note: For a CSAR containing a TOSCA-Metadata directory, which includes
+    the TOSCA.meta metadata file. The TOSCA.meta metadata file includes block_0
+    with the Entry-Definitions keyword pointing to a TOSCA definitions YAML
+    file used as entry for parsing the contents of the overall CSAR archive.
 
 .. req::
     :id: R-146092
