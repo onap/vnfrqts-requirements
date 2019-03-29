@@ -136,6 +136,20 @@ Resource Description
    The VNF documentation **MUST** contain a list of the files within the VNF
    package that are static during the VNF's runtime.
 
+.. req::
+   :id: R-025941
+   :target: VNF PROVIDER
+   :keyword: MUST
+   :introduced: dublin
+   :impacts: DCAE,Documentation,Integration,SDC
+   :validation_mode: static
+
+   The VNF or PNF PROVIDER **MUST** provide FM Meta Data to support the
+   analysis of fault events delivered to DCAE. The Meta Data must be
+   included in the VES Registration YAML file with each fault event
+   supported by that NF at onboarding time and the Meta Data must follow
+   the VES Event Listener and VES Event Registration Specifications.
+
 
 Resource Configuration
 ^^^^^^^^^^^^^^^^^^^^^^^
