@@ -217,17 +217,19 @@ VNF Package Contents
     :target: VNF or PNF
     :keyword: MUST
     :introduced: dublin
-    
-    The VNF or PNF package Manifest file **MUST** contain: non-mano artifact
-    set with following ONAP public tag:
 
-      - onap_ves_events
+    The VNF or PNF TOSCA CSAR package Manifest file MUST contain: non-mano
+    artifact set with following ONAP public tag
 
-      - onap_pm_dictionary
+      - onap_ves_events: contains VES registration files
 
-      - onap_yang_module
+      - onap_pm_dictionary: contains the PM dictionary files
 
-      - onap_others
+      - onap_yang_modules: contains Yang module files for configurations
+
+      - onap_ansible_playbooks: contains any ansible_playbooks
+
+      - onap_others: contains any other non_MANO artifacts, e.g. informational documents
 
 .. req::
     :id: R-221914
