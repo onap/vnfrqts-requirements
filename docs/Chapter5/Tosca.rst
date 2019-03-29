@@ -990,12 +990,6 @@ supports dpdk. Here is an example.
   sw:ovs\_dpdk: "true"
 
 
-VES Requirements
-^^^^^^^^^^^^^^^^^^^^^^^^^
-
-**Note: ONAP proprietary extensions in ETSI SOL004 standards for VES support
-in CSAR package need to be manually loaded in R3 (Casablanca) for VNF and
-PNFs. Platform support will be developed for this in upcoming releases.**
 
 
 NFV TOSCA Type Definition
