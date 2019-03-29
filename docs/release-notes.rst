@@ -12,7 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-VNF Requirements Release Notes
+VNFRQTS Project Release Notes
 ==============================
 
 Version: 3.0.1
