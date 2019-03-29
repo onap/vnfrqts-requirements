@@ -321,10 +321,10 @@ Resource Control Loop
 
 .. req::
     :id: R-90632
-    :target: XNF
+    :target: VNF
     :keyword: MUST
 
-    The xNF Package **MUST** include documentation about KPIs and
+    The VNF Package **MUST** include documentation about KPIs and
     metrics that need to be collected at each VM for capacity planning
     and performance management purposes.
 
