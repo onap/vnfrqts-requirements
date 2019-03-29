@@ -595,6 +595,31 @@ Interface Types
 
       **tosca.interfaces.nfv.vnf.lifecycle.Nfv** supports LCM operations
 
++--------------------------------------------------------------------+
+| +--------------------------------------------------------------+   |
+| | tosca\_definitions\_version: tosca\_simple\_yaml\_1\_0       |   |
+| |                                                              |   |
+| | description: VNFD TOSCA file demo                            |   |
+| |                                                              |   |
+| | imports:                                                     |   |
+| |                                                              |   |
+| | - TOSCA\_definition\_nfv\_1\_0.yaml                          |   |
+| |                                                              |   |
+| | - TOSCA\_definition\_nfv\_ext\_1\_0.yaml                     |   |
+| |                                                              |   |
+| | | **node\_types:                                             |   |
+| |   tosca.nodes.nfv.VNF.vOpenNAT:                              |   |
+| |   derived\_from:** tosca.nodes.nfv.VNF                       |   |
+| | | **requirements:                                            |   |
+| |   **- **sriov\_plane:                                        |   |
+| |   capability:** tosca.capabilities.nfv.VirtualLinkable       |   |
+| | | **node:** tosca.nodes.nfv.VnfVirtualLinkDesc               |   |
+| | | **relationship:** tosca.relationships.nfv.VirtualLinksTo   |   |
+| +--------------------------------------------------------------+   |
++====================================================================+
++--------------------------------------------------------------------+
+
+
 
 TOSCA PNF Descriptor
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -738,31 +763,6 @@ Policy Types
     Types as specified in ETSI NFV-SOL001 standard:
 
       - tosca.datatypes.nfv.SecurityGroupRule
-
-
-+--------------------------------------------------------------------+
-| +--------------------------------------------------------------+   |
-| | tosca\_definitions\_version: tosca\_simple\_yaml\_1\_0       |   |
-| |                                                              |   |
-| | description: VNFD TOSCA file demo                            |   |
-| |                                                              |   |
-| | imports:                                                     |   |
-| |                                                              |   |
-| | - TOSCA\_definition\_nfv\_1\_0.yaml                          |   |
-| |                                                              |   |
-| | - TOSCA\_definition\_nfv\_ext\_1\_0.yaml                     |   |
-| |                                                              |   |
-| | | **node\_types:                                             |   |
-| |   tosca.nodes.nfv.VNF.vOpenNAT:                              |   |
-| |   derived\_from:** tosca.nodes.nfv.VNF                       |   |
-| | | **requirements:                                            |   |
-| |   **- **sriov\_plane:                                        |   |
-| |   capability:** tosca.capabilities.nfv.VirtualLinkable       |   |
-| | | **node:** tosca.nodes.nfv.VnfVirtualLinkDesc               |   |
-| | | **relationship:** tosca.relationships.nfv.VirtualLinksTo   |   |
-| +--------------------------------------------------------------+   |
-+====================================================================+
-+--------------------------------------------------------------------+
 
 
 HPA Requirements
