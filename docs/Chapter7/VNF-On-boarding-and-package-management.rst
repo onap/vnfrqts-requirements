@@ -176,10 +176,10 @@ Configuration Management via NETCONF/YANG
 .. req::
     :id: R-30278
     :target: VNF or PNF
-    :keyword: MUST
+    :keyword: SHOULD
     :updated: dublin
 
-    The VNF or PNF provider **MUST** provide a Resource/Device YANG model
+    The VNF or PNF provider **SHOULD** provide a Resource/Device YANG model
     as a foundation for creating the YANG model for configuration.
 
 Configuration Management via Chef
