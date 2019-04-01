@@ -141,8 +141,7 @@ VNF Package Contents
 
     The VNF or PNF CSAR package **MUST** include all artifacts required by
     ETSI GS NFV-SOL004 including Manifest file, VNFD or PNFD (or Main
-    TOSCA/YAML based Service Template) and other optional artifacts. CSAR
-    Manifest file as per SOL004 - for example ROOT\\ **MainServiceTemplate.mf**
+    TOSCA/YAML based Service Template) and other optional artifacts.
 
 .. req::
     :id: R-01123
