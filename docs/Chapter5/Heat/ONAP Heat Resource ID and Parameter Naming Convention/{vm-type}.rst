@@ -40,34 +40,29 @@ The ``{vm-type}`` will be used in a VNF's Heat Orchestration Template's
 * Resource IDs
 * Resource property parameter names
 
-Requirements in this document will explain it in further detail.
+A VNF's Heat Orchestration Template's Resource property parameter that is
+associated with a unique Virtual Machine type **MUST** include
+``{vm-type}`` as part of the parameter name with two exceptions:
 
-.. req::
-    :id: R-82481
-    :target: VNF
-    :keyword: MUST
-    :validation_mode: none
-    :updated: dublin
+1.) The Resource ``OS::Nova::Server`` property ``availability_zone``
+parameter **MUST NOT** be prefixed with a common ``{vm-type}`` identifier,
 
-    A VNF's Heat Orchestration Template's Resource property parameter that is
-    associated with a unique Virtual Machine type **MUST** include
-    ``{vm-type}`` as part of the parameter name with two exceptions:
+2.) The Resource ``OS::Nova::Server`` mandatory and optional
+``metadata`` parameters
 
-     1.) The Resource ``OS::Nova::Server`` property ``availability_zone``
-     parameter **MUST NOT** be prefixed with a common ``{vm-type}`` identifier,
+ * ``vnf_name``
+ * ``vnf_id``
+ * ``vf_module_id``
+ * ``vf_module_name``
+ * ``vf_module_index``
+ * ``environment_context``
+ * ``workload_context``
 
-     2.) The Resource ``OS::Nova::Server`` mandatory and optional
-     ``metadata`` parameters
+**MUST NOT** be prefixed with a common ``{vm-type}`` identifier.
 
-     * ``vnf_name``
-     * ``vnf_id``
-     * ``vf_module_id``
-     * ``vf_module_name``
-     * ``vf_module_index``
-     * ``environment_context``
-     * ``workload_context``
+Requirements for specific resource property parameter names can be
+found in later sections of this document.
 
-     **MUST NOT** be prefixed with a common ``{vm-type}`` identifier.
 
 .. req::
     :id: R-98407
