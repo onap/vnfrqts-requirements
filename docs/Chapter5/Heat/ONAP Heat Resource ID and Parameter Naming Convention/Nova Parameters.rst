@@ -24,8 +24,6 @@ ONAP specified naming convention.
 
 Requirement R-01455 defines how the ``{vm-type]`` is defined.
 
-Requirement R-82481 defines how the ``{vm-type}`` is used.
-
 .. req::
     :id: R-304011
     :target: VNF
