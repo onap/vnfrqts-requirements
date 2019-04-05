@@ -144,7 +144,7 @@ or **MUST** have statically assigned IP addresses.
     :id: R-681859
     :target: VNF
     :keyword: MUST
-    :validation_mode: none
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's ``OS::Neutron::Port`` resource's
 

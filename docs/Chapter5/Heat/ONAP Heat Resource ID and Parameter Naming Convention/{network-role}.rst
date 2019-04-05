@@ -79,7 +79,7 @@
 .. req::
     :id: R-26506
     :target: VNF
-    :keyword: MUST
+    :keyword: MUST NOT
     :validation_mode: static
     :updated: casablanca
 
