@@ -1,4 +1,4 @@
-.. Modifications Copyright © 2017-2018 AT&T Intellectual Property.
+﻿.. Modifications Copyright © 2017-2018 AT&T Intellectual Property.
 
 .. Licensed under the Creative Commons License, Attribution 4.0 Intl.
    (the "License"); you may not use this documentation except in compliance
@@ -151,6 +151,20 @@ Resource Description
    supported by that NF at onboarding time and the Meta Data must follow
    the VES Event Listener and VES Event Registration Specifications.
 
+.. req::
+   :id: R-816745
+   :target: VNF or PNF PROVIDER
+   :keyword: MUST
+   :introduced: dublin
+   :impacts: DCAE,Documentation,Integration,SDC
+   :validation_mode: static
+
+   The VNF or PNF PROVIDER *MUST* provide the Service Provider with
+   PM Meta Data (PM Dictionary) to support the analysis of PM events delivered
+   to DCAE. The PM Dictionary is to be provided as a separate YAML artifact at
+   onboarding and must follow the VES Event Listener Specification and VES
+   Event Registration Specification which contain the format and content
+   required.
 
 Resource Configuration
 ^^^^^^^^^^^^^^^^^^^^^^^
