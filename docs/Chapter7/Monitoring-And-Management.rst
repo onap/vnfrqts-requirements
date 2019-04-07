@@ -17,86 +17,85 @@ Monitoring & Management
 -----------------------
 
 This section addresses data collection and event processing functionality that
-is directly dependent on the interfaces provided by the xNFs’ APIs. These can
-be in the form of asynchronous interfaces for event, fault notifications, and
-autonomous data streams. They can also be synchronous interfaces for on-demand
-requests to retrieve various performance, usage, and other event information.
-It should be understood that events are well structured packages of
-information, identified by an eventName, which are communicated to subscribers
-who are interested in the eventName. Events are simply a way of communicating
-well-structured packages of information to one or more instances of an Event
-Listener service.
+is directly dependent on the interfaces provided by the VNFs' or PNFs' APIs.
+These can be in the form of asynchronous interfaces for event, fault
+notifications, and autonomous data streams. They can also be synchronous
+interfaces for on-demand requests to retrieve various performance, usage, and
+other event information. It should be understood that events are well
+structured packages of information, identified by an eventName, which are
+communicated to subscribers who are interested in the eventName. Events are
+simply a way of communicating well-structured packages of information to one
+or more instances of an Event Listener service.
 
-The target direction for xNF interfaces is to employ APIs that are implemented
-utilizing standardized messaging and modeling protocols over standardized
-transports. Virtualized environments present a tremendous opportunity to
-eliminate the need for proprietary interfaces for xNF provider equipment while
+The target direction for these interfaces is to employ APIs that are
+implemented utilizing standardized messaging and modeling protocols over
+standardized transports. Standardized environments (physical, virtual) present
+a tremendous opportunity to eliminate the need for proprietary interfaces while
 removing the traditional boundaries between Network Management Systems and
 Element Management Systems. Additionally, virtualized NFs provide the ability
 to instrument networking applications by creating event records to test and
 monitor end-to-end data flow through the network, similar to what physical or
 virtual probes provide without the need to insert probes at various points in
-the network. The xNF providers must be able to provide the aforementioned set
-of required data directly to the ONAP collection layer using standardized
+the network. Providers must be able to provide the aforementioned set of
+required data directly to the ONAP collection layer using standardized
 interfaces.
+
 
 Data Model for Event Records
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This section describes the data model for the collection of telemetry data from
-xNFs by Service Providers (SPs) to manage xNF health and run-time life cycle.
-This data model is referred to as the VES Data Model. The VES acronym
-originally stood for Virtual-function Event Streaming, but VES has been
-generalized to support network-function event streaming, whether virtualized or
-not.
+physical or virtual NFs by Service Providers (SPs) to manage NF health and
+run-time life cycle. This data model is referred to as the VES Data Model. The
+VES acronym originally stood for Virtual-function Event Streaming, but VES has
+been generalized to support network-function event streaming, whether
+virtualized or not.
 
 The VES Data Model describes a vendor-agnostic common vocabulary of event
 payloads. Vendor-specific, product-specific or service-specific data is
 supported by the inclusion of a flexible additional information field
-structure. The VES Data Models' common vocabulary is used to drive
-standard and automated data analytics (policy-driven analytics) within the
-ONAP DCAE Framework.
+structure. The VES Data Models' common vocabulary is used to drive standard
+and automated data analytics (policy-driven analytics) within the ONAP
+DCAE Framework.
 
-While this document is focused on specifying some of the records from the ONAP
-perspective, there may be other external bodies using the same framework to
-specify additional records. For example, OPNFV has a VES project that is
-looking to specify records for OpenStack’s internal telemetry to manage
+While this document is focused on specifying some of the records from the
+ONAP perspective, there may be other external bodies using the same framework
+to specify additional records. For example, OPNFV has a VES project that is
+looking to specify records for OpenStack's internal telemetry to manage
 application (xNFs), physical and virtual infrastructure (compute, storage,
 network devices, etc.) and virtual infrastructure managers (cloud controllers,
-SDN controllers). It uses ONAP’s VES Agent to generate VES events from the xNF
-and Intel’s collectD agent to generate infrastructure VES events. Note that any
-configurable parameters for these data records (e.g., frequency, granularity,
-policy-based configuration) will be managed using the "Configuration" framework
-described in the prior sections of this document. The infrastructure metrics
-have been funneled via the ONAP Multi-VIM Project and are now included in
-current specifications.
+SDN controllers). It uses ONAP's VES Agent to generate VES events from the NF
+and Intel's collectD agent to generate infrastructure VES events. Note that
+any configurable parameters for these data records (e.g., frequency,
+granularity, policy-based configuration) will be managed using the
+"Configuration" framework described in the prior sections of this document.
+The infrastructure metrics have been funneled via the ONAP Multi-VIM Project
+and are now included in current specifications.
 
 The Data Model consists of:
 
-   * Common Header Record: This data structure precedes each of the Technology
-     Independent and Technology Specific records sections of the data model.
+  - Common Header Record: This data structure precedes each of the
+    Technology Independent and Technology Specific records sections of
+    the data model.
 
-   * Technology Independent Records: This version of the document specifies the
-     model for Fault, Heartbeat, Measurements, Notification, pnfRegistration,
-     State Change, Syslog, and Threshold Crossing Alerts records. In the
-     future, these may be extended to support other types of technology
-     independent records (work is currently progressing to define a new
-     Performance Domain that would be able to support already defined 3GPP
-     Metrics for xNF, e.g. 5G RAN device Use Case in Casablanca). Each of
-     these records allows additional fields (name/ value pairs) for
-     extensibility. The xNF provider may use these xNF provider-specific
-     additional fields to provide additional information that may be relevant
-     to the managing systems.
+  - Technology Independent Records: This version of the document specifies
+    the model for fault, heartbeat, measurement, notification, perf3gpp,
+    pnfRegistration, stateChange, syslog, and thresholdCrossingAlert (TCA)
+    records. In the future, these may be extended to support other types of
+    technology independent records. Each of these records allows additional
+    fields (name/value pairs) for extensibility. The NF provider may use these
+    NF provider-specific additional fields to provide additional information
+    that may be relevant to the managing systems.
 
-   * Technology Specific Records: This version of the document specifies the
-     model for Mobile Flow records, Signaling and Voice Quality records.
-     In the future, these may be extended to support other types of records
-     (e.g. Network Fabric, Security records, etc.). Each of these records
-     allows additional fields (name/value pairs) for extensibility. The xNF
-     provider can use these xNF-specific additional fields to provide
-     additional information that may be relevant to the managing systems.
-     A placeholder for additional technology specific areas of interest to
-     be defined in the future documents has been depicted.
+  - Technology Specific Records: This version of the document specifies the
+    model for mobileFlow, sipSignaling and voiceQuality records. In the
+    future, these may be extended to support other types of records (e.g.
+    Network Fabric, Security records, etc.). Each of these records allows
+    additional fields (name/value pairs) for extensibility. The NF provider can
+    use these NF-specific additional fields to provide additional information
+    that may be relevant to the managing systems. A placeholder for additional
+    technology specific areas of interest to be defined in the future documents
+    has been depicted.
 
 |image0|
 
@@ -109,14 +108,14 @@ The data structure for event records consists of:
 
 -  a Common Event Header block; and
 
--  zero (Heartbeat) or more technology independent domain blocks; or
+-  zero (heartbeat) or more technology independent domain blocks; or
 
-   -  e.g. Fault, Measurements, Notification, PNF Registration, State Change,
-      Syslog, TCA, Other Fields etc.
+   - e.g. fault, measurement, notification, perf3gpp, pnfRegistration,
+     stateChange, syslog, TCA, otherFields etc.
 
 -  technology specific domain blocks.
 
-   -  e.g. Mobile Flow, Signaling, Voice Quality, etc.
+   - e.g. mobileFlow, sipSignaling, voiceQuality, etc.
 
 Common Event Header
 ~~~~~~~~~~~~~~~~~~~~~
@@ -154,40 +153,40 @@ sender and other identifying characteristics related to the domain and event.
     * ``vesEventListenerVersion`` - Version of the VES event listener API spec
       that this event is compliant with
 
-Technology Independent Records – Fault Fields
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Technology Independent Records
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The current version of the data model supports the following technology
 independent event records:
 
-   * ``Fault`` - the Fault Record, describing a condition in the Fault domain,
+   * ``fault`` - the fault record, describing a condition in the fault domain,
      contains information about device failures. The fault event provides data
      such as the entity experiencing a fault, the severity, resulting status,
      etc.
 
-   * ``Heartbeat`` - the Heartbeat Record provides an optional structure for
+   * ``heartbeat`` - the heartbeat record provides an optional structure for
      communicating information about device health. Heartbeat records would
      only have the Common Event Header block. An optional heartbeat domain is
      available to specify information such as heartbeat interval and
      recommended action upon missing heartbeat interval. Heartbeat avoids the
      need to ping a device.  A communication failure can be determined via
      missing heartbeat events being delivered to DCAE and appropriate action
-     (e.g. restart VM, rebuild xNF or create ticket) can be taken by DCAE
+     (e.g. restart VM, rebuild VNF or create ticket) can be taken by DCAE
      CLAMP.
 
-   * ``Measurements`` - the Measurements Record contains information about xNF
-     and xNF resource structure and its condition to help in the management of
-     the resources for purposes of capacity planning, elastic scaling,
-     performance management and service assurance.  These are soft alarms
-     providing an opportunity for proactive maintenance.
+   * ``Measurements`` - the Measurements Record contains information about
+     PNF or VNF and PNF or VNF resource structure and its condition to help
+     in the management of the resources for purposes of capacity planning,
+     elastic scaling, performance management and service assurance. These
+     are soft alarms providing an opportunity for proactive maintenance.
 
    * ``Notification`` - the Notification Record provides a structure for
-     communicating notification information from the NF. It can contain
+     communicating notification information from the PNF or VNF. It can contain
      notification information related to the current operational state that is
-     reported by the NF. As an example, when cards or port name of the entity
-     have changed state. (e.g., offline -> online) Other use cases include
-     notification of file ready for collection using Bulk Data Transfer or
-     notification on configuration changes to a device.
+     reported by the PNF or VNF. As an example, when cards or port name of the
+     entity have changed state. (e.g., offline -> online) Other use cases
+     include notification of file ready for collection using Bulk Data Transfer
+     or notification on configuration changes to a device.
 
    * ``Other`` - the Other Record defines fields for events that do not have a
      defined domain but are needed to be collected and sent to DCAE. This
@@ -195,8 +194,15 @@ independent event records:
      nested or opaque) and is purely intended to address miscellaneous needs
      such as addressing time-to-market considerations or other proof-of-concept
      evaluations. Hence, use of this record type is discouraged and should be
-     minimized.  (Note: the Other domain could be used to create and test new
+     minimized. (Note: the Other domain could be used to create and test new
      domain ideas.)
+
+   * ``perf3gpp`` - the perf3gpp record provides a structure for communicating
+     information that supports 3GPP defined performance metrics. The perf3gpp
+     record can contain information from vendors, including measurement name,
+     measurement family, measured object class, description, collection method,
+     value ranges, unit of measure, triggering conditions and other measurement
+     information.
 
    * ``pnfRegistration`` - the pnfRegistration Record provides a structure for
      registration of a physical network function. The pnfRegistration Record
@@ -204,21 +210,21 @@ independent event records:
      function including serial number, software revision, unit type and vendor
      name.
 
-   * ``State Change`` - the State Change Record provides a structure for
-     communicating information about data flow through the xNF. The State
-     Change Record can contain information about state change related to
-     physical device that is reported by the xNF. As an example, when cards or
-     port name of the entity that has changed state.  Note: The Notification
-     Domain can also communicate similar information.
+   * ``stateChange`` - the State Change Record provides a structure for
+     communicating information about data flow through the PNF or VNF. The
+     State Change Record can contain information about state change related to
+     physical device that is reported by the PNF or VNF. As an example, when
+     cards or port name of the entity that has changed state. Note: The
+     Notification Domain can also communicate similar information.
 
    * ``Syslog`` - the Syslog Record provides a structure for communicating any
-     type of information that may be logged by the xNF. It can contain
+     type of information that may be logged by the PNF or VNF. It can contain
      information about system internal events, status, errors, etc. It is
      recommended that low volume control or session logs are communicated via a
      push mechanism, while other large volume logs should be sent via file
      transfer.
 
-   * ``Threshold Crossing Alert`` - the Threshold Crossing Alert (TCA) Record
+   * ``thresholdCrossingAlert`` - the Threshold Crossing Alert (TCA) Record
      provides a structure for communicating information about threshold
      crossing alerts. It uses data from the Measurement or a similar domain to
      watch for a Key Performance Indicator (KPI) threshold that has been
@@ -398,7 +404,7 @@ minimizing changes to data delivery.
    The xNF **MUST** deliver event records to ONAP using the common transport
    mechanisms and protocols defined in this document.
 
-The term ‘Event Record’ is used throughout this document to represent various
+The term 'Event Record' is used throughout this document to represent various
 forms of telemetry or instrumentation made available by the xNFs
 including, faults, status events, various other types of xNF measurements
 and logs.
@@ -425,8 +431,8 @@ data sets.
    prior to the on-boarding of the xNF into ONAP SDC Design Studio.
 
 
-xNF Telemetry using VES/JSON Model
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+VNF or PNF Telemetry using VES/JSON Model
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. req::
    :id: R-659655
@@ -445,8 +451,8 @@ xNF Telemetry using VES/JSON Model
 
 Figure 2. VES/JSON Driven Model
 
-xNF Telemetry using Google Protocol Buffers
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+VNF or PNF Telemetry using Google Protocol Buffers
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. req::
    :id: R-697654
@@ -463,7 +469,7 @@ xNF Telemetry using Google Protocol Buffers
 
 |image2|
 
-Figure 3. xNF Telemetry using Google Protocol Buffers
+Figure 3. VNF or PNF Telemetry using Google Protocol Buffers
 
 
 **NOTE:** For high-volume xNF telemetry, native (binary) Google Protocol
@@ -495,7 +501,7 @@ Bulk Telemetry Transmission
 
 |image3|
 
-Figure 4. xNF Telemetry using Bulk Transmission
+Figure 4. VNF or PNF Telemetry using Bulk Transmission
 
 **NOTE:** An optional VES mapper micro-service can be leveraged to to extract
 measurements and publish them as VES events.
@@ -534,7 +540,7 @@ JSON
     The xNF, when leveraging JSON for events, **MUST** encode and serialize
     content delivered to ONAP using JSON (RFC 7159) plain text format.
     High-volume data is to be encoded and serialized using
-    `Avro <http://avro.apache.org/>`_, where the Avro [#7.4.1]_ data
+    `Avro <http://avro.apache.org/>`_, where the Avro data
     format are described using JSON.
 
 Note:
@@ -543,26 +549,33 @@ Note:
     (option 1), as JSON has the advantage of having well-understood simple
     processing and being human-readable without additional decoding. Examples
     of moderate volume data sets include the fault alarms and performance
-    alerts, heartbeat messages, measurements used for xNF scaling and syslogs.
-  - Binary format using Avro is preferred for high volume data sets
-    (option 2) such as mobility flow measurements and other high-volume
-    streaming events (such as mobility signaling events or SIP signaling)
-    or bulk data, as this will significantly reduce the volume of data
-    to be transmitted. As of the date of this document, all events are
-    reported using plain text JSON and REST.
+    alerts, heartbeat messages, measurements used for VNF scaling and syslogs.
+
+  - Binary format using Avro is preferred for high volume data sets (option 2)
+    such as mobility flow measurements and other high-volume streaming events
+    (such as mobility signaling events, mobility trace data or SIP signaling)
+    or bulk data, as this will significantly reduce the volume of data to be
+    transmitted. As of the date of this document, all events are reported
+    using plain text JSON and REST.
+
   - Avro content is self-documented, using a JSON schema. The JSON schema is
     delivered along with the data content
     (http://avro.apache.org/docs/current/ ). This means the presence and
     position of data fields can be recognized automatically, as well as the
     data format, definition and other attributes. Avro content can be
-    serialized as JSON tagged text or as binary. In binary format, the
-    JSON schema is included as a separate data block, so the content is
-    not tagged, further compressing the volume. For streaming data, Avro
-    will read the schema when the stream is established and apply the
-    schema to the received content.
+    serialized as JSON tagged text or as binary. In binary format, the JSON
+    schema is included as a separate data block, so the content is not tagged,
+    further compressing the volume. For streaming data, Avro will read the
+    schema when the stream is established and apply the schema to the
+    received content.
+
+  - In addition to the preferred delivery format (JSON), content delivered
+    from PNFs or VNFs to ONAP can be encoded and serialized using Google
+    Protocol Buffers (GPB). Please refer to the next section of this document
+    for additional information.
 
 In addition to the preferred method (JSON), content can be delivered
-from xNFs to ONAP can be encoded and serialized using Google Protocol
+from VNFs or PNFs to ONAP can be encoded and serialized using Google Protocol
 Buffers (GPB).
 
 Google Protocol Buffers (GPB)
@@ -953,6 +966,69 @@ Bulk Performance Measurement
     Note: Recommended period is at least 24 hours.
 
 
+PM Dictionary
+^^^^^^^^^^^^^^
+
+The Performance Management (PM) Dictionary is used by analytics applications
+to interpret and process perf3gpp measurement information from vendors,
+including measurement name, measurement family, measured object class,
+description, collection method, value ranges, unit of measure, triggering
+conditions and other information. The ultimate goal is for analytics
+applications to dynamically process new and updated measurements based on
+information in the PM Dictionary.
+
+The PM dictionary is supplied by NF vendors in two parts:
+
+  - PM Dictionary Schema: specifies meta-information about perf3gpp
+    measurement events from that vendor. The meta-information is conveyed
+    using standard meta-information keywords, and may be extended to include
+    vendor-specific meta-information keywords. The PM Dictionary Schema may
+    also convey a range of vendor-specific values for some of the keywords.
+
+  - PM Dictionary: defines specific perf3gpp measurements sent by vendor VNFs
+    or PNFs (each of which is compliant with a referenced PM Dictionary
+    Schema).
+
+Note:
+
+  - A vendor may provide multiple versions of the PM Dictionary Schema and
+    refer to those versions from the PM Dictionary.
+
+  - Please refer to the latest version of the VES Event Registration
+    specification for the listing of the PM Dictionary schema keywords, PM
+    Dictionary Schema example and PM Dictionary example.
+
+
+FM Meta Data
+^^^^^^^^^^^^^^
+
+FM Meta Data enables vendors to provide meta information about FM events using
+a set of standard keywords. FM Meta Data is conveyed in the YAML event
+registration using the YAML Comment qualifier. The FM Meta Data section is
+optional.
+
+FM Meta Data includes Alarm Meta Data and Fault Meta Data:
+
+  - FM Meta Data keywords must be provided in 'hash format' as Keyword: Value.
+
+  - FM Meta Data values containing whitespace must be enclosed in single
+    quotes. Successive keywords must be separated by commas.
+
+  - Alarm Meta Data, if provided, shall be placed in the YAML comments
+    qualifier at the top of the event registration for the alarm.
+
+  - Fault Meta Data, if provided, shall be placed in the YAML comments
+    qualifier of faultFields.alarmAdditionalInformation within each alarm.
+
+The above conventions will make machine processing of FM Meta Data Keywords
+easier to perform.
+
+Note:
+
+  - Please refer to the latest version of the VES Event Registration
+    specification for the listing of the FM Alarm Meta Data keywords, Fault
+    Meta Data keywords and FM Meta Data examples.
+
 
 .. |image0| image:: ../Data_Model_For_Event_Records.png
 
@@ -964,6 +1040,6 @@ Bulk Performance Measurement
       :width: 4.74in
       :height: 3.3in
 
-.. |image3| image:: ../Bulk_Data_Transfer_Mechv1.PNG
+.. |image3| image:: ../Bulk_Data_Transfer_Mechv1.png
       :width: 4.74in
       :height: 3.3in
