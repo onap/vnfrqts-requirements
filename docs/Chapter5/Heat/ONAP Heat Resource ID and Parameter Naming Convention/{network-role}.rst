@@ -81,12 +81,15 @@
     :target: VNF
     :keyword: MUST NOT
     :validation_mode: static
-    :updated: casablanca
+    :updated: dublin
+
 
     A VNF's Heat Orchestration Template's ``{network-role}`` **MUST** contain
     only alphanumeric characters and/or underscores '_' and
-    **MUST NOT** contain any of the following strings:
-    ``_int`` or ``int_`` or ``_int_``.
+
+    * **MUST NOT** contain any of the following strings: ``_int`` or ``int_``
+      or ``_int_``
+    * **MUST NOT** end in the following string: ``_v6``
 
 .. req::
     :id: R-00977
