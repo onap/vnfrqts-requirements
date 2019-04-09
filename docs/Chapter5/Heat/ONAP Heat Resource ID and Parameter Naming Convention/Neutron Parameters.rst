@@ -202,13 +202,16 @@ the port is attached to.
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: casablanca
+    :updated: dublin
+
 
     When the VNF's Heat Orchestration Template's Resource
-    ``OS::Neutron::Port`` is attaching to an internal network (per the
-    ONAP definition, see Requirements R-52425 and R-46461),
-    and the internal network is created in a
-    different Heat Orchestration Template than the ``OS::Neutron::Port``,
+    ``OS::Neutron::Port``
+    is in an incremental module and
+    is attaching to an internal network (per the
+    ECOMP definition, see Requirements R-52425 and R-46461),
+    and the internal network is created in
+    the base module,
     the ``network`` parameter name **MUST**
 
       * follow the naming convention ``int_{network-role}_net_id`` if the Neutron
@@ -219,29 +222,28 @@ the port is attached to.
     where ``{network-role}`` is the network-role of the internal network and
     a ``get_param`` **MUST** be used as the intrinsic function.
 
+
 In Requirement R-86182, the internal network is created in the VNF's
 Base Module (Heat Orchestration Template) and the parameter name is
 declared in the Base Module's ``outputs`` section.
 The output parameter name will be declared as a parameter in the
 ``parameters`` section of the incremental module.
 
+When the VNF's Heat Orchestration Template's resource
+``OS::Neutron::Port`` is in the base module and
+is attaching to an internal network (per the
+ECOMP definition, see Requirements R-52425 and R-46461),
+and the internal network is 
 
-.. req::
-    :id: R-93177
-    :target: VNF
-    :keyword: MUST
-    :validation_mode: static
-    :updated: casablanca
+ * created in the base module,
+   the ``network`` property value **MUST** obtain the UUID
+   of the internal network by using the intrinsic function
+   ``get_resource`` and referencing the Resource ID of the internal network.
+ * created in the base module by invoking a Nested YAML file, the network
+   property value MUST obtain the UUID of the internal network by using the
+   intrinsic function get_attr and referencing the Resource ID of the internal
+   network.
 
-    When the VNF's Heat Orchestration Template's resource
-    ``OS::Neutron::Port`` is attaching to an internal network (per the
-    ONAP definition, see Requirements R-52425 and R-46461),
-    and the internal network is created in the
-    same Heat Orchestration Template as the ``OS::Neutron::Port``,
-    the ``network`` property value **MUST** obtain the UUID
-    of the internal network by using the intrinsic function
-    ``get_resource``
-    and referencing the Resource ID of the internal network.
 
 .. req::
     :id: R-29872
