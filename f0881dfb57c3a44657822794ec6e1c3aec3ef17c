@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d2fba464_ab90f252",
+        "filename": "docs/Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Neutron Parameters.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 3013
+      },
+      "writtenOn": "2019-04-09T19:00:12Z",
+      "side": 1,
+      "message": "change to ONAP",
+      "range": {
+        "startLine": 212,
+        "startChar": 4,
+        "endLine": 212,
+        "endChar": 9
+      },
+      "revId": "f0881dfb57c3a44657822794ec6e1c3aec3ef17c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d403dbe_a55698bd",
+        "filename": "docs/Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Neutron Parameters.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 3013
+      },
+      "writtenOn": "2019-04-09T19:00:12Z",
+      "side": 1,
+      "message": "Change to ONAP",
+      "range": {
+        "startLine": 235,
+        "startChar": 0,
+        "endLine": 235,
+        "endChar": 5
+      },
+      "revId": "f0881dfb57c3a44657822794ec6e1c3aec3ef17c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b15f24e_e3eae8bd",
+        "filename": "docs/Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Neutron Parameters.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 3013
+      },
+      "writtenOn": "2019-04-09T19:00:12Z",
+      "side": 1,
+      "message": "remove whitespace",
+      "range": {
+        "startLine": 236,
+        "startChar": 27,
+        "endLine": 236,
+        "endChar": 28
+      },
+      "revId": "f0881dfb57c3a44657822794ec6e1c3aec3ef17c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b33db069_ce993879",
+        "filename": "docs/Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Neutron Parameters.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 3013
+      },
+      "writtenOn": "2019-04-09T19:00:12Z",
+      "side": 1,
+      "message": "can this be changed to MAY, or can? Maybe a heat author will come up with another way to pass the UUID, I don\u0027t think we need to say MUST if it doesn\u0027t impact the platform.",
+      "range": {
+        "startLine": 239,
+        "startChar": 34,
+        "endLine": 239,
+        "endChar": 42
+      },
+      "revId": "f0881dfb57c3a44657822794ec6e1c3aec3ef17c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e63c88fb_75c9256f",
+        "filename": "docs/Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Neutron Parameters.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 3013
+      },
+      "writtenOn": "2019-04-09T19:00:12Z",
+      "side": 1,
+      "message": "same as above comment",
+      "range": {
+        "startLine": 243,
+        "startChar": 18,
+        "endLine": 243,
+        "endChar": 22
+      },
+      "revId": "f0881dfb57c3a44657822794ec6e1c3aec3ef17c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
