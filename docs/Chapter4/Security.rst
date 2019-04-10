@@ -126,7 +126,7 @@ the product's lifecycle.
     :id: R-99771
     :target: VNF
     :keyword: MUST
-    :updated: casablanca
+    :updated: dublin
 
     The VNF **MUST** have all code (e.g., QCOW2) and configuration files
     (e.g., HEAT template, Ansible playbook, script) hardened, or with
