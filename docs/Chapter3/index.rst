@@ -47,6 +47,15 @@ Introduction
 |                     | Descriptor, etc.), but the :target: metadata would    |
 |                     | stay at the package level.                            |
 +---------------------+-------------------------------------------------------+
+| {VNF|PNF|VNF or PNF}| VNFs and PNFs are expected to provide human readable  |
+| DOCUMENTATION       | documentation. This may come in the form of URLs or   |
+| PACKAGE             | pdfs. This documentation may vary by VNF or PNF.      |
+|                     | The structure of the documentation is intended for    |
+|                     | human consumption and is not highly structured for    |
+|                     | machine ingestion. The human readable documentation   |
+|                     | may be provided through the RFP/acquisition process.  |
++---------------------+-------------------------------------------------------+
+
 - Chapter 4 contains the xNF requirements involving the design and
   development of xNFs. These requirements help VNFs/PNFs operate
   efficiently within a cloud environment. Requirements cover design,
@@ -62,6 +71,7 @@ Introduction
       instantiating virtual resources in an OpenStack environment.  At this
       time the HEAT files will be passed to the Service provider as a data
       element within the TOSCA onboarding package.
+
 - Chapter 6 details the requirements specific to an implementation.
   The current implementations documented are OpenStack and Azure.
 - Chapter 7 provides the comprehensive set of requirements for xNFs to

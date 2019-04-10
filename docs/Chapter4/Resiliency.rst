@@ -556,7 +556,7 @@ Monitoring & Dashboard Requirements
     :keyword: MUST
 
     The VNF **MUST** provide a method of metrics gathering for each
-    layer's performance to identify/document variances in the allocations so
+    layer's performance to identify variances in the allocations so
     they can be addressed.
 
 .. req::

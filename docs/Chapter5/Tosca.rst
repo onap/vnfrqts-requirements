@@ -412,8 +412,9 @@ General
     :target: VNF
     :keyword: MUST
     :introduced: casablanca
+    :updated: dublin
 
-    The VNFD **MUST** comply with ETSI GS NFV-SOL001 document endorsing
+    The VNFD **MUST** comply with ETSI GS NFV-SOL001 specification endorsing
     the above mentioned NFV Profile and maintaining the gaps with the
     requirements specified in ETSI GS NFV-IFA011 standard.
 
