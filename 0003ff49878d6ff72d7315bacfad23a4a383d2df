@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f0f0703_8363cf9e",
+        "filename": "docs/Chapter5/Heat/ONAP Heat Networking.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2019-04-11T18:16:18Z",
+      "side": 1,
+      "message": "Neutron",
+      "range": {
+        "startLine": 105,
+        "startChar": 17,
+        "endLine": 105,
+        "endChar": 24
+      },
+      "revId": "0003ff49878d6ff72d7315bacfad23a4a383d2df",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
