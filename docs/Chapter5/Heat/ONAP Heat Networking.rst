@@ -96,22 +96,15 @@ or an external gateway or router
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: casablanca
+    :updated: dublin
 
     If a VNF has an internal network, the VNF Heat Orchestration Template
     **MUST** include the heat resources to create the internal network.
 
-.. req::
-    :id: R-86972
-    :target: VNF
-    :keyword: SHOULD
-    :updated: casablanca
-
-    A VNF **SHOULD** create the internal network in the VNF's Heat
-    Orchestration Template Base Module.
-
-An Internal Network may be created using Neutron Heat Resources and/or
-Contrail Heat Resources.
+    A VNF's Internal Network is created using Neutron Heat Resources
+    (i.e., ``OS::Nuetron::Net``, ``OS::Neutron::Subnet``) and/or
+    Contrail Heat Resources (i.e., ``OS::ContrailV2::VirtualNetwork``,
+    ``ContrailV2::NetworkIpam``).
 
 
 .. req::
@@ -147,18 +140,46 @@ Contrail Heat Resources.
     A VNF's internal network **MAY** have more than one subnet.
 
 .. req::
+    :id: R-86972
+    :target: VNF
+    :keyword: SHOULD
+    :updated: casablanca
+
+    A VNF **SHOULD** create the internal network in the VNF's Heat
+    Orchestration Template Base Module.
+
+
+.. req::
     :id: R-22688
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: casablanca
+    :updated: dublin
 
-    If a VNF's port is connected to an internal network and the port is
-    created in an Incremental Module and the internal network is created
-    in the Base Module then the UUID of the internal network **MUST** be
-    exposed as a parameter in the ``outputs:`` section of the Base Module
-    and the port resource **MUST** use a ``get_param`` to obtain the network
-    UUID.
+    When a VNF's Heat Orchestration Template creates an internal network
+    (per the ECOMP definition, see Requirements R-52425 and R-46461
+    and R-35666) and the internal network needs to be shared between modules
+    within a VNF,  the internal network **MUST** be created either in the
+
+    * the base module
+    * a nested YAML file invoked by the base module
+
+    and the base module **MUST** contain an output parameter that provides
+    either the network UUID or network name.
+
+    * If the network UUID value is used to reference the network, the output
+      parameter name in the base module **MUST** follow the naming convention
+      ``int_{network-role}_net_id``
+    * If the network name in is used to reference the network, the output
+      parameter name in the base template **MUST** follow the naming convention
+      ``int_{network-role}_net_name``
+ 
+    ``{network-role}`` **MUST** be the network-role of the internal network
+    created in the Base Module.
+ 
+    ``The Base Module Output Parameter MUST be declared in the ``parameters:``
+    section of the Incremental Module(s) where the ``OS::Neutron::Port``
+    resource(s) is attaching to the internal network.
 
 ONAP does not programmatically enforce a naming convention for
 parameters for internal network. However, a naming convention is

@@ -99,7 +99,7 @@ after initial VNF deployment to add capacity.
     :target: VNF
     :keyword: MAY
 
-    A VNF's Heat Orchestration Template's Resource ``OS::Heat::CinderVolume``
+    A VNF's Heat Orchestration Template's Resource ``OS::Cinder::Volume``
     **MAY** be defined in a Base Module.
 
 .. req::
@@ -107,7 +107,7 @@ after initial VNF deployment to add capacity.
     :target: VNF
     :keyword: MAY
 
-    A VNF's Heat Orchestration Template's Resource ``OS::Heat::CinderVolume``
+    A VNF's Heat Orchestration Template's Resource ``OS::Cinder::Volume``
     **MAY** be defined in an Incremental Module.
 
 .. req::
@@ -115,7 +115,7 @@ after initial VNF deployment to add capacity.
     :target: VNF
     :keyword: MAY
 
-    A VNF's Heat Orchestration Template's Resource ``OS::Heat::CinderVolume``
+    A VNF's Heat Orchestration Template's Resource ``OS::Cinder::Volume``
     **MAY** be defined in a Cinder Volume Module.
 
 ONAP also supports the concept of an optional, independently deployed Cinder

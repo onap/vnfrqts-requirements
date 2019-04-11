@@ -10,7 +10,7 @@ ONAP Heat Cinder Volumes
 Cinder Volumes are created with the heat resource OS::Cinder::Volume.
 
 As stated in :need:`R-46119`, :need:`R-90748`, :need:`R-03251`, a
-VNF's Heat Orchestration Template's Resource ``OS::Heat::CinderVolume``
+VNF's Heat Orchestration Template's Resource ``OS::Cinder::Volume``
 **MAY** be defined in a Base Module, Incremental Module, or Cinder
 Volume Module.
 
