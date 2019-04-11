@@ -400,9 +400,10 @@ minimizing changes to data delivery.
    :impacts: dcae
    :validation_mode: in_service
    :introduced: casablanca
+   :updated: dublin
 
    The xNF **MUST** deliver event records to ONAP using the common transport
-   mechanisms and protocols defined in this document.
+   mechanisms and protocols defined in this specification.
 
 The term 'Event Record' is used throughout this document to represent various
 forms of telemetry or instrumentation made available by the xNFs
