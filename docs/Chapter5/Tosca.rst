@@ -299,16 +299,12 @@ key.
 *Dublin release note*
 
     - VNFSDK pre-onboarding validation procedure:
-
       - Option 1: specified in ETSI SOL004 is supported.
-
       - Option 2: Will be supported in the future releases.
 
     - SDC onboarding procedure:
-
-      - Option 1: specified in ETSI SOL004 is supported.
-
-      - Option 2: Will be supported in the future releases.
+      - Option 1: Will be supported in the future releases.
+      - Option 2: specified in ETSI SOL004 is supported.
 
 .. req::
     :id: R-787965
