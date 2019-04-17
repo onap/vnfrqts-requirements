@@ -166,30 +166,14 @@ VNF Package Contents
     testing as specified in ETSI NFV-SOL004 - Testing directory in CSAR
 
 .. req::
-    :id: R-26885
-    :target: VNF
-    :keyword: MUST
-    :introduced: casablanca
-
-    The VNF provider **MUST** provide the binaries and images needed to
-    instantiate the VNF (VNF and VNFC images) either as:
-
-      - Local artifact in CSAR: ROOT\\Artifacts\\ **VNF_Image.bin**
-
-      - externally referred (by URI) artifact in Manifest file (also may be
-        referred by VNF Descriptor)
-
-    Note: Currently, ONAP doesn't have the capability of Image management,
-    we upload the image into VIM/VNFM manually.
-
-.. req::
     :id: R-40820
-    :target: VNF
+    :target: VNF or PNF TOSCA PACKAGE
     :keyword: MUST
     :introduced: casablanca
 
-    The VNF provider **MUST** enumerate all of the open source licenses
-    their VNF(s) incorporate. CSAR License directory as per ETSI SOL004.
+    The VNF or PNF TOSCA PACKAGE **MUST** enumerate all of the open source
+    licenses their VNF(s) incorporate. CSAR License directory as per ETSI
+    SOL004.
 
     for example ROOT\\Licenses\\ **License_term.txt**
 
