@@ -78,7 +78,7 @@ In the above example, the Ansible Server Rest API code will:
 #. Process the "FileParameters" dictionary and generate a file named
    'config.txt' with contents set to the value of the 'config.txt' key.
 
-#. Execute the playbook named '<xNFCode>/<Version>/ansible/configure/site.yml'
+#. Execute the playbook named '<VNFCode>/<Version>/ansible/configure/site.yml'
    on nodes with listed IP addresses (or FQDNs) respectively while providing
    the following key value pairs to the playbook: Retry=3, Wait=5,
    ConfigFile=config.txt
@@ -87,7 +87,7 @@ In the above example, the Ansible Server Rest API code will:
    it will be terminated.
 
 #. Inventory hosts file to be build with only IP addresses (or FQDNs), IP
-   addresses and VM names, or IP addresses and xNFC names depending on
+   addresses and VM names, or IP addresses and VNFC names depending on
    InventoryNames setting in the template(s) passed to Ansible Server as part
    of the Rest API request. In a later section with Ansible examples, examples
    of supported inventory hosts file formats are shared.

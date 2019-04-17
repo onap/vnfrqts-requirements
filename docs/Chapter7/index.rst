@@ -75,6 +75,6 @@ components and logic) or as a Grey Box (provides limited knowledge and
 access to its internal components).
 
 * Requirements that equally apply to both VNFs and PNFs are defined as
-  "The xNF MUST/SHOULD/..."
+  "The VNF or PNF MUST/SHOULD/..."
 * Requirements that only apply to VNFs are defined as "The VNF MUST/SHOULD/..."
 * Requirements that only apply to PNFs are defined as "The PNF MUST/SHOULD/..."

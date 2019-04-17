@@ -533,7 +533,7 @@ OR
  <VNF type>/<Version>/ansible/vars/<VNF instance name>.yml
  (INI format accepted/supported by Ansible)
 
-**NOTE**: Requirement remains while manual actions to create or edit xNF
+**NOTE**: Requirement remains while manual actions to create or edit VNF or PNF
 instance specific files are supported. All files manually created or edited
 should be placed in this one directory (``ansible/vars``).
 

@@ -19,8 +19,8 @@ Introduction
 - Requirements are identified as either MUST, MUST NOT, SHOULD, SHOULD NOT,
   or MAY as defined in RFC 2119.
 - Requirements should be targeted to a restricted set of nouns related
-  to VNFs and within the control of the VNF provider. The current list
-  of VNF Requirement targets is:
+  to VNFs or PNFs and within the control of the VNF or PNF provider. The
+  current list of VNF or PNF Requirement targets is:
 
 +---------------------+-------------------------------------------------------+
 | Target              | When is it used                                       |
@@ -56,16 +56,16 @@ Introduction
 |                     | may be provided through the RFP/acquisition process.  |
 +---------------------+-------------------------------------------------------+
 
-- Chapter 4 contains the xNF requirements involving the design and
-  development of xNFs. These requirements help VNFs/PNFs operate
+- Chapter 4 contains the VNF or PNF requirements involving the design and
+  development of VNFs or PNF. These requirements help VNFs or PNFs operate
   efficiently within a cloud environment. Requirements cover design,
   resiliency, security, modularity and DevOps.
-- Chapter 5 describes the different data models the xNF provider
+- Chapter 5 describes the different data models the VNF or PNF provider
   needs to understand.  There are currently 2 models described in this
   document:
 
     - The first model is the onboarding package data model. This is a TOSCA
-      model that will describe how all the elements passed from the VNF/PNF
+      model that will describe how all the elements passed from the VNF or PNF
       Provider to the Service provider should be formatted and packaged.
     - The second model is HEAT template used for orchestrating and
       instantiating virtual resources in an OpenStack environment.  At this

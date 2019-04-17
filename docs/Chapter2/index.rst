@@ -16,18 +16,19 @@
 Scope
 =====
 
-- The audience for this document are xNF providers, NCSPs and other
+- The audience for this document are VNF or PNF providers, NCSPs and other
   interested 3rd parties who need to know the design, build and lifecycle
-  management requirements for xNFs to be compliant with ONAP.
-- These requirements are strictly from a standpoint of what the xNF
+  management requirements for VNFs or PNFs to be compliant with ONAP.
+- These requirements are strictly from a standpoint of what the VNF or PNF
   developer needs to know to operate and be compliant with ONAP.
-- Requirements that are not applicable to xNF providers such as those
+- Requirements that are not applicable to VNF or PNF providers such as those
   that applicable to service providers are not included in this document.
 - These requirements are applicable to the current release of ONAP.
 - Scope of the ONAP versions/release and future functionality
 - The VNF Requirements should include support for the functionality of the
   ONAP E-E use cases.
-- These requirements apply to xNFs at both ONAP Design-Time and ONAP Run-Time.
+- These requirements apply to VNFs or PNFs at both ONAP Design-Time and ONAP
+  Run-Time.
 - Network Service Descriptions are beyond the scope of these requirements.
 
 References

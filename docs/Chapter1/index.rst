@@ -16,20 +16,21 @@
 Purpose
 =======
 
-- The purpose of these requirements is to accelerate adoption of xNF best
-  practices which will increase innovation, minimize customization needed to
-  onboard xNFs as well as reduce implementation complexity, time and cost
-  for all impacted stakeholders.
-- The consolidated requirements provide common xNF requirements across
+- The purpose of these requirements is to accelerate adoption of VNF or PNF
+  best practices which will increase innovation, minimize customization needed
+  to onboard VNFs or PNFs as well as reduce implementation complexity, time and
+  cost for all impacted stakeholders.
+- The consolidated requirements provide common VNF or PNF requirements across
   the industry in order to drive interoperability, simplify management, and
-  reduce cost to build, deploy and manage xNFs.
+  reduce cost to build, deploy and manage VNFs or PNFs.
 - These requirements serve multiple purposes:
-    - Primarily it provides a detailed list of requirements for xNF
-      providers to meet to be compatible with ONAP; xNF providers will use
-      the xNF requirements to build VNFs/PNFs that are compatible with ONAP
+    - Primarily it provides a detailed list of requirements for VNF or PNF
+      providers to meet to be compatible with ONAP; VNF or PNF providers will
+      use the VNF or PNF requirements to build VNFs/PNFs that are compatible
+      with ONAP.
     - It can also serve as a list of requirements that service providers can
-      use in RFPs for selecting VNFs/PNFs
+      use in RFPs for selecting VNFs/PNFs.
     - It will also be used as a basis for testing and certification of
-      xNFs for compliance with ONAP; ONAP projects such as the VNF
-      Validation Project will uses these xNFs requirements to build test
-      cases to validate xNFs for compliance with ONAP.
+      VNFs or PNFs for compliance with ONAP; ONAP projects such as the VNF
+      Validation Project will uses these VNFs or PNFs requirements to build
+      test cases to validate VNFs or PNFs for compliance with ONAP.

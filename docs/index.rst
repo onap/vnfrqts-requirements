@@ -14,8 +14,8 @@
 
 .. _vnf_requirements_documentation:
 
-VNF Requirements Documentation
-------------------------------
+VNF or PNF Requirements Documentation
+-------------------------------------
 
 .. toctree::
     :maxdepth: 2
