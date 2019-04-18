@@ -86,16 +86,47 @@ the second level of nested heat.
 
 .. req::
     :id: R-708564
-    :keyword: MUST
-    :updated: casablanca
+    :keyword: MUST NOT
+    :introduced: casablanca
+    :updated: dublin
     :validation_mode: static
 
+
     If a VNF's Heat Orchestration Template's resource invokes a nested
-    YAML file, either statically or dynamically, the names of the parameters
-    passed into the nested YAML file **MUST NOT** change.
+    YAML file, either statically or dynamically
+    (via ``OS::Heat::ResuorceGroup``),
+    the names of the parameters associated with the following resource
+    properties **MUST NOT** change.
+
+    * ``OS::Nova::Server`` property ``flavor``
+    * ``OS::Nova::Server`` property ``image``
+    * ``OS::Nova::Server`` property ``name``
+    * ``OS::Nova::Server`` property metadata key value ``vnf_id``
+    * ``OS::Nova::Server`` property metadata key value ``vf_module_id``
+    * ``OS::Nova::Server`` property metadata key value ``vnf_name``
+    * ``OS::Nova::Server`` property metadata key value ``vf_module_name``
+    * ``OS::Nova::Server`` property metadata key value ``vm_role``
+    * ``OS::Nova::Server`` property metadata key value ``vf_module_index``
+    * ``OS::Nova::Server`` property metadata key value ``workload_context``
+    * ``OS::Nova::Server`` property metadata key value ``environment_context``
+    * ``OS::Neutron::Port`` property ``fixed_ips``, map property ``ip_address``
+    * ``OS::Neutron::Port`` property ``fixed_ips``, map property ``subnet``
+    * ``OS::Neutron::Port`` property ``allowed_address_pairs``, map property
+      ``ip_address``
+    * ``OS::Neutron::Port`` property ``network``
+    * ``OS::ContrailV2::VirtualMachineInterface`` property
+      ``virtual_network_refs``
+    * ``OS::ContrailV2::VirtualMachineInterface`` property
+      ``virtual_machine_interface_allowed_address_pairs``
+    * ``OS::ContrailV2::InstanceIP`` property ``instance_ip_address``
 
 
-This requirement was introduced with Generic Resource API (GR-API).
+Note that the parameters associated with properties not listed in R-708564
+may change when past into a nested YAML file.  For example,
+``OS::Nova::Server`` property ``availability_zone``.
+
+
+Requirement R-708564 was introduced with Generic Resource API (GR-API).
 GR-API creates the new VNFC Object.
 SDN-C matches the ``{vm-type}`` in the ``OS::Nova::Server`` resource in the
 nested YAML file to the corresponding nfc_naming_code.
