@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "85a8d6a9_1d9d6fbd",
+        "filename": "docs/Chapter5/Heat/ONAP Heat Template Constructs.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 3013
+      },
+      "writtenOn": "2019-04-18T14:28:38Z",
+      "side": 1,
+      "message": "spelling",
+      "range": {
+        "startLine": 97,
+        "startChar": 21,
+        "endLine": 97,
+        "endChar": 34
+      },
+      "revId": "dc2531814ac14244e7fbfc75ba7e61c62d55a0ab",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6752af81_a3fc1ec3",
+        "filename": "docs/Chapter5/Heat/ONAP Heat Template Constructs.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 3013
+      },
+      "writtenOn": "2019-04-18T14:28:38Z",
+      "side": 1,
+      "message": "typo - \"Nutron\"",
+      "revId": "dc2531814ac14244e7fbfc75ba7e61c62d55a0ab",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
