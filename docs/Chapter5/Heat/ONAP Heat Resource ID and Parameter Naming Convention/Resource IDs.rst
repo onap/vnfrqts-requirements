@@ -934,21 +934,15 @@ OS::ContrailV2::VirtualNetwork
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: casablanca
+    :updated: dublin
 
     A VNF's Heat Orchestration Template's Resource
-    ``OS::ContrailV2::VirtualNetwork`` Resource ID **MUST** use the naming convention
+    ``OS::ContrailV2::VirtualNetwork`` Resource ID **MUST** use the naming
+    convention
 
-    1) ``int_{network-role}_network``
-
-    or
-
-    2) ``int_{network-role}_RVN`` where RVN represents Resource Virtual
-       Network
+    * ``int_{network-role}_network``
 
     VNF Heat Orchestration Templates can only create internal networks.
     There is no ``{index}`` after ``{network-role}`` because ``{network-role}``
     **MUST** be unique in the scope of the VNF's
     Heat Orchestration Template.
-
-    Note that option 1 is preferred.

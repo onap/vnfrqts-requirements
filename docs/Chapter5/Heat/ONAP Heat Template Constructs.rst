@@ -117,7 +117,11 @@ the second level of nested heat.
     * ``OS::ContrailV2::VirtualMachineInterface`` property
       ``virtual_network_refs``
     * ``OS::ContrailV2::VirtualMachineInterface`` property
-      ``virtual_machine_interface_allowed_address_pairs``
+      ``virtual_machine_interface_allowed_address_pairs``, map property
+      ``virtual_machine_interface_allowed_address_pairs_allowed_address_pair``,
+      ``virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip``
+      ,
+      ``virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip_ip_prefix``
     * ``OS::ContrailV2::InstanceIP`` property ``instance_ip_address``
 
 

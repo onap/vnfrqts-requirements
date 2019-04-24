@@ -83,13 +83,15 @@
     :validation_mode: static
     :updated: dublin
 
-
     A VNF's Heat Orchestration Template's ``{network-role}`` **MUST** contain
     only alphanumeric characters and/or underscores '_' and
 
     * **MUST NOT** contain any of the following strings: ``_int`` or ``int_``
       or ``_int_``
-    * **MUST NOT** end in the following string: ``_v6``
+    * **MUST NOT** end in the string: ``_v6``
+    * **MUST NOT** contain the strings ``_#_``,  where ``#`` is a number
+    * **MUST NOT** end in the string: ``_#``, where ``#`` is a number
+
 
 .. req::
     :id: R-00977
