@@ -132,7 +132,7 @@ Glossary
         Identity and Access Management
 
     IPSec
-        IP Security 
+        IP Security
 
     JMS
         Java Message Service
@@ -153,7 +153,7 @@ Glossary
         Lightweight Directory Access Protocol
 
     LTE
-        Long-Term Evolution 
+        Long-Term Evolution
 
     MD5
         Message-Digest Algorithm
@@ -198,7 +198,7 @@ Glossary
         Open Platform for Network Functions Virtualization
 
     OWASP
-        Open Web Application Security Project 
+        Open Web Application Security Project
 
     PCEF
         Policy and Charging Enforcement Function
@@ -243,7 +243,7 @@ Glossary
         Security Assertion Markup Language
 
     SCEP
-        Simple Certificate Enrollment Protocol 
+        Simple Certificate Enrollment Protocol
 
     SDN
         Software-Defined Networking
@@ -255,7 +255,7 @@ Glossary
         Secure Hash Algorithm
 
     SLA
-        Service Level Agreement 
+        Service Level Agreement
 
     SNMP
         Simple Network Management Protocol
@@ -282,7 +282,7 @@ Glossary
         Threshold Crossing Alert
 
     TLS
-        Transport Layer Security 
+        Transport Layer Security
 
     TOSCA
         Topology and Orchestration Specification for Cloud Applications
@@ -373,3 +373,4 @@ Submitting Feedback
 Please refer to the `VNF Requirements - How to Contribute <https://wiki.onap.org/display/DW/VNFRQTS+How+to+Contribute>`__
 guide for instructions on how to create issues or contribute changes to the
 VNF Requirements project.
+

@@ -1499,11 +1499,11 @@ VIP Assignment, External Networks, Supported by Automation
         OS::Nova::Server
       * ``{network-role}`` is the {network-role} of the external
         network
-    
+
     And the parameter **MUST** be declared as ``type: string``
     and **MUST** be enumerated in the environment file.
 
-    OR 
+    OR
 
     the parameter name **MUST** follow the
     naming convention
@@ -1516,7 +1516,7 @@ VIP Assignment, External Networks, Supported by Automation
         OS::Nova::Server
       * ``{network-role}`` is the {network-role} of the external
         network
-    
+
     And the parameter **MUST** be declared as ``type: comma_delimited_list``
     and **MUST** be enumerated in the environment file.
 

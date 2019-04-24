@@ -193,11 +193,11 @@ The following are the requirements related to PNF Plug and Play.
     :introduced: casablanca
 
     The PNF **MUST** support one of the protocols for a Service Configuration
-    message exchange between the PNF and PNF Controller (in ONAP): 
+    message exchange between the PNF and PNF Controller (in ONAP):
     a) Netconf/YANG, b) Chef, or c) Ansible.
 
     Note: The PNF Controller may be VF-C, APP-C or SDN-C based on the
-    PNF and PNF domain. 
+    PNF and PNF domain.
 
 .. req::
     :id: R-707977

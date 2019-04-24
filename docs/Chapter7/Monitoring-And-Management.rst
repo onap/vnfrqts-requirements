@@ -62,11 +62,11 @@ While this document is focused on specifying some of the records from the
 ONAP perspective, there may be other external bodies using the same framework
 to specify additional records. For example, OPNFV has a VES project that is
 looking to specify records for OpenStack's internal telemetry to manage
-application (VNFs or PNFs), physical and virtual infrastructure (compute, storage,
-network devices, etc.) and virtual infrastructure managers (cloud controllers,
-SDN controllers). It uses ONAP's VES Agent to generate VES events from the NF
-and Intel's collectD agent to generate infrastructure VES events. Note that
-any configurable parameters for these data records (e.g., frequency,
+application (VNFs or PNFs), physical and virtual infrastructure (compute,
+storage, network devices, etc.) and virtual infrastructure managers (cloud
+controllers, SDN controllers). It uses ONAP's VES Agent to generate VES events
+from the NF and Intel's collectD agent to generate infrastructure VES events.
+Note that any configurable parameters for these data records (e.g., frequency,
 granularity, policy-based configuration) will be managed using the
 "Configuration" framework described in the prior sections of this document.
 The infrastructure metrics have been funneled via the ONAP Multi-VIM Project
@@ -402,22 +402,22 @@ minimizing changes to data delivery.
    :introduced: casablanca
    :updated: dublin
 
-   The VNF or PNF **MUST** deliver event records to ONAP using the common transport
-   mechanisms and protocols defined in this specification.
+   The VNF or PNF **MUST** deliver event records to ONAP using the common
+   transport mechanisms and protocols defined in this specification.
 
 The term 'Event Record' is used throughout this document to represent various
 forms of telemetry or instrumentation made available by the VNFs or PNFs
-including, faults, status events, various other types of VNF or PNF measurements
-and logs.
+including, faults, status events, various other types of VNF or PNF
+measurements and logs.
 
 Common structures and delivery protocols for other types of data will be given
 in future versions of this document as we gain more insight into data volumes
 and required processing.
 
 In the following sections, we provide options for encoding, serialization and
-data delivery. Agreements between Service Providers and VNF or PNF providers determine
-which encoding, serialization and delivery method to use for particular
-data sets.
+data delivery. Agreements between Service Providers and VNF or PNF providers
+determine which encoding, serialization and delivery method to use for
+particular data sets.
 
 .. req::
    :id: R-932071

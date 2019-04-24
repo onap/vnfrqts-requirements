@@ -61,7 +61,7 @@ Ansible JSON file example:
             "fixed_ip_address": "1xx.2yy.zzz.105"
           },
           {
-            "ne_id": "vfdb9904vm004rdb001", 
+            "ne_id": "vfdb9904vm004rdb001",
             "fixed_ip_address": "1xx.2yy.zzz.106"
           }
         ]

@@ -148,7 +148,7 @@ A&AI or other sources that still need to be created or edited manually,
 in advance of VNF instantiation, shall be created under ``ansible/vars``
 directory. Recommendation is to use JSON files, explicitly referenced by
 the playbooks, for this purpose, example:
-``<VNF_instance_name>.json``. 
+``<VNF_instance_name>.json``.
 
 **Example of playbook task explicitly referencing a VNF instance specific json
 file and loading the contents as global variables**:
@@ -231,7 +231,7 @@ One of the first tasks on the Ansible Playbooks is to combine the VNF
 type generic templates, stored on the Ansible Server with playbooks, with
 the overriding parameters passed down from APPC/SDN-C, to create the
 VNF instance specific set of attribute-value pairs to be used for the run, in
-INI format. 
+INI format.
 
 Here is an excerpt from such a file that should look somewhat similar to ENV
 files:
@@ -302,7 +302,7 @@ named after the VNF instance, as follows:
  ansible/inventory/<VNF_instance_name>hosts
 
 Example of inventory hosts file path, relative to ansible playbooks (ansible)
-root directory (playbooks_dir): 
+root directory (playbooks_dir):
 
 .. code-block:: text
 
@@ -465,7 +465,7 @@ APPC/SDN-C command name in lowercase):
 -  ``upgradesoftware`` – Contains VNF SW upgrade (UpgradeSoftware)
    playbook(s), roles,...
 
--  ``upgradepostcheck`` – Contains VNF upgraded (new) SW version check 
+-  ``upgradepostcheck`` – Contains VNF upgraded (new) SW version check
    (UpgradePostCheck) playbook(s), roles,...
 
 -  ``upgradebackout`` – Contains VNF (SoftwareUpgrade) back out
@@ -613,8 +613,8 @@ Server via Rest API as part of request:
 
     "NodeList": [
         {
-            "vnfc_type": "oam", 
-            "ne_id_vip": "vfdb9904vm001oam001",    
+            "vnfc_type": "oam",
+            "ne_id_vip": "vfdb9904vm001oam001",
             "floating_ip_address_vip": "1xx.2yy.zzz.109",
             "site": "wp0ny",
             "vm_info": [
@@ -623,7 +623,7 @@ Server via Rest API as part of request:
                      "fixed_ip_address": "1xx.2yy.zzz.109"
                  },
                  {
-                     "ne_id": "vfdb9904vm002oam001", 
+                     "ne_id": "vfdb9904vm002oam001",
                      "fixed_ip_address": "1xx.2yy.zzz.110"
                  }
             ]
@@ -633,11 +633,11 @@ Server via Rest API as part of request:
             "site": "wp0ny",
             "vm_info": [
                  {
-                     "ne_id": "vfdb9904vm003rdb001", 
+                     "ne_id": "vfdb9904vm003rdb001",
                      "fixed_ip_address": "1xx.2yy.zzz.105"
                  },
                  {
-                     "ne_id": "vfdb9904vm004rdb001", 
+                     "ne_id": "vfdb9904vm004rdb001",
                      "fixed_ip_address": "1xx.2yy.zzz.106"
                  }
             ]
@@ -670,8 +670,8 @@ With no names, only IP addresses, template "InventoryNames": "None" (Default)
  oam
  rdb
 
-With VM names and IP addresses, template inventory names setting "InventoryNames":
-"VM"
+With VM names and IP addresses, template inventory names setting
+"InventoryNames": "VM"
 
 .. code-block:: text
 
@@ -684,7 +684,7 @@ With VM names and IP addresses, template inventory names setting "InventoryNames
 
  [oam]
  vfdb9904vm001 ansible_host=1xx.2yy.zzz.109
- vfdb9904vm002 ansible_host=1xx.2yy.zzz.110 
+ vfdb9904vm002 ansible_host=1xx.2yy.zzz.110
 
  [rdb]
  vfdb9904vm003 ansible_host=1xx.2yy.zzz.105
@@ -815,7 +815,7 @@ VNFC (VM) type, plus "vip" string, example of such a group name "oamvip".
 .. code-block:: text
 
  $ mkdir –p vars/vfdb9904v.json
- $ 
+ $
  $ cat vfdb9904v.json
  ...
  {

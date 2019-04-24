@@ -376,10 +376,10 @@ Property: availability_zone
     :updated: casablanca
 
     The VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``
-    property ``availability_zone`` parameter name 
+    property ``availability_zone`` parameter name
     **MUST** follow the naming convention
-    
-    * ``availability_zone_{index}`` 
+
+    * ``availability_zone_{index}``
 
     where ``{index}`` is a numeric value that **MUST** start at zero
     in a VNF's Heat Orchestration Templates and **MUST**

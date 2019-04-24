@@ -173,10 +173,10 @@ or an external gateway or router
     * If the network name in is used to reference the network, the output
       parameter name in the base template **MUST** follow the naming convention
       ``int_{network-role}_net_name``
- 
+
     ``{network-role}`` **MUST** be the network-role of the internal network
     created in the Base Module.
- 
+
     ``The Base Module Output Parameter MUST be declared in the ``parameters:``
     section of the Incremental Module(s) where the ``OS::Neutron::Port``
     resource(s) is attaching to the internal network.

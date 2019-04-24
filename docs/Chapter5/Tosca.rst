@@ -75,7 +75,7 @@ protocol, which supports multiple TOSCA template yaml files, and also
 supports self-defined node or other extensions.
 
 VNF or PNF CSAR Package
-^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 CSAR Overview
 ~~~~~~~~~~~~~~~~
@@ -185,7 +185,7 @@ VNF Package Contents
 
     The VNF or PNF CSAR PACKAGE with TOSCA-Metadata **MUST** include following
     additional keywords pointing to TOSCA files:
-    
+
       - ETSI-Entry-Manifest
 
       - ETSI-Entry-Change-Log
@@ -683,7 +683,7 @@ Relationship Types
 
     The PNFD provided by a PNF vendor **MUST** comply with the following
     Relationship Types as specified in ETSI NFV-SOL001 standard:
-    
+
       - tosca.datatypes.nfv.VirtualLinksTo
 
 

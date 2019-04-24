@@ -59,8 +59,8 @@ the VNF or PNF.
 ``ConfigModify``: The APPC client is requesting a configuration
 update to a subset of the total configuration parameters of an VNF or PNF or to
 apply customer specific configurations. The configuration update is
-typically done while the VNF or PNF is in service and should not disrupt traffic.
-This command requires exclusive access rights of the VNF or PNF.
+typically done while the VNF or PNF is in service and should not disrupt
+traffic. This command requires exclusive access rights of the VNF or PNF.
 
 ``ConfigBackup``: The APPC client is requesting a backup of the
 configuration parameters where the parameters are stored on the VNF or PNF.
@@ -76,12 +76,13 @@ exclusive access rights of the VNF or PNF.
 the configuration parameters to the VNF or PNF that were saved by ConfigBackup
 command. This command is typically requested as part of an orchestration
 flow for scenarios such as a software upgrade where the software upgrade
-may have failed and the VNF or PNF needs to be rolled back to the prior configuration.
-When the ConfigRestore command is executed, the VNF or PNF configuration parameters
-which were backed to persistent preserved storage are applied to the VNF or PNF
-(replacing existing parameters). The ConfigRestore is typically done while
-the VNF or PNF is not in service (i.e., in a maintenance state). This command
-requires exclusive access rights of the VNF or PNF.
+may have failed and the VNF or PNF needs to be rolled back to the prior
+configuration.
+When the ConfigRestore command is executed, the VNF or PNF configuration
+parameters which were backed to persistent preserved storage are applied to the
+VNF or PNF (replacing existing parameters). The ConfigRestore is typically done
+while the VNF or PNF is not in service (i.e., in a maintenance state). This
+command requires exclusive access rights of the VNF or PNF.
 
 ``ConfigScaleOut``: The APPC/SDN-C client is requesting that a configuration
 be applied after the VNF instance has been scaled out (i.e., one or more
@@ -149,7 +150,8 @@ Lifecycle Management Related Commands
 **The following commands are needed to support various lifecycle management
 flows where the VNF may need to be removed for service.**
 
-Full details on the APIs can be found in the :doc:`APPC LCM API Guide <../../../../appc.git/docs/APPC LCM API Guide/APPC LCM API Guide>`
+Full details on the APIs can be found in the
+:doc:`APPC LCM API Guide <../../../../appc.git/docs/APPC LCM API Guide/APPC LCM API Guide>`
 
 ``DistributeTraffic`` The APPC/SDN-C client is requesting a change to
 traffic distribution (redistribution) done by a traffic balancing/distribution
@@ -164,12 +166,12 @@ command may need to follow traffic distribution changes (assigning weight 0
 or very low weight to VNF instance). The VNF application remains in an active
 state.
 
-``QuiesceTraffic`` The APPC/SDN-C client is requesting the VNF or PNF gracefully
-stop traffic (aka block and drain traffic). The method for quiescing traffic
-is specific to the VNF or PNF architecture. The action is completed when all
-(in-flight transactions) traffic has stopped. The VNF or PNF remains in an active
-state where the VNF or PNF is able to process traffic (initiated using the
-ResumeTraffic action).
+``QuiesceTraffic`` The APPC/SDN-C client is requesting the VNF or PNF
+gracefully stop traffic (aka block and drain traffic). The method for quiescing
+traffic is specific to the VNF or PNF architecture. The action is completed
+when all (in-flight transactions) traffic has stopped. The VNF or PNF remains
+in an active state where the VNF or PNF is able to process traffic (initiated
+using the ResumeTraffic action).
 
 ``ResumeTraffic``: The APPC/SDN-C client is requesting the VNF or PNF resume
 processing traffic. The method to resume traffic is specific to the VNF or PNF
@@ -181,12 +183,12 @@ This is equivalent to quiescing the traffic and then stopping the application
 processes. The processes can be restarted using the StartApplication command.
 
 ``StartApplication``: The APPC client is requesting that the application
-running on the VNF or PNF is started. Get ready to process traffic. Traffic processing
-can be resumed using the ResumeTraffic command.
+running on the VNF or PNF is started. Get ready to process traffic.
+Traffic processing can be resumed using the ResumeTraffic command.
 
 **The following commands are needed to support software upgrades, in-place or
-other type of software upgrade. The VNF or PNF instance may be removed from service
-for the upgrade.**
+other type of software upgrade. The VNF or PNF instance may be removed from
+service for the upgrade.**
 
 ``UpgradePrecheck``: The APPC/SDN-C client is requesting a confirmation that
 the VNF or PNF can (and needs to) be upgraded to a specific software version
@@ -199,17 +201,17 @@ software upgrade be performed on the VNF or PNF.  The software to be applied is
 pre-loaded to a specified location.
 
 ``UpgradePostCheck``: The APPC/SDN-C client is requesting a confirmation that
-the VNF or PNF software upgrade has been completed successfully (VNF or PNF upgraded to
-the new software version). Checking software installed and running on the VNF or PNF
-matches software version, of the newly upgraded software, is one of the
-recommended checks.
+the VNF or PNF software upgrade has been completed successfully (VNF or PNF
+upgraded to the new software version). Checking software installed and running
+on the VNF or PNF matches software version, of the newly upgraded software, is
+one of the recommended checks.
 
-``UpgradeBackup``: The APPC/SDN-C client is requesting that the VNF or PNF is backed
-up prior to the UpgradeSoftware.
+``UpgradeBackup``: The APPC/SDN-C client is requesting that the VNF or PNF is
+backed up prior to the UpgradeSoftware.
 
-``UpgradeBackOut``: The APPC/SDN-C client is requesting that the VNF or PNF upgrade
-is backed out (in the event that the SoftwareUpgrade or UpgradePostCheck
-failed).
+``UpgradeBackOut``: The APPC/SDN-C client is requesting that the VNF or PNF
+upgrade is backed out (in the event that the SoftwareUpgrade or
+UpgradePostCheck failed).
 
 .. req::
     :id: R-328086
@@ -298,15 +300,16 @@ HealthCheck and Failure Related Commands
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ``HealthCheck`` The APPC/SDN-C client is requesting a health check over the
-entire scope of the VNF or PNF. The VNF or PNF must be 100% healthy, ready to take requests
-and provide services, with all VNF or PNF required capabilities ready to provide
-services and with all active and standby resources fully ready with no open
-MINOR, MAJOR or CRITICAL alarms. This is expected to be the default in the
-event that no parameter is passed to the Healthcheck playbook, cookbook, etc.
+entire scope of the VNF or PNF. The VNF or PNF must be 100% healthy, ready to
+take requests and provide services, with all VNF or PNF required capabilities
+ready to provide services and with all active and standby resources fully ready
+with no open MINOR, MAJOR or CRITICAL alarms. This is expected to be the
+default in the event that no parameter is passed to the Healthcheck playbook,
+cookbook, etc.
 
-Some VNFs or PNFs may support and desire to run partial healthchecks and receive a
-successful response when partial health check completes without errors.
-The parameter name used by HealthCheck playbook to request non-default
+Some VNFs or PNFs may support and desire to run partial healthchecks and
+receive a successful response when partial health check completes without
+errors. The parameter name used by HealthCheck playbook to request non-default
 partial health check is healthcheck_type. Example of health check types
 could be healthcheck_type=GuestOS, healthcheck_type=noDB,
 healthcheck_type=noConnections, healthcheck_type=IgnoreAlarms, etc..
@@ -334,8 +337,8 @@ APPC/SDN-C are designed to support a standard set of protocols in
 order to communicate with the VNF or PNF instance. The supported protocols are
 NETCONF, Ansible, Chef, and REST.
 
-NETCONF and REST require the VNF or PNF to implement a server which supports the RPC
-or REST calls.
+NETCONF and REST require the VNF or PNF to implement a server which supports
+the RPC or REST calls.
 
 Ansible and Chef require the use of a Ansible or Chef server which communicates
 with the APPC/SDN-C (northbound) and the VNF or PNF VM's (southbound).
@@ -366,7 +369,7 @@ NETCONF server supporting NETCONF APIs to comply with target ONAP and
 industry standards.
 
 VNF or PNF Configuration via NETCONF Requirements
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Configuration Management
 +++++++++++++++++++++++++++
@@ -762,8 +765,8 @@ NETCONF Server Requirements
     :keyword: MUST
 
     The VNF or PNF **MUST** support all operations, administration and
-    management (OAM) functions available from the supplier for VNFs or PNFs using
-    the supplied YANG code and associated NETCONF servers.
+    management (OAM) functions available from the supplier for VNFs or PNFs
+    using the supplied YANG code and associated NETCONF servers.
 
 .. req::
     :id: R-60656
@@ -986,13 +989,13 @@ REST APIs
     :keyword: MUST
 
     The VNF or PNF **MUST** support the HealthCheck RPC. The HealthCheck
-    RPC executes a VNF or PNF Provider-defined VNF or PNF HealthCheck over the scope of
-    the entire VNF or PNF (e.g., if there are multiple VNFCs, then run a health check,
-    as appropriate, for all VNFCs). It returns a 200 OK if the test completes.
-    A JSON object is returned indicating state (healthy, unhealthy), scope
-    identifier, time-stamp and one or more blocks containing info and fault
-    information. If the VNF or PNF is unable to run the HealthCheck, return a
-    standard http error code and message.
+    RPC executes a VNF or PNF Provider-defined VNF or PNF HealthCheck over the
+    scope of the entire VNF or PNF (e.g., if there are multiple VNFCs, then
+    run a health check, as appropriate, for all VNFCs). It returns a 200 OK if
+    the test completes. A JSON object is returned indicating state (healthy,
+    unhealthy), scope identifier, time-stamp and one or more blocks containing
+    info and fault information. If the VNF or PNF is unable to run the
+    HealthCheck, return a standard http error code and message.
 
 Examples of responses when HealthCheck runs and is able to provide a healthy
 or unhealthy response:
@@ -1040,7 +1043,7 @@ Chef-Client and Push Jobs Client on the VNF or PNF
 (https://downloads.chef.io/).
 
 VNF or PNF Configuration via Chef Requirements
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Chef Client Requirements
 +++++++++++++++++++++++++
@@ -1090,8 +1093,8 @@ Chef Roles/Requirements
     :keyword: MUST
 
     The VNF or PNF Package **MUST** include all relevant Chef artifacts
-    (roles/cookbooks/recipes) required to execute VNF or PNF actions requested by
-    ONAP for loading on appropriate Chef Server.
+    (roles/cookbooks/recipes) required to execute VNF or PNF actions requested
+    by ONAP for loading on appropriate Chef Server.
 
 .. req::
     :id: R-26567
@@ -1112,7 +1115,8 @@ Chef Roles/Requirements
     :keyword: MUST NOT
 
     The VNF or PNF **MUST NOT** use any instance specific parameters
-    for the VNF or PNF in roles/cookbooks/recipes invoked for a VNF or PNF action.
+    for the VNF or PNF in roles/cookbooks/recipes invoked for a VNF or PNF
+    action.
 
 .. req::
     :id: R-37929
@@ -1149,8 +1153,8 @@ Chef Roles/Requirements
 
     The VNF or PNF **MUST** populate an attribute, defined as node
     ['PushJobOutput'] with the desired output on all nodes in the push job
-    that execute chef-client run if the VNF or PNF action requires the output of a
-    chef-client run be made available (e.g., get running configuration).
+    that execute chef-client run if the VNF or PNF action requires the output
+    of a chef-client run be made available (e.g., get running configuration).
 
 .. req::
     :id: R-30654
@@ -1159,7 +1163,8 @@ Chef Roles/Requirements
 
     The VNF or PNF Package **MUST** have appropriate cookbooks that are
     designed to automatically 'rollback' to the original state in case of
-    any errors for actions that change state of the VNF or PNF (e.g., configure).
+    any errors for actions that change state of the VNF or PNF (e.g.,
+    configure).
 
 .. req::
     :id: R-65755
@@ -1259,11 +1264,11 @@ of 'playbooks' over ssh. The 'playbooks' are a structured set of
 tasks which contain all the necessary resources and execution capabilities
 to take the necessary action on one or more target VMs (and/or VNFCs)
 of the VNF. ONAP will utilize the framework of an Ansible Server that
-will host all Ansible artifacts and run playbooks to manage VNFs or PNFs that support
-Ansible.
+will host all Ansible artifacts and run playbooks to manage VNFs or PNFs that
+support Ansible.
 
 VNF or PNF Configuration via Ansible Requirements
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Ansible Client Requirements
 +++++++++++++++++++++++++++++
@@ -1305,16 +1310,16 @@ Ansible Client Requirements
     :keyword: MUST
     :updated: casablanca
 
-    The VNF or PNF **MUST** load the Ansible Server SSH public key onto VNF or PNF
-    VM(s) /root/.ssh/authorized_keys as part of instantiation. Alternative,
-    is for Ansible Server SSH public key to be loaded onto VNF or PNF VM(s) under
-    /home/<Mechanized user ID>/.ssh/authorized_keys as part of instantiation,
-    when a Mechanized user ID is created during instantiation, and Configure
-    and all playbooks are designed to use a mechanized user ID only for
-    authentication (never using root authentication during Configure playbook
-    run). This will allow the Ansible Server to authenticate to perform
-    post-instantiation configuration without manual intervention and without
-    requiring specific VNF or PNF login IDs and passwords.
+    The VNF or PNF **MUST** load the Ansible Server SSH public key onto VNF or
+    PNF VM(s) /root/.ssh/authorized_keys as part of instantiation. Alternative,
+    is for Ansible Server SSH public key to be loaded onto VNF or PNF VM(s)
+    under /home/<Mechanized user ID>/.ssh/authorized_keys as part of
+    instantiation, when a Mechanized user ID is created during instantiation,
+    and Configure and all playbooks are designed to use a mechanized user ID
+    only for authentication (never using root authentication during Configure
+    playbook run). This will allow the Ansible Server to authenticate to
+    perform post-instantiation configuration without manual intervention and
+    without requiring specific VNF or PNF login IDs and passwords.
 
     *CAUTION*: For VNFs or PNFs configured using Ansible, to eliminate the need
     for manual steps, post-instantiation and pre-configuration, to
@@ -1341,8 +1346,8 @@ Ansible Client Requirements
     :keyword: MUST
     :introduced: casablanca
 
-    The VNF or PNF **MUST** permit authentication, using root account, only right
-    after instantiation and until post-instantiation configuration is
+    The VNF or PNF **MUST** permit authentication, using root account, only
+    right after instantiation and until post-instantiation configuration is
     completed.
 
 .. req::
@@ -1352,7 +1357,7 @@ Ansible Client Requirements
     :introduced: casablanca
 
     The VNF or PNF **MUST** provide the ability to remove root access once
-    post-instantiation configuration (Configure) is completed. 
+    post-instantiation configuration (Configure) is completed.
 
 .. req::
     :id: R-91745
@@ -1373,8 +1378,8 @@ Ansible Client Requirements
     :keyword: MUST
     :introduced: casablanca
 
-    The VNF or PNF **MUST** provide the ability to include a "from=" clause in SSH
-    public keys associated with mechanized user IDs created for an Ansible
+    The VNF or PNF **MUST** provide the ability to include a "from=" clause in
+    SSH public keys associated with mechanized user IDs created for an Ansible
     Server cluster to use for VNF or PNF VM authentication.
 
 .. req::
@@ -1386,7 +1391,7 @@ Ansible Client Requirements
     The VNF or PNF **MUST** define the "from=" clause to provide the list of IP
     addresses of the Ansible Servers in the Cluster, separated by coma, to
     restrict use of the SSH key pair to elements that are part of the Ansible
-    Cluster owner of the issued and assigned mechanized user ID. 
+    Cluster owner of the issued and assigned mechanized user ID.
 
 .. req::
     :id: R-94567
@@ -1394,9 +1399,9 @@ Ansible Client Requirements
     :keyword: MUST
     :introduced: casablanca
 
-    The VNF or PNF **MUST** provide Ansible playbooks that are designed to run using
-    an inventory hosts file in a supported format with only IP addresses or
-    IP addresses and VM/VNF or PNF names.
+    The VNF or PNF **MUST** provide Ansible playbooks that are designed to run
+    using an inventory hosts file in a supported format with only IP addresses
+    or IP addresses and VM/VNF or PNF names.
 
 .. req::
     :id: R-67124
@@ -1404,10 +1409,10 @@ Ansible Client Requirements
     :keyword: MUST
     :introduced: casablanca
 
-    The VNF or PNF **MUST** provide Ansible playbooks that are designed to run using
-    an inventory hosts file in a supported format; with group names matching
-    VNFC 3-character string adding "vip" for groups with virtual IP addresses
-    shared by multiple VMs as seen in examples provided in Appendix.
+    The VNF or PNF **MUST** provide Ansible playbooks that are designed to run
+    using an inventory hosts file in a supported format; with group names
+    matching VNFC 3-character string adding "vip" for groups with virtual IP
+    addresses shared by multiple VMs as seen in examples provided in Appendix.
 
 .. req::
     :id: R-24482
@@ -1415,10 +1420,10 @@ Ansible Client Requirements
     :keyword: MUST
     :introduced: casablanca
 
-    The VNF or PNF **MUST** provide Ansible playbooks that are designed to run using
-    an inventory hosts file in a supported format; with site group that shall
-    be used to add site specific configurations to the target VNF or PNF VM(s) as
-    needed.
+    The VNF or PNF **MUST** provide Ansible playbooks that are designed to run
+    using an inventory hosts file in a supported format; with site group that
+    shall be used to add site specific configurations to the target VNF or PNF
+    VM(s) as needed.
 
 Ansible Playbook Requirements
 +++++++++++++++++++++++++++++++
@@ -1434,7 +1439,7 @@ complete the desired action.
     :introduced: casablanca
 
     The VNF or PNF **MUST** support Ansible playbooks that are compatible with
-    Ansible version 2.6 or later. 
+    Ansible version 2.6 or later.
 
 .. req::
     :id: R-40293
@@ -1451,9 +1456,9 @@ complete the desired action.
     :updated: casablanca
 
     The VNF or PNF **MUST** support each APPC/SDN-C VNF or PNF action
-    by invocation of **one** playbook [#7.3.4]_. The playbook will be responsible
-    for executing all necessary tasks (as well as calling other playbooks)
-    to complete the request.
+    by invocation of **one** playbook [#7.3.4]_. The playbook will be
+    responsible for executing all necessary tasks (as well as calling other
+    playbooks) to complete the request.
 
 .. req::
     :id: R-33280
@@ -1469,18 +1474,18 @@ complete the desired action.
     :keyword: MUST
     :updated: casablanca
 
-    The VNF or PNF **MUST** utilize information from key value pairs that will be
-    provided by the Ansible Server as "extra-vars" during invocation to
-    execute the desired VNF or PNF action. The "extra-vars" attribute-value pairs
-    are passed to the Ansible Server by an APPC/SDN-C as part of the
+    The VNF or PNF **MUST** utilize information from key value pairs that will
+    be provided by the Ansible Server as "extra-vars" during invocation to
+    execute the desired VNF or PNF action. The "extra-vars" attribute-value
+    pairs are passed to the Ansible Server by an APPC/SDN-C as part of the
     Rest API request. If the playbook requires files, they must also be
     supplied using the methodology detailed in the Ansible Server API, unless
     they are bundled with playbooks, example, generic templates. Any files
     containing instance specific info (attribute-value pairs), not obtainable
     from any ONAP inventory databases or other sources, referenced and used an
     input by playbooks, shall be provisioned (and distributed) in advance of
-    use, e.g., VNF or PNF instantiation. Recommendation is to avoid these instance
-    specific, manually created in advance of instantiation, files.
+    use, e.g., VNF or PNF instantiation. Recommendation is to avoid these
+    instance specific, manually created in advance of instantiation, files.
 
 The Ansible Server will determine if a playbook invoked to execute an
 VNF or PNF action finished successfully or not using the "PLAY_RECAP" summary
@@ -1508,14 +1513,14 @@ will be considered to have failed.
     :keyword: MUST
     :updated: casablanca
 
-    The VNF or PNF **MUST** write to a response file in JSON format that will be
-    retrieved and made available by the Ansible Server if, as part of a VNF or PNF
-    action (e.g., audit), a playbook is required to return any VNF or PNF
-    information/response. The text files must be written in the main playbook
-    home directory, in JSON format. The JSON file must be created for the VNF or PNF
-    with the name '<VNF or PNF name>_results.txt'. All playbook output results, for
-    all VNF or PNF VMs, to be provided as a response to the request, must be written
-    to this response file. 
+    The VNF or PNF **MUST** write to a response file in JSON format that will
+    be retrieved and made available by the Ansible Server if, as part of a VNF
+    or PNF action (e.g., audit), a playbook is required to return any VNF or
+    PNF information/response. The text files must be written in the main
+    playbook home directory, in JSON format. The JSON file must be created for
+    the VNF or PNF with the name '<VNF or PNF name>_results.txt'. All playbook
+    output results, for all VNF or PNF VMs, to be provided as a response to the
+    request, must be written to this response file.
 
 .. req::
     :id: R-51442
@@ -1572,8 +1577,8 @@ will be considered to have failed.
     :keyword: MUST
     :updated: casablanca
 
-    The VNF or PNF **MUST** return control from Ansible Playbooks only after all
-    tasks performed by playbook are fully complete, signaling that the
+    The VNF or PNF **MUST** return control from Ansible Playbooks only after
+    all tasks performed by playbook are fully complete, signaling that the
     playbook completed all tasks. When starting services, return control
     only after all services are up. This is critical for workflows where
     the next steps are dependent on prior tasks being fully completed.
@@ -1581,12 +1586,12 @@ will be considered to have failed.
 Detailed examples:
 
 ``StopApplication Playbook`` – StopApplication Playbook shall return control
-and a completion status response only after VNF or PNF application is fully stopped,
-all processes/services stopped.
+and a completion status response only after VNF or PNF application is fully
+stopped, all processes/services stopped.
 
 ``StartApplication Playbook`` – StartApplication Playbook shall return control
-and a completion status only after all VNF or PNF application services are fully up,
-all processes/services started and ready to provide services.
+and a completion status only after all VNF or PNF application services are
+fully up, all processes/services started and ready to provide services.
 
 **NOTE**: Start Playbook should not be declared complete/done after starting
 one or several processes that start the other processes.
@@ -1594,20 +1599,21 @@ one or several processes that start the other processes.
 HealthCheck Playbook:
 
 SUCCESS – HealthCheck success shall be returned (return code 0) by a
-Playbook or Cookbook only when VNF or PNF is 100% healthy, ready to take requests
-and provide services, with all VNF or PNF required capabilities ready to provide
-services and with all active and standby resources fully ready with no
-open MINOR, MAJOR or CRITICAL alarms.
+Playbook or Cookbook only when VNF or PNF is 100% healthy, ready to take
+requests and provide services, with all VNF or PNF required capabilities ready
+to provide services and with all active and standby resources fully ready with
+no open MINOR, MAJOR or CRITICAL alarms.
 
 NOTE: In some cases, a switch may need to be turned on, but a VNF or PNF
 reported as healthy, should be ready to take service requests or be
 already processing service requests successfully.
 
 A successful execution of a health-check playbook shall create one response
-file (per VNF or PNF) in JSON format, named after the VNF or PNF instance, followed by
-"_results.txt" (<VNF or PNF instance name>_results.txt) to be provided as a response
-to the requestor, indicating  health-check was executed and completed
-successfully, example: vfdb9904v_results.txt, with the following contents:
+file (per VNF or PNF) in JSON format, named after the VNF or PNF instance,
+followed by "_results.txt" (<VNF or PNF instance name>_results.txt) to be
+provided as a response to the requestor, indicating  health-check was executed
+and completed successfully, example: vfdb9904v_results.txt, with the following
+contents:
 
 .. code-block:: java
 
@@ -1632,18 +1638,18 @@ Example:
 **NOTE**: See section 7.3.1.4 for comments on support of partial health checks.
 
 FAILURE – A health check playbook shall return a non-zero return code in
-case VNF or PNF is not 100% healthy because one or more VNF or PNF application processes
-are stopped or not ready to take service requests or because critical or
-non-critical resources are not ready or because there are open MINOR, MAJOR
+case VNF or PNF is not 100% healthy because one or more VNF or PNF application
+processes are stopped or not ready to take service requests or because critical
+or non-critical resources are not ready or because there are open MINOR, MAJOR
 or CRITICAL traps/alarms or because there are issues with the VNF or PNF that
 need attention even if they do not impact services provided by the VNF or PNF.
 
 A failed health-check playbook shall also create one file (per VNF or PNF), in
-JSON format, named after the VNF or PNF instance name, followed by "_results.txt"
-to indicate health-check was executed and found issues in the health of
-the VNF or PNF. This is to differentiate from failure to run health-check playbook
-or playbook tasks to verify the health of the VNF or PNF,
-example: vfdb9904v_results.txt, with the following contents:
+JSON format, named after the VNF or PNF instance name, followed by
+"_results.txt" to indicate health-check was executed and found issues in the
+health of the VNF or PNF. This is to differentiate from failure to run
+health-check playbook or playbook tasks to verify the health of the VNF or
+PNF, example: vfdb9904v_results.txt, with the following contents:
 
 .. code-block:: java
 
@@ -1680,9 +1686,9 @@ Example:
 
 See `VNF or PNF REST APIs`_ for additional details on HealthCheck.
 
-Some VNFs or PNFs may support and desire to run partial health checks and receive
-a successful response when partial health check completes without errors.
-The parameter name used by HealthCheck playbook to request non-default
+Some VNFs or PNFs may support and desire to run partial health checks and
+receive a successful response when partial health check completes without
+errors. The parameter name used by HealthCheck playbook to request non-default
 partial health check is healthcheck_type. Example of health check types
 could be healthcheck_type=GuestOS, healthcheck_type=noDB,
 healthcheck_type=noConnections, healthcheck_type=IgnoreAlarms, etc.. This
@@ -1698,9 +1704,9 @@ performs a full VNF or PNF health check.
     :keyword: SHOULD
     :introduced: casablanca
 
-    The VNF or PNF provider **MUST** deliver a new set of playbooks that includes
-    all updated and unchanged playbooks for any new revision to an existing
-    set of playbooks.
+    The VNF or PNF provider **MUST** deliver a new set of playbooks that
+    includes all updated and unchanged playbooks for any new revision to an
+    existing set of playbooks.
 
 .. req::
     :id: R-49911
@@ -1750,28 +1756,28 @@ Table 8. APPC/SDN-C APIs and NETCONF Commands
 +-------------+--------------------+--------------------+--------------------+
 |**Command**  |**NETCONF Support** |**Chef Support**    |**Ansible**         |
 +=============+====================+====================+====================+
-|General      |For each RPC, the   |VNF or PNF Vendor must     |VNF Vendor must     |
-|Comments     |appropriate RPC     |provide any         |provide an Ansible  |
+|General      |For each RPC, the   |VNF or PNF Vendor   |VNF Vendor must     |
+|Comments     |appropriate RPC     |must provide any    |provide an Ansible  |
 |             |operation is listed.|necessary roles,    |playbook to retrieve|
 |             |                    |cookbooks, recipes  |the running         |
 |             |                    |to retrieve the     |configuration from a|
 |             |                    |running             |VNF and place the   |
 |             |                    |configuration from  |output on the       |
-|             |                    |a VNF or PNF and place it  |Ansible server in   |
-|             |                    |in the respective   |a manner aligned    |
-|             |                    |Node Objects        |with playbook       |
-|             |                    |'PushJobOutput'     |requirements listed |
-|             |                    |attribute of all    |in this document.   |
-|             |                    |nodes in NodeList   |                    |
-|             |                    |when triggered      |The PlaybookName    |
-|             |                    |by a chef-client    |must be provided    |
-|             |                    |run.                |in the JSON file.   |
+|             |                    |a VNF or PNF and    |Ansible server in   |
+|             |                    |place it in the     |a manner aligned    |
+|             |                    |respective Node     |with playbook       |
+|             |                    |Objects             |requirements listed |
+|             |                    |'PushJobOutput'     |in this document.   |
+|             |                    |attribute of all    |                    |
+|             |                    |nodes in NodeList   |The PlaybookName    |
+|             |                    |when triggered by a |must be provided    |
+|             |                    |chef-client run.    |in the JSON file.   |
 |             |                    |                    |                    |
 |             |                    |The JSON file for   |NodeList must list  |
-|             |                    |this VNF or PNF action is  |IP addresses or DNS |
-|             |                    |required to set     |supported FQDNs of  |
-|             |                    |"PushJobFlag" to    |an example VNF      |
-|             |                    |"True" and          |on which to         |
+|             |                    |this VNF or PNF     |IP addresses or DNS |
+|             |                    |action is required  |supported FQDNs of  |
+|             |                    |to set "PushJobFlag"|an example VNF      |
+|             |                    |to "True" and       |on which to         |
 |             |                    |"GetOutputFlag" to  |execute playbook.   |
 |             |                    |"True". The "Node"  |                    |
 |             |                    |JSON dictionary     |                    |
@@ -1802,8 +1808,8 @@ Table 8. APPC/SDN-C APIs and NETCONF Commands
 +-------------+--------------------+--------------------+--------------------+
 |Configure,   |The <edit-config>   |Supported via a     |Supported via a     |
 |ModifyConfig |operation loads all |cookbook that       |playbook that       |
-|             |or part of a        |updates the VNF or PNF     |updates the VNF     |
-|             |specified data set  |configuration.      |configuration.      |
+|             |or part of a        |updates the VNF or  |updates the VNF     |
+|             |specified data set  |PNF configuration.  |configuration.      |
 |             |to the specified    |                    |                    |
 |             |target database. If |                    |                    |
 |             |there is no         |                    |                    |
