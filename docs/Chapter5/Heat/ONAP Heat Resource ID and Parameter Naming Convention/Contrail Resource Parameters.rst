@@ -222,11 +222,580 @@ properties are ``instance_ip_address`` and ``subnet_uuid``.
 Resource OS::ContrailV2::InstanceIp Property instance_ip_address
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+
+The Contrail resource ``OS::ContrailV2::InstanceIp`` has two properties
+that parameters **MUST** follow an explicit naming convention.  The
+properties are ``instance_ip_address`` and ``subnet_uuid``.
+
+*Example OS::ContrailV2::InstanceIp Resource*
+
+.. code-block:: yaml
+
+  <resource ID>:
+    type: OS::ContrailV2::InstanceIp
+    properties:
+      name: { get_param: name }
+      fq_name: { get_param: fq_name }
+      display_name: { get_param: display_name }
+      secondary_ip_tracking_ip:
+        {
+          secondary_ip_tracking_ip_ip_prefix: { get_param: secondary_ip_tracking_ip_ip_prefix },
+          secondary_ip_tracking_ip_ip_prefix_len: { get_param: secondary_ip_tracking_ip_ip_prefix_len },
+        }
+      instance_ip_address: { get_param: instance_ip_address }
+      instance_ip_mode: { get_param: instance_ip_mode }
+      subnet_uuid: { get_param: subnet_uuid }
+      instance_ip_family: { get_param: instance_ip_family }
+      annotations:
+        {
+          annotations_key_value_pair:
+            [{
+              annotations_key_value_pair_key: { get_param: annotations_key_value_pair_key },
+              annotations_key_value_pair_value: { get_param: annotations_key_value_pair_value },
+            }],
+        }
+      instance_ip_local_ip: { get_param: instance_ip_local_ip }
+      instance_ip_secondary: { get_param: instance_ip_secondary }
+      physical_router_refs: [{ get_param: physical_router_refs }]
+      virtual_machine_interface_refs: [{ get_param: virtual_machine_interface_refs }]
+      virtual_network_refs: [{ get_param: virtual_network_refs }]
+
+
+
 A VNF's Heat Orchestration Templates resource ``OS::ContrailV2::InstanceIp``
 property ``instance_ip_address`` parameter
 **MUST** follow the same requirements
 that apply to the resource ``OS::Neutron`` property ``fixed_ips`` map
 property ``ip_address`` parameter.
+
+
+.. req::
+    :id: R-100000
+    :keyword: MUST
+    :validation_mode: static
+    :target: VNF
+    :introduced: dublin
+
+    The VNF's Heat Orchestration Template's
+    resource ``OS::ContrailV2::InstanceIp`` property ``instance_ip_address``
+    parameter
+    **MUST** be declared as either type ``string`` or type
+    ``comma_delimited_list``.
+
+
+.. req::
+    :id: R-100010
+    :keyword: MUST
+    :introduced: dublin
+    :validation_mode: static
+    :target: VNF
+
+    When the VNF's Heat Orchestration Template's Resource
+    ``OS::ContrailV2::InstanceIp`` is assigning an IP address
+    to an external network (per the ONAP definition, see Requirement R-57424),
+    and an IPv4 address is assigned
+    using the property ``instance_ip_address``
+    and the parameter type is defined as a string,
+    the parameter name **MUST** follow the
+    naming convention
+
+    * ``{vm-type}_{network-role}_ip_{index}``
+
+    where
+
+    * ``{vm-type}`` is the {vm-type} associated with the ``OS::Nova::Server``
+    * ``{network-role}`` is the {network-role} of the external network
+    * ``{index}`` is a numeric value that **MUST** start at zero in a
+      VNF's Heat Orchestration Template and **MUST** increment by one
+
+
+.. req::
+    :id: R-100020
+    :keyword: MUST NOT
+    :validation_mode: static
+    :target: VNF
+    :introduced: dublin
+
+    The VNF's Heat Orchestration Template's Resource
+    ``OS::ContrailV2::InstanceIp`` property ``instance_ip_address``
+    parameter
+    ``{vm-type}_{network-role}_ip_{index}``
+    **MUST NOT** be enumerated in the
+    VNF's Heat Orchestration Template's Environment File.
+
+ONAP's SDN-Controller assigns the IP Address and ONAP provides
+the value at orchestration to the Heat Orchestration Template.
+
+*Example External Network IPv4 Address string Parameter Definition*
+
+.. code-block:: yaml
+
+  parameters:
+
+    {vm-type}_{network-role}_ip_{index}:
+      type: string
+      description: Fixed IPv4 assignment for {vm-type} VM {index} on the {network-role} network
+
+
+
+.. req::
+    :id: R-100030
+    :keyword: MUST
+    :validation_mode: static
+    :target: VNF
+    :introduced: dublin
+
+    When the VNF's Heat Orchestration Template's Resource
+    ``OS::ContrailV2::InstanceIp`` is assigning an IP address
+    to an external network (per the
+    ONAP definition, see Requirement R-57424),
+    and an IPv4 address is assigned
+    using the property ``instance_ip_address``
+    and the parameter type is defined as a
+    ``comma_delimited_list``,
+    the parameter name **MUST** follow the
+    naming convention
+
+      * ``{vm-type}_{network-role}_ips``
+
+      where
+
+      * ``{vm-type}`` is the {vm-type} associated with the
+        ``OS::Nova::Server``
+      * ``{network-role}`` is the {network-role} of the external
+        network
+
+
+
+.. req::
+    :id: R-100040
+    :keyword: MUST NOT
+    :validation_mode: static
+    :target: VNF
+    :introduced: dublin
+
+    The VNF's Heat Orchestration Template's Resource
+    ``OS::ContrailV2::InstanceIp`` property ``instance_ip_address``
+    parameter
+    ``{vm-type}_{network-role}_ips``
+    **MUST NOT** be enumerated in the
+    VNF's Heat Orchestration Template's Environment File.
+
+ONAP's SDN-Controller assigns the IP Address and ONAP provides
+the value at orchestration to the Heat Orchestration Template.
+
+*Example External Network IPv4 Address comma_delimited_list
+Parameter Definition*
+
+.. code-block:: yaml
+
+  parameters:
+
+    {vm-type}_{network-role}_ips:
+      type: comma_delimited_list
+      description: Fixed IPv4 assignments for {vm-type} VMs on the {network-role} network
+
+
+
+.. req::
+    :id: R-100050
+    :keyword: MUST
+    :introduced: dublin
+    :validation_mode: static
+    :target: VNF
+
+    When the VNF's Heat Orchestration Template's Resource
+    ``OS::ContrailV2::InstanceIp`` is assigning an IP address
+    to an external network
+    (per the
+    ONAP definition, see Requirement R-57424),
+    and an IPv6 address is assigned
+    using the property ``instance_ip_address``
+    and the parameter type is defined as a string,
+    the parameter name **MUST** follow the
+    naming convention
+
+    * ``{vm-type}_{network-role}_v6_ip_{index}``
+
+    where
+
+    * ``{vm-type}`` is the {vm-type} associated with the
+      ``OS::Nova::Server``
+    * ``{network-role}`` is the {network-role} of the external network
+    * ``{index}`` is a numeric value that **MUST** start at zero in a
+      VNF's Heat Orchestration Template and **MUST** increment by one
+
+
+.. req::
+    :id: R-100060
+    :keyword: MUST NOT
+    :validation_mode: static
+    :introduced: dublin
+    :target: VNF
+
+    The VNF's Heat Orchestration Template's Resource
+    ``OS::ContrailV2::InstanceIp`` property ``instance_ip_address``
+    parameter
+    ``{vm-type}_{network-role}_v6_ip_{index}``
+    **MUST NOT** be enumerated in the
+    VNF's Heat Orchestration Template's Environment File.
+
+ONAP's SDN-Controller assigns the IP Address and ONAP provides
+the value at orchestration to the Heat Orchestration Template.
+
+*Example External Network IPv6 Address string Parameter Definition*
+
+.. code-block:: yaml
+
+  parameters:
+
+    {vm-type}_{network-role}_v6_ip_{index}:
+      type: string
+      description: Fixed IPv6 assignment for {vm-type} VM {index} on the {network-role} network
+
+
+
+.. req::
+    :id: R-100070
+    :keyword: MUST
+    :validation_mode: static
+    :introduced: dublin
+    :target: VNF
+
+    When the VNF's Heat Orchestration Template's Resource
+    ``OS::ContrailV2::InstanceIp`` is assigning an IP address
+    to an external network (per the
+    ONAP definition, see Requirement R-57424),
+    and an IPv6 address is assigned
+    using the property ``instance_ip_address``
+    and the parameter type is defined as a
+    ``comma_delimited_list``,
+    the parameter name **MUST** follow the
+    naming convention
+
+      * ``{vm-type}_{network-role}_v6_ips``
+
+    where
+
+      * ``{vm-type}`` is the {vm-type} associated with the
+        OS::Nova::Server
+      * ``{network-role}`` is the {network-role} of the external
+        network
+
+
+
+.. req::
+    :id: R-100080
+    :keyword: MUST NOT
+    :validation_mode: static
+    :introduced: dublin
+    :target: VNF
+
+    The VNF's Heat Orchestration Template's Resource
+    ``OS::ContrailV2::InstanceIp`` property ``instance_ip_address``
+    parameter
+    ``{vm-type}_{network-role}_v6_ips``
+    **MUST NOT** be enumerated in the
+    VNF's Heat Orchestration Template's Environment File.
+
+ONAP's SDN-Controller assigns the IP Address and ONAP provides
+the value at orchestration to the Heat Orchestration Template.
+
+*Example External Network IPv6 Address comma_delimited_list Parameter
+Definition*
+
+.. code-block:: yaml
+
+  parameters:
+
+    {vm-type}_{network-role}_v6_ips:
+      type: comma_delimited_list
+      description: Fixed IPv6 assignments for {vm-type} VMs on the {network-role} network
+
+
+
+.. req::
+    :id: R-100090
+    :keyword: MUST
+    :introduced: dublin
+    :validation_mode: static
+    :target: VNF
+
+    When the VNF's Heat Orchestration Template's Resource
+    ``OS::ContrailV2::InstanceIp`` is assigning an IP address
+    to an internal network (per the
+    ONAP definition, see Requirements R-52425 and R-46461),
+    and an IPv4 address is assigned
+    using the property ``instance_ip_address``
+    and the parameter type is
+    defined as a ``string``,
+    the parameter name **MUST** follow the
+    naming convention
+
+    * ``{vm-type}_int_{network-role}_ip_{index}``
+
+    where
+
+    * ``{vm-type}`` is the {vm-type} associated with the
+      ``OS::Nova::Server``
+    * ``{network-role}`` is the {network-role} of the internal network
+    * ``{index}`` is a numeric value that **MUST** start at zero in a
+      VNF's Heat Orchestration Template and **MUST** increment by one
+
+
+
+.. req::
+    :id: R-100100
+    :keyword: MUST
+    :validation_mode: static
+    :target: VNF
+    :introduced: dublin
+
+    The VNF's Heat Orchestration Template's Resource
+    ``OS::ContrailV2::InstanceIp`` property ``instance_ip_address``
+    parameter
+    ``{vm-type}_int_{network-role}_ip_{index}``
+    **MUST** be enumerated in the
+    VNF's Heat Orchestration Template's Environment File.
+
+The IP address is local to the VNF's internal network and is (re)used
+in every VNF spin up, thus the constant value is declared in the VNF's
+Heat Orchestration Template's Environment File.
+
+*Example Internal Network IPv4 Address string Parameter Definition*
+
+.. code-block:: yaml
+
+  parameters:
+
+    {vm-type}_int_{network-role}_ip_{index}:
+      type: string
+      description: Fixed IPv4 assignment for {vm-type} VM {index} on the int_{network-role} network
+
+
+
+.. req::
+    :id: R-100110
+    :keyword: MUST
+    :validation_mode: static
+    :target: VNF
+    :introduced: dublin
+
+    When the VNF's Heat Orchestration Template's Resource
+    ``OS::ContrailV2::InstanceIp`` is assigning an IP address
+    to an internal network (per the
+    ONAP definition, see Requirements R-52425 and R-46461),
+    and an IPv4 address is assigned
+    using the property ``instance_ip_address``
+    and the parameter type is defined as a
+    ``comma_delimited_list``,
+    the parameter name **MUST** follow the
+    naming convention
+
+      * ``{vm-type}_int_{network-role}_ips``
+
+    where
+
+      * ``{vm-type}`` is the {vm-type} associated with the
+        ``OS::Nova::Server``
+      * ``{network-role}`` is the {network-role} of the internal
+        network
+
+
+.. req::
+    :id: R-100120
+    :keyword: MUST
+    :validation_mode: static
+    :target: VNF
+    :introduced: dublin
+
+    The VNF's Heat Orchestration Template's Resource
+    ``OS::ContrailV2::InstanceIp`` property ``instance_ip_address``
+    parameter
+    ``{vm-type}_int_{network-role}_int_ips``
+    **MUST** be enumerated in the
+    VNF's Heat Orchestration Template's Environment File.
+
+The IP address is local to the VNF's internal network and is (re)used
+in every VNF spin up, thus the constant value is declared in the VNF's
+Heat Orchestration Template's Environment File.
+
+*Example Internal Network IPv4 Address comma_delimited_list
+Parameter Definition*
+
+.. code-block:: yaml
+
+  parameters:
+
+    {vm-type}_int_{network-role}_ips:
+      type: comma_delimited_list
+      description: Fixed IPv4 assignments for {vm-type} VMs on the int_{network-role} network
+
+
+
+.. req::
+    :id: R-100130
+    :keyword: MUST
+    :introduced: dublin
+    :validation_mode: static
+    :target: VNF
+
+    When the VNF's Heat Orchestration Template's Resource
+    ``OS::ContrailV2::InstanceIp`` is assigning an IP address to an
+    internal network (per the
+    ONAP definition, see Requirements R-52425 and R-46461),
+    and an IPv6 address is assigned
+    using the property ``instance_ip_address``
+    and the parameter type is defined as a
+    ``string``,
+    the parameter name **MUST** follow the
+    naming convention
+
+    * ``{vm-type}_int_{network-role}_v6_ip_{index}``
+
+    where
+
+    * ``{vm-type}`` is the {vm-type} associated with the ``OS::Nova::Server``
+    * ``{network-role}`` is the {network-role} of the internal network
+    * ``{index}`` is a numeric value that **MUST** start at zero in a
+      VNF's Heat Orchestration Template and **MUST** increment by one
+
+
+
+.. req::
+    :id: R-100140
+    :keyword: MUST
+    :validation_mode: static
+    :target: VNF
+    :introduced: dublin
+
+    The VNF's Heat Orchestration Template's Resource
+    ``OS::ContrailV2::InstanceIp`` property ``instance_ip_address``
+    parameter
+    ``{vm-type}_int_{network-role}_v6_ip_{index}``
+    **MUST** be enumerated in the
+    VNF's Heat Orchestration Template's Environment File.
+
+The IP address is local to the VNF's internal network and is (re)used
+in every VNF spin up, thus the constant value is declared in the VNF's
+Heat Orchestration Template's Environment File.
+
+*Example Internal Network IPv6 Address string Parameter Definition*
+
+.. code-block:: yaml
+
+  parameters:
+
+    {vm-type}_int_{network-role}_v6_ip_{index}:
+      type: string
+      description: Fixed IPv6 assignment for {vm-type} VM {index} on the int_{network-role} network
+
+
+
+.. req::
+    :id: R-100150
+    :keyword: MUST
+    :validation_mode: static
+    :target: VNF
+    :introduced: dublin
+
+    When the VNF's Heat Orchestration Template's Resource
+    ``OS::ContrailV2::InstanceIp`` is assigning an IP address to an
+    internal network (per the
+    ONAP definition, see Requirements R-52425 and R-46461),
+    and an IPv6 address is assigned
+    using the property ``instance_ip_address``
+    and the parameter type is defined as a
+    ``comma_delimited_list``,
+    the parameter name **MUST** follow the
+    naming convention
+
+      * ``{vm-type}_int_{network-role}_v6_ips``
+
+    where
+
+      * ``{vm-type}`` is the {vm-type} associated with the
+        ``OS::Nova::Server``
+      * ``{network-role}`` is the {network-role} of the internal
+        network
+
+
+.. req::
+    :id: R-100160
+    :keyword: MUST
+    :validation_mode: static
+    :target: VNF
+    :introduced: dublin
+
+    The VNF's Heat Orchestration Template's Resource
+    ``OS::ContrailV2::InstanceIp`` property ``instance_ip_address``
+    map property ``ip_address`` parameter
+    ``{vm-type}_int_{network-role}_v6_ips``
+    **MUST** be enumerated in the
+    VNF's Heat Orchestration Template's Environment File.
+
+The IP address is local to the VNF's internal network and is (re)used
+in every VNF spin up, thus the constant value is declared in the VNF's
+Heat Orchestration Template's Environment File.
+
+*Example Internal Network IPv6 Address comma_delimited_list Parameter
+Definition*
+
+
+.. code-block:: yaml
+
+  parameters:
+
+    {vm-type}_int_{network-role}_v6_ips:
+      type: comma_delimited_list
+      description: Fixed IPv6 assignments for {vm-type} VMs on the int_{network-role} network
+
+
+.. req::
+    :id: R-100170
+    :keyword: MUST NOT
+    :validation_mode: static
+    :target: VNF
+    :introduced: dublin
+
+    The VNF's Heat Orchestration Template's Resource
+    ``OS::ContrailV2::InstanceIp``
+    property ``instance_ip_address``
+    parameter associated with an external network, i.e.,
+
+     * ``{vm-type}_{network-role}_ip_{index}``
+     * ``{vm-type}_{network-role}_v6_ip_{index}``
+     * ``{vm-type}_{network-role}_ips``
+     * ``{vm-type}_{network-role}_v6_ips``
+
+
+    **MUST NOT** be enumerated in the Heat Orchestration
+    Template's Environment File.  ONAP provides the IP address
+    assignments at orchestration time.
+
+
+
+.. req::
+    :id: R-100180
+    :keyword: MUST
+    :validation_mode: static
+    :target: VNF
+    :introduced: dublin
+
+    The VNF's Heat Orchestration Template's Resource
+    ``OS::ContrailV2::InstanceIp``
+    property ``instance_ip_address``
+    parameter associated with an internal network, i.e.,
+
+     * ``{vm-type}_int_{network-role}_ip_{index}``
+     * ``{vm-type}_int_{network-role}_v6_ip_{index}``
+     * ``{vm-type}_int_{network-role}_ips``
+     * ``{vm-type}_int_{network-role}_v6_ips``
+
+
+    **MUST** be enumerated in the Heat Orchestration
+    Template's Environment File and IP addresses **MUST** be
+    assigned.
 
 
 *Example: Contrail Resource OS::ContrailV2::InstanceIp, Property
@@ -252,6 +821,7 @@ fw for firewall.
         - get_param: oam_protected_net_fqdn
       instance_ip_address: { get_param: [fw_oam_protected_ips, get_param: index ] }
 
+
 Resource OS::ContrailV2::InstanceIp Property subnet_uuid
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -259,16 +829,280 @@ A VNF's Heat Orchestration Templates resource ``OS::ContrailV2::InstanceIp``
 property ``subnet_uuid`` parameter
 **MUST** follow the same requirements
 that apply to the resource ``OS::Neutron`` property ``fixed_ips`` map
-property ``subnet``/``subnet_id`` parameter.
+property ``subnet`` parameter.
+
+The resource ``OS::ContrailV2::InstanceIp`` property
+``subnet_uuid`` parameter is used when a
+port is requesting an IP assignment via
+OpenStack's DHCP Service (i.e., cloud assigned).
+
+The IP address assignment will be made from the specified subnet.
+
+Specifying the subnet is not required; it is optional.
+
+If the network (external or internal) that the port is attaching
+to only contains one subnet, specifying the subnet is
+superfluous.  The IP address will be assigned from the one existing
+subnet.
+
+If the network (external or internal) that the port is attaching
+to contains two or more subnets, specifying the subnet in the
+``instance_ip_address`` property determines which
+subnet the IP address will be assigned from.
+
+If the network (external or internal) that the port is attaching
+to contains two or more subnets, and the subnet is not is not
+specified, OpenStack will randomly determine which subnet
+the IP address will be assigned from.
+
+The property ``instance_ip_address`` is used to assign IPs to a port.
+The property ``subnet_uuid`` specifies the subnet the IP is assigned from.
+
+
+.. req::
+    :id: R-100190
+    :keyword: MUST
+    :validation_mode: static
+    :target: VNF
+    :introduced: dublin
+
+    The VNF's Heat Orchestration Template's
+    resource ``OS::ContrailV2::InstanceIp`` property ``subnet_uuid``
+    parameter
+    **MUST** be declared type ``string``.
+
+
+.. req::
+    :id: R-100200
+    :keyword: MUST
+    :validation_mode: static
+    :target: VNF
+    :introduced: dublin
+
+    When the VNF's Heat Orchestration Template's
+    resource ``OS::ContrailV2::InstanceIp`` is assigning an IP address
+    to an external network (per the ONAP definition, see
+    Requirement R-57424),
+    and an IPv4 address is being cloud assigned by OpenStack's DHCP Service
+    and the external network IPv4 subnet is to be specified
+    using the property ``subnet_uuid``, the parameter
+    **MUST** follow the naming convention
+
+      * ``{network-role}_subnet_id``
+
+    where
+
+      * ``{network-role}`` is the network role of the network.
+
+Note that ONAP only supports cloud assigned IP addresses from one IPv4 subnet
+of a given network.
+
+.. req::
+    :id: R-100210
+    :keyword: MUST NOT
+    :validation_mode: static
+    :target: VNF
+    :introduced: dublin
+
+    The VNF's Heat Orchestration Template's Resource
+    ``OS::ContrailV2::InstanceIp`` property ``subnet_uuid``
+    parameter
+    ``{network-role}_subnet_id``
+    **MUST NOT** be enumerated in the
+    VNF's Heat Orchestration Template's Environment File.
+
+ONAP's SDN-Controller provides the network's subnet's UUID
+value at orchestration to the Heat Orchestration Template.
+
+*Example Parameter Definition*
+
+.. code-block:: yaml
+
+  parameters:
+
+    {network-role}_subnet_id:
+      type: string
+      description: Neutron IPv4 subnet UUID for the {network-role} network
+
+
+.. req::
+    :id: R-100220
+    :keyword: MUST
+    :validation_mode: static
+    :target: VNF
+    :introduced: dublin
+
+    When the VNF's Heat Orchestration Template's
+    resource ``OS::ContrailV2::InstanceIp`` is assigning an IP address
+    to an external network (per the ONAP definition, see
+    Requirement R-57424),
+    and an IPv6 address is being cloud assigned by OpenStack's DHCP Service
+    and the external network IPv6 subnet is to be specified
+    using the property ``subnet_uuid``, the parameter
+    **MUST** follow the naming convention
+
+      * ``{network-role}_v6_subnet_id``
+
+    where
+
+      * ``{network-role}`` is the network role of the network.
+
+
+Note that ONAP only supports cloud assigned IP addresses from one IPv6 subnet
+of a given network.
+
+.. req::
+    :id: R-100230
+    :keyword: MUST NOT
+    :validation_mode: static
+    :target: VNF
+    :introduced: dublin
+
+    The VNF's Heat Orchestration Template's Resource
+    ``OS::ContrailV2::InstanceIp`` property ``subnet_uuid``
+    parameter
+    ``{network-role}_v6_subnet_id``
+    **MUST NOT** be enumerated in the
+    VNF's Heat Orchestration Template's Environment File.
+
+ONAP's SDN-Controller provides the network's subnet's UUID
+value at orchestration to the Heat Orchestration Template.
+
+*Example Parameter Definition*
+
+.. code-block:: yaml
+
+  parameters:
+
+    {network-role}_v6_subnet_id:
+      type: string
+      description: Neutron IPv6 subnet UUID for the {network-role} network
+
+
+.. req::
+    :id: R-100240
+    :keyword: MUST
+    :validation_mode: static
+    :target: VNF
+    :introduced: dublin
+
+    When
+
+      * the VNF's Heat Orchestration Template's
+        resource ``OS::ContrailV2::InstanceIp`` in an Incremental Module is
+        assigning an IP address
+        to an internal network (per the ONAP definition, see
+        Requirements R-52425 and R-46461)
+        that is created in the Base Module, AND
+      * an IPv4 address is being cloud assigned by OpenStack's DHCP Service AND
+      * the internal network IPv4 subnet is to be specified
+        using the property ``subnet_uuid``,
+
+    the parameter **MUST** follow the naming convention
+
+      * ``int_{network-role}_subnet_id``
+
+    where
+
+      * ``{network-role}`` is the network role of the internal network
+
+    Note that the parameter **MUST** be defined as an ``output`` parameter in
+    the base module.
+
+
+.. req::
+    :id: R-100250
+    :keyword: MUST NOT
+    :validation_mode: static
+    :target: VNF
+    :introduced: dublin
+
+    The VNF's Heat Orchestration Template's Resource
+    ``OS::ContrailV2::InstanceIp`` property ``subnet_uuid``
+    parameter
+    ``int_{network-role}_subnet_id``
+    **MUST NOT** be enumerated in the
+    VNF's Heat Orchestration Template's Environment File.
+
+
+The assumption is that internal networks are created in the base module.
+The subnet network ID will be passed as an output parameter
+(e.g., ONAP Base Module Output Parameter) to the incremental modules.
+In the incremental modules, the output parameter name will be defined as
+input parameter.
+
+*Example Parameter Definition*
+
+.. code-block:: yaml
+
+  parameters:
+
+    int_{network-role}_subnet_id:
+      type: string
+      description: Neutron IPv4 subnet UUID for the int_{network-role} network
+
+
+
+.. req::
+    :id: R-100260
+    :keyword: MUST
+    :validation_mode: static
+    :target: VNF
+    :introduced: dublin
+
+    When
+
+      * the VNF's Heat Orchestration Template's
+        resource ``OS::ContrailV2::InstanceIp`` in an Incremental Module is
+        attaching
+        to an internal network (per the ONAP definition,
+        see Requirements R-52425 and R-46461)
+        that is created in the Base Module, AND
+      * an IPv6 address is being cloud assigned by OpenStack's DHCP Service AND
+      * the internal network IPv6 subnet is to be specified
+        using the property ``subnet_uuid``,
+
+    the parameter **MUST** follow the naming convention
+    ``int_{network-role}_v6_subnet_id``,
+    where ``{network-role}`` is the network role of the internal network.
+
+    Note that the parameter **MUST** be defined as an ``output`` parameter in
+    the base module.
+
+
+.. req::
+    :id: R-100270
+    :keyword: MUST NOT
+    :validation_mode: static
+    :target: VNF
+    :introduced: dublin
+
+    The VNF's Heat Orchestration Template's Resource
+    ``OS::ContrailV2::InstanceIp`` property ``subnet_uuid``
+    parameter
+    ``int_{network-role}_v6_subnet_id``
+    **MUST NOT** be enumerated in the
+    VNF's Heat Orchestration Template's Environment File.
+
+
+*Example Parameter Definition*
+
+.. code-block:: yaml
+
+  parameters:
+
+    int_{network-role}_v6_subnet_id:
+      type: string
+      description: Neutron subnet UUID for the int_{network-role} network
 
 *Example: Contrail Resource OS::ContrailV2::InstanceIp, Property
 subnet_uuid*
 
-The property instance_ip_address uses the same parameter naming
-convention as the property fixed_ips and Map Property subnet_id in
+The property ``instance_ip_address`` uses the same parameter naming
+convention as the property ``fixed_ips`` and Map Property ``subnet`` in
 OS::Neutron::Port. The resource is assigning a cloud assigned IP
-Address. The {network-role} has been defined as "oam_protected" to
-represent an oam protected network and the {vm-type} has been defined as
+Address. The ``{network-role}`` has been defined as "oam_protected" to
+represent an oam protected network and the ``{vm-type}`` has been defined as
 "fw" for firewall.
 
 .. code-block:: yaml
@@ -284,8 +1118,10 @@ represent an oam protected network and the {vm-type} has been defined as
         - get_param: oam_protected_net_fqdn
       subnet_uuid: { get_param: oam_protected_subnet_id }
 
+
 OS::ContrailV2::VirtualMachineInterface Property virtual_machine_interface_allowed_address_pairs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 
 A VNF's Heat Orchestration Templates resource
 ``OS::ContrailV2::VirtualMachineInterface`` map property,
@@ -296,6 +1132,305 @@ virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip_ip_prefi
 parameter **MUST** follow the same requirements that apply to the
 resource ``OS::Neutron::Port`` property
 ``allowed_address_pairs``, map property ``ip_address`` parameter.
+
+
+.. req::
+    :id: R-100280
+    :keyword: MUST NOT
+    :validation_mode: static
+    :target: VNF
+    :introduced: dublin
+
+    If a VNF requires ONAP to assign a Virtual IP (VIP) Address to a
+    ``OS::ContrailV2::VirtualMachineInterface``
+    connected an external network, the port
+    **MUST NOT** have more than one IPv4 VIP address.
+
+
+.. req::
+    :id: R-100290
+    :keyword: MUST NOT
+    :validation_mode: static
+    :target: VNF
+    :introduced: dublin
+
+    If a VNF requires ONAP to assign a Virtual IP (VIP) Address to a
+    ``OS::ContrailV2::VirtualMachineInterface``
+    connected an external network, the port
+    **MUST NOT** have more than one IPv6 VIP address.
+
+
+.. req::
+    :id: R-100300
+    :keyword: MUST
+    :validation_mode: static
+    :target: VNF
+    :introduced: dublin
+
+    If a VNF has two or more ``OS::ContrailV2::VirtualMachineInterface`` that
+    attach to an external network that require a Virtual IP Address (VIP),
+    and the VNF requires ONAP automation to assign the IP address,
+    all the Virtual Machines using the VIP address **MUST**
+    be instantiated in the same Base Module Heat Orchestration Template
+    or in the same Incremental Module Heat Orchestration Template.
+
+
+.. req::
+    :id: R-100310
+    :keyword: MUST
+    :validation_mode: static
+    :target: VNF
+    :introduced: dublin
+
+    When the VNF's Heat Orchestration Template's Resource
+    ``OS::ContrailV2::VirtualMachineInterface`` is attaching to an external
+    network (per the
+    ONAP definition, see Requirement R-57424),
+    and an IPv4 Virtual IP (VIP)
+    address is assigned via ONAP automation
+    using the map property,
+    ``virtual_machine_interface_allowed_address_pairs,
+    virtual_machine_interface_allowed_address_pairs_allowed_address_pair,
+    virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip,
+    virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip_ip_prefix``
+    , the parameter name **MUST** follow the
+    naming convention
+
+      * ``{vm-type}_{network-role}_floating_ip``
+
+    where
+
+      * ``{vm-type}`` is the {vm-type} associated with the
+        OS::Nova::Server
+      * ``{network-role}`` is the {network-role} of the external
+        network
+
+    And the parameter **MUST** be declared as type ``string``.
+
+
+
+.. req::
+    :id: R-100320
+    :keyword: MUST NOT
+    :validation_mode: static
+    :target: VNF
+    :introduced: dublin
+
+    The VNF's Heat Orchestration Template's Resource
+    ``OS::ContrailV2::VirtualMachineInterface``
+    map property,
+    ``virtual_machine_interface_allowed_address_pairs,
+    virtual_machine_interface_allowed_address_pairs_allowed_address_pair,
+    virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip,
+    virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip_ip_prefix``
+    parameter
+
+    * ``{vm-type}_{network-role}_floating_ip``
+
+    **MUST NOT** be enumerated in the
+    VNF's Heat Orchestration Template's Environment File.
+
+*Example Parameter Definition*
+
+.. code-block:: yaml
+
+  parameters:
+
+    {vm-type}_{network-role}_floating_ip:
+      type: string
+      description: IPv4 VIP for {vm-type} VMs on the {network-role} network
+
+
+
+.. req::
+    :id: R-100330
+    :keyword: MUST
+    :validation_mode: static
+    :target: VNF
+    :introduced: dublin
+
+    When the VNF's Heat Orchestration Template's Resource
+    ``OS::ContrailV2::VirtualMachineInterface`` is attaching to an external
+    network (per the
+    ONAP definition, see Requirement R-57424),
+    and an IPv6 Virtual IP (VIP)
+    address is assigned via ONAP automation
+    using the
+    map property,
+    ``virtual_machine_interface_allowed_address_pairs,
+    virtual_machine_interface_allowed_address_pairs_allowed_address_pair,
+    virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip,
+    virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip_ip_prefix``
+    , the parameter name **MUST** follow the
+    naming convention
+
+      * ``{vm-type}_{network-role}_floating_v6_ip``
+
+    where
+
+      * ``{vm-type}`` is the {vm-type} associated with the
+        OS::Nova::Server
+      * ``{network-role}`` is the {network-role} of the external
+        network
+
+    And the parameter **MUST** be declared as type ``string``.
+
+
+.. req::
+    :id: R-100340
+    :keyword: MUST NOT
+    :validation_mode: static
+    :target: VNF
+    :introduced: dublin
+
+    The VNF's Heat Orchestration Template's Resource
+    ``OS::ContrailV2::VirtualMachineInterface``
+    map property,
+    ``virtual_machine_interface_allowed_address_pairs,
+    virtual_machine_interface_allowed_address_pairs_allowed_address_pair,
+    virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip,
+    virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip_ip_prefix``
+    parameter
+
+    * ``{vm-type}_{network-role}_floating_v6_ip``
+
+    **MUST NOT** be enumerated in the
+    VNF's Heat Orchestration Template's Environment File.
+
+*Example Parameter Definition*
+
+.. code-block:: yaml
+
+  parameters:
+
+    {vm-type}_{network-role}_floating_v6_ip:
+      type: string
+      description: VIP for {vm-type} VMs on the {network-role} network
+
+.. req::
+    :id: R-100350
+    :keyword: MUST NOT
+    :introduced: dublin
+    :validation_mode: static
+    :target: VNF
+
+    When the VNF's Heat Orchestration Template's Resource
+    ``OS::ContrailV2::VirtualMachineInterface`` is attaching to an external
+    network (per the
+    ONAP definition, see Requirement R-57424),
+    and an IPv4 and/or IPv6 Virtual IP (VIP)
+    address is assigned via ONAP automation
+    using the
+    map property,
+    ``virtual_machine_interface_allowed_address_pairs,
+    virtual_machine_interface_allowed_address_pairs_allowed_address_pair,
+    virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip,
+    virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip_ip_prefix``
+    parameter
+    **MUST NOT** be declared as ``type: comma_deliited_list``.
+
+
+.. req::
+    :id: R-100360
+    :keyword: MUST
+    :introduced: dublin
+    :validation_mode: static
+    :target: VNF
+
+    When the VNF's Heat Orchestration Template's Resource
+    ``OS::ContrailV2::VirtualMachineInterface`` is attaching to an
+    internal network (per the
+    ONAP definition, see Requirements R-52425 and R-46461),
+    and an IPv4 Virtual IP (VIP)
+    address is assigned using the map property,
+    ``virtual_machine_interface_allowed_address_pairs,
+    virtual_machine_interface_allowed_address_pairs_allowed_address_pair,
+    virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip,
+    virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip_ip_prefix``
+    , the parameter name **MUST** follow the
+    naming convention
+
+      * ``{vm-type}_int_{network-role}_floating_ip``
+
+    where
+
+      * ``{vm-type}`` is the {vm-type} associated with the
+        OS::Nova::Server
+      * ``{network-role}`` is the {network-role} of the external
+        network
+
+    And the parameter **MUST** be declared as ``type: string``
+    and **MUST** be enumerated in the environment file.
+
+    OR
+
+    the parameter name **MUST** follow the
+    naming convention
+
+      * ``{vm-type}_int_{network-role}_floating_ips``
+
+    where
+
+      * ``{vm-type}`` is the {vm-type} associated with the
+        OS::Nova::Server
+      * ``{network-role}`` is the {network-role} of the external
+        network
+
+    And the parameter **MUST** be declared as ``type: comma_delimited_list``
+    and **MUST** be enumerated in the environment file.
+
+
+.. req::
+    :id: R-100370
+    :keyword: MUST
+    :introduced: dublin
+    :validation_mode: static
+    :target: VNF
+
+    When the VNF's Heat Orchestration Template's Resource
+    ``OS::ContrailV2::VirtualMachineInterface`` is attaching to an
+    internal network (per the
+    ONAP definition, see Requirements R-52425 and R-46461),
+    and an IPv6 Virtual IP (VIP)
+    address is assigned
+    using the map property,
+    ``virtual_machine_interface_allowed_address_pairs,
+    virtual_machine_interface_allowed_address_pairs_allowed_address_pair,
+    virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip,
+    virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip_ip_prefix``
+    , the parameter name **MUST** follow the
+    naming convention
+
+      * ``{vm-type}_int_{network-role}_floating_v6_ip``
+
+    where
+
+      * ``{vm-type}`` is the {vm-type} associated with the
+        OS::Nova::Server
+      * ``{network-role}`` is the {network-role} of the external
+        network
+
+    And the parameter **MUST** be declared as ``type: string``
+    and **MUST** be enumerated in the environment file
+
+    OR
+
+    the parameter name **MUST** follow the
+    naming convention
+
+      * ``{vm-type}_int_{network-role}_floating_v6_ips``
+
+    where
+
+      * ``{vm-type}`` is the {vm-type} associated with the
+        OS::Nova::Server
+      * ``{network-role}`` is the {network-role} of the external
+        network
+
+    And the parameter **MUST** be declared as ``type: comma_delimited_list``
+    and **MUST** be enumerated in the environment file.
+
+
 
 *Example OS::ContrailV2::VirtualMachineInterface*
 
@@ -432,3 +1567,4 @@ resource ``OS::Neutron::Port`` property
       qos_config_refs: [{ get_param: qos_config_refs }]
       virtual_machine: { get_param: virtual_machine }
       project: { get_param: project }
+
