@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8f55d169_c44a50d1",
+        "filename": "docs/Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Contrail Resource Parameters.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 876,
+      "author": {
+        "id": 3013
+      },
+      "writtenOn": "2019-04-28T20:09:55Z",
+      "side": 1,
+      "message": "Does R-708564 need to be updated to include this parameter?",
+      "range": {
+        "startLine": 876,
+        "startChar": 9,
+        "endLine": 876,
+        "endChar": 17
+      },
+      "revId": "7d4a12c29647f7fbef548fdaa2e7d7aace74fec0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
