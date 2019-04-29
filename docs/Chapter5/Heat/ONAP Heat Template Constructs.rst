@@ -123,6 +123,7 @@ the second level of nested heat.
       ,
       ``virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip_ip_prefix``
     * ``OS::ContrailV2::InstanceIP`` property ``instance_ip_address``
+    * ``OS::ContrailV2::InstanceIP`` property ``subnet_uuid``
 
 
 Note that the parameters associated with properties not listed in R-708564
