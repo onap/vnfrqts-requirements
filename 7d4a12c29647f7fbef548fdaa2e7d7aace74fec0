@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "353da1d7_f05f8be4",
+        "filename": "docs/Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Contrail Resource Parameters.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 3271
+      },
+      "writtenOn": "2019-04-29T04:30:32Z",
+      "side": 1,
+      "message": "These introduced fields should be changed to \"Dublin\"",
+      "range": {
+        "startLine": 277,
+        "startChar": 17,
+        "endLine": 277,
+        "endChar": 23
+      },
+      "revId": "7d4a12c29647f7fbef548fdaa2e7d7aace74fec0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8f55d169_c44a50d1",
         "filename": "docs/Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Contrail Resource Parameters.rst",
         "patchSetId": 4
