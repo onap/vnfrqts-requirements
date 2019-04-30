@@ -177,7 +177,7 @@ or an external gateway or router
     ``{network-role}`` **MUST** be the network-role of the internal network
     created in the Base Module.
 
-    ``The Base Module Output Parameter MUST be declared in the ``parameters:``
+    The Base Module Output Parameter MUST be declared in the ``parameters:``
     section of the Incremental Module(s) where the ``OS::Neutron::Port``
     resource(s) is attaching to the internal network.
 

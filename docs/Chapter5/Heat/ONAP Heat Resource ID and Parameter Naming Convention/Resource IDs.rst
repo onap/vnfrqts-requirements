@@ -107,7 +107,7 @@ Heat Orchestration Template resources are described in :ref:`resources`.
 
     When a VNF's Heat Orchestration Template's resource is associated
     with more than one ``{vm-type}`` and/or more than one internal and/or
-    external network, the Resource ID **MUST** not contain the ``{vm-type}``
+    external network, the Resource ID **MUST NOT** contain the ``{vm-type}``
     and/or ``{network-role}``/``int_{network-role}``. It also should contain the
     term ``shared`` and/or contain text that identifies the VNF.
 
