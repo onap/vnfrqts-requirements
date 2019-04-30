@@ -700,6 +700,20 @@ environment file (since it is public, it is not a secret key), or passed
 at run-time as instance-specific parameters. ONAP will never
 automatically assign a public/private key pair.
 
+.. req::
+    :id: R-100380
+    :keyword: SHOULD
+    :introduced: dublin
+    :validation_mode: none
+    :target: VNF
+
+    If a VNF requires the use of an SSH key created by OpenStack, the VNF
+    Heat Orchestration Template **SHOULD** create the ``OS::Nova::Keypair``
+    in the base module, and expose the public key as an output value.
+
+    This allows re-use of the key by ONAP when triggering scale out, recovery,
+    or other day 1 operations.
+
 *Example (create keypair with an existing ssh public-key for {vm-type}
 of lb (for load balancer)):*
 
