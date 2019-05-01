@@ -244,15 +244,25 @@ The ``vf_module_name`` (e.g., ``<STACK_NAME>`` is specified as
 part of the orchestration process.
 
 .. req::
-    :id: R-68023
+    :id: R-100400
+    :keyword: SHOULD
+    :introduced: 2019-1
     :target: VNF
-    :keyword: MUST
-    :validation_mode: static
-    :updated: casablanca
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
-    property ``metadata`` **SHOULD**
-    contain the key/value pair ``vf_module_name`` and the value **MUST**
+    property metadata **SHOULD** contain the key/value pair ``vf_module_name``.
+
+
+.. req::
+    :id: R-68023
+    :keyword: MUST
+    :validation_mode: static
+    :target: VNF
+    :updated: 2019-1
+
+    A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
+    property ``metadata`` key/value pair ``vf_module_name``
+    value **MUST**
     be obtained via a ``get_param``.
 
 .. req::
@@ -451,16 +461,27 @@ vf_module_index
 
 
 .. req::
-    :id: R-50816
+    :id: R-100410
+    :keyword: MAY
+    :introduced: 2019-1
     :target: VNF
-    :keyword: MUST
-    :updated: casablanca
-    :validation_mode: static
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server``
     resource  property ``metadata`` **MAY**
-    contain the key/value pair ``vf_module_index``
-    and the value **MUST** be obtained via a ``get_param``.
+    contain the key/value pair ``vf_module_index``.
+
+
+.. req::
+    :id: R-50816
+    :keyword: MUST
+    :target: VNF
+    :validation_mode: static
+    :updated: 2019-1
+
+    A VNF's Heat Orchestration Template's ``OS::Nova::Server``
+    resource  property ``metadata``
+    key/value pair ``vf_module_index``
+    value **MUST** be obtained via a ``get_param``.
 
 .. req::
     :id: R-54340
