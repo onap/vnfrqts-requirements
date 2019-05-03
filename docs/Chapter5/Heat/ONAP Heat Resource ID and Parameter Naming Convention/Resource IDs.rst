@@ -155,7 +155,7 @@ OS::Cinder::Volume
     :id: R-87004
     :target: VNF
     :keyword: SHOULD
-    :updated: casablanca
+    :updated: dublin
 
     A VNF's Heat Orchestration Template's Resource
     ``OS::Cinder::Volume``
@@ -168,7 +168,7 @@ OS::Cinder::Volume
     where
 
     * ``{vm-type}`` is the vm-type
-    * ``{index}`` starts at zero and increments by one
+    * ``{index}`` starts at zero and increments by one (as described in R-11690)
 
 OS::Cinder::VolumeAttachment
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -177,7 +177,7 @@ OS::Cinder::VolumeAttachment
     :id: R-86497
     :target: VNF
     :keyword: SHOULD
-    :updated: casablanca
+    :updated: dublin
 
     A VNF's Heat Orchestration Template's Resource
     ``OS::Cinder::VolumeAttachment``
@@ -190,7 +190,7 @@ OS::Cinder::VolumeAttachment
     where
 
     * ``{vm-type}`` is the vm-type
-    * ``{index}`` starts at zero and increments by one
+    * ``{index}`` starts at zero and increments by one (as described in R-11690)
 
 OS::Heat::CloudConfig
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -322,7 +322,7 @@ OS::Neutron::Port
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: casablanca
+    :updated: dublin
 
     A VNF's Heat Orchestration Template's Resource ``OS::Neutron::Port``
     that is attaching to an external network Resource ID
@@ -333,18 +333,27 @@ OS::Neutron::Port
     where
 
     * ``{vm-type}`` is the vm-type
-    * ``{vm-type_index}`` is the instance of the ``{vm-type}``
+    * ``{vm-type_index}`` references the instance of the ``{vm-type}`` in
+      the VNF.  The
+      ``{vm-type_index}`` is a numeric value that **MUST** start at zero
+      in the VNF and
+      **MUST** increment by one each time a new instance of a ``{vm-type}``
+      is referenced.
     * ``{network-role}`` is the network-role of the network
       that the port is attached to
-    * ``{port-index}`` is the instance of the port on the vm-type
-      attached to the network of ``{network-role}``
+    * ``{port_index}`` references the instance of the port on the ``{vm-type}``
+      attached to ``{network-role}`` network.  The
+      ``{port_index}`` is a numeric value that **MUST** start at zero on an
+      instance of a ``{vm-type}`` and **MUST** increment by one each time a
+      new port is defined on the instance of the ``{vm-type}`` attached to
+      ``{network-role}`` network.
 
 .. req::
     :id: R-26351
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: casablanca
+    :updated: dublin
 
     A VNF's Heat Orchestration Template's Resource ``OS::Neutron::Port``
     that is attaching to an internal network Resource ID **MUST**
@@ -355,11 +364,20 @@ OS::Neutron::Port
     where
 
     * ``{vm-type}`` is the vm-type
-    * ``{vm-type_index}`` is the instance of the ``{vm-type}``
+    * ``{vm-type_index}`` references the instance of the ``{vm-type}`` in
+      the VNF.  The
+      ``{vm-type_index}`` is a numeric value that **MUST** start at zero
+      in the VNF and
+      **MUST** increment by one each time a new instance of a ``{vm-type}``
+      is referenced.
     * ``{network-role}`` is the network-role of the network
       that the port is attached to
-    * ``{port-index}`` is the instance of the port on the vm-type
-      attached to the network of ``{network-role}``
+    * ``{port_index}`` references the instance of the port on the ``{vm-type}``
+      attached to ``{network-role}`` network.  The
+      ``{port_index}`` is a numeric value that **MUST** start at zero on an
+      instance of a ``{vm-type}`` and **MUST** increment by one each time a
+      new port is defined on the instance of the ``{vm-type}`` attached to
+      ``{network-role}`` network.
 
 .. req::
     :id: R-27469
@@ -380,7 +398,10 @@ OS::Neutron::Port
     * ``{network-role}`` is the network-role of the network
       that the port is attached to
     * ``{index}`` is the instance of the IPv4 *Reserve Port*
-      for the vm-type attached to the network of ``{network-role}``
+      for the vm-type attached to the network of ``{network-role}``.
+      The ``{index}`` starts at zero and increments by one
+      (as described in R-11690).
+
 
 .. req::
     :id: R-68520
@@ -401,7 +422,9 @@ OS::Neutron::Port
     * ``{network-role}`` is the network-role of the network
       that the port is attached to
     * ``{index}`` is the instance of the IPv6 *Reserve Port*
-      for the vm-type attached to the network of ``{network-role}``
+      for the vm-type attached to the network of ``{network-role}``.
+      The ``{index}`` starts at zero and increments by one
+      (as described in R-11690).
 
 OS::Neutron::SecurityGroup
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -516,7 +539,7 @@ OS::Neutron::Subnet
     :id: R-59434
     :target: VNF
     :keyword: SHOULD
-    :updated: casablanca
+    :updated: dublin
 
     A VNF's Heat Orchestration Template's Resource ``OS::Neutron::Subnet``
     Resource ID **SHOULD** use the naming convention
@@ -526,7 +549,9 @@ OS::Neutron::Subnet
     where
 
     * ``{network-role}`` is the network-role
-    * ``{index}`` is the ``{index}`` of the subnet of the network
+    * ``{index}`` is the ``{index}`` of the subnet of the network.
+      The ``{index}`` starts at zero and increments by one
+      (as described in R-11690).
 
 OS::Nova::Keypair
 ~~~~~~~~~~~~~~~~~
@@ -535,7 +560,7 @@ OS::Nova::Keypair
     :id: R-24997
     :target: VNF
     :keyword: SHOULD
-    :updated: casablanca
+    :updated: dublin
 
     A VNF's Heat Orchestration Template's Resource ``OS::Nova::Keypair`` applies to
     one ``{vm-type}`` Resource ID **SHOULD** use the naming convention
@@ -545,7 +570,9 @@ OS::Nova::Keypair
     where
 
     * ``{network-role}`` is the network-role
-    * ``{index}`` is the ``{index}`` of the keypair
+    * ``{index}`` is the ``{index}`` of the keypair.
+      The ``{index}`` starts at zero and increments by one
+      (as described in R-11690).
 
 .. req::
     :id: R-65516
@@ -571,9 +598,10 @@ OS::Nova::Server
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: casablanca
+    :updated: dublin
 
-    A VNF's Heat Orchestration Template's Resource ``OS::Nova::Server`` Resource ID
+    A VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``
+    Resource ID
     **MUST** use the naming convention
 
     * ``{vm-type}_server_{index}``
@@ -581,7 +609,9 @@ OS::Nova::Server
     where
 
     * ``{vm-type}`` is the vm-type
-    * ``{index}`` is the index
+    * ``{index}`` is the index.
+      The ``{index}`` **MUST** starts at zero and increment by one
+      as described in R-11690.
 
 OS::Nova::ServerGroup
 ~~~~~~~~~~~~~~~~~~~~~
@@ -625,99 +655,165 @@ OS::ContrailV2::InstanceIp
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: casablanca
+    :updated: dublin
 
-    A VNF's Heat Orchestration Template's Resource ``OS::ContrailV2::InstanceIp``
-    that is configuring an IPv4 Address on a port attached to an external network
-    Resource ID **MUST** use the naming convention
+
+    A VNF's Heat Orchestration Template's Resource
+    ``OS::ContrailV2::InstanceIp`` Resource ID
+    that is configuring an IPv4 Address on a virtual machine interface
+    (i.e., OS::ContrailV2::VirtualMachineInterface)
+    attached to an external network
+    **MUST** use the naming convention
 
     *  ``{vm-type}_{vm-type_index}_{network-role}_vmi_{vmi_index}_IP_{index}``
 
     where
 
     * ``{vm-type}`` is the vm-type
-    * ``{vm-type_index}`` is the instance of the {vm-type}
-    * ``{network-role}`` is the network-role of the network that the port is attached to
-    * ``{vmi_index}`` is the instance of the virtual machine interface
-      (e.g., port)  on the vm-type attached to the network of {network-role}
+    * ``{vm-type_index}`` references the instance of the ``{vm-type}`` in
+      the VNF.  The
+      ``{vm-type_index}`` is a numeric value that **MUST** start at zero
+      in the VNF and
+      **MUST** increment by one each time a new instance of a ``{vm-type}``
+      is referenced.
+    * ``{network-role}`` is the network-role of the network that the
+      virtual machine interface is attached to
+    * ``{vmi_index}`` references the instance of the virtual machine interface
+      on the ``{vm-type}`` attached to ``{network-role}`` network.  The
+      ``{vmi_index}`` is a numeric value that **MUST** start at zero on an
+      instance of a ``{vm-type}`` and **MUST** increment by one each time a
+      new virtual machine interface is defined on the instance of the
+      ``{vm-type}`` attached to ``{network-role}`` network.
     * ``IP`` signifies that an IPv4 address is being configured
-    * ``{index}`` is the index of the IPv4 address
+    * ``{index}`` references the instance of the IPv4 address configured
+      on the virtual machine interface.  The ``{index}`` is a numeric value
+      that **MUST** start at zero on an
+      instance of a virtual machine interface and **MUST** increment by one
+      each time a new IPv4 address is configured on the
+      virtual machine interface.
 
 .. req::
     :id: R-46128
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: casablanca
+    :updated: dublin
 
-    A VNF's Heat Orchestration Template's Resource ``OS::ContrailV2::InstanceIp``
-    that is configuring an IPv6 Address on a port attached to an external network
-    Resource ID **MUST** use the naming convention
+    A VNF's Heat Orchestration Template's Resource
+    ``OS::ContrailV2::InstanceIp`` Resource ID
+    that is configuring an IPv6 Address on a virtual machine interface
+    (i.e., OS::ContrailV2::VirtualMachineInterface)
+    attached to an external network
+    **MUST** use the naming convention
 
     *  ``{vm-type}_{vm-type_index}_{network-role}_vmi_{vmi_index}_v6_IP_{index}``
 
     where
 
     * ``{vm-type}`` is the vm-type
-    * ``{vm-type_index}`` is the instance of the ``{vm-type}``
+    * ``{vm-type_index}`` references the instance of the ``{vm-type}`` in
+      the VNF.  The
+      ``{vm-type_index}`` is a numeric value that **MUST** start at zero
+      in the VNF and
+      **MUST** increment by one each time a new instance of a ``{vm-type}``
+      is referenced.
     * ``{network-role}`` is the network-role of the network
       that the port is attached to
-    * ``{vmi_index}`` is the instance of the virtual machine interface
-      (e.g., port)  on the vm-type
-      attached to the network of {network-role}
+    * ``{vmi_index}`` references the instance of the virtual machine interface
+      on the ``{vm-type}`` attached to ``{network-role}`` network.  The
+      ``{vmi_index}`` is a numeric value that **MUST** start at zero on an
+      instance of a ``{vm-type}`` and **MUST** increment by one each time a
+      new virtual machine interface is defined on the instance of the
+      ``{vm-type}`` attached to ``{network-role}`` network.
     * ``v6_IP`` signifies that an IPv6 address is being configured
-    * ``{index}`` is the index of the IPv6 address
+    * ``{index}`` references the instance of the IPv6 address configured
+      on the virtual machine interface.  The ``{index}`` is a numeric value
+      that **MUST** start at zero on an
+      instance of a virtual machine interface and **MUST** increment by one
+      each time a new IPv6 address is configured on the
+      virtual machine interface.
 
 .. req::
     :id: R-62187
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: casablanca
+    :updated: dublin
 
-    A VNF's Heat Orchestration Template's Resource ``OS::ContrailV2::InstanceIp``
-    that is configuring an IPv4 Address on a port attached to an internal network
-    Resource ID **MUST** use the naming convention
+    A VNF's Heat Orchestration Template's Resource
+    ``OS::ContrailV2::InstanceIp`` Resource ID
+    that is configuring an IPv4 Address on a virtual machine interface
+    (i.e., OS::ContrailV2::VirtualMachineInterface)
+    attached to an internal network
+    **MUST** use the naming convention
 
     *  ``{vm-type}_{vm-type_index}_int_{network-role}_vmi_{vmi_index}_IP_{index}``
 
     where
 
     * ``{vm-type}`` is the vm-type
-    * ``{vm-type_index}`` is the instance of the ``{vm-type}``
+    * ``{vm-type_index}`` references the instance of the ``{vm-type}`` in
+      the VNF.  The
+      ``{vm-type_index}`` is a numeric value that **MUST** start at zero
+      in the VNF and
+      **MUST** increment by one each time a new instance of a ``{vm-type}``
+      is referenced.
     * ``{network-role}`` is the network-role of the network
       that the port is attached to
-    * ``{vmi_index}`` is the instance of the virtual machine interface
-      (e.g., port)  on the vm-type
-      attached to the network of ``{network-role}``
+    * ``{vmi_index}`` references the instance of the virtual machine interface
+      on the ``{vm-type}`` attached to ``{network-role}`` network.  The
+      ``{vmi_index}`` is a numeric value that **MUST** start at zero on an
+      instance of a ``{vm-type}`` and **MUST** increment by one each time a
+      new virtual machine interface is defined on the instance of the
+      ``{vm-type}`` attached to ``{network-role}`` network.
     * ``IP`` signifies that an IPv4 address is being configured
-    * ``{index}`` is the index of the IPv4 address
+    * ``{index}`` references the instance of the IPv4 address configured
+      on the virtual machine interface.  The ``{index}`` is a numeric value
+      that **MUST** start at zero on an
+      instance of a virtual machine interface and **MUST** increment by one
+      each time a new IPv4 address is configured on the
+      virtual machine interface.
 
 .. req::
     :id: R-87563
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: casablanca
+    :updated: dublin
 
-    A VNF's Heat Orchestration Template's Resource ``OS::ContrailV2::InstanceIp``
-    that is configuring an IPv6 Address on a port attached to an internal network
-    Resource ID **MUST** use the naming convention
+    A VNF's Heat Orchestration Template's Resource
+    ``OS::ContrailV2::InstanceIp`` Resource ID
+    that is configuring an IPv6 Address on a virtual machine interface
+    (i.e., OS::ContrailV2::VirtualMachineInterface)
+    attached to an internal network
+    **MUST** use the naming convention
 
     *  ``{vm-type}_{vm-type_index}_int_{network-role}_vmi_{vmi_index}_v6_IP_{index}``
 
     where
 
     * ``{vm-type}`` is the vm-type
-    * ``{vm-type_index}`` is the instance of the ``{vm-type}``
+    * ``{vm-type_index}`` references the instance of the ``{vm-type}`` in
+      the VNF.  The
+      ``{vm-type_index}`` is a numeric value that **MUST** start at zero
+      in the VNF and
+      **MUST** increment by one each time a new instance of a ``{vm-type}``
+      is referenced.
     * ``{network-role}`` is the network-role of the network
       that the port is attached to
-    * ``{vmi_index}`` is the instance of the virtual machine interface
-      (e.g., port)  on the vm-type
-      attached to the network of ``{network-role}``
+    * ``{vmi_index}`` references the instance of the virtual machine interface
+      on the ``{vm-type}`` attached to ``{network-role}`` network.  The
+      ``{vmi_index}`` is a numeric value that **MUST** start at zero on an
+      instance of a ``{vm-type}`` and **MUST** increment by one each time a
+      new virtual machine interface is defined on the instance of the
+      ``{vm-type}`` attached to ``{network-role}`` network.
     * ``v6_IP`` signifies that an IPv6 address is being configured
-    * ``{index}`` is the index of the IPv6 address
-
+    * ``{index}`` references the instance of the IPv6 address configured
+      on the virtual machine interface.  The ``{index}`` is a numeric value
+      that **MUST** start at zero on an
+      instance of a virtual machine interface and **MUST** increment by one
+      each time a new IPv6 address is configured on the
+      virtual machine interface.
 
 OS::ContrailV2::InterfaceRouteTable
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -858,14 +954,15 @@ OS::ContrailV2::ServiceTemplate
     :validation_mode: static
     :updated: casablanca
 
-    A VNF's Heat Orchestration Template's Resource ``OS::ContrailV2::ServiceTemplate``
+    A VNF's Heat Orchestration Template's Resource
+    ``OS::ContrailV2::ServiceTemplate``
     Resource ID **MUST** contain the ``{vm-type}``.
 
 .. req::
     :id: R-14447
     :target: VNF
     :keyword: MAY
-    :updated: casablanca
+    :updated: dublin
 
     A VNF's Heat Orchestration Template's Resource ``OS::ContrailV2::ServiceTemplate``
     Resource ID **MAY** use the naming convention
@@ -876,7 +973,9 @@ OS::ContrailV2::ServiceTemplate
 
     * ``{vm-type}`` is the vm-type
     * ``RST`` signifies that it is the Resource Service Template
-    * ``{index}`` is the index
+    * ``{index}`` is the index.
+      The ``{index}`` starts at zero and increments by one
+      (as described in R-11690).
 
 OS::ContrailV2::VirtualMachineInterface
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -886,44 +985,65 @@ OS::ContrailV2::VirtualMachineInterface
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: casablanca
+    :updated: dublin
 
     A VNF's Heat Orchestration Template's Resource
-    ``OS::ContrailV2::VirtualMachineInterface`` that is attaching to an external network
-    Resource ID **MUST** use the naming convention
+    ``OS::ContrailV2::VirtualMachineInterface`` Resource ID
+    that is attaching to an external network
+    **MUST** use the naming convention
 
     * ``{vm-type}_{vm-type_index}_{network-role}_vmi_{vmi_index}``
 
     where
 
     * ``{vm-type}`` is the vm-type
-    * ``{vm-type_index}`` is the instance of the ``{vm-type}``
+    * ``{vm-type_index}`` references the instance of the ``{vm-type}`` in
+      the VNF.  The
+      ``{vm-type_index}`` is a numeric value that **MUST** start at zero
+      in the VNF and
+      **MUST** increment by one each time a new instance of a ``{vm-type}``
+      is referenced.
     * ``{network-role}`` is the network-role of the network
       that the port (i.e. virtual machine interface) is attached to
-    * ``{vmi_index}`` is the instance of the vmi on the vm-type
-      attached to the network of ``{network-role}``
+    * ``{vmi_index}`` references the instance of the virtual machine interface
+      on the ``{vm-type}`` attached to ``{network-role}`` network.  The
+      ``{vmi_index}`` is a numeric value that **MUST** start at zero on an
+      instance of a ``{vm-type}`` and **MUST** increment by one each time a
+      new virtual machine interface is defined on the instance of the
+      ``{vm-type}`` attached to ``{network-role}`` network.
+
 
 .. req::
     :id: R-50468
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: casablanca
+    :updated: dublin
 
     A VNF's Heat Orchestration Template's Resource
-    ``OS::ContrailV2::VirtualMachineInterface`` that is attaching to an internal network
-    Resource ID **MUST** use the naming convention
+    ``OS::ContrailV2::VirtualMachineInterface`` Resource ID
+    that is attaching to an internal network
+    **MUST** use the naming convention
 
     * ``{vm-type}_{vm-type_index}_int_{network-role}_vmi_{vmi_index}``
 
     where
 
     * ``{vm-type}`` is the vm-type
-    * ``{vm-type_index}`` is the instance of the ``{vm-type}``
+    * ``{vm-type_index}`` references the instance of the ``{vm-type}`` in
+      the VNF.  The
+      ``{vm-type_index}`` is a numeric value that **MUST** start at zero
+      in the VNF and
+      **MUST** increment by one each time a new instance of a ``{vm-type}``
+      is referenced.
     * ``{network-role}`` is the network-role of the network
       that the port (i.e. virtual machine interface) is attached to
-    * ``{vmi_index}`` is the instance of the vmi on the vm-type
-      attached to the network of ``{network-role}``
+    * ``{vmi_index}`` references the instance of the virtual machine interface
+      on the ``{vm-type}`` attached to ``{network-role}`` network.  The
+      ``{vmi_index}`` is a numeric value that **MUST** start at zero on an
+      instance of a ``{vm-type}`` and **MUST** increment by one each time a
+      new virtual machine interface is defined on the instance of the
+      ``{vm-type}`` attached to ``{network-role}`` network.
 
 
 OS::ContrailV2::VirtualNetwork
