@@ -1290,67 +1290,81 @@ and the others as backups. In case the master fails,
 the Virtual IP address is mapped to a backup's IP address and
 the backup becomes the master.
 
-Note that the management of the VIP IP addresses (i.e. transferring
+Note that the IP address assigned to the ``allowed_address_pairs`` property
+will be referred to as a Virtual IP or VIP or VIP Address.
+
+The management of the VIP addresses (i.e. transferring
 ownership between active and standby VMs) is the responsibility of
 the VNF application.
 
-
-If a VNF has two or more ports that require a Virtual IP Address (VIP),
+If a VNF has two or more ports that require a Virtual IP Address,
 a VNF's Heat Orchestration Template's Resource
 ``OS::Neutron::Port`` property ``allowed_address_pairs``
-map property ``ip_address`` parameter
-must be used.
+map property ``ip_address`` parameter must be used.
 
 The ``allowed_address_pairs`` is an optional property. It is not required.
 
-ONAP automation supports the assignment of VIP addresses
-for external networks.  ONAP support the assignment of one IPv4 VIP address
-and/or one IPv6 VIP address to a set of ports associated with a
-``{vm-type}`` and ``{network-role}``.
+The ONAP data model only supports the assignment of 
 
-If a VNF requires more than one IPv4 VIP address
-and/or more than one IPv6 VIP address to a set of ports associated with a
-``{vm-type}`` and ``{network-role}``, there are "manual" work-around
-procedures that can be utilized.
+* One IPv4 Virtual IP Address and/or
+* One IPv6 Virtual IP Address
 
-VIP Assignment, External Networks, Supported by Automation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+for a set of ports associated with a ``{vm-type}`` and ``{network-role}``.
+
+The ONAP data model that supports VIPs includes the 
+
+* SDC TOSCA model 
+* SDN-C MD-SAL structure
+* A&AI VNF-C object
+
+These data structures only support one IPv4 VIP Address and one IPv6 VIP
+Address per ``{vm-type}`` and ``{network-role}``.
+
+However, it is possible to assign additional VIP addresses to a port.
+These additional VIP addresses will not be represented in the
+SDC TOSCA model and A&AI VNF-C object and will be represented differently
+in the MD-SAL structure.
+
+All VIP Addresses will be inventoried in the
+A&AI vserver object.  This assumes the mechanism to populate
+allowed_address_pair IP addresses in the A&AI vserver object has been
+implemented. 
+
+In order for the VIP Address to be supported by the ONAP data model,
+the parameter associated with the ``OS::Neutron::Port`` property
+``allowed_address_pairs`` map property ``ip_address`` must follow
+an explicit naming convention.
+As expected, the naming convention only supports one IPv4 VIP Address
+and one IPv6 VIP Address.
+
+It is recommended that the first IPv4 VIP Address and first
+IPv6 VIP Address assigned follow the explicit naming convention.
+If additional VIP Addresses are required, the naming
+convention is at the discretion of the user.  However,
+``OS::Neutron::Port`` resource-level ``metadata`` (not property-level) must be
+included in the resource definition.
+
+The detailed requirements follow in the sections below.
+
+
+
+VIP Assignment, External Networks
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. req::
-    :id: R-91810
+    :id: R-83412
     :target: VNF
     :keyword: MUST NOT
     :validation_mode: static
-    :updated: casablanca
+    :updated: dublin
 
-    If a VNF requires ONAP to assign a Virtual IP (VIP) Address to
-    ports connected an external network, the port
-    **MUST NOT** have more than one IPv4 VIP address.
-
-.. req::
-    :id: R-41956
-    :target: VNF
-    :keyword: MUST NOT
-    :validation_mode: static
-    :updated: casablanca
-
-    If a VNF requires ONAP to assign a Virtual IP (VIP) Address to
-    ports connected an external network, the port
-    **MUST NOT** have more than one IPv6 VIP address.
-
-.. req::
-    :id: R-10754
-    :target: VNF
-    :keyword: MUST
-    :validation_mode: static
-    :updated: casablanca
-
-    If a VNF has two or more ports that
-    attach to an external network that require a Virtual IP Address (VIP),
-    and the VNF requires ONAP automation to assign the IP address,
-    all the Virtual Machines using the VIP address **MUST**
-    be instantiated in the same Base Module Heat Orchestration Template
-    or in the same Incremental Module Heat Orchestration Template.
+    The VNF's Heat Orchestration Template's Resource
+    ``OS::Neutron::Port`` is attaching to an external network (per the
+    ONAP definition, see Requirement R-57424), the
+    property ``allowed_address_pairs``
+    map property ``ip_address`` parameter(s)
+    **MUST NOT** be enumerated in the
+    VNF's Heat Orchestration Template's Environment File.
 
 
 .. req::
@@ -1361,39 +1375,24 @@ VIP Assignment, External Networks, Supported by Automation
     :updated: casablanca
 
     When the VNF's Heat Orchestration Template's Resource
-    ``OS::Neutron::Port`` is attaching to an external network (per the
-    ONAP definition, see Requirement R-57424),
-    and an IPv4 Virtual IP (VIP)
-    address is assigned via ONAP automation
-    using the property ``allowed_address_pairs``
-    map property ``ip_address`` and
-    the parameter name **MUST** follow the
-    naming convention
+    ``OS::Neutron::Port`` is attaching to an external network
+    (per the ONAP definition, see Requirement R-57424),
+    and the IPv4 VIP is required to be supported by the ONAP data model,
+    the property ``allowed_address_pairs`` map property ``ip_address``
+    parameter name **MUST** follow the naming convention
 
-      * ``{vm-type}_{network-role}_floating_ip``
+   * ``{vm-type}_{network-role}_floating_ip``
 
     where
 
-      * ``{vm-type}`` is the {vm-type} associated with the
-        OS::Nova::Server
-      * ``{network-role}`` is the {network-role} of the external
-        network
+    * ``{vm-type}`` is the {vm-type} associated with the ``OS::Nova::Server``
+    * ``{network-role}`` is the {network-role} of the external network
 
     And the parameter **MUST** be declared as type ``string``.
 
-.. req::
-    :id: R-83412
-    :target: VNF
-    :keyword: MUST NOT
-    :validation_mode: static
-    :updated: casablanca
+    As noted in the introduction to this section, the ONAP data model
+    can only support one IPv4 VIP Address.
 
-    The VNF's Heat Orchestration Template's Resource
-    ``OS::Neutron::Port`` property ``allowed_address_pairs``
-    map property ``ip_address`` parameter
-    ``{vm-type}_{network-role}_floating_ip``
-    **MUST NOT** be enumerated in the
-    VNF's Heat Orchestration Template's Environment File.
 
 *Example Parameter Definition*
 
@@ -1403,49 +1402,35 @@ VIP Assignment, External Networks, Supported by Automation
 
     {vm-type}_{network-role}_floating_ip:
       type: string
-      description: IPv4 VIP for {vm-type} VMs on the {network-role} network
+      description: IPv4 VIP for {vm-type} VMs on the {network-role} network   
+
 
 .. req::
     :id: R-35735
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: casablanca
+    :updated: dublin
 
     When the VNF's Heat Orchestration Template's Resource
-    ``OS::Neutron::Port`` is attaching to an external network (per the
-    ONAP definition, see Requirement R-57424),
-    and an IPv6 Virtual IP (VIP)
-    address is assigned via ONAP automation
-    using the property ``allowed_address_pairs``
-    map property ``ip_address``,
-    the parameter name **MUST** follow the
-    naming convention
+    ``OS::Neutron::Port`` is attaching to an external network
+    (per the ONAP definition, see Requirement R-57424),
+    and the IPv6 VIP is required to be supported by the ONAP data model,
+    the property ``allowed_address_pairs`` map property ``ip_address``
+    parameter name **MUST** follow the naming convention
 
-      * ``{vm-type}_{network-role}_floating_v6_ip``
+    * ``{vm-type}_{network-role}_floating_v6_ip``
 
     where
 
-      * ``{vm-type}`` is the {vm-type} associated with the
-        OS::Nova::Server
-      * ``{network-role}`` is the {network-role} of the external
-        network
+    * ``{vm-type}`` is the {vm-type} associated with the ``OS::Nova::Server``
+    * ``{network-role}`` is the {network-role} of the external network
 
     And the parameter **MUST** be declared as type ``string``.
 
-.. req::
-    :id: R-83418
-    :target: VNF
-    :keyword: MUST NOT
-    :validation_mode: static
-    :updated: casablanca
+    As noted in the introduction to this section, the ONAP data model
+    can only support one IPv6 VIP Address.
 
-    The VNF's Heat Orchestration Template's Resource
-    ``OS::Neutron::Port`` property ``allowed_address_pairs``
-    map property ``ip_address`` parameter
-    ``{vm-type}_{network-role}_floating_v6_ip``
-    **MUST NOT** be enumerated in the
-    VNF's Heat Orchestration Template's Environment File.
 
 *Example Parameter Definition*
 
@@ -1455,25 +1440,77 @@ VIP Assignment, External Networks, Supported by Automation
 
     {vm-type}_{network-role}_floating_v6_ip:
       type: string
-      description: VIP for {vm-type} VMs on the {network-role} network
+      description: IPv6 VIP for {vm-type} VMs on the {network-role} network
+
 
 .. req::
-    :id: R-159016
-    :keyword: MUST NOT
-    :updated: dublin
-    :validation_mode: static
+    :id: R-41493
     :target: VNF
+    :keyword: MUST
+    :validation_mode: static
+    :introduced: dublin
 
     When the VNF's Heat Orchestration Template's Resource
-    ``OS::Neutron::Port`` is attaching to an external network (per the
-    ONAP definition, see Requirement R-57424),
-    and an IPv4 and/or IPv6 Virtual IP (VIP)
-    address is assigned via ONAP automation
-    using the property ``allowed_address_pairs``
-    map property ``ip_address``, the
-    parameter **MUST NOT** be declared as ``type: comma_deliited_list``.
+    ``OS::Neutron::Port`` is attaching to an external network
+    (per the ONAP definition, see Requirement R-57424),
+    and the IPv4 and/or IPv6 VIP Address
+    is **not** supported by the ONAP data model,
+    the property ``allowed_address_pairs`` map property ``ip_address``
+
+    * parameter name **MAY** follow use any naming convention
+    * parameter **MAY** be declared as type ``string`` or type
+    ``comma_delimited_list``
+    
+    And the ``OS::Neutron::Port`` resource **MUST** contain
+    resource-level ``metadata`` (not property-level).
+
+    And the ``metadata`` format **MUST**  must contain the
+    key value ``aap_exempt`` with a list of all
+    ``allowed_address_pairs`` map property ``ip_address`` parameters
+    **not** supported by the ONAP data model.
 
 
+*Example*
+
+In the example below, the ``OS::Neutron::Port`` property
+``allowed_address_pairs`` map property ``ip_address`` has two parameters,
+``param1`` and ``param2``, that are not supported by the ONAP data model.
+
+.. code-block:: yaml
+
+  db_0_oam_port_0:
+    type: OS::Neutron::Port
+    properties:
+      network: { get_param: oam_net_id }
+      fixed_ips: [ { "ip_address": {get_param: db_oam_ip_0 }}]
+      allowed_address_pairs: [ { "ip_address": {get_param: param1 }}, { "ip_address": {get_param: param2 }}]
+    metadata: 
+      aap_exempt: 
+        - param1
+        - param2
+ 
+
+*Example*
+
+In the example below, the ``OS::Neutron::Port`` property
+``allowed_address_pairs`` map property ``ip_address`` has two parameters,
+``db_oam_ip_0``, which is supported by the ONAP data model and param1,
+which is not supported by the ONAP data model.
+
+
+  db_0_oam_port_0:
+    type: OS::Neutron::Port
+    properties:
+      network: { get_param: oam_net_id }
+      fixed_ips: [ { "ip_address": {get_param: db_oam_ip_0 }}]
+      allowed_address_pairs: [ { "ip_address": {get_param: db_oam_floating_ip }}, { "ip_address": {get_param: param1 }} ]
+    metadata: 
+      aap_exempt: 
+        - param1
+
+
+VIP Assignment, Internal Networks
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. req::
     :id: R-717227
