@@ -34,10 +34,11 @@ The following are the requirements related to PNF Plug and Play.
 .. req::
     :id: R-106240
     :target: PNF
-    :keyword: MUST
+    :keyword: SHOULD
     :introduced: casablanca
+    :update: El Alto
 
-    The following VES Events **MUST** be supported by the PNF: pnfRegistration
+    The following VES Events **SHOULD** be supported by the PNF: pnfRegistration
     VES Event, HVol VES Event, and Fault VES Event. These are onboarded via
     he SDC Design Studio.
 
