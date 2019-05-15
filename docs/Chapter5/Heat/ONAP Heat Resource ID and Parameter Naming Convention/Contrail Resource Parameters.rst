@@ -3,20 +3,20 @@
 .. Copyright 2017 AT&T Intellectual Property.  All rights reserved.
 
 Contrail Resource Parameters
-----------------------------------------------------------------------
+----------------------------
 
 ONAP requires the parameter names of certain Contrail Resources to
 follow specific naming conventions. This section provides these
 requirements.
 
 Contrail Network Parameters
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Contrail based resources may require references to a Contrail network
 using the network FQDN.
 
 External Networks
-~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~
 
 .. req::
     :id: R-02164
@@ -82,7 +82,7 @@ virtual_network_refs references a contrail network FQDN.
         - get_param: fw_sec_grp_id
 
 Interface Route Table Prefixes for Contrail InterfaceRoute Table
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. req::
     :id: R-28222
@@ -179,7 +179,7 @@ supports IP addresses in the format:
 
 
 Resource OS::ContrailV2::InstanceIp
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The Contrail resource ``OS::ContrailV2::InstanceIp`` has two properties
 that parameters **MUST** follow an explicit naming convention.  The
@@ -823,7 +823,7 @@ fw for firewall.
 
 
 Resource OS::ContrailV2::InstanceIp Property subnet_uuid
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 A VNF's Heat Orchestration Templates resource ``OS::ContrailV2::InstanceIp``
 property ``subnet_uuid`` parameter
@@ -1122,17 +1122,23 @@ represent an oam protected network and the ``{vm-type}`` has been defined as
 OS::ContrailV2::VirtualMachineInterface Property virtual_machine_interface_allowed_address_pairs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-
 A VNF's Heat Orchestration Templates resource
 ``OS::ContrailV2::VirtualMachineInterface`` map property,
-``virtual_machine_interface_allowed_address_pairs,
-virtual_machine_interface_allowed_address_pairs_allowed_address_pair,
-virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip,
-virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip_ip_prefix``
+
+``virtual_machine_interface_allowed_address_pairs``,
+
+``virtual_machine_interface_allowed_address_pairs_allowed_address_pair``,
+
+``virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip``,
+
+``virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip_ip_prefix``
+
 parameter **MUST** follow the same requirements that apply to the
 resource ``OS::Neutron::Port`` property
 ``allowed_address_pairs``, map property ``ip_address`` parameter.
 
+External Networks
+~~~~~~~~~~~~~~~~~
 
 .. req::
     :id: R-100280
@@ -1141,38 +1147,23 @@ resource ``OS::Neutron::Port`` property
     :target: VNF
     :introduced: dublin
 
-    If a VNF requires ONAP to assign a Virtual IP (VIP) Address to a
+    If a VNF's Heat Orchestration Template's resource
     ``OS::ContrailV2::VirtualMachineInterface``
-    connected an external network, the port
-    **MUST NOT** have more than one IPv4 VIP address.
+    is attaching to an external network (per the
+    ONAP definition, see Requirement R-57424), the
+    map property
 
+    ``virtual_machine_interface_allowed_address_pairs``,
 
-.. req::
-    :id: R-100290
-    :keyword: MUST NOT
-    :validation_mode: static
-    :target: VNF
-    :introduced: dublin
+    ``virtual_machine_interface_allowed_address_pairs_allowed_address_pair``,
 
-    If a VNF requires ONAP to assign a Virtual IP (VIP) Address to a
-    ``OS::ContrailV2::VirtualMachineInterface``
-    connected an external network, the port
-    **MUST NOT** have more than one IPv6 VIP address.
+    ``virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip``,
 
-
-.. req::
-    :id: R-100300
-    :keyword: MUST
-    :validation_mode: static
-    :target: VNF
-    :introduced: dublin
-
-    If a VNF has two or more ``OS::ContrailV2::VirtualMachineInterface`` that
-    attach to an external network that require a Virtual IP Address (VIP),
-    and the VNF requires ONAP automation to assign the IP address,
-    all the Virtual Machines using the VIP address **MUST**
-    be instantiated in the same Base Module Heat Orchestration Template
-    or in the same Incremental Module Heat Orchestration Template.
+    ``virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip_ip_prefix``
+    
+    parameter
+    **MUST NOT** be enumerated in the
+    VNF's Heat Orchestration Template's Environment File.
 
 
 .. req::
@@ -1182,53 +1173,35 @@ resource ``OS::Neutron::Port`` property
     :target: VNF
     :introduced: dublin
 
-    When the VNF's Heat Orchestration Template's Resource
+    When the VNF's Heat Orchestration Template's resource
     ``OS::ContrailV2::VirtualMachineInterface`` is attaching to an external
     network (per the
     ONAP definition, see Requirement R-57424),
     and an IPv4 Virtual IP (VIP)
-    address is assigned via ONAP automation
-    using the map property,
-    ``virtual_machine_interface_allowed_address_pairs,
-    virtual_machine_interface_allowed_address_pairs_allowed_address_pair,
-    virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip,
-    virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip_ip_prefix``
-    , the parameter name **MUST** follow the
-    naming convention
+    is required to be supported by the ONAP data model,
+    the map property
 
-      * ``{vm-type}_{network-role}_floating_ip``
+    ``virtual_machine_interface_allowed_address_pairs``,
 
-    where
+    ``virtual_machine_interface_allowed_address_pairs_allowed_address_pair``,
 
-      * ``{vm-type}`` is the {vm-type} associated with the
-        OS::Nova::Server
-      * ``{network-role}`` is the {network-role} of the external
-        network
+    ``virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip``,
 
-    And the parameter **MUST** be declared as type ``string``.
-
-
-
-.. req::
-    :id: R-100320
-    :keyword: MUST NOT
-    :validation_mode: static
-    :target: VNF
-    :introduced: dublin
-
-    The VNF's Heat Orchestration Template's Resource
-    ``OS::ContrailV2::VirtualMachineInterface``
-    map property,
-    ``virtual_machine_interface_allowed_address_pairs,
-    virtual_machine_interface_allowed_address_pairs_allowed_address_pair,
-    virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip,
-    virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip_ip_prefix``
-    parameter
+    ``virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip_ip_prefix``
+    
+    parameter name **MUST** follow the naming convention
 
     * ``{vm-type}_{network-role}_floating_ip``
 
-    **MUST NOT** be enumerated in the
-    VNF's Heat Orchestration Template's Environment File.
+    where
+
+    * ``{vm-type}`` is the {vm-type} associated with the ``OS::Nova::Server``
+    * ``{network-role}`` is the {network-role} of the external network
+
+    And the parameter **MUST** be declared as type ``string``.
+
+    The ONAP data model can only support one IPv4 VIP address.
+
 
 *Example Parameter Definition*
 
@@ -1241,7 +1214,6 @@ resource ``OS::Neutron::Port`` property
       description: IPv4 VIP for {vm-type} VMs on the {network-role} network
 
 
-
 .. req::
     :id: R-100330
     :keyword: MUST
@@ -1249,53 +1221,35 @@ resource ``OS::Neutron::Port`` property
     :target: VNF
     :introduced: dublin
 
-    When the VNF's Heat Orchestration Template's Resource
+    When the VNF's Heat Orchestration Template's resource
     ``OS::ContrailV2::VirtualMachineInterface`` is attaching to an external
     network (per the
     ONAP definition, see Requirement R-57424),
     and an IPv6 Virtual IP (VIP)
-    address is assigned via ONAP automation
-    using the
-    map property,
-    ``virtual_machine_interface_allowed_address_pairs,
-    virtual_machine_interface_allowed_address_pairs_allowed_address_pair,
-    virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip,
-    virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip_ip_prefix``
-    , the parameter name **MUST** follow the
-    naming convention
+    is required to be supported by the ONAP data model,
+    the map property
 
-      * ``{vm-type}_{network-role}_floating_v6_ip``
+    ``virtual_machine_interface_allowed_address_pairs``,
 
-    where
+    ``virtual_machine_interface_allowed_address_pairs_allowed_address_pair``,
 
-      * ``{vm-type}`` is the {vm-type} associated with the
-        OS::Nova::Server
-      * ``{network-role}`` is the {network-role} of the external
-        network
+    ``virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip``,
 
-    And the parameter **MUST** be declared as type ``string``.
-
-
-.. req::
-    :id: R-100340
-    :keyword: MUST NOT
-    :validation_mode: static
-    :target: VNF
-    :introduced: dublin
-
-    The VNF's Heat Orchestration Template's Resource
-    ``OS::ContrailV2::VirtualMachineInterface``
-    map property,
-    ``virtual_machine_interface_allowed_address_pairs,
-    virtual_machine_interface_allowed_address_pairs_allowed_address_pair,
-    virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip,
-    virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip_ip_prefix``
-    parameter
+    ``virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip_ip_prefix``
+   
+    parameter name **MUST** follow the naming convention
 
     * ``{vm-type}_{network-role}_floating_v6_ip``
 
-    **MUST NOT** be enumerated in the
-    VNF's Heat Orchestration Template's Environment File.
+    where
+
+    * ``{vm-type}`` is the {vm-type} associated with the ``OS::Nova::Server``
+    * ``{network-role}`` is the {network-role} of the external network
+
+    And the parameter **MUST** be declared as type ``string``.
+
+    The ONAP data model can only support one IPv6 VIP address.
+
 
 *Example Parameter Definition*
 
@@ -1305,7 +1259,7 @@ resource ``OS::Neutron::Port`` property
 
     {vm-type}_{network-role}_floating_v6_ip:
       type: string
-      description: VIP for {vm-type} VMs on the {network-role} network
+      description: IPv6 VIP for {vm-type} VMs on the {network-role} network
 
 .. req::
     :id: R-100350
@@ -1314,21 +1268,46 @@ resource ``OS::Neutron::Port`` property
     :validation_mode: static
     :target: VNF
 
-    When the VNF's Heat Orchestration Template's Resource
-    ``OS::ContrailV2::VirtualMachineInterface`` is attaching to an external
-    network (per the
-    ONAP definition, see Requirement R-57424),
-    and an IPv4 and/or IPv6 Virtual IP (VIP)
-    address is assigned via ONAP automation
-    using the
-    map property,
-    ``virtual_machine_interface_allowed_address_pairs,
-    virtual_machine_interface_allowed_address_pairs_allowed_address_pair,
-    virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip,
-    virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip_ip_prefix``
-    parameter
-    **MUST NOT** be declared as ``type: comma_deliited_list``.
+    When the VNF's Heat Orchestration Template's resource
+    ``OS::ContrailV2::VirtualMachineInterface`` is attaching to an
+    external network
+    (per the ONAP definition, see Requirement R-57424),
+    and the IPv4 VIP address and/or IPv6 VIP address
+    is **not** supported by the ONAP data model,
+    the map property
 
+    ``virtual_machine_interface_allowed_address_pairs``,
+
+    ``virtual_machine_interface_allowed_address_pairs_allowed_address_pair``,
+
+    ``virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip``,
+
+    ``virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip_ip_prefix``
+
+    * Parameter name **MAY** use any naming convention.  That is, there is no
+      ONAP mandatory parameter naming convention.
+    * Parameter **MAY** be declared as type ``string`` or type
+    ``comma_delimited_list``.
+
+    And the ``OS::ContrailV2::VirtualMachineInterface`` resource
+    **MUST** contain resource-level ``metadata`` (not property-level).
+
+    And the ``metadata`` format **MUST**  must contain the
+    key value ``aap_exempt`` with a list of all map property
+
+    ``virtual_machine_interface_allowed_address_pairs``,
+
+    ``virtual_machine_interface_allowed_address_pairs_allowed_address_pair``,
+
+    ``virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip``,
+
+    ``virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip_ip_prefix``
+
+    parameters **not** supported by the ONAP data model.
+
+
+Internal Networks
+~~~~~~~~~~~~~~~~~
 
 .. req::
     :id: R-100360
@@ -1430,6 +1409,9 @@ resource ``OS::Neutron::Port`` property
     And the parameter **MUST** be declared as ``type: comma_delimited_list``
     and **MUST** be enumerated in the environment file.
 
+
+Example
+~~~~~~~
 
 
 *Example OS::ContrailV2::VirtualMachineInterface*
