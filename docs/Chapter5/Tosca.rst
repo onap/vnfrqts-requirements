@@ -201,8 +201,9 @@ VNF Package Contents
     :keyword: MUST
     :introduced: dublin
 
-    The VNF or PNF TOSCA CSAR package Manifest file **MUST** contain: non-mano
-    artifact set with following ONAP public tag
+    If one or more non-MANO artifact(s) is included in the VNF or PNF TOSCA CSAR
+    package, the Manifest file in this CSAR package **MUST** contain: non-MANO
+    artifact set which MAY contain following ONAP public tag.
 
       - onap_ves_events: contains VES registration files
 
