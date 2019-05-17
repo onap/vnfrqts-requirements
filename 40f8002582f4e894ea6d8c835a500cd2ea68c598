@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1247a29f_b582bf9f",
+        "filename": "docs/Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Contrail Resource Parameters.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 1142,
+      "author": {
+        "id": 3013
+      },
+      "writtenOn": "2019-05-17T15:24:28Z",
+      "side": 1,
+      "message": "the underlines shouldn\u0027t exceed the length of the title above or the build process complains about it.",
+      "range": {
+        "startLine": 1142,
+        "startChar": 17,
+        "endLine": 1142,
+        "endChar": 25
+      },
+      "revId": "40f8002582f4e894ea6d8c835a500cd2ea68c598",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c14c066d_fbf6723f",
+        "filename": "docs/Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Contrail Resource Parameters.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 1240,
+      "author": {
+        "id": 3013
+      },
+      "writtenOn": "2019-05-17T15:24:28Z",
+      "side": 1,
+      "message": "whitespace :)",
+      "range": {
+        "startLine": 1240,
+        "startChar": 0,
+        "endLine": 1240,
+        "endChar": 4
+      },
+      "revId": "40f8002582f4e894ea6d8c835a500cd2ea68c598",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d85bbff_df891df2",
+        "filename": "docs/Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Contrail Resource Parameters.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 1266,
+      "author": {
+        "id": 3013
+      },
+      "writtenOn": "2019-05-17T15:24:28Z",
+      "side": 1,
+      "message": "same as the new OS::Neutron::Port req - should this be a req, or just verbiage?",
+      "range": {
+        "startLine": 1266,
+        "startChar": 9,
+        "endLine": 1266,
+        "endChar": 17
+      },
+      "revId": "40f8002582f4e894ea6d8c835a500cd2ea68c598",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e78aa669_3db1f906",
+        "filename": "docs/Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Contrail Resource Parameters.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 1311,
+      "author": {
+        "id": 3013
+      },
+      "writtenOn": "2019-05-17T15:24:28Z",
+      "side": 1,
+      "message": "same as other underline",
+      "range": {
+        "startLine": 1311,
+        "startChar": 17,
+        "endLine": 1311,
+        "endChar": 25
+      },
+      "revId": "40f8002582f4e894ea6d8c835a500cd2ea68c598",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1d3aec11_7a6f7429",
+        "filename": "docs/Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Contrail Resource Parameters.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 1415,
+      "author": {
+        "id": 3013
+      },
+      "writtenOn": "2019-05-17T15:24:28Z",
+      "side": 1,
+      "message": "same as other underline",
+      "range": {
+        "startLine": 1415,
+        "startChar": 7,
+        "endLine": 1415,
+        "endChar": 25
+      },
+      "revId": "40f8002582f4e894ea6d8c835a500cd2ea68c598",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e94763e_cfcf2f3d",
+        "filename": "docs/Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Neutron Parameters.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 1441,
+      "author": {
+        "id": 3013
+      },
+      "writtenOn": "2019-05-17T15:24:28Z",
+      "side": 1,
+      "message": "Should this be a req, or just some verbiage? From a validation perspective, the scripts will not be directly testing this. If the new metadata is used, the other tests that check the naming convention will exit. But there won\u0027t be a script explicitly testing that a non-conformant parameter is also included in the metadata section.",
+      "range": {
+        "startLine": 1441,
+        "startChar": 4,
+        "endLine": 1441,
+        "endChar": 16
+      },
+      "revId": "40f8002582f4e894ea6d8c835a500cd2ea68c598",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
