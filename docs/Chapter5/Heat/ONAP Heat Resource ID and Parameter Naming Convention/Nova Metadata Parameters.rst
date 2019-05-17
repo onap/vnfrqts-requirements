@@ -246,7 +246,7 @@ part of the orchestration process.
 .. req::
     :id: R-100400
     :keyword: SHOULD
-    :introduced: 2019-1
+    :introduced: dublin
     :target: VNF
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
@@ -258,7 +258,7 @@ part of the orchestration process.
     :keyword: MUST
     :validation_mode: static
     :target: VNF
-    :updated: 2019-1
+    :updated: dublin
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
     property ``metadata`` key/value pair ``vf_module_name``
@@ -463,7 +463,7 @@ vf_module_index
 .. req::
     :id: R-100410
     :keyword: MAY
-    :introduced: 2019-1
+    :introduced: dublin
     :target: VNF
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server``
@@ -476,7 +476,7 @@ vf_module_index
     :keyword: MUST
     :target: VNF
     :validation_mode: static
-    :updated: 2019-1
+    :updated: dublin
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server``
     resource  property ``metadata``

@@ -30,6 +30,7 @@ Requirement R-01455 defines how the ``{vm-type]`` is defined.
     :keyword: MUST
     :validation_mode: static
     :introduced: casablanca
+    :updated: dublin
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource's
 
@@ -235,7 +236,7 @@ Property: Name
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: casablanca
+    :updated: dublin
 
     When the VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``
     property ``name`` parameter is defined as a ``string``,
@@ -373,7 +374,7 @@ Property: availability_zone
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: casablanca
+    :updated: dublin
 
     The VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``
     property ``availability_zone`` parameter name

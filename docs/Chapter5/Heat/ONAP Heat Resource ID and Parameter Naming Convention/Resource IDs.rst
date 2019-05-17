@@ -127,7 +127,7 @@ Heat Orchestration Template resources are described in :ref:`resources`.
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: casablanca
+    :updated: dublin
 
     When a VNF's Heat Orchestration Template's Resource ID contains an
     ``{index}``, the ``{index}`` is a numeric value that **MUST** start at
@@ -578,7 +578,7 @@ OS::Nova::Keypair
     :id: R-65516
     :target: VNF
     :keyword: SHOULD
-    :updated: casablanca
+    :updated: dublin
 
     A VNF's Heat Orchestration Template's Resource ``OS::Nova::Keypair`` applies to
     all Virtual Machines in the VNF, the Resource ID **SHOULD** use the naming

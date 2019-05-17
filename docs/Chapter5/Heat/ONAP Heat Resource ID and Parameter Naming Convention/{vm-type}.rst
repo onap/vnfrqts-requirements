@@ -12,7 +12,7 @@
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: casablanca
+    :updated: dublin
 
     When a VNF's Heat Orchestration Template creates a Virtual Machine
     (i.e., ``OS::Nova::Server``),

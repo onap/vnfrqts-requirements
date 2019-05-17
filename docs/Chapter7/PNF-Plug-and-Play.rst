@@ -36,7 +36,7 @@ The following are the requirements related to PNF Plug and Play.
     :target: PNF
     :keyword: SHOULD
     :introduced: casablanca
-    :update: El Alto
+    :updated: El Alto
 
     The following VES Events **SHOULD** be supported by the PNF: pnfRegistration
     VES Event, HVol VES Event, and Fault VES Event. These are onboarded via
@@ -192,6 +192,7 @@ The following are the requirements related to PNF Plug and Play.
     :target: PNF
     :keyword: MUST
     :introduced: casablanca
+    :updated: dublin
 
     The PNF **MUST** support one of the protocols for a Service Configuration
     message exchange between the PNF and PNF Controller (in ONAP):

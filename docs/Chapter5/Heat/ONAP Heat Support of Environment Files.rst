@@ -13,7 +13,7 @@ ONAP Heat Support of Environment Files
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: casablanca
+    :introduced: dublin
 
     A parameter enumerated in a
     VNF's Heat Orchestration Template's environment file **MUST** be declared

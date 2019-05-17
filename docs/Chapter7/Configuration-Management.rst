@@ -100,7 +100,7 @@ configuration update) is audited against the running configuration on the VNF
     :id: R-20741
     :target: VNF or PNF
     :keyword: MUST
-    :updated: casablanca
+    :updated: dublin
 
     The VNF or PNF **MUST** support APPC/SDN-C ``Configure`` command.
 
@@ -108,7 +108,7 @@ configuration update) is audited against the running configuration on the VNF
     :id: R-19366
     :target: VNF or PNF
     :keyword: MUST
-    :updated: casablanca
+    :updated: dublin
 
     The VNF or PNF **MUST** support APPC ``ConfigModify`` command.
 
@@ -116,7 +116,7 @@ configuration update) is audited against the running configuration on the VNF
     :id: R-32981
     :target: VNF or PNF
     :keyword: MUST
-    :updated: casablanca
+    :updated: dublin
 
     The VNF or PNF **MUST** support APPC ``ConfigBackup`` command.
 
@@ -124,7 +124,7 @@ configuration update) is audited against the running configuration on the VNF
     :id: R-48247
     :target: VNF or PNF
     :keyword: MUST
-    :updated: casablanca
+    :updated: dublin
 
     The VNF or PNF **MUST** support APPC ``ConfigRestore`` command.
 
@@ -132,7 +132,7 @@ configuration update) is audited against the running configuration on the VNF
     :id: R-94084
     :target: VNF or PNF
     :keyword: MUST
-    :updated: casablanca
+    :updated: dublin
 
     The VNF or PNF **MUST** support APPC/SDN-C ``ConfigScaleOut`` command.
 
@@ -140,7 +140,7 @@ configuration update) is audited against the running configuration on the VNF
     :id: R-56385
     :target: VNF or PNF
     :keyword: MUST
-    :updated: casablanca
+    :updated: dublin
 
     The VNF or PNF **MUST** support APPC ``Audit`` command.
 
@@ -218,6 +218,7 @@ UpgradePostCheck failed).
     :target: VNF or PNF
     :keyword: MUST
     :introduced: casablanca
+    :updated: dublin
 
     The VNF or PNF **MUST**, if serving as a distribution point or anchor point for
     steering point from source to destination, support the ONAP Controller's
@@ -227,7 +228,7 @@ UpgradePostCheck failed).
     :id: R-12706
     :target: VNF or PNF
     :keyword: MUST
-    :updated: casablanca
+    :updated: dublin
 
     The VNF or PNF **MUST** support APPC/SDN-C ``QuiesceTraffic`` command.
 
@@ -235,7 +236,7 @@ UpgradePostCheck failed).
     :id: R-07251
     :target: VNF or PNF
     :keyword: MUST
-    :updated: casablanca
+    :updated: dublin
 
     The VNF or PNF **MUST** support APPC/SDN-C ``ResumeTraffic`` command.
 
@@ -243,7 +244,7 @@ UpgradePostCheck failed).
     :id: R-83146
     :target: VNF or PNF
     :keyword: MUST
-    :updated: casablanca
+    :updated: dublin
 
     The VNF or PNF **MUST** support APPC ``StopApplication`` command.
 
@@ -251,7 +252,7 @@ UpgradePostCheck failed).
     :id: R-82811
     :target: VNF or PNF
     :keyword: MUST
-    :updated: casablanca
+    :updated: dublin
 
     The VNF or PNF **MUST** support APPC ``StartApplication`` command.
 
@@ -259,7 +260,7 @@ UpgradePostCheck failed).
     :id: R-19922
     :target: VNF or PNF
     :keyword: MUST
-    :updated: casablanca
+    :updated: dublin
 
     The VNF or PNF **MUST** support APPC/SDN-C ``UpgradePrecheck`` command.
 
@@ -267,7 +268,7 @@ UpgradePostCheck failed).
     :id: R-49466
     :target: VNF or PNF
     :keyword: MUST
-    :updated: casablanca
+    :updated: dublin
 
     The VNF or PNF **MUST** support APPC/SDN-C ``UpgradeSoftware`` command.
 
@@ -275,7 +276,7 @@ UpgradePostCheck failed).
     :id: R-45856
     :target: VNF or PNF
     :keyword: MUST
-    :updated: casablanca
+    :updated: dublin
 
     The VNF or PNF **MUST** support APPC/SDN-C ``UpgradePostCheck`` command.
 
@@ -283,7 +284,7 @@ UpgradePostCheck failed).
     :id: R-97343
     :target: VNF or PNF
     :keyword: MUST
-    :updated: casablanca
+    :updated: dublin
 
     The VNF or PNF **MUST** support APPC/SDN-C ``UpgradeBackup`` command.
 
@@ -291,7 +292,7 @@ UpgradePostCheck failed).
     :id: R-65641
     :target: VNF or PNF
     :keyword: MUST
-    :updated: casablanca
+    :updated: dublin
 
     The VNF or PNF **MUST** support APPC/SDN-C ``UpgradeBackOut`` command.
 
@@ -326,7 +327,7 @@ automated fashion.
     :id: R-41430
     :target: VNF or PNF
     :keyword: MUST
-    :updated: casablanca
+    :updated: dublin
 
     The VNF or PNF **MUST** support APPC/SDN-C ``HealthCheck`` command.
 
@@ -379,6 +380,7 @@ Configuration Management
     :id: R-88026
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** include a NETCONF server enabling
     runtime configuration and lifecycle management capabilities.
@@ -387,6 +389,7 @@ Configuration Management
     :id: R-95950
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** provide a NETCONF interface fully defined
     by supplied YANG models for the embedded NETCONF server.
@@ -399,6 +402,7 @@ NETCONF Server Requirements
     :id: R-73468
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** allow the NETCONF server connection
     parameters to be configurable during virtual machine instantiation
@@ -409,7 +413,7 @@ NETCONF Server Requirements
     :id: R-90007
     :target: VNF or PNF
     :keyword: MUST
-    :updated: casablanca
+    :updated: dublin
 
     The VNF or PNF **MUST** implement the protocol operation:
     ``close-session()`` - Gracefully close the current session.
@@ -418,7 +422,7 @@ NETCONF Server Requirements
     :id: R-70496
     :target: VNF or PNF
     :keyword: MUST
-    :updated: casablanca
+    :updated: dublin
 
     The VNF or PNF **MUST** implement the protocol operation:
     ``commit(confirmed, confirm-timeout)`` - Commit candidate
@@ -428,7 +432,7 @@ NETCONF Server Requirements
     :id: R-18733
     :target: VNF or PNF
     :keyword: MUST
-    :updated: casablanca
+    :updated: dublin
 
     The VNF or PNF **MUST** implement the protocol operation:
     ``discard-changes()`` - Revert the candidate configuration
@@ -438,7 +442,7 @@ NETCONF Server Requirements
     :id: R-44281
     :target: VNF or PNF
     :keyword: MUST
-    :updated: casablanca
+    :updated: dublin
 
     The VNF or PNF **MUST** implement the protocol operation:
     ``edit-config(target, default-operation, test-option, error-option,
@@ -449,6 +453,7 @@ NETCONF Server Requirements
     :id: R-60106
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** implement the protocol operation:
     ``get(filter)`` - Retrieve (a filtered subset of) the running
@@ -459,7 +464,7 @@ NETCONF Server Requirements
     :id: R-29488
     :target: VNF or PNF
     :keyword: MUST
-    :updated: casablanca
+    :updated: dublin
 
     The VNF or PNF **MUST** implement the protocol operation:
     ``get-config(source, filter`` - Retrieve a (filtered subset of
@@ -469,7 +474,7 @@ NETCONF Server Requirements
     :id: R-11235
     :target: VNF or PNF
     :keyword: MUST
-    :updated: casablanca
+    :updated: dublin
 
     The VNF or PNF **MUST** implement the protocol operation:
     ``kill-session(session``- Force the termination of **session**.
@@ -478,7 +483,7 @@ NETCONF Server Requirements
     :id: R-02597
     :target: VNF or PNF
     :keyword: MUST
-    :updated: casablanca
+    :updated: dublin
 
     The VNF or PNF **MUST** implement the protocol operation:
     ``lock(target)`` - Lock the configuration data store target.
@@ -487,7 +492,7 @@ NETCONF Server Requirements
     :id: R-96554
     :target: VNF or PNF
     :keyword: MUST
-    :updated: casablanca
+    :updated: dublin
 
     The VNF or PNF **MUST** implement the protocol operation:
     ``unlock(target)`` - Unlock the configuration data store target.
@@ -496,7 +501,7 @@ NETCONF Server Requirements
     :id: R-29324
     :target: VNF or PNF
     :keyword: SHOULD
-    :updated: casablanca
+    :updated: dublin
 
     The VNF or PNF **SHOULD** implement the protocol operation:
     ``copy-config(target, source)`` - Copy the content of the
@@ -506,7 +511,7 @@ NETCONF Server Requirements
     :id: R-88031
     :target: VNF or PNF
     :keyword: SHOULD
-    :updated: casablanca
+    :updated: dublin
 
     The VNF or PNF **SHOULD** implement the protocol operation:
     ``delete-config(target)`` - Delete the named configuration
@@ -516,6 +521,7 @@ NETCONF Server Requirements
     :id: R-97529
     :target: VNF or PNF
     :keyword: SHOULD
+    :updated: dublin
 
     The VNF or PNF **SHOULD** implement the protocol operation:
     ``get-schema(identifier, version, format)`` - Retrieve the YANG schema.
@@ -524,6 +530,7 @@ NETCONF Server Requirements
     :id: R-62468
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** allow all configuration data to be
     edited through a NETCONF <edit-config> operation. Proprietary
@@ -533,6 +540,7 @@ NETCONF Server Requirements
     :id: R-01382
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** allow the entire configuration of the VNF or PNF to be
     retrieved via NETCONF's <get-config> and <edit-config>, independently
@@ -542,6 +550,7 @@ NETCONF Server Requirements
     :id: R-28756
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** support ``:partial-lock`` and
     ``:partial-unlock`` capabilities, defined in RFC 5717. This
@@ -552,6 +561,7 @@ NETCONF Server Requirements
     :id: R-83873
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** support ``:rollback-on-error`` value for
     the <error-option> parameter to the <edit-config> operation. If any
@@ -564,6 +574,7 @@ NETCONF Server Requirements
     :id: R-68990
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** support the ``:startup`` capability. It
     will allow the running configuration to be copied to this special
@@ -573,6 +584,7 @@ NETCONF Server Requirements
     :id: R-68200
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** support the ``:url`` value to specify
     protocol operation source and target parameters. The capability URI
@@ -585,6 +597,7 @@ NETCONF Server Requirements
     :id: R-20353
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** implement both ``:candidate`` and
     ``:writable-running`` capabilities. When both ``:candidate`` and
@@ -594,6 +607,7 @@ NETCONF Server Requirements
     :id: R-11499
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** fully support the XPath 1.0 specification
     for filtered retrieval of configuration and other database contents.
@@ -608,6 +622,7 @@ NETCONF Server Requirements
     :id: R-83790
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** implement the ``:validate`` capability.
 
@@ -615,6 +630,7 @@ NETCONF Server Requirements
     :id: R-49145
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** implement ``:confirmed-commit`` If
     ``:candidate`` is supported.
@@ -623,6 +639,7 @@ NETCONF Server Requirements
     :id: R-58358
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** implement the ``:with-defaults`` capability
     [RFC6243].
@@ -631,6 +648,7 @@ NETCONF Server Requirements
     :id: R-59610
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** implement the data model discovery and
     download as defined in [RFC6022].
@@ -639,6 +657,7 @@ NETCONF Server Requirements
     :id: R-93443
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** define all data models in YANG 1.0 [RFC6020] or
     YANG 1.1 [RFC7950]. A combination of YANG 1.0 and YANG 1.1 modules is
@@ -649,6 +668,7 @@ NETCONF Server Requirements
     :id: R-26115
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** follow the data model update rules defined in
     [RFC6020] section 10 for YANG 1.0 modules, and [RFC7950] section 11
@@ -659,6 +679,7 @@ NETCONF Server Requirements
     :id: R-10716
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** support parallel and simultaneous
     configuration of separate objects within itself.
@@ -667,6 +688,7 @@ NETCONF Server Requirements
     :id: R-29495
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** support locking if a common object is
     being manipulated by two simultaneous NETCONF configuration operations
@@ -679,6 +701,7 @@ NETCONF Server Requirements
     :id: R-53015
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** apply locking based on the sequence of
     NETCONF operations, with the first configuration operation locking
@@ -688,6 +711,7 @@ NETCONF Server Requirements
     :id: R-02616
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** permit locking at the finest granularity
     if a VNF or PNF needs to lock an object for configuration to avoid blocking
@@ -700,6 +724,7 @@ NETCONF Server Requirements
     :id: R-41829
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** be able to specify the granularity of the
     lock via a restricted or full XPath expression.
@@ -708,6 +733,7 @@ NETCONF Server Requirements
     :id: R-66793
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** guarantee the VNF or PNF configuration integrity
     for all simultaneous configuration operations (e.g., if a change is
@@ -719,6 +745,7 @@ NETCONF Server Requirements
     :id: R-54190
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** release locks to prevent permanent lock-outs
     when/if a session applying the lock is terminated (e.g., SSH session
@@ -728,6 +755,7 @@ NETCONF Server Requirements
     :id: R-03465
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** release locks to prevent permanent lock-outs
     when the corresponding <partial-unlock> operation succeeds.
@@ -736,6 +764,7 @@ NETCONF Server Requirements
     :id: R-63935
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** release locks to prevent permanent lock-outs
     when a user configured timer has expired forcing the NETCONF SSH Session
@@ -746,6 +775,7 @@ NETCONF Server Requirements
     :id: R-10173
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** allow another NETCONF session to be able to
     initiate the release of the lock by killing the session owning the lock,
@@ -755,6 +785,7 @@ NETCONF Server Requirements
     :id: R-88899
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** support simultaneous <commit> operations
     within the context of this locking requirements framework.
@@ -763,6 +794,7 @@ NETCONF Server Requirements
     :id: R-07545
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** support all operations, administration and
     management (OAM) functions available from the supplier for VNFs or PNFs
@@ -772,6 +804,7 @@ NETCONF Server Requirements
     :id: R-60656
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** support sub tree filtering.
 
@@ -779,6 +812,7 @@ NETCONF Server Requirements
     :id: R-80898
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     TThe VNF or PNF **MUST** support heartbeat via a <get> with null filter.
 
@@ -786,6 +820,7 @@ NETCONF Server Requirements
     :id: R-25238
     :target: VNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF PACKAGE **MUST** validated YANG code using the open
     source pyang [#7.3.1]_ program using the following commands:
@@ -798,6 +833,7 @@ NETCONF Server Requirements
     :id: R-63953
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** have the echo command return a zero value
     otherwise the validation has failed.
@@ -806,6 +842,7 @@ NETCONF Server Requirements
     :id: R-26508
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** support a NETCONF server that can be mounted on
     OpenDaylight (client) and perform the operations of: modify, update,
@@ -821,6 +858,7 @@ conform, and those where applicable, that suppliers need to use.
     :id: R-22700
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** conform its YANG model to RFC 6470,
     "NETCONF Base Notifications".
@@ -829,6 +867,7 @@ conform, and those where applicable, that suppliers need to use.
     :id: R-10353
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** conform its YANG model to RFC 6244,
     "An Architecture for Network Management Using NETCONF and YANG".
@@ -837,6 +876,7 @@ conform, and those where applicable, that suppliers need to use.
     :id: R-53317
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** conform its YANG model to RFC 6087,
     "Guidelines for Authors and Reviewers of YANG Data Model specification".
@@ -845,6 +885,7 @@ conform, and those where applicable, that suppliers need to use.
     :id: R-33955
     :target: VNF or PNF
     :keyword: SHOULD
+    :updated: dublin
 
     The VNF or PNF **SHOULD** conform its YANG model to RFC 6991,
     "Common YANG Data Types".
@@ -853,6 +894,7 @@ conform, and those where applicable, that suppliers need to use.
     :id: R-22946
     :target: VNF or PNF
     :keyword: SHOULD
+    :updated: dublin
 
     The VNF or PNF **SHOULD** conform its YANG model to RFC 6536,
     "NETCONF Access Control Model".
@@ -861,6 +903,7 @@ conform, and those where applicable, that suppliers need to use.
     :id: R-10129
     :target: VNF or PNF
     :keyword: SHOULD
+    :updated: dublin
 
     The VNF or PNF **SHOULD** conform its YANG model to RFC 7223,
     "A YANG Data Model for Interface Management".
@@ -869,6 +912,7 @@ conform, and those where applicable, that suppliers need to use.
     :id: R-12271
     :target: VNF or PNF
     :keyword: SHOULD
+    :updated: dublin
 
     The VNF or PNF **SHOULD** conform its YANG model to RFC 7223,
     "IANA Interface Type YANG Module".
@@ -877,6 +921,7 @@ conform, and those where applicable, that suppliers need to use.
     :id: R-49036
     :target: VNF or PNF
     :keyword: SHOULD
+    :updated: dublin
 
     The VNF or PNF **SHOULD** conform its YANG model to RFC 7277,
     "A YANG Data Model for IP Management".
@@ -885,6 +930,7 @@ conform, and those where applicable, that suppliers need to use.
     :id: R-87564
     :target: VNF or PNF
     :keyword: SHOULD
+    :updated: dublin
 
     The VNF or PNF **SHOULD** conform its YANG model to RFC 7317,
     "A YANG Data Model for System Management".
@@ -893,6 +939,7 @@ conform, and those where applicable, that suppliers need to use.
     :id: R-24269
     :target: VNF or PNF
     :keyword: SHOULD
+    :updated: dublin
 
     The VNF or PNF **SHOULD** conform its YANG model to RFC 7407,
     "A YANG Data Model for SNMP Configuration", if Netconf used to
@@ -906,6 +953,7 @@ NETCONF RFCs.
     :id: R-33946
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** conform to the NETCONF RFC 4741,
     "NETCONF Configuration Protocol".
@@ -914,6 +962,7 @@ NETCONF RFCs.
     :id: R-04158
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** conform to the NETCONF RFC 4742,
     "Using the NETCONF Configuration Protocol over Secure Shell (SSH)".
@@ -922,6 +971,7 @@ NETCONF RFCs.
     :id: R-13800
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** conform to the NETCONF RFC 5277,
     "NETCONF Event Notification".
@@ -930,6 +980,7 @@ NETCONF RFCs.
     :id: R-01334
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** conform to the NETCONF RFC 5717,
     "Partial Lock Remote Procedure Call".
@@ -938,6 +989,7 @@ NETCONF RFCs.
     :id: R-08134
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** conform to the NETCONF RFC 6241,
     "NETCONF Configuration Protocol".
@@ -946,6 +998,7 @@ NETCONF RFCs.
     :id: R-78282
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** conform to the NETCONF RFC 6242,
     "Using the Network Configuration Protocol over Secure Shell".
@@ -987,6 +1040,7 @@ REST APIs
     :id: R-31809
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** support the HealthCheck RPC. The HealthCheck
     RPC executes a VNF or PNF Provider-defined VNF or PNF HealthCheck over the
@@ -1053,6 +1107,7 @@ Chef Client Requirements
     :id: R-79224
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** have the chef-client be preloaded with
     validator keys and configuration to register with the designated
@@ -1062,6 +1117,7 @@ Chef Client Requirements
     :id: R-72184
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** have routable FQDNs for all the endpoints
     (VMs) of a VNF or PNF that contain chef-clients which are used to register
@@ -1072,6 +1128,7 @@ Chef Client Requirements
     :id: R-47068
     :target: VNF or PNF
     :keyword: MAY
+    :updated: dublin
 
     The VNF or PNF **MAY** expose a single endpoint that is
     responsible for all functionality.
@@ -1080,6 +1137,7 @@ Chef Client Requirements
     :id: R-67114
     :target: VNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** be installed with Chef-Client >= 12.0 and Chef
     push jobs client >= 2.0.
@@ -1091,6 +1149,7 @@ Chef Roles/Requirements
     :id: R-27310
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF Package **MUST** include all relevant Chef artifacts
     (roles/cookbooks/recipes) required to execute VNF or PNF actions requested
@@ -1100,7 +1159,7 @@ Chef Roles/Requirements
     :id: R-26567
     :target: VNF or PNF
     :keyword: MUST
-    :updated: casablanca
+    :updated: dublin
 
     The VNF or PNF Package **MUST** include a run list of
     roles/cookbooks/recipes, for each supported VNF or PNF action, that will
@@ -1113,6 +1172,7 @@ Chef Roles/Requirements
     :id: R-98911
     :target: VNF or PNF
     :keyword: MUST NOT
+    :updated: dublin
 
     The VNF or PNF **MUST NOT** use any instance specific parameters
     for the VNF or PNF in roles/cookbooks/recipes invoked for a VNF or PNF
@@ -1122,6 +1182,7 @@ Chef Roles/Requirements
     :id: R-37929
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** accept all necessary instance specific
     data from the environment or node object attributes for the VNF or PNF
@@ -1131,6 +1192,7 @@ Chef Roles/Requirements
     :id: R-62170
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** over-ride any default values for
     configurable parameters that can be set by ONAP in the roles,
@@ -1140,6 +1202,7 @@ Chef Roles/Requirements
     :id: R-78116
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** update status on the Chef Server
     appropriately (e.g., via a fail or raise an exception) if the
@@ -1150,6 +1213,7 @@ Chef Roles/Requirements
     :id: R-44013
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** populate an attribute, defined as node
     ['PushJobOutput'] with the desired output on all nodes in the push job
@@ -1160,6 +1224,7 @@ Chef Roles/Requirements
     :id: R-30654
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF Package **MUST** have appropriate cookbooks that are
     designed to automatically 'rollback' to the original state in case of
@@ -1170,6 +1235,7 @@ Chef Roles/Requirements
     :id: R-65755
     :target: VNF or PNF
     :keyword: SHOULD
+    :updated: dublin
 
     The VNF or PNF **SHOULD** support callback URLs to return information
     to ONAP upon completion of the chef-client run for any chef-client run
@@ -1188,6 +1254,7 @@ Chef Roles/Requirements
     :id: R-15885
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** Upon completion of the chef-client run,
     POST back on the callback URL, a JSON object as described in Table
@@ -1278,7 +1345,7 @@ Ansible Client Requirements
     :id: R-32217
     :target: VNF or PNF
     :keyword: MUST
-    :updated: casablanca
+    :updated: dublin
 
     The VNF or PNF **MUST** have routable management IP addresses or FQDNs that
     are reachable via the Ansible Server for the endpoints (VMs) of a
@@ -1290,6 +1357,7 @@ Ansible Client Requirements
     :id: R-54373
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** have Python >= 2.6 on the endpoint VM(s)
     of a VNF or PNF on which an Ansible playbook will be executed.
@@ -1298,7 +1366,7 @@ Ansible Client Requirements
     :id: R-35401
     :target: VNF or PNF
     :keyword: MUST
-    :updated: casablanca
+    :updated: dublin
 
     The VNF or PNF **MUST** support SSH and allow SSH access by the
     Ansible server to the endpoint VM(s) and comply with the Network
@@ -1308,7 +1376,7 @@ Ansible Client Requirements
     :id: R-82018
     :target: VNF or PNF
     :keyword: MUST
-    :updated: casablanca
+    :updated: dublin
 
     The VNF or PNF **MUST** load the Ansible Server SSH public key onto VNF or
     PNF VM(s) /root/.ssh/authorized_keys as part of instantiation. Alternative,
@@ -1331,7 +1399,7 @@ Ansible Client Requirements
     :id: R-92866
     :target: VNF or PNF
     :keyword: MUST
-    :updated: casablanca
+    :updated: dublin
 
     The VNF or PNF **MUST** include as part of post-instantiation configuration
     done by Ansible Playbooks the removal/update of the SSH public key from
@@ -1345,6 +1413,7 @@ Ansible Client Requirements
     :target: VNF or PNF
     :keyword: MUST
     :introduced: casablanca
+    :updated: dublin
 
     The VNF or PNF **MUST** permit authentication, using root account, only
     right after instantiation and until post-instantiation configuration is
@@ -1355,6 +1424,7 @@ Ansible Client Requirements
     :target: VNF or PNF
     :keyword: MUST
     :introduced: casablanca
+    :updated: dublin
 
     The VNF or PNF **MUST** provide the ability to remove root access once
     post-instantiation configuration (Configure) is completed.
@@ -1363,7 +1433,7 @@ Ansible Client Requirements
     :id: R-91745
     :target: VNF or PNF
     :keyword: MUST
-    :updated: casablanca
+    :updated: dublin
 
     The VNF or PNF **MUST** update the Ansible Server and other entities
     storing and using the SSH keys for authentication when the SSH
@@ -1377,6 +1447,7 @@ Ansible Client Requirements
     :target: VNF or PNF
     :keyword: MUST
     :introduced: casablanca
+    :updated: dublin
 
     The VNF or PNF **MUST** provide the ability to include a "from=" clause in
     SSH public keys associated with mechanized user IDs created for an Ansible
@@ -1387,6 +1458,7 @@ Ansible Client Requirements
     :target: VNF or PNF
     :keyword: MUST
     :introduced: casablanca
+    :updated: dublin
 
     The VNF or PNF **MUST** define the "from=" clause to provide the list of IP
     addresses of the Ansible Servers in the Cluster, separated by coma, to
@@ -1398,6 +1470,7 @@ Ansible Client Requirements
     :target: VNF or PNF
     :keyword: MUST
     :introduced: casablanca
+    :updated: dublin
 
     The VNF or PNF **MUST** provide Ansible playbooks that are designed to run
     using an inventory hosts file in a supported format with only IP addresses
@@ -1408,6 +1481,7 @@ Ansible Client Requirements
     :target: VNF or PNF
     :keyword: MUST
     :introduced: casablanca
+    :updated: dublin
 
     The VNF or PNF **MUST** provide Ansible playbooks that are designed to run
     using an inventory hosts file in a supported format; with group names
@@ -1419,6 +1493,7 @@ Ansible Client Requirements
     :target: VNF or PNF
     :keyword: MUST
     :introduced: casablanca
+    :updated: dublin
 
     The VNF or PNF **MUST** provide Ansible playbooks that are designed to run
     using an inventory hosts file in a supported format; with site group that
@@ -1437,6 +1512,7 @@ complete the desired action.
     :target: VNF or PNF
     :keyword: MUST
     :introduced: casablanca
+    :updated: dublin
 
     The VNF or PNF **MUST** support Ansible playbooks that are compatible with
     Ansible version 2.6 or later.
@@ -1445,6 +1521,7 @@ complete the desired action.
     :id: R-40293
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** make available playbooks that conform
     to the ONAP requirement.
@@ -1453,7 +1530,7 @@ complete the desired action.
     :id: R-49396
     :target: VNF or PNF
     :keyword: MUST
-    :updated: casablanca
+    :updated: dublin
 
     The VNF or PNF **MUST** support each APPC/SDN-C VNF or PNF action
     by invocation of **one** playbook [#7.3.4]_. The playbook will be
@@ -1464,6 +1541,7 @@ complete the desired action.
     :id: R-33280
     :target: VNF or PNF
     :keyword: MUST NOT
+    :updated: dublin
 
     The VNF or PNF **MUST NOT** use any instance specific parameters
     in a playbook.
@@ -1472,7 +1550,7 @@ complete the desired action.
     :id: R-48698
     :target: VNF or PNF
     :keyword: MUST
-    :updated: casablanca
+    :updated: dublin
 
     The VNF or PNF **MUST** utilize information from key value pairs that will
     be provided by the Ansible Server as "extra-vars" during invocation to
@@ -1499,6 +1577,7 @@ will be considered to have failed.
     :id: R-43253
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** use playbooks designed to allow Ansible
     Server to infer failure or success based on the "PLAY_RECAP" capability.
@@ -1511,7 +1590,7 @@ will be considered to have failed.
     :id: R-50252
     :target: VNF or PNF
     :keyword: MUST
-    :updated: casablanca
+    :updated: dublin
 
     The VNF or PNF **MUST** write to a response file in JSON format that will
     be retrieved and made available by the Ansible Server if, as part of a VNF
@@ -1526,7 +1605,7 @@ will be considered to have failed.
     :id: R-51442
     :target: VNF or PNF
     :keyword: SHOULD
-    :updated: casablanca
+    :updated: dublin
 
     The VNF or PNF **SHOULD** use playbooks that are designed to
     automatically 'rollback' to the original state in case of any errors
@@ -1543,7 +1622,7 @@ will be considered to have failed.
     :id: R-58301
     :target: VNF or PNF
     :keyword: SHOULD NOT
-    :updated: casablanca
+    :updated: dublin
 
     The VNF or PNF **SHOULD NOT** use playbooks that make requests to
     Cloud resources e.g. Openstack (nova, neutron, glance, heat, etc.);
@@ -1563,7 +1642,7 @@ will be considered to have failed.
     :id: R-02651
     :target: VNF or PNF
     :keyword: SHOULD
-    :updated: casablanca
+    :updated: dublin
 
     The VNF or PNF **SHOULD** use available backup capabilities to save a
     copy of configuration files before implementing changes to support
@@ -1575,7 +1654,7 @@ will be considered to have failed.
     :id: R-43353
     :target: VNF or PNF
     :keyword: MUST
-    :updated: casablanca
+    :updated: dublin
 
     The VNF or PNF **MUST** return control from Ansible Playbooks only after
     all tasks performed by playbook are fully complete, signaling that the
@@ -1703,6 +1782,7 @@ performs a full VNF or PNF health check.
     :target: VNF or PNF
     :keyword: SHOULD
     :introduced: casablanca
+    :updated: dublin
 
     The VNF or PNF provider **MUST** deliver a new set of playbooks that
     includes all updated and unchanged playbooks for any new revision to an
@@ -1712,7 +1792,7 @@ performs a full VNF or PNF health check.
     :id: R-49911
     :target: VNF or PNF
     :keyword: SHOULD
-    :updated: casablanca
+    :updated: dublin
     :introduced: casablanca
 
     The VNF or PNF provider **MUST** assign a new point release to the updated

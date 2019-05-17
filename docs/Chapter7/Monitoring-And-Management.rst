@@ -132,6 +132,7 @@ sender and other identifying characteristics related to the domain and event.
    :validation_mode: in_service
    :impacts: dcae
    :keyword: MUST
+   :updated: dublin
 
    The VNF **MUST** produce VES events that include the following mandatory
    fields in the common event header.
@@ -315,6 +316,7 @@ Data Structure Specification of the Event Record
    :introduced: casablanca
    :validation_mode: static
    :impacts: dcae
+   :updated: dublin
 
    The VNF or PNF provider **MUST** provide a YAML file formatted in adherence with
    the :doc:`VES Event Registration specification <../../../../vnfsdk/model.git/docs/files/VESEventRegistration_3_0>`
@@ -332,6 +334,7 @@ Data Structure Specification of the Event Record
    :introduced: casablanca
    :validation_mode: static
    :impacts: dcae
+   :updated: dublin
 
    The VNF or PNF provider **MUST** indicate specific conditions that may arise, and
    recommend actions that may be taken at specific thresholds, or if specific
@@ -354,6 +357,7 @@ These changes may modify any of the following:
    :introduced: casablanca
    :validation_mode: in_service
    :impacts: dcae
+   :updated: dublin
 
    The events produced by the VNF or PNF **MUST** must be compliant with the common
    event format defined in the
@@ -367,6 +371,7 @@ These changes may modify any of the following:
    :introduced: casablanca
    :validation_mode: in_service
    :impacts: dcae
+   :updated: dublin
 
    The VNF or PNF Provider **MAY** require that specific events, identified by their
    ``eventName``, require that certain fields, which are optional in the common
@@ -389,6 +394,7 @@ minimizing changes to data delivery.
    :impacts: dcae
    :validation_mode: in_service
    :introduced: casablanca
+   :updated: dublin
 
    The VNF or PNF **SHOULD** deliver event records that fall into the event domains
    supported by VES.
@@ -426,6 +432,7 @@ particular data sets.
    :impacts: dcae
    :validation_mode: none
    :introduced: casablanca
+   :updated: dublin
 
    The VNF or PNF provider **MUST** reach agreement with the Service Provider on
    the selected methods for encoding, serialization and data delivery
@@ -442,6 +449,7 @@ VNF or PNF Telemetry using VES/JSON Model
    :impacts: dcae
    :validation_mode: in_service
    :introduced: casablanca
+   :updated: dublin
 
    The VNF or PNF **SHOULD** leverage the JSON-driven model, as depicted in Figure 2,
    for data delivery unless there are specific performance or operational
@@ -462,6 +470,7 @@ VNF or PNF Telemetry using Google Protocol Buffers
    :impacts: dcae
    :validation_mode: in_service
    :introduced: casablanca
+   :updated: dublin
 
    The VNF or PNF **MAY** leverage the Google Protocol Buffers (GPB) delivery model
    depicted in Figure 3 to support real-time performance management (PM) data.
@@ -495,6 +504,7 @@ Bulk Telemetry Transmission
    :introduced: casablanca
    :impacts: dcae, dmaap
    :validation_mode: in_service
+   :updated: dublin
 
    The VNF or PNF **MAY** leverage bulk VNF or PNF telemetry transmission mechanism, as
    depicted in Figure 4, in instances where other transmission methods are not
@@ -524,6 +534,7 @@ VNF telemetry via standardized interface
    :introduced: casablanca
    :impacts: dcae
    :validation_mode: in_service
+   :updated: dublin
 
    The VNF or PNF MUST produce heartbeat indicators consisting of events containing
    the common event header only per the VES Listener Specification.
@@ -536,7 +547,7 @@ JSON
     :id: R-19624
     :target: VNF or PNF
     :keyword: MUST
-    :updated: casablanca
+    :updated: dublin
 
     The VNF or PNF, when leveraging JSON for events, **MUST** encode and serialize
     content delivered to ONAP using JSON (RFC 7159) plain text format.
@@ -588,6 +599,7 @@ Google Protocol Buffers (GPB)
    :keyword: MUST
    :introduced: casablanca
    :validation_mode: in_service
+   :updated: dublin
 
    The VNF or PNF, when leveraging Google Protocol Buffers for events, **MUST**
    serialize the events using native Google Protocol Buffers (GPB) according
@@ -607,6 +619,7 @@ Google Protocol Buffers (GPB)
    :keyword: MUST
    :introduced: casablanca
    :validation_mode: static
+   :updated: dublin
 
    The VNF or PNF providers **MUST** provide the Service Provider the following
    artifacts to support the delivery of high-volume VNF or PNF telemetry to
@@ -628,6 +641,7 @@ Reporting Frequency
    :keyword: MUST
    :introduced: casablanca
    :validation_mode: in_service
+   :updated: dublin
 
    The VNF or PNF **MUST** report exactly one Measurement event per period
    per source name.
@@ -636,6 +650,7 @@ Reporting Frequency
     :id: R-98191
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** vary the frequency that asynchronous data
     is delivered based on the content and how data may be aggregated or
@@ -676,6 +691,7 @@ of bulk files.
     :id: R-88482
     :target: VNF or PNF
     :keyword: SHOULD
+    :updated: dublin
 
     The VNF or PNF **SHOULD** use REST using HTTPS delivery of plain
     text JSON for moderate sized asynchronous data sets, and for high
@@ -685,6 +701,7 @@ of bulk files.
     :id: R-84879
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** have the capability of maintaining a primary
     and backup DNS name (URL) for connecting to ONAP collectors, with the
@@ -699,6 +716,7 @@ of bulk files.
     :id: R-81777
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** be configured with initial address(es) to use
     at deployment time. Subsequently, address(es) may be changed through
@@ -710,6 +728,7 @@ of bulk files.
     :id: R-08312
     :target: VNF or PNF
     :keyword: MAY
+    :updated: dublin
 
     The VNF or PNF **MAY** use another option which is expected to include REST
     delivery of binary encoded data sets.
@@ -718,6 +737,7 @@ of bulk files.
     :id: R-79412
     :target: VNF or PNF
     :keyword: MAY
+    :updated: dublin
 
     The VNF or PNF **MAY** use another option which is expected to include TCP
     for high volume streaming asynchronous data sets and for other high volume
@@ -728,6 +748,7 @@ of bulk files.
     :id: R-01033
     :target: VNF or PNF
     :keyword: MAY
+    :updated: dublin
 
     The VNF or PNF **MAY** use another option which is expected to include SFTP
     for asynchronous bulk files, such as bulk files that contain large volumes
@@ -739,6 +760,7 @@ of bulk files.
     :id: R-63229
     :target: VNF or PNF
     :keyword: MAY
+    :updated: dublin
 
     The VNF or PNF **MAY** use another option which is expected to include REST
     for synchronous data, using RESTCONF (e.g., for VNF or PNF state polling).
@@ -747,6 +769,7 @@ of bulk files.
     :id: R-03070
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST**, by ONAP Policy, provide the ONAP addresses
     as data destinations for each VNF or PNF, and may be changed by Policy while
@@ -761,6 +784,7 @@ Asynchronous and Synchronous Data Delivery
     :id: R-06924
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** deliver asynchronous data as data becomes
     available, or according to the configured frequency.
@@ -769,6 +793,7 @@ Asynchronous and Synchronous Data Delivery
     :id: R-73285
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** must encode, address and deliver the data
     as described in the previous paragraphs.
@@ -777,6 +802,7 @@ Asynchronous and Synchronous Data Delivery
     :id: R-42140
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** respond to data requests from ONAP as soon
     as those requests are received, as a synchronous response.
@@ -785,6 +811,7 @@ Asynchronous and Synchronous Data Delivery
     :id: R-34660
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** use the RESTCONF/NETCONF framework used by
     the ONAP configuration subsystem for synchronous communication.
@@ -793,6 +820,7 @@ Asynchronous and Synchronous Data Delivery
     :id: R-86586
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** use the YANG configuration models and RESTCONF
     [RFC8040] (https://tools.ietf.org/html/rfc8040).
@@ -801,6 +829,7 @@ Asynchronous and Synchronous Data Delivery
     :id: R-11240
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** respond with content encoded in JSON, as
     described in the RESTCONF specification. This way the encoding of a
@@ -810,6 +839,7 @@ Asynchronous and Synchronous Data Delivery
     :id: R-70266
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** respond to an ONAP request to deliver the
     current data for any of the record types defined in
@@ -826,6 +856,7 @@ Asynchronous and Synchronous Data Delivery
    :impacts: dcae
    :validation_mode: in_service
    :introduced: casablanca
+   :updated: dublin
 
    The VNF or PNF **SHOULD** deliver all syslog messages to the VES Collector per the
    specifications in Monitoring and Management chapter.
@@ -834,6 +865,7 @@ Asynchronous and Synchronous Data Delivery
     :id: R-46290
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** respond to an ONAP request to deliver granular
     data on device or subsystem status or performance, referencing the YANG
@@ -843,6 +875,7 @@ Asynchronous and Synchronous Data Delivery
     :id: R-43327
     :target: VNF or PNF
     :keyword: SHOULD
+    :updated: dublin
 
     The VNF or PNF **SHOULD** use `Modeling JSON text with YANG
     <https://tools.ietf.org/html/rfc7951>`_, If YANG models need to be
@@ -857,6 +890,7 @@ Security
     :id: R-42366
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** support secure connections and transports such as
     Transport Layer Security (TLS) protocol
@@ -868,6 +902,7 @@ Security
     :id: R-44290
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** control access to ONAP and to VNFs or PNFs, and creation
     of connections, through secure credentials, log-on and exchange mechanisms.
@@ -876,6 +911,7 @@ Security
     :id: R-47597
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** carry data in motion only over secure connections.
 
@@ -883,6 +919,7 @@ Security
     :id: R-68165
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** encrypt any content containing Sensitive Personal
     Information (SPI) or certain proprietary data, in addition to applying the
@@ -929,6 +966,7 @@ Bulk Performance Measurement
     :keyword: SHOULD
     :introduced: casablanca
     :impacts: dcae, dmaap
+    :updated: dublin
 
     The VNF or PNF **SHOULD** support FileReady VES event for event-driven bulk transfer
     of monitoring data.
@@ -940,6 +978,7 @@ Bulk Performance Measurement
     :keyword: SHOULD
     :introduced: casablanca
     :impacts: dcae, dmaap
+    :updated: dublin
 
     The VNF or PNF **SHOULD** support File transferring protocol, such as FTPES or SFTP,
     when supporting the event-driven bulk transfer of monitoring data.
@@ -950,6 +989,7 @@ Bulk Performance Measurement
     :keyword: SHOULD
     :introduced: casablanca
     :impacts: dcae, dmaap
+    :updated: dublin
 
     The VNF or PNF **SHOULD** support the data schema defined in 3GPP TS 32.435, when
     supporting the event-driven bulk transfer of monitoring data.

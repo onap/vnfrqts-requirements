@@ -19,7 +19,7 @@ some resources do not support the property.
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: casablanca
+    :updated: dublin
 
     If a VNF's Heat Orchestration Template contains the property ``name``
     for a non ``OS::Nova::Server`` resource, the intrinsic function
