@@ -119,6 +119,7 @@ Resource Description
     :id: R-98617
     :target: VNF PROVIDER
     :keyword: MUST
+    :updated: dublin
 
     The VNF Provider **MUST** provide documentation regarding any dependency
     (e.g. affinity, anti-affinity) the VNF has on other VNFs and resources.
@@ -181,6 +182,7 @@ Resource Configuration
     :id: R-89571
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** support and provide artifacts for configuration
     management using at least one of the following technologies;
@@ -211,6 +213,7 @@ Configuration Management via Chef
     :id: R-13390
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF provider **MUST** provide cookbooks to be loaded
     on the appropriate Chef Server.
@@ -219,6 +222,7 @@ Configuration Management via Chef
     :id: R-18525
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF provider **MUST** provide a JSON file for each
     supported action for the VNF or PNF. The JSON file must contain key value
@@ -237,6 +241,7 @@ Configuration Management via Ansible
     :id: R-75608
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF provider **MUST** provide playbooks to be loaded
     on the appropriate Ansible Server.
@@ -245,6 +250,7 @@ Configuration Management via Ansible
     :id: R-16777
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF provider **MUST** provide a JSON file for each
     supported action for the VNF or PNF. The JSON file must contain key value
@@ -256,6 +262,7 @@ Configuration Management via Ansible
     :id: R-46567
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF Package **MUST** include configuration scripts
     for boot sequence and configuration.
@@ -264,6 +271,7 @@ Configuration Management via Ansible
     :id: R-16065
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF provider **MUST** provide configurable parameters
     (if unable to conform to YANG model) including VNF or PNF attributes/parameters
@@ -310,6 +318,7 @@ Resource Control Loop
     :id: R-35960
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF Package **MUST** include documentation which must include
     all events, severity level (e.g., informational, warning, error) and
@@ -319,6 +328,7 @@ Resource Control Loop
     :id: R-42018
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF Package **MUST** include documentation which must include
     all events (fault, measurement for VNF or PNF Scaling, Syslogs, State Change
@@ -340,6 +350,7 @@ Resource Control Loop
     :id: R-73560
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF Package **MUST** include documentation about monitoring
     parameters/counters exposed for virtual resource management and VNF or PNF
@@ -349,6 +360,7 @@ Resource Control Loop
     :id: R-90632
     :target: VNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF Package **MUST** include documentation about KPIs and
     metrics that need to be collected at each VM for capacity planning
@@ -358,6 +370,7 @@ Resource Control Loop
     :id: R-86235
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF Package **MUST** include documentation about the monitoring
     parameters that must include latencies, success rates, retry rates, load
@@ -369,6 +382,7 @@ Resource Control Loop
     :id: R-33904
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF Package **MUST** include documentation for each KPI, provide
     lower and upper limits.
@@ -387,6 +401,7 @@ Resource Control Loop
     :id: R-69877
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF Package **MUST** include documentation for each KPI,
     identify the suggested actions that need to be performed when a
@@ -407,6 +422,7 @@ Resource Control Loop
     :id: R-33694
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF Package **MUST** include documentation to when applicable,
     provide calculators needed to convert raw data into appropriate reporting
@@ -490,6 +506,7 @@ Compute, Network, and Storage Requirements
     :id: R-26881
     :target: VNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF provider **MUST** provide the binaries and images
     needed to instantiate the VNF (VNF and VNFC images).
@@ -521,6 +538,7 @@ Testing
     :id: R-04298
     :target: VNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF provider **MUST** provide their testing scripts to
     support testing.
@@ -529,6 +547,7 @@ Testing
     :id: R-58775
     :target: VNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF provider **MUST** provide software components that
     can be packaged with/near the VNF, if needed, to simulate any functions
@@ -544,6 +563,7 @@ Licensing Requirements
     :id: R-85653
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF **MUST** provide metrics (e.g., number of sessions,
     number of subscribers, number of seats, etc.) to ONAP for tracking
@@ -553,6 +573,7 @@ Licensing Requirements
     :id: R-44125
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF provider **MUST** agree to the process that can
     be met by Service Provider reporting infrastructure. The Contract
@@ -562,6 +583,7 @@ Licensing Requirements
     :id: R-40827
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF provider **MUST** enumerate all of the open
     source licenses their VNF or PNF(s) incorporate.
@@ -570,6 +592,7 @@ Licensing Requirements
     :id: R-97293
     :target: VNF or PNF
     :keyword: MUST NOT
+    :updated: dublin
 
     The VNF or PNF provider **MUST NOT** require audits
     of Service Provider's business.
@@ -578,6 +601,7 @@ Licensing Requirements
     :id: R-44569
     :target: VNF or PNF
     :keyword: MUST NOT
+    :updated: dublin
 
     The VNF or PNF provider **MUST NOT** require additional
     infrastructure such as a VNF or PNF provider license server for VNF or PNF provider
@@ -605,6 +629,7 @@ Licensing Requirements
     :id: R-85991
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF provider **MUST** provide a universal license key
     per VNF or PNF to be used as needed by services (i.e., not tied to a VM
@@ -617,6 +642,7 @@ Licensing Requirements
     :id: R-47849
     :target: VNF or PNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF or PNF provider **MUST** support the metadata about
     licenses (and their applicable entitlements) as defined in this

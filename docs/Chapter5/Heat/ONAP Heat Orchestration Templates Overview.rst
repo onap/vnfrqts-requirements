@@ -98,6 +98,7 @@ after initial VNF deployment to add capacity.
     :id: R-46119
     :target: VNF
     :keyword: MAY
+    :updated: dublin
 
     A VNF's Heat Orchestration Template's Resource ``OS::Cinder::Volume``
     **MAY** be defined in a Base Module.
@@ -106,6 +107,7 @@ after initial VNF deployment to add capacity.
     :id: R-90748
     :target: VNF
     :keyword: MAY
+    :updated: dublin
 
     A VNF's Heat Orchestration Template's Resource ``OS::Cinder::Volume``
     **MAY** be defined in an Incremental Module.
@@ -114,6 +116,7 @@ after initial VNF deployment to add capacity.
     :id: R-03251
     :target: VNF
     :keyword: MAY
+    :updated: dublin
 
     A VNF's Heat Orchestration Template's Resource ``OS::Cinder::Volume``
     **MAY** be defined in a Cinder Volume Module.
@@ -440,6 +443,7 @@ other VNFs.
     :target: VNF
     :keyword: MUST
     :validation_mode: none
+    :updated: dublin
 
     VNF's Heat Orchestration Template's Base Module's output parameter's
     name and type **MUST** match the VNF's Heat Orchestration Template's
@@ -450,6 +454,7 @@ other VNFs.
     :target: VNF
     :keyword: SHOULD NOT
     :validation_mode: static
+    :updated: dublin
 
     When a VNF's Heat Orchestration Template's Base Module's output
     parameter is declared as an input parameter in an Incremental Module,
@@ -467,7 +472,7 @@ ONAP Volume Module Output Parameters
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: casablanca
+    :updated: dublin
 
     A VNF's Heat Orchestration Template's Cinder Volume Module Output
     Parameter(s)
@@ -484,7 +489,7 @@ template is associated with.
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: casablanca
+    :updated: dublin
 
     A VNF's Heat Orchestration Templates' Cinder Volume Module Output
     Parameter's name and type **MUST** match the input parameter name and type
@@ -495,6 +500,7 @@ template is associated with.
     :target: VNF
     :keyword: SHOULD NOT
     :validation_mode: static
+    :updated: dublin
 
     When an ONAP Volume Module Output Parameter is declared as an input
     parameter in a base or an incremental module Heat Orchestration
@@ -573,6 +579,7 @@ ONAP VNF On-Boarding
 .. req::
     :id: R-511776
     :keyword: MUST
+    :introduced: dublin
     :validation_mode: static
 
     When a VNF's Heat Orchestration Template is ready
@@ -602,6 +609,7 @@ The VNF's Heat Orchestration Template's ZIP file **MAY** include
     :id: R-348813
     :keyword: MUST
     :validation_mode: static
+    :introduced: dublin
 
     The VNF's Heat Orchestration Template's ZIP file **MUST NOT** include
     a binary image file.
