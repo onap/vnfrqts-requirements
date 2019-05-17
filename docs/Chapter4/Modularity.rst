@@ -49,9 +49,6 @@ types:
 
     The VNF **MAY** have zero to many "incremental" modules.
 
-:need:`R-20974` - The VNF **MUST** deploy the base module first, prior to
-the incremental modules.
-
 ONAP also supports the concept of an optional, independently deployed
 Cinder volume via a separate Heat Orchestration Templates, referred to
 as a Cinder Volume Module. This allows the volume to persist after a

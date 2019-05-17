@@ -142,6 +142,7 @@ or **MUST** have statically assigned IP addresses.
     :target: VNF
     :keyword: MUST
     :validation_mode: static
+    :introduced: dublin
 
     A VNF's Heat Orchestration Template's ``OS::Neutron::Port`` resource's
 
@@ -319,7 +320,7 @@ IPv4 and/or IPv6 addresses.
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: casablanca
+    :updated: dublin
 
     When the VNF's Heat Orchestration Template's Resource
     ``OS::Neutron::Port`` is attaching to an external network (per the
@@ -426,7 +427,7 @@ Parameter Definition*
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: casablanca
+    :updated: dublin
 
     When the VNF's Heat Orchestration Template's Resource
     ``OS::Neutron::Port`` is attaching to an external network (per the
@@ -534,7 +535,7 @@ Definition*
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: casablanca
+    :updated: dublin
 
     When the VNF's Heat Orchestration Template's Resource
     ``OS::Neutron::Port`` is attaching to an internal network (per the
@@ -642,7 +643,7 @@ Heat Orchestration Template's Environment File.
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: casablanca
+    :updated: dublin
 
     When the VNF's Heat Orchestration Template's Resource
     ``OS::Neutron::Port`` is attaching to an internal network (per the
@@ -1614,7 +1615,7 @@ VIP Assignment, Internal Networks
 .. req::
     :id: R-717227
     :keyword: MUST
-    :updated: dublin
+    :introduced: dublin
     :validation_mode: static
     :target: VNF
 
@@ -1660,7 +1661,7 @@ VIP Assignment, Internal Networks
 .. req::
     :id: R-805572
     :keyword: MUST
-    :updated: dublin
+    :introduced: dublin
     :validation_mode: static
     :target: VNF
 

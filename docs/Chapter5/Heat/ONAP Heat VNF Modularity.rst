@@ -59,8 +59,7 @@ Incremental Module.
     :target: VNF
     :keyword: MUST
     :validation_mode: none
-    :updated: casablanca
-
+    :updated: dublin
 
     A shared Heat Orchestration Template resource is a resource that **MUST**
     be defined in the base module and will be referenced by one or
