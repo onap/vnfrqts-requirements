@@ -170,6 +170,7 @@ VNF Package Contents
     :target: VNF or PNF TOSCA PACKAGE
     :keyword: MUST
     :introduced: casablanca
+    :updated: dublin
 
     The VNF or PNF TOSCA PACKAGE **MUST** enumerate all of the open source
     licenses their VNF(s) incorporate. CSAR License directory as per ETSI

@@ -10,7 +10,7 @@
     :target: VNF
     :keyword: MUST
     :validation_mode: none
-    :updated: casablanca
+    :updated: dublin
 
     When a VNF's port connects to an internal network or external network,
     a network role, referred to
@@ -24,7 +24,7 @@
     :target: VNF
     :keyword: MUST
     :validation_mode: none
-    :updated: casablanca
+    :updated: dublin
 
     When a VNF connects to two or more unique networks, each
     network **MUST** be assigned a unique ``{network-role}``

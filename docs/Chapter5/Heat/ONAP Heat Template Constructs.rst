@@ -87,8 +87,7 @@ the second level of nested heat.
 .. req::
     :id: R-708564
     :keyword: MUST NOT
-    :introduced: casablanca
-    :updated: dublin
+    :introduced: dublin
     :validation_mode: static
 
 

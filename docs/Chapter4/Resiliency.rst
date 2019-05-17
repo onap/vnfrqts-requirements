@@ -554,6 +554,7 @@ Monitoring & Dashboard Requirements
     :id: R-34957
     :target: VNF
     :keyword: MUST
+    :updated: dublin
 
     The VNF **MUST** provide a method of metrics gathering for each
     layer's performance to identify variances in the allocations so

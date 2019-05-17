@@ -280,7 +280,7 @@ that defines a list of constraints to apply to the parameter.
     :target: VNF
     :keyword: MAY
     :validation_mode: static
-    :updated: casablanca
+    :updated: dublin
 
     A VNF's Heat Orchestration Template's parameter defined
     in a non-nested YAML file as type
@@ -331,7 +331,7 @@ that defines a list of constraints to apply to the parameter.
     :target: VNF
     :keyword: SHOULD NOT
     :validation_mode: static
-    :updated: casablanca
+    :updated: dublin
 
     A VNF's Heat Orchestration Template's parameter defined
     in a nested YAML file
