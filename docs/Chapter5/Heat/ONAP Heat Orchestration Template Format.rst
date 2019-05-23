@@ -565,19 +565,24 @@ be provided in place, or via a function
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: dublin
+    :updated: El Alto
 
-    If a VNF's Heat Orchestration Template resource attribute
-    ``property:`` uses a nested ``get_param``, the nested
-    ``get_param`` **MUST** reference an index.
+    A VNF's Heat Orchestration Template resource attribute ``property:``
+    **MUST NOT** use more than two levels of nested ``get_param`` intrinsic
+    functions when deriving a property value.  SDC does not support nested
+    ``get_param`` with recursive lists (i.e., a list inside list).
+    The second ``get_param`` in a nested lookup must directly derive its value
+    without further calls to ``get_param`` functions.
 
-    That is, to obtain a property value, two ``get_param`` intrinsic
-    functions are used.  The second ``get_param`` must be used
-    to obtain an index value used to reference a parameter value in
-    a parameter defined as ``type: comma_delimited_list``.  For
-    example:
+    * Example of valid nesting:
 
-    * ``name: {get_param: [ name, get_param: index ] }``
+      * ``name: {get_param: [ {vm-type}_names, {get_param : index } ] }``
+
+    * Examples of invalid nesting.  SDC will not support these examples since
+      there is an array inside array.
+
+      * ``name: {get_param: [ {vm-type}_names, { get_param: [indexlist, 0] } ] }``
+      * ``name: {get_param: [ {vm-type}_names, { get_param: [indexlist1, { get_param: indexlist2 }] } ] }``
 
 
 metadata
