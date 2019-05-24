@@ -38,15 +38,16 @@ Requirement R-01455 defines how the ``{vm-type]`` is defined.
     * property ``image`` parameter name (defined in R-58670)
     * property ``flavor`` parameter name (defined in R-45188)
     * property ``name`` parameter name (defined in R-54171 & R-87817)
-    * property port referenced OS::Neutron::Port Resource ID
-      (defined in R-20453)
+    * property ``networks`` map property ``port`` value which is a
+      ``OS::Neutron::Port`` Resource ID (defined in R-20453)
+      referenced using the intrinsic function ``get_attr``
 
     **MUST** contain the identical ``{vm-type}``
     and **MUST** follow the naming conventions defined
     in R-58670, R-45188, R-54171, R-87817, and R-29751.  And the ``{index}`` in
     the ``OS::Nova::Server`` Resource ID (defined in R-29751) **MUST** match
     the ``{vm-type_index}`` defined in
-    the ``OS::Nova::Server`` property ``port``
+    the ``OS::Nova::Server`` property ``networks`` map property ``port``
     referenced ``OS::Neutron::Port`` Resource ID (defined in R-20453).
 
 
