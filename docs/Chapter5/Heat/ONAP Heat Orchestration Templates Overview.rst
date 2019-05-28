@@ -280,7 +280,8 @@ Base Modules
      4.) ``<text>_base_<text>``.y[a]ml
 
     where ``<text>`` **MUST** contain only alphanumeric characters and
-    underscores '_' and **MUST NOT** contain the case insensitive word ``base``.
+    underscores '_' and **MUST NOT** contain the case insensitive string
+    ``base`` or ``volume``.
 
 .. req::
     :id: R-91342
@@ -305,7 +306,7 @@ Incremental Modules
 
     VNF Heat Orchestration Template's Incremental Module file name
     **MUST** contain only alphanumeric characters and underscores
-    '_' and **MUST NOT** contain the case insensitive word ``base``.
+    '_' and **MUST NOT** contain the case insensitive string ``base``.
 
 .. req::
     :id: R-94509
@@ -350,7 +351,8 @@ Cinder Volume Modules
     :validation_mode: static
     :introduced: dublin
 
-    A VNF Heat Orchestration Template's Cinder Volume Module resources section
+    A VNF Heat Orchestration Template's Cinder Volume Module ``resources:``
+    section
     **MUST** only be defined using one of the following:
 
     * one of more ``OS::Cinder::Volume`` resources
@@ -383,7 +385,7 @@ Nested Heat file
 
     VNF Heat Orchestration Template's Nested YAML file name **MUST** contain
     only alphanumeric characters and underscores '_' and
-    **MUST NOT** contain the case insensitive word ``base``.
+    **MUST NOT** contain the case insensitive string ``base``.
 
 .. req::
     :id: R-70276
