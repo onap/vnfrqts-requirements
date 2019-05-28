@@ -132,7 +132,7 @@ Resource Description
     :updated: dublin
     :validation_mode: static
 
-    The VNF or PNF package **MUST** provide :doc:`VES Event Registration <../../../../vnfsdk/model.git/docs/files/VESEventRegistration_3_0>`
+    The VNF or PNF package **MUST** provide :ref:`VES Event Registration <ves_event_registration_3_2>`
     for all VES events provided by that VNF or PNF.
 
 .. req::
@@ -332,7 +332,7 @@ Resource Control Loop
 
     The VNF or PNF Package **MUST** include documentation which must include
     all events (fault, measurement for VNF or PNF Scaling, Syslogs, State Change
-    and Mobile Flow), that need to be collected at each VM, VNFC (defined in `VNF Guidelines <https://onap.readthedocs.io/en/latest/submodules/vnfrqts/guidelines.git/docs/vnf_guidelines/vnf_guidelines.html>`__ ) and for the overall VNF or PNF.
+    and Mobile Flow), that need to be collected at each VM, VNFC (defined in `VNF Guidelines <https://onap.readthedocs.io/en/latest/submodules/vnfrqts/guidelines.git/docs/vnf_guidelines.html>`__ ) and for the overall VNF or PNF.
 
 
 .. req::
