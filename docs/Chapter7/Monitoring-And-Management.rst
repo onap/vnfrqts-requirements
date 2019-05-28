@@ -319,7 +319,7 @@ Data Structure Specification of the Event Record
    :updated: dublin
 
    The VNF or PNF provider **MUST** provide a YAML file formatted in adherence with
-   the :doc:`VES Event Registration specification <../../../../vnfsdk/model.git/docs/files/VESEventRegistration_3_0>`
+   the :ref:`VES Event Registration specification <ves_event_registration_3_2>`
    that defines the following information for each event produced by the VNF:
 
    * ``eventName``
@@ -339,7 +339,7 @@ Data Structure Specification of the Event Record
    The VNF or PNF provider **MUST** indicate specific conditions that may arise, and
    recommend actions that may be taken at specific thresholds, or if specific
    conditions repeat within a specified time interval, using the semantics and
-   syntax described by the :doc:`VES Event Registration specification <../../../../vnfsdk/model.git/docs/files/VESEventRegistration_3_0>`.
+   syntax described by the :ref:`VES Event Registration specification <ves_event_registration_3_2>`.
 
 **NOTE:** The Service Provider may override VNF or PNF provider Event
 Registrations using the ONAP SDC Design Studio to finalizes Service
@@ -361,7 +361,7 @@ These changes may modify any of the following:
 
    The events produced by the VNF or PNF **MUST** must be compliant with the common
    event format defined in the
-   :doc:`VES Event Listener<../../../../vnfsdk/model.git/docs/files/VESEventListener_7_0_1>`
+   :ref:`VES Event Listener<ves_event_listener_7_1>`
    specification.
 
 .. req::
