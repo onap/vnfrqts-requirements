@@ -264,7 +264,7 @@ Base Modules
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: casablanca
+    :updated: dublin
 
     A VNF Heat Orchestration Template's Base Module file name **MUST** include
     case insensitive 'base' in the filename and
@@ -302,7 +302,7 @@ Incremental Modules
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: casablanca
+    :updated: dublin
 
     VNF Heat Orchestration Template's Incremental Module file name
     **MUST** contain only alphanumeric characters and underscores
@@ -381,7 +381,7 @@ Nested Heat file
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: casablanca
+    :updated: dublin
 
     VNF Heat Orchestration Template's Nested YAML file name **MUST** contain
     only alphanumeric characters and underscores '_' and

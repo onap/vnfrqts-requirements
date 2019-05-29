@@ -15,6 +15,54 @@
 VNFRQTS Project Release Notes
 ==============================
 
+Version: 4.0.0
+--------------
+
+:Release Date: 2019-5-30
+
+A detailed summary of all requirement changes per section can be found
+:doc:`here <changes-by-section-dublin>`.
+
+A higher level summary of changes as well as non-requirement impacting
+changes can be found below.
+
+**New Features**
+    - Added information for PNF
+    - Added Release notes to higher level
+    - Added CICD build to generate requirements and create traceability matrix
+    - Added Traceability matrix with dynamic links
+    - Moved VES spec 
+    - Created RST Requirement generator in wiki
+
+**Bug Fixes**
+    - Fixed typos
+    - Fixed metadata errors
+    - Fixed XNF -> PNF or VNF
+    - Cleaning requirements for TOSCA/HEAT
+    - Cleaning requirements for VNF or PNF
+
+**Known Issues**
+    - Links that refer to "latest" version are static.  Please report
+      any broken links.
+    - Wiki RST generator has been disabled, please use local make_ids.py
+      to create new requirements.
+    - Traceability matrix table rendering issues.
+
+**Security Issues**
+    - None
+
+**Upgrade Notes**
+    - If you would like to add requirements, you **MUST** follow
+      `instructions on Wiki <https://wiki.onap.org/display/DW/VNFRQTS+How+to+Contribute>`__.
+    - If you would like to see a list of JIRA tickets closed in Dublin,
+      `please click here <https://jira.onap.org/projects/VNFRQTS/versions/10474>`_.
+
+**Deprecation Notes**
+    - None
+
+**Other**
+    - None
+
 Version: 3.0.1
 --------------
 
