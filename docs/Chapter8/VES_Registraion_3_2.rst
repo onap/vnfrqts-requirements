@@ -3,19 +3,26 @@
 .. Copyright 2017 AT&T Intellectual Property, All rights reserved
 .. Copyright 2017-2018 Huawei Technologies Co., Ltd.
 
-===================================
-Service: VES Event Registration 3.2
-===================================
+.. _ves_event_registration_3_2:
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| **Legal Disclaimer**                                                                                                                                                                                                                                                                                                |
-|                                                                                                                                                                                                                                                                                                                     |
-| Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at                                                                                                                                            |
-|                                                                                                                                                                                                                                                                                                                     |
-| http://www.apache.org/licenses/LICENSE-2.0                                                                                                                                                                                                                                                                          |
-|                                                                                                                                                                                                                                                                                                                     |
-| Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.   |
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+Service: VES Event Registration 3.2
+------------------------------------
+
++-----------------------------------------------------------------------------+
+| **Legal Disclaimer**                                                        |
+|                                                                             |
+| Licensed under the Apache License, Version 2.0 (the "License"); you may not |
+| use this file except in compliance with the License. You may obtain a copy  |
+| of the License at                                                           |
+|                                                                             |
+| http://www.apache.org/licenses/LICENSE-2.0                                  |
+|                                                                             |
+| Unless required by applicable law or agreed to in writing, software         |
+| distributed under the License is distributed on an "AS IS" BASIS, WITHOUT   |
+| WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the    |
+| License for the specific language governing permissions and limitations     |
+| under the License.                                                          |
++-----------------------------------------------------------------------------+
 
 +-------------------+--------------------------+
 | Document Number   | VES Event Registration   |
@@ -44,7 +51,7 @@ Service: VES Event Registration 3.2
 +-----------------+------------------------------+
 
 Introduction
-============
+^^^^^^^^^^^^
 
 This document specifies a YAML format for the registration of VES
 Events. The YAML format enables both human designers and applications to
@@ -63,7 +70,7 @@ introduces the concept of specific types of events, identified by
 eventNames.
 
 Audience
---------
+~~~~~~~~
 
 This document is intended to support the following groups:
 
@@ -88,14 +95,14 @@ The Service Provided-created version of the YAML will be distributed to
 Service Provider applications at design time.
 
 Goal
-----
+~~~~
 
 The goal of the YAML is to completely describe the processing of VNF
 events in a way that can be compiled or interpreted by applications
 across a Service Provider’s infrastructure.
 
 Relation to the Common Event Format
------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The Common Event Format described in the VES Event Listener service
 specification defines the structure of VES events including optional
@@ -121,7 +128,7 @@ value (e.g., ‘MINOR’), or to a subset of the possible enumerated values
 allowed by the Common Event Format (e.g., ‘MINOR’ or ‘NORMAL’).
 
 Relation to Service Design and Creation
----------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Event registration for a VNF (or other event source) is provided to the
 Service Provider’s Service Creation and Design Environment (e.g., ASDC)
@@ -145,20 +152,20 @@ can support the receipt and processing of VNF events, without the need
 for any manual, VNF-specific development.
 
 YAML Files
-==========
+^^^^^^^^^^
 
 YAML Specification Conformance
------------------------------- 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 YAML files should conform to version 1.2 of the YAML specification
 available at: http://yaml.org/spec/1.2/spec.html.
 
 Filename
---------
+~~~~~~~~
 
 YAML file names should conform to the following naming convention:
 
-    {AsdcModel}\_{AsdcModelType}\_{v#}.yml
+    ``{AsdcModel}\_{AsdcModelType}\_{v#}.yml``
 
 The ‘#’ should be replaced with the current numbered version of the
 file.
@@ -179,46 +186,49 @@ it appears in the the Service Design and Creation Environment).
 
 For example:
 
--  vMRF\_Vnf\_v1.yml
+-  ``vMRF\_Vnf\_v1.yml``
 
--  vMRF\_Service\_v1.yml
+-  ``vMRF\_Service\_v1.yml``
 
--  vIsbcSsc\_VfModule\_v1.yml
+-  ``vIsbcSsc\_VfModule\_v1.yml``
 
 File Structure
--------------- 
+~~~~~~~~~~~~~~
 
 Each eventType is registered as a distinct YAML ‘document’.
 
 YAML files consist of a series of YAML documents delimited by ‘---‘ and
 ‘…’ for example:
 
-    ---
+.. code-block:: ruby
 
-    # Event Registration for eventName ‘name1’
+   Some Ruby code.
+   ---
 
-    # details omitted
+   # Event Registration for eventName ‘name1’
 
-    ...
+   # details omitted
 
-    ---
+   ...
 
-    # Event Registration for eventName ‘name2’
+   ---
 
-    # details omitted
+   # Event Registration for eventName ‘name2’
 
-    ...
+   # details omitted
 
-    ---
+   ...
 
-    # Event Registration for eventName ‘name3’
+   ---
 
-    # details omitted
+   # Event Registration for eventName ‘name3’
 
-    ...
+   # details omitted
+
+   ...
 
 YAML Syntax and Semantics
-=========================
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 YAML registration documents show each relevant VES Common Event Model
 object and field (i.e., each element) for the eventName being
@@ -226,13 +236,13 @@ registered, including any extensible fields (e.g., specific name-value
 pairs).
 
 Qualifiers
-----------
+~~~~~~~~~~
 
 Each object or field name in the eventName being registered is followed
 by a ‘qualifier’, which consists of a colon and two curly braces, for
 example:
 
-    “objectOrFieldName: { }”
+    ``“objectOrFieldName: { }”``
 
 The curly braces contain meta-information about that object or field
 name (also known as the ‘element’), such as whether it is required to be
@@ -242,7 +252,7 @@ Semantics have been defined for the following types of meta-information
 within the curly braces:
 
 Action
-~~~~~~
+++++++
 
 The ‘action’ keyword may be applied to field values or to the event as a
 whole. The ‘action’ keyword specifies a set of actions that should be
@@ -318,23 +328,27 @@ communicate the actions to be taken if that trigger occurs:
 
 Examples:
 
--  event: { action: [ any, any, null, rebootVm ] }
+.. code-block:: yaml
+
+   event: {
+     action: [
+       any, any, null, rebootVm
+     ]
+   }
 
     # whenever the above event occurs, the VM should be rebooted
 
--  fieldname: { action: [ 80, up, null, null, tcaUpEventName ], action:
-       [ 60, down, overcapacity, null ] }
+   fieldname: {
+     action: [ 80, up, null, null, tcaUpEventName ],
+     action: [ 60, down, overcapacity, null ]
+   }
 
     # when the value of fieldname crosses 80 in an up direction,
-    tcaUpEventName
-
-    should be published; if the fieldname crosses 60 in a down direction
-    an
-
-    ‘overCapacity’ named-condition is asserted.
+    # tcaUpEventName should be published; if the fieldname crosses 60
+    # in a down direction an ‘overCapacity’ named-condition is asserted.
 
 AggregationRole
-~~~~~~~~~~~~~~~
++++++++++++++++
 
 The ‘aggregationRole’ keyword is applied to the value keyword in a field
 of a name-value pair.
@@ -375,27 +389,23 @@ Example 1:
     it must have key name1 and name1’s value should be interpreted as an
     index:
 
--  additionalMeasurements: {presence: optional, array: [
+.. code-block:: yaml
 
-      {
-
-         name: {presence: required},
-
-        arrayOfFields: {presence: required, array: [
-
-           {
-
-             name: {presence: required, value: name1},
-
-             value: {presence: required, aggregationRole: index}
-
+    additionalMeasurements: {
+      presence: optional, array: [
+        {
+          name: {presence: required},
+          arrayOfFields: {
+            presence: required, array: [
+              {
+                name: {presence: required, value: name1},
+                 value: {presence: required, aggregationRole: index}
+              }
+            ]
           }
-
-        ] }
-
-      }
-
-    ] }
+        }
+      ]
+    }
 
 Example 2:
 
@@ -418,48 +428,30 @@ Example 2:
 
 -  The first three columns would be sent through VES as follows:
 
-.. code-block:: text
+.. code-block:: yaml
 
     additionalMeasurements: {presence: required, array: [
-
       {
-
         name: {presence: required, value: TunnelTraffic},
-
         arrayOfFields: {presence: required, array: [
-
           {
-
              name: {presence: required, value: TunnelName},
-
              value: {presence: required, aggregationRole: index},
-
           },
-
           {
-
              name: {presence: required, value: TunnelType},
-
              value: {presence: required, aggregationRole: reference}
-
           },
-
           {
-
              name: {presence: required, value: TotalOutputBytes},
-
              value: {presence: required, aggregationRole: gauge, castTo:number }
-
           }
-
         ]}
-
       }
-
     ]}
 
 Array
-~~~~~
++++++
 
 The ‘array’ keyword indicates that the element is an array; ‘array:’ is
 following by square brackets which contain the elements of the array.
@@ -468,16 +460,18 @@ declare the array elements and will not communicate them anonymously.
 
 Examples:
 
--  element: { array: [
+.. code-block:: yaml
 
-    firstArrayElement: { },
+    element: { array: [
 
-    secondArrayElement: { }
+      firstArrayElement: { },
 
-    ] }
+      secondArrayElement: { }
+
+    ]}
 
 CastTo
-~~~~~~
+++++++
 
 The ‘castTo’ keyword is applied to ‘value’ keywords. It tells the
 receiving event processor to cast (or interpret) the supplied value from
@@ -497,37 +491,32 @@ A value may be castTo one and only one of the following data types:
 
 Example:
 
--  fieldname: { value: [ x, y, z ], castTo: number } # only values ‘x’,
+.. code-block:: yaml
+
+    fieldname: { value: [ x, y, z ], castTo: number } # only values ‘x’,
        ‘y’, or ‘z’ allowed
 
     # each must be cast to a number
 
--  additionalMeasurements: {presence: optional, array: [
+.. code-block:: yaml
 
+    additionalMeasurements: {presence: optional, array: [
       {
-
         name: {presence: required},
-
         arrayOfFields: {presence: required, array: [
-
           {
-
              name: {presence: required, value: name1},
-
              value: {presence: required, castTo: number}
-
           }
-
         ] }
-
       }
-
     ] }
 
-    For another example, see the second example under AggregationRole.
+
+**For another example, see the second example under AggregationRole.**
 
 Comment
-~~~~~~~
++++++++
 
 The ‘comment’ keyword enables event registrations to communicate
 additional information, in the form of a quoted string, to designers
@@ -537,30 +526,50 @@ particular fields or with the event as a whole.
 
 Examples:
 
--  fieldname: { range: [ 1, unbounded ], default: 5, comment: “needs
-       further diagnosis; call the TAC” }
+.. code-block:: yaml
 
--  fieldname: { value: [ red, white, blue ], default: blue, comment:
-       “red indicates degraded quality of service” }
+    fieldname: {
+      range: [ 1, unbounded ],
+      default: 5,
+      comment: “needs further diagnosis; call the TAC”
+    }
 
--  event: { presence: required, comment: “this event only occurs in
-       conditions when the ipq has stopped operating; manual reset may
-       be required”, structure: { . . . } }
+.. code-block:: yaml
+
+    fieldname: {
+      value: [ red, white, blue ],
+      default: blue,
+      comment: “red indicates degraded quality of service”
+    }
+
+.. code-block:: yaml
+
+    event: {
+      presence: required,
+      comment: “this event only occurs in conditions when the
+      ipq has stopped operating; manual reset may be required”,
+      structure: { . . . }
+    }
 
 Default
-~~~~~~~ 
++++++++
 
 The ‘default’ keyword specifies a default field value. Note: the default
 value must be within the range or enumeration of acceptable values.
 
 Examples:
 
--  fieldname: { range: [ 1, unbounded ], default: 5 }
+.. code-block:: yaml
 
--  fieldname: { value: [ red, white, blue ], default: blue }
+    fieldname: { range: [ 1, unbounded ], default: 5 }
+
+.. code-block:: yaml
+
+    fieldname: { value: [ red, white, blue ], default: blue }
+
 
 HeartbeatAction
-~~~~~~~~~~~~~~~ 
+++++++++++++++++
 
 The ‘heartbeatAction’ keyword is provided on the ‘event’ objectName for
 heartbeat events only. It provides design time guidance to the service
@@ -575,22 +584,23 @@ and optionality as those described for the ‘action’ keyword.
 
 Examples:
 
--  event: { heartbeatAction: [ 3, vnfDown, RECO-rebootVnf, tcaEventName
-       ] }
+.. code-block:: yaml
+
+    event: { heartbeatAction: [ 3, vnfDown, RECO-rebootVnf, tcaEventName] }
 
     # whenever the above event occurs, a vnfDown condition is asserted
-    and the vnf should be rebooted, plus the indicated tca should be
-    generated.
+    # and the vnf should be rebooted, plus the indicated tca should be
+    # generated.
 
 keyValuePairString
-~~~~~~~~~~~~~~~~~~
+++++++++++++++++++
 
 The ‘keyValuePairString’ keyword describes the key-value pairs to be
 communicated through a string (e.g., in the VES Syslog Fields
 ‘syslogSData’ or ‘additionalFields’ strings). This keyword takes three
 parameters:
 
--  the first parameter specifies the character used to delimit (i.e., to
+-  The first parameter specifies the character used to delimit (i.e., to
        separate) the key-value pairs. If a space is used as a delimiter,
        it should be communicated within single quotes as ‘ ‘; otherwise,
        the delimiter character should be provided without any quotes.
@@ -617,42 +627,48 @@ Examples:
        with ‘key=value’ pairs delimited by the pipe (‘\|’) symbol as in
        (“key1=value1\|key2=value2\|key3=value3…”).
 
-    additionalFields: {presence: required, keyValuePairString: {\|, =, keyValuePairs: [
+.. code-block:: yaml
 
-       keyValuePair: {presence: required, structure: {
-
-           key: {presence: required, value: someKeyName},
-
-           value: {presence: required, range: [0, 100]}
-
-      } },
-
-      keyValuePair: {presence: optional, structure: {
-
-           key: {presence: required, value: someOtherKeyName},
-
-           value: {presence: required, value [red, white, blue]}
-
-      } }
-
-] } }
+    additionalFields: {
+      presence: required, keyValuePairString: {\|, =, keyValuePairs: [
+        keyValuePair: {
+          presence: required, structure: {
+            key: {presence: required, value: someKeyName},
+            value: {presence: required, range: [0, 100]}
+          }
+        },
+        keyValuePair: {
+          presence: optional, structure: {
+            key: {presence: required, value: someOtherKeyName},
+            value: {presence: required, value [red, white, blue]}
+          }
+        }
+      ]}
+    }
 
 Presence
-~~~~~~~~
++++++++++
 
 The ‘presence’ keyword may be defined as ‘required’ or ‘optional’. If
 not provided, the element is assumed to be ‘optional’.
 
-Examples
+Examples:
 
--  element: { presence: required } # element must be present
+.. code-block:: yaml
 
--  element: { presence: optional } # element is optional
+    element: { presence: required } # element must be present
 
--  element: { value: blue } # by omitting a presence definition, the element is assumed to be optional
+.. code-block:: yaml
+
+    element: { presence: optional } # element is optional
+
+.. code-block:: yaml
+
+    element: { value: blue }
+    # by omitting a presence definition, the element is assumed to be optional
 
 Range
-~~~~~
++++++++
 
 The ‘range’ keyword applies to fields (i.e., simpleTypes); indicates the
 value of the field is a number within a specified range of values from
@@ -669,12 +685,16 @@ Common Event Format.
 
 Examples:
 
--  fieldname: { range: [ 1, unbounded ] }
+.. code-block:: yaml
 
--  fieldname: { range: [ 0, 3.14 ] }
+    fieldname: { range: [ 1, unbounded ] }
+
+.. code-block:: yaml
+
+    fieldname: { range: [ 0, 3.14 ] }
 
 Structure
-~~~~~~~~~ 
+++++++++++
 
 The ‘structure’ keyword indicates that the element is a complexType
 (i.e., an object) and is followed by curly braces containing that
@@ -682,24 +702,23 @@ object.
 
 Example:
 
--  objectName: { structure: {
+.. code-block:: yaml
 
-       element1: { },
-
-       element2: { },
-
-       anotherObject: { structure: {
-
-           element3: { },
-
-           element4: { }
-
-      } }
-
-    } }
+    objectName: {
+      structure: {
+        element1: { },
+        element2: { },
+        anotherObject: {
+          structure: {
+            element3: { },
+            element4: { }
+          }
+        }
+      }
+    }
 
 Units
-~~~~~
++++++++
 
 The ‘units’ qualifier may be applied to values provided in VES Common
 Event Format extensible field structures. The ‘units’ qualifier
@@ -710,17 +729,17 @@ ports’).
 
 Example:
 
--  field: { structure: {
+.. code-block:: yaml
 
-    name: { value: pilotNumberPoolSize },
-
-    value: { units: megabytes } # the value will be expressed in
-    megabytes
-
-    } }
+    field: {
+      structure: {
+      name: { value: pilotNumberPoolSize },
+      value: { units: megabytes } # the value will be expressed in megabytes
+      }
+    }
 
 Value
-~~~~~
++++++++
 
 The ‘value’ keyword applies to fields (i.e., simpleTypes); indicates a
 single value or an enumeration of possible values. If not provided, it
@@ -735,89 +754,95 @@ single quotes.
 
 Examples:
 
--  fieldname: { value: x } # the value is ‘x’
+.. code-block:: yaml
 
--  fieldname: { value: [ x, y, z ] } # the value is either ‘x’, ‘y’, or
-       ‘z’
+    fieldname: { value: x } # the value is ‘x’
 
--  fieldname: { presence: required } # the value will be provided at
-       runtime
+.. code-block:: yaml
 
--  fieldname: { value: ‘error state’ } # the value is the string within
-       the single quotes
+    fieldname: { value: [ x, y, z ] }
+    # the value is either ‘x’, ‘y’, or ‘z’
+
+.. code-block:: yaml
+
+    fieldname: { presence: required }
+    # the value will be provided at runtime
+
+.. code-block:: yaml
+
+    fieldname: { value: ‘error state’ }
+    # the value is the string within the single quotes
 
 Rules
------ 
+~~~~~
 
 Rules Document
-~~~~~~~~~~~~~~ 
+++++++++++++++
 
 After all events have been defined, the YAML file may conclude with a
 final YAML document delimited by ‘---‘ and ‘…’, which defines rules
 based on the named ‘conditions’ asserted in action qualifiers in the
 preceding event definitions. For example:
 
+.. code-block:: yaml
+
     ---
 
     # Event Registration for eventName ‘name1’
 
-    event: {presence: required, action: [any, any, A, null], structure:
-    {
-
-    # details omitted
-
-    }}
-
+    event: {
+      presence: required,
+      action: [any, any, A, null],
+      structure: {# details omitted}
+    }
     ...
-
     ---
 
     # Event Registration for eventName ‘name2’
-
-    event: {presence: required, structure: {
-
-    commonEventHeader: {presence: required, structure: {
-
-    # details omitted
-
-    }}
-
-    measurements: {presence: required, structure: {
-
-       cpuUsageArray: {presence: required, array: {
-
-          cpuUsage: {presence: required, structure: {
-
-          cpuIdentifier: {presence: required},
-
-          percentUsage: {presence: required, action: [90, up, B, null]}
-
-          }}
-
-       }},
-
-# details omitted
-
-    }}
-
-    }}
-
+    event: {
+      presence: required,
+      structure: {
+        commonEventHeader: {
+          presence: required,
+          structure: {# details omitted}
+        }
+        measurements: {
+          presence: required,
+          structure: {
+            cpuUsageArray: {
+              presence: required,
+              array: {
+                cpuUsage: {
+                  presence: required,
+                  structure: {
+                    cpuIdentifier: {
+                      presence: required
+                    },
+                    percentUsage: {
+                      presence: required,
+                      action: [90, up, B, null]
+                    }
+                  }
+                }
+              }
+            }, # details omitted
+          }
+        }
+      }
+    }
     ...
-
     ---
 
     # Rules
 
     rules: [
-
-    # defined based on conditions ‘A’ and ‘B’ - details omitted
-
+      # defined based on conditions ‘A’ and ‘B’ - details omitted
     ]
 
     ...
 
 Rules Syntax and Semantics
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+++++++++++++++++++++++++++++
 
 The YAML ‘rules’ document begins with the keyword ‘rules’ followed by a
 colon and square brackets. Each rule is then defined within the square
@@ -825,15 +850,17 @@ brackets. Commas are used to separate rules.
 
 Each rule is expressed as follows:
 
-rule: {
+.. code-block:: text
 
-trigger: *logical expression in terms of conditions*,
+    rule: {
 
-microservices: [ *microservice1, microservice2, microservice3…* ]
+      trigger: *logical expression in terms of conditions*,
 
-alerts: [tcaE*ventName1, tcaEventName2, tcaEventName3…* ],
+      microservices: [ *microservice1, microservice2, microservice3…* ]
 
-}
+      alerts: [tcaE*ventName1, tcaEventName2, tcaEventName3…* ],
+
+    }
 
 Notes:
 
@@ -846,7 +873,7 @@ Notes:
    microservices and alerts may be specified.
 
 Simple Triggers
-~~~~~~~~~~~~~~~ 
+++++++++++++++++
 
 The trigger is based on the named ‘conditions’ asserted in the action
 qualifiers within the event definitions earlier in the YAML file. The
@@ -867,27 +894,19 @@ file.
 
 Example rules definition:
 
-rules: [
+.. code-block:: text
 
-    rule: {
-
-       trigger: A,
-
-       alerts: [tcaEventName1],
-
-       microservices: [rebootVm]
-
-    },
-
-    rule: {
-
-       trigger: B \|\| (C & D),
-
-       microservices: [scaleOut]
-
-   }
-
-]
+    rules: [
+      rule: {
+        trigger: A,
+        alerts: [tcaEventName1],
+        microservices: [rebootVm]
+      },
+      rule: {
+        trigger: B \|\| (C & D),
+        microservices: [scaleOut]
+      }
+    ]
 
 Note: when microservices are defined in terms of multiple event
 conditions, the designer should take care to consider whether the target
@@ -896,7 +915,7 @@ the action on). Future versions of this document may provide more
 clarity.
 
 Time Based Qualifiers
-~~~~~~~~~~~~~~~~~~~~~
++++++++++++++++++++++++
 
 Time based rules may be established by following any named condition
 with a colon and curly braces. The time based rule is placed in the
@@ -917,7 +936,7 @@ times in 5 minutes, OR, if condition D occurs 2 (or more) times in 10
 minutes AND condition C is in effect.
 
 PM Dictionary
--------------
+~~~~~~~~~~~~~~
 
 The Performance Management (PM) Dictionary is used by analytics
 applications to interpret and process perf3gpp measurement information
@@ -942,7 +961,7 @@ The PM dictionary is supplied by NF vendors in two parts:
    Dictionary Schema).
 
 PM Dictionary Schema Keywords
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
++++++++++++++++++++++++++++++++++++
 
 The following is a list of standard PM Dictionary Schema Keywords:
 
@@ -1001,244 +1020,204 @@ pmDictionaryMeasurements Keywords:
 +------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 PM Dictionary Schema Example
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+++++++++++++++++++++++++++++
 
 The following is a sample PM Dictionary Schema:
 
----
 
 # PM Dictionary schema specifying and describing the meta information
 used to define perf3gpp measurements in the PM Dictionary
 
 .. code-block:: text
 
-    pmDictionary: { presence: required, structure: {
-
-      pmDictionaryHeader: { presence: required, structure: {
-
-        nfType: { presence: required, comment: "NF type; should match the string used in the perf3gpp eventName"},
-
-        pmDefSchemaVsn: { presence: required, value: 1.0, comment: "PM Dictionary Schema Version"},
-
-        pmDefVsn: { presence: required, comment: "vendor-defined PM Dictionary version"},
-
-        vendor: { presence: required, comment: "vendor of the NF type"}
-
-      }},
-
-    pmDictionaryMeasurements: { presence: required, array: [
-
-      iMeasInfoId: { presence: required, comment: "vendor-defined integer measurement group identifier"},
-
-      iMeasType: { presence: required, comment: "vendor-defined integer identifier for the measType; must be combined with measInfoId to identify a specific measurement."},
-
-      measAdditionalFields: { presence: required, comment: "vendor-specific PM Dictionary fields", array: [
-
-      keyValuePair: { presence: required, structure: {
-
-        key: { presence: required, value: measAggregationLevels, comment:"Nokia-specific field"},
-
-        value: { presence: required, value: [NGBTS, NGCELL, IPNO, IPSEC, ETHIF],comment: "list of one or more aggregation levels that Nokia recommends for this measurement; for example, if the value is NGBTS NGCELL, then Nokia recommends this measurement be aggregated on
-                 the 5G BTS level and the 5G Cell level"}
-
-      }}
-
-    ]},
-
-    measChangeType: { presence: required, value: [added, modified, deleted],
-    comment: "indicates the type of change that occurred during measLastChange"},
-
-    measCollectionMethod: { presence: required, value: [CC, SI, DER, Gauge,
-    Average], comment: "the measurement collection method; CC, SI, DER and Gauge are as defined in 3GPP; average contains the average value of the measurement during the granularity period"},
-
-    measCondition: { presence: required, comment: "description of the
-    condition causing the measurement"},
-
-    measDescription: { presence: required, comment: "description of the
-    measurement information and purpose"},
-
-    measFamily: { presence: required, comment: "abbreviation for a family of
-    measurements, in 3GPP format,or vendor defined"},
-
-    measInfoId: { presence: required, comment: "name for a group of related
-    measurements in 3GPP format or vendor defined"},
-
-    measLastChange: { presence: required, comment: "version of the PM
-    Dictionary the last time this measurement was added, modified or deleted"},
-
-    measObjClass: { presence: required, value: [NGBTS, NGCELL, IPNO, IPSEC,
-    ETHIF], comment: "measurement object class"},
-
-    measResultRange: { presence: optional, comment: "range of the
-    measurement result; only necessary when the range is smaller than the full range of the data type"},
-
-    measResultType: { presence: required, value: [float, unit32, uint64],
-    comment: "data type of the measurement result"},
-
-    measResultUnits: { presence: required, value: [ seconds, minutes, nanoseconds, microseconds, dB, number, kilobytes, bytes, ethernetFrames, packets, users
-    ], comment: "units of measure for the measurement result"},
-
-    measType: { presence: required, comment: "measurement name in 3GPP or
-    vendor-specific format;
-
-    vendor specific names are preceded with VS"}
-
-    ]}
-
-    }}
+    pmDictionary: {
+      presence: required,
+      structure: {
+        pmDictionaryHeader: {
+          presence: required,
+          structure: {
+            nfType: {
+              presence: required,
+              comment: "NF type; should match the string used in the perf3gpp eventName"
+            },
+            pmDefSchemaVsn: {
+              presence: required,
+              value: 1.0,
+              comment: "PM Dictionary Schema Version"
+            },
+            pmDefVsn: {
+              presence: required,
+              comment: "vendor-defined PM Dictionary version"
+            },
+            vendor: {
+              presence: required,
+              comment: "vendor of the NF type"
+            }
+          }
+        },
+        pmDictionaryMeasurements: {
+          presence: required,
+          array: [
+            iMeasInfoId: {
+              presence: required,
+              comment: "vendor-defined integer measurement group identifier"
+            },
+            iMeasType: {
+              presence: required,
+              comment: "vendor-defined integer identifier for the measType; must be combined with measInfoId to identify a specific measurement."
+            },
+            measAdditionalFields: {
+              presence: required,
+              comment: "vendor-specific PM Dictionary fields",
+              array: [
+                keyValuePair: {
+                  presence: required,
+                  structure: {
+                    key: {
+                      presence: required,
+                      value: measAggregationLevels,
+                      comment:"Nokia-specific field"
+                    },
+                    value: {
+                      presence: required,
+                      value: [NGBTS, NGCELL, IPNO, IPSEC, ETHIF],
+                      comment: "list of one or more aggregation levels that Nokia recommends for this measurement; for example, if the value is NGBTS NGCELL, then Nokia recommends this measurement be aggregated on the 5G BTS level and the 5G Cell level"
+                    }
+                  }
+                }
+              ]
+            },
+            measChangeType: {
+              presence: required,
+              value: [added, modified, deleted],
+              comment: "indicates the type of change that occurred during measLastChange"
+            },
+            measCollectionMethod: {
+              presence: required,
+              value: [CC, SI, DER, Gauge, Average],
+              comment: "the measurement collection method; CC, SI, DER and Gauge are as defined in 3GPP; average contains the average value of the measurement during the granularity period"
+            },
+            measCondition: {
+              presence: required,
+              comment: "description of the condition causing the measurement"
+            },
+            measDescription: {
+              presence: required,
+              comment: "description of the measurement information and purpose"
+            },
+            measFamily: {
+              presence: required,
+              comment: "abbreviation for a family of measurements, in 3GPP format,or vendor defined"
+            },
+            measInfoId: {
+              presence: required,
+              comment: "name for a group of related measurements in 3GPP format or vendor defined"
+            },
+            measLastChange: {
+              presence: required,
+              comment: "version of the PM Dictionary the last time this measurement was added, modified or deleted"
+            },
+            measObjClass: {
+              presence: required,
+              value: [NGBTS, NGCELL, IPNO, IPSEC, ETHIF],
+              comment: "measurement object class"
+            },
+            measResultRange: {
+              presence: optional,
+              comment: "range of the measurement result; only necessary when the range is smaller than the full range of the data type"
+            },
+            measResultType: {
+              presence: required,
+              value: [float, unit32, uint64],
+              comment: "data type of the measurement result"
+            },
+            measResultUnits: {
+              presence: required,
+              value: [ seconds, minutes, nanoseconds, microseconds, dB, number, kilobytes, bytes, ethernetFrames, packets, users],
+              comment: "units of measure for the measurement result"
+            },
+            measType: {
+              presence: required,
+              comment: "measurement name in 3GPP or vendor-specific format; vendor specific names are preceded with VS"
+            }
+          ]
+        }
+      }
+    }
 
 ...
 
 PM Dictionary Example
-~~~~~~~~~~~~~~~~~~~~~
++++++++++++++++++++++
 
 The following is a sample PM Dictionary in both bracketed and
 indent-style YAML formats
 
----
 
 # PM Dictionary perf3gpp measurements for the Nokia gnb NF (bracket
 style yaml)
 
-.. code-block:: text
+.. code-block:: yaml
+
 
     pmDictionary: {
 
       pmDictionaryHeader: {
-
         nfType: gnb,
-
         pmDefSchemaVsn: 1.0,
-
         pmDefVsn: 5G19\_1906\_002,
-
-        vendor: Nokia
-
-      },
-
+        vendor: Nokia },
       pmDictionaryMeasurements: [
-
       {
-
-      iMeasInfoId: 2204,
-
-      iMeasType: 1,
-
-      measAdditionalFields: {
-
-      measAggregationLevels: "NGBTS NGCELL",
-
-      },
-
-      measCollectionMethod: CC,
-
-      measCondition: "This measurement is updated when X2AP: SgNB Modification Required message is sent to MeNB with the SCG Change Indication set as PSCellChange.",
-
-      measDescription: "This counter indicates the number of intra gNB intra
-    frequency PSCell change attempts.",
-
-      measFamily: NINFC,
-
-      measInfoId: "NR Intra Frequency PSCell Change",
-
-      measLastChange: 5G18A\_1807\_003,
-
-      measObjClass: NGCELL,
-
-      measResultRange: 0..4096,
-
-      measResultType: integer,
-
-      measResultUnits: number,
-
-      measType: VS.NINFC.IntraFrPscelChAttempt
-
-      },
-
+        iMeasInfoId: 2204,
+        iMeasType: 1,
+        measAdditionalFields: { measAggregationLevels: "NGBTS NGCELL"},
+        measCollectionMethod: CC,
+        measCondition: "This measurement is updated when X2AP: SgNB Modification Required message is sent to MeNB with the SCG Change Indication set as PSCellChange.",
+        measDescription: "This counter indicates the number of intra gNB intra frequency PSCell change attempts.",
+        measFamily: NINFC,
+        measInfoId: "NR Intra Frequency PSCell Change",
+        measLastChange: 5G18A\_1807\_003,
+        measObjClass: NGCELL,
+        measResultRange: 0..4096,
+        measResultType: integer,
+        measResultUnits: number,
+        measType: VS.NINFC.IntraFrPscelChAttempt},
       {
-
-      iMeasInfoId: 2204,
-
-      iMeasType: 2,
-
-      measAdditionalFields: {
-
-        measAggregationLevels: "NGBTS NGCELL",
-
-       },
-
-      measCollectionMethod: CC,
-
-      measCondition: "This measurement is updated when the TDCoverall timer
-    has elapsed before gNB receives the X2AP: SgNB Modification Confirm
-    message.",
-
-      measDescription: "This measurement the number of intra gNB intra
-    frequency PSCell change failures due to TDCoverall timer expiry.",
-
-      measFamily: NINFC,
-
-      measInfoId: "NR Intra Frequency PSCell Change",
-
-      measLastChange: 5G18A\_1807\_003,
-
-      measObjClass: NGCELL,
-
-      measResultRange: 0..4096,
-
-      measResultType: integer,
-
-      measResultUnits: number,
-
-      measType: VS.NINFC.IntraFrPscelChFailTdcExp
-
-      },
-
+        iMeasInfoId: 2204,
+        iMeasType: 2,
+        measAdditionalFields: {measAggregationLevels: "NGBTS NGCELL"},
+        measCollectionMethod: CC,
+        measCondition: "This measurement is updated when the TDCoverall timer has elapsed before gNB receives the X2AP: SgNB Modification Confirm message.",
+        measDescription: "This measurement the number of intra gNB intra frequency PSCell change failures due to TDCoverall timer expiry.",
+        measFamily: NINFC,
+        measInfoId: "NR Intra Frequency PSCell Change",
+        measLastChange: 5G18A\_1807\_003,
+        measObjClass: NGCELL,
+        measResultRange: 0..4096,
+        measResultType: integer,
+        measResultUnits: number,
+        measType: VS.NINFC.IntraFrPscelChFailTdcExp},
       {
-
-      iMeasInfoId: 2204,
-
-      iMeasType: 3,
-
-      measAdditionalFields: {
-
-      measAggregationLevels: "NGBTS NGCELL",
-
-      },
-
-      measCondition: "This measurement is updated when MeNB replies to X2AP:
-    SgNB Modification Required message with the X2AP: SgNB Modification
-    Refuse message.",
-
-      measCollectionMethod: CC,
-
-      measDescription: "This counter indicates the number of intra gNB intra
-    frequency PSCell change failures due to MeNB refusal.",
-
-      measFamily: NINFC,
-
-      measInfoId: "NR Intra Frequency PSCell Change",
-
-      measLastChange: 5G19\_1906\_002,
-
-      measObjClass: NGCELL,
-
-      measResultRange: 0..4096,
-
-      measResultType: integer,
-
-      measResultUnits: number,
-
-      measType: VS.NINFC.IntraFrPscelChFailMenbRef
-
-      }
-
-     ]
-
+        iMeasInfoId: 2204,
+        iMeasType: 3,
+        measAdditionalFields: { measAggregationLevels: "NGBTS NGCELL"},
+        measCondition: "This measurement is updated when MeNB replies to X2AP: SgNB Modification Required message with the X2AP: SgNB Modification Refuse message.",
+        measCollectionMethod: CC,
+        measDescription: "This counter indicates the number of intra gNB intra frequency PSCell change failures due to MeNB refusal.",
+        measFamily: NINFC,
+        measInfoId: "NR Intra Frequency PSCell Change",
+        measLastChange: 5G19\_1906\_002,
+        measObjClass: NGCELL,
+        measResultRange: 0..4096,
+        measResultType: integer,
+        measResultUnits: number,
+        measType: VS.NINFC.IntraFrPscelChFailMenbRef }
+      ]
     }
 
 
-.. code-block:: text
+.. code-block:: yaml
 
     # PM Dictionary perf3gpp measurements for the Nokia gnb NF (indented
     style yaml)
@@ -1271,8 +1250,7 @@ style yaml)
 
       measCondition: "This measurement is updated when X2AP: SgNB Modification Required message is sent to MeNB with the SCG Change Indication set as PSCellChange."
 
-      measDescription: "This counter indicates the number of intra gNB intra
-    frequency PSCell change attempts."
+      measDescription: "This counter indicates the number of intra gNB intra frequency PSCell change attempts."
 
       measFamily: NINFC
 
@@ -1302,12 +1280,9 @@ style yaml)
 
       measCollectionMethod: CC
 
-      measCondition: "This measurement is updated when the TDCoverall timer
-    has elapsed before gNB receives the X2AP: SgNB Modification Confirm
-    message."
+      measCondition: "This measurement is updated when the TDCoverall timer has elapsed before gNB receives the X2AP: SgNB Modification Confirm message."
 
-      measDescription: "This measurement the number of intra gNB intra
-    frequency PSCell change failures due to TDCoverall timer expiry."
+      measDescription: "This measurement the number of intra gNB intra frequency PSCell change failures due to TDCoverall timer expiry."
 
       measFamily: NINFC
 
@@ -1337,12 +1312,9 @@ style yaml)
 
       measCollectionMethod: CC
 
-      measCondition: "This measurement is updated when MeNB replies to X2AP:
-    SgNB Modification Required message with the X2AP: SgNB Modification
-    Refuse message."
+      measCondition: "This measurement is updated when MeNB replies to X2AP: SgNB Modification Required message with the X2AP: SgNB Modification Refuse message."
 
-      measDescription: "This counter indicates the number of intra gNB intra
-    frequency PSCell change failures due to MeNB refusal."
+      measDescription: "This counter indicates the number of intra gNB intra frequency PSCell change failures due to MeNB refusal."
 
       measFamily: NINFC
 
@@ -1362,7 +1334,7 @@ style yaml)
 
 
 FM Meta Data
-------------
+~~~~~~~~~~~~~
 
 FM Meta Data enables vendors to provide meta information about FM events
 using a set of standard keywords. FM Meta Data is conveyed in the YAML
@@ -1384,7 +1356,7 @@ Successive keywords must be separated by commas. These conventions will
 make machine processing of FM Meta Data Keywords easier to perform.
 
 Alarm Meta Data Keywords
-~~~~~~~~~~~~~~~~~~~~~~~~
+++++++++++++++++++++++++++++
 
 The following is a list of standard Alarm Meta Data Keywords. Note: the
 keywords are in CAPS so they can be easily found within the YAML
@@ -1417,7 +1389,7 @@ comments. R / O refers to recommended / optional.
 +---------------------------+-------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Fault Meta Data Keywords
-~~~~~~~~~~~~~~~~~~~~~~~~
++++++++++++++++++++++++++
 
 The following is a list of standard Fault Meta Data Keywords. Note: the
 keywords are in CAPS so they can be easily found within the YAML
@@ -1440,7 +1412,7 @@ comments. R / O refers to recommended / optional.
 +---------------------------+-------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 FM Meta Data Example
-~~~~~~~~~~~~~~~~~~~~
++++++++++++++++++++++
 
 The following is a snippet of a fault event registration showing use of
 the FM Meta Data keywords. Note: it is recommended the information be
@@ -1633,7 +1605,7 @@ conveyed in a human readable form similar to the example below:
     }
 
 YAML Examples
-=============
+^^^^^^^^^^^^^
 
 An example YAML file is provided below which registers some events for a
 hypothetical VNF. Note: some of the lines have been manually
@@ -1642,9 +1614,9 @@ breaks that interrupt this single file; they were added to make it
 easier to rapidly find examples of different types of events.
 
 Fault
------
+~~~~~~
 
-.. code-block:: text
+.. code-block:: yaml
 
     # registration for Fault\_vMrf\_alarm003
 
@@ -1719,7 +1691,7 @@ Fault
     }}
 
 
-.. code-block:: text
+.. code-block:: yaml
 
     # registration for clearing Fault\_vMrf\_alarm003Cleared
 
@@ -1789,9 +1761,9 @@ Fault
     }}
 
 Heartbeat
----------
+~~~~~~~~~~
 
-.. code-block:: text
+.. code-block:: yaml
 
     # registration for Heartbeat\_vMRF
 
@@ -1853,9 +1825,9 @@ Heartbeat
 
 
 Measurements
-------------
+~~~~~~~~~~~~~
 
-.. code-block:: text
+.. code-block:: yaml
 
     # registration for Mfvs\_vMRF
 
@@ -2392,9 +2364,9 @@ Measurements
 
 
 Syslog
-------
+~~~~~~
 
-.. code-block:: text
+.. code-block:: yaml
 
     # registration for Syslog\_vMRF
 
@@ -2589,9 +2561,9 @@ Syslog
 
 
 Mobile Flow
------------
+~~~~~~~~~~~
 
-.. code-block:: text
+.. code-block:: yaml
 
     # registration for mobileFlow
 
@@ -2826,9 +2798,9 @@ Mobile Flow
 
 
 Sip Signaling
--------------
+~~~~~~~~~~~~~~
 
-.. code-block:: text
+.. code-block:: yaml
 
     # registration for sipSignaling
 
@@ -2925,9 +2897,9 @@ Sip Signaling
 
 
 Voice Quality
--------------
+~~~~~~~~~~~~~~
 
-.. code-block:: text
+.. code-block:: yaml
 
     # registration for voiceQuality
 
@@ -3082,9 +3054,9 @@ Voice Quality
 
 
 Rules
------
+~~~~~~
 
-.. code-block:: text
+.. code-block:: yaml
 
     #Rules
 
@@ -3114,7 +3086,7 @@ Rules
 
 
 Appendix: Historical Change Log
-===============================
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 For the latest changes, see the Change Block just before the Table of
 Contents.
