@@ -330,19 +330,21 @@ This is required for ONAP to build the TOSCA model for the VNF.
 Availability Zone and ResourceGroups
 ++++++++++++++++++++++++++++++++++++
 
-The resource OS::Heat::ResourceGroup and the property availability_zone
+The resource ``OS::Heat::ResourceGroup`` and the ``OS::Nova::Server``
+property ``availability_zone`` parameter
 has been an "issue" with a few VNFs since ONAP only supports
-availability_zone as a string parameter and not as a
+the ``availability_zone`` parameter as a string and not as a
 comma_delimited_list. This makes it difficult to use a
-OS::Heat::ResourceGroup to create Virtual Machines in more than one
+``OS::Heat::ResourceGroup`` to create ``OS::Nova::Server`` in more than one
 availability zone.
 
 There are numerous solutions to this issue. Below are two suggested
 usage patterns.
 
-**Option 1:** create a CDL in the OS::Heat::ResourceGroup. In the
-resource type: OS::Heat::ResourceGroup, create a comma_delimited_list
-availability_zones by using the intrinsic function list_join.
+**Option 1:** create a comma delimited list in the ``OS::Heat::ResourceGroup``.
+In the resource ``OS::Heat::ResourceGroup``, create a comma_delimited_list
+property ``availability_zones`` by concatenating the string
+``availability_zone`` parameters.
 
 .. code-block:: yaml
 
@@ -355,7 +357,7 @@ availability_zones by using the intrinsic function list_join.
         type: nested.yaml
         properties:
           index: index
-          availability_zones: { list_join: [',', [ { get_param: availability_zone_0 }, { get_param: availability_zone_1 } ] ] }
+          availability_zones: [ { get_param: availability_zone_0 }, { get_param: availability_zone_1 } ]
 
 In the nested heat
 

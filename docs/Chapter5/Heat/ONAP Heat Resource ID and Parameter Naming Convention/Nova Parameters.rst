@@ -375,10 +375,11 @@ Property: availability_zone
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: dublin
+    :updated: el alto
 
-    The VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``
-    property ``availability_zone`` parameter name
+    A VNF's Heat Orchestration Template's base module or incremental module
+    resource ``OS::Nova::Server``
+    property ``availability_zone`` parameter
     **MUST** follow the naming convention
 
     * ``availability_zone_{index}``
@@ -392,10 +393,10 @@ Property: availability_zone
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: casablanca
+    :updated: el alto
 
-    The VNF's Heat Orchestration Template's Resource
-    ``OS::Nova::Server`` property
+    The VNF's Heat Orchestration Template's base module or incremental module
+    resource ``OS::Nova::Server`` property
     ``availability_zone`` parameter **MUST** be declared as type: ``string``.
 
 The parameter must not be declared as type ``comma_delimited_list``, ONAP does
@@ -413,6 +414,19 @@ not support it.
     ``availability_zone`` parameter **MUST NOT** be enumerated in the Heat
     Orchestration
     Template's Environment File.
+
+
+.. req::
+    :id: R-256790
+    :target: VNF
+    :keyword: MAY
+    :validation_mode: none
+    :introduced: el alto
+
+    A VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``
+    property ``availability_zone`` parameter name **MAY** change when
+    past into a nested YAML file.
+
 
 Example Parameter Definition
 
@@ -435,7 +449,7 @@ for the OS::Nova::Server resource property availability_zone.
     :updated: casablanca
 
     A VNF's Heat Orchestration Template that contains an ``OS::Nova:Server``
-    Resource **MAY** define a parameter for the property
+    resource **MAY** define a parameter for the property
     ``availability_zone`` that is not utilized in any ``OS::Nova::Server``
     resources in the Heat Orchestration Template.
 
