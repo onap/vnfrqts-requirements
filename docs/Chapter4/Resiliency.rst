@@ -643,11 +643,11 @@ recovery capabilities of individual containers, Virtual Machines or other,
 must be supported.
 
 **Evacuate(VM)**: The Controller client is requesting moving a specified
-VM from its current AIC host to another (when the host is down). Moving
+VM from its current host to another (when the host is down). Moving
 from a specified Host will be supported at in a later release (Openstack).
 
 **Migrate (VM)**: The Controller client is requesting migrating a running
-target VM from its current AIC host to another. Migrating a running target
+target VM from its current host to another. Migrating a running target
 VM from a specified Host will be supported at in a later release (Openstack).
 
 **Reboot(VM)**: The Controller client is requesting to reboot the VM.

@@ -3258,10 +3258,6 @@ events (e.g., ‘fault’ or ‘measurement’), each of which is associated
 with a VES domain field block, which is sent with the commonEventHeader
 when events of that category are generated.
 
-**ECOMP**. Enhanced Control, Orchestration, Management and Policy
-preceded ONAP and is the name given to AT&T’s instance of the ONAP
-platform.
-
 **Epoch**. The number of seconds that have elapsed since
 00:00:00 \ `Coordinated Universal
 Time <https://en.wikipedia.org/wiki/Coordinated_Universal_Time>`__ (UTC),
