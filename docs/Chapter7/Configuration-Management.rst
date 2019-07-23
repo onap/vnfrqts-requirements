@@ -1056,25 +1056,19 @@ or unhealthy response:
 
 .. code-block:: java
 
- {
-   "identifier": "scope represented",
-   "state": "healthy",
-   "time": "01-01-1000:0000"
- }
+  {
+    "identifier":"VNF",
+    "state":"healthy",
+    "time":"2018-11-28 22:39:00.809466"
+  },
 
- {
-   "identifier": "scope represented",
-   "state": "unhealthy",
-    {[
-   "info": "System threshold exceeded details",
-   "fault":
-     {
-       "cpuOverall": 0.80,
-       "cpuThreshold": 0.45
-     }
-     ]},
-   "time": "01-01-1000:0000"
- }
+  {
+    "identifier":"VNF",
+    "state":"unhealthy",
+    "info":"There are stopped processes or VNF is not ready, may be quiesced or frozen.",
+    "fault":"VNF mtn23comx8000v not ready for service.",
+    "time":"2018-11-30 05:47:48.655959"
+  }
 
 
 Chef Standards and Capabilities
