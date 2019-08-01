@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e13ba0c1_08692a5f",
+        "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1579
+      },
+      "writtenOn": "2019-08-01T12:30:26Z",
+      "side": 1,
+      "message": "spelling - should this be aggregationRole ?",
+      "range": {
+        "startLine": 375,
+        "startChar": 17,
+        "endLine": 375,
+        "endChar": 32
+      },
+      "revId": "cbb14b8e4ce3cbe3a9080b85ca787241ce2ef61d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "28df56db_79953a55",
+        "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 3082,
+      "author": {
+        "id": 1579
+      },
+      "writtenOn": "2019-08-01T12:30:26Z",
+      "side": 1,
+      "message": "we should add an entry in the historical change log to reflect its new position in our documentation hierarchy",
+      "range": {
+        "startLine": 3082,
+        "startChar": 2,
+        "endLine": 3082,
+        "endChar": 12
+      },
+      "revId": "cbb14b8e4ce3cbe3a9080b85ca787241ce2ef61d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
