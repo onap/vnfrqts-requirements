@@ -32,15 +32,20 @@ Scope
 - Network Service Descriptions are beyond the scope of these requirements.
 
 References
------------------------
+----------
 
 This section contains a list of normative and informative references along
 with information on acquiring the identified references.  Normative references
 are required to be implemented by this document. Informative references are
 for informational purposes only.
 
+Release Notes
+-------------
+
+Release notes for the VNF Requirements can be found :doc:`here <../release-notes>`
+
 Glossary
------------------------
+--------
 
 .. glossary::
 
@@ -344,7 +349,7 @@ Glossary
 
 
 Normative References
-^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^
 +---------------+-----------------------------------------------------+
 | Reference     | Description                                         |
 +===============+=====================================================+
@@ -353,7 +358,7 @@ Normative References
 +---------------+-----------------------------------------------------+
 
 Informative References
-^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
 +---------------+-----------------------------------------------------+
 | Reference     | Description                                         |
 +===============+=====================================================+
@@ -361,7 +366,7 @@ Informative References
 +---------------+-----------------------------------------------------+
 
 Reference Acquisition
-^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^
 IETF Specifications:
 
 - Internet Engineering Task Force (IETF) Secretariat, 48377 Fremont Blvd.,
@@ -369,7 +374,7 @@ IETF Specifications:
   Fax: +1-510-492-4001.
 
 Submitting Feedback
-------------------------------------
+-------------------
 Please refer to the `VNF Requirements - How to Contribute <https://wiki.onap.org/display/DW/VNFRQTS+How+to+Contribute>`__
 guide for instructions on how to create issues or contribute changes to the
 VNF Requirements project.

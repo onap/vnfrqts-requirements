@@ -1,4 +1,4 @@
-.. Modifications Copyright © 2017-2018 AT&T Intellectual Property.
+.. Modifications Copyright ï¿½ 2017-2018 AT&T Intellectual Property.
 
 .. Licensed under the Creative Commons License, Attribution 4.0 Intl.
    (the "License"); you may not use this documentation except in compliance
@@ -20,8 +20,9 @@ Version: 4.0.0
 
 :Release Date: 2019-5-30
 
-A detailed summary of all requirement changes per section can be found
-:doc:`here <changes-by-section-dublin>`.
+.. container:: note
+
+   :doc:`Detailed Summmary of Changes <changes-by-section-dublin>`
 
 A higher level summary of changes as well as non-requirement impacting
 changes can be found below.
@@ -98,8 +99,9 @@ Version: 3.0.0
 
 :Release Date: 2018-11-30
 
-A detailed summary of all requirement changes per section can be found
-:doc:`here <changes-by-section-casablanca>`.
+.. container:: note
+
+   :doc:`Detailed Summmary of Changes <changes-by-section-casablanca>`
 
 A higher level summary of changes as well as non-requirement impacting
 changes can be found below.
