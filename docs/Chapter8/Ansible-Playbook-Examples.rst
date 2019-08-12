@@ -609,8 +609,6 @@ Server via Rest API as part of request:
 .. code-block:: json
 
   {
-
-
     "NodeList": [
         {
             "vnfc_type": "oam",
@@ -643,8 +641,6 @@ Server via Rest API as part of request:
             ]
         }
     ]
-
-
   }
 
 With no names, only IP addresses, template "InventoryNames": "None" (Default)

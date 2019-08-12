@@ -160,7 +160,7 @@ Filename
 
 YAML file names should conform to the following naming convention:
 
-    ``{AsdcModel}\_{AsdcModelType}\_{v#}.yml``
+    ``{AsdcModel}_{AsdcModelType}_{v#}.yml``
 
 The ‘#’ should be replaced with the current numbered version of the
 file.
@@ -181,11 +181,11 @@ it appears in the the Service Design and Creation Environment).
 
 For example:
 
--  ``vMRF\_Vnf\_v1.yml``
+-  ``vMRF_Vnf_v1.yml``
 
--  ``vMRF\_Service\_v1.yml``
+-  ``vMRF_Service_v1.yml``
 
--  ``vIsbcSsc\_VfModule\_v1.yml``
+-  ``vIsbcSsc_VfModule_v1.yml``
 
 File Structure
 ~~~~~~~~~~~~~~
@@ -2403,7 +2403,7 @@ Syslog
 
 .. code-block:: yaml
 
-    # registration for Syslog\_vMRF
+    # registration for Syslog_vMRF
 
     # Constants: the values of domain, eventName, priority, lastEpochMicrosec, version,
     # syslogFields.syslogFieldsVersion, syslogFields.syslogTag

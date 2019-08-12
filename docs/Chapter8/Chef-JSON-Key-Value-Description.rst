@@ -95,20 +95,20 @@ Chef Template example:
  "Environment":{
       "name": "HAR",
       "description": "VNF Chef environment for HAR",
-      "json\_class": "Chef::Environment",
-      "chef\_type": "environment",
-      "default\_attributes": { },
-      "override\_attributes": {
-            "Retry\_Time":"50",
+      "json_class": "Chef::Environment",
+      "chef_type": "environment",
+      "default_attributes": { },
+      "override_attributes": {
+            "Retry_Time":"50",
             "MemCache": "1024",
-            "Database\_IP":"10.10.1.5"
+            "Database_IP":"10.10.1.5"
       },
  }
  }
  "Node": {
       "name" : "signal.network.com "
-      "chef\_type": "node",
-      "json\_class": "Chef::Node",
+      "chef_type": "node",
+      "json_class": "Chef::Node",
       "attributes": {
             "IPAddress1": "192.168.1.2",
             "IPAddress2":"135.16.162.5",
@@ -118,10 +118,10 @@ Chef Template example:
       "default": {},
       "normal":{},
       "automatic":{},
-      "chef\_environment" : "\_default"
-      "run\_list": [ "configure\_signal" ]
+      "chef_environment" : "_default"
+      "run_list": [ "configure_signal" ]
       },
-      "NodeList":["node1.vnf\_a.onap.com", "node2.vnf\_a.onap.com"],
+      "NodeList":["node1.vnf_a.onap.com", "node2.vnf_a.onap.com"],
       "PushJobFlag": "True"
       "CallbackCapable":True
       "GetOutputFlag" : "False"
