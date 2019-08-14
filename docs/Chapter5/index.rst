@@ -19,7 +19,7 @@ VNF and PNF Modeling Requirements
 .. toctree::
     :maxdepth: 2
 
-    Tosca
+    Tosca/index.rst
     Heat/index.rst
     VNFM-Driver-Development-Steps
     Creating-Vendor-Specific-VNFM-Adaptor-Microservices
