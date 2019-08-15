@@ -221,10 +221,11 @@ the product's lifecycle.
     :id: R-21819
     :target: VNF
     :keyword: MUST
-    :updated: casablanca
+    :updated: el alto
 
-    The VNF **MUST** provide functionality that enables the Operator to comply
-    with requests for information from law enforcement and government agencies.
+    VNFs that are subject to regulatory requirements **MUST** provide
+    functionality that enables the Operator to comply with ETSI TC LI
+    requirements, and, optionally, other relevant national equivalents.
 
 .. req::
     :id: R-86261
@@ -418,16 +419,6 @@ Identity and Access Management Requirements
 
     The VNF **MUST**, if not integrated with the Operator's Identity and
     Access Management system, support configurable password expiration.
-
-.. req::
-    :id: R-98391
-    :target: VNF
-    :keyword: MUST
-    :updated: casablanca
-
-    The VNF **MUST**, if not integrated with the Operator's Identity and
-    Access Management system, support Role-Based Access Control to enforce
-    least privilege.
 
 .. req::
     :id: R-46908
@@ -660,16 +651,6 @@ Security Analytics Requirements
 
     The VNF **MUST** support Real-time detection and
     notification of security events.
-
-.. req::
-    :id: R-22286
-    :target: VNF
-    :keyword: MUST
-
-    The VNF **MUST** support Integration functionality via
-    API/Syslog/SNMP to other functional modules in the network (e.g.,
-    PCRF, PCEF) that enable dynamic security control by blocking the
-    malicious traffic or malicious end users.
 
 .. req::
     :id: R-32636
