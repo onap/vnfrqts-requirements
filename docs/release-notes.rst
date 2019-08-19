@@ -15,6 +15,52 @@
 VNFRQTS Project Release Notes
 ==============================
 
+Version: 5.0.0
+--------------
+
+:Release Date: 2019-08-16
+
+.. container:: note
+
+   :doc:`Detailed Summmary of Changes <changes-by-section-el-alto>`
+
+A higher level summary of changes as well as non-requirement impacting
+changes can be found below.
+
+**New Features**
+    - Added Release notes to be more discoverable
+    - Added new Security Requirements
+
+**Bug Fixes**
+    - Fixed typos
+    - Fixed metadata errors
+    - Fixed traceability matrix rendering
+    - Reformatted VES spec docs
+    - Cleaning requirements for TOSCA/HEAT
+    - Cleaning requirements for VNF or PNF
+    - Granularized TOSCA Section
+
+**Known Issues**
+    - Links that refer to "latest" version are static.  Please report
+      any broken links.
+    - Doc references to Chapter 5 and 7 are breaking linkage in vnfrqts docs.
+
+**Security Issues**
+    - None
+
+**Upgrade Notes**
+    - If you would like to add requirements, you **MUST** follow
+      `instructions on Wiki <https://wiki.onap.org/display/DW/VNFRQTS+How+to+Contribute>`__.
+    - If you would like to see a list of JIRA tickets closed in Dublin,
+      `please click here <https://jira.onap.org/projects/VNFRQTS/versions/10474>`_.
+
+**Deprecation Notes**
+    - None
+
+**Other**
+    - None
+
+
 Version: 4.0.0
 --------------
 
