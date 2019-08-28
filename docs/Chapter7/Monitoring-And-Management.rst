@@ -930,32 +930,31 @@ Security
     :target: VNF or PNF
     :keyword: MUST
     :introduced: casablanca
-    :updated: dublin
+    :updated: el alto
 
-    The VNF or PNF **MUST** support the provisioning of security and authentication
-    parameters (HTTP username and password) in order to be able to authenticate
-    with DCAE (in ONAP).
+    If the VNF or PNF is using Basic Authentication, then the VNF or
+    PNF **MUST** support the provisioning of security and authentication
+    parameters (HTTP username and password) in order to be able to
+    authenticate with DCAE VES Event Listener.
 
-    Note: In R3, a username and password are used with the DCAE VES Event
-    Listener which are used for HTTP Basic Authentication.
-
-    Note: The configuration management and provisioning software are specific
-    to a vendor architecture.
+    Note: The configuration management and provisioning software
+    are specific to a vendor architecture.
 
 .. req::
     :id: R-894004
     :target: VNF or PNF
     :keyword: MUST
     :introduced: casablanca
-    :updated: dublin
+    :updated: el alto
 
-    When the VNF or PNF sets up a HTTP or HTTPS connection to the collector, it **MUST**
-    provide a username and password to the DCAE VES Collector for HTTP Basic
-    Authentication.
+    If the VNF or PNF is using Basic Authentication, then when the VNF or
+    PNF sets up a HTTPS connection to the DCAE VES Event Listener, the VNF
+    or PNF **MUST** provide a username and password to the DCAE VES Event
+    Listener in the Authorization header and the VNF or PNF MUST
+    support one-way TLS authentication.
 
-    Note: HTTP Basic Authentication has 4 steps: Request, Authenticate,
-    Authorization with Username/Password Credentials, and Authentication Status
-    as per RFC7617 and RFC 2617.
+    Note: In one-way TLS authentication, the client (VNF or PNF) must
+    authentication the server (DCAE) certificate.
 
 Bulk Performance Measurement
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~

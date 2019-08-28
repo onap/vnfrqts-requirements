@@ -125,22 +125,13 @@ The following are the requirements related to PNF Plug and Play.
 
 .. req::
     :id: R-763774
-    :target: PNF
+    :target: VNF or PNF
     :keyword: MUST
     :introduced: casablanca
+    :updated: el alto
 
-    The PNF **MUST** support a HTTPS connection to the DCAE VES Event
-    Listener.
-
-.. req::
-    :id: R-579051
-    :target: PNF
-    :keyword: MAY
-    :introduced: casablanca
-
-    The PNF **MAY** support a HTTP connection to the DCAE VES Event Listener.
-
-    Note: HTTP is allowed but not recommended.
+    The VNF or PNF **MUST** support a HTTPS connection to the
+    DCAE VES Event Listener.
 
 .. req::
     :id: R-686466
@@ -255,3 +246,38 @@ The following are the requirements related to PNF Plug and Play.
     exchange is also a requirement on the PNF to be developed by the PNF
     vendor.
 
+.. req::
+    :id: R-579054
+    :target: VNF or PNF
+    :keyword: SHOULD
+    :introduced: el alto
+
+    The VNF or PNF **SHOULD** support Certificate Authentication for
+    authenticating HTTPS connections to the DCAE VES Event Listener.
+
+.. req::
+    :id: R-57089
+    :target: VNF or PNF
+    :keyword: MUST
+    :introduced: el alto
+
+    If the VNF or PNF is using Certificate Authentication, then when the
+    VNF or PNF sets up a HTTPS connection to the DCAE VES Event Listener,
+    the VNF or PNF **MUST** support mutual TLS authentication and the
+    Subject Name in the end-entity certificate MUST uniquely identify
+    the VNF or PNF according to RFC 5280.
+
+    Note: In mutual TLS authentication, the client (VNF or PNF) must
+    authenticate the server (DCAE) certificate and must provide its own
+    X.509v3 end-entity certificate to the server for authentication.
+
+.. req::
+    :id: R-50892
+    :target: VNF or PNF
+    :keyword: MUST
+    :introduced: el alto
+
+    If the VNF or PNF does not support Certificate Authentication, then the
+    VNF or PNF **MUST** support Basic Authentication in compliance with
+    RFC 7617 for authenticating HTTPS connections to the DCAE VES Event
+    Listener.

@@ -1242,9 +1242,9 @@ applicable to encryption or protocol meethods.
     :id: R-49109
     :target: VNF
     :keyword: MUST
-    :updated: casablanca
+    :updated: el alto
 
-    The VNF **MUST** support HTTP/S using TLS v1.2 or higher
+    The VNF or PNF **MUST** support HTTPS using TLS v1.2 or higher
     with strong cryptographic ciphers.
 
 .. req::
