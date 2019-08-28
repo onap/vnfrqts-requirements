@@ -1074,6 +1074,14 @@ or unhealthy response:
 Chef Standards and Capabilities
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+.. container:: note
+
+    **ATTENTION**: Chef is supported by ONAP, but it is not currently used by
+    any of the official ONAP use cases and is not part of standard release
+    testing like REST, Ansible, and Netconf.  For this reason, the other
+    options are generally favored over Chef at this time.
+
+
 ONAP will support configuration of VNFs or PNFs via Chef subject to the
 requirements and guidelines defined in this section.
 
