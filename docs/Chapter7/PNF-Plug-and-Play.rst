@@ -125,22 +125,13 @@ The following are the requirements related to PNF Plug and Play.
 
 .. req::
     :id: R-763774
-    :target: PNF
+    :target: VNF or PNF
     :keyword: MUST
     :introduced: casablanca
+    :updated: el alto
 
-    The PNF **MUST** support a HTTPS connection to the DCAE VES Event
-    Listener.
-
-.. req::
-    :id: R-579051
-    :target: PNF
-    :keyword: MAY
-    :introduced: casablanca
-
-    The PNF **MAY** support a HTTP connection to the DCAE VES Event Listener.
-
-    Note: HTTP is allowed but not recommended.
+    The VNF or PNF **MUST** support a HTTPS connection to the DCAE
+    VES Event Listener.
 
 .. req::
     :id: R-686466
