@@ -87,13 +87,12 @@ VNF Package Contents
     :target: VNF or PNF
     :keyword: MUST
     :introduced: casablanca
-    :updated: dublin
+    :updated: el alto
 
-    The VNF or PNF package Manifest file **MUST** contain: VNF or PNF package
-    meta-data, a list of all artifacts (both internal and external) entry's
-    including their respected URI's, an algorithm to calculate a digest and
-    a digest result calculated on the content of each artifacts, as specified
-    in ETSI GS NFV-SOL004.
+    The VNF or PNF package Manifest file **MUST** contain: VNF or PNF
+    package meta-data, a list of all artifacts (both internal and
+    external) entry's including their respected URI's, as specified
+    in ETSI GS NFV-SOL 004
 
 .. req::
     :id: R-21322
@@ -254,8 +253,9 @@ key.
     :target: VNF or PNF CSAR PACKAGE
     :keyword: MUST
     :introduced: dublin
+    :updated: el alto
 
-    If the VNF or PNF CSAR Package utilizes Option 2 for package security, then
+    If the VNF or PNF CSAR Package utilizes Option 1 for package security, then
     the complete CSAR file **MUST** contain a Digest (a.k.a. hash) for each of
     the components of the VNF or PNF package. The table of hashes is included
     in the package manifest file, which is signed with the VNF or PNF provider
