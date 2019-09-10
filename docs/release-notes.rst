@@ -15,7 +15,7 @@
 VNFRQTS Project Release Notes
 ==============================
 
-Version: 5.0.0
+Version: 5.0.1
 --------------
 
 :Release Date: 2019-08-16
