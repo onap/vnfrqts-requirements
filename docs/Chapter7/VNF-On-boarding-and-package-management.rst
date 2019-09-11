@@ -557,7 +557,12 @@ Testing
 
 Licensing Requirements
 ^^^^^^^^^^^^^^^^^^^^^^^
-
+ONAP operators build the VNF License using SDC during onboarding.
+Refer to the ONAP User Guide for details.
+The operators require certain information regarding VNF licences.
+This information currently is delivered out of band.
+HEAT or TOSCA VNF packages may support such information in future. 
+VNF licensing behavior also has some constraints. 
 
 .. req::
     :id: R-85653
