@@ -275,10 +275,13 @@ the product's lifecycle.
 .. req::
    :id: R-258686
    :target: VNF
-   :keyword: MUST NOT
+   :keyword: SHOULD NOT
    :introduced: casablanca
+   :updated: el alto
 
-   The VNF application processes **MUST NOT** run as root.
+   The VNF application processes **SHOULD NOT** run as root. If a VNF
+   application process must run as root, the technical reason must
+   be documented.
 
 .. req::
    :id: R-118669

@@ -956,6 +956,47 @@ Security
     Note: In one-way TLS authentication, the client (VNF or PNF)
     must authentication the server (DCAE) certificate.
 
+.. req::
+   :id: R-55634
+   :target: VNF or PNF
+   :keyword: MUST
+   :introduced: el alto
+
+   If VNF or PNF is using Basic Authentication, then the VNF or PNF
+   **MUST** be in compliance with
+   `RFC7617 <https://tools.ietf.org/html/rfc7617>`_ for authenticating HTTPS
+   connections to the DCAE VES Event Listener.
+
+.. req::
+   :id: R-43387
+   :target: VNF or PNF
+   :keyword: MUST
+   :introduced: el alto
+
+   If the VNF or PNF is using Certificate Authentication, the
+   VNF or PNF **MUST** support mutual TLS authentication and the Subject
+   Name in the end-entity certificate MUST be used according to
+   `RFC5280 <https://tools.ietf.org/html/rfc5280>`_.
+
+   Note: In mutual TLS authentication, the client (VNF or PNF) must
+   authenticate the server (DCAE) certificate and must provide its own
+   X.509v3 end-entity certificate to the server for authentication.
+
+.. req::
+   :id: R-33878
+   :target: VNF or PNF
+   :keyword: MUST
+   :introduced: el alto
+
+   The VNF or PNF **MUST** support one of the following authentication
+   methods for authenticating HTTPS connections to the DCAE VES Event
+   Listener:
+
+   - The preferred method is Certificate Authentication
+    
+   - The non-preferred option is Basic Authentication.
+
+
 Bulk Performance Measurement
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
