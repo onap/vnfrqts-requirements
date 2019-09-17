@@ -50,6 +50,85 @@ Base module or Incremental Module.
 
 A VNF module (base, incremental, cinder) **MAY** support nested templates.
 
+.. req::
+    :id: R-610010
+    :target: VNF
+    :keyword: MAY
+    :validation_mode: none
+    :introduced: el alto
+
+    A VNF's Heat Orchestration Template's Base Module **MAY** declare zero, one,
+    or more than one ``OS::Nova::Server`` resource.
+
+.. req::
+    :id: R-610020
+    :target: VNF
+    :keyword: MAY
+    :validation_mode: none
+    :introduced: el alto
+
+    If a VNF's Heat Orchestration Template's Base Module contains two or more
+    ``OS::Nova::Server`` resources, the ``OS::Nova::Server`` resources **MAY**
+    define the same ``{vm-type}`` (as defined in R-01455) or **MAY**
+    define different ``{vm-type}``.
+
+    Note that
+
+    - there is no constraint on the number of unique ``{vm-type}`` defined in
+      the base module.
+    - there is no constraint on the number of ``OS::Nova::Server`` resources
+      that define the same ``{vm-type}`` in the base module.
+
+.. req::
+    :id: R-610030
+    :target: VNF
+    :keyword: MUST
+    :validation_mode: statuc
+    :introduced: el alto
+
+    A VNF's Heat Orchestration Template's Incremental Module **MUST**
+    declare one or more ``OS::Nova::Server`` resources.
+
+.. req::
+    :id: R-610040
+    :target: VNF
+    :keyword: MAY
+    :validation_mode: none
+    :introduced: el alto
+
+    If a VNF’s Heat Orchestration Template’s Incremental Module contains two or
+    more ``OS::Nova::Server`` resources, the ``OS::Nova::Server`` resources
+    **MAY** define the same ``{vm-type}`` (as defined in R-01455) or **MAY**
+    define different ``{vm-type}``.
+
+    Note that
+
+    - there is no constraint on the number of unique ``{vm-type}`` defined in
+      the incremental module.
+    - there is no constraint on the number of ``OS::Nova::Server`` resources
+      that define the same ``{vm-type}`` in the incremental module.
+
+
+.. req::
+    :id: R-610050
+    :target: VNF
+    :keyword: MAY
+    :validation_mode: none
+    :introduced: el alto
+
+    A VNF’s Heat Orchestration Template's ``OS::Nova::Server`` resource unique
+    ``{vm-type}`` (as defined in R-01455) **MAY** exist in the VNF's
+    Heat Orchestration Template's Base Module and/or one or more of the VNF's
+    Heat Orchestration Template's Incremental Modules.
+
+Note that R-17528 states that
+
+- A VNF's Heat Orchestration Template's first level Nested YAML file
+  **MUST NOT** contain more than one ``OS::Nova::Server`` resource.
+- A VNF's Heat Orchestration Template's second level Nested YAML file
+  **MUST NOT** contain an ``OS::Nova::Server`` resource.
+
+
 A shared Heat Resource is a resource that **MAY** be used by
 other Heat Resources either in the Base Module or an
 Incremental Module.
