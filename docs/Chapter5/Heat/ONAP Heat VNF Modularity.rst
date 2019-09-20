@@ -58,7 +58,9 @@ A VNF module (base, incremental, cinder) **MAY** support nested templates.
     :introduced: el alto
 
     A VNF's Heat Orchestration Template's Base Module **MAY** declare zero, one,
-    or more than one ``OS::Nova::Server`` resource.
+    or more than one ``OS::Nova::Server`` resource.  A ``OS::Nova::Server``
+    **MAY** be created in the base module or a nested yaml file invoked by the
+    base module.
 
 .. req::
     :id: R-610020
@@ -68,7 +70,9 @@ A VNF module (base, incremental, cinder) **MAY** support nested templates.
     :introduced: el alto
 
     If a VNF's Heat Orchestration Template's Base Module contains two or more
-    ``OS::Nova::Server`` resources, the ``OS::Nova::Server`` resources **MAY**
+    ``OS::Nova::Server`` resources (created in the base module itself and/or
+    in a nested yaml file invoked by the base module), the ``OS::Nova::Server``
+    resources **MAY**
     define the same ``{vm-type}`` (as defined in R-01455) or **MAY**
     define different ``{vm-type}``.
 
@@ -78,6 +82,9 @@ A VNF module (base, incremental, cinder) **MAY** support nested templates.
       the base module.
     - there is no constraint on the number of ``OS::Nova::Server`` resources
       that define the same ``{vm-type}`` in the base module.
+    - if an ``OS::Nova::Server`` is created in a nested yaml file invoked by
+      the base module, the nested yaml file **MUST NOT** contain more than one
+      ``OS::Nova::Server`` resource (as defined in R-17528).
 
 .. req::
     :id: R-610030
@@ -87,7 +94,9 @@ A VNF module (base, incremental, cinder) **MAY** support nested templates.
     :introduced: el alto
 
     A VNF's Heat Orchestration Template's Incremental Module **MUST**
-    declare one or more ``OS::Nova::Server`` resources.
+    declare one or more ``OS::Nova::Server`` resources.  A ``OS::Nova::Server``
+    **MAY** be created in the incremental module or a nested yaml file invoked
+    by the incremental module.
 
 .. req::
     :id: R-610040
@@ -107,6 +116,9 @@ A VNF module (base, incremental, cinder) **MAY** support nested templates.
       the incremental module.
     - there is no constraint on the number of ``OS::Nova::Server`` resources
       that define the same ``{vm-type}`` in the incremental module.
+    - if an ``OS::Nova::Server`` is created in a nested yaml file invoked by
+      the incremental module, the nested yaml file **MUST NOT** contain more
+      than one ``OS::Nova::Server`` resource (as defined in R-17528).
 
 
 .. req::
@@ -118,15 +130,9 @@ A VNF module (base, incremental, cinder) **MAY** support nested templates.
 
     A VNF’s Heat Orchestration Template's ``OS::Nova::Server`` resource unique
     ``{vm-type}`` (as defined in R-01455) **MAY** exist in the VNF's
-    Heat Orchestration Template's Base Module and/or one or more of the VNF's
-    Heat Orchestration Template's Incremental Modules.
-
-Note that R-17528 states that
-
-- A VNF's Heat Orchestration Template's first level Nested YAML file
-  **MUST NOT** contain more than one ``OS::Nova::Server`` resource.
-- A VNF's Heat Orchestration Template's second level Nested YAML file
-  **MUST NOT** contain an ``OS::Nova::Server`` resource.
+    Heat Orchestration Template's Base Module (or invoked nested yaml file)
+    and/or one or more of the VNF's Heat Orchestration Template's Incremental
+    Modules (or invoked nested yaml file).
 
 
 A shared Heat Resource is a resource that **MAY** be used by
