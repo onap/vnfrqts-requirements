@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "296b6bab_3a862662",
+        "filename": "docs/Chapter5/Heat/ONAP Heat VNF Modularity.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 3013
+      },
+      "writtenOn": "2019-09-20T18:46:33Z",
+      "side": 1,
+      "message": "I\u0027m a little unclear on what this req is saying, maybe needs some tweak to the verbiage? Is this saying that the same vm_type(s) can be used across base, incremental, and nested templates?",
+      "range": {
+        "startLine": 131,
+        "startChar": 4,
+        "endLine": 135,
+        "endChar": 41
+      },
+      "revId": "b88c378a5d89d2f95f5ddd1beb5d13970c989183",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
