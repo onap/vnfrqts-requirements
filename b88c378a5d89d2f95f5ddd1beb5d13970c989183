@@ -70,6 +70,30 @@
       "revId": "b88c378a5d89d2f95f5ddd1beb5d13970c989183",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6adc61a_c323bf4b",
+        "filename": "docs/Chapter5/Heat/ONAP Heat VNF Modularity.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 4055
+      },
+      "writtenOn": "2019-09-23T21:15:12Z",
+      "side": 1,
+      "message": "sounds good to me.",
+      "parentUuid": "1cb66064_cf4c3d08",
+      "range": {
+        "startLine": 131,
+        "startChar": 4,
+        "endLine": 135,
+        "endChar": 41
+      },
+      "revId": "b88c378a5d89d2f95f5ddd1beb5d13970c989183",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
