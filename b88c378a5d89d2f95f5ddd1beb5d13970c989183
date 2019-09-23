@@ -46,6 +46,30 @@
       "revId": "b88c378a5d89d2f95f5ddd1beb5d13970c989183",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1cb66064_cf4c3d08",
+        "filename": "docs/Chapter5/Heat/ONAP Heat VNF Modularity.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 3013
+      },
+      "writtenOn": "2019-09-23T14:56:21Z",
+      "side": 1,
+      "message": "The same ``{vm-type}`` for a VNF’s Heat Orchestration Template\u0027s ``OS::Nova::Server`` resource \n(as defined in R-01455) **MAY** exist in the VNF\u0027s\nHeat Orchestration Template\u0027s Base Module (or invoked nested yaml file)\nand/or one or more of the VNF\u0027s Heat Orchestration Template\u0027s Incremental\nModules (or invoked nested yaml file)",
+      "parentUuid": "eee9cc12_658fc9b2",
+      "range": {
+        "startLine": 131,
+        "startChar": 4,
+        "endLine": 135,
+        "endChar": 41
+      },
+      "revId": "b88c378a5d89d2f95f5ddd1beb5d13970c989183",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
     }
   ]
 }
