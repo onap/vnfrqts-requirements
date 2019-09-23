@@ -22,6 +22,30 @@
       "revId": "b88c378a5d89d2f95f5ddd1beb5d13970c989183",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eee9cc12_658fc9b2",
+        "filename": "docs/Chapter5/Heat/ONAP Heat VNF Modularity.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 4055
+      },
+      "writtenOn": "2019-09-23T14:25:30Z",
+      "side": 1,
+      "message": "Yes, it is trying to say that the same vm_type(s) can be used across base, incremental, and nested templates.  Any suggestions on how to word this are welcome.",
+      "parentUuid": "296b6bab_3a862662",
+      "range": {
+        "startLine": 131,
+        "startChar": 4,
+        "endLine": 135,
+        "endChar": 41
+      },
+      "revId": "b88c378a5d89d2f95f5ddd1beb5d13970c989183",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
     }
   ]
 }
