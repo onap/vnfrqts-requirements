@@ -525,7 +525,7 @@ Common Event Format
 A JSON schema describing the Common Event Format is provided below and
 is reproduced in the tables that follow.
 
-:download:`JSON <CommonEventFormat_30.1_ONAP.json>` 
+:download:`JSON <CommonEventFormat_30.1_ONAP.json>`
 
 
 Note on optional fields:
@@ -3529,7 +3529,7 @@ the X-MinorVersion header with their request. For example, if they
 request major version 7 with X-MinorVersion: 1, they will get the latest
 patch version of 7.1, which is 7.1.0.
 
-Buffering of Events 
+Buffering of Events
 ++++++++++++++++++++
 
 {ServerRoot} is defined in section 3 of this document, which defines the
@@ -4415,7 +4415,7 @@ measurements currently.
 and design tool. It creates internal metadata that describes assets used
 by all ONAP components, both at design time and run time. The SDC
 manages the content of a catalog, and assemblies of selected catalog to
-define how and when VNFs are realized in a target environment.  
+define how and when VNFs are realized in a target environment.
 
 **Source Name**: Name of the entity experiencing the event issue, which
 may be detected and reported by a separate reporting entity. The

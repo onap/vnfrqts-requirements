@@ -993,7 +993,7 @@ Security
    Listener:
 
    - The preferred method is Certificate Authentication
-    
+
    - The non-preferred option is Basic Authentication.
 
 

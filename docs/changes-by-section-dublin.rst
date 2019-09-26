@@ -38,7 +38,7 @@ Configuration Management > Ansible Standards and Capabilities > VNF or PNF Confi
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -47,7 +47,7 @@ Requirements Changed
     The VNF or PNF **MUST** provide Ansible playbooks that are designed to run
     using an inventory hosts file in a supported format with only IP addresses
     or IP addresses and VM/VNF or PNF names.
-    
+
 
 .. container:: note
 
@@ -69,7 +69,7 @@ Requirements Changed
     upload of SSH public keys, SSH public keys loaded during (heat)
     instantiation shall be preserved and not removed by (heat) embedded
     (userdata) scripts.
-    
+
 
 .. container:: note
 
@@ -78,7 +78,7 @@ Requirements Changed
     The VNF or PNF **MUST** support SSH and allow SSH access by the
     Ansible server to the endpoint VM(s) and comply with the Network
     Cloud Service Provider guidelines for authentication and access.
-    
+
 
 .. container:: note
 
@@ -86,7 +86,7 @@ Requirements Changed
 
     The VNF or PNF **MUST** provide the ability to remove root access once
     post-instantiation configuration (Configure) is completed.
-    
+
 
 .. container:: note
 
@@ -96,7 +96,7 @@ Requirements Changed
     addresses of the Ansible Servers in the Cluster, separated by coma, to
     restrict use of the SSH key pair to elements that are part of the Ansible
     Cluster owner of the issued and assigned mechanized user ID.
-    
+
 
 .. container:: note
 
@@ -105,7 +105,7 @@ Requirements Changed
     The VNF or PNF **MUST** provide the ability to include a "from=" clause in
     SSH public keys associated with mechanized user IDs created for an Ansible
     Server cluster to use for VNF or PNF VM authentication.
-    
+
 
 .. container:: note
 
@@ -114,7 +114,7 @@ Requirements Changed
     The VNF or PNF **MUST** permit authentication, using root account, only
     right after instantiation and until post-instantiation configuration is
     completed.
-    
+
 
 .. container:: note
 
@@ -126,7 +126,7 @@ Requirements Changed
     instantiation to support Ansible. This may include creating Mechanized user
     ID(s) used by the Ansible Server(s) on VNF VM(s) and uploading and
     installing new SSH keys used by the mechanized use ID(s).
-    
+
 
 .. container:: note
 
@@ -136,7 +136,7 @@ Requirements Changed
     using an inventory hosts file in a supported format; with group names
     matching VNFC 3-character string adding "vip" for groups with virtual IP
     addresses shared by multiple VMs as seen in examples provided in Appendix.
-    
+
 
 .. container:: note
 
@@ -147,7 +147,7 @@ Requirements Changed
     VNF or PNF that playbooks will target. ONAP will initiate requests to the
     Ansible Server for invocation of playbooks against these end
     points [#7.3.3]_.
-    
+
 
 .. container:: note
 
@@ -155,7 +155,7 @@ Requirements Changed
 
     The VNF or PNF **MUST** have Python >= 2.6 on the endpoint VM(s)
     of a VNF or PNF on which an Ansible playbook will be executed.
-    
+
 
 .. container:: note
 
@@ -165,7 +165,7 @@ Requirements Changed
     using an inventory hosts file in a supported format; with site group that
     shall be used to add site specific configurations to the target VNF or PNF
     VM(s) as needed.
-    
+
 
 .. container:: note
 
@@ -177,7 +177,7 @@ Requirements Changed
 
     **Note**: Ansible Server itself may be used to upload new SSH public
     keys onto supported VNFs or PNFs.
-    
+
 
 Configuration Management > Ansible Standards and Capabilities > VNF or PNF Configuration via Ansible Requirements > Ansible Playbook Requirements
 -------------------------------------------------------------------------------------------------------------------------------------------------
@@ -185,7 +185,7 @@ Configuration Management > Ansible Standards and Capabilities > VNF or PNF Confi
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -194,7 +194,7 @@ Requirements Changed
     The VNF or PNF provider **MUST** assign a new point release to the updated
     playbook set. The functionality of a new playbook set must be tested before
     it is deployed to the production.
-    
+
 
 .. container:: note
 
@@ -213,7 +213,7 @@ Requirements Changed
     models, that send remediation action requests to an APPC/SDN-C; these
     are triggered as a response to an event or correlated events published
     to Event Bus.
-    
+
 
 .. container:: note
 
@@ -222,7 +222,7 @@ Requirements Changed
     The VNF or PNF provider **MUST** deliver a new set of playbooks that
     includes all updated and unchanged playbooks for any new revision to an
     existing set of playbooks.
-    
+
 
 .. container:: note
 
@@ -233,7 +233,7 @@ Requirements Changed
     playbook completed all tasks. When starting services, return control
     only after all services are up. This is critical for workflows where
     the next steps are dependent on prior tasks being fully completed.
-    
+
 
 .. container:: note
 
@@ -249,7 +249,7 @@ Requirements Changed
     on workflow to terminate and re-instantiate VNF VMs and then re-run
     playbook(s)). Backing up updated files is also recommended to support
     rollback when soft rollback is feasible.
-    
+
 
 .. container:: note
 
@@ -267,7 +267,7 @@ Requirements Changed
     input by playbooks, shall be provisioned (and distributed) in advance of
     use, e.g., VNF or PNF instantiation. Recommendation is to avoid these
     instance specific, manually created in advance of instantiation, files.
-    
+
 
 .. container:: note
 
@@ -279,7 +279,7 @@ Requirements Changed
     **Note**: There are cases where playbooks need to interpret results
     of a task and then determine success or failure and return result
     accordingly (failure for failed tasks).
-    
+
 
 .. container:: note
 
@@ -293,7 +293,7 @@ Requirements Changed
     the VNF or PNF with the name '<VNF or PNF name>_results.txt'. All playbook
     output results, for all VNF or PNF VMs, to be provided as a response to the
     request, must be written to this response file.
-    
+
 
 .. container:: note
 
@@ -301,7 +301,7 @@ Requirements Changed
 
     The VNF or PNF **MUST** support Ansible playbooks that are compatible with
     Ansible version 2.6 or later.
-    
+
 
 .. container:: note
 
@@ -309,7 +309,7 @@ Requirements Changed
 
     The VNF or PNF **MUST NOT** use any instance specific parameters
     in a playbook.
-    
+
 
 .. container:: note
 
@@ -317,7 +317,7 @@ Requirements Changed
 
     The VNF or PNF **MUST** make available playbooks that conform
     to the ONAP requirement.
-    
+
 
 .. container:: note
 
@@ -328,7 +328,7 @@ Requirements Changed
     operations such as backing out of software upgrades, configuration
     changes or other work as this will help backing out of configuration
     changes when needed.
-    
+
 
 .. container:: note
 
@@ -338,7 +338,7 @@ Requirements Changed
     by invocation of **one** playbook [#7.3.4]_. The playbook will be
     responsible for executing all necessary tasks (as well as calling other
     playbooks) to complete the request.
-    
+
 
 Configuration Management > Chef Standards and Capabilities > VNF or PNF Configuration via Chef Requirements > Chef Client Requirements
 --------------------------------------------------------------------------------------------------------------------------------------
@@ -346,7 +346,7 @@ Configuration Management > Chef Standards and Capabilities > VNF or PNF Configur
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -354,7 +354,7 @@ Requirements Changed
 
     The VNF or PNF **MAY** expose a single endpoint that is
     responsible for all functionality.
-    
+
 
 .. container:: note
 
@@ -363,7 +363,7 @@ Requirements Changed
     The VNF or PNF **MUST** have the chef-client be preloaded with
     validator keys and configuration to register with the designated
     Chef Server as part of the installation process.
-    
+
 
 .. container:: note
 
@@ -371,7 +371,7 @@ Requirements Changed
 
     The VNF or PNF **MUST** be installed with Chef-Client >= 12.0 and Chef
     push jobs client >= 2.0.
-    
+
 
 .. container:: note
 
@@ -381,7 +381,7 @@ Requirements Changed
     (VMs) of a VNF or PNF that contain chef-clients which are used to register
     with the Chef Server.  As part of invoking VNF or PNF actions, ONAP will
     trigger push jobs against FQDNs of endpoints for a VNF or PNF, if required.
-    
+
 
 Configuration Management > Chef Standards and Capabilities > VNF or PNF Configuration via Chef Requirements > Chef Roles/Requirements
 -------------------------------------------------------------------------------------------------------------------------------------
@@ -389,7 +389,7 @@ Configuration Management > Chef Standards and Capabilities > VNF or PNF Configur
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -398,7 +398,7 @@ Requirements Changed
     The VNF or PNF **MUST** accept all necessary instance specific
     data from the environment or node object attributes for the VNF or PNF
     in roles/cookbooks/recipes invoked for a VNF or PNF action.
-    
+
 
 .. container:: note
 
@@ -407,7 +407,7 @@ Requirements Changed
     The VNF or PNF **MUST** over-ride any default values for
     configurable parameters that can be set by ONAP in the roles,
     cookbooks and recipes.
-    
+
 
 .. container:: note
 
@@ -417,7 +417,7 @@ Requirements Changed
     designed to automatically 'rollback' to the original state in case of
     any errors for actions that change state of the VNF or PNF (e.g.,
     configure).
-    
+
 
 .. container:: note
 
@@ -429,7 +429,7 @@ Requirements Changed
     (see Section 7.c, APPC/SDN-C APIs and Behavior, for list of VNF or PNF
     actions and requirements), when triggered by a chef-client run list
     in JSON file.
-    
+
 
 .. container:: note
 
@@ -438,7 +438,7 @@ Requirements Changed
     The VNF or PNF Package **MUST** include all relevant Chef artifacts
     (roles/cookbooks/recipes) required to execute VNF or PNF actions requested
     by ONAP for loading on appropriate Chef Server.
-    
+
 
 .. container:: note
 
@@ -448,7 +448,7 @@ Requirements Changed
     ['PushJobOutput'] with the desired output on all nodes in the push job
     that execute chef-client run if the VNF or PNF action requires the output
     of a chef-client run be made available (e.g., get running configuration).
-    
+
 
 .. container:: note
 
@@ -461,7 +461,7 @@ Requirements Changed
     considered a critical error. That is, if the chef-client successfully
     completes the VNF or PNF action, it should reflect this status on the Chef
     Server regardless of whether the Callback succeeded or not.
-    
+
 
 .. container:: note
 
@@ -479,7 +479,7 @@ Requirements Changed
 
     -  If the CallbackUrl field is empty or missing in the push job, then
        the chef-client run need not post the results back via callback.
-    
+
 
 .. container:: note
 
@@ -488,7 +488,7 @@ Requirements Changed
     The VNF or PNF **MUST NOT** use any instance specific parameters
     for the VNF or PNF in roles/cookbooks/recipes invoked for a VNF or PNF
     action.
-    
+
 
 .. container:: note
 
@@ -498,7 +498,7 @@ Requirements Changed
     appropriately (e.g., via a fail or raise an exception) if the
     chef-client run encounters any critical errors/failures when
     executing a VNF or PNF action.
-    
+
 
 Configuration Management > Controller Interactions With VNF or PNF > Configuration Commands
 -------------------------------------------------------------------------------------------
@@ -506,49 +506,49 @@ Configuration Management > Controller Interactions With VNF or PNF > Configurati
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
     :need:`R-20741`
 
     The VNF or PNF **MUST** support APPC/SDN-C ``Configure`` command.
-    
+
 
 .. container:: note
 
     :need:`R-56385`
 
     The VNF or PNF **MUST** support APPC ``Audit`` command.
-    
+
 
 .. container:: note
 
     :need:`R-48247`
 
     The VNF or PNF **MUST** support APPC ``ConfigRestore`` command.
-    
+
 
 .. container:: note
 
     :need:`R-94084`
 
     The VNF or PNF **MUST** support APPC/SDN-C ``ConfigScaleOut`` command.
-    
+
 
 .. container:: note
 
     :need:`R-19366`
 
     The VNF or PNF **MUST** support APPC ``ConfigModify`` command.
-    
+
 
 .. container:: note
 
     :need:`R-32981`
 
     The VNF or PNF **MUST** support APPC ``ConfigBackup`` command.
-    
+
 
 Configuration Management > Controller Interactions With VNF or PNF > HealthCheck and Failure Related Commands
 -------------------------------------------------------------------------------------------------------------
@@ -556,14 +556,14 @@ Configuration Management > Controller Interactions With VNF or PNF > HealthCheck
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
     :need:`R-41430`
 
     The VNF or PNF **MUST** support APPC/SDN-C ``HealthCheck`` command.
-    
+
 
 Configuration Management > Controller Interactions With VNF or PNF > Lifecycle Management Related Commands
 ----------------------------------------------------------------------------------------------------------
@@ -571,63 +571,63 @@ Configuration Management > Controller Interactions With VNF or PNF > Lifecycle M
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
     :need:`R-65641`
 
     The VNF or PNF **MUST** support APPC/SDN-C ``UpgradeBackOut`` command.
-    
+
 
 .. container:: note
 
     :need:`R-97343`
 
     The VNF or PNF **MUST** support APPC/SDN-C ``UpgradeBackup`` command.
-    
+
 
 .. container:: note
 
     :need:`R-45856`
 
     The VNF or PNF **MUST** support APPC/SDN-C ``UpgradePostCheck`` command.
-    
+
 
 .. container:: note
 
     :need:`R-07251`
 
     The VNF or PNF **MUST** support APPC/SDN-C ``ResumeTraffic`` command.
-    
+
 
 .. container:: note
 
     :need:`R-19922`
 
     The VNF or PNF **MUST** support APPC/SDN-C ``UpgradePrecheck`` command.
-    
+
 
 .. container:: note
 
     :need:`R-49466`
 
     The VNF or PNF **MUST** support APPC/SDN-C ``UpgradeSoftware`` command.
-    
+
 
 .. container:: note
 
     :need:`R-82811`
 
     The VNF or PNF **MUST** support APPC ``StartApplication`` command.
-    
+
 
 .. container:: note
 
     :need:`R-12706`
 
     The VNF or PNF **MUST** support APPC/SDN-C ``QuiesceTraffic`` command.
-    
+
 
 .. container:: note
 
@@ -636,14 +636,14 @@ Requirements Changed
     The VNF or PNF **MUST**, if serving as a distribution point or anchor point for
     steering point from source to destination, support the ONAP Controller's
     ``DistributeTraffic`` command.
-    
+
 
 .. container:: note
 
     :need:`R-83146`
 
     The VNF or PNF **MUST** support APPC ``StopApplication`` command.
-    
+
 
 Configuration Management > NETCONF Standards and Capabilities > VNF or PNF Configuration via NETCONF Requirements > Configuration Management
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -651,7 +651,7 @@ Configuration Management > NETCONF Standards and Capabilities > VNF or PNF Confi
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -659,7 +659,7 @@ Requirements Changed
 
     The VNF or PNF **MUST** provide a NETCONF interface fully defined
     by supplied YANG models for the embedded NETCONF server.
-    
+
 
 .. container:: note
 
@@ -667,7 +667,7 @@ Requirements Changed
 
     The VNF or PNF **MUST** include a NETCONF server enabling
     runtime configuration and lifecycle management capabilities.
-    
+
 
 Configuration Management > NETCONF Standards and Capabilities > VNF or PNF Configuration via NETCONF Requirements > NETCONF Server Requirements
 -----------------------------------------------------------------------------------------------------------------------------------------------
@@ -675,7 +675,7 @@ Configuration Management > NETCONF Standards and Capabilities > VNF or PNF Confi
 
 Requirements Added
 ~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -683,11 +683,11 @@ Requirements Added
 
     The VNF or PNF **SHOULD** support TLS as secure transport for the NETCONF
     protocol according to [RFC7589].
-    
+
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -697,7 +697,7 @@ Requirements Changed
     [RFC6020] section 10 for YANG 1.0 modules, and [RFC7950] section 11
     for YANG 1.1 modules. All deviations from the aforementioned update
     rules shall be handled by a built-in  automatic upgrade mechanism.
-    
+
 
 .. container:: note
 
@@ -705,7 +705,7 @@ Requirements Changed
 
     The VNF or PNF **MUST** support parallel and simultaneous
     configuration of separate objects within itself.
-    
+
 
 .. container:: note
 
@@ -713,14 +713,14 @@ Requirements Changed
 
     The VNF or PNF **MUST** implement the data model discovery and
     download as defined in [RFC6022].
-    
+
 
 .. container:: note
 
     :need:`R-83790`
 
     The VNF or PNF **MUST** implement the ``:validate`` capability.
-    
+
 
 .. container:: note
 
@@ -729,7 +729,7 @@ Requirements Changed
     The VNF or PNF **MUST** allow all configuration data to be
     edited through a NETCONF <edit-config> operation. Proprietary
     NETCONF RPCs that make configuration changes are not sufficient.
-    
+
 
 .. container:: note
 
@@ -741,7 +741,7 @@ Requirements Changed
     store (e.g., if an interface parameter is being configured then it
     should be locked out for configuration by a simultaneous configuration
     operation on that same interface parameter).
-    
+
 
 .. container:: note
 
@@ -750,7 +750,7 @@ Requirements Changed
     The VNF or PNF **SHOULD** implement the protocol operation:
     ``delete-config(target)`` - Delete the named configuration
     data store target.
-    
+
 
 .. container:: note
 
@@ -759,7 +759,7 @@ Requirements Changed
     The VNF or PNF **MUST** release locks to prevent permanent lock-outs
     when/if a session applying the lock is terminated (e.g., SSH session
     is terminated).
-    
+
 
 .. container:: note
 
@@ -767,7 +767,7 @@ Requirements Changed
 
     The VNF or PNF **MUST** implement ``:confirmed-commit`` If
     ``:candidate`` is supported.
-    
+
 
 .. container:: note
 
@@ -775,7 +775,7 @@ Requirements Changed
 
     The VNF or PNF **MUST** implement the protocol operation:
     ``unlock(target)`` - Unlock the configuration data store target.
-    
+
 
 .. container:: note
 
@@ -783,7 +783,7 @@ Requirements Changed
 
     The VNF or PNF **SHOULD** conform its YANG model to RFC 6536,
     "NETCONF Access Control Model".
-    
+
 
 .. container:: note
 
@@ -792,7 +792,7 @@ Requirements Changed
     The VNF or PNF **MUST** allow the entire configuration of the VNF or PNF to be
     retrieved via NETCONF's <get-config> and <edit-config>, independently
     of whether it was configured via NETCONF or other mechanisms.
-    
+
 
 .. container:: note
 
@@ -801,7 +801,7 @@ Requirements Changed
     The VNF or PNF **MUST** allow another NETCONF session to be able to
     initiate the release of the lock by killing the session owning the lock,
     using the <kill-session> operation to guard against hung NETCONF sessions.
-    
+
 
 .. container:: note
 
@@ -809,14 +809,14 @@ Requirements Changed
 
     The VNF or PNF **MUST** conform to the NETCONF RFC 6241,
     "NETCONF Configuration Protocol".
-    
+
 
 .. container:: note
 
     :need:`R-60656`
 
     The VNF or PNF **MUST** support sub tree filtering.
-    
+
 
 .. container:: note
 
@@ -825,7 +825,7 @@ Requirements Changed
     The VNF or PNF **MUST** implement the protocol operation:
     ``get-config(source, filter`` - Retrieve a (filtered subset of
     a) configuration from the configuration data store source.
-    
+
 
 .. container:: note
 
@@ -833,7 +833,7 @@ Requirements Changed
 
     The VNF or PNF **MUST** conform to the NETCONF RFC 5717,
     "Partial Lock Remote Procedure Call".
-    
+
 
 .. container:: note
 
@@ -841,7 +841,7 @@ Requirements Changed
 
     The VNF or PNF **MUST** conform to the NETCONF RFC 4741,
     "NETCONF Configuration Protocol".
-    
+
 
 .. container:: note
 
@@ -853,7 +853,7 @@ Requirements Changed
     .. code-block:: text
 
       $ pyang --verbose --strict <YANG-file-name(s)> $ echo $!
-    
+
 
 .. container:: note
 
@@ -861,7 +861,7 @@ Requirements Changed
 
     The VNF or PNF **SHOULD** conform its YANG model to RFC 7223,
     "A YANG Data Model for Interface Management".
-    
+
 
 .. container:: note
 
@@ -869,7 +869,7 @@ Requirements Changed
 
     The VNF or PNF **SHOULD** conform its YANG model to RFC 6991,
     "Common YANG Data Types".
-    
+
 
 .. container:: note
 
@@ -877,7 +877,7 @@ Requirements Changed
 
     The VNF or PNF **MUST** support simultaneous <commit> operations
     within the context of this locking requirements framework.
-    
+
 
 .. container:: note
 
@@ -885,7 +885,7 @@ Requirements Changed
 
     The VNF or PNF **MUST** implement the protocol operation:
     ``kill-session(session``- Force the termination of **session**.
-    
+
 
 .. container:: note
 
@@ -893,7 +893,7 @@ Requirements Changed
 
     The VNF or PNF **SHOULD** conform its YANG model to RFC 7223,
     "IANA Interface Type YANG Module".
-    
+
 
 .. container:: note
 
@@ -901,7 +901,7 @@ Requirements Changed
 
     The VNF or PNF **MUST** implement the protocol operation:
     ``close-session()`` - Gracefully close the current session.
-    
+
 
 .. container:: note
 
@@ -909,7 +909,7 @@ Requirements Changed
 
     The VNF or PNF **MUST** release locks to prevent permanent lock-outs
     when the corresponding <partial-unlock> operation succeeds.
-    
+
 
 .. container:: note
 
@@ -919,7 +919,7 @@ Requirements Changed
     YANG 1.1 [RFC7950]. A combination of YANG 1.0 and YANG 1.1 modules is
     allowed subject to the rules in [RFC7950] section 12. The mapping to
     NETCONF shall follow the rules defined in this RFC.
-    
+
 
 .. container:: note
 
@@ -928,7 +928,7 @@ Requirements Changed
     The VNF or PNF **SHOULD** implement the protocol operation:
     ``copy-config(target, source)`` - Copy the content of the
     configuration data store source to the configuration data store target.
-    
+
 
 .. container:: note
 
@@ -937,14 +937,14 @@ Requirements Changed
     The VNF or PNF **MUST** support the ``:startup`` capability. It
     will allow the running configuration to be copied to this special
     database. It can also be locked and unlocked.
-    
+
 
 .. container:: note
 
     :need:`R-80898`
 
     TThe VNF or PNF **MUST** support heartbeat via a <get> with null filter.
-    
+
 
 .. container:: note
 
@@ -955,7 +955,7 @@ Requirements Changed
     attempted to the BUM filter rate from multiple interfaces on the same
     EVC, then they need to be sequenced in the VNF or PNF without locking either
     configuration method out).
-    
+
 
 .. container:: note
 
@@ -969,7 +969,7 @@ Requirements Changed
     server. A server may support partial XPath retrieval filtering, but
     it cannot advertise the ``:xpath`` capability unless the entire XPath
     1.0 specification is supported.
-    
+
 
 .. container:: note
 
@@ -979,7 +979,7 @@ Requirements Changed
     when a user configured timer has expired forcing the NETCONF SSH Session
     termination (i.e., product must expose a configuration knob for a user
     setting of a lock expiration timer).
-    
+
 
 .. container:: note
 
@@ -987,7 +987,7 @@ Requirements Changed
 
     The VNF or PNF **MUST** have the echo command return a zero value
     otherwise the validation has failed.
-    
+
 
 .. container:: note
 
@@ -998,7 +998,7 @@ Requirements Changed
     change, rollback configurations using each configuration data element,
     query each state (non-configuration) data element, execute each YANG
     RPC, and receive data through each notification statement.
-    
+
 
 .. container:: note
 
@@ -1007,7 +1007,7 @@ Requirements Changed
     The VNF or PNF **MUST** implement the protocol operation:
     ``commit(confirmed, confirm-timeout)`` - Commit candidate
     configuration data store to the running configuration.
-    
+
 
 .. container:: note
 
@@ -1016,7 +1016,7 @@ Requirements Changed
     The VNF or PNF **SHOULD** conform its YANG model to RFC 7407,
     "A YANG Data Model for SNMP Configuration", if Netconf used to
     configure SNMP engine.
-    
+
 
 .. container:: note
 
@@ -1024,7 +1024,7 @@ Requirements Changed
 
     The VNF or PNF **MUST** conform to the NETCONF RFC 5277,
     "NETCONF Event Notification".
-    
+
 
 .. container:: note
 
@@ -1032,7 +1032,7 @@ Requirements Changed
 
     The VNF or PNF **MUST** conform its YANG model to RFC 6470,
     "NETCONF Base Notifications".
-    
+
 
 .. container:: note
 
@@ -1040,7 +1040,7 @@ Requirements Changed
 
     The VNF or PNF **MUST** conform to the NETCONF RFC 6242,
     "Using the Network Configuration Protocol over Secure Shell".
-    
+
 
 .. container:: note
 
@@ -1048,7 +1048,7 @@ Requirements Changed
 
     The VNF or PNF **MUST** conform its YANG model to RFC 6087,
     "Guidelines for Authors and Reviewers of YANG Data Model specification".
-    
+
 
 .. container:: note
 
@@ -1056,7 +1056,7 @@ Requirements Changed
 
     The VNF or PNF **SHOULD** implement the protocol operation:
     ``get-schema(identifier, version, format)`` - Retrieve the YANG schema.
-    
+
 
 .. container:: note
 
@@ -1065,7 +1065,7 @@ Requirements Changed
     The VNF or PNF **MUST** implement the protocol operation:
     ``discard-changes()`` - Revert the candidate configuration
     data store to the running configuration.
-    
+
 
 .. container:: note
 
@@ -1075,7 +1075,7 @@ Requirements Changed
     ``edit-config(target, default-operation, test-option, error-option,
     config)`` - Edit the target configuration data store by merging,
     replacing, creating, or deleting new config elements.
-    
+
 
 .. container:: note
 
@@ -1083,7 +1083,7 @@ Requirements Changed
 
     The VNF or PNF **MUST** implement the protocol operation:
     ``lock(target)`` - Lock the configuration data store target.
-    
+
 
 .. container:: note
 
@@ -1092,7 +1092,7 @@ Requirements Changed
     The VNF or PNF **MUST** implement both ``:candidate`` and
     ``:writable-running`` capabilities. When both ``:candidate`` and
     ``:writable-running`` are provided then two locks should be supported.
-    
+
 
 .. container:: note
 
@@ -1100,7 +1100,7 @@ Requirements Changed
 
     The VNF or PNF **MUST** conform its YANG model to RFC 6244,
     "An Architecture for Network Management Using NETCONF and YANG".
-    
+
 
 .. container:: note
 
@@ -1110,7 +1110,7 @@ Requirements Changed
     ``get(filter)`` - Retrieve (a filtered subset of) the running
     configuration and device state information. This should include
     the list of VNF or PNF supported schemas.
-    
+
 
 .. container:: note
 
@@ -1118,7 +1118,7 @@ Requirements Changed
 
     The VNF or PNF **SHOULD** conform its YANG model to RFC 7317,
     "A YANG Data Model for System Management".
-    
+
 
 .. container:: note
 
@@ -1130,7 +1130,7 @@ Requirements Changed
     database (usually the running configuration) will be left unaffected.
     This provides an 'all-or-nothing' edit mode for a single <edit-config>
     request.
-    
+
 
 .. container:: note
 
@@ -1140,7 +1140,7 @@ Requirements Changed
     parameters to be configurable during virtual machine instantiation
     through Heat templates where SSH keys, usernames, passwords, SSH
     service and SSH port numbers are Heat template parameters.
-    
+
 
 .. container:: note
 
@@ -1150,7 +1150,7 @@ Requirements Changed
     ``:partial-unlock`` capabilities, defined in RFC 5717. This
     allows multiple independent clients to each write to a different
     part of the <running> configuration at the same time.
-    
+
 
 .. container:: note
 
@@ -1162,7 +1162,7 @@ Requirements Changed
     that the server supports within a particular URL value. The 'file'
     scheme allows for editable local configuration databases. The other
     schemes allow for remote storage of configuration databases.
-    
+
 
 .. container:: note
 
@@ -1171,7 +1171,7 @@ Requirements Changed
     The VNF or PNF **MUST** apply locking based on the sequence of
     NETCONF operations, with the first configuration operation locking
     out all others until completed.
-    
+
 
 .. container:: note
 
@@ -1180,7 +1180,7 @@ Requirements Changed
     The VNF or PNF **MUST** support all operations, administration and
     management (OAM) functions available from the supplier for VNFs or PNFs
     using the supplied YANG code and associated NETCONF servers.
-    
+
 
 .. container:: note
 
@@ -1188,7 +1188,7 @@ Requirements Changed
 
     The VNF or PNF **MUST** be able to specify the granularity of the
     lock via a restricted or full XPath expression.
-    
+
 
 .. container:: note
 
@@ -1196,7 +1196,7 @@ Requirements Changed
 
     The VNF or PNF **SHOULD** conform its YANG model to RFC 7277,
     "A YANG Data Model for IP Management".
-    
+
 
 .. container:: note
 
@@ -1208,7 +1208,7 @@ Requirements Changed
     configuration should not be locked out if an interface is being
     configured or entire Interface configuration should not be locked out
     if a non-overlapping parameter on the interface is being configured).
-    
+
 
 .. container:: note
 
@@ -1216,7 +1216,7 @@ Requirements Changed
 
     The VNF or PNF **MUST** implement the ``:with-defaults`` capability
     [RFC6243].
-    
+
 
 .. container:: note
 
@@ -1224,7 +1224,7 @@ Requirements Changed
 
     The VNF or PNF **MUST** conform to the NETCONF RFC 4742,
     "Using the NETCONF Configuration Protocol over Secure Shell (SSH)".
-    
+
 
 Configuration Management > NETCONF Standards and Capabilities > xNF Configuration via NETCONF Requirements > NETCONF Server Requirements
 ----------------------------------------------------------------------------------------------------------------------------------------
@@ -1232,7 +1232,7 @@ Configuration Management > NETCONF Standards and Capabilities > xNF Configuratio
 
 Requirements Removed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -1241,7 +1241,7 @@ Requirements Removed
     The xNF **MUST** conform its YANG model to RFC 6060,
     "YANG - A Data Modeling Language for the Network Configuration
     Protocol (NETCONF)".
-    
+
 
 Configuration Management > VNF or PNF REST APIs > REST APIs
 -----------------------------------------------------------
@@ -1249,7 +1249,7 @@ Configuration Management > VNF or PNF REST APIs > REST APIs
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -1263,7 +1263,7 @@ Requirements Changed
     unhealthy), scope identifier, time-stamp and one or more blocks containing
     info and fault information. If the VNF or PNF is unable to run the
     HealthCheck, return a standard http error code and message.
-    
+
 
 Contrail Resource Parameters > OS::ContrailV2::VirtualMachineInterface Property virtual_machine_interface_allowed_address_pairs > External Networks
 ---------------------------------------------------------------------------------------------------------------------------------------------------
@@ -1271,7 +1271,7 @@ Contrail Resource Parameters > OS::ContrailV2::VirtualMachineInterface Property 
 
 Requirements Added
 ~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -1294,7 +1294,7 @@ Requirements Added
     parameter
     **MUST NOT** be enumerated in the
     VNF's Heat Orchestration Template's Environment File.
-    
+
 
 .. container:: note
 
@@ -1328,7 +1328,7 @@ Requirements Added
     And the parameter **MUST** be declared as type ``string``.
 
     The ONAP data model can only support one IPv4 VIP address.
-    
+
 
 .. container:: note
 
@@ -1362,7 +1362,7 @@ Requirements Added
     And the parameter **MUST** be declared as type ``string``.
 
     The ONAP data model can only support one IPv6 VIP address.
-    
+
 
 .. container:: note
 
@@ -1404,7 +1404,7 @@ Requirements Added
     ``virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip_ip_prefix``
 
     parameters **not** supported by the ONAP data model.
-    
+
 
 Contrail Resource Parameters > OS::ContrailV2::VirtualMachineInterface Property virtual_machine_interface_allowed_address_pairs > Internal Networks
 ---------------------------------------------------------------------------------------------------------------------------------------------------
@@ -1412,7 +1412,7 @@ Contrail Resource Parameters > OS::ContrailV2::VirtualMachineInterface Property 
 
 Requirements Added
 ~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -1459,7 +1459,7 @@ Requirements Added
 
     And the parameter **MUST** be declared as ``type: comma_delimited_list``
     and **MUST** be enumerated in the environment file.
-    
+
 
 .. container:: note
 
@@ -1507,7 +1507,7 @@ Requirements Added
 
     And the parameter **MUST** be declared as ``type: comma_delimited_list``
     and **MUST** be enumerated in the environment file.
-    
+
 
 Contrail Resource Parameters > Resource OS::ContrailV2::InstanceIp > Resource OS::ContrailV2::InstanceIp Property instance_ip_address
 -------------------------------------------------------------------------------------------------------------------------------------
@@ -1515,7 +1515,7 @@ Contrail Resource Parameters > Resource OS::ContrailV2::InstanceIp > Resource OS
 
 Requirements Added
 ~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -1526,7 +1526,7 @@ Requirements Added
     parameter
     **MUST** be declared as either type ``string`` or type
     ``comma_delimited_list``.
-    
+
 
 .. container:: note
 
@@ -1549,7 +1549,7 @@ Requirements Added
     * ``{network-role}`` is the {network-role} of the external network
     * ``{index}`` is a numeric value that **MUST** start at zero in a
       VNF's Heat Orchestration Template and **MUST** increment by one
-    
+
 
 .. container:: note
 
@@ -1561,7 +1561,7 @@ Requirements Added
     ``{vm-type}_{network-role}_ip_{index}``
     **MUST NOT** be enumerated in the
     VNF's Heat Orchestration Template's Environment File.
-    
+
 
 .. container:: note
 
@@ -1586,7 +1586,7 @@ Requirements Added
         ``OS::Nova::Server``
       * ``{network-role}`` is the {network-role} of the external
         network
-    
+
 
 .. container:: note
 
@@ -1598,7 +1598,7 @@ Requirements Added
     ``{vm-type}_{network-role}_ips``
     **MUST NOT** be enumerated in the
     VNF's Heat Orchestration Template's Environment File.
-    
+
 
 .. container:: note
 
@@ -1624,7 +1624,7 @@ Requirements Added
     * ``{network-role}`` is the {network-role} of the external network
     * ``{index}`` is a numeric value that **MUST** start at zero in a
       VNF's Heat Orchestration Template and **MUST** increment by one
-    
+
 
 .. container:: note
 
@@ -1636,7 +1636,7 @@ Requirements Added
     ``{vm-type}_{network-role}_v6_ip_{index}``
     **MUST NOT** be enumerated in the
     VNF's Heat Orchestration Template's Environment File.
-    
+
 
 .. container:: note
 
@@ -1661,7 +1661,7 @@ Requirements Added
         OS::Nova::Server
       * ``{network-role}`` is the {network-role} of the external
         network
-    
+
 
 .. container:: note
 
@@ -1673,7 +1673,7 @@ Requirements Added
     ``{vm-type}_{network-role}_v6_ips``
     **MUST NOT** be enumerated in the
     VNF's Heat Orchestration Template's Environment File.
-    
+
 
 .. container:: note
 
@@ -1699,7 +1699,7 @@ Requirements Added
     * ``{network-role}`` is the {network-role} of the internal network
     * ``{index}`` is a numeric value that **MUST** start at zero in a
       VNF's Heat Orchestration Template and **MUST** increment by one
-    
+
 
 .. container:: note
 
@@ -1711,7 +1711,7 @@ Requirements Added
     ``{vm-type}_int_{network-role}_ip_{index}``
     **MUST** be enumerated in the
     VNF's Heat Orchestration Template's Environment File.
-    
+
 
 .. container:: note
 
@@ -1736,7 +1736,7 @@ Requirements Added
         ``OS::Nova::Server``
       * ``{network-role}`` is the {network-role} of the internal
         network
-    
+
 
 .. container:: note
 
@@ -1748,7 +1748,7 @@ Requirements Added
     ``{vm-type}_int_{network-role}_int_ips``
     **MUST** be enumerated in the
     VNF's Heat Orchestration Template's Environment File.
-    
+
 
 .. container:: note
 
@@ -1773,7 +1773,7 @@ Requirements Added
     * ``{network-role}`` is the {network-role} of the internal network
     * ``{index}`` is a numeric value that **MUST** start at zero in a
       VNF's Heat Orchestration Template and **MUST** increment by one
-    
+
 
 .. container:: note
 
@@ -1785,7 +1785,7 @@ Requirements Added
     ``{vm-type}_int_{network-role}_v6_ip_{index}``
     **MUST** be enumerated in the
     VNF's Heat Orchestration Template's Environment File.
-    
+
 
 .. container:: note
 
@@ -1810,7 +1810,7 @@ Requirements Added
         ``OS::Nova::Server``
       * ``{network-role}`` is the {network-role} of the internal
         network
-    
+
 
 .. container:: note
 
@@ -1822,7 +1822,7 @@ Requirements Added
     ``{vm-type}_int_{network-role}_v6_ips``
     **MUST** be enumerated in the
     VNF's Heat Orchestration Template's Environment File.
-    
+
 
 .. container:: note
 
@@ -1842,7 +1842,7 @@ Requirements Added
     **MUST NOT** be enumerated in the Heat Orchestration
     Template's Environment File.  ONAP provides the IP address
     assignments at orchestration time.
-    
+
 
 .. container:: note
 
@@ -1862,7 +1862,7 @@ Requirements Added
     **MUST** be enumerated in the Heat Orchestration
     Template's Environment File and IP addresses **MUST** be
     assigned.
-    
+
 
 Contrail Resource Parameters > Resource OS::ContrailV2::InstanceIp > Resource OS::ContrailV2::InstanceIp Property subnet_uuid
 -----------------------------------------------------------------------------------------------------------------------------
@@ -1870,7 +1870,7 @@ Contrail Resource Parameters > Resource OS::ContrailV2::InstanceIp > Resource OS
 
 Requirements Added
 ~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -1880,7 +1880,7 @@ Requirements Added
     resource ``OS::ContrailV2::InstanceIp`` property ``subnet_uuid``
     parameter
     **MUST** be declared type ``string``.
-    
+
 
 .. container:: note
 
@@ -1900,7 +1900,7 @@ Requirements Added
     where
 
       * ``{network-role}`` is the network role of the network.
-    
+
 
 .. container:: note
 
@@ -1912,7 +1912,7 @@ Requirements Added
     ``{network-role}_subnet_id``
     **MUST NOT** be enumerated in the
     VNF's Heat Orchestration Template's Environment File.
-    
+
 
 .. container:: note
 
@@ -1932,7 +1932,7 @@ Requirements Added
     where
 
       * ``{network-role}`` is the network role of the network.
-    
+
 
 .. container:: note
 
@@ -1944,7 +1944,7 @@ Requirements Added
     ``{network-role}_v6_subnet_id``
     **MUST NOT** be enumerated in the
     VNF's Heat Orchestration Template's Environment File.
-    
+
 
 .. container:: note
 
@@ -1972,7 +1972,7 @@ Requirements Added
 
     Note that the parameter **MUST** be defined as an ``output`` parameter in
     the base module.
-    
+
 
 .. container:: note
 
@@ -1984,7 +1984,7 @@ Requirements Added
     ``int_{network-role}_subnet_id``
     **MUST NOT** be enumerated in the
     VNF's Heat Orchestration Template's Environment File.
-    
+
 
 .. container:: note
 
@@ -2008,7 +2008,7 @@ Requirements Added
 
     Note that the parameter **MUST** be defined as an ``output`` parameter in
     the base module.
-    
+
 
 .. container:: note
 
@@ -2020,7 +2020,7 @@ Requirements Added
     ``int_{network-role}_v6_subnet_id``
     **MUST NOT** be enumerated in the
     VNF's Heat Orchestration Template's Environment File.
-    
+
 
 Monitoring & Management > Data Structure Specification of the Event Record
 --------------------------------------------------------------------------
@@ -2028,7 +2028,7 @@ Monitoring & Management > Data Structure Specification of the Event Record
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -2038,7 +2038,7 @@ Requirements Changed
     recommend actions that may be taken at specific thresholds, or if specific
     conditions repeat within a specified time interval, using the semantics and
     syntax described by the :ref:`VES Event Registration specification <ves_event_registration_3_2>`.
-    
+
 
 .. container:: note
 
@@ -2048,7 +2048,7 @@ Requirements Changed
     event format defined in the
     :ref:`VES Event Listener<ves_event_listener_7_1>`
     specification.
-    
+
 
 .. container:: note
 
@@ -2062,7 +2062,7 @@ Requirements Changed
     * Required fields
     * Optional fields
     * Any special handling to be performed for that event
-    
+
 
 .. container:: note
 
@@ -2071,7 +2071,7 @@ Requirements Changed
     The VNF or PNF Provider **MAY** require that specific events, identified by their
     ``eventName``, require that certain fields, which are optional in the common
     event format, must be present when they are published.
-    
+
 
 Monitoring & Management > Event Records - Data Structure Description > Common Event Header
 ------------------------------------------------------------------------------------------
@@ -2079,7 +2079,7 @@ Monitoring & Management > Event Records - Data Structure Description > Common Ev
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -2104,7 +2104,7 @@ Requirements Changed
      * ``version`` - the version of the event header
      * ``vesEventListenerVersion`` - Version of the VES event listener API spec
        that this event is compliant with
-    
+
 
 Monitoring & Management > Monitoring & Management Requirements > Addressing and Delivery Protocol
 -------------------------------------------------------------------------------------------------
@@ -2112,7 +2112,7 @@ Monitoring & Management > Monitoring & Management Requirements > Addressing and 
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -2126,7 +2126,7 @@ Requirements Changed
     only one collector address for a VNF or PNF. In this case, the network will
     promptly resolve connectivity problems caused by a collector or network
     failure transparently to the VNF or PNF.
-    
+
 
 .. container:: note
 
@@ -2135,7 +2135,7 @@ Requirements Changed
     The VNF or PNF **SHOULD** use REST using HTTPS delivery of plain
     text JSON for moderate sized asynchronous data sets, and for high
     volume data sets when feasible.
-    
+
 
 .. container:: note
 
@@ -2146,7 +2146,7 @@ Requirements Changed
     ONAP-defined policies delivered from ONAP to the VNF or PNF using PUTs to a
     RESTful API, in the same manner that other controls over data reporting
     will be controlled by policy.
-    
+
 
 .. container:: note
 
@@ -2156,7 +2156,7 @@ Requirements Changed
     for high volume streaming asynchronous data sets and for other high volume
     data sets. TCP delivery can be used for either JSON or binary encoded data
     sets.
-    
+
 
 .. container:: note
 
@@ -2167,7 +2167,7 @@ Requirements Changed
     of data collected over a long time interval or data collected across many
     VNFs or PNFs. (Preferred is to reorganize the data into more frequent or more focused
     data sets, and deliver these by REST or TCP as appropriate.)
-    
+
 
 .. container:: note
 
@@ -2178,7 +2178,7 @@ Requirements Changed
     the VNF or PNF is in operation. We expect the VNF or PNF to be capable of redirecting
     traffic to changed destinations with no loss of data, for example from
     one REST URL to another, or from one TCP host and port to another.
-    
+
 
 .. container:: note
 
@@ -2186,7 +2186,7 @@ Requirements Changed
 
     The VNF or PNF **MAY** use another option which is expected to include REST
     delivery of binary encoded data sets.
-    
+
 
 .. container:: note
 
@@ -2194,7 +2194,7 @@ Requirements Changed
 
     The VNF or PNF **MAY** use another option which is expected to include REST
     for synchronous data, using RESTCONF (e.g., for VNF or PNF state polling).
-    
+
 
 Monitoring & Management > Monitoring & Management Requirements > Asynchronous and Synchronous Data Delivery
 -----------------------------------------------------------------------------------------------------------
@@ -2202,7 +2202,7 @@ Monitoring & Management > Monitoring & Management Requirements > Asynchronous an
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -2210,7 +2210,7 @@ Requirements Changed
 
     The VNF or PNF **MUST** must encode, address and deliver the data
     as described in the previous paragraphs.
-    
+
 
 .. container:: note
 
@@ -2218,7 +2218,7 @@ Requirements Changed
 
     The VNF or PNF **MUST** deliver asynchronous data as data becomes
     available, or according to the configured frequency.
-    
+
 
 .. container:: note
 
@@ -2226,7 +2226,7 @@ Requirements Changed
 
     The VNF or PNF **MUST** use the YANG configuration models and RESTCONF
     [RFC8040] (https://tools.ietf.org/html/rfc8040).
-    
+
 
 .. container:: note
 
@@ -2239,7 +2239,7 @@ Requirements Changed
     record types include fault fields, mobile flow fields, measurements for
     VNF or PNF scaling fields, and syslog fields. Other record types will be added
     in the future as they become standardized and are made available.)
-    
+
 
 .. container:: note
 
@@ -2247,7 +2247,7 @@ Requirements Changed
 
     The VNF or PNF **MUST** use the RESTCONF/NETCONF framework used by
     the ONAP configuration subsystem for synchronous communication.
-    
+
 
 .. container:: note
 
@@ -2255,7 +2255,7 @@ Requirements Changed
 
     The VNF or PNF **SHOULD** deliver all syslog messages to the VES Collector per the
     specifications in Monitoring and Management chapter.
-    
+
 
 .. container:: note
 
@@ -2264,7 +2264,7 @@ Requirements Changed
     The VNF or PNF **MUST** respond to an ONAP request to deliver granular
     data on device or subsystem status or performance, referencing the YANG
     configuration model for the VNF or PNF by returning the requested data elements.
-    
+
 
 .. container:: note
 
@@ -2272,7 +2272,7 @@ Requirements Changed
 
     The VNF or PNF **MUST** respond to data requests from ONAP as soon
     as those requests are received, as a synchronous response.
-    
+
 
 .. container:: note
 
@@ -2281,7 +2281,7 @@ Requirements Changed
     The VNF or PNF **MUST** respond with content encoded in JSON, as
     described in the RESTCONF specification. This way the encoding of a
     synchronous communication will be consistent with Avro.
-    
+
 
 .. container:: note
 
@@ -2292,7 +2292,7 @@ Requirements Changed
     translated to and from JSON{RFC7951]. YANG configuration and content can
     be represented via JSON, consistent with Avro, as described in "Encoding
     and Serialization" section.
-    
+
 
 Monitoring & Management > Monitoring & Management Requirements > Bulk Performance Measurement
 ---------------------------------------------------------------------------------------------
@@ -2300,7 +2300,7 @@ Monitoring & Management > Monitoring & Management Requirements > Bulk Performanc
 
 Requirements Added
 ~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -2310,11 +2310,11 @@ Requirements Added
     available at VNF or PNF.
 
     Note: Recommended period is at least 24 hours.
-    
+
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -2322,7 +2322,7 @@ Requirements Changed
 
     The VNF or PNF **SHOULD** support FileReady VES event for event-driven bulk transfer
     of monitoring data.
-    
+
 
 .. container:: note
 
@@ -2330,7 +2330,7 @@ Requirements Changed
 
     The VNF or PNF **SHOULD** support File transferring protocol, such as FTPES or SFTP,
     when supporting the event-driven bulk transfer of monitoring data.
-    
+
 
 .. container:: note
 
@@ -2338,7 +2338,7 @@ Requirements Changed
 
     The VNF or PNF **SHOULD** support the data schema defined in 3GPP TS 32.435, when
     supporting the event-driven bulk transfer of monitoring data.
-    
+
 
 Monitoring & Management > Monitoring & Management Requirements > Google Protocol Buffers (GPB)
 ----------------------------------------------------------------------------------------------
@@ -2346,7 +2346,7 @@ Monitoring & Management > Monitoring & Management Requirements > Google Protocol
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -2363,7 +2363,7 @@ Requirements Changed
          the state of an VNF or PNF resource.
        * The required Google Protocol Buffers (GPB) metadata is provided in the
          form of .proto files.
-    
+
 
 .. container:: note
 
@@ -2379,7 +2379,7 @@ Requirements Changed
          processing high volume events
        * A supporting PM content metadata file to be used by analytics
          applications to process high volume measurement events
-    
+
 
 Monitoring & Management > Monitoring & Management Requirements > JSON
 ---------------------------------------------------------------------
@@ -2387,7 +2387,7 @@ Monitoring & Management > Monitoring & Management Requirements > JSON
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -2398,7 +2398,7 @@ Requirements Changed
     High-volume data is to be encoded and serialized using
     `Avro <http://avro.apache.org/>`_, where the Avro data
     format are described using JSON.
-    
+
 
 Monitoring & Management > Monitoring & Management Requirements > Reporting Frequency
 ------------------------------------------------------------------------------------
@@ -2406,7 +2406,7 @@ Monitoring & Management > Monitoring & Management Requirements > Reporting Frequ
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -2438,7 +2438,7 @@ Requirements Changed
           should not affect deserialization and decoding of the data, which
           will be guided by the accompanying JSON schema or GPB definition
           files.
-    
+
 
 .. container:: note
 
@@ -2446,7 +2446,7 @@ Requirements Changed
 
     The VNF or PNF **MUST** report exactly one Measurement event per period
     per source name.
-    
+
 
 Monitoring & Management > Monitoring & Management Requirements > Security
 -------------------------------------------------------------------------
@@ -2454,7 +2454,7 @@ Monitoring & Management > Monitoring & Management Requirements > Security
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -2465,7 +2465,7 @@ Requirements Changed
     [`RFC5246 <https://tools.ietf.org/html/rfc5246>`_] and should adhere to
     the best current practices outlined in
     `RFC7525 <https://tools.ietf.org/html/rfc7525>`_.
-    
+
 
 .. container:: note
 
@@ -2473,7 +2473,7 @@ Requirements Changed
 
     The VNF or PNF **MUST** control access to ONAP and to VNFs or PNFs, and creation
     of connections, through secure credentials, log-on and exchange mechanisms.
-    
+
 
 .. container:: note
 
@@ -2486,7 +2486,7 @@ Requirements Changed
     Note: HTTP Basic Authentication has 4 steps: Request, Authenticate,
     Authorization with Username/Password Credentials, and Authentication Status
     as per RFC7617 and RFC 2617.
-    
+
 
 .. container:: note
 
@@ -2501,7 +2501,7 @@ Requirements Changed
 
     Note: The configuration management and provisioning software are specific
     to a vendor architecture.
-    
+
 
 .. container:: note
 
@@ -2510,14 +2510,14 @@ Requirements Changed
     The VNF or PNF **MUST** encrypt any content containing Sensitive Personal
     Information (SPI) or certain proprietary data, in addition to applying the
     regular procedures for securing access and delivery.
-    
+
 
 .. container:: note
 
     :need:`R-47597`
 
     The VNF or PNF **MUST** carry data in motion only over secure connections.
-    
+
 
 Monitoring & Management > Monitoring & Management Requirements > VNF telemetry via standardized interface
 ---------------------------------------------------------------------------------------------------------
@@ -2525,7 +2525,7 @@ Monitoring & Management > Monitoring & Management Requirements > VNF telemetry v
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -2533,7 +2533,7 @@ Requirements Changed
 
     The VNF or PNF MUST produce heartbeat indicators consisting of events containing
     the common event header only per the VES Listener Specification.
-    
+
 
 Monitoring & Management > Transports and Protocols Supporting Resource Interfaces
 ---------------------------------------------------------------------------------
@@ -2541,7 +2541,7 @@ Monitoring & Management > Transports and Protocols Supporting Resource Interface
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -2549,7 +2549,7 @@ Requirements Changed
 
     The VNF or PNF **MUST** deliver event records to ONAP using the common
     transport mechanisms and protocols defined in this specification.
-    
+
 
 .. container:: note
 
@@ -2557,7 +2557,7 @@ Requirements Changed
 
     The VNF or PNF **SHOULD** deliver event records that fall into the event domains
     supported by VES.
-    
+
 
 .. container:: note
 
@@ -2566,7 +2566,7 @@ Requirements Changed
     The VNF or PNF provider **MUST** reach agreement with the Service Provider on
     the selected methods for encoding, serialization and data delivery
     prior to the on-boarding of the VNF or PNF into ONAP SDC Design Studio.
-    
+
 
 Monitoring & Management > Transports and Protocols Supporting Resource Interfaces > Bulk Telemetry Transmission
 ---------------------------------------------------------------------------------------------------------------
@@ -2574,7 +2574,7 @@ Monitoring & Management > Transports and Protocols Supporting Resource Interface
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -2583,7 +2583,7 @@ Requirements Changed
     The VNF or PNF **MAY** leverage bulk VNF or PNF telemetry transmission mechanism, as
     depicted in Figure 4, in instances where other transmission methods are not
     practical or advisable.
-    
+
 
 Monitoring & Management > Transports and Protocols Supporting Resource Interfaces > VNF or PNF Telemetry using Google Protocol Buffers
 --------------------------------------------------------------------------------------------------------------------------------------
@@ -2591,7 +2591,7 @@ Monitoring & Management > Transports and Protocols Supporting Resource Interface
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -2601,7 +2601,7 @@ Requirements Changed
     depicted in Figure 3 to support real-time performance management (PM) data.
     In this model the VES events are streamed as binary-encoded GBPs over via
     TCP sockets.
-    
+
 
 Monitoring & Management > Transports and Protocols Supporting Resource Interfaces > VNF or PNF Telemetry using VES/JSON Model
 -----------------------------------------------------------------------------------------------------------------------------
@@ -2609,7 +2609,7 @@ Monitoring & Management > Transports and Protocols Supporting Resource Interface
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -2619,7 +2619,7 @@ Requirements Changed
     for data delivery unless there are specific performance or operational
     concerns agreed upon by the Service Provider that would warrant using an
     alternate model.
-    
+
 
 ONAP Heat Heat Template Constructs > Heat Files Support (get_file)
 ------------------------------------------------------------------
@@ -2627,7 +2627,7 @@ ONAP Heat Heat Template Constructs > Heat Files Support (get_file)
 
 Requirements Removed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -2638,7 +2638,7 @@ Requirements Removed
     single, flat directory per VNF. A VNF's Heat Orchestration
     Template's ``get_file`` target files **MUST** be in the same
     directory hierarchy as the VNF's Heat Orchestration Templates.
-    
+
 
 ONAP Heat Heat Template Constructs > Key Pairs
 ----------------------------------------------
@@ -2646,7 +2646,7 @@ ONAP Heat Heat Template Constructs > Key Pairs
 
 Requirements Added
 ~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -2658,7 +2658,7 @@ Requirements Added
 
     This allows re-use of the key by ONAP when triggering scale out, recovery,
     or other day 1 operations.
-    
+
 
 ONAP Heat Heat Template Constructs > Nested Heat Templates > Nested Heat Template Requirements
 ----------------------------------------------------------------------------------------------
@@ -2666,7 +2666,7 @@ ONAP Heat Heat Template Constructs > Nested Heat Templates > Nested Heat Templat
 
 Requirements Added
 ~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -2704,11 +2704,11 @@ Requirements Added
       ``virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip_ip_prefix``
     * ``OS::ContrailV2::InstanceIP`` property ``instance_ip_address``
     * ``OS::ContrailV2::InstanceIP`` property ``subnet_uuid``
-    
+
 
 Requirements Removed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -2717,7 +2717,7 @@ Requirements Removed
     A VNF's Heat Orchestration Template's Nested YAML file
     **MUST** be in the same directory hierarchy as the VNF's Heat
     Orchestration Templates.
-    
+
 
 .. container:: note
 
@@ -2726,7 +2726,7 @@ Requirements Removed
     A VNF's Heat Orchestration Template **MUST** reference a Nested YAML
     file by name. The use of ``resource_registry`` in the VNF's Heat
     Orchestration Templates Environment File **MUST NOT** be used.
-    
+
 
 ONAP Heat Networking > External Networks
 ----------------------------------------
@@ -2734,7 +2734,7 @@ ONAP Heat Networking > External Networks
 
 Requirements Removed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -2743,7 +2743,7 @@ Requirements Removed
     A VNF's ``{network-role}`` assigned to an external network **MUST**
     be different than the ``{network-role}`` assigned to the VNF's
     internal networks, if internal networks exist.
-    
+
 
 ONAP Heat Networking > Internal Networks
 ----------------------------------------
@@ -2751,7 +2751,7 @@ ONAP Heat Networking > Internal Networks
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -2764,7 +2764,7 @@ Requirements Changed
     (i.e., ``OS::Neutron::Net``, ``OS::Neutron::Subnet``) and/or
     Contrail Heat Resources (i.e., ``OS::ContrailV2::VirtualNetwork``,
     ``ContrailV2::NetworkIpam``).
-    
+
 
 .. container:: note
 
@@ -2794,11 +2794,11 @@ Requirements Changed
     The Base Module Output Parameter MUST be declared in the ``parameters:``
     section of the Incremental Module(s) where the ``OS::Neutron::Port``
     resource(s) is attaching to the internal network.
-    
+
 
 Requirements Removed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -2807,7 +2807,7 @@ Requirements Removed
     When a VNF creates two or more internal networks, each internal
     network **MUST** be assigned a unique ``{network-role}`` in the context
     of the VNF for use in the VNF's Heat Orchestration Template.
-    
+
 
 .. container:: note
 
@@ -2816,7 +2816,7 @@ Requirements Removed
     When a VNF creates an internal network, a network role, referred to as
     the ``{network-role}`` **MUST** be assigned to the internal network
     for use in the VNF's Heat Orchestration Template.
-    
+
 
 .. container:: note
 
@@ -2825,7 +2825,7 @@ Requirements Removed
     A VNF's ``{network-role}`` assigned to an internal network **MUST**
     be different than the ``{network-role}`` assigned to the VNF's external
     networks.
-    
+
 
 ONAP Heat Orchestration Template Format > Heat Orchestration Template Structure > parameters > constraints
 ----------------------------------------------------------------------------------------------------------
@@ -2833,7 +2833,7 @@ ONAP Heat Orchestration Template Format > Heat Orchestration Template Structure 
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -2842,7 +2842,7 @@ Requirements Changed
     A VNF's Heat Orchestration Template's parameter defined
     in a nested YAML file
     **SHOULD NOT** have a parameter constraint defined.
-    
+
 
 .. container:: note
 
@@ -2851,7 +2851,7 @@ Requirements Changed
     A VNF's Heat Orchestration Template's parameter defined
     in a non-nested YAML file as type
     ``number`` **MAY** have a parameter constraint defined.
-    
+
 
 ONAP Heat Orchestration Template Format > Heat Orchestration Template Structure > resources > properties
 --------------------------------------------------------------------------------------------------------
@@ -2859,7 +2859,7 @@ ONAP Heat Orchestration Template Format > Heat Orchestration Template Structure 
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -2881,7 +2881,7 @@ Requirements Changed
 
       * ``name: {get_param: [ {vm-type}_names, { get_param: [ indexlist, 0 ] } ] }``
       * ``name: {get_param: [ {vm-type}_names, { get_param: [ indexlist1, { get_param: indexlist2 } ] } ] }``
-    
+
 
 ONAP Heat Orchestration Templates Overview > ONAP Heat Orchestration Template Filenames > Base Modules
 ------------------------------------------------------------------------------------------------------
@@ -2889,7 +2889,7 @@ ONAP Heat Orchestration Templates Overview > ONAP Heat Orchestration Template Fi
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -2911,7 +2911,7 @@ Requirements Changed
     where ``<text>`` **MUST** contain only alphanumeric characters and
     underscores '_' and **MUST NOT** contain the case insensitive string
     ``base`` or ``volume``.
-    
+
 
 ONAP Heat Orchestration Templates Overview > ONAP Heat Orchestration Template Filenames > Cinder Volume Modules
 ---------------------------------------------------------------------------------------------------------------
@@ -2919,7 +2919,7 @@ ONAP Heat Orchestration Templates Overview > ONAP Heat Orchestration Template Fi
 
 Requirements Added
 ~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -2934,7 +2934,7 @@ Requirements Added
       file that contains only ``OS::Cinder::Volume`` resources
     * a resource that calls a nested YAML file (static nesting) that contains
       only ``OS::Cinder::Volume`` resources
-    
+
 
 ONAP Heat Orchestration Templates Overview > ONAP Heat Orchestration Template Filenames > Incremental Modules
 -------------------------------------------------------------------------------------------------------------
@@ -2942,7 +2942,7 @@ ONAP Heat Orchestration Templates Overview > ONAP Heat Orchestration Template Fi
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -2951,7 +2951,7 @@ Requirements Changed
     VNF Heat Orchestration Template's Incremental Module file name
     **MUST** contain only alphanumeric characters and underscores
     '_' and **MUST NOT** contain the case insensitive string ``base``.
-    
+
 
 ONAP Heat Orchestration Templates Overview > ONAP Heat Orchestration Template Filenames > Nested Heat file
 ----------------------------------------------------------------------------------------------------------
@@ -2959,7 +2959,7 @@ ONAP Heat Orchestration Templates Overview > ONAP Heat Orchestration Template Fi
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -2968,7 +2968,7 @@ Requirements Changed
     VNF Heat Orchestration Template's Nested YAML file name **MUST** contain
     only alphanumeric characters and underscores '_' and
     **MUST NOT** contain the case insensitive string ``base``.
-    
+
 
 ONAP Heat Orchestration Templates Overview > ONAP VNF Modularity Overview
 -------------------------------------------------------------------------
@@ -2976,7 +2976,7 @@ ONAP Heat Orchestration Templates Overview > ONAP VNF Modularity Overview
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -2984,7 +2984,7 @@ Requirements Changed
 
     A VNF's Heat Orchestration Template's Resource ``OS::Cinder::Volume``
     **MAY** be defined in an Incremental Module.
-    
+
 
 .. container:: note
 
@@ -2992,7 +2992,7 @@ Requirements Changed
 
     A VNF's Heat Orchestration Template's Resource ``OS::Cinder::Volume``
     **MAY** be defined in a Cinder Volume Module.
-    
+
 
 .. container:: note
 
@@ -3000,11 +3000,11 @@ Requirements Changed
 
     A VNF's Heat Orchestration Template's Resource ``OS::Cinder::Volume``
     **MAY** be defined in a Base Module.
-    
+
 
 Requirements Removed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -3012,7 +3012,7 @@ Requirements Removed
 
     At orchestration time, the VNF's Base Module **MUST**
     be deployed first, prior to any incremental modules.
-    
+
 
 ONAP Heat Orchestration Templates Overview > ONAP VNF On-Boarding
 -----------------------------------------------------------------
@@ -3020,7 +3020,7 @@ ONAP Heat Orchestration Templates Overview > ONAP VNF On-Boarding
 
 Requirements Added
 ~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -3028,7 +3028,7 @@ Requirements Added
 
     The VNF's Heat Orchestration Template's ZIP file **MUST NOT** include
     a binary image file.
-    
+
 
 .. container:: note
 
@@ -3039,7 +3039,7 @@ Requirements Added
     all files composing the VNF Heat Orchestration Template
     **MUST** be placed in a flat (i.e., non-hierarchical) directory and
     archived using ZIP.  The resulting ZIP file is uploaded into ONAP.
-    
+
 
 ONAP Heat Orchestration Templates Overview > Output Parameters > ONAP Base Module Output Parameters
 ---------------------------------------------------------------------------------------------------
@@ -3047,7 +3047,7 @@ ONAP Heat Orchestration Templates Overview > Output Parameters > ONAP Base Modul
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -3056,7 +3056,7 @@ Requirements Changed
     VNF's Heat Orchestration Template's Base Module's output parameter's
     name and type **MUST** match the VNF's Heat Orchestration Template's
     incremental Module's name and type.
-    
+
 
 .. container:: note
 
@@ -3065,7 +3065,7 @@ Requirements Changed
     When a VNF's Heat Orchestration Template's Base Module's output
     parameter is declared as an input parameter in an Incremental Module,
     the parameter attribute ``constraints:`` **SHOULD NOT** be declared.
-    
+
 
 ONAP Heat Orchestration Templates Overview > Output Parameters > ONAP Volume Module Output Parameters
 -----------------------------------------------------------------------------------------------------
@@ -3073,7 +3073,7 @@ ONAP Heat Orchestration Templates Overview > Output Parameters > ONAP Volume Mod
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -3082,7 +3082,7 @@ Requirements Changed
     When an ONAP Volume Module Output Parameter is declared as an input
     parameter in a base or an incremental module Heat Orchestration
     Template, parameter constraints **SHOULD NOT** be declared.
-    
+
 
 .. container:: note
 
@@ -3091,7 +3091,7 @@ Requirements Changed
     A VNF's Heat Orchestration Templates' Cinder Volume Module Output
     Parameter's name and type **MUST** match the input parameter name and type
     in the corresponding Base Module or Incremental Module.
-    
+
 
 .. container:: note
 
@@ -3101,7 +3101,7 @@ Requirements Changed
     Parameter(s)
     **MUST** include the
     UUID(s) of the Cinder Volumes created in template.
-    
+
 
 ONAP Heat Support of Environment Files
 --------------------------------------
@@ -3109,7 +3109,7 @@ ONAP Heat Support of Environment Files
 
 Requirements Added
 ~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -3120,7 +3120,7 @@ Requirements Added
     in the
     corresponding VNF's Heat Orchestration Template's YAML file's
     ``parameters:`` section.
-    
+
 
 ONAP Heat VNF Modularity
 ------------------------
@@ -3128,7 +3128,7 @@ ONAP Heat VNF Modularity
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -3150,7 +3150,7 @@ Requirements Changed
     ONAP will capture the output parameter name and value in the base module
     and provide the value to the corresponding parameter(s) in the
     incremental module(s).
-    
+
 
 ONAP TOSCA VNFD Requirements > VNF CSAR Package > VNF Package Contents
 ----------------------------------------------------------------------
@@ -3158,7 +3158,7 @@ ONAP TOSCA VNFD Requirements > VNF CSAR Package > VNF Package Contents
 
 Requirements Removed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -3174,7 +3174,7 @@ Requirements Removed
 
     Note: Currently, ONAP doesn't have the capability of Image management,
     we upload the image into VIM/VNFM manually.
-    
+
 
 ONAP TOSCA VNFD or PNFD Requirements > TOSCA PNF Descriptor > Capability Types
 ------------------------------------------------------------------------------
@@ -3182,7 +3182,7 @@ ONAP TOSCA VNFD or PNFD Requirements > TOSCA PNF Descriptor > Capability Types
 
 Requirements Added
 ~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -3192,7 +3192,7 @@ Requirements Added
     Capabilities Types as specified in ETSI NFV-SOL001 standard:
 
       - tosca.datatypes.nfv.VirtualLinkable
-    
+
 
 ONAP TOSCA VNFD or PNFD Requirements > TOSCA PNF Descriptor > Data Types
 ------------------------------------------------------------------------
@@ -3200,7 +3200,7 @@ ONAP TOSCA VNFD or PNFD Requirements > TOSCA PNF Descriptor > Data Types
 
 Requirements Added
 ~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -3220,7 +3220,7 @@ Requirements Added
       - tosca.datatypes.nfv.LocationInfo
 
       - tosca.datatypes.nfv.CivicAddressElement
-    
+
 
 ONAP TOSCA VNFD or PNFD Requirements > TOSCA PNF Descriptor > General
 ---------------------------------------------------------------------
@@ -3228,7 +3228,7 @@ ONAP TOSCA VNFD or PNFD Requirements > TOSCA PNF Descriptor > General
 
 Requirements Added
 ~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -3237,7 +3237,7 @@ Requirements Added
     The PNF Descriptor (PNFD) provided by PNF vendor **MUST** comply with
     TOSCA/YAML based Service template for PNF descriptor specified in ETSI
     NFV-SOL001.
-    
+
 
 ONAP TOSCA VNFD or PNFD Requirements > TOSCA PNF Descriptor > Node Types
 ------------------------------------------------------------------------
@@ -3245,7 +3245,7 @@ ONAP TOSCA VNFD or PNFD Requirements > TOSCA PNF Descriptor > Node Types
 
 Requirements Added
 ~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -3259,7 +3259,7 @@ Requirements Added
       - tosca.nodes.nfv.PnfExtCp
 
       - tosca.nodes.nfv.Cp
-    
+
 
 ONAP TOSCA VNFD or PNFD Requirements > TOSCA PNF Descriptor > Policy Types
 --------------------------------------------------------------------------
@@ -3267,7 +3267,7 @@ ONAP TOSCA VNFD or PNFD Requirements > TOSCA PNF Descriptor > Policy Types
 
 Requirements Added
 ~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -3277,7 +3277,7 @@ Requirements Added
     Types as specified in ETSI NFV-SOL001 standard:
 
       - tosca.datatypes.nfv.SecurityGroupRule
-    
+
 
 ONAP TOSCA VNFD or PNFD Requirements > TOSCA PNF Descriptor > Relationship Types
 --------------------------------------------------------------------------------
@@ -3285,7 +3285,7 @@ ONAP TOSCA VNFD or PNFD Requirements > TOSCA PNF Descriptor > Relationship Types
 
 Requirements Added
 ~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -3295,7 +3295,7 @@ Requirements Added
     Relationship Types as specified in ETSI NFV-SOL001 standard:
 
       - tosca.datatypes.nfv.VirtualLinksTo
-    
+
 
 ONAP TOSCA VNFD or PNFD Requirements > TOSCA VNF Descriptor > General
 ---------------------------------------------------------------------
@@ -3303,7 +3303,7 @@ ONAP TOSCA VNFD or PNFD Requirements > TOSCA VNF Descriptor > General
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -3312,7 +3312,7 @@ Requirements Changed
     The VNFD **MUST** comply with ETSI GS NFV-SOL001 specification endorsing
     the above mentioned NFV Profile and maintaining the gaps with the
     requirements specified in ETSI GS NFV-IFA011 standard.
-    
+
 
 ONAP TOSCA VNFD or PNFD Requirements > VNF or PNF CSAR Package > VNF Package Contents
 -------------------------------------------------------------------------------------
@@ -3320,7 +3320,7 @@ ONAP TOSCA VNFD or PNFD Requirements > VNF or PNF CSAR Package > VNF Package Con
 
 Requirements Added
 ~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -3340,7 +3340,7 @@ Requirements Added
 
       - onap_others: contains any other non_MANO artifacts, e.g. informational
         documents
-    
+
 
 .. container:: note
 
@@ -3350,7 +3350,7 @@ Requirements Added
     file. The Change Log file keeps a history describing any changes in the VNF
     or PNF package. The Change Log file is kept up to date continuously from
     the creation of the CSAR package.
-    
+
 
 .. container:: note
 
@@ -3367,7 +3367,7 @@ Requirements Added
     the TOSCA.meta metadata file. The TOSCA.meta metadata file includes block_0
     with the Entry-Definitions keyword pointing to a TOSCA definitions YAML
     file used as entry for parsing the contents of the overall CSAR archive.
-    
+
 
 .. container:: note
 
@@ -3384,7 +3384,7 @@ Requirements Added
       - pnfd_release_date_time
 
       - pnfd_archive_version
-    
+
 
 .. container:: note
 
@@ -3401,11 +3401,11 @@ Requirements Added
       - vnf_release_date_time
 
       - vnf_package_version
-    
+
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -3414,7 +3414,7 @@ Requirements Changed
     The VNF or PNF CSAR package **MUST** include all artifacts required by
     ETSI GS NFV-SOL004 including Manifest file, VNFD or PNFD (or Main
     TOSCA/YAML based Service Template) and other optional artifacts.
-    
+
 
 .. container:: note
 
@@ -3425,7 +3425,7 @@ Requirements Changed
     SOL004.
 
     for example ROOT\\Licenses\\ **License_term.txt**
-    
+
 
 .. container:: note
 
@@ -3436,7 +3436,7 @@ Requirements Changed
     including their respected URI's, an algorithm to calculate a digest and
     a digest result calculated on the content of each artifacts, as specified
     in ETSI GS NFV-SOL004.
-    
+
 
 ONAP TOSCA VNFD or PNFD Requirements > VNF or PNF CSAR Package > VNF Package Structure and Format
 -------------------------------------------------------------------------------------------------
@@ -3444,18 +3444,18 @@ ONAP TOSCA VNFD or PNFD Requirements > VNF or PNF CSAR Package > VNF Package Str
 
 Requirements Added
 ~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
     :need:`R-506221`
 
     The VNF or PNF TOSCA CSAR file **MUST** be a zip file with .csar extension.
-    
+
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -3463,7 +3463,7 @@ Requirements Changed
 
     The VNF or PNF CSAR package **MUST** be arranged as a CSAR archive as
     specified in TOSCA Simple Profile in YAML 1.2.
-    
+
 
 .. container:: note
 
@@ -3475,7 +3475,7 @@ Requirements Changed
 
     **Note:** SDC supports only the CSAR Option 1 in Dublin. The Option 2
     will be considered in future ONAP releases.
-    
+
 
 ONAP TOSCA VNFD or PNFD Requirements > VNF or PNF CSAR Package > VNF or PNF Package Authenticity and Integrity
 --------------------------------------------------------------------------------------------------------------
@@ -3483,7 +3483,7 @@ ONAP TOSCA VNFD or PNFD Requirements > VNF or PNF CSAR Package > VNF or PNF Pack
 
 Requirements Added
 ~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -3498,7 +3498,7 @@ Requirements Added
     TOSCA pre-defined naming convention and located either at the root of the
     archive or in a predefined location specified by the TOSCA.meta file with
     the corresponding entry named "ETSI-Entry-Certificate".
-    
+
 
 .. container:: note
 
@@ -3514,7 +3514,7 @@ Requirements Added
     .csar extension, signature and certificate files. The signature and
     certificate files must be siblings of the CSAR file with extensions .cms
     and .cert respectively.
-    
+
 
 PNF Plug and Play > PNF Plug and Play
 -------------------------------------
@@ -3522,7 +3522,7 @@ PNF Plug and Play > PNF Plug and Play
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -3534,7 +3534,7 @@ Requirements Changed
 
     Note: The PNF Controller may be VF-C, APP-C or SDN-C based on the
     PNF and PNF domain.
-    
+
 
 .. container:: note
 
@@ -3546,7 +3546,7 @@ Requirements Changed
 
     Note: these VES Events are emitted from the PNF to support PNF Plug and
     Play, High Volume Measurements, and Fault events respectively.
-    
+
 
 Resource IDs
 ------------
@@ -3554,7 +3554,7 @@ Resource IDs
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -3571,7 +3571,7 @@ Requirements Changed
     will start at zero in the VNF, the ``{index}`` may not start at zero
     in a given Heat Orchestration Template or HEAT Orchestration Template
     Nested YAML file.
-    
+
 
 Resource IDs > Contrail Heat Resources Resource ID Naming Convention > OS::ContrailV2::InstanceIp
 -------------------------------------------------------------------------------------------------
@@ -3579,7 +3579,7 @@ Resource IDs > Contrail Heat Resources Resource ID Naming Convention > OS::Contr
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -3618,7 +3618,7 @@ Requirements Changed
       instance of a virtual machine interface and **MUST** increment by one
       each time a new IPv4 address is configured on the
       virtual machine interface.
-    
+
 
 .. container:: note
 
@@ -3657,7 +3657,7 @@ Requirements Changed
       instance of a virtual machine interface and **MUST** increment by one
       each time a new IPv6 address is configured on the
       virtual machine interface.
-    
+
 
 .. container:: note
 
@@ -3696,7 +3696,7 @@ Requirements Changed
       instance of a virtual machine interface and **MUST** increment by one
       each time a new IPv4 address is configured on the
       virtual machine interface.
-    
+
 
 .. container:: note
 
@@ -3735,11 +3735,11 @@ Requirements Changed
       instance of a virtual machine interface and **MUST** increment by one
       each time a new IPv6 address is configured on the
       virtual machine interface.
-    
+
 
 Requirements Removed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -3762,7 +3762,7 @@ Requirements Removed
       attached to the network of ``{network-role}``
     * ``IP`` signifies that an IPv4 address is being configured
     * ``{index}`` is the index of the IPv4 address
-    
+
 
 .. container:: note
 
@@ -3786,7 +3786,7 @@ Requirements Removed
       attached to the network of ``{network-role}``
     * ``v6_IP`` signifies that an IPv6 address is being configured
     * ``{index}`` is the index of the IPv6 address
-    
+
 
 Resource IDs > Contrail Heat Resources Resource ID Naming Convention > OS::ContrailV2::ServiceTemplate
 ------------------------------------------------------------------------------------------------------
@@ -3794,7 +3794,7 @@ Resource IDs > Contrail Heat Resources Resource ID Naming Convention > OS::Contr
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -3812,7 +3812,7 @@ Requirements Changed
     * ``{index}`` is the index.
       The ``{index}`` starts at zero and increments by one
       (as described in R-11690).
-    
+
 
 Resource IDs > Contrail Heat Resources Resource ID Naming Convention > OS::ContrailV2::VirtualMachineInterface
 --------------------------------------------------------------------------------------------------------------
@@ -3820,7 +3820,7 @@ Resource IDs > Contrail Heat Resources Resource ID Naming Convention > OS::Contr
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -3850,7 +3850,7 @@ Requirements Changed
       instance of a ``{vm-type}`` and **MUST** increment by one each time a
       new virtual machine interface is defined on the instance of the
       ``{vm-type}`` attached to ``{network-role}`` network.
-    
+
 
 .. container:: note
 
@@ -3880,11 +3880,11 @@ Requirements Changed
       instance of a ``{vm-type}`` and **MUST** increment by one each time a
       new virtual machine interface is defined on the instance of the
       ``{vm-type}`` attached to ``{network-role}`` network.
-    
+
 
 Requirements Removed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -3904,7 +3904,7 @@ Requirements Removed
       that the port (i.e. virtual machine interface) is attached to
     * ``{vmi_index}`` is the instance of the the vmi on the vm-type
       attached to the network of ``{network-role}``
-    
+
 
 Resource IDs > Contrail Heat Resources Resource ID Naming Convention > OS::ContrailV2::VirtualNetwork
 -----------------------------------------------------------------------------------------------------
@@ -3912,7 +3912,7 @@ Resource IDs > Contrail Heat Resources Resource ID Naming Convention > OS::Contr
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -3928,7 +3928,7 @@ Requirements Changed
     There is no ``{index}`` after ``{network-role}`` because ``{network-role}``
     **MUST** be unique in the scope of the VNF's
     Heat Orchestration Template.
-    
+
 
 Resource IDs > OpenStack Heat Resources Resource ID Naming Convention > OS::Cinder::Volume
 ------------------------------------------------------------------------------------------
@@ -3936,7 +3936,7 @@ Resource IDs > OpenStack Heat Resources Resource ID Naming Convention > OS::Cind
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -3954,7 +3954,7 @@ Requirements Changed
 
     * ``{vm-type}`` is the vm-type
     * ``{index}`` starts at zero and increments by one (as described in R-11690)
-    
+
 
 Resource IDs > OpenStack Heat Resources Resource ID Naming Convention > OS::Cinder::VolumeAttachment
 ----------------------------------------------------------------------------------------------------
@@ -3962,7 +3962,7 @@ Resource IDs > OpenStack Heat Resources Resource ID Naming Convention > OS::Cind
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -3980,7 +3980,7 @@ Requirements Changed
 
     * ``{vm-type}`` is the vm-type
     * ``{index}`` starts at zero and increments by one (as described in R-11690)
-    
+
 
 Resource IDs > OpenStack Heat Resources Resource ID Naming Convention > OS::Heat::ResourceGroup
 -----------------------------------------------------------------------------------------------
@@ -3988,7 +3988,7 @@ Resource IDs > OpenStack Heat Resources Resource ID Naming Convention > OS::Heat
 
 Requirements Removed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -4007,7 +4007,7 @@ Requirements Removed
       that the sub-interfaces attach to
     * ``{port-index}`` is the instance of the the port on the vm-type
       attached to the network of ``{network-role}``
-    
+
 
 Resource IDs > OpenStack Heat Resources Resource ID Naming Convention > OS::Neutron::Port
 -----------------------------------------------------------------------------------------
@@ -4015,7 +4015,7 @@ Resource IDs > OpenStack Heat Resources Resource ID Naming Convention > OS::Neut
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -4036,7 +4036,7 @@ Requirements Changed
       for the vm-type attached to the network of ``{network-role}``.
       The ``{index}`` starts at zero and increments by one
       (as described in R-11690).
-    
+
 
 .. container:: note
 
@@ -4057,7 +4057,7 @@ Requirements Changed
       for the vm-type attached to the network of ``{network-role}``.
       The ``{index}`` starts at zero and increments by one
       (as described in R-11690).
-    
+
 
 .. container:: note
 
@@ -4086,7 +4086,7 @@ Requirements Changed
       instance of a ``{vm-type}`` and **MUST** increment by one each time a
       new port is defined on the instance of the ``{vm-type}`` attached to
       ``{network-role}`` network.
-    
+
 
 .. container:: note
 
@@ -4115,7 +4115,7 @@ Requirements Changed
       instance of a ``{vm-type}`` and **MUST** increment by one each time a
       new port is defined on the instance of the ``{vm-type}`` attached to
       ``{network-role}`` network.
-    
+
 
 Resource IDs > OpenStack Heat Resources Resource ID Naming Convention > OS::Neutron::Subnet
 -------------------------------------------------------------------------------------------
@@ -4123,7 +4123,7 @@ Resource IDs > OpenStack Heat Resources Resource ID Naming Convention > OS::Neut
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -4140,7 +4140,7 @@ Requirements Changed
     * ``{index}`` is the ``{index}`` of the subnet of the network.
       The ``{index}`` starts at zero and increments by one
       (as described in R-11690).
-    
+
 
 Resource IDs > OpenStack Heat Resources Resource ID Naming Convention > OS::Nova::Keypair
 -----------------------------------------------------------------------------------------
@@ -4148,7 +4148,7 @@ Resource IDs > OpenStack Heat Resources Resource ID Naming Convention > OS::Nova
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -4165,7 +4165,7 @@ Requirements Changed
     * ``{index}`` is the ``{index}`` of the keypair.
       The ``{index}`` starts at zero and increments by one
       (as described in R-11690).
-    
+
 
 .. container:: note
 
@@ -4180,7 +4180,7 @@ Requirements Changed
     where
 
     * ``{vnf-type}`` describes the VNF
-    
+
 
 Resource IDs > OpenStack Heat Resources Resource ID Naming Convention > OS::Nova::Server
 ----------------------------------------------------------------------------------------
@@ -4188,7 +4188,7 @@ Resource IDs > OpenStack Heat Resources Resource ID Naming Convention > OS::Nova
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -4206,7 +4206,7 @@ Requirements Changed
     * ``{index}`` is the index.
       The ``{index}`` **MUST** starts at zero and increment by one
       as described in R-11690.
-    
+
 
 Resource Property “name”
 ------------------------
@@ -4214,7 +4214,7 @@ Resource Property “name”
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -4226,11 +4226,11 @@ Requirements Changed
     supplied metadata parameter ``vnf_name`` to generate a unique value.
     Additional data **MAY** be used in the ``str_replace`` construct
     to generate a unique value.
-    
+
 
 Requirements Removed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -4243,7 +4243,7 @@ Requirements Removed
     a unique value, additional data **MUST** be used in the
     ``str_replace`` to create a unique value, such as ``OS::stack_name``
     and/or the ``OS::Heat::ResourceGroup`` ``index``.
-    
+
 
 Resource: OS::Neutron::Port - Parameters > Introduction > Items to Note
 -----------------------------------------------------------------------
@@ -4251,7 +4251,7 @@ Resource: OS::Neutron::Port - Parameters > Introduction > Items to Note
 
 Requirements Added
 ~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -4271,11 +4271,11 @@ Requirements Added
       R-41492 and R-83418)
 
     **MUST** contain the identical ``{network-role}``.
-    
+
 
 Requirements Removed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -4286,7 +4286,7 @@ Requirements Removed
     all the IPv4 Addresses **MUST** be from
     the same subnet and all the IPv6 Addresses **MUST** be from the
     same subnet.
-    
+
 
 .. container:: note
 
@@ -4296,7 +4296,7 @@ Requirements Removed
     internal network. All VNF ports connected to the unique internal
     network **MUST** have cloud assigned IP Addresses
     or **MUST** have statically assigned IP addresses.
-    
+
 
 .. container:: note
 
@@ -4306,7 +4306,7 @@ Requirements Removed
     external network. All VNF ports connected to the unique external
     network **MUST** have cloud assigned IP Addresses
     or **MUST** have ONAP SDN-C assigned IP addresses.
-    
+
 
 Resource: OS::Neutron::Port - Parameters > Property: allowed_address_pairs, Map Property: ip_address
 ----------------------------------------------------------------------------------------------------
@@ -4314,7 +4314,7 @@ Resource: OS::Neutron::Port - Parameters > Property: allowed_address_pairs, Map 
 
 Requirements Removed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -4325,7 +4325,7 @@ Requirements Removed
     ``OS::Neutron::Port`` property ``allowed_address_pairs``
     map property ``ip_address`` parameter
     **MUST** be used.
-    
+
 
 Resource: OS::Neutron::Port - Parameters > Property: allowed_address_pairs, Map Property: ip_address > VIP Assignment, External Networks
 ----------------------------------------------------------------------------------------------------------------------------------------
@@ -4333,7 +4333,7 @@ Resource: OS::Neutron::Port - Parameters > Property: allowed_address_pairs, Map 
 
 Requirements Added
 ~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -4358,11 +4358,11 @@ Requirements Added
     key value ``aap_exempt`` with a list of all
     ``allowed_address_pairs`` map property ``ip_address`` parameters
     **not** supported by the ONAP data model.
-    
+
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -4386,7 +4386,7 @@ Requirements Changed
 
     As noted in the introduction to this section, the ONAP data model
     can only support one IPv6 VIP address.
-    
+
 
 .. container:: note
 
@@ -4399,7 +4399,7 @@ Requirements Changed
     map property ``ip_address`` parameter(s)
     **MUST NOT** be enumerated in the
     VNF's Heat Orchestration Template's Environment File.
-    
+
 
 .. container:: note
 
@@ -4423,7 +4423,7 @@ Requirements Changed
 
     As noted in the introduction to this section, the ONAP data model
     can only support one IPv4 VIP address.
-    
+
 
 Resource: OS::Neutron::Port - Parameters > Property: allowed_address_pairs, Map Property: ip_address > VIP Assignment, External Networks, Supported by Automation
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -4431,7 +4431,7 @@ Resource: OS::Neutron::Port - Parameters > Property: allowed_address_pairs, Map 
 
 Requirements Removed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -4443,7 +4443,7 @@ Requirements Removed
     all the Virtual Machines using the VIP address **MUST**
     be instantiated in the same Base Module Heat Orchestration Template
     or in the same Incremental Module Heat Orchestration Template.
-    
+
 
 .. container:: note
 
@@ -4452,7 +4452,7 @@ Requirements Removed
     If a VNF requires ONAP to assign a Virtual IP (VIP) Address to
     ports connected an external network, the port
     **MUST NOT** have more than one IPv6 VIP address.
-    
+
 
 .. container:: note
 
@@ -4464,7 +4464,7 @@ Requirements Removed
     ``{vm-type}_{network-role}_floating_v6_ip``
     **MUST NOT** be enumerated in the
     VNF's Heat Orchestration Template's Environment File.
-    
+
 
 .. container:: note
 
@@ -4473,7 +4473,7 @@ Requirements Removed
     If a VNF requires ONAP to assign a Virtual IP (VIP) Address to
     ports connected an external network, the port
     **MUST NOT** have more than one IPv4 VIP address.
-    
+
 
 .. container:: note
 
@@ -4483,7 +4483,7 @@ Requirements Removed
     ``OS::Neutron::Port`` property ``allowed_address_pairs``
     map property ``ip_address`` parameter
     **MUST** be declared as type ``string``.
-    
+
 
 Resource: OS::Neutron::Port - Parameters > Property: allowed_address_pairs, Map Property: ip_address > VIP Assignment, Internal Networks
 ----------------------------------------------------------------------------------------------------------------------------------------
@@ -4491,7 +4491,7 @@ Resource: OS::Neutron::Port - Parameters > Property: allowed_address_pairs, Map 
 
 Requirements Added
 ~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -4534,7 +4534,7 @@ Requirements Added
 
     And the parameter **MUST** be declared as ``type: comma_delimited_list``
     and **MUST** be enumerated in the environment file.
-    
+
 
 .. container:: note
 
@@ -4578,7 +4578,7 @@ Requirements Added
 
     And the parameter **MUST** be declared as ``type: comma_delimited_list``
     and **MUST** be enumerated in the environment file.
-    
+
 
 Resource: OS::Neutron::Port - Parameters > Property: fixed_ips, Map Property: ip_address
 ----------------------------------------------------------------------------------------
@@ -4586,7 +4586,7 @@ Resource: OS::Neutron::Port - Parameters > Property: fixed_ips, Map Property: ip
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -4611,7 +4611,7 @@ Requirements Changed
     * ``{network-role}`` is the {network-role} of the internal network
     * ``{index}`` is a numeric value that **MUST** start at zero in a
       VNF's Heat Orchestration Template and **MUST** increment by one
-    
+
 
 .. container:: note
 
@@ -4635,7 +4635,7 @@ Requirements Changed
     * ``{network-role}`` is the {network-role} of the external network
     * ``{index}`` is a numeric value that **MUST** start at zero in a
       VNF's Heat Orchestration Template and **MUST** increment by one
-    
+
 
 .. container:: note
 
@@ -4658,7 +4658,7 @@ Requirements Changed
     * ``{network-role}`` is the {network-role} of the external network
     * ``{index}`` is a numeric value that **MUST** start at zero in a
       VNF's Heat Orchestration Template and **MUST** increment by one
-    
+
 
 .. container:: note
 
@@ -4682,7 +4682,7 @@ Requirements Changed
     * ``{network-role}`` is the {network-role} of the internal network
     * ``{index}`` is a numeric value that **MUST** start at zero in a
       VNF's Heat Orchestration Template and **MUST** increment by one
-    
+
 
 Resource: OS::Neutron::Port - Parameters > Property: network
 ------------------------------------------------------------
@@ -4690,7 +4690,7 @@ Resource: OS::Neutron::Port - Parameters > Property: network
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -4710,11 +4710,11 @@ Requirements Changed
 
     where ``{network-role}`` is the network-role of the internal network and
     a ``get_param`` **MUST** be used as the intrinsic function.
-    
+
 
 Requirements Removed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -4729,7 +4729,7 @@ Requirements Removed
     of the internal network by using the intrinsic function
     ``get_resource``
     and referencing the Resource ID of the internal network.
-    
+
 
 Resource: OS::Nova::Server - Parameters
 ---------------------------------------
@@ -4737,7 +4737,7 @@ Resource: OS::Nova::Server - Parameters
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -4760,7 +4760,7 @@ Requirements Changed
     the ``{vm-type_index}`` defined in
     the ``OS::Nova::Server`` property ``networks`` map property ``port``
     referenced ``OS::Neutron::Port`` Resource ID (defined in R-20453).
-    
+
 
 Resource: OS::Nova::Server - Parameters > Property: Name
 --------------------------------------------------------
@@ -4768,7 +4768,7 @@ Resource: OS::Nova::Server - Parameters > Property: Name
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -4782,11 +4782,11 @@ Requirements Changed
 
     where ``{index}`` is a numeric value that **MUST** start at
     zero in a VNF's Heat Orchestration Template and **MUST** increment by one.
-    
+
 
 Requirements Removed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -4796,7 +4796,7 @@ Requirements Removed
     property ``name`` parameter is defined as a ``string``, a parameter
     **MUST** be delcared for
     each ``OS::Nova::Server`` resource associated with the ``{vm-type}``.
-    
+
 
 .. container:: note
 
@@ -4806,7 +4806,7 @@ Requirements Removed
     property ``name`` parameter is defined as a ``comma_delimited_list``,
     a parameter **MUST** be delcared once for all ``OS::Nova::Server`` resources
     associated with the ``{vm-type}``.
-    
+
 
 Resource: OS::Nova::Server - Parameters > Property: availability_zone
 ---------------------------------------------------------------------
@@ -4814,7 +4814,7 @@ Resource: OS::Nova::Server - Parameters > Property: availability_zone
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -4829,7 +4829,7 @@ Requirements Changed
     where ``{index}`` is a numeric value that **MUST** start at zero
     in a VNF's Heat Orchestration Templates and **MUST**
     increment by one.
-    
+
 
 Resource: OS::Nova::Server Metadata Parameters > environment_context
 --------------------------------------------------------------------
@@ -4837,7 +4837,7 @@ Resource: OS::Nova::Server Metadata Parameters > environment_context
 
 Requirements Removed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -4847,7 +4847,7 @@ Requirements Removed
     ``metadata`` map value parameter ``environment_context`` is passed into a
     Nested YAML
     file, the parameter name ``environment_context`` **MUST NOT** change.
-    
+
 
 Resource: OS::Nova::Server Metadata Parameters > vf_module_id
 -------------------------------------------------------------
@@ -4855,7 +4855,7 @@ Resource: OS::Nova::Server Metadata Parameters > vf_module_id
 
 Requirements Removed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -4866,7 +4866,7 @@ Requirements Removed
     ``metadata`` key/value pair ``vf_module_id`` is passed into a
     Nested YAML
     file, the key/value pair name ``vf_module_id`` **MUST NOT** change.
-    
+
 
 Resource: OS::Nova::Server Metadata Parameters > vf_module_index
 ----------------------------------------------------------------
@@ -4874,7 +4874,7 @@ Resource: OS::Nova::Server Metadata Parameters > vf_module_index
 
 Requirements Added
 ~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -4883,11 +4883,11 @@ Requirements Added
     A VNF's Heat Orchestration Template's ``OS::Nova::Server``
     resource  property ``metadata`` **MAY**
     contain the key/value pair ``vf_module_index``.
-    
+
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -4897,11 +4897,11 @@ Requirements Changed
     resource  property ``metadata``
     key/value pair ``vf_module_index``
     value **MUST** be obtained via a ``get_param``.
-    
+
 
 Requirements Removed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -4911,7 +4911,7 @@ Requirements Removed
     property ``metadata`` key/value pair ``vf_module_index`` is passed into a
     Nested YAML file, the key/value pair
     ``vf_module_index`` **MUST NOT** change.
-    
+
 
 Resource: OS::Nova::Server Metadata Parameters > vf_module_name
 ---------------------------------------------------------------
@@ -4919,7 +4919,7 @@ Resource: OS::Nova::Server Metadata Parameters > vf_module_name
 
 Requirements Added
 ~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -4927,11 +4927,11 @@ Requirements Added
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
     property metadata **SHOULD** contain the key/value pair ``vf_module_name``.
-    
+
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -4941,11 +4941,11 @@ Requirements Changed
     property ``metadata`` key/value pair ``vf_module_name``
     value **MUST**
     be obtained via a ``get_param``.
-    
+
 
 Requirements Removed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -4955,7 +4955,7 @@ Requirements Removed
     property ``metadata`` key/value pair ``vf_module_name`` is passed into a
     Nested YAML
     file, the key/value pair name ``vf_module_name`` **MUST NOT** change.
-    
+
 
 Resource: OS::Nova::Server Metadata Parameters > vm_role
 --------------------------------------------------------
@@ -4963,7 +4963,7 @@ Resource: OS::Nova::Server Metadata Parameters > vm_role
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -4977,11 +4977,11 @@ Requirements Changed
     * ``vm_role`` and the parameter defined as ``type: string``.
     * ``vm_roles`` and the parameter defined as ``type: comma_delimited_list``.
     * ``{vm-type}_vm_role`` and the parameter defined as ``type: string``.
-    
+
 
 Requirements Removed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -4991,7 +4991,7 @@ Requirements Removed
     property ``metadata`` key/value pair ``vm_role`` is passed into a Nested
     YAML
     file, the key/value pair name ``vm_role`` **MUST NOT** change.
-    
+
 
 Resource: OS::Nova::Server Metadata Parameters > vnf_id
 -------------------------------------------------------
@@ -4999,7 +4999,7 @@ Resource: OS::Nova::Server Metadata Parameters > vnf_id
 
 Requirements Removed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -5009,7 +5009,7 @@ Requirements Removed
     property
     ``metadata`` key/value pair ``vnf_id`` is passed into a Nested YAML
     file, the key/value pair name ``vnf_id`` **MUST NOT** change.
-    
+
 
 Resource: OS::Nova::Server Metadata Parameters > vnf_name
 ---------------------------------------------------------
@@ -5017,7 +5017,7 @@ Resource: OS::Nova::Server Metadata Parameters > vnf_name
 
 Requirements Removed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -5027,7 +5027,7 @@ Requirements Removed
     property
     ``metadata`` key/value pair ``vnf_name`` is passed into a Nested YAML
     file, the key/value pair name ``vnf_name`` **MUST NOT** change.
-    
+
 
 Resource: OS::Nova::Server Metadata Parameters > workload_context
 -----------------------------------------------------------------
@@ -5035,7 +5035,7 @@ Resource: OS::Nova::Server Metadata Parameters > workload_context
 
 Requirements Removed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -5045,7 +5045,7 @@ Requirements Removed
     property ``metadata`` key/value pair ``workload_context``
     is passed into a Nested YAML
     file, the key/value pair name ``workload_context`` **MUST NOT** change.
-    
+
 
 VNF On-boarding and package management > Compute, Network, and Storage Requirements
 -----------------------------------------------------------------------------------
@@ -5053,7 +5053,7 @@ VNF On-boarding and package management > Compute, Network, and Storage Requireme
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -5062,7 +5062,7 @@ Requirements Changed
     The VNF or PNF Provider **MUST** provide human readable documentation
     (not in the on-boarding package) to describe scaling capabilities to manage
     scaling characteristics of the VNF or PNF.
-    
+
 
 .. container:: note
 
@@ -5070,7 +5070,7 @@ Requirements Changed
 
     The VNF provider **MUST** provide the binaries and images
     needed to instantiate the VNF (VNF and VNFC images).
-    
+
 
 .. container:: note
 
@@ -5080,7 +5080,7 @@ Requirements Changed
     network and application connectivity internal and external to the VNF
     including Link type, KPIs, Bandwidth, latency, jitter, QoS (if applicable)
     for each interface.
-    
+
 
 VNF On-boarding and package management > Licensing Requirements
 ---------------------------------------------------------------
@@ -5088,7 +5088,7 @@ VNF On-boarding and package management > Licensing Requirements
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -5097,7 +5097,7 @@ Requirements Changed
     The VNF or PNF provider **MUST NOT** require additional
     infrastructure such as a VNF or PNF provider license server for VNF or PNF provider
     functions and metrics.
-    
+
 
 .. container:: note
 
@@ -5105,7 +5105,7 @@ Requirements Changed
 
     The VNF or PNF provider **MUST** enumerate all of the open
     source licenses their VNF or PNF(s) incorporate.
-    
+
 
 .. container:: note
 
@@ -5114,7 +5114,7 @@ Requirements Changed
     The VNF or PNF provider **MUST** agree to the process that can
     be met by Service Provider reporting infrastructure. The Contract
     shall define the reporting process and the available reporting tools.
-    
+
 
 .. container:: note
 
@@ -5122,7 +5122,7 @@ Requirements Changed
 
     The VNF or PNF provider **MUST NOT** require audits
     of Service Provider's business.
-    
+
 
 .. container:: note
 
@@ -5134,7 +5134,7 @@ Requirements Changed
     pools of Unique VNF or PNF License Keys, where there is a unique key for
     each VNF or PNF instance as an alternate solution. Licensing issues should
     be resolved without interrupting in-service VNFs or PNFs.
-    
+
 
 .. container:: note
 
@@ -5151,7 +5151,7 @@ Requirements Changed
 
     Note: License metadata support in ONAP is not currently available
     and planned for 1Q 2018.
-    
+
 
 .. container:: note
 
@@ -5160,7 +5160,7 @@ Requirements Changed
     The VNF or PNF **MUST** provide metrics (e.g., number of sessions,
     number of subscribers, number of seats, etc.) to ONAP for tracking
     every license.
-    
+
 
 VNF On-boarding and package management > Resource Configuration
 ---------------------------------------------------------------
@@ -5168,7 +5168,7 @@ VNF On-boarding and package management > Resource Configuration
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -5181,7 +5181,7 @@ Requirements Changed
     Note: The requirements for Netconf/YANG, Chef, and Ansible protocols
     are provided separately and must be supported only if the corresponding
     protocol option is provided by the VNF or PNF providor.
-    
+
 
 VNF On-boarding and package management > Resource Configuration > Configuration Management via Ansible
 ------------------------------------------------------------------------------------------------------
@@ -5189,7 +5189,7 @@ VNF On-boarding and package management > Resource Configuration > Configuration 
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -5197,7 +5197,7 @@ Requirements Changed
 
     The VNF or PNF provider **MUST** provide playbooks to be loaded
     on the appropriate Ansible Server.
-    
+
 
 .. container:: note
 
@@ -5208,7 +5208,7 @@ Requirements Changed
     pairs with all relevant values populated with sample data that illustrates
     its usage. The fields and their description are defined in Table B1
     in the Appendix.
-    
+
 
 .. container:: note
 
@@ -5216,7 +5216,7 @@ Requirements Changed
 
     The VNF or PNF Package **MUST** include configuration scripts
     for boot sequence and configuration.
-    
+
 
 .. container:: note
 
@@ -5226,7 +5226,7 @@ Requirements Changed
     (if unable to conform to YANG model) including VNF or PNF attributes/parameters
     and valid values, dynamic attributes and cross parameter dependencies
     (e.g., customer provisioning data).
-    
+
 
 VNF On-boarding and package management > Resource Configuration > Configuration Management via Chef
 ---------------------------------------------------------------------------------------------------
@@ -5234,7 +5234,7 @@ VNF On-boarding and package management > Resource Configuration > Configuration 
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -5247,7 +5247,7 @@ Requirements Changed
     and A2 in the Appendix.
 
     Note: Chef support in ONAP is not currently available and planned for 4Q 2017.
-    
+
 
 .. container:: note
 
@@ -5255,7 +5255,7 @@ Requirements Changed
 
     The VNF or PNF provider **MUST** provide cookbooks to be loaded
     on the appropriate Chef Server.
-    
+
 
 VNF On-boarding and package management > Resource Configuration > Configuration Management via NETCONF/YANG
 -----------------------------------------------------------------------------------------------------------
@@ -5263,7 +5263,7 @@ VNF On-boarding and package management > Resource Configuration > Configuration 
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -5271,7 +5271,7 @@ Requirements Changed
 
     The VNF or PNF provider **SHOULD** provide a Resource/Device YANG model
     as a foundation for creating the YANG model for configuration.
-    
+
 
 VNF On-boarding and package management > Resource Control Loop
 --------------------------------------------------------------
@@ -5279,7 +5279,7 @@ VNF On-boarding and package management > Resource Control Loop
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -5287,7 +5287,7 @@ Requirements Changed
 
     The VNF or PNF Package **MUST** include documentation for each KPI, provide
     lower and upper limits.
-    
+
 
 .. container:: note
 
@@ -5296,7 +5296,7 @@ Requirements Changed
     The VNF or PNF Package **MUST** include documentation for each KPI,
     identify the suggested actions that need to be performed when a
     threshold crossing alert event is recorded.
-    
+
 
 .. container:: note
 
@@ -5305,7 +5305,7 @@ Requirements Changed
     The VNF or PNF Documentation Package **MUST** describe the
     fault, performance, capacity events/alarms and other event records
     that are made available by the VNF or PNF.
-    
+
 
 .. container:: note
 
@@ -5315,7 +5315,7 @@ Requirements Changed
     include a unique identification string for the specific VNF or PNF, a description
     of the problem that caused the error, and steps or procedures to perform
     Root Cause Analysis and resolve the issue.
-    
+
 
 .. container:: note
 
@@ -5325,7 +5325,7 @@ Requirements Changed
     any requirements for the monitoring component of tools for Network
     Cloud automation and management to provide these records to components
     of the VNF or PNF.
-    
+
 
 .. container:: note
 
@@ -5334,7 +5334,7 @@ Requirements Changed
     The VNF or PNF Package **MUST** include documentation to when applicable,
     provide calculators needed to convert raw data into appropriate reporting
     artifacts.
-    
+
 
 .. container:: note
 
@@ -5345,7 +5345,7 @@ Requirements Changed
     and quality (e.g., DPM) for the key transactions/functions supported by
     the VNF or PNF and those that must be exercised by the VNF or PNF in order to perform
     its function.
-    
+
 
 .. container:: note
 
@@ -5354,7 +5354,7 @@ Requirements Changed
     The VNF or PNF Package **MUST** include documentation about monitoring
     parameters/counters exposed for virtual resource management and VNF or PNF
     application management.
-    
+
 
 .. container:: note
 
@@ -5363,7 +5363,7 @@ Requirements Changed
     The VNF or PNF Documentation Package **MUST**, when relevant,
     provide a threshold crossing alert point for each KPI and describe the
     significance of the threshold crossing.
-    
+
 
 .. container:: note
 
@@ -5371,7 +5371,7 @@ Requirements Changed
 
     The VNF or PNF Documentation Package **MUST** describe
     the characteristics for the VNF or PNF reliability and high availability.
-    
+
 
 .. container:: note
 
@@ -5381,7 +5381,7 @@ Requirements Changed
     parameters that are available to monitor the VNF or PNF after instantiation
     (includes all counters, OIDs, PM data, KPIs, etc.) that must be
     collected for reporting purposes.
-    
+
 
 .. container:: note
 
@@ -5390,7 +5390,7 @@ Requirements Changed
     The VNF Package **MUST** include documentation about KPIs and
     metrics that need to be collected at each VM for capacity planning
     and performance management purposes.
-    
+
 
 .. container:: note
 
@@ -5400,7 +5400,7 @@ Requirements Changed
     Policy Description to manage the VNF or PNF runtime lifecycle. The document
     must include a description of how the policies (conditions and actions)
     are implemented in the VNF or PNF.
-    
+
 
 .. container:: note
 
@@ -5409,7 +5409,7 @@ Requirements Changed
     The VNF or PNF Package **MUST** include documentation which must include
     all events (fault, measurement for VNF or PNF Scaling, Syslogs, State Change
     and Mobile Flow), that need to be collected at each VM, VNFC (defined in `VNF Guidelines <https://onap.readthedocs.io/en/latest/submodules/vnfrqts/guidelines.git/docs/vnf_guidelines.html>`__ ) and for the overall VNF or PNF.
-    
+
 
 .. container:: note
 
@@ -5418,7 +5418,7 @@ Requirements Changed
     The VNF or PNF Package **MUST** include documentation which must include
     all events, severity level (e.g., informational, warning, error) and
     descriptions including causes/fixes if applicable for the event.
-    
+
 
 .. container:: note
 
@@ -5427,11 +5427,11 @@ Requirements Changed
     The VNF or PNF Documentation Package **MUST** describe
     supported VNF or PNF scaling capabilities and capacity limits (e.g., number
     of users, bandwidth, throughput, concurrent calls).
-    
+
 
 Requirements Removed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -5440,7 +5440,7 @@ Requirements Removed
     The xNF provider **MUST** provide an XML file that contains a
     list of xNF error codes, descriptions of the error, and possible
     causes/corrective action.
-    
+
 
 .. container:: note
 
@@ -5451,7 +5451,7 @@ Requirements Removed
     reference to the specific release of the xNF Event Stream Common Event
     Data Model document it is based on. (e.g.,
     `VES Event Listener <https://onap.readthedocs.io/en/latest/submodules/vnfsdk/model.git/docs/files/VESEventListener.html>`__)
-    
+
 
 VNF On-boarding and package management > Resource Description
 -------------------------------------------------------------
@@ -5459,7 +5459,7 @@ VNF On-boarding and package management > Resource Description
 
 Requirements Added
 ~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -5470,7 +5470,7 @@ Requirements Added
     included in the VES Registration YAML file with each fault event
     supported by that NF at onboarding time and the Meta Data must follow
     the VES Event Listener and VES Event Registration Specifications.
-    
+
 
 .. container:: note
 
@@ -5482,11 +5482,11 @@ Requirements Added
     onboarding and must follow the VES Event Listener Specification and VES
     Event Registration Specification which contain the format and content
     required.
-    
+
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -5494,7 +5494,7 @@ Requirements Changed
 
     The VNF Provider **MUST** provide documentation regarding any dependency
     (e.g. affinity, anti-affinity) the VNF has on other VNFs and resources.
-    
+
 
 .. container:: note
 
@@ -5503,7 +5503,7 @@ Requirements Changed
     The VNF or PNF Documentation Package **MUST** describe the
     VNF or PNF Functional Capabilities that are utilized to operationalize the
     VNF or PNF and compose complex services.
-    
+
 
 .. container:: note
 
@@ -5513,7 +5513,7 @@ Requirements Changed
     a description of parameters that can be monitored for the VNF or PNF
     and event records (status, fault, flow, session, call, control
     plane, etc.) generated by the VNF or PNF after instantiation.
-    
+
 
 .. container:: note
 
@@ -5525,7 +5525,7 @@ Requirements Changed
     (e.g., NETCONF APIs) which includes a description of configurable
     parameters for the VNF or PNF and whether the parameters can be configured
     after VNF or PNF instantiation.
-    
+
 
 .. container:: note
 
@@ -5533,7 +5533,7 @@ Requirements Changed
 
     The VNF or PNF package **MUST** provide :ref:`VES Event Registration <ves_event_registration_3_2>`
     for all VES events provided by that VNF or PNF.
-    
+
 
 .. container:: note
 
@@ -5541,7 +5541,7 @@ Requirements Changed
 
     The VNF Documentation Package **MUST** contain a list of the files within the VNF
     package that are static during the VNF's runtime.
-    
+
 
 .. container:: note
 
@@ -5552,7 +5552,7 @@ Requirements Changed
     application services. This document describes the externally exposed
     functional inputs and outputs for the VNF or PNF, including interface
     format and protocols supported.
-    
+
 
 .. container:: note
 
@@ -5562,7 +5562,7 @@ Requirements Changed
     Management APIs, which must include information and tools for
     ONAP to monitor the health of the VNF or PNF (conditions that require
     healing and/or scaling responses).
-    
+
 
 .. container:: note
 
@@ -5571,7 +5571,7 @@ Requirements Changed
     The VNF or PNF Documentation Package **MUST** include a
     description of runtime lifecycle events and related actions (e.g.,
     control responses, tests) which can be performed for the VNF or PNF.
-    
+
 
 .. container:: note
 
@@ -5581,11 +5581,11 @@ Requirements Changed
     uniquely identify the resource for a given VNF provider. The identification
     data must include: an identifier for the VNF, the name of the VNF as was
     given by the VNF provider, VNF description, VNF provider, and version.
-    
+
 
 Requirements Removed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -5593,7 +5593,7 @@ Requirements Removed
 
     The xNF provider **MUST** include a Manifest File that
     contains a list of all the components in the xNF package.
-    
+
 
 VNF On-boarding and package management > Testing
 ------------------------------------------------
@@ -5601,7 +5601,7 @@ VNF On-boarding and package management > Testing
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -5612,7 +5612,7 @@ Requirements Changed
     or systems that connect to the VNF system under test. This component is
     necessary only if the existing testing environment does not have the
     necessary simulators.
-    
+
 
 .. container:: note
 
@@ -5620,7 +5620,7 @@ Requirements Changed
 
     The VNF Documentation Package **MUST** describe
     the tests that were conducted by the VNF provider and the test results.
-    
+
 
 .. container:: note
 
@@ -5628,7 +5628,7 @@ Requirements Changed
 
     The VNF provider **MUST** provide their testing scripts to
     support testing.
-    
+
 
 VNF Resiliency > Monitoring & Dashboard
 ---------------------------------------
@@ -5636,7 +5636,7 @@ VNF Resiliency > Monitoring & Dashboard
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -5645,7 +5645,7 @@ Requirements Changed
     The VNF **MUST** provide a method of metrics gathering for each
     layer's performance to identify variances in the allocations so
     they can be addressed.
-    
+
 
 {network-role}
 --------------
@@ -5653,7 +5653,7 @@ Requirements Changed
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -5663,7 +5663,7 @@ Requirements Changed
     network **MUST** be assigned a unique ``{network-role}``
     in the context of the VNF for use in the VNF's Heat Orchestration
     Template.
-    
+
 
 .. container:: note
 
@@ -5675,7 +5675,7 @@ Requirements Changed
     use in the VNF's Heat Orchestration Template.  The ``{network-role}``
     is used in the VNF's Heat Orchestration Template resource IDs
     and resource property parameter names.
-    
+
 
 .. container:: note
 
@@ -5689,7 +5689,7 @@ Requirements Changed
     * **MUST NOT** end in the string: ``_v6``
     * **MUST NOT** contain the strings ``_#_``,  where ``#`` is a number
     * **MUST NOT** end in the string: ``_#``, where ``#`` is a number
-    
+
 
 {vm-type}
 ---------
@@ -5697,7 +5697,7 @@ Requirements Changed
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -5723,11 +5723,11 @@ Requirements Changed
         - Each VM in the "class" **MUST** have the identical number of
           ports connecting to the identical networks and requiring the identical
           IP address configuration.
-    
+
 
 Requirements Removed
 ~~~~~~~~~~~~~~~~~~~~
-    
+
 
 .. container:: note
 
@@ -5736,7 +5736,7 @@ Requirements Removed
     A VNF's Heat Orchestration Template's Resource that is associated with a
     unique Virtual Machine type **MUST** include ``{vm-type}`` as part of the
     resource ID.
-    
+
 
 .. container:: note
 
@@ -5755,4 +5755,4 @@ Requirements Removed
      ``vf_module_name``, ``vm_role``,
      ``vf_module_index``, ``environment_context``, ``workload_context``)
      **MUST NOT** be prefixed with a common ``{vm-type}`` identifier.
-    
+
