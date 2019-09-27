@@ -565,7 +565,7 @@ be provided in place, or via a function
     :target: VNF
     :keyword: MUST NOT
     :validation_mode: static
-    :updated: dublin
+    :updated: el alto
 
     A VNF's Heat Orchestration Template resource attribute ``property:``
     **MUST NOT** use more than two levels of nested ``get_param`` intrinsic

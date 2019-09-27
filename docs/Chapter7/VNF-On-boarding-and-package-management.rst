@@ -129,7 +129,7 @@ Resource Description
     :target: VNF or PNF PACKAGE
     :keyword: MUST
     :introduced: casablanca
-    :updated: dublin
+    :updated: el alto
     :validation_mode: static
 
     The VNF or PNF package **MUST** provide :ref:`VES Event Registration <ves_event_registration_3_2>`
@@ -328,7 +328,7 @@ Resource Control Loop
     :id: R-42018
     :target: VNF or PNF
     :keyword: MUST
-    :updated: dublin
+    :updated: el alto
 
     The VNF or PNF Package **MUST** include documentation which must include
     all events (fault, measurement for VNF or PNF Scaling, Syslogs, State Change
