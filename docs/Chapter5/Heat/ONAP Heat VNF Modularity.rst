@@ -105,7 +105,7 @@ A VNF module (base, incremental, cinder) **MAY** support nested templates.
     :validation_mode: none
     :introduced: el alto
 
-    If a VNF’s Heat Orchestration Template’s Incremental Module contains two or
+    If a VNF's Heat Orchestration Template's Incremental Module contains two or
     more ``OS::Nova::Server`` resources, the ``OS::Nova::Server`` resources
     **MAY** define the same ``{vm-type}`` (as defined in R-01455) or **MAY**
     define different ``{vm-type}``.
