@@ -316,7 +316,7 @@ Data Structure Specification of the Event Record
    :introduced: casablanca
    :validation_mode: static
    :impacts: dcae
-   :updated: dublin
+   :updated: el alto
 
    The VNF or PNF provider **MUST** provide a YAML file formatted in adherence with
    the :ref:`VES Event Registration specification <ves_event_registration_3_2>`
@@ -334,7 +334,7 @@ Data Structure Specification of the Event Record
    :introduced: casablanca
    :validation_mode: static
    :impacts: dcae
-   :updated: dublin
+   :updated: el alto
 
    The VNF or PNF provider **MUST** indicate specific conditions that may arise, and
    recommend actions that may be taken at specific thresholds, or if specific
@@ -357,7 +357,7 @@ These changes may modify any of the following:
    :introduced: casablanca
    :validation_mode: in_service
    :impacts: dcae
-   :updated: dublin
+   :updated: el alto
 
    The events produced by the VNF or PNF **MUST** must be compliant with the common
    event format defined in the

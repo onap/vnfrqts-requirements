@@ -27,9 +27,9 @@ navigate to the
 Summary of Changes
 ------------------
 
-* **Requirements Added:** 1
-* **Requirements Changed:** 14
-* **Requirements Removed:** 2
+* **Requirements Added:** 9
+* **Requirements Changed:** 21
+* **Requirements Removed:** 3
 
 
 Monitoring & Management > Data Structure Specification of the Event Record
@@ -38,20 +38,6 @@ Monitoring & Management > Data Structure Specification of the Event Record
 
 Requirements Changed
 ~~~~~~~~~~~~~~~~~~~~
-
-
-.. container:: note
-
-    :need:`R-520802`
-
-    The VNF or PNF provider **MUST** provide a YAML file formatted in adherence with
-    the :ref:`VES Event Registration specification <ves_event_registration_3_2>`
-    that defines the following information for each event produced by the VNF:
-
-    * ``eventName``
-    * Required fields
-    * Optional fields
-    * Any special handling to be performed for that event
 
 
 .. container:: note
@@ -72,6 +58,96 @@ Requirements Changed
     recommend actions that may be taken at specific thresholds, or if specific
     conditions repeat within a specified time interval, using the semantics and
     syntax described by the :ref:`VES Event Registration specification <ves_event_registration_3_2>`.
+
+
+.. container:: note
+
+    :need:`R-520802`
+
+    The VNF or PNF provider **MUST** provide a YAML file formatted in adherence with
+    the :ref:`VES Event Registration specification <ves_event_registration_3_2>`
+    that defines the following information for each event produced by the VNF:
+
+    * ``eventName``
+    * Required fields
+    * Optional fields
+    * Any special handling to be performed for that event
+
+
+Monitoring & Management > Monitoring & Management Requirements > Security
+-------------------------------------------------------------------------
+
+
+Requirements Added
+~~~~~~~~~~~~~~~~~~
+
+
+.. container:: note
+
+    :need:`R-55634`
+
+    If VNF or PNF is using Basic Authentication, then the VNF or PNF
+    **MUST** be in compliance with
+    `RFC7617 <https://tools.ietf.org/html/rfc7617>`_ for authenticating HTTPS
+    connections to the DCAE VES Event Listener.
+
+
+.. container:: note
+
+    :need:`R-33878`
+
+    The VNF or PNF **MUST** support one of the following authentication
+    methods for authenticating HTTPS connections to the DCAE VES Event
+    Listener:
+
+    - The preferred method is Certificate Authentication
+
+    - The non-preferred option is Basic Authentication.
+
+
+.. container:: note
+
+    :need:`R-43387`
+
+    If the VNF or PNF is using Certificate Authentication, the
+    VNF or PNF **MUST** support mutual TLS authentication and the Subject
+    Name in the end-entity certificate MUST be used according to
+    `RFC5280 <https://tools.ietf.org/html/rfc5280>`_.
+
+    Note: In mutual TLS authentication, the client (VNF or PNF) must
+    authenticate the server (DCAE) certificate and must provide its own
+    X.509v3 end-entity certificate to the server for authentication.
+
+
+Requirements Changed
+~~~~~~~~~~~~~~~~~~~~
+
+
+.. container:: note
+
+    :need:`R-894004`
+
+    If the VNF or PNF is using Basic Authentication, then when the VNF
+    or PNF sets up a HTTPS connection to the DCAE VES Event Listener,
+    the VNF or PNF **MUST** provide a username and password to the
+    DCAE VES Event Listener in the Authorization header and the VNF
+    or PNF MUST support one-way TLS authentication.
+
+    Note: In one-way TLS authentication, the client (VNF or PNF)
+    must authentication the server (DCAE) certificate.
+
+
+.. container:: note
+
+    :need:`R-01427`
+
+    If the VNF or PNF is using Basic Authentication, then the VNF or
+    PNF **MUST** support the provisioning of security and authentication
+    parameters (HTTP username and password) in order to be able to
+    authenticate with DCAE VES Event Listener.
+
+    Note: The configuration management and provisioning software
+    are specific to a vendor architecture.
 
 
 ONAP Heat Orchestration Template Format > Heat Orchestration Template Structure > resources > properties
@@ -191,6 +267,116 @@ Requirements Changed
     **MUST NOT** contain the case insensitive string ``base``.
 
 
+ONAP Heat VNF Modularity
+------------------------
+
+
+Requirements Added
+~~~~~~~~~~~~~~~~~~
+
+
+.. container:: note
+
+    :need:`R-610050`
+
+    The same ``{vm-type}`` for a VNF's Heat Orchestration Template's
+    ``OS::Nova::Server`` resource (as defined in R-01455) **MAY** exist in
+    the VNF's Heat Orchestration Template's Base Module (or invoked nested yaml
+    file) and/or one or more of the VNF's Heat Orchestration Template's
+    Incremental Modules (or invoked nested yaml file).
+
+
+.. container:: note
+
+    :need:`R-610010`
+
+    A VNF's Heat Orchestration Template's Base Module **MAY** declare zero, one,
+    or more than one ``OS::Nova::Server`` resource.  A ``OS::Nova::Server``
+    **MAY** be created in the base module or a nested yaml file invoked by the
+    base module.
+
+
+.. container:: note
+
+    :need:`R-610030`
+
+    A VNF's Heat Orchestration Template's Incremental Module **MUST**
+    declare one or more ``OS::Nova::Server`` resources.  A ``OS::Nova::Server``
+    **MAY** be created in the incremental module or a nested yaml file invoked
+    by the incremental module.
+
+
+.. container:: note
+
+    :need:`R-610040`
+
+    If a VNF's Heat Orchestration Template's Incremental Module contains two or
+    more ``OS::Nova::Server`` resources, the ``OS::Nova::Server`` resources
+    **MAY** define the same ``{vm-type}`` (as defined in R-01455) or **MAY**
+    define different ``{vm-type}``.
+
+    Note that
+
+    - there is no constraint on the number of unique ``{vm-type}`` defined in
+      the incremental module.
+    - there is no constraint on the number of ``OS::Nova::Server`` resources
+      that define the same ``{vm-type}`` in the incremental module.
+    - if an ``OS::Nova::Server`` is created in a nested yaml file invoked by
+      the incremental module, the nested yaml file **MUST NOT** contain more
+      than one ``OS::Nova::Server`` resource (as defined in R-17528).
+
+
+.. container:: note
+
+    :need:`R-610020`
+
+    If a VNF's Heat Orchestration Template's Base Module contains two or more
+    ``OS::Nova::Server`` resources (created in the base module itself and/or
+    in a nested yaml file invoked by the base module), the ``OS::Nova::Server``
+    resources **MAY**
+    define the same ``{vm-type}`` (as defined in R-01455) or **MAY**
+    define different ``{vm-type}``.
+
+    Note that
+
+    - there is no constraint on the number of unique ``{vm-type}`` defined in
+      the base module.
+    - there is no constraint on the number of ``OS::Nova::Server`` resources
+      that define the same ``{vm-type}`` in the base module.
+    - if an ``OS::Nova::Server`` is created in a nested yaml file invoked by
+      the base module, the nested yaml file **MUST NOT** contain more than one
+      ``OS::Nova::Server`` resource (as defined in R-17528).
+
+
+PNF Plug and Play > PNF Plug and Play
+-------------------------------------
+
+
+Requirements Changed
+~~~~~~~~~~~~~~~~~~~~
+
+
+.. container:: note
+
+    :need:`R-763774`
+
+    The VNF or PNF **MUST** support a HTTPS connection to the DCAE
+    VES Event Listener.
+
+
+Requirements Removed
+~~~~~~~~~~~~~~~~~~~~
+
+
+.. container:: note
+
+    R-579051
+
+    The PNF **MAY** support a HTTP connection to the DCAE VES Event Listener.
+
+    Note: HTTP is allowed but not recommended.
+
+
 Resource: OS::Nova::Server - Parameters
 ---------------------------------------
 
@@ -245,6 +431,15 @@ Requirements Changed
 
 .. container:: note
 
+    :need:`R-23311`
+
+    The VNF's Heat Orchestration Template's base module or incremental module
+    resource ``OS::Nova::Server`` property
+    ``availability_zone`` parameter **MUST** be declared as type: ``string``.
+
+
+.. container:: note
+
     :need:`R-98450`
 
     A VNF's Heat Orchestration Template's base module or incremental module
@@ -257,15 +452,6 @@ Requirements Changed
     where ``{index}`` is a numeric value that **MUST** start at zero
     in a VNF's Heat Orchestration Templates and **MUST**
     increment by one.
-
-
-.. container:: note
-
-    :need:`R-23311`
-
-    The VNF's Heat Orchestration Template's base module or incremental module
-    resource ``OS::Nova::Server`` property
-    ``availability_zone`` parameter **MUST** be declared as type: ``string``.
 
 
 VNF On-boarding and package management > Resource Control Loop
@@ -301,6 +487,22 @@ Requirements Changed
     for all VES events provided by that VNF or PNF.
 
 
+VNF Security > VNF Cryptography Requirements
+--------------------------------------------
+
+
+Requirements Changed
+~~~~~~~~~~~~~~~~~~~~
+
+
+.. container:: note
+
+    :need:`R-49109`
+
+    The VNF or PNF **MUST** support HTTPS using TLS v1.2 or higher
+    with strong cryptographic ciphers.
+
+
 VNF Security > VNF General Security Requirements
 ------------------------------------------------
 
@@ -316,6 +518,15 @@ Requirements Changed
     VNFs that are subject to regulatory requirements **MUST** provide
     functionality that enables the Operator to comply with ETSI TC LI
     requirements, and, optionally, other relevant national equivalents.
+
+
+.. container:: note
+
+    :need:`R-258686`
+
+    The VNF application processes **SHOULD NOT** run as root. If a VNF
+    application process must run as root, the technical reason must
+    be documented.
 
 
 VNF Security > VNF Identity and Access Management Requirements
@@ -351,4 +562,45 @@ Requirements Removed
     API/Syslog/SNMP to other functional modules in the network (e.g.,
     PCRF, PCEF) that enable dynamic security control by blocking the
     malicious traffic or malicious end users.
+
+
+VNF or PNF CSAR Package > VNF Package Contents
+----------------------------------------------
+
+
+Requirements Changed
+~~~~~~~~~~~~~~~~~~~~
+
+
+.. container:: note
+
+    :need:`R-01123`
+
+    The VNF or PNF package Manifest file **MUST** contain: VNF or PNF
+    package meta-data, a list of all artifacts (both internal and
+    external) entry's including their respected URI's, as specified
+    in ETSI GS NFV-SOL 004
+
+
+VNF or PNF CSAR Package > VNF or PNF Package Authenticity and Integrity
+-----------------------------------------------------------------------
+
+
+Requirements Changed
+~~~~~~~~~~~~~~~~~~~~
+
+
+.. container:: note
+
+    :need:`R-130206`
+
+    If the VNF or PNF CSAR Package utilizes Option 1 for package security, then
+    the complete CSAR file **MUST** contain a Digest (a.k.a. hash) for each of
+    the components of the VNF or PNF package. The table of hashes is included
+    in the package manifest file, which is signed with the VNF or PNF provider
+    private key. In addition, the VNF or PNF provider MUST include a signing
+    certificate that includes the VNF or PNF provider public key, following a
+    TOSCA pre-defined naming convention and located either at the root of the
+    archive or in a predefined location specified by the TOSCA.meta file with
+    the corresponding entry named "ETSI-Entry-Certificate".
 

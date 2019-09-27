@@ -30,7 +30,7 @@ Requirement R-01455 defines how the ``{vm-type]`` is defined.
     :keyword: MUST
     :validation_mode: static
     :introduced: casablanca
-    :updated: dublin
+    :updated: el alto
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource's
 
