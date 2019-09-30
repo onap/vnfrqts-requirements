@@ -407,4 +407,3 @@ incremental.yaml
         properties:
         network: { get_param: int_oam_net_id }
   ...
-
