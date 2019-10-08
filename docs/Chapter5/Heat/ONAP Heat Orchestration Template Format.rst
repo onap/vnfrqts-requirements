@@ -119,6 +119,9 @@ parameters
 
       immutable: <true | false>
 
+      tags: <list of parameter categories>
+
+
 This section allows for
 specifying input parameters that have to be provided when instantiating
 the template. Each parameter is specified in a separate nested block
@@ -349,10 +352,8 @@ The constraints are defined as a list with the following syntax
 .. code-block:: yaml
 
   constraints:
-
-    <constraint type>: <constraint definition>
-
-    description: <constraint description>
+    - <constraint type>: <constraint definition>
+      description: <constraint description>
 
 ..
 
@@ -402,15 +403,14 @@ The syntax of the ``allowed_values`` constraint is
 
     allowed_values: [ <value>, <value>, ... ]
 
-    Alternatively, the following YAML list notation can be used
+Alternatively, the following YAML list notation can be used
+
+.. code-block:: yaml
 
     allowed_values:
-
-    - <value>
-
-    - <value>
-
-    - ...
+      - <value>
+      - <value>
+      - ...
 
 immutable
 ++++++++++++
@@ -428,6 +428,19 @@ The parameter attribute ``immutable`` is an OpenStack optional attribute
 that defines whether the parameter is updatable. A Heat Orchestration Template
 stack update fails if ``immutable`` is set to ``true`` and the parameter
 value is changed.  This attribute ``immutable`` defaults to ``false``.
+
+tags
+++++++++++++
+
+.. req::
+    :id: R-225891
+    :keyword: MAY
+    :target: VNF
+    :introduced: el alto
+
+    A VNF's Heat Orchestration Template parameter declaration
+    **MAY** contain the attribute ``tags:``.
+
 
 .. _resources:
 
