@@ -13,6 +13,7 @@ As stated above, Heat Orchestration templates must be defined in YAML.
     :keyword: MUST
     :validation_mode: static
     :introduced: casablanca
+    :target: VNF
 
     A VNF's Heat Orchestration Template **MUST** be compliant with the
     OpenStack Template Guide.
@@ -74,6 +75,7 @@ description
     :id: R-39402
     :keyword: MUST
     :validation_mode: static
+    :target: VNF
 
     A VNF's Heat Orchestration Template **MUST** contain the
     section ``description:``.
@@ -145,6 +147,7 @@ attributes (e.g., type, label) defined as nested elements.
     :target: VNF
     :keyword: MAY NOT
     :updated: casablanca
+    :validation_mode: none
 
     A VNF Heat Orchestration's template's parameter for the
     ``OS::Nova::Server`` resource property ``availability_zone``
@@ -206,6 +209,7 @@ label
     :id: R-32094
     :target: VNF
     :keyword: MAY
+    :validation_mode: none
 
     A VNF's Heat Orchestration Template parameter declaration **MAY**
     contain the attribute ``label:``.
@@ -262,6 +266,7 @@ hidden
     :id: R-32557
     :target: VNF
     :keyword: MAY
+    :validation_mode: none
 
     A VNF's Heat Orchestration Template parameter declaration **MAY**
     contain the attribute ``hidden:``.
@@ -282,7 +287,7 @@ that defines a list of constraints to apply to the parameter.
     :id: R-88863
     :target: VNF
     :keyword: MAY
-    :validation_mode: static
+    :validation_mode: none
     :updated: dublin
 
     A VNF's Heat Orchestration Template's parameter defined
