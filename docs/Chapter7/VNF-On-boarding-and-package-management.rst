@@ -13,8 +13,8 @@
    limitations under the License.
 
 
-VNF On-boarding and package management
---------------------------------------
+VNF and PNF On-boarding and package management
+----------------------------------------------
 
 Design Definition
 ^^^^^^^^^^^^^^^^^^
