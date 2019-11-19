@@ -458,8 +458,10 @@ resources
     :target: VNF
     :keyword: MUST
     :validation_mode: static
+    :updated: frankfurt
 
-    A VNF's Heat Orchestration template **MUST**
+    A VNF's Heat Orchestration template's base module, incremental
+    module, and volume module **MUST**
     contain the section ``resources:``.
 
 .. req::
