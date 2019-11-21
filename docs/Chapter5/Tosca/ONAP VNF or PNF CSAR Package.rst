@@ -136,13 +136,14 @@ VNF Package Contents
 
 .. req::
     :id: R-146092
-    :target: VNF or PNF TOSCA PACKAGE
+    :target: VNF or PNF CSAR PACKAGE
     :keyword: MUST
     :introduced: dublin
+    :updated: frankfurt
 
-    If one or more non-MANO artifact(s) is included in the VNF or PNF TOSCA CSAR
-    package, the Manifest file in this CSAR package **MUST** contain: non-MANO
-    artifact set which MAY contain following ONAP public tag.
+    If one or more non-MANO artifact(s) is included in the VNF or PNF CSAR
+    package, the Manifest file in this CSAR package **MUST** contain one or more 
+    of the following ONAP non-MANO artifact set identifier(s):
 
       - onap_ves_events: contains VES registration files
 
@@ -152,8 +153,15 @@ VNF Package Contents
 
       - onap_ansible_playbooks: contains any ansible_playbooks
 
+      - onap_pnf_sw_information: contains the PNF software information file
+
       - onap_others: contains any other non_MANO artifacts, e.g. informational
         documents
+
+     *NOTE: According to ETSI SOL004 v.2.6.1, every non-MANO artifact set shall be
+     identified by a non-MANO artifact set identifier which shall be registered in
+     the ETSI registry. Approved ONAP non-MANO artifact set identifiers are documented
+     in the following page* https://wiki.onap.org/display/DW/ONAP+Non-MANO+Artifacts+Set+Identifiers
 
 .. req::
     :id: R-221914
