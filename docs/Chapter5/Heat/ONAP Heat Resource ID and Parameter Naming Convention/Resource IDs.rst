@@ -35,21 +35,23 @@ Heat Orchestration Template resources are described in :ref:`resources`.
     :target: VNF
     :keyword: MUST
     :validation_mode: none
-    :updated: casablanca
+    :updated: frankfurt
 
     When a VNF's Heat Orchestration Template's resource is associated
-    with a single external network, the Resource ID **MUST** contain the text
-    ``{network-role}``.
+    with a single ONAP external network, the Resource ID **MUST** contain the
+    text ``{network-role}``.
 
 .. req::
     :id: R-98138
     :target: VNF
     :keyword: MUST
     :validation_mode: none
-    :updated: casablanca
+    :updated: frankfurt
 
     When a VNF's Heat Orchestration Template's resource is associated with a
-    single internal network, the Resource ID **MUST** contain the text
+    single ONAP internal network (per the ONAP definition, see
+    Requirements R-52425 and R-46461 and R-35666), the Resource ID **MUST**
+    contain the text
     ``int_{network-role}``.
 
 .. req::
@@ -57,11 +59,12 @@ Heat Orchestration Template resources are described in :ref:`resources`.
     :target: VNF
     :keyword: MUST
     :validation_mode: none
-    :updated: casablanca
+    :updated: frankfurt
 
     When a VNF's Heat Orchestration Template's resource is associated with a
     single ``{vm-type}``
-    and a single external network, the Resource ID text **MUST** contain both
+    and a single ONAP
+    external network, the Resource ID text **MUST** contain both
     the ``{vm-type}``
     and the ``{network-role}``
 
@@ -81,10 +84,12 @@ Heat Orchestration Template resources are described in :ref:`resources`.
     :target: VNF
     :keyword: MUST
     :validation_mode: none
-    :updated: casablanca
+    :updated: frankfurt
 
     When a VNF's Heat Orchestration Template's resource is associated with a
-    single ``{vm-type}`` and a single internal network, the Resource ID **MUST**
+    single ``{vm-type}`` and a single ONAP internal network (per the ONAP
+    definition, see Requirements R-52425 and R-46461 and R-35666),
+    the Resource ID **MUST**
     contain both the ``{vm-type}`` and the ``int_{network-role}`` and
 
     - the ``{vm-type}`` **MUST** appear before the ``int_{network-role}`` and
@@ -103,22 +108,27 @@ Heat Orchestration Template resources are described in :ref:`resources`.
     :target: VNF
     :keyword: MUST NOT
     :validation_mode: none
-    :updated: casablanca
+    :updated: frankfurt
 
     When a VNF's Heat Orchestration Template's resource is associated
-    with more than one ``{vm-type}`` and/or more than one internal and/or
-    external network, the Resource ID **MUST NOT** contain the ``{vm-type}``
-    and/or ``{network-role}``/``int_{network-role}``. It also should contain the
+    with more than one ``{vm-type}`` and/or more than one ONAP internal network
+    (per the ONAP definition, see Requirements R-52425 and R-46461 and R-35666)
+    and/or
+    ONAP external network, the Resource ID **MUST NOT** contain the
+    ``{vm-type}`` and/or ``{network-role}``/``int_{network-role}``.
+    It also should contain the
     term ``shared`` and/or contain text that identifies the VNF.
 
 .. req::
     :id: R-27970
     :target: VNF
     :keyword: MAY
-    :updated: casablanca
+    :updated: frankfurt
 
     When a VNF's Heat Orchestration Template's resource is associated with
-    more than one ``{vm-type}`` and/or more than one internal and/or external
+    more than one ``{vm-type}`` and/or more than one ONAP internal network
+    (per the ONAP definition, see Requirements R-52425 and R-46461 and R-35666)
+    and/or ONAP external
     network, the Resource ID **MAY** contain the term ``shared`` and/or **MAY**
     contain text that identifies the VNF.
 
@@ -301,14 +311,15 @@ OS::Neutron::Net
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: casablanca
+    :updated: frankfurt
 
     A VNF's Heat Orchestration Template's Resource ``OS::Neutron::Net``
     Resource ID **MUST** use the naming convention
 
     * ``int_{network-role}_network``
 
-    VNF Heat Orchestration Templates can only create internal networks.
+    VNF Heat Orchestration Templates can only create ONAP internal networks
+    (per the ONAP definition, see Requirements R-52425 and R-46461 and R-35666).
     There is no ``{index}`` after ``{network-role}`` because ``{network-role}``
     **MUST** be unique in the scope of the VNF's
     Heat Orchestration Template.
@@ -322,10 +333,11 @@ OS::Neutron::Port
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: dublin
+    :updated: frankfurt
 
     A VNF's Heat Orchestration Template's Resource ``OS::Neutron::Port``
-    that is attaching to an external network Resource ID
+    that is attaching to an ONAP external network, the ``OS::Neutron::Port``
+    Resource ID
     **MUST** use the naming convention
 
     * ``{vm-type}_{vm-type_index}_{network-role}_port_{port-index}``
@@ -339,7 +351,7 @@ OS::Neutron::Port
       in the VNF and
       **MUST** increment by one each time a new instance of a ``{vm-type}``
       is referenced.
-    * ``{network-role}`` is the network-role of the network
+    * ``{network-role}`` is the network-role of the ONAP external network
       that the port is attached to
     * ``{port_index}`` references the instance of the port on the ``{vm-type}``
       attached to ``{network-role}`` network.  The
@@ -353,10 +365,12 @@ OS::Neutron::Port
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: dublin
+    :updated: frankfurt
 
     A VNF's Heat Orchestration Template's Resource ``OS::Neutron::Port``
-    that is attaching to an internal network Resource ID **MUST**
+    that is attaching to an ONAP internal network
+    (per the ONAP definition, see Requirements R-52425 and R-46461 and R-35666),
+    the `OS::Neutron::Port`` Resource ID **MUST**
     use the naming convention
 
     * ``{vm-type}_{vm-type_index}_int_{network-role}_port_{port-index}``
@@ -370,7 +384,7 @@ OS::Neutron::Port
       in the VNF and
       **MUST** increment by one each time a new instance of a ``{vm-type}``
       is referenced.
-    * ``{network-role}`` is the network-role of the network
+    * ``{network-role}`` is the network-role of the ONAP internal network
       that the port is attached to
     * ``{port_index}`` references the instance of the port on the ``{vm-type}``
       attached to ``{network-role}`` network.  The
@@ -384,10 +398,11 @@ OS::Neutron::Port
     :target: VNF
     :keyword: SHOULD
     :validation_mode: none
-    :updated: dublin
+    :updated: frankfurt
 
     A VNF's Heat Orchestration Template's Resource ``OS::Neutron::Port``
-    that is creating a *Reserve Port* with an IPv4 address Resource ID
+    that is creating a *Reserve Port* with an IPv4 address, the
+    `OS::Neutron::Port`` Resource ID
     **SHOULD** use the naming convention
 
     * ``reserve_port_{vm-type}_{network-role}_floating_ip_{index}``
@@ -395,7 +410,7 @@ OS::Neutron::Port
     where
 
     * ``{vm-type}`` is the vm-type
-    * ``{network-role}`` is the network-role of the network
+    * ``{network-role}`` is the network-role of the ONAP external network
       that the port is attached to
     * ``{index}`` is the instance of the IPv4 *Reserve Port*
       for the vm-type attached to the network of ``{network-role}``.
@@ -408,10 +423,11 @@ OS::Neutron::Port
     :target: VNF
     :keyword: SHOULD
     :validation_mode: none
-    :updated: dublin
+    :updated: frankfurt
 
     A VNF's Heat Orchestration Template's Resource ``OS::Neutron::Port``
-    that is creating a *Reserve Port* with an IPv6 address Resource ID
+    that is creating a *Reserve Port* with an IPv6 address, the
+    `OS::Neutron::Port`` Resource ID
     **SHOULD** use the naming convention
 
     * ``reserve_port_{vm-type}_{network-role}_floating_v6_ip_{index}``
@@ -419,7 +435,7 @@ OS::Neutron::Port
     where
 
     * ``{vm-type}`` is the vm-type
-    * ``{network-role}`` is the network-role of the network
+    * ``{network-role}`` is the network-role of the ONAP external network
       that the port is attached to
     * ``{index}`` is the instance of the IPv6 *Reserve Port*
       for the vm-type attached to the network of ``{network-role}``.
@@ -433,11 +449,13 @@ OS::Neutron::SecurityGroup
     :id: R-08775
     :target: VNF
     :keyword: SHOULD
-    :updated: casablanca
+    :updated: frankfurt
 
-    A VNF's Heat Orchestration Template's Resource ``OS::Neutron::SecurityGroup``
+    A VNF's Heat Orchestration Template's Resource
+    ``OS::Neutron::SecurityGroup``
     that is applicable to one ``{vm-type}`` and more than one network (internal
-    and/or external) Resource ID **SHOULD** use the naming convention
+    and/or external), the ``OS::Neutron::SecurityGroup``
+    Resource ID **SHOULD** use the naming convention
 
     * ``{vm-type}_security_group``
 
@@ -449,42 +467,48 @@ OS::Neutron::SecurityGroup
     :id: R-03595
     :target: VNF
     :keyword: SHOULD
-    :updated: casablanca
+    :updated: frankfurt
 
-    A VNF's Heat Orchestration Template's Resource ``OS::Neutron::SecurityGroup`` that
-    is applicable to more than one ``{vm-type}`` and one external network Resource ID
+    A VNF's Heat Orchestration Template's Resource
+    ``OS::Neutron::SecurityGroup`` that
+    is applicable to more than one ``{vm-type}`` and one ONAP external network,
+    the ``OS::Neutron::SecurityGroup`` Resource ID
     **SHOULD** use the naming convention
 
     * ``{network-role}_security_group``
 
     where
 
-    * ``{network-role}`` is the network-role
+    * ``{network-role}`` is the network-role of the ONAP external network
 
 .. req::
     :id: R-73213
     :target: VNF
     :keyword: SHOULD
-    :updated: casablanca
+    :updated: frankfurt
 
-    A VNF's Heat Orchestration Template's Resource ``OS::Neutron::SecurityGroup`` that
-    is applicable to more than one ``{vm-type}`` and one internal network Resource ID
+    A VNF's Heat Orchestration Template's Resource
+    ``OS::Neutron::SecurityGroup`` that
+    is applicable to more than one ``{vm-type}`` and one ONAP internal network,
+    the ``OS::Neutron::SecurityGroup`` Resource ID
     **SHOULD** use the naming convention
 
     * ``int_{network-role}_security_group``
 
     where
 
-    * ``{network-role}`` is the network-role
+    * ``{network-role}`` is the network-role of the ONAP external network
 
 .. req::
     :id: R-17334
     :target: VNF
     :keyword: SHOULD
-    :updated: casablanca
+    :updated: frankfurt
 
-    A VNF's Heat Orchestration Template's Resource ``OS::Neutron::SecurityGroup``
-    that is applicable to one ``{vm-type}`` and one external network Resource ID
+    A VNF's Heat Orchestration Template's Resource
+    ``OS::Neutron::SecurityGroup``
+    that is applicable to one ``{vm-type}`` and one ONAP external network, 
+    the ``OS::Neutron::SecurityGroup`` Resource ID
     **SHOULD** use the naming convention
 
     * ``{vm-type}_{network-role}_security_group``
@@ -492,16 +516,18 @@ OS::Neutron::SecurityGroup
     where
 
     * ``{vm-type}`` is the vm-type
-    * ``{network-role}`` is the network-role
+    * ``{network-role}`` is the network-role of the ONAP external network
 
 .. req::
     :id: R-14198
     :target: VNF
     :keyword: SHOULD
-    :updated: casablanca
+    :updated: frankfurt
 
-    A VNF's Heat Orchestration Template's Resource ``OS::Neutron::SecurityGroup`` that
-    is applicable to one {vm-type} and one internal network Resource ID **SHOULD**
+    A VNF's Heat Orchestration Template's Resource
+    ``OS::Neutron::SecurityGroup`` that
+    is applicable to one {vm-type} and one ONAP internal network, the
+    ``OS::Neutron::SecurityGroup`` Resource ID **SHOULD**
     use the naming convention
 
     * ``{vm-type}_int_{network-role}_security_group``
@@ -509,17 +535,19 @@ OS::Neutron::SecurityGroup
     where
 
     * ``{vm-type}`` is the vm-type
-    * ``{network-role}`` is the network-role
+    * ``{network-role}`` is the network-role of the INAP internal network
 
 .. req::
     :id: R-30005
     :target: VNF
     :keyword: MAY
-    :updated: casablanca
+    :updated: frankfurt
 
-    A VNF's Heat Orchestration Template's Resource ``OS::Neutron::SecurityGroup`` that
+    A VNF's Heat Orchestration Template's Resource
+    ``OS::Neutron::SecurityGroup`` that
     is applicable to more than one ``{vm-type}`` and more than one network
-    (internal and/or external) Resource ID **MAY**
+    (internal and/or external), the ``OS::Neutron::SecurityGroup`` Resource ID
+    **MAY**
     use the naming convention
 
     * ``shared_security_group``
@@ -539,7 +567,7 @@ OS::Neutron::Subnet
     :id: R-59434
     :target: VNF
     :keyword: SHOULD
-    :updated: dublin
+    :updated: frankfurt
 
     A VNF's Heat Orchestration Template's Resource ``OS::Neutron::Subnet``
     Resource ID **SHOULD** use the naming convention
@@ -548,8 +576,10 @@ OS::Neutron::Subnet
 
     where
 
-    * ``{network-role}`` is the network-role
-    * ``{index}`` is the ``{index}`` of the subnet of the network.
+    * ``{network-role}`` is the network-role of the ONAP internal network
+      (per the ONAP definition, see Requirements R-52425 and R-46461 and
+      R-35666).
+    * ``{index}`` is the ``{index}`` of the subnet of the ONAP internal network.
       The ``{index}`` starts at zero and increments by one
       (as described in R-11690).
 
@@ -560,10 +590,11 @@ OS::Nova::Keypair
     :id: R-24997
     :target: VNF
     :keyword: SHOULD
-    :updated: dublin
+    :updated: frankfurt
 
-    A VNF's Heat Orchestration Template's Resource ``OS::Nova::Keypair`` applies to
-    one ``{vm-type}`` Resource ID **SHOULD** use the naming convention
+    A VNF's Heat Orchestration Template's Resource ``OS::Nova::Keypair``
+    applies to one ``{vm-type}``, the ``OS::Nova::Keypair``
+    Resource ID **SHOULD** use the naming convention
 
     * ``{vm-type}_keypair_{index}``
 
@@ -578,10 +609,11 @@ OS::Nova::Keypair
     :id: R-65516
     :target: VNF
     :keyword: SHOULD
-    :updated: dublin
+    :updated: frankfurt
 
-    A VNF's Heat Orchestration Template's Resource ``OS::Nova::Keypair`` applies to
-    all Virtual Machines in the VNF, the Resource ID **SHOULD** use the naming
+    A VNF's Heat Orchestration Template's Resource ``OS::Nova::Keypair``
+    applies to all Virtual Machines in the VNF, the
+    ``OS::Nova::Keypair`` Resource ID **SHOULD** use the naming
     convention
 
     * ``{vnf-type}_keypair``
@@ -622,8 +654,8 @@ OS::Nova::ServerGroup
     :keyword: MAY
     :updated: casablanca
 
-    A VNF's Heat Orchestration Template's Resource ``OS::Nova::ServerGroup`` Resource ID
-    **MAY** use the naming convention
+    A VNF's Heat Orchestration Template's Resource ``OS::Nova::ServerGroup``
+    Resource ID **MAY** use the naming convention
 
     * ``{vm-type}_RSG``
 
@@ -655,14 +687,14 @@ OS::ContrailV2::InstanceIp
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: dublin
+    :updated: frankfurt
 
 
     A VNF's Heat Orchestration Template's Resource
     ``OS::ContrailV2::InstanceIp`` Resource ID
     that is configuring an IPv4 Address on a virtual machine interface
     (i.e., OS::ContrailV2::VirtualMachineInterface)
-    attached to an external network
+    attached to an ONAP external network
     **MUST** use the naming convention
 
     *  ``{vm-type}_{vm-type_index}_{network-role}_vmi_{vmi_index}_IP_{index}``
@@ -676,8 +708,8 @@ OS::ContrailV2::InstanceIp
       in the VNF and
       **MUST** increment by one each time a new instance of a ``{vm-type}``
       is referenced.
-    * ``{network-role}`` is the network-role of the network that the
-      virtual machine interface is attached to
+    * ``{network-role}`` is the network-role of the ONAP external
+      network that the virtual machine interface is attached to
     * ``{vmi_index}`` references the instance of the virtual machine interface
       on the ``{vm-type}`` attached to ``{network-role}`` network.  The
       ``{vmi_index}`` is a numeric value that **MUST** start at zero on an
@@ -697,13 +729,13 @@ OS::ContrailV2::InstanceIp
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: dublin
+    :updated: frankfurt
 
     A VNF's Heat Orchestration Template's Resource
     ``OS::ContrailV2::InstanceIp`` Resource ID
     that is configuring an IPv6 Address on a virtual machine interface
     (i.e., OS::ContrailV2::VirtualMachineInterface)
-    attached to an external network
+    attached to an ONAP external network
     **MUST** use the naming convention
 
     *  ``{vm-type}_{vm-type_index}_{network-role}_vmi_{vmi_index}_v6_IP_{index}``
@@ -717,7 +749,7 @@ OS::ContrailV2::InstanceIp
       in the VNF and
       **MUST** increment by one each time a new instance of a ``{vm-type}``
       is referenced.
-    * ``{network-role}`` is the network-role of the network
+    * ``{network-role}`` is the network-role of the ONAP external network
       that the port is attached to
     * ``{vmi_index}`` references the instance of the virtual machine interface
       on the ``{vm-type}`` attached to ``{network-role}`` network.  The
@@ -738,13 +770,14 @@ OS::ContrailV2::InstanceIp
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: dublin
+    :updated: frankfurt
 
     A VNF's Heat Orchestration Template's Resource
     ``OS::ContrailV2::InstanceIp`` Resource ID
     that is configuring an IPv4 Address on a virtual machine interface
     (i.e., OS::ContrailV2::VirtualMachineInterface)
-    attached to an internal network
+    attached to an ONAP internal network (per the ONAP definition, see
+    Requirements R-52425 and R-46461 and R-35666)
     **MUST** use the naming convention
 
     *  ``{vm-type}_{vm-type_index}_int_{network-role}_vmi_{vmi_index}_IP_{index}``
@@ -758,7 +791,7 @@ OS::ContrailV2::InstanceIp
       in the VNF and
       **MUST** increment by one each time a new instance of a ``{vm-type}``
       is referenced.
-    * ``{network-role}`` is the network-role of the network
+    * ``{network-role}`` is the network-role of the ONAP internal network
       that the port is attached to
     * ``{vmi_index}`` references the instance of the virtual machine interface
       on the ``{vm-type}`` attached to ``{network-role}`` network.  The
@@ -779,13 +812,14 @@ OS::ContrailV2::InstanceIp
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: dublin
+    :updated: frankfurt
 
     A VNF's Heat Orchestration Template's Resource
     ``OS::ContrailV2::InstanceIp`` Resource ID
     that is configuring an IPv6 Address on a virtual machine interface
     (i.e., OS::ContrailV2::VirtualMachineInterface)
-    attached to an internal network
+    attached to an ONAP internal network (per the ONAP definition, see
+    Requirements R-52425 and R-46461 and R-35666)
     **MUST** use the naming convention
 
     *  ``{vm-type}_{vm-type_index}_int_{network-role}_vmi_{vmi_index}_v6_IP_{index}``
@@ -799,7 +833,7 @@ OS::ContrailV2::InstanceIp
       in the VNF and
       **MUST** increment by one each time a new instance of a ``{vm-type}``
       is referenced.
-    * ``{network-role}`` is the network-role of the network
+    * ``{network-role}`` is the network-role of the ONAP internal network
       that the port is attached to
     * ``{vmi_index}`` references the instance of the virtual machine interface
       on the ``{vm-type}`` attached to ``{network-role}`` network.  The
@@ -856,13 +890,14 @@ OS::ContrailV2::NetworkIpam
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: casablanca
+    :updated: frankfurt
 
     A VNF's Heat Orchestration Template's Resource
     ``OS::ContrailV2::NetworkIpam``
     Resource ID
     **MUST**
-    contain the ``{network-role}``.
+    contain the ``{network-role}`` of the ONAP internal network that the
+    resource is associated with.
 
 .. req::
     :id: R-81979
@@ -870,7 +905,8 @@ OS::ContrailV2::NetworkIpam
     :keyword: MAY
     :updated: casablanca
 
-    A VNF's Heat Orchestration Template's Resource ``OS::ContrailV2::NetworkIpam``
+    A VNF's Heat Orchestration Template's Resource
+    ``OS::ContrailV2::NetworkIpam``
     Resource ID **MAY** use the naming convention
 
     * ``{network-role}_RNI``
@@ -964,7 +1000,8 @@ OS::ContrailV2::ServiceTemplate
     :keyword: MAY
     :updated: dublin
 
-    A VNF's Heat Orchestration Template's Resource ``OS::ContrailV2::ServiceTemplate``
+    A VNF's Heat Orchestration Template's Resource
+    ``OS::ContrailV2::ServiceTemplate``
     Resource ID **MAY** use the naming convention
 
     * ``{vm-type}_RST_{index}``
@@ -985,11 +1022,11 @@ OS::ContrailV2::VirtualMachineInterface
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: dublin
+    :updated: frankfurt
 
     A VNF's Heat Orchestration Template's Resource
     ``OS::ContrailV2::VirtualMachineInterface`` Resource ID
-    that is attaching to an external network
+    that is attaching to an ONAP external network
     **MUST** use the naming convention
 
     * ``{vm-type}_{vm-type_index}_{network-role}_vmi_{vmi_index}``
@@ -1003,7 +1040,7 @@ OS::ContrailV2::VirtualMachineInterface
       in the VNF and
       **MUST** increment by one each time a new instance of a ``{vm-type}``
       is referenced.
-    * ``{network-role}`` is the network-role of the network
+    * ``{network-role}`` is the network-role of the ONAP external network
       that the port (i.e. virtual machine interface) is attached to
     * ``{vmi_index}`` references the instance of the virtual machine interface
       on the ``{vm-type}`` attached to ``{network-role}`` network.  The
@@ -1018,11 +1055,12 @@ OS::ContrailV2::VirtualMachineInterface
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: dublin
+    :updated: frankfurt
 
     A VNF's Heat Orchestration Template's Resource
     ``OS::ContrailV2::VirtualMachineInterface`` Resource ID
-    that is attaching to an internal network
+    that is attaching to an ONAP internal network (per the ONAP definition, see
+    Requirements R-52425 and R-46461 and R-35666)
     **MUST** use the naming convention
 
     * ``{vm-type}_{vm-type_index}_int_{network-role}_vmi_{vmi_index}``
@@ -1036,7 +1074,7 @@ OS::ContrailV2::VirtualMachineInterface
       in the VNF and
       **MUST** increment by one each time a new instance of a ``{vm-type}``
       is referenced.
-    * ``{network-role}`` is the network-role of the network
+    * ``{network-role}`` is the network-role of the ONAP internal network
       that the port (i.e. virtual machine interface) is attached to
     * ``{vmi_index}`` references the instance of the virtual machine interface
       on the ``{vm-type}`` attached to ``{network-role}`` network.  The
@@ -1054,7 +1092,7 @@ OS::ContrailV2::VirtualNetwork
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: dublin
+    :updated: frankfurt
 
     A VNF's Heat Orchestration Template's Resource
     ``OS::ContrailV2::VirtualNetwork`` Resource ID **MUST** use the naming
@@ -1062,7 +1100,8 @@ OS::ContrailV2::VirtualNetwork
 
     * ``int_{network-role}_network``
 
-    VNF Heat Orchestration Templates can only create internal networks.
+    VNF Heat Orchestration Templates can only create ONAP internal networks
+    (per the ONAP definition, see Requirements R-52425 and R-46461 and R-35666).
     There is no ``{index}`` after ``{network-role}`` because ``{network-role}``
     **MUST** be unique in the scope of the VNF's
     Heat Orchestration Template.
