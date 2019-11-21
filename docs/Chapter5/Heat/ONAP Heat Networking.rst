@@ -12,27 +12,41 @@ ONAP defines two types of networks: External Networks and Internal Networks.
 External Networks
 ^^^^^^^^^^^^^^^^^^^^
 
-ONAP defines an external network in relation to the VNF and not with regard
-to the Network Cloud site. External networks may also be referred to as
-"inter-VNF" networks.  An external network must connect VMs in a VNF to
-VMs in another VNF or an external gateway or external router.
+An ONAP external network is created by using VID.
+External networks are orchestrated separately, independent of VNFs.
+A network instantiated via VID is managed by ONAP and is inventoried
+in AAI.
 
-An External Network may be a Neutron Network or a Contrail Network.
+An external network can be created by using one of the following
+resources:
 
+- ``OS::Neutron::Net``
+- ``OS::Neutron::ProviderNet``
+- ``OS::ContrailV2::VirtualNetwork``
+
+An external network **MAY** be used to
+
+- Connect a VM in a VNF to VMs in another VNF
+- Connect a VM in a VNF to an external gateway or external router
+- Connect a VM in a VNF to other VMs in the same VNF
+
+An external network may be designed to perform
+
+- All three functions listed above or
+- Perform only two functions listed above or
+- Perform only one function listed above
 
 .. req::
     :id: R-16968
     :target: VNF
     :keyword: MUST NOT
     :validation_mode: static
-    :updated: casablanca
+    :updated: frankfurt
 
     A VNF's Heat Orchestration Templates **MUST NOT** include heat
     resources to create external networks.
 
-External networks must be orchestrated separately, independent of the VNF.
-This allows the network to be shared by multiple VNFs and managed
-independently of VNFs.
+    A external network **MUST** be instantiated using VID.
 
 
 .. req::
@@ -47,15 +61,20 @@ independently of VNFs.
 .. req::
     :id: R-57424
     :target: VNF
-    :keyword: MUST
+    :keyword: MAY
     :validation_mode: none
-    :updated: casablanca
+    :updated: frankfurt
 
-    A VNF's port connected to an external network **MUST**
+    A VNF's port connected to an external network **MAY**
     use the port for the purpose of reaching
     VMs in another VNF and/or an external gateway and/or external router.
     A VNF's port connected to an external network **MAY**
     use the port for the purpose of reaching VMs in the same VNF.
+
+    - Connecting a VM in the VNF to VMs in another VNF and/or
+    - Connecting a VM in the VNF to an external gateway or external router
+      and/or
+    - Connecting a VM the VNF to other VMs in the same VNF
 
 .. req::
     :id: R-99794
@@ -76,12 +95,18 @@ provides additional details.
 Internal Networks
 ^^^^^^^^^^^^^^^^^^^^
 
-ONAP defines an internal network in relation to the VNF and not with
-regard to the Network Cloud site. Internal networks may also be referred
-to as "intra-VNF" networks or "private" networks. An internal network
-only connects VMs in a single VNF; it must not connect to other VNFs
-or an external gateway or router
+An ONAP internal network is created by the VNF's Heat Orchestration Template.
+That is, the VNF's Heat Orchestration Template contains the heat resources to
+instantiate the network.
+Am internal network is not inventoried by AAI and can not be managed
+independently of the VNF.
 
+An ONAP internal network MUST only be used for connecting a VM the
+VNF to other VMs in the same VNF.
+
+An ONAP internal network MUST NOT be used for connecting a VM in the VNF to
+VMs in another VNF or connecting a VM in the VNF to an external gateway and/or
+external router.
 
 .. req::
     :id: R-87096
@@ -96,13 +121,14 @@ or an external gateway or router
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: dublin
+    :updated: frankfurt
 
     If a VNF has an internal network, the VNF Heat Orchestration Template
     **MUST** include the heat resources to create the internal network.
 
     A VNF's Internal Network is created using Neutron Heat Resources
-    (i.e., ``OS::Neutron::Net``, ``OS::Neutron::Subnet``) and/or
+    (i.e., ``OS::Neutron::Net``, ``OS::Neutron::Subnet``,
+    ``OS::Neutron::ProviderNet``) and/or
     Contrail Heat Resources (i.e., ``OS::ContrailV2::VirtualNetwork``,
     ``ContrailV2::NetworkIpam``).
 
