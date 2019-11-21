@@ -34,3 +34,4 @@ Purpose
       VNFs or PNFs for compliance with ONAP; ONAP projects such as the VNF
       Validation Project will uses these VNFs or PNFs requirements to build
       test cases to validate VNFs or PNFs for compliance with ONAP.
+
