@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "afd0e2b2_fa4feb6f",
+        "filename": "docs/Chapter5/Heat/ONAP Heat Networking.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 4055
+      },
+      "writtenOn": "2019-11-21T20:31:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "842e51f8_977b88e3",
+      "range": {
+        "startLine": 15,
+        "startChar": 45,
+        "endLine": 15,
+        "endChar": 48
+      },
+      "revId": "6be1b71125413b9e7f8ba7800330153ae9211994",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "de46ac1b_8fd98702",
         "filename": "docs/Chapter5/Heat/ONAP Heat Networking.rst",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "16df0593_f0f77190",
+        "filename": "docs/Chapter5/Heat/ONAP Heat Networking.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 4055
+      },
+      "writtenOn": "2019-11-21T20:31:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de46ac1b_8fd98702",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 2
+      },
+      "revId": "6be1b71125413b9e7f8ba7800330153ae9211994",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9767835d_0d0c24e9",
         "filename": "docs/Chapter5/Heat/ONAP Heat Networking.rst",
         "patchSetId": 1
@@ -59,6 +107,24 @@
       "writtenOn": "2019-11-21T19:44:15Z",
       "side": 1,
       "message": "Maybe add something in here that says the guidelines and requirements applicable for \"internal networks\" are using the above definition.",
+      "revId": "6be1b71125413b9e7f8ba7800330153ae9211994",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f70bdd01_3abad9b2",
+        "filename": "docs/Chapter5/Heat/ONAP Heat Networking.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 4055
+      },
+      "writtenOn": "2019-11-21T20:31:49Z",
+      "side": 1,
+      "message": "in places, the doc states \"When a VNF\u0027s Heat Orchestration Template creates an internal network (per the ONAP definition, see Requirements R-52425 and R-46461 and R-35666)\". But it is not done consistently.  This will be part of the update",
+      "parentUuid": "9767835d_0d0c24e9",
       "revId": "6be1b71125413b9e7f8ba7800330153ae9211994",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
