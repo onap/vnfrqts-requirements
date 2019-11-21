@@ -42,11 +42,11 @@ comma_delimited_list are supported in addition to String.
       fixed_ips: [{"ip_address": String, "subnet": String}, {"ip_address": String, "subnet": String}, ...]
       network: String
 
-The values associated with these properties may reference an external
-network or internal network. External networks and internal
+The values associated with these properties may reference an ONAP external
+network or ONAP internal network. External networks and internal
 networks are defined in :ref:`ONAP Heat Networking`.
 
-When the ``OS::Neutron::Port`` is attaching to an external network, all
+When the ``OS::Neutron::Port`` is attaching to an ONAP external network, all
 property values are parameters that are retrieved via the intrinsic
 function ``get_param``.
 
@@ -60,12 +60,12 @@ Items to Note
 ~~~~~~~~~~~~~
 
 A VNF **MAY** have one or more ports connected to a unique
-external network. All VNF ports connected to the unique external
+ONAP external network. All VNF ports connected to the unique ONAP external
 network **MUST** have cloud assigned IP addresses
 or **MUST** have ONAP SDN-C assigned IP addresses.
 
-A VNF **MAY** have one or more ports connected to a unique
-internal network. All VNF ports connected to the unique internal
+A VNF **MAY** have one or more ports connected to a unique ONAP
+internal network. All VNF ports connected to the unique ONAP internal
 network **MUST** have cloud assigned IP addresses
 or **MUST** have statically assigned IP addresses.
 
@@ -88,9 +88,9 @@ or **MUST** have statically assigned IP addresses.
     :id: R-63956
     :target: VNF
     :keyword: MAY
-    :updated: casablanca
+    :updated: frankfurt
 
-    If the VNF's ports connected to a unique external network
+    If the VNF's ports connected to a unique ONAP external network
     and the port's IP addresses are ONAP SDN-C assigned IP addresses,
     the IPv4 addresses **MAY** be from different subnets and the IPv6
     addresses **MAY** be from different subnets.
@@ -100,9 +100,9 @@ or **MUST** have statically assigned IP addresses.
     :target: VNF
     :keyword: MUST
     :validation_mode: none
-    :updated: casablanca
+    :updated: frankfurt
 
-    If a VNF's Port is attached to an external network and the port's
+    If a VNF's Port is attached to an ONAP external network and the port's
     IP addresses are assigned by ONAP's SDN-Controller,
     the ``OS::Neutron::Port`` Resource's
 
@@ -114,9 +114,9 @@ or **MUST** have statically assigned IP addresses.
     :id: R-18001
     :target: VNF
     :keyword: MAY
-    :updated: casablanca
+    :updated: frankfurt
 
-    If the VNF's ports connected to a unique internal network
+    If the VNF's ports connected to a unique ONAP internal network
     and the port's IP addresses are statically assigned IP addresses,
     the IPv4 addresses **MAY** be from different subnets and the
     IPv6 addresses **MAY** be from different subnets.
@@ -126,10 +126,10 @@ or **MUST** have statically assigned IP addresses.
     :target: VNF
     :keyword: MUST NOT
     :validation_mode: none
-    :updated: casablanca
+    :updated: frankfurt
 
-    If a VNF's Port is attached to an internal network and the port's
-    IP addresses are statically assigned by the VNF's Heat Orchestration\
+    If a VNF's Port is attached to an ONAP internal network and the port's
+    IP addresses are statically assigned by the VNF's Heat Orchestration
     Template (i.e., enumerated in the Heat Orchestration Template's
     environment file), the ``OS::Neutron::Port`` Resource's
 
@@ -180,11 +180,11 @@ the port is attached to.
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: casablanca
+    :updated: frankfurt
 
     When the VNF's Heat Orchestration Template's Resource
-    ``OS::Neutron::Port`` is attaching to an external network (per the
-    ONAP definition, see Requirement R-57424), the
+    ``OS::Neutron::Port`` is attaching to an ONAP external network (per the
+    ONAP definition, see Requirement R-57424 and R-16968), the
     ``network`` parameter name **MUST**
 
       * follow the naming convention ``{network-role}_net_id`` if the Neutron
@@ -192,7 +192,7 @@ the port is attached to.
       * follow the naming convention ``{network-role}_net_name`` if the
         OpenStack network name is used to reference the network.
 
-    where ``{network-role}`` is the network-role of the external network
+    where ``{network-role}`` is the network-role of the ONAP external network
     and a ``get_param`` **MUST** be used as the intrinsic function.
 
 .. req::
@@ -205,8 +205,8 @@ the port is attached to.
     When the VNF's Heat Orchestration Template's Resource
     ``OS::Neutron::Port``
     is in an incremental module and
-    is attaching to an internal network (per the
-    ONAP definition, see Requirements R-52425 and R-46461),
+    is attaching to an ONAP internal network (per the
+    ONAP definition, see Requirements R-52425 and R-46461 and 35666),
     the ``network`` parameter name **MUST**
 
       * follow the naming convention ``int_{network-role}_net_id`` if the
@@ -214,11 +214,11 @@ the port is attached to.
       * follow the naming convention ``int_{network-role}_net_name`` if the
         network name in is used to reference the network.
 
-    where ``{network-role}`` is the network-role of the internal network and
-    a ``get_param`` **MUST** be used as the intrinsic function.
+    where ``{network-role}`` is the network-role of the ONAP internal network
+    and a ``get_param`` **MUST** be used as the intrinsic function.
 
 
-In Requirement R-86182, the internal network is created in the VNF's
+In Requirement R-86182, the ONAP internal network is created in the VNF's
 Base Module (Heat Orchestration Template) and the parameter name is
 declared in the Base Module's ``outputs`` section.
 The output parameter name will be declared as a parameter in the
@@ -228,8 +228,8 @@ The output parameter name will be declared as a parameter in the
 When the VNF's Heat Orchestration Template's resource
 ``OS::Neutron::Port`` is in the base module and
 is attaching to an internal network (per the
-ONAP definition, see Requirements R-52425 and R-46461),
-and the internal network is
+ONAP definition, see Requirements R-52425 and R-46461 and 35666),
+and the ONAP internal network is
 
  * created in the base module,
    the ``network`` property value can obtain the UUID
@@ -253,10 +253,10 @@ and the internal network is
     parameter **MUST NOT** be enumerated in the Heat Orchestration
     Template's Environment File.
 
-The parameter values for external networks are provided by ONAP
+The parameter values for ONAP external networks are provided by ONAP
 to the VNF's Heat Orchestration Template at orchestration time.
 
-The parameter values for internal networks created in the VNF's Base Module
+The parameter values for ONAP internal networks created in the VNF's Base Module
 Heat Orchestration Template
 are provided to the VNF's Incremental Module Heat Orchestration Template
 at orchestration time.
@@ -320,11 +320,11 @@ IPv4 and/or IPv6 addresses.
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: dublin
+    :updated: frankfurt
 
     When the VNF's Heat Orchestration Template's Resource
-    ``OS::Neutron::Port`` is attaching to an external network (per the
-    ONAP definition, see Requirement R-57424),
+    ``OS::Neutron::Port`` is attaching to an ONAP external network (per the
+    ONAP definition, see Requirement R-57424 and R-16968),
     and an IPv4 address is assigned
     using the property ``fixed_ips``
     map property ``ip_address`` and the parameter type is defined as a string,
@@ -336,7 +336,7 @@ IPv4 and/or IPv6 addresses.
     where
 
     * ``{vm-type}`` is the {vm-type} associated with the ``OS::Nova::Server``
-    * ``{network-role}`` is the {network-role} of the external network
+    * ``{network-role}`` is the {network-role} of the ONAP external network
     * ``{index}`` is a numeric value that **MUST** start at zero in a
       VNF's Heat Orchestration Template and **MUST** increment by one
 
@@ -372,11 +372,11 @@ the value at orchestration to the Heat Orchestration Template.
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: casablanca
+    :updated: frankfurt
 
     When the VNF's Heat Orchestration Template's Resource
-    ``OS::Neutron::Port`` is attaching to an external network (per the
-    ONAP definition, see Requirement R-57424),
+    ``OS::Neutron::Port`` is attaching to an ONAP external network (per the
+    ONAP definition, see Requirement R-57424 and R-16968),
     and an IPv4 address is assigned
     using the property ``fixed_ips``
     map property ``ip_address`` and the parameter type is defined as a
@@ -390,7 +390,7 @@ the value at orchestration to the Heat Orchestration Template.
 
       * ``{vm-type}`` is the {vm-type} associated with the
         ``OS::Nova::Server``
-      * ``{network-role}`` is the {network-role} of the external
+      * ``{network-role}`` is the {network-role} of the ONAP external
         network
 
 .. req::
@@ -427,11 +427,11 @@ Parameter Definition*
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: dublin
+    :updated: frankfurt
 
     When the VNF's Heat Orchestration Template's Resource
-    ``OS::Neutron::Port`` is attaching to an external network (per the
-    ONAP definition, see Requirement R-57424),
+    ``OS::Neutron::Port`` is attaching to an ONAP external network (per the
+    ONAP definition, see Requirement R-57424 and R-16968),
     and an IPv6 address is assigned
     using the property ``fixed_ips``
     map property ``ip_address`` and the parameter type is defined as a string,
@@ -444,7 +444,7 @@ Parameter Definition*
 
     * ``{vm-type}`` is the {vm-type} associated with the
       ``OS::Nova::Server``
-    * ``{network-role}`` is the {network-role} of the external network
+    * ``{network-role}`` is the {network-role} of the ONAP external network
     * ``{index}`` is a numeric value that **MUST** start at zero in a
       VNF's Heat Orchestration Template and **MUST** increment by one
 
@@ -480,11 +480,11 @@ the value at orchestration to the Heat Orchestration Template.
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: casablanca
+    :updated: frankfurt
 
     When the VNF's Heat Orchestration Template's Resource
-    ``OS::Neutron::Port`` is attaching to an external network (per the
-    ONAP definition, see Requirement R-57424),
+    ``OS::Neutron::Port`` is attaching to an ONAP external network (per the
+    ONAP definition, see Requirement R-57424 and R-16968),
     and an IPv6 address is assigned
     using the property ``fixed_ips``
     map property ``ip_address`` and the parameter type is defined as a
@@ -498,7 +498,7 @@ the value at orchestration to the Heat Orchestration Template.
 
       * ``{vm-type}`` is the {vm-type} associated with the
         OS::Nova::Server
-      * ``{network-role}`` is the {network-role} of the external
+      * ``{network-role}`` is the {network-role} of the ONAP external
         network
 
 .. req::
@@ -535,11 +535,11 @@ Definition*
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: dublin
+    :updated: frankfurt
 
     When the VNF's Heat Orchestration Template's Resource
-    ``OS::Neutron::Port`` is attaching to an internal network (per the
-    ONAP definition, see Requirements R-52425 and R-46461),
+    ``OS::Neutron::Port`` is attaching to an ONAP internal network (per the
+    ONAP definition, see Requirements R-52425 and R-46461 and R-35666),
     and an IPv4 address is assigned
     using the property ``fixed_ips``
     map property ``ip_address`` and the parameter type is
@@ -553,7 +553,7 @@ Definition*
 
     * ``{vm-type}`` is the {vm-type} associated with the
       ``OS::Nova::Server``
-    * ``{network-role}`` is the {network-role} of the internal network
+    * ``{network-role}`` is the {network-role} of the ONAP internal network
     * ``{index}`` is a numeric value that **MUST** start at zero in a
       VNF's Heat Orchestration Template and **MUST** increment by one
 
@@ -590,11 +590,11 @@ Heat Orchestration Template's Environment File.
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: casablanca
+    :updated: frankfurt
 
     When the VNF's Heat Orchestration Template's Resource
-    ``OS::Neutron::Port`` is attaching to an internal network (per the
-    ONAP definition, see Requirements R-52425 and R-46461),
+    ``OS::Neutron::Port`` is attaching to an ONAP internal network (per the
+    ONAP definition, see Requirements R-52425 and R-46461 and R-35666),
     and an IPv4 address is assigned
     using the property ``fixed_ips``
     map property ``ip_address`` and the parameter type is defined as a
@@ -608,7 +608,7 @@ Heat Orchestration Template's Environment File.
 
       * ``{vm-type}`` is the {vm-type} associated with the
         ``OS::Nova::Server``
-      * ``{network-role}`` is the {network-role} of the internal
+      * ``{network-role}`` is the {network-role} of the ONAP internal
         network
 
 .. req::
@@ -643,11 +643,11 @@ Heat Orchestration Template's Environment File.
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: dublin
+    :updated: frankfurt
 
     When the VNF's Heat Orchestration Template's Resource
     ``OS::Neutron::Port`` is attaching to an internal network (per the
-    ONAP definition, see Requirements R-52425 and R-46461),
+    ONAP definition, see Requirements R-52425 and R-46461 and R-35666),
     and an IPv6 address is assigned
     using the property ``fixed_ips``
     map property ``ip_address`` and the parameter type is defined as a
@@ -660,7 +660,7 @@ Heat Orchestration Template's Environment File.
     where
 
     * ``{vm-type}`` is the {vm-type} associated with the ``OS::Nova::Server``
-    * ``{network-role}`` is the {network-role} of the internal network
+    * ``{network-role}`` is the {network-role} of the ONAP internal network
     * ``{index}`` is a numeric value that **MUST** start at zero in a
       VNF's Heat Orchestration Template and **MUST** increment by one
 
@@ -698,11 +698,11 @@ Heat Orchestration Template's Environment File.
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: casablanca
+    :updated: frankfurt
 
     When the VNF's Heat Orchestration Template's Resource
-    ``OS::Neutron::Port`` is attaching to an internal network (per the
-    ONAP definition, see Requirements R-52425 and R-46461),
+    ``OS::Neutron::Port`` is attaching to an ONAP internal network (per the
+    ONAP definition, see Requirements R-52425 and R-46461 and R-35666),
     and an IPv6 address is assigned
     using the property ``fixed_ips``
     map property ``ip_address`` and the parameter type is defined as a
@@ -716,7 +716,7 @@ Heat Orchestration Template's Environment File.
 
       * ``{vm-type}`` is the {vm-type} associated with the
         ``OS::Nova::Server``
-      * ``{network-role}`` is the {network-role} of the internal
+      * ``{network-role}`` is the {network-role} of the ONAP internal
         network
 
 *Example Internal Network IPv6 Address comma_delimited_list Parameter
@@ -762,12 +762,12 @@ Heat Orchestration Template's Environment File.
     :target: VNF
     :keyword: MUST NOT
     :validation_mode: static
-    :updated: casablanca
+    :updated: frankfurt
 
     The VNF's Heat Orchestration Template's Resource ``OS::Neutron::Port``
     property ``fixed_ips``
     map property ``ip_address``
-    parameter associated with an external network, i.e.,
+    parameter associated with an ONAP external network, i.e.,
 
      * ``{vm-type}_{network-role}_ip_{index}``
      * ``{vm-type}_{network-role}_v6_ip_{index}``
@@ -784,12 +784,12 @@ Heat Orchestration Template's Environment File.
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: casablanca
+    :updated: frankfurt
 
     The VNF's Heat Orchestration Template's Resource ``OS::Neutron::Port``
     property ``fixed_ips``
     map property ``ip_address``
-    parameter associated with an internal network, i.e.,
+    parameter associated with an ONAP internal network, i.e.,
 
      * ``{vm-type}_int_{network-role}_ip_{index}``
      * ``{vm-type}_int_{network-role}_v6_ip_{index}``
@@ -809,21 +809,21 @@ Summary Table
    :align: center
    :widths: auto
 
-   OS::Neutron::Port, fixed_ips, ip_address, external, IPv4, string, {vm-type}_{network-role}_ip_{index}, NO
-   OS::Neutron::Port, fixed_ips, ip_address, external, IPv4, comma_delimited_list, {vm-type}_{network-role}_ips, NO
-   OS::Neutron::Port, fixed_ips, ip_address, external, IPv6, string, {vm-type}_{network-role}_v6_ip_{index}, NO
-   OS::Neutron::Port, fixed_ips, ip_address, external, IPv6, comma_delimited_list, {vm-type}_{network-role}_v6_ips, NO
-   OS::Neutron::Port, fixed_ips, ip_address, internal, IPv4, string, {vm-type}_int_{network-role}_ip_{index}, YES
-   OS::Neutron::Port, fixed_ips, ip_address, internal, IPv4, comma_delimited_list, {vm-type}_int_{network-role}_ips, YES
-   OS::Neutron::Port, fixed_ips, ip_address, internal, IPv6, string, {vm-type}_int_{network-role}_v6_ip_{index}, YES
-   OS::Neutron::Port, fixed_ips, ip_address, internal, IPv6, comma_delimited_list, {vm-type}_int_{network-role}_v6_ips, YES
+   OS::Neutron::Port, fixed_ips, ip_address, ONAP external, IPv4, string, {vm-type}_{network-role}_ip_{index}, NO
+   OS::Neutron::Port, fixed_ips, ip_address, ONAP external, IPv4, comma_delimited_list, {vm-type}_{network-role}_ips, NO
+   OS::Neutron::Port, fixed_ips, ip_address, ONAP external, IPv6, string, {vm-type}_{network-role}_v6_ip_{index}, NO
+   OS::Neutron::Port, fixed_ips, ip_address, ONAP external, IPv6, comma_delimited_list, {vm-type}_{network-role}_v6_ips, NO
+   OS::Neutron::Port, fixed_ips, ip_address, ONAP internal, IPv4, string, {vm-type}_int_{network-role}_ip_{index}, YES
+   OS::Neutron::Port, fixed_ips, ip_address, ONAP internal, IPv4, comma_delimited_list, {vm-type}_int_{network-role}_ips, YES
+   OS::Neutron::Port, fixed_ips, ip_address, ONAP internal, IPv6, string, {vm-type}_int_{network-role}_v6_ip_{index}, YES
+   OS::Neutron::Port, fixed_ips, ip_address, ONAP internal, IPv6, comma_delimited_list, {vm-type}_int_{network-role}_v6_ips, YES
 
 
 Examples
 ~~~~~~~~
 
 *Example: comma_delimited_list parameters for IPv4 and IPv6 Address
-Assignments to an external network*
+Assignments to an ONAP external network*
 
 In this example, the ``{network-role}`` has been defined as ``oam`` to
 represent an oam network and the ``{vm-type}`` has been defined as ``db``
@@ -857,7 +857,7 @@ for database.
           - "ip_address": {get_param: [ db_oam_v6_ips, 1 ]}
 
 *Example: string parameters for IPv4 and IPv6 Address Assignments to an
-external network*
+ONAP external network*
 
 In this example, the ``{network-role}`` has been defined as ``oam`` to
 represent an oam network and the ``{vm-type}`` has been defined as ``db`` for
@@ -897,7 +897,7 @@ database.
 
 
 *Example*: comma_delimited_list parameters for IPv4 and IPv6 Address
-Assignments to an internal network*
+Assignments to an ONAP internal network*
 
 In this example, the ``{network-role}`` has been defined as ``ctrl`` to
 represent an ctrl network internal to the vnf.
@@ -935,7 +935,7 @@ database.
 
 
 *Example: string parameters for IPv4 and IPv6 Address Assignments to an
-internal network*
+ONAP internal network*
 
 In this example, the ``int_{network-role}`` has been defined as
 ``int_ctrl`` to represent a control network internal to the vnf.
@@ -987,17 +987,17 @@ The IP address assignment will be made from the specified subnet.
 
 Specifying the subnet is not required; it is optional.
 
-If the network (external or internal) that the port is attaching
+If the network (ONAP external or ONAP internal) that the port is attaching
 to only contains one subnet, specifying the subnet is
 superfluous.  The IP address will be assigned from the one existing
 subnet.
 
-If the network (external or internal) that the port is attaching
+If the network (ONAP external or ONAP internal) that the port is attaching
 to contains two or more subnets, specifying the subnet in the
 ``fixed_ips`` map property ``subnet`` determines which
 subnet the IP address will be assigned from.
 
-If the network (external or internal) that the port is attaching
+If the network (ONAP external or ONAP internal) that the port is attaching
 to contains two or more subnets, and the subnet is not is not
 specified, OpenStack will randomly determine which subnet
 the IP address will be assigned from.
@@ -1022,14 +1022,14 @@ The property ``fixed_ips`` is used to assign IPs to a port. The Map Property
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: casablanca
+    :updated: frankfurt
 
     When the VNF's Heat Orchestration Template's
     resource ``OS::Neutron::Port`` is attaching
-    to an external network (per the ONAP definition, see
-    Requirement R-57424),
+    to an ONAP external network (per the ONAP definition, see
+    Requirement R-57424 and R-16968),
     and an IPv4 address is being cloud assigned by OpenStack's DHCP Service
-    and the external network IPv4 subnet is to be specified
+    and the ONAP external network IPv4 subnet is to be specified
     using the property ``fixed_ips``
     map property ``subnet``, the parameter
     **MUST** follow the naming convention
@@ -1038,7 +1038,7 @@ The property ``fixed_ips`` is used to assign IPs to a port. The Map Property
 
     where
 
-      * ``{network-role}`` is the network role of the network.
+      * ``{network-role}`` is the network role of the ONAP external network.
 
 
 Note that ONAP only supports cloud assigned IP addresses from one IPv4 subnet
@@ -1078,14 +1078,14 @@ value at orchestration to the Heat Orchestration Template.
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: casablanca
+    :updated: frankfurt
 
     When the VNF's Heat Orchestration Template's
     resource ``OS::Neutron::Port`` is attaching
-    to an external network (per the ONAP definition, see
-    Requirement R-57424),
+    to an ONAP external network (per the ONAP definition, see
+    Requirement R-57424 and R-16968),
     and an IPv6 address is being cloud assigned by OpenStack's DHCP Service
-    and the external network IPv6 subnet is to be specified
+    and the ONAP external network IPv6 subnet is to be specified
     using the property ``fixed_ips``
     map property ``subnet``, the parameter
     **MUST** follow the naming convention
@@ -1094,7 +1094,7 @@ value at orchestration to the Heat Orchestration Template.
 
     where
 
-      * ``{network-role}`` is the network role of the network.
+      * ``{network-role}`` is the network role of the ONAP external network.
 
 Note that ONAP only supports cloud assigned IP addresses from one IPv6 subnet
 of a given network.
@@ -1113,8 +1113,8 @@ of a given network.
     **MUST NOT** be enumerated in the
     VNF's Heat Orchestration Template's Environment File.
 
-*Example: One Cloud Assigned IPv4 Address (DHCP) assigned to a network
-that has two or more IPv4 subnets*
+*Example: One Cloud Assigned IPv4 Address (DHCP) assigned to an ONAP external
+network that has two or more IPv4 subnets*
 
 In this example, the ``{network-role}`` has been defined as ``oam`` to
 represent an oam network and the ``{vm-type}`` has been defined as ``lb``
@@ -1139,8 +1139,8 @@ DHCP service to assign IP addresses.
             - subnet: { get_param: oam_subnet_id }
 
 *Example: One Cloud Assigned IPv4 address and one Cloud Assigned IPv6
-address assigned to a network that has at least one IPv4 subnet and one
-IPv6 subnet*
+address assigned to an ONAP external network that has at least one IPv4 subnet
+and one IPv6 subnet*
 
 In this example, the ``{network-role}`` has been defined as ``oam`` to
 represent an oam network and the ``{vm-type}`` has been defined as
@@ -1172,14 +1172,14 @@ represent an oam network and the ``{vm-type}`` has been defined as
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: casablanca
+    :updated: frankfurt
 
     When
 
       * the VNF's Heat Orchestration Template's
         resource ``OS::Neutron::Port`` in an Incremental Module is attaching
-        to an internal network (per the ONAP definition, see
-        Requirements R-52425 and R-46461)
+        to an ONAP internal network (per the ONAP definition, see
+        Requirements R-52425 and R-46461 and R-35666)
         that is created in the Base Module, AND
       * an IPv4 address is being cloud assigned by OpenStack's DHCP Service AND
       * the internal network IPv4 subnet is to be specified
@@ -1191,7 +1191,7 @@ represent an oam network and the ``{vm-type}`` has been defined as
 
     where
 
-      * ``{network-role}`` is the network role of the internal network
+      * ``{network-role}`` is the network role of the ONAP internal network
 
     Note that the parameter **MUST** be defined as an ``output`` parameter in
     the base module.
@@ -1210,7 +1210,8 @@ represent an oam network and the ``{vm-type}`` has been defined as
     **MUST NOT** be enumerated in the
     VNF's Heat Orchestration Template's Environment File.
 
-The assumption is that internal networks are created in the base module.
+The assumption is that the ONAP internal networks are created in the base
+module.
 The Neutron subnet network ID will be passed as an output parameter
 (e.g., ONAP Base Module Output Parameter) to the incremental modules.
 In the incremental modules, the output parameter name will be defined as
@@ -1235,18 +1236,20 @@ input parameter.
 
     When
 
-      * the VNF's Heat Orchestration Template's
-        resource ``OS::Neutron::Port`` in an Incremental Module is attaching
-        to an internal network (per the ONAP definition, see Requirements
-        R-52425 and R-46461)
-        that is created in the Base Module, AND
-      * an IPv6 address is being cloud assigned by OpenStack's DHCP Service AND
-      * the internal network IPv6 subnet is to be specified
-        using the property ``fixed_ips`` map property ``subnet``,
+    * the VNF's Heat Orchestration Template's
+      resource ``OS::Neutron::Port`` in an Incremental Module is attaching
+      to an ONAP internal network (per the ONAP definition, see Requirements
+      R-52425 and R-46461 and R-35666)
+      that is created in the Base Module, AND
+    * an IPv6 address is being cloud assigned by OpenStack's DHCP Service AND
+    * the ONAP internal network IPv6 subnet is to be specified
+      using the property ``fixed_ips`` map property ``subnet``,
 
     the parameter **MUST** follow the naming convention
-    ``int_{network-role}_v6_subnet_id``,
-    where ``{network-role}`` is the network role of the internal network.
+    
+    * ``int_{network-role}_v6_subnet_id``
+
+    where ``{network-role}`` is the network role of the ONAP internal network.
 
     Note that the parameter **MUST** be defined as an ``output`` parameter in
     the base module.
@@ -1343,19 +1346,19 @@ The detailed requirements follow in the sections below.
 
 
 
-VIP Assignment, External Networks
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+VIP Assignment, ONAP External Networks
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. req::
     :id: R-83412
     :target: VNF
     :keyword: MUST NOT
     :validation_mode: static
-    :updated: dublin
+    :updated: frankfurt
 
     If a VNF's Heat Orchestration Template's resource
-    ``OS::Neutron::Port`` is attaching to an external network (per the
-    ONAP definition, see Requirement R-57424), the
+    ``OS::Neutron::Port`` is attaching to an ONAP external network (per the
+    ONAP definition, see Requirement R-57424 and R-16968), the
     property ``allowed_address_pairs``
     map property ``ip_address`` parameter(s)
     **MUST NOT** be enumerated in the
@@ -1367,11 +1370,11 @@ VIP Assignment, External Networks
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: dublin
+    :updated: frankfurt
 
     When the VNF's Heat Orchestration Template's resource
-    ``OS::Neutron::Port`` is attaching to an external network
-    (per the ONAP definition, see Requirement R-57424),
+    ``OS::Neutron::Port`` is attaching to an ONAP external network
+    (per the ONAP definition, see Requirement R-57424 and R-16968),
     and the IPv4 VIP is required to be supported by the ONAP data model,
     the property ``allowed_address_pairs`` map property ``ip_address``
     parameter name **MUST** follow the naming convention
@@ -1381,7 +1384,7 @@ VIP Assignment, External Networks
     where
 
     * ``{vm-type}`` is the {vm-type} associated with the ``OS::Nova::Server``
-    * ``{network-role}`` is the {network-role} of the external network
+    * ``{network-role}`` is the {network-role} of the ONAP external network
 
     And the parameter **MUST** be declared as type ``string``.
 
@@ -1405,11 +1408,11 @@ VIP Assignment, External Networks
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: dublin
+    :updated: frankfurt
 
     When the VNF's Heat Orchestration Template's resource
-    ``OS::Neutron::Port`` is attaching to an external network
-    (per the ONAP definition, see Requirement R-57424),
+    ``OS::Neutron::Port`` is attaching to an ONAP external network
+    (per the ONAP definition, see Requirement R-57424 and R-16968),
     and the IPv6 VIP is required to be supported by the ONAP data model,
     the property ``allowed_address_pairs`` map property ``ip_address``
     parameter name **MUST** follow the naming convention
@@ -1419,7 +1422,7 @@ VIP Assignment, External Networks
     where
 
     * ``{vm-type}`` is the {vm-type} associated with the ``OS::Nova::Server``
-    * ``{network-role}`` is the {network-role} of the external network
+    * ``{network-role}`` is the {network-role} of the ONAP external network
 
     And the parameter **MUST** be declared as type ``string``.
 
@@ -1444,10 +1447,11 @@ VIP Assignment, External Networks
     :keyword: MUST
     :validation_mode: static
     :introduced: dublin
+    :updated: frankfurt
 
     When the VNF's Heat Orchestration Template's resource
-    ``OS::Neutron::Port`` is attaching to an external network
-    (per the ONAP definition, see Requirement R-57424),
+    ``OS::Neutron::Port`` is attaching to an ONAP external network
+    (per the ONAP definition, see Requirement R-57424 and R-16968),
     and the IPv4 VIP address and/or IPv6 VIP address
     is **not** supported by the ONAP data model,
     the property ``allowed_address_pairs`` map property ``ip_address``
@@ -1609,8 +1613,8 @@ an oam network and the {vm-type} has been defined as db for database.
 
 
 
-VIP Assignment, Internal Networks
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+VIP Assignment, ONAP Internal Networks
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. req::
     :id: R-717227
@@ -1618,24 +1622,25 @@ VIP Assignment, Internal Networks
     :introduced: dublin
     :validation_mode: static
     :target: VNF
+    :updated: frankfurt
 
     When the VNF's Heat Orchestration Template's Resource
-    ``OS::Neutron::Port`` is attaching to an internal network (per the
-    ONAP definition, see Requirements R-52425 and R-46461),
+    ``OS::Neutron::Port`` is attaching to an ONAP internal network (per the
+    ONAP definition, see Requirements R-52425 and R-46461 and R-35666),
     and an IPv4 Virtual IP (VIP)
     address is assigned using the property ``allowed_address_pairs``
     map property ``ip_address``,
     the parameter name **MUST** follow the
     naming convention
 
-      * ``{vm-type}_int_{network-role}_floating_ip``
+    - ``{vm-type}_int_{network-role}_floating_ip``
 
     where
 
-      * ``{vm-type}`` is the {vm-type} associated with the
-        OS::Nova::Server
-      * ``{network-role}`` is the {network-role} of the external
-        network
+    - ``{vm-type}`` is the {vm-type} associated with the
+      OS::Nova::Server
+    - ``{network-role}`` is the {network-role} of the ONAP internal
+      network
 
     And the parameter **MUST** be declared as ``type: string``
     and **MUST** be enumerated in the environment file.
@@ -1645,14 +1650,14 @@ VIP Assignment, Internal Networks
     the parameter name **MUST** follow the
     naming convention
 
-      * ``{vm-type}_int_{network-role}_floating_ips``
+    - ``{vm-type}_int_{network-role}_floating_ips``
 
     where
 
-      * ``{vm-type}`` is the {vm-type} associated with the
-        OS::Nova::Server
-      * ``{network-role}`` is the {network-role} of the external
-        network
+    - ``{vm-type}`` is the {vm-type} associated with the
+      OS::Nova::Server
+    - ``{network-role}`` is the {network-role} of the ONAP internal
+      network
 
     And the parameter **MUST** be declared as ``type: comma_delimited_list``
     and **MUST** be enumerated in the environment file.
@@ -1664,10 +1669,11 @@ VIP Assignment, Internal Networks
     :introduced: dublin
     :validation_mode: static
     :target: VNF
+    :updated: frankfurt
 
     When the VNF's Heat Orchestration Template's Resource
-    ``OS::Neutron::Port`` is attaching to an internal network (per the
-    ONAP definition, see Requirements R-52425 and R-46461),
+    ``OS::Neutron::Port`` is attaching to an ONAP internal network (per the
+    ONAP definition, see Requirements R-52425 and R-46461 and R-35666),
     and an IPv6 Virtual IP (VIP)
     address is assigned
     using the property ``allowed_address_pairs``
@@ -1675,14 +1681,14 @@ VIP Assignment, Internal Networks
     the parameter name **MUST** follow the
     naming convention
 
-      * ``{vm-type}_int_{network-role}_floating_v6_ip``
+    - ``{vm-type}_int_{network-role}_floating_v6_ip``
 
     where
 
-      * ``{vm-type}`` is the {vm-type} associated with the
-        OS::Nova::Server
-      * ``{network-role}`` is the {network-role} of the external
-        network
+    - ``{vm-type}`` is the {vm-type} associated with the
+      OS::Nova::Server
+    - ``{network-role}`` is the {network-role} of the ONAP internal
+      network
 
     And the parameter **MUST** be declared as ``type: string``
     and **MUST** be enumerated in the environment file
@@ -1692,14 +1698,14 @@ VIP Assignment, Internal Networks
     the parameter name **MUST** follow the
     naming convention
 
-      * ``{vm-type}_int_{network-role}_floating_v6_ips``
+    - ``{vm-type}_int_{network-role}_floating_v6_ips``
 
     where
 
-      * ``{vm-type}`` is the {vm-type} associated with the
-        OS::Nova::Server
-      * ``{network-role}`` is the {network-role} of the external
-        network
+    - ``{vm-type}`` is the {vm-type} associated with the
+      OS::Nova::Server
+    - ``{network-role}`` is the {network-role} of the ONAP internal
+      network
 
     And the parameter **MUST** be declared as ``type: comma_delimited_list``
     and **MUST** be enumerated in the environment file.
@@ -1730,7 +1736,7 @@ on the ``allowed_address_pair`` "option" utilized by the VNF.
 
 When creating a Reserve Port, if only one allowed_address_pair is configured
 on a port, then the parameter name depends upon the IP addresses type
-(IPv4 or IPv6) and network type (internal or external).
+(IPv4 or IPv6) and network type (ONAP internal or ONAP external).
 The valid parameter names are:
 
   * ``{vm-type}_{network-role}_floating_ip``

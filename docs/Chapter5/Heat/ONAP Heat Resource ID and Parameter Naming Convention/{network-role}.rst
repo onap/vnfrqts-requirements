@@ -10,13 +10,14 @@
     :target: VNF
     :keyword: MUST
     :validation_mode: none
-    :updated: dublin
+    :updated: frankfurt
 
-    When a VNF's port connects to an internal network or external network,
+    When a VNF's port connects to an ONAP internal network or ONAP
+    external network,
     a network role, referred to
     as the ``{network-role}`` **MUST** be assigned to the network for
     use in the VNF's Heat Orchestration Template.  The ``{network-role}``
-    is used in the VNF's Heat Orchestration Template resource IDs
+    is used in the VNF's Heat Orchestration Template's resource IDs
     and resource property parameter names.
 
 .. req::
@@ -36,10 +37,11 @@
     :target: VNF
     :keyword: MUST
     :validation_mode: none
-    :updated: casablanca
+    :updated: frankfurt
 
     A VNF's Heat Orchestration Template's Resource property parameter that is
-    associated with external network **MUST** include the ``{network-role}``
+    associated with an ONAP
+    external network **MUST** include the ``{network-role}``
     as part of the parameter name.
 
 .. req::
@@ -47,10 +49,10 @@
     :target: VNF
     :keyword: MUST
     :validation_mode: none
-    :updated: casablanca
+    :updated: frankfurt
 
     A VNF's Heat Orchestration Template's Resource ID that is associated with
-    an external network **MUST** include the ``{network-role}`` as part
+    an ONAP external network **MUST** include the ``{network-role}`` as part
     of the resource ID.
 
 .. req::
@@ -58,22 +60,28 @@
     :target: VNF
     :keyword: MUST
     :validation_mode: none
-    :updated: casablanca
+    :updated: frankfurt
 
     A VNF's Heat Orchestration Template's Resource property parameter that
-    is associated with an internal network **MUST** include
+    is associated with an ONAP internal network (per the ONAP definition, see
+    Requirements R-52425 and R-46461 and R-35666)
+    **MUST** include
     ``int_{network-role}`` as part of the parameter name,
     where ``int_`` is a hard coded string.
+
+
 
 .. req::
     :id: R-96983
     :target: VNF
     :keyword: MUST
     :validation_mode: none
-    :updated: casablanca
+    :updated: frankfurt
 
     A VNF's Heat Orchestration Template's Resource ID that is associated
-    with an internal network **MUST** include ``int_{network-role}`` as part
+    with an ONAP internal network (per the ONAP definition, see Requirements
+    R-52425 and R-46461 and R-35666)
+    **MUST** include ``int_{network-role}`` as part
     of the Resource ID, where ``int_`` is a hard coded string.
 
 .. req::
