@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5d36e7ae_dd4427e6",
+        "filename": "docs/Chapter5/Tosca/ONAP VNF or PNF CSAR Package.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 3271
+      },
+      "writtenOn": "2019-11-21T18:31:08Z",
+      "side": 1,
+      "message": "Please wrap the keyword with the \u0027**\u0027 characters to bold them.",
+      "range": {
+        "startLine": 213,
+        "startChar": 35,
+        "endLine": 213,
+        "endChar": 39
+      },
+      "revId": "259c8d9e370d8b9b7ec501c53abbd4f02956f90e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "955484fa_0e2e6995",
+        "filename": "docs/Chapter5/Tosca/ONAP VNF or PNF CSAR Package.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 3271
+      },
+      "writtenOn": "2019-11-21T18:31:08Z",
+      "side": 1,
+      "message": "There should be a space between the dash and the string.",
+      "range": {
+        "startLine": 215,
+        "startChar": 0,
+        "endLine": 217,
+        "endChar": 73
+      },
+      "revId": "259c8d9e370d8b9b7ec501c53abbd4f02956f90e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d2af5385_159c2605",
+        "filename": "docs/Chapter5/Tosca/ONAP VNF or PNF CSAR Package.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 3271
+      },
+      "writtenOn": "2019-11-21T18:31:08Z",
+      "side": 1,
+      "message": "If this text is supposed to be rendered under the line above, you must indent.",
+      "range": {
+        "startLine": 219,
+        "startChar": 5,
+        "endLine": 219,
+        "endChar": 32
+      },
+      "revId": "259c8d9e370d8b9b7ec501c53abbd4f02956f90e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d650c887_fea543f4",
+        "filename": "docs/Chapter5/Tosca/ONAP VNF or PNF CSAR Package.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 3271
+      },
+      "writtenOn": "2019-11-21T18:31:08Z",
+      "side": 1,
+      "message": "Remove white spaces from the end of lines.",
+      "range": {
+        "startLine": 219,
+        "startChar": 33,
+        "endLine": 219,
+        "endChar": 35
+      },
+      "revId": "259c8d9e370d8b9b7ec501c53abbd4f02956f90e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1101cd2b_db05c016",
+        "filename": "docs/Chapter5/Tosca/ONAP VNF or PNF CSAR Package.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 3271
+      },
+      "writtenOn": "2019-11-21T18:31:08Z",
+      "side": 1,
+      "message": "Encoding of the quotation marks are incorrect.",
+      "range": {
+        "startLine": 221,
+        "startChar": 30,
+        "endLine": 221,
+        "endChar": 41
+      },
+      "revId": "259c8d9e370d8b9b7ec501c53abbd4f02956f90e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
