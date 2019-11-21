@@ -15,19 +15,21 @@ Contrail Network Parameters
 Contrail based resources may require references to a Contrail network
 using the network FQDN.
 
-External Networks
-~~~~~~~~~~~~~~~~~
+ONAP External Networks
+~~~~~~~~~~~~~~~~~~~~~~
 
 .. req::
     :id: R-02164
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: casablanca
+    :updated: frankfurt
 
     When a VNF's Heat Orchestration Template's Contrail resource
     has a property that
-    references an external network that requires the network's
+    references an ONAP external network (per the
+    ONAP definition, see Requirement R-57424 and R-16968),
+    that requires the network's
     Fully Qualified Domain Name (FQDN), the property parameter
 
     * **MUST** follow the format ``{network-role}_net_fqdn``
@@ -58,10 +60,10 @@ External Networks
 *Example: Contrail Resource OS::ContrailV2::VirtualMachineInterface
 Reference to a Network FQDN.*
 
-In this example, the {network-role} has been defined as oam to represent
-an oam network and the {vm-type} has been defined as fw for firewall.
-The Contrail resource OS::ContrailV2::VirtualMachineInterface property
-virtual_network_refs references a contrail network FQDN.
+In this example, the ``{network-role}`` has been defined as oam to represent
+an oam network and the ``{vm-type}`` has been defined as fw for firewall.
+The Contrail resource ``OS::ContrailV2::VirtualMachineInterface`` property
+``virtual_network_refs`` references a contrail network FQDN.
 
 .. code-block:: yaml
 
@@ -222,46 +224,6 @@ properties are ``instance_ip_address`` and ``subnet_uuid``.
 Resource OS::ContrailV2::InstanceIp Property instance_ip_address
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
-The Contrail resource ``OS::ContrailV2::InstanceIp`` has two properties
-that parameters **MUST** follow an explicit naming convention.  The
-properties are ``instance_ip_address`` and ``subnet_uuid``.
-
-*Example OS::ContrailV2::InstanceIp Resource*
-
-.. code-block:: yaml
-
-  <resource ID>:
-    type: OS::ContrailV2::InstanceIp
-    properties:
-      name: { get_param: name }
-      fq_name: { get_param: fq_name }
-      display_name: { get_param: display_name }
-      secondary_ip_tracking_ip:
-        {
-          secondary_ip_tracking_ip_ip_prefix: { get_param: secondary_ip_tracking_ip_ip_prefix },
-          secondary_ip_tracking_ip_ip_prefix_len: { get_param: secondary_ip_tracking_ip_ip_prefix_len },
-        }
-      instance_ip_address: { get_param: instance_ip_address }
-      instance_ip_mode: { get_param: instance_ip_mode }
-      subnet_uuid: { get_param: subnet_uuid }
-      instance_ip_family: { get_param: instance_ip_family }
-      annotations:
-        {
-          annotations_key_value_pair:
-            [{
-              annotations_key_value_pair_key: { get_param: annotations_key_value_pair_key },
-              annotations_key_value_pair_value: { get_param: annotations_key_value_pair_value },
-            }],
-        }
-      instance_ip_local_ip: { get_param: instance_ip_local_ip }
-      instance_ip_secondary: { get_param: instance_ip_secondary }
-      physical_router_refs: [{ get_param: physical_router_refs }]
-      virtual_machine_interface_refs: [{ get_param: virtual_machine_interface_refs }]
-      virtual_network_refs: [{ get_param: virtual_network_refs }]
-
-
-
 A VNF's Heat Orchestration Templates resource ``OS::ContrailV2::InstanceIp``
 property ``instance_ip_address`` parameter
 **MUST** follow the same requirements
@@ -289,10 +251,12 @@ property ``ip_address`` parameter.
     :introduced: dublin
     :validation_mode: static
     :target: VNF
+    :updated: frankfurt
 
     When the VNF's Heat Orchestration Template's Resource
     ``OS::ContrailV2::InstanceIp`` is assigning an IP address
-    to an external network (per the ONAP definition, see Requirement R-57424),
+    to an ONAP external network
+    (per the ONAP definition, see Requirement R-57424 and R-16968),
     and an IPv4 address is assigned
     using the property ``instance_ip_address``
     and the parameter type is defined as a string,
@@ -304,7 +268,7 @@ property ``ip_address`` parameter.
     where
 
     * ``{vm-type}`` is the {vm-type} associated with the ``OS::Nova::Server``
-    * ``{network-role}`` is the {network-role} of the external network
+    * ``{network-role}`` is the {network-role} of the ONAP external network
     * ``{index}`` is a numeric value that **MUST** start at zero in a
       VNF's Heat Orchestration Template and **MUST** increment by one
 
@@ -326,7 +290,7 @@ property ``ip_address`` parameter.
 ONAP's SDN-Controller assigns the IP Address and ONAP provides
 the value at orchestration to the Heat Orchestration Template.
 
-*Example External Network IPv4 Address string Parameter Definition*
+*Example ONAP External Network IPv4 Address string Parameter Definition*
 
 .. code-block:: yaml
 
@@ -344,11 +308,12 @@ the value at orchestration to the Heat Orchestration Template.
     :validation_mode: static
     :target: VNF
     :introduced: dublin
+    :updated: frankfurt
 
     When the VNF's Heat Orchestration Template's Resource
     ``OS::ContrailV2::InstanceIp`` is assigning an IP address
-    to an external network (per the
-    ONAP definition, see Requirement R-57424),
+    to an ONAP external network (per the
+    ONAP definition, see Requirement R-57424 and R-16968),
     and an IPv4 address is assigned
     using the property ``instance_ip_address``
     and the parameter type is defined as a
@@ -362,7 +327,7 @@ the value at orchestration to the Heat Orchestration Template.
 
       * ``{vm-type}`` is the {vm-type} associated with the
         ``OS::Nova::Server``
-      * ``{network-role}`` is the {network-role} of the external
+      * ``{network-role}`` is the {network-role} of the ONAP external
         network
 
 
@@ -403,12 +368,13 @@ Parameter Definition*
     :introduced: dublin
     :validation_mode: static
     :target: VNF
+    :updated: frankfurt
 
     When the VNF's Heat Orchestration Template's Resource
     ``OS::ContrailV2::InstanceIp`` is assigning an IP address
-    to an external network
+    to an ONAP external network
     (per the
-    ONAP definition, see Requirement R-57424),
+    ONAP definition, see Requirement R-57424 and R-16968),
     and an IPv6 address is assigned
     using the property ``instance_ip_address``
     and the parameter type is defined as a string,
@@ -421,7 +387,7 @@ Parameter Definition*
 
     * ``{vm-type}`` is the {vm-type} associated with the
       ``OS::Nova::Server``
-    * ``{network-role}`` is the {network-role} of the external network
+    * ``{network-role}`` is the {network-role} of the ONAP external network
     * ``{index}`` is a numeric value that **MUST** start at zero in a
       VNF's Heat Orchestration Template and **MUST** increment by one
 
@@ -443,7 +409,7 @@ Parameter Definition*
 ONAP's SDN-Controller assigns the IP Address and ONAP provides
 the value at orchestration to the Heat Orchestration Template.
 
-*Example External Network IPv6 Address string Parameter Definition*
+*Example ONAP External Network IPv6 Address string Parameter Definition*
 
 .. code-block:: yaml
 
@@ -461,11 +427,12 @@ the value at orchestration to the Heat Orchestration Template.
     :validation_mode: static
     :introduced: dublin
     :target: VNF
+    :updated: frankfurt
 
     When the VNF's Heat Orchestration Template's Resource
     ``OS::ContrailV2::InstanceIp`` is assigning an IP address
-    to an external network (per the
-    ONAP definition, see Requirement R-57424),
+    to an ONAP external network (per the
+    ONAP definition, see Requirement R-57424 and R-16968),
     and an IPv6 address is assigned
     using the property ``instance_ip_address``
     and the parameter type is defined as a
@@ -479,7 +446,7 @@ the value at orchestration to the Heat Orchestration Template.
 
       * ``{vm-type}`` is the {vm-type} associated with the
         OS::Nova::Server
-      * ``{network-role}`` is the {network-role} of the external
+      * ``{network-role}`` is the {network-role} of the ONAP external
         network
 
 
@@ -501,7 +468,7 @@ the value at orchestration to the Heat Orchestration Template.
 ONAP's SDN-Controller assigns the IP Address and ONAP provides
 the value at orchestration to the Heat Orchestration Template.
 
-*Example External Network IPv6 Address comma_delimited_list Parameter
+*Example ONAP External Network IPv6 Address comma_delimited_list Parameter
 Definition*
 
 .. code-block:: yaml
@@ -520,11 +487,12 @@ Definition*
     :introduced: dublin
     :validation_mode: static
     :target: VNF
+    :updated: frankfurt
 
     When the VNF's Heat Orchestration Template's Resource
     ``OS::ContrailV2::InstanceIp`` is assigning an IP address
-    to an internal network (per the
-    ONAP definition, see Requirements R-52425 and R-46461),
+    to an ONAP internal network (per the
+    ONAP definition, see Requirements R-52425 and R-46461 and R-35666),
     and an IPv4 address is assigned
     using the property ``instance_ip_address``
     and the parameter type is
@@ -538,7 +506,7 @@ Definition*
 
     * ``{vm-type}`` is the {vm-type} associated with the
       ``OS::Nova::Server``
-    * ``{network-role}`` is the {network-role} of the internal network
+    * ``{network-role}`` is the {network-role} of the ONAP internal network
     * ``{index}`` is a numeric value that **MUST** start at zero in a
       VNF's Heat Orchestration Template and **MUST** increment by one
 
@@ -558,11 +526,11 @@ Definition*
     **MUST** be enumerated in the
     VNF's Heat Orchestration Template's Environment File.
 
-The IP address is local to the VNF's internal network and is (re)used
+The IP address is local to the VNF's ONAP internal network and is (re)used
 in every VNF spin up, thus the constant value is declared in the VNF's
 Heat Orchestration Template's Environment File.
 
-*Example Internal Network IPv4 Address string Parameter Definition*
+*Example ONAP Internal Network IPv4 Address string Parameter Definition*
 
 .. code-block:: yaml
 
@@ -580,11 +548,12 @@ Heat Orchestration Template's Environment File.
     :validation_mode: static
     :target: VNF
     :introduced: dublin
+    :updated: frankfurt
 
     When the VNF's Heat Orchestration Template's Resource
     ``OS::ContrailV2::InstanceIp`` is assigning an IP address
-    to an internal network (per the
-    ONAP definition, see Requirements R-52425 and R-46461),
+    to an ONAP internal network (per the
+    ONAP definition, see Requirements R-52425 and R-46461 and R-35666),
     and an IPv4 address is assigned
     using the property ``instance_ip_address``
     and the parameter type is defined as a
@@ -598,7 +567,7 @@ Heat Orchestration Template's Environment File.
 
       * ``{vm-type}`` is the {vm-type} associated with the
         ``OS::Nova::Server``
-      * ``{network-role}`` is the {network-role} of the internal
+      * ``{network-role}`` is the {network-role} of the ONAP internal
         network
 
 
@@ -616,11 +585,11 @@ Heat Orchestration Template's Environment File.
     **MUST** be enumerated in the
     VNF's Heat Orchestration Template's Environment File.
 
-The IP address is local to the VNF's internal network and is (re)used
+The IP address is local to the VNF's ONAP internal network and is (re)used
 in every VNF spin up, thus the constant value is declared in the VNF's
 Heat Orchestration Template's Environment File.
 
-*Example Internal Network IPv4 Address comma_delimited_list
+*Example ONAP Internal Network IPv4 Address comma_delimited_list
 Parameter Definition*
 
 .. code-block:: yaml
@@ -639,11 +608,12 @@ Parameter Definition*
     :introduced: dublin
     :validation_mode: static
     :target: VNF
+    :updated: frankfurt
 
     When the VNF's Heat Orchestration Template's Resource
     ``OS::ContrailV2::InstanceIp`` is assigning an IP address to an
-    internal network (per the
-    ONAP definition, see Requirements R-52425 and R-46461),
+    ONAP internal network (per the
+    ONAP definition, see Requirements R-52425 and R-46461 and R-35666),
     and an IPv6 address is assigned
     using the property ``instance_ip_address``
     and the parameter type is defined as a
@@ -656,7 +626,7 @@ Parameter Definition*
     where
 
     * ``{vm-type}`` is the {vm-type} associated with the ``OS::Nova::Server``
-    * ``{network-role}`` is the {network-role} of the internal network
+    * ``{network-role}`` is the {network-role} of the ONAP internal network
     * ``{index}`` is a numeric value that **MUST** start at zero in a
       VNF's Heat Orchestration Template and **MUST** increment by one
 
@@ -676,11 +646,11 @@ Parameter Definition*
     **MUST** be enumerated in the
     VNF's Heat Orchestration Template's Environment File.
 
-The IP address is local to the VNF's internal network and is (re)used
+The IP address is local to the VNF's ONAP internal network and is (re)used
 in every VNF spin up, thus the constant value is declared in the VNF's
 Heat Orchestration Template's Environment File.
 
-*Example Internal Network IPv6 Address string Parameter Definition*
+*Example ONAP Internal Network IPv6 Address string Parameter Definition*
 
 .. code-block:: yaml
 
@@ -698,11 +668,12 @@ Heat Orchestration Template's Environment File.
     :validation_mode: static
     :target: VNF
     :introduced: dublin
+    :updated: frankfurt
 
     When the VNF's Heat Orchestration Template's Resource
     ``OS::ContrailV2::InstanceIp`` is assigning an IP address to an
-    internal network (per the
-    ONAP definition, see Requirements R-52425 and R-46461),
+    ONAP internal network (per the
+    ONAP definition, see Requirements R-52425 and R-46461 and R-35666),
     and an IPv6 address is assigned
     using the property ``instance_ip_address``
     and the parameter type is defined as a
@@ -716,7 +687,7 @@ Heat Orchestration Template's Environment File.
 
       * ``{vm-type}`` is the {vm-type} associated with the
         ``OS::Nova::Server``
-      * ``{network-role}`` is the {network-role} of the internal
+      * ``{network-role}`` is the {network-role} of the ONAP internal
         network
 
 
@@ -734,11 +705,11 @@ Heat Orchestration Template's Environment File.
     **MUST** be enumerated in the
     VNF's Heat Orchestration Template's Environment File.
 
-The IP address is local to the VNF's internal network and is (re)used
+The IP address is local to the VNF's ONAP internal network and is (re)used
 in every VNF spin up, thus the constant value is declared in the VNF's
 Heat Orchestration Template's Environment File.
 
-*Example Internal Network IPv6 Address comma_delimited_list Parameter
+*Example ONAP Internal Network IPv6 Address comma_delimited_list Parameter
 Definition*
 
 
@@ -757,11 +728,12 @@ Definition*
     :validation_mode: static
     :target: VNF
     :introduced: dublin
+    :updated: frankfurt
 
     The VNF's Heat Orchestration Template's Resource
     ``OS::ContrailV2::InstanceIp``
     property ``instance_ip_address``
-    parameter associated with an external network, i.e.,
+    parameter associated with an ONAP external network, i.e.,
 
      * ``{vm-type}_{network-role}_ip_{index}``
      * ``{vm-type}_{network-role}_v6_ip_{index}``
@@ -781,11 +753,12 @@ Definition*
     :validation_mode: static
     :target: VNF
     :introduced: dublin
+    :updated: frankfurt
 
     The VNF's Heat Orchestration Template's Resource
     ``OS::ContrailV2::InstanceIp``
     property ``instance_ip_address``
-    parameter associated with an internal network, i.e.,
+    parameter associated with an ONAP internal network, i.e.,
 
      * ``{vm-type}_int_{network-role}_ip_{index}``
      * ``{vm-type}_int_{network-role}_v6_ip_{index}``
@@ -878,13 +851,14 @@ The property ``subnet_uuid`` specifies the subnet the IP is assigned from.
     :validation_mode: static
     :target: VNF
     :introduced: dublin
+    :updated: frankfurt
 
     When the VNF's Heat Orchestration Template's
     resource ``OS::ContrailV2::InstanceIp`` is assigning an IP address
-    to an external network (per the ONAP definition, see
-    Requirement R-57424),
+    to an ONAP external network (per the ONAP definition, see
+    Requirement R-57424 and R-16968),
     and an IPv4 address is being cloud assigned by OpenStack's DHCP Service
-    and the external network IPv4 subnet is to be specified
+    and the ONAP external network IPv4 subnet is to be specified
     using the property ``subnet_uuid``, the parameter
     **MUST** follow the naming convention
 
@@ -892,7 +866,7 @@ The property ``subnet_uuid`` specifies the subnet the IP is assigned from.
 
     where
 
-      * ``{network-role}`` is the network role of the network.
+      * ``{network-role}`` is the network role of the ONAP external network.
 
 Note that ONAP only supports cloud assigned IP addresses from one IPv4 subnet
 of a given network.
@@ -931,13 +905,14 @@ value at orchestration to the Heat Orchestration Template.
     :validation_mode: static
     :target: VNF
     :introduced: dublin
+    :updated: frankfurt
 
     When the VNF's Heat Orchestration Template's
     resource ``OS::ContrailV2::InstanceIp`` is assigning an IP address
-    to an external network (per the ONAP definition, see
-    Requirement R-57424),
+    to an ONAP external network (per the ONAP definition, see
+    Requirement R-57424 and R-16968),
     and an IPv6 address is being cloud assigned by OpenStack's DHCP Service
-    and the external network IPv6 subnet is to be specified
+    and the ONAP external network IPv6 subnet is to be specified
     using the property ``subnet_uuid``, the parameter
     **MUST** follow the naming convention
 
@@ -945,7 +920,7 @@ value at orchestration to the Heat Orchestration Template.
 
     where
 
-      * ``{network-role}`` is the network role of the network.
+      * ``{network-role}`` is the network role of the ONAP external network.
 
 
 Note that ONAP only supports cloud assigned IP addresses from one IPv6 subnet
@@ -985,17 +960,18 @@ value at orchestration to the Heat Orchestration Template.
     :validation_mode: static
     :target: VNF
     :introduced: dublin
+    :updated: frankfurt
 
     When
 
       * the VNF's Heat Orchestration Template's
         resource ``OS::ContrailV2::InstanceIp`` in an Incremental Module is
         assigning an IP address
-        to an internal network (per the ONAP definition, see
-        Requirements R-52425 and R-46461)
+        to an ONAP internal network (per the ONAP definition, see
+        Requirements R-52425 and R-46461 and R-35666)
         that is created in the Base Module, AND
       * an IPv4 address is being cloud assigned by OpenStack's DHCP Service AND
-      * the internal network IPv4 subnet is to be specified
+      * the ONAP internal network IPv4 subnet is to be specified
         using the property ``subnet_uuid``,
 
     the parameter **MUST** follow the naming convention
@@ -1004,7 +980,7 @@ value at orchestration to the Heat Orchestration Template.
 
     where
 
-      * ``{network-role}`` is the network role of the internal network
+      * ``{network-role}`` is the network role of the ONAP internal network
 
     Note that the parameter **MUST** be defined as an ``output`` parameter in
     the base module.
@@ -1025,7 +1001,7 @@ value at orchestration to the Heat Orchestration Template.
     VNF's Heat Orchestration Template's Environment File.
 
 
-The assumption is that internal networks are created in the base module.
+The assumption is that ONAP internal networks are created in the base module.
 The subnet network ID will be passed as an output parameter
 (e.g., ONAP Base Module Output Parameter) to the incremental modules.
 In the incremental modules, the output parameter name will be defined as
@@ -1049,22 +1025,25 @@ input parameter.
     :validation_mode: static
     :target: VNF
     :introduced: dublin
+    :updated: frankfurt
 
     When
 
       * the VNF's Heat Orchestration Template's
         resource ``OS::ContrailV2::InstanceIp`` in an Incremental Module is
         attaching
-        to an internal network (per the ONAP definition,
-        see Requirements R-52425 and R-46461)
+        to an OANP internal network (per the ONAP definition,
+        see Requirements R-52425 and R-46461 and R-35666)
         that is created in the Base Module, AND
       * an IPv6 address is being cloud assigned by OpenStack's DHCP Service AND
-      * the internal network IPv6 subnet is to be specified
+      * the ONAP internal network IPv6 subnet is to be specified
         using the property ``subnet_uuid``,
 
     the parameter **MUST** follow the naming convention
-    ``int_{network-role}_v6_subnet_id``,
-    where ``{network-role}`` is the network role of the internal network.
+
+      * ``int_{network-role}_v6_subnet_id``
+
+    where ``{network-role}`` is the network role of the ONAP internal network.
 
     Note that the parameter **MUST** be defined as an ``output`` parameter in
     the base module.
@@ -1100,7 +1079,7 @@ subnet_uuid*
 
 The property ``instance_ip_address`` uses the same parameter naming
 convention as the property ``fixed_ips`` and Map Property ``subnet`` in
-OS::Neutron::Port. The resource is assigning a cloud assigned IP
+``OS::Neutron::Port``. The resource is assigning a cloud assigned IP
 Address. The ``{network-role}`` has been defined as "oam_protected" to
 represent an oam protected network and the ``{vm-type}`` has been defined as
 "fw" for firewall.
@@ -1137,8 +1116,8 @@ parameter **MUST** follow the same requirements that apply to the
 resource ``OS::Neutron::Port`` property
 ``allowed_address_pairs``, map property ``ip_address`` parameter.
 
-External Networks
-~~~~~~~~~~~~~~~~~
+ONAP External Networks
+~~~~~~~~~~~~~~~~~~~~~~
 
 .. req::
     :id: R-100280
@@ -1146,11 +1125,12 @@ External Networks
     :validation_mode: static
     :target: VNF
     :introduced: dublin
+    :updated: frankfurt
 
     If a VNF's Heat Orchestration Template's resource
     ``OS::ContrailV2::VirtualMachineInterface``
-    is attaching to an external network (per the
-    ONAP definition, see Requirement R-57424), the
+    is attaching to an ONAP external network (per the
+    ONAP definition, see Requirement R-57424 and R-16968), the
     map property
 
     ``virtual_machine_interface_allowed_address_pairs``,
@@ -1172,11 +1152,12 @@ External Networks
     :validation_mode: static
     :target: VNF
     :introduced: dublin
+    :updated: frankfurt
 
     When the VNF's Heat Orchestration Template's resource
-    ``OS::ContrailV2::VirtualMachineInterface`` is attaching to an external
+    ``OS::ContrailV2::VirtualMachineInterface`` is attaching to an ONAP external
     network (per the
-    ONAP definition, see Requirement R-57424),
+    ONAP definition, see Requirement R-57424 and R-16968),
     and an IPv4 Virtual IP (VIP)
     is required to be supported by the ONAP data model,
     the map property
@@ -1196,7 +1177,7 @@ External Networks
     where
 
     * ``{vm-type}`` is the {vm-type} associated with the ``OS::Nova::Server``
-    * ``{network-role}`` is the {network-role} of the external network
+    * ``{network-role}`` is the {network-role} of the ONAP external network
 
     And the parameter **MUST** be declared as type ``string``.
 
@@ -1220,11 +1201,13 @@ External Networks
     :validation_mode: static
     :target: VNF
     :introduced: dublin
+    :updated: frankfurt
 
     When the VNF's Heat Orchestration Template's resource
-    ``OS::ContrailV2::VirtualMachineInterface`` is attaching to an external
+    ``OS::ContrailV2::VirtualMachineInterface`` is attaching to an ONAP
+    external
     network (per the
-    ONAP definition, see Requirement R-57424),
+    ONAP definition, see Requirement R-57424 and R-16968),
     and an IPv6 Virtual IP (VIP)
     is required to be supported by the ONAP data model,
     the map property
@@ -1244,7 +1227,7 @@ External Networks
     where
 
     * ``{vm-type}`` is the {vm-type} associated with the ``OS::Nova::Server``
-    * ``{network-role}`` is the {network-role} of the external network
+    * ``{network-role}`` is the {network-role} of the ONAP external network
 
     And the parameter **MUST** be declared as type ``string``.
 
@@ -1267,11 +1250,12 @@ External Networks
     :introduced: dublin
     :validation_mode: static
     :target: VNF
+    :updated: frankfurt
 
     When the VNF's Heat Orchestration Template's resource
     ``OS::ContrailV2::VirtualMachineInterface`` is attaching to an
-    external network
-    (per the ONAP definition, see Requirement R-57424),
+    ONAP external network
+    (per the ONAP definition, see Requirement R-57424 and R-16968),
     and the IPv4 VIP address and/or IPv6 VIP address
     is **not** supported by the ONAP data model,
     the map property
@@ -1306,8 +1290,8 @@ External Networks
     parameters **not** supported by the ONAP data model.
 
 
-Internal Networks
-~~~~~~~~~~~~~~~~~
+ONAP Internal Networks
+~~~~~~~~~~~~~~~~~~~~~~
 
 .. req::
     :id: R-100360
@@ -1315,11 +1299,12 @@ Internal Networks
     :introduced: dublin
     :validation_mode: static
     :target: VNF
+    :upadted: frankfurt
 
     When the VNF's Heat Orchestration Template's Resource
     ``OS::ContrailV2::VirtualMachineInterface`` is attaching to an
-    internal network (per the
-    ONAP definition, see Requirements R-52425 and R-46461),
+    ONAP internal network (per the
+    ONAP definition, see Requirements R-52425 and R-46461 and R-35666),
     and an IPv4 Virtual IP (VIP)
     address is assigned using the map property,
     ``virtual_machine_interface_allowed_address_pairs,
@@ -1335,7 +1320,7 @@ Internal Networks
 
       * ``{vm-type}`` is the {vm-type} associated with the
         OS::Nova::Server
-      * ``{network-role}`` is the {network-role} of the external
+      * ``{network-role}`` is the {network-role} of the ONAP internal
         network
 
     And the parameter **MUST** be declared as ``type: string``
@@ -1352,7 +1337,7 @@ Internal Networks
 
       * ``{vm-type}`` is the {vm-type} associated with the
         OS::Nova::Server
-      * ``{network-role}`` is the {network-role} of the external
+      * ``{network-role}`` is the {network-role} of the ONAP internal
         network
 
     And the parameter **MUST** be declared as ``type: comma_delimited_list``
@@ -1365,11 +1350,12 @@ Internal Networks
     :introduced: dublin
     :validation_mode: static
     :target: VNF
+    :upadted: frankfurt
 
     When the VNF's Heat Orchestration Template's Resource
     ``OS::ContrailV2::VirtualMachineInterface`` is attaching to an
-    internal network (per the
-    ONAP definition, see Requirements R-52425 and R-46461),
+    ONAP internal network (per the
+    ONAP definition, see Requirements R-52425 and R-46461 and R-35666),
     and an IPv6 Virtual IP (VIP)
     address is assigned
     using the map property,
@@ -1386,7 +1372,7 @@ Internal Networks
 
       * ``{vm-type}`` is the {vm-type} associated with the
         OS::Nova::Server
-      * ``{network-role}`` is the {network-role} of the external
+      * ``{network-role}`` is the {network-role} of the ONAP internal
         network
 
     And the parameter **MUST** be declared as ``type: string``
@@ -1403,7 +1389,7 @@ Internal Networks
 
       * ``{vm-type}`` is the {vm-type} associated with the
         OS::Nova::Server
-      * ``{network-role}`` is the {network-role} of the external
+      * ``{network-role}`` is the {network-role} of the ONAP internal
         network
 
     And the parameter **MUST** be declared as ``type: comma_delimited_list``
