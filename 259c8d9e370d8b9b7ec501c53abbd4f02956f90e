@@ -94,6 +94,29 @@
     },
     {
       "key": {
+        "uuid": "1e609ccf_964e2bfc",
+        "filename": "docs/Chapter5/Tosca/ONAP VNF or PNF CSAR Package.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 3967
+      },
+      "writtenOn": "2019-11-22T22:32:11Z",
+      "side": 1,
+      "message": "@Hagop   Is there a way to group this line and the next line together? Those two lines are the keywords which shall be present in the .yaml file.",
+      "range": {
+        "startLine": 219,
+        "startChar": 5,
+        "endLine": 219,
+        "endChar": 33
+      },
+      "revId": "259c8d9e370d8b9b7ec501c53abbd4f02956f90e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1101cd2b_db05c016",
         "filename": "docs/Chapter5/Tosca/ONAP VNF or PNF CSAR Package.rst",
         "patchSetId": 1
@@ -105,6 +128,30 @@
       "writtenOn": "2019-11-21T18:31:08Z",
       "side": 1,
       "message": "Encoding of the quotation marks are incorrect.",
+      "range": {
+        "startLine": 221,
+        "startChar": 30,
+        "endLine": 221,
+        "endChar": 41
+      },
+      "revId": "259c8d9e370d8b9b7ec501c53abbd4f02956f90e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "646ab5a7_02168c5f",
+        "filename": "docs/Chapter5/Tosca/ONAP VNF or PNF CSAR Package.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 3967
+      },
+      "writtenOn": "2019-11-22T22:32:11Z",
+      "side": 1,
+      "message": "I am ok to remove the quotation marks, as far as the \u003cversion\u003e means it can be any string which represent the software version.",
+      "parentUuid": "1101cd2b_db05c016",
       "range": {
         "startLine": 221,
         "startChar": 30,
