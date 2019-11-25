@@ -22,6 +22,52 @@
       "revId": "f56864e4b83094c3a9b1314c5641ddade11f2d01",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b2315b8e_f91367f4",
+        "filename": "docs/Chapter5/Tosca/ONAP VNF or PNF CSAR Package.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 3967
+      },
+      "writtenOn": "2019-11-25T17:18:22Z",
+      "side": 1,
+      "message": "PNF",
+      "range": {
+        "startLine": 215,
+        "startChar": 44,
+        "endLine": 215,
+        "endChar": 48
+      },
+      "revId": "f56864e4b83094c3a9b1314c5641ddade11f2d01",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "070be8e8_bd312352",
+        "filename": "docs/Chapter5/Tosca/ONAP VNF or PNF CSAR Package.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 3967
+      },
+      "writtenOn": "2019-11-25T17:18:22Z",
+      "side": 1,
+      "message": "PNF",
+      "range": {
+        "startLine": 217,
+        "startChar": 10,
+        "endLine": 217,
+        "endChar": 14
+      },
+      "revId": "f56864e4b83094c3a9b1314c5641ddade11f2d01",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
     }
   ]
 }
