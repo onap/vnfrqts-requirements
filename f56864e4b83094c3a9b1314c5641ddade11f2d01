@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "98b88272_b824aaaa",
+        "filename": "docs/Chapter5/Tosca/ONAP VNF or PNF CSAR Package.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 4936
+      },
+      "writtenOn": "2019-11-26T06:42:17Z",
+      "side": 1,
+      "message": "using software to replace sw",
+      "range": {
+        "startLine": 212,
+        "startChar": 57,
+        "endLine": 212,
+        "endChar": 59
+      },
+      "revId": "f56864e4b83094c3a9b1314c5641ddade11f2d01",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b2315b8e_f91367f4",
         "filename": "docs/Chapter5/Tosca/ONAP VNF or PNF CSAR Package.rst",
         "patchSetId": 1
@@ -68,6 +91,29 @@
       "revId": "f56864e4b83094c3a9b1314c5641ddade11f2d01",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ffc26f00_2ee9a536",
+        "filename": "docs/Chapter5/Tosca/ONAP VNF or PNF CSAR Package.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 4936
+      },
+      "writtenOn": "2019-11-26T06:42:17Z",
+      "side": 1,
+      "message": "use PNF to replace pnf",
+      "range": {
+        "startLine": 217,
+        "startChar": 10,
+        "endLine": 217,
+        "endChar": 13
+      },
+      "revId": "f56864e4b83094c3a9b1314c5641ddade11f2d01",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
