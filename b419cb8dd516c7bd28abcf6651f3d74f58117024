@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "14a1cd9d_08ba611d",
+        "filename": "docs/Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Resource IDs.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 4055
+      },
+      "writtenOn": "2019-11-27T23:13:48Z",
+      "side": 1,
+      "message": "missing a `",
+      "range": {
+        "startLine": 430,
+        "startChar": 4,
+        "endLine": 430,
+        "endChar": 5
+      },
+      "revId": "b419cb8dd516c7bd28abcf6651f3d74f58117024",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "347d5607_67615017",
+        "filename": "docs/Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Resource IDs.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 510,
+      "author": {
+        "id": 4055
+      },
+      "writtenOn": "2019-11-27T23:13:48Z",
+      "side": 1,
+      "message": "oops, remove the space",
+      "range": {
+        "startLine": 510,
+        "startChar": 74,
+        "endLine": 510,
+        "endChar": 75
+      },
+      "revId": "b419cb8dd516c7bd28abcf6651f3d74f58117024",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
