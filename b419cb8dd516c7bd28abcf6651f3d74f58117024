@@ -45,6 +45,30 @@
       "revId": "b419cb8dd516c7bd28abcf6651f3d74f58117024",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e14933ba_6ff8777c",
+        "filename": "docs/Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Resource IDs.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 510,
+      "author": {
+        "id": 4055
+      },
+      "writtenOn": "2019-11-27T23:17:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "347d5607_67615017",
+      "range": {
+        "startLine": 510,
+        "startChar": 74,
+        "endLine": 510,
+        "endChar": 75
+      },
+      "revId": "b419cb8dd516c7bd28abcf6651f3d74f58117024",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
