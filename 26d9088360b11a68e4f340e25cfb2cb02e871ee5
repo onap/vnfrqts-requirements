@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1b144c49_8a16653b",
+        "filename": "docs/Chapter5/Tosca/ONAP VNF or PNF CSAR Package.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 4936
+      },
+      "writtenOn": "2019-11-27T20:12:56Z",
+      "side": 1,
+      "message": "file or files?",
+      "range": {
+        "startLine": 156,
+        "startChar": 71,
+        "endLine": 156,
+        "endChar": 75
+      },
+      "revId": "26d9088360b11a68e4f340e25cfb2cb02e871ee5",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f701ed98_70991083",
+        "filename": "docs/Chapter5/Tosca/ONAP VNF or PNF CSAR Package.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 4936
+      },
+      "writtenOn": "2019-11-27T20:12:56Z",
+      "side": 1,
+      "message": "does this link works when you verify it with command \u0027tox -e docs\u0027 and Firefox browser? Here it looks a little strange.",
+      "range": {
+        "startLine": 164,
+        "startChar": 28,
+        "endLine": 164,
+        "endChar": 100
+      },
+      "revId": "26d9088360b11a68e4f340e25cfb2cb02e871ee5",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
