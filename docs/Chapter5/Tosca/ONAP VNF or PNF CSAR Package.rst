@@ -210,6 +210,24 @@ VNF Package Contents
 
       - vnf_package_version
 
+.. req::
+    :id: R-972082
+    :target: PNF CSAR PACKAGE
+    :keyword: MUST
+    :introduced: frankfurt
+
+    If the Manifest file in the PNF CSAR package includes "onap_pnf_sw_information" 
+    as a non-MANO artifact set identifiers, then the PNF software information file is
+    included in the package and it **MUST** be compliant to:
+
+    - The file extension which contains the PNF software version must be .yaml
+
+    - The PNF software version information must be specified as following:
+
+       pnf_software_information:
+
+        - pnf_software_version:  "<version>"
+
 
 VNF or PNF Package Authenticity and Integrity
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
