@@ -36,10 +36,10 @@ VNF Package Structure and Format
 
 .. req::
     :id: R-51347
-    :target: VNF or PNF
+    :target: VNF or PNF CSAR PACKAGE
     :keyword: MUST
     :introduced: casablanca
-    :updated: dublin
+    :updated: frankfurt
 
     The VNF or PNF CSAR package **MUST** be arranged as a CSAR archive as
     specified in TOSCA Simple Profile in YAML 1.2.
@@ -47,12 +47,12 @@ VNF Package Structure and Format
 
 .. req::
     :id: R-87234
-    :target: VNF or PNF
+    :target: VNF or PNF CSAR PACKAGE
     :keyword: MUST
     :introduced: casablanca
-    :updated: dublin
+    :updated: frankfurt
 
-    The VNF or PNF package provided by a VNF or PNF vendor **MUST** be with
+    The VNF or PNF CSAR package provided by a VNF or PNF vendor **MUST** be with
     TOSCA-Metadata directory (CSAR Option 1) as specified in
     ETSI GS NFV-SOL004.
 
@@ -64,8 +64,9 @@ VNF Package Structure and Format
     :target: VNF or PNF CSAR PACKAGE
     :keyword: MUST
     :introduced: dublin
+    :updated: frankfurt
 
-    The VNF or PNF TOSCA CSAR file **MUST** be a zip file with .csar extension.
+    The VNF or PNF CSAR file **MUST** be a zip file with .csar extension.
 
 
 VNF Package Contents
@@ -84,33 +85,34 @@ VNF Package Contents
 
 .. req::
     :id: R-01123
-    :target: VNF or PNF
+    :target: VNF or PNF CSAR PACKAGE
     :keyword: MUST
     :introduced: casablanca
-    :updated: el alto
+    :updated: frankfurt
 
-    The VNF or PNF package Manifest file **MUST** contain: VNF or PNF
+    The VNF or PNF CSAR package Manifest file **MUST** contain: VNF or PNF
     package meta-data, a list of all artifacts (both internal and
     external) entry's including their respected URI's, as specified
     in ETSI GS NFV-SOL 004
 
 .. req::
     :id: R-21322
-    :target: VNF
+    :target: VNF CSAR PACKAGE
     :keyword: MUST
     :introduced: casablanca
+    :updated: frankfurt
 
     The VNF provider **MUST** provide their testing scripts to support
     testing as specified in ETSI NFV-SOL004 - Testing directory in CSAR
 
 .. req::
     :id: R-40820
-    :target: VNF or PNF TOSCA PACKAGE
+    :target: VNF or PNF CSAR PACKAGE
     :keyword: MUST
     :introduced: casablanca
-    :updated: dublin
+    :updated: frankfurt
 
-    The VNF or PNF TOSCA PACKAGE **MUST** enumerate all of the open source
+    The VNF or PNF CSAR PACKAGE **MUST** enumerate all of the open source
     licenses their VNF(s) incorporate. CSAR License directory as per ETSI
     SOL004.
 
@@ -142,7 +144,7 @@ VNF Package Contents
     :updated: frankfurt
 
     If one or more non-MANO artifact(s) is included in the VNF or PNF CSAR
-    package, the Manifest file in this CSAR package **MUST** contain one or more 
+    package, the Manifest file in this CSAR package **MUST** contain one or more
     of the following ONAP non-MANO artifact set identifier(s):
 
       - onap_ves_events: contains VES registration files
@@ -165,11 +167,11 @@ VNF Package Contents
 
 .. req::
     :id: R-221914
-    :target: VNF or PNF
+    :target: VNF or PNF CSAR PACKAGE
     :keyword: MUST
-    :introduced: dublin
+    :introduced: frankfurt
 
-    The VNF or PNF package **MUST** contain a a human-readable change log text
+    The VNF or PNF CSAR package **MUST** contain a human-readable change log text
     file. The Change Log file keeps a history describing any changes in the VNF
     or PNF package. The Change Log file is kept up to date continuously from
     the creation of the CSAR package.
@@ -179,8 +181,9 @@ VNF Package Contents
     :target: PNF CSAR PACKAGE
     :keyword: MUST
     :introduced: dublin
+    :updated: frankfurt
 
-    The PNF TOSCA CSAR PACKAGE Manifest file **MUST** start with the PNF
+    The PNF CSAR PACKAGE Manifest file **MUST** start with the PNF
     package metadata in the form of a name-value pairs. Each pair shall appear
     on a different line. The name is specified as following:
 
@@ -197,8 +200,9 @@ VNF Package Contents
     :target: VNF CSAR PACKAGE
     :keyword: MUST
     :introduced: dublin
+    :updated: frankfurt
 
-    The VNF TOSCA CSAR package Manifest file **MUST** start with the VNF
+    The VNF CSAR package Manifest file **MUST** start with the VNF
     package metadata in the form of a name-value pairs. Each pair shall appear
     on a different line. The name is specified as following:
 
@@ -216,7 +220,7 @@ VNF Package Contents
     :keyword: MUST
     :introduced: frankfurt
 
-    If the Manifest file in the PNF CSAR package includes "onap_pnf_sw_information" 
+    If the Manifest file in the PNF CSAR package includes "onap_pnf_sw_information"
     as a non-MANO artifact set identifiers, then the PNF software information file is
     included in the package and it **MUST** be compliant to:
 
@@ -295,7 +299,7 @@ key.
 VNF Package ONAP Extensions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. TOACA data type extension tosca.datatypes.nfv.injectFile is used for vCPE
+1. TOSCA data type extension tosca.datatypes.nfv.injectFile is used for vCPE
    use case.
 2. ONAP extensions for VNF package that is currently proposed for Dublin
    release is VES extension described below.
