@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ddadd6f6_092dcdb5",
+        "filename": "docs/Chapter5/Tosca/ONAP VNF or PNF CSAR Package.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 3967
+      },
+      "writtenOn": "2019-11-29T22:34:01Z",
+      "side": 1,
+      "message": "According to SOL004, license is not applicable to PNF.",
+      "range": {
+        "startLine": 110,
+        "startChar": 20,
+        "endLine": 110,
+        "endChar": 24
+      },
+      "revId": "067837566edb0a7ec45082b2c60a6f06407e075c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
