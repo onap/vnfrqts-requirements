@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6fea2e2d_e39ba07f",
+        "filename": "docs/Chapter5/Heat/ONAP Heat Networking.rst",
+        "patchSetId": 9
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 3013
+      },
+      "writtenOn": "2019-12-04T19:37:45Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 198,
+        "startChar": 30,
+        "endLine": 198,
+        "endChar": 34
+      },
+      "revId": "a7b53032e054f207323a296fb1f924afc4225ab1",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3073de96_a7b839a4",
+        "filename": "docs/Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Contrail Resource Parameters.rst",
+        "patchSetId": 9
+      },
+      "lineNbr": 1035,
+      "author": {
+        "id": 3013
+      },
+      "writtenOn": "2019-12-04T19:37:45Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 1035,
+        "startChar": 14,
+        "endLine": 1035,
+        "endChar": 18
+      },
+      "revId": "a7b53032e054f207323a296fb1f924afc4225ab1",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
