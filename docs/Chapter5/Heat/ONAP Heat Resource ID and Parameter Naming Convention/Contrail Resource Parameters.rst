@@ -1271,7 +1271,7 @@ ONAP External Networks
     * Parameter name **MAY** use any naming convention.  That is, there is no
       ONAP mandatory parameter naming convention.
     * Parameter **MAY** be declared as type ``string`` or type
-    ``comma_delimited_list``.
+      ``comma_delimited_list``.
 
     And the ``OS::ContrailV2::VirtualMachineInterface`` resource
     **MUST** contain resource-level ``metadata`` (not property-level).

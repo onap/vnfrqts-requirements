@@ -373,7 +373,7 @@ OS::Neutron::Port
     A VNF's Heat Orchestration Template's Resource ``OS::Neutron::Port``
     that is attaching to an ONAP internal network
     (per the ONAP definition, see Requirements R-52425 and R-46461 and R-35666),
-    the `OS::Neutron::Port`` Resource ID **MUST**
+    the ``OS::Neutron::Port`` Resource ID **MUST**
     use the naming convention
 
     * ``{vm-type}_{vm-type_index}_int_{network-role}_port_{port-index}``
@@ -405,7 +405,7 @@ OS::Neutron::Port
 
     A VNF's Heat Orchestration Template's Resource ``OS::Neutron::Port``
     that is creating a *Reserve Port* with an IPv4 address, the
-    `OS::Neutron::Port`` Resource ID
+    ``OS::Neutron::Port`` Resource ID
     **SHOULD** use the naming convention
 
     * ``reserve_port_{vm-type}_{network-role}_floating_ip_{index}``
