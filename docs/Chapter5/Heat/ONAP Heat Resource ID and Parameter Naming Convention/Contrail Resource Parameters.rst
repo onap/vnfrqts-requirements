@@ -1299,7 +1299,7 @@ ONAP Internal Networks
     :introduced: dublin
     :validation_mode: static
     :target: VNF
-    :upadted: frankfurt
+    :updated: frankfurt
 
     When the VNF's Heat Orchestration Template's Resource
     ``OS::ContrailV2::VirtualMachineInterface`` is attaching to an
@@ -1350,7 +1350,7 @@ ONAP Internal Networks
     :introduced: dublin
     :validation_mode: static
     :target: VNF
-    :upadted: frankfurt
+    :updated: frankfurt
 
     When the VNF's Heat Orchestration Template's Resource
     ``OS::ContrailV2::VirtualMachineInterface`` is attaching to an
