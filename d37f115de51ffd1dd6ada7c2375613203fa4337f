@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bb36950c_285998d0",
+        "filename": "docs/Chapter5/Heat/ONAP Heat Orchestration Template Format.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 478,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2019-12-11T20:06:06Z",
+      "side": 1,
+      "message": "The requirement isn\u0027t wrong, but it is redundant with  R-610030 which states that an incremental module must have a server.",
+      "revId": "d37f115de51ffd1dd6ada7c2375613203fa4337f",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
