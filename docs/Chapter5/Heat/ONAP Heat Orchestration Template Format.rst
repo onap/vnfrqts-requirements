@@ -452,6 +452,20 @@ tags
 resources
 ~~~~~~~~~~~~
 
+.. req::
+    :id: R-23663
+    :target: VNF
+    :keyword: MAY
+    :validation_mode: none
+    :introduced: frankfurt
+
+    A VNF's Heat Orchestration template's base module
+    **MAY** (or **MAY NOT**)
+    contain the section ``resources:``.
+
+When a VNF's Heat Orchestration Template is composed of a base module and
+one ore more incremental modules, it is possible that the base module
+may not contain any resources.
 
 .. req::
     :id: R-23664
@@ -460,8 +474,8 @@ resources
     :validation_mode: static
     :updated: frankfurt
 
-    A VNF's Heat Orchestration template's base module, incremental
-    module, and volume module **MUST**
+    A VNF's Heat Orchestration template's incremental
+    module and volume module **MUST**
     contain the section ``resources:``.
 
 .. req::
