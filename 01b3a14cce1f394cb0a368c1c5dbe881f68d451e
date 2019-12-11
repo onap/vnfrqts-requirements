@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5e2ec787_7ce5ab84",
+        "filename": "docs/Chapter5/Heat/ONAP Heat Orchestration Template Format.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 3013
+      },
+      "writtenOn": "2019-12-11T19:25:07Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 467,
+        "startChar": 4,
+        "endLine": 467,
+        "endChar": 7
+      },
+      "revId": "01b3a14cce1f394cb0a368c1c5dbe881f68d451e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "202a6e26_65aae82c",
+        "filename": "docs/Chapter5/Heat/ONAP Heat Orchestration Template Format.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 3013
+      },
+      "writtenOn": "2019-12-11T19:25:07Z",
+      "side": 1,
+      "message": "maybe reword - \"... it is valid for the base module to have no resources.\"",
+      "range": {
+        "startLine": 467,
+        "startChar": 40,
+        "endLine": 468,
+        "endChar": 30
+      },
+      "revId": "01b3a14cce1f394cb0a368c1c5dbe881f68d451e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
