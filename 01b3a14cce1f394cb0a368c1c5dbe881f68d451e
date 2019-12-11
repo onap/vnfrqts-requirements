@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d3cd9d53_a01be85c",
+        "filename": "docs/Chapter5/Heat/ONAP Heat Orchestration Template Format.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 4055
+      },
+      "writtenOn": "2019-12-11T19:36:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e2ec787_7ce5ab84",
+      "range": {
+        "startLine": 467,
+        "startChar": 4,
+        "endLine": 467,
+        "endChar": 7
+      },
+      "revId": "01b3a14cce1f394cb0a368c1c5dbe881f68d451e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "202a6e26_65aae82c",
         "filename": "docs/Chapter5/Heat/ONAP Heat Orchestration Template Format.rst",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "01b3a14cce1f394cb0a368c1c5dbe881f68d451e",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "640a1d8d_aea982f9",
+        "filename": "docs/Chapter5/Heat/ONAP Heat Orchestration Template Format.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 4055
+      },
+      "writtenOn": "2019-12-11T19:36:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "202a6e26_65aae82c",
+      "range": {
+        "startLine": 467,
+        "startChar": 40,
+        "endLine": 468,
+        "endChar": 30
+      },
+      "revId": "01b3a14cce1f394cb0a368c1c5dbe881f68d451e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
