@@ -31,7 +31,7 @@ The CSAR file may have one of the two following structures:
     metadata section with template_name and template_version metadata. This
     file is the CSAR Entry-Definitions file.
 
-VNF Package Structure and Format
+VNF or PNF Package Structure and Format
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. req::
@@ -69,8 +69,8 @@ VNF Package Structure and Format
     The VNF or PNF CSAR file **MUST** be a zip file with .csar extension.
 
 
-VNF Package Contents
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+VNF or PNF Package Contents
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. req::
     :id: R-10087
@@ -231,6 +231,7 @@ VNF Package Contents
        pnf_software_information:
 
         - pnf_software_version:  "<version>"
+
 
 
 VNF or PNF Package Authenticity and Integrity
