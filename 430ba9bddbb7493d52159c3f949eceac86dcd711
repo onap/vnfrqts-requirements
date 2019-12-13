@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9cf65ff2_f8481d24",
+        "filename": "docs/Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Nova Metadata Parameters.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2019-12-13T15:32:23Z",
+      "side": 1,
+      "message": "In the document psuedo-constants are defined by being in the env file, but that\u0027s not required to use vf_moudule_index.  Should this just say \"indexing into a comma delimited list parameter\"",
+      "range": {
+        "startLine": 543,
+        "startChar": 0,
+        "endLine": 543,
+        "endChar": 15
+      },
+      "revId": "430ba9bddbb7493d52159c3f949eceac86dcd711",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
