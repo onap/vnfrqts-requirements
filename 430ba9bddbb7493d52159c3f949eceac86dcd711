@@ -22,6 +22,30 @@
       "revId": "430ba9bddbb7493d52159c3f949eceac86dcd711",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45cb3e95_6f860563",
+        "filename": "docs/Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Nova Metadata Parameters.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 4055
+      },
+      "writtenOn": "2019-12-13T19:09:32Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9cf65ff2_f8481d24",
+      "range": {
+        "startLine": 543,
+        "startChar": 0,
+        "endLine": 543,
+        "endChar": 15
+      },
+      "revId": "430ba9bddbb7493d52159c3f949eceac86dcd711",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
