@@ -538,10 +538,45 @@ vf_module_index
 The ``vf_module_index`` parameter indicates which instance of the module is
 being deployed into the VNF.
 This parameter may be used in cases where multiple instances of the same
-incremental module may be instantiated for scaling purposes. The index
+incremental module are being instantiated for scaling purposes. The index
 can be used in the Heat Orchestration Template for indexing into a
 pseudo-constant array parameter when unique values are required for each
-module instance, e.g., for fixed private IP addresses on VM types.
+module instance.
+
+ONAP does not allow the ``vf_module_index`` to be utilized as an index by all
+parameters defined as ``comma_delimited_list``.
+The ``vf_module_index`` must not be used for indexing the following
+resource property parameters:
+
+- ``OS::Nova::Server`` property ``name`` parameter (when defined as a
+  ``comma_delimited_list``).
+- ``OS::Neutron::Port`` property ``fixed_ips`` map property ``ip_address``
+  parameter (when defined as a ``comma_delimited_list``) when the port is
+  attaching to an ONAP external network (per the ONAP
+  definition, see Requirement R-57424 and R-16968)
+
+The ``vf_module_index`` may be used for indexing ``OS::Neutron::Port`` property
+``fixed_ips`` map property ``ip_address`` parameter (when defined as a
+``comma_delimited_list``) when the port is attaching to an
+ONAP internal network (per the ONAP definition, see Requirements R-52425 and
+R-46461 and R-35666).  An example is provided below.
+
+.. req::
+    :id: R-55307
+    :target: VNF
+    :keyword: MUST NOT
+    :validation_mode: static
+    :introduced: frankfurt
+
+    A VNF's Heat Orchestration Template's parameter ``vf_module_index``
+    **MUST NOT** be used for indexing an:
+
+    - ``OS::Nova::Server`` property ``name`` parameter (when defined as a
+      ``comma_delimited_list``).
+    - ``OS::Neutron::Port`` property ``fixed_ips`` map property ``ip_address``
+      parameter (when defined as a ``comma_delimited_list``) when the port is
+      attaching to an ONAP external network (per the ONAP
+      definition, see Requirement R-57424 and R-16968)
 
 The ``vf_module_index`` will start at 0 for the first instance of a module
 type. Subsequent instances of the same module type will receive the
@@ -555,7 +590,7 @@ reused.
 
 In this example, the ``{vm-type}`` has been defined as ``oam_vm`` to represent
 an OAM VM. An incremental heat module is used to deploy the OAM VM. The
-OAM VM attaches to an internal control network which has a
+OAM VM attaches to an ONAP internal network which has a
 ``{network-role}`` of ``ctrl``. A maximum of four OAM VMs can be deployed. The
 environment file contains the four IP addresses that each successive OAM
 VM will be assigned. The ``vf_module_index`` is used as the index to
