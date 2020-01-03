@@ -117,8 +117,6 @@ Heat Orchestration Template resources are described in :ref:`resources`.
     ONAP external network (per the ONAP definition, see Requirement R-57424
     and R-16968), the Resource ID **MUST NOT** contain the
     ``{vm-type}`` and/or ``{network-role}``/``int_{network-role}``.
-    It also should contain the
-    term ``shared`` and/or contain text that identifies the VNF.
 
 .. req::
     :id: R-27970
@@ -456,8 +454,9 @@ OS::Neutron::SecurityGroup
 
     A VNF's Heat Orchestration Template's Resource
     ``OS::Neutron::SecurityGroup``
-    that is applicable to one ``{vm-type}`` and more than one network (internal
-    and/or external), the ``OS::Neutron::SecurityGroup``
+    that is applicable to one ``{vm-type}`` and more than one network
+    (ONAP internal network
+    and/or ONAP external network), the ``OS::Neutron::SecurityGroup``
     Resource ID **SHOULD** use the naming convention
 
     * ``{vm-type}_security_group``

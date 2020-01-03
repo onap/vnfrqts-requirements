@@ -232,7 +232,7 @@ The output parameter name will be declared as a parameter in the
 
 When the VNF's Heat Orchestration Template's resource
 ``OS::Neutron::Port`` is in the base module and
-is attaching to an internal network (per the
+is attaching to an ONAP internal network (per the
 ONAP definition, see Requirements R-52425 and R-46461 and R-35666),
 and the ONAP internal network is
 
