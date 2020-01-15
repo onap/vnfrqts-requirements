@@ -76,13 +76,13 @@ the second level of nested heat.
 .. req::
     :id: R-17528
     :keyword: MUST
-    :updated: casablanca
+    :updated: el alto
     :validation_mode: static
 
     A VNF's Heat Orchestration Template's first level Nested YAML file
     **MUST NOT** contain more than one ``OS::Nova::Server`` resource.
     A VNF's Heat Orchestration Template's second level Nested YAML file
-    **MUST NOT** contain an ``OS::Nova::Server`` resource.
+    **MUST NOT** contain any heat resources.
 
 .. req::
     :id: R-708564
