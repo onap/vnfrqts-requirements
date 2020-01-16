@@ -76,7 +76,7 @@ the second level of nested heat.
 .. req::
     :id: R-17528
     :keyword: MUST
-    :updated: el alto
+    :updated: frankfurt
     :validation_mode: static
 
     A VNF's Heat Orchestration Template's first level Nested YAML file

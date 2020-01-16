@@ -136,11 +136,15 @@ attributes (e.g., type, label) defined as nested elements.
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: casablanca
+    :updated: frankfurt
 
     A VNF Heat Orchestration's template's parameter **MUST** be used
-    in a resource with the exception of the parameters for the
-    ``OS::Nova::Server`` resource property ``availability_zone``.
+
+    - in a resource AND/OR
+    - in a output parameter (in the outputs section)
+
+    with the exception of the parameters for the ``OS::Nova::Server``
+    resource property ``availability_zone``.
 
 .. req::
     :id: R-91273
