@@ -76,7 +76,7 @@ author = u'Open Network Automation Platform'
 # |version| and |release|, also used in various other places throughout the
 # built documents.
 # The short X.Y version.
-version = 'el alto'
+version = 'frankfurt'
 # The full version, including alpha/beta/rc tags.
 release = 'latest'
 
