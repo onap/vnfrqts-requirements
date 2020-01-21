@@ -90,13 +90,30 @@ parameters
 ~~~~~~~~~~~~~~~~~~~~~~
 
 .. req::
+    :id: R-35413
+    :target: VNF
+    :keyword: MAY
+    :validation_mode: static
+    :introduced: frankfurt
+
+    A VNF Heat Orchestration's template's base module **MAY** (or **MAY NOT**)
+    contain the section ``parameters:``.
+
+When a VNF is composed of two or more Heat Orchestration Templates (i.e., a
+base module and one or more incremental modules),
+it is valid for the base module to not declare
+any input parameters.
+
+
+.. req::
     :id: R-35414
     :target: VNF
     :keyword: MUST
     :validation_mode: static
+    :updated: frankfurt
 
-    A VNF Heat Orchestration's template **MUST** contain the
-    section ``parameters:``.
+    A VNF Heat Orchestration's template's incremental module and volume module
+    **MUST** contain the section ``parameters:``.
 
 
 .. code-block:: yaml
@@ -467,9 +484,11 @@ resources
     **MAY** (or **MAY NOT**)
     contain the section ``resources:``.
 
-When a VNF's Heat Orchestration Template is composed of a base module and
-one or more incremental modules, it is valid for the base module
-to have no resources.
+When a VNF is composed of two or more Heat Orchestration Templates (i.e., a
+base module and one or more incremental modules),
+it is valid for the base module to not declare
+a resource.
+
 
 .. req::
     :id: R-23664
