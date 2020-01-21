@@ -600,7 +600,7 @@ OS::Nova::Keypair
     :updated: frankfurt
 
     A VNF's Heat Orchestration Template's Resource ``OS::Nova::Keypair``
-    applies to one ``{vm-type}``, the ``OS::Nova::Keypair``
+    that applies to one ``{vm-type}``, the ``OS::Nova::Keypair``
     Resource ID **SHOULD** use the naming convention
 
     * ``{vm-type}_keypair_{index}``
@@ -619,7 +619,7 @@ OS::Nova::Keypair
     :updated: frankfurt
 
     A VNF's Heat Orchestration Template's Resource ``OS::Nova::Keypair``
-    applies to all Virtual Machines in the VNF, the
+    that applies to all Virtual Machines in the VNF, the
     ``OS::Nova::Keypair`` Resource ID **SHOULD** use the naming
     convention
 

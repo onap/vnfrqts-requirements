@@ -579,6 +579,11 @@ R-46461 and R-35666).  An example is provided below.
       parameter (when defined as a ``comma_delimited_list``) when the port is
       attaching to an ONAP external network (per the ONAP
       definition, see Requirement R-57424 and R-16968)
+    - ``OS::ContrailV2::InstanceIp`` property ``instance_ip_address``
+      parameter (when defined as a ``comma_delimited_list``) when the port
+      (i.e, ``OS::ContrailV2::VirtualMachineInterface``) is
+      attaching to an ONAP external network (per the ONAP
+      definition, see Requirement R-57424 and R-16968)
 
 The ``vf_module_index`` will start at 0 for the first instance of a module
 type. Subsequent instances of the same module type will receive the
