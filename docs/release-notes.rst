@@ -51,8 +51,8 @@ changes can be found below.
 **Upgrade Notes**
     - If you would like to add requirements, you **MUST** follow
       `instructions on Wiki <https://wiki.onap.org/display/DW/VNFRQTS+How+to+Contribute>`__.
-    - If you would like to see a list of JIRA tickets closed in Dublin,
-      `please click here <https://jira.onap.org/projects/VNFRQTS/versions/10737>`_.
+    - If you would like to see a list of JIRA tickets closed in El Alto,
+      `please click here for El Alto changes <https://jira.onap.org/projects/VNFRQTS/versions/10737>`_.
 
 **Deprecation Notes**
     - None
@@ -102,7 +102,7 @@ changes can be found below.
     - If you would like to add requirements, you **MUST** follow
       `instructions on Wiki <https://wiki.onap.org/display/DW/VNFRQTS+How+to+Contribute>`__.
     - If you would like to see a list of JIRA tickets closed in Dublin,
-      `please click here <https://jira.onap.org/projects/VNFRQTS/versions/10474>`_.
+      `please click here for Dublin Changes <https://jira.onap.org/projects/VNFRQTS/versions/10474>`_.
 
 **Deprecation Notes**
     - None
