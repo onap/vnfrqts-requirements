@@ -93,7 +93,6 @@ parameters
     :id: R-35413
     :target: VNF
     :keyword: MAY
-    :validation_mode: static
     :introduced: frankfurt
 
     A VNF Heat Orchestration's template's base module **MAY** (or **MAY NOT**)
@@ -477,7 +476,6 @@ resources
     :id: R-23663
     :target: VNF
     :keyword: MAY
-    :validation_mode: none
     :introduced: frankfurt
 
     A VNF's Heat Orchestration template's base module
