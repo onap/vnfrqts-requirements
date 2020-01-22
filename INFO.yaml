@@ -4,11 +4,11 @@ project_creation_date: '2017-06-29'
 project_category: ''
 lifecycle_state: 'Incubation'
 project_lead: &onap_vnfrqts-requirements_ptl
-    name: 'Steven Wright'
-    email: 'sw3588@att.com'
-    id: 'wombat123'
+    name: 'Trevor Lovett'
+    email: 'trevor.lovett@att.com'
+    id: 'tl2972'
     company: 'ATT'
-    timezone: 'America/Atlanta'
+    timezone: 'America/Central'
 primary_contact: *onap_vnfrqts-requirements_ptl
 issue_tracking:
     type: 'jira'
