@@ -26,25 +26,29 @@ ONAP External Networks
     :updated: frankfurt
 
     When a VNF's Heat Orchestration Template's Contrail resource
-    has a property that
-    references an ONAP external network (per the
+    ``OS::ContrailV2::InstanceIp`` and/or
+    ``OS::ContrailV2::VirtualMachineInterface``
+    contains the property ``virtual_network_refs``
+    that references an ONAP external network (per the
     ONAP definition, see Requirement R-57424 and R-16968),
-    that requires the network's
-    Fully Qualified Domain Name (FQDN), the property parameter
+    the property value **MUST** be obtained by a ``get_param`` and the
+    property parameter
 
     * **MUST** follow the format ``{network-role}_net_fqdn``
     * **MUST** be declared as type ``string``
-    * **MUST NOT** be enumerated in the VNF's Heat Orchestration Template's
-      Environment File
+
 
 .. req::
     :id: R-92193
     :target: VNF
     :keyword: MUST NOT
     :validation_mode: static
+    :updated: frankfurt
 
-    A VNF's Heat Orchestration Template's parameter
-    ``{network-role}_net_fqdn``
+    A VNF's Heat Orchestration Template's Contrail resource
+    ``OS::ContrailV2::InstanceIp`` and/or
+    ``OS::ContrailV2::VirtualMachineInterface`` property
+    ``virtual_network_refs`` parameter ``{network-role}_net_fqdn``
     **MUST NOT** be enumerated in the VNF's Heat Orchestration Template's
     Environment File.
 
