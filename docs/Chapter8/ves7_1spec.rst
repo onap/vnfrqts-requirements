@@ -5,8 +5,8 @@
 
 .. _ves_event_listener_7_1:
 
-Service: VES Event Listener 7.1
--------------------------------
+Service: VES Event Listener 7.1.1
+---------------------------------
 
 +-----------------------------------------------------------------------------+
 | **Legal Disclaimer**                                                        |
@@ -25,9 +25,9 @@ Service: VES Event Listener 7.1
 +-----------------------------------------------------------------------------+
 
 
-:Document: VES Event Listner
-:Revision: 7.1
-:Revision Date: December 10th, 2018
+:Document: VES Event Listener
+:Revision: 7.1.1
+:Revision Date: January 28th, 2020
 :Author: Rich Erickson
 
 +-----------------+-----------------------------+
@@ -76,7 +76,7 @@ well-structured packages of information to one or more instances of an
 Event Listener service.
 
 This document describes a RESTful connectionless push event listener
-that is capable of receiving single events or batches of events in the
+can receive single events or batches of events in the
 Common Event Format. In future, additional documents may describe other
 transports which make use of persistent TCP connections for high volumes
 of streaming events.
@@ -202,11 +202,12 @@ EventId Use Cases Examples
 
 eventId Examples:
 
-Example 1: assumes a unique key for each domain consisting of domain
-followed by an integer domainnnnnnn e.g. fault000001, heartbeat000001,
-mfvs000005
+**Example 1**: assumes a unique key for each domain consisting of domain
+followed by an integer domainnnnnnn or domainIdnnnn, where nnnn is a number,
+e.g. fault000001, heartbeat000001, measurement000005,
+notification3gppPerfFileReady0005
 
-Example 2: assumes an integer key for all events nnnnnnnnn: 000000001,
+**Example 2**: assumes an integer key for all events nnnnnnnnn: 000000001,
 00000002, 000000003
 
 Rules:
@@ -220,35 +221,35 @@ Rules:
 
    a. Most likely scenario
 
-      i.   The sourceName on each Fault event is the NF Instance Name
+      *    The sourceName on each Fault event is the NF Instance Name
            (pnf-name or vnf-name or vm-name) as entered in A&AI uniquely
            identifying this instance of the NF.
 
-      ii.  The eventId on Fault events is the same every time a given
-           fault is raised (onset), re-raised at fixed time interval,
-           until it is cleared. Once the fault is cleared, a new eventId
-           is used.
+      *    The eventId on Fault events is the same every time a given
+           fault is raised (including onset and re-raise)
 
-      iii. The startEpochMicrosec value for the Fault event is the
-           timestamp for when that event is generated until a clear is
-           sent.
+            1. The startEpochMicrosec value for the Fault event is the
+               timestamp for when that event is generated until a clear is
+               sent.
 
-      iv.  lastEpochMicrosec indicates the current event time.
+            2. lastEpochMicrosec indicates the current event time.
 
-      v.   The sequence number for each Fault event is set to 1 when the
-           event is first raised, and increments each time the same
-           Fault event is raised, until a clear is sent.
+            3. The sequence number for each Fault event is set to 1 when the
+               event is raised and increments each time the same
+               Fault event is raised, until a clear is sent.
+
+      *    After the fault is cleared, a new eventId is used.
 
    .. image:: Use-Case-1.png
 
-   b. Alternative scenario: for vNF when fault event status is not
-      maintained.
+   b. **Alternative Scenario**: Network Function When Fault Event Status is Not
+      Maintained.
 
-      i.   The sourceName on each Fault event is the NF Instance Name
+      *    The sourceName on each Fault event is the NF Instance Name
            (pnf-name or vnf-name or vm-name) as entered in A&AI uniquely
            identifying this instance of the NF.
 
-      ii.  The eventId on Fault events is the same every time a given
+      *    The eventId on Fault events is the same every time a given
            fault is raised or cleared, even if it is re-raised after it
            had previously cleared.  So, for example, if EMS loses
            contact with a particular device then a Fault event might be
@@ -258,19 +259,25 @@ Rules:
            (because EMS has lost contact with the device again).  The
            same eventId is used for all 4 of those Fault events.
 
-      iii. The startEpochMicrosec value for each Fault event is the
+      *    The startEpochMicrosec value for each Fault event is the
            timestamp for when that event is generated, not when the
            fault first occurred.  So all 4 of the Fault events in the
            previous bullet point would have a different timestamp.
 
-      iv.  lastEpochMicrosec indicates the current event time.
+      *    lastEpochMicrosec indicates the current event time.
 
-      v.   The sequence number for each Fault event is currently set to
+      *    The sequence number for each Fault event is currently set to
            0 on a raise and 1 on a clear.  We could change that so that
            each Fault event is given a new monotonically increasing
            sequence number whether it is a raise or a clear if that is
            helpful (which is reset to 0 if the VM restarts) but they
            won’t be consecutive.
+
+      *    Normally, a clear is expected for each fault to be sent from a
+           network function. However a few fault notification types will never
+           be re-raised or cleared. In this case, general rules for VES events
+           shall be followed with a new eventId for each event and sequence
+           number set to 0.
 
    .. image:: Use-Case-2.png
 
@@ -317,6 +324,93 @@ JSON content-type.
 
 Alternative API specifications may be provided in future using Google
 Protobuf, websockets, or Apache Avro.
+
+Configuration Requirements
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+This section provides network function configuration requirements for
+connectivity to a VES Event Listener via a RESTful API, using a VES JSON event.
+Configuration parameters are defined and set during configuration via a
+Controller using NETCONF or Ansible:
+
+* **VES Event Listener IP Addresses or FQDNs resolved via DNS**: Two FQDNs
+  and/or IP Addresses are required. NF shall select one of the 2 FQDNs/IP
+  Addresses for sending events and if the NF is unable to get an
+  acknowledgement within predefined configurable time interval
+  or unable to establish a TCP connection due inability to resolve DNS query or
+  if the VES Event Listener is unresponsive, then the NF shall attempt to use
+  the other FQDN/IP Address to connect to VES Event Listener to deliver the
+  VES Events. The events shall only be sent to one VES Event Listener at a time.
+  Please note: If a FQDN is used, the DNS query would return a single IP
+  address.
+* Each FQDN query to DNS would only return a single IP address. With use of DNS,
+  a query may provide a different IP Address on subsequent query, however each
+  query will result in a single IP Address.
+* A single VES Event Listener may handle more than one type of VES event
+  (different domains); i.e. same VES Event Listener can receive and process
+  heartbeat, fault, measurement, syslog, etc. events.  Alternatively, different
+  VES Event Listeners may be enabled for different domains; i.e. one VES Event
+  Listener for heartbeats and a different VES Event Listener for faults.  The
+  deployment of VES Event Listeners is at the discretion of the Service Provider
+  and must be in accordance with relevant standards.
+* **VES Collector Port**: Port 8443 **MAY** be used by VES Event Listeners.
+* **VES Credentials**: If the NF is using Basic Authentication, then the NF
+  must support the provisioning of security and authentication parameters
+  (HTTP username and password) in order to be able to authenticate with the
+  VES Event Listener. The Username and Password should be set unique per NF
+  instance and should be configured during the NF deployment through a
+  Controller or other means. The same password must also be configured into VES
+  Event Listener instance for successful handshake.
+* **VES Heartbeat Interval**: This must be a configurable parameter; current
+  default is 60 seconds. Note: the heartbeat interval should be greater than
+  the ack timeout value.
+* **Measurement Interval**: For measurement events, the measurement interval
+  must be configurable and a default of 300 seconds.
+* **ACK Timeout Interval**: Configurable, default 5 seconds.
+
+Event Domain Requirements/Expectations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* **Heartbeat**: Heartbeat events must be sent to VES Event Listener based on
+  configurable parameter.
+* **Faults**: Fault events must be sent to the VES Event Listener as soon as
+  they occur.
+* **Measurements**: Measurement events must include both application and GuestOS
+  metrics at set measurementInterval
+* **Syslogs**: Syslog events must be sent to the VES Event Listener as soon as
+  created, unless the NF is in debug mode (verbose logging enabled to get
+  additional data to diagnose a problem), in which case the syslogs must be
+  stored locally in the NF, for later access and possible secure transfer.
+* **Other Events (Domain: Mobile Flow, TCA, State Change etc)**: Other events
+  (State change, TCA, Mobile Flow etc) are sent based on NF Vendor and Service
+  Provider agreement.
+
+Use of Collector FQDNs and/or IP Address
+++++++++++++++++++++++++++++++++++++++++
+
+* The NF should have a single active Listener and at least one standby event
+  listener.
+* When sending an event (FM, PM, Syslog, HB), the NF shall establish an HTTPS
+  connection to one VES Event Listener FQDN/IP Address (if not already
+  established) and send a VES event to it. Note that connections are not
+  persistent. The events shall only be sent to only one VES Event Listener at a
+  time.
+* If an HTTPS response is not received within a configurable specified period
+  (default 5 seconds), then the NF shall establish connectivity with the other
+  FQDN/IP Address, if configured and send the VES event to it. Once the
+  originally active collector FQDN recovers, the NF can either switch back to
+  using it or continue sending events to the newly active FQDN. Note: Vendors
+  may test the connectivity with either one of the FQDN/IP Address, but they
+  shall only send events to only one FQDN/IP Address at any time.
+* If both Primary and Secondary FQDNs are not available, then the NF shall
+  buffer the events locally, for at least 1 hour and re-transmit them once a
+  connection has been established. Note: Buffered events can be sent in a group
+  using the VES publishEventBatch operation. However, 1 Mbyte limit still
+  applies to the batch event size. For more information on Buffering, see below.
+* If a NF is unable to establish a connection with a VES Event Listener or does
+  not get an acknowledgement within a specified time, then it should log this
+  failure and send a fault event indicating connection/acknowledgement failure
+  via the alternate FQDN/IP Address.
+
 
 Versioning
 ~~~~~~~~~~~
@@ -393,29 +487,52 @@ Security
 
 Event sources must identify themselves to the VES Event Listener.
 
-In the future, support for 2-way SSL certificate authentication (aka
-mutual SSL) may be provided (see the end of this Security section for
-additional information) otherwise, event source credentials must be
-passed using HTTP `Basic
-Authentication <http://tools.ietf.org/html/rfc2617>`__.
+There are 2 methods of HTTP authentication supported: Certificate Authentication
+and Basic Authentication.  The Service Provider determines which authentication
+methods are enabled by setting the ``auth.method`` property in DCAE.  There are
+four values allowed for authentication method, but only ``certBasicAuth`` and
+``noAuth`` are currently recommended:
 
-Credentials must not be passed on the query string. Credentials must be
-sent in an Authorization header as follows:
+1.  ``certBasicAuth``: Certificate Authentication and Basic Authentication are
+    both enabled in DCAE.  Event source may choose either one. **This is the
+    recommended option.**
+
+2.	``noAuth``: No authentication is performed on the event source. It is not
+    recommended and should only be used in lab environments and never in
+    commercial production environments
+
+3.	``certOnly``: Certificate Authentication is required and no other method
+    supported (not currently recommended).
+
+4.	``basicAuth``: Basic Authentication is required and no other method
+    supported (not currently recommended).
+
+Basic authentication is supported in DCAE for backward compatibility for
+existing NFs that are already managed by ONAP. Going forward, new NFs shall
+support Certificate Authentication. Because the security is better, NFs may
+choose to only support Certificate Authentication and not support Basic
+Authentication. It is recommended that ``auth.method`` be set to certBasicAuth
+until such time that all NFs support certificate authentication.  Then
+``auth.method`` should be set to ``certOnly``.  Setting ``auth.method`` to
+``basicAuth`` is not recommended unless it is confirmed that all NFs support
+Basic Authentication.
+
+Basic Authentication
+~~~~~~~~~~~~~~~~~~~~
+
+When using Basic Authentication, the event source must not pass credentials on
+the query string.  Credentials must be sent in an Authorization header as
+follows:
 
 1. The username and password are formed into one string as
-   “username:password”
-
-2. The resulting string is Base64 encoded to produce the encoded
-   credential.
-
+   ``username:password``
+2. The resulting string is Base64 encoded to produce the encoded credential.
 3. The encoded credential is communicated in the header after the string
-   “Authorization: Basic “
+   ``Authorization: Basic``
 
-Because the credentials are merely encoded but not encrypted, HTTPS
-(rather than HTTP) should be used. HTTPS will also encrypt and protect
-event contents. TLS 1.2 or higher must be used.
-
-Examples are provided below.
+Because the credentials are merely encoded but not encrypted, HTTPS (rather
+than HTTP) should be used.  HTTPS will also encrypt and protect event contents.
+TLS 1.2 or higher must be used.
 
 Sample Request and Response
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -423,98 +540,74 @@ Sample Request and Response
 Sample Request
 ++++++++++++++
 
-+-------------------------------------------------------------------------+
-| POST /eventListener/v7 HTTP/1.1                                         |
-|                                                                         |
-| Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==                       |
-|                                                                         |
-| content-type: application/json                                          |
-|                                                                         |
-| | content-length: 12345                                                 |
-| | {                                                                     |
-|                                                                         |
-|     "event": {                                                          |
-|                                                                         |
-|       "commonEventHeader": {                                            |
-|                                                                         |
-|         "version": "4.1",                                               |
-|                                                                         |
-|         "vesEventListenerVersion": "7.1",                               |
-|                                                                         |
-|         "domain": "heartbeat",                                          |
-|                                                                         |
-|         "eventName": "Heartbeat_vIsbcMmc",                              |
-|                                                                         |
-|         "eventId": "heartbeat0000249",                                  |
-|                                                                         |
-|         "sequence": 0,                                                  |
-|                                                                         |
-|         "priority": "Normal",                                           |
-|                                                                         |
-|         "reportingEntityId": "cc305d54-75b4-431b-adb2-eb6b9e541234",    |
-|                                                                         |
-|         "reportingEntityName": "ibcx0001vm002oam001",                   |
-|                                                                         |
-|         "sourceId": "de305d54-75b4-431b-adb2-eb6b9e546014",             |
-|                                                                         |
-|         "sourceName": "ibcx0001vm002ssc001",                            |
-|                                                                         |
-|         "nfVendorName": "Ericsson",                                     |
-|                                                                         |
-|         "nfNamingCode": "ibcx",                                         |
-|                                                                         |
-|         "nfcNamingCode": "ssc",                                         |
-|                                                                         |
-|         "startEpochMicrosec": 1413378172000000,                         |
-|                                                                         |
-|         "lastEpochMicrosec": 1413378172000000,                          |
-|                                                                         |
-|         "timeZoneOffset": "UTC-05:30"                                   |
-|                                                                         |
-|       }                                                                 |
-|                                                                         |
-|     }                                                                   |
-|                                                                         |
-| }                                                                       |
-+-------------------------------------------------------------------------+
+.. code-block:: http
+
+    POST /eventListener/v7 HTTP/1.1
+    Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==
+    content-type: application/json
+    content-length: 12345
+    {
+        "event": {
+            "commonEventHeader": {
+                "version": "4.1",
+                "vesEventListenerVersion": "7.1.1",
+                "domain": "heartbeat",
+                "eventName": "Heartbeat_vIsbcMmc",
+                "eventId": "heartbeat0000249",
+                "sequence": 0,
+                "priority": "Normal",
+                "reportingEntityId": "cc305d54-75b4-431b-adb2-eb6b9e541234",
+                "reportingEntityName": "ibcx0001vm002oam001",
+                "sourceId": "de305d54-75b4-431b-adb2-eb6b9e546014",
+                "sourceName": "ibcx0001vm002ssc001",
+                "nfVendorName": "Ericsson",
+                "nfNamingCode": "ibcx",
+                "nfcNamingCode": "ssc",
+                "startEpochMicrosec": 1413378172000000,
+                "lastEpochMicrosec": 1413378172000000,
+                "timeZoneOffset": "UTC-05:30"
+            }
+        }
+    }
+
 
 Sample Success Response
 ++++++++++++++++++++++++
 
-+--------------------------+
-| HTTPS/1.1 202 Accepted   |
-|                          |
-| X-MinorVersion: 0        |
-|                          |
-| X-PatchVersion: 0        |
-|                          |
-| X-LatestVersion: 7.1     |
-+--------------------------+
+.. code-block:: http
 
-Mutual SSL Certificate Authentication
+    HTTPS/1.1 202 Accepted
+    X-MinorVersion: 0
+    X-PatchVersion: 1
+    X-LatestVersion: 7.1
+
+
+Mutual TSL Certificate Authentication
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If service provider VES Event Listener support for Mutual SSL
-Certification Authentication is available, event sources must initialize
-the HTTPS connection with TLS 1.2 or higher and execute mutual
-authentication procedures according to
-`RFC5246 <https://tools.ietf.org/html/rfc5246#section-7.4.6>`__. If
-event source certificates cannot be verified or if certificate subject
-(identity) is unknown to the VES Event Listener, then HTTP Basic
-Authentication must be used as described above.
+When using Certificate Authentication, the event source must initialize the
+HTTPS connection with TLS 1.2 or higher and execute mutual authentication
+procedures according to `RFC5246 <https://tools.ietf.org/html/rfc5246#section-7.4.6>`__.
+The event source must authenticate the VES Listener certificate and must
+provide its own X.509v3 end-entity certificate to the VES Listener for
+authentication. The Subject Name in the end-entity certificate must be used
+according to `RFC5280 <https://www.ietf.org/rfc/rfc5280.txt>`__. If a
+certificate is provided by the NF but it is invalid, the VES Listener is
+expected to reject the connection and not fall back to basic authentication.
 
 Resource Structure
 ^^^^^^^^^^^^^^^^^^
 
 REST resources are defined with respect to a ServerRoot:
 
-ServerRoot = /{optionalRoutingtPath}
+ServerRoot = https://{Domain}:{Port}/{optionalRoutingPath}
 
 The resource structure is provided below:
 
-.. image:: rest-resource.png
+.. figure:: rest-resource.png
+    :alt: REST Resource Structure
 
-Figure – REST Resource Structure
+    REST Resource Structure
 
 The {Domain} or FQDN above is typically provisioned into each
 eventsource when it is instantiated. The {Port} above is typically 8443.
@@ -525,7 +618,7 @@ Common Event Format
 A JSON schema describing the Common Event Format is provided below and
 is reproduced in the tables that follow.
 
-:download:`JSON <CommonEventFormat_30.1_ONAP.json>`
+:download:`JSON <CommonEventFormat_30.1.1_ONAP.json>`
 
 
 Note on optional fields:
@@ -644,7 +737,7 @@ Datatype: hashMap
 +++++++++++++++++++
 
 The hashMap datatype is an ‘associative array’, which is an unordered
-collection of key-value pairs of the form “key”: “value”, where each key
+collection of key-value pairs of the form "key": "value", where each key
 and value are strings. Keys must use camel casing to separate words and
 acronyms; only the first letter of each acronym shall be capitalized.
 
@@ -786,8 +879,8 @@ information:
 |              |        |           | the event                              |
 +--------------+--------+-----------+----------------------------------------+
 
-‘Common Event Header’ Datatypes
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Common Event Header Data Types
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Datatype: commonEventHeader
 ++++++++++++++++++++++++++++
@@ -928,13 +1021,13 @@ to all events:
 |           |          |           | time_zone_abbreviations_ for UTC offset |
 |           |          |           | examples                                |
 +-----------+----------+-----------+-----------------------------------------+
-| version   | string   | Yes       | Version of the event header as “#.#”    |
+| version   | string   | Yes       | Version of the event header as "#.#"    |
 |           |          |           | where # is a digit; see section 1 for   |
 |           |          |           | the correct digits to use.              |
 +-----------+----------+-----------+-----------------------------------------+
 | vesEvent\ | string   | Yes       | Version of the ves event listener api   |
 | Listener\ |          |           | spec that this event is compliant with  |
-| Version   |          |           | (as “#” or “#.#” or “#.#.#” where # is a|
+| Version   |          |           | (as "#" or "#.#" or "#.#.#" where # is a|
 |           |          |           | digit; see section 1 for the correct    |
 |           |          |           | digits to use).                         |
 +-----------+----------+-----------+-----------------------------------------+
@@ -1011,7 +1104,7 @@ The faultFields datatype consists of the following fields:
 |                 |         |           | be managed object class.            |
 +-----------------+---------+-----------+-------------------------------------+
 | faultFields\    | string  | Yes       | Version of the faultFields block as |
-| Version         |         |           | “#.#” where # is a digit; see       |
+| Version         |         |           | "#.#" where # is a digit; see       |
 |                 |         |           | section 1 for the correct digits to |
 |                 |         |           | use.                                |
 +-----------------+---------+-----------+-------------------------------------+
@@ -1043,7 +1136,7 @@ specific to heartbeat events; it consists of the following fields:
 | Fields        |         |           |                                       |
 +---------------+---------+-----------+---------------------------------------+
 | heartbeat\    | string  | Yes       | Version of the heartbeatFields block  |
-| FieldsVersion |         |           | as “#.#” where # is a digit; see      |
+| FieldsVersion |         |           | as "#.#" where # is a digit; see      |
 |               |         |           | section 1 for the correct digits to   |
 |               |         |           | use.                                  |
 +---------------+---------+-----------+---------------------------------------+
@@ -1845,7 +1938,7 @@ The measurementFields datatype consists of the following fields:
 | Latency     |              |          | xNFC reporting the event is running |
 +-------------+--------------+----------+-------------------------------------+
 | measurement\| string       | Yes      | Version of the measurementFields    |
-| Fields\     |              |          | block as “#.#” where # is a digit;  |
+| Fields\     |              |          | block as "#.#" where # is a digit;  |
 | Version     |              |          | see section 1 for the correct digits|
 |             |              |          | to use.                             |
 +-------------+--------------+----------+-------------------------------------+
@@ -2215,7 +2308,7 @@ The notificationFields datatype consists of the following fields:
 |              |           |          | ‘outOfService’                        |
 +--------------+-----------+----------+---------------------------------------+
 | notification\| string    | Yes      | Version of the notificationFields     |
-| FieldsVersion|           |          | block as “#.#” where # is a digit; see|
+| FieldsVersion|           |          | block as "#.#" where # is a digit; see|
 |              |           |          | section 1 for the correct digits to   |
 |              |           |          | use.                                  |
 +--------------+-----------+----------+---------------------------------------+
@@ -2235,17 +2328,17 @@ populated as follows:
 in 3GPP TS 28.550. The array contains the following key value pairs:
 
 -  **location** in the form protocol://ipAddress:port/path/filename;
-   e.g. “location” :
-   “ftpes://135.3.1.44:21/pmfiles/A20180531.1030+0600-1045+0600\_5gBts213.bin.gz”
+   e.g. "location" :
+   "ftpes://135.3.1.44:21/pmfiles/A20180531.1030+0600-1045+0600\_5gBts213.bin.gz"
 
 -  **compression** containing the compression type used for the PM file;
-   e.g. “compression” : “gzip”
+   e.g. "compression" : "gzip"
 
 -  **fileFormatType** containing the format type of the PM file; e.g.
-   “fileFormatType” : “org.3GPP.32.435#measCollec”
+   "fileFormatType" : "org.3GPP.32.435#measCollec"
 
 -  **fileFormatVersion** containing the format version of the PM file;
-   e.g. “fileFormatVersion” : “V10”
+   e.g. "fileFormatVersion" : "V10"
 
 -  other vendor-defined key-value pairs as needed
 
@@ -2278,7 +2371,7 @@ of the following fields:
 |             |             |          | meta-information                     |
 +-------------+-------------+----------+--------------------------------------+
 | otherFields\| string      | Yes      | Version of the otherFields block as  |
-| Version     |             |          | “#.#” where # is a digit; see section|
+| Version     |             |          | "#.#" where # is a digit; see section|
 |             |             |          | 1 for the correct digits to use.     |
 +-------------+-------------+----------+--------------------------------------+
 
@@ -2537,7 +2630,7 @@ enumeration; it consists of the following fields:
 | IpAddress       |        |          | the manager to contact the PNF        |
 +-----------------+--------+----------+---------------------------------------+
 | pnfRegistration\| string | Yes      | Version of the pnfRegistrationFields  |
-| FieldsVersion   |        |          | block as “#.#” where # is a digit; see|
+| FieldsVersion   |        |          | block as "#.#" where # is a digit; see|
 |                 |        |          | section 1 for the correct digits to   |
 |                 |        |          | use.                                  |
 +-----------------+--------+----------+---------------------------------------+
@@ -2580,7 +2673,7 @@ The stateChangeFields datatype consists of the following fields:
 |              |        |          | , ‘maintenance’, ‘outOfService’          |
 +--------------+--------+----------+------------------------------------------+
 | stateChange\ | string | Yes      | Version of the stateChangeFields block as|
-| FieldsVersion|        |          | “#.#” where # is a digit; see section 1  |
+| FieldsVersion|        |          | "#.#" where # is a digit; see section 1  |
 |              |        |          | for the correct digits to use.           |
 +--------------+--------+----------+------------------------------------------+
 | state\       | string | Yes      | Card or port name of the entity that     |
@@ -2599,7 +2692,7 @@ The syslogFields datatype consists of the following fields:
 | Field      | Type   | Required?| Description                                |
 +============+========+==========+============================================+
 | additional\| hashMap| No       | Additional syslog fields if needed Ex:     |
-| Fields     |        |          | {“name1”: ”value1”, “name2: “value2” … }   |
+| Fields     |        |          | {"name1": "value1", "name2: "value2" … }   |
 +------------+--------+----------+--------------------------------------------+
 | event\     | string | No       | Hostname of the device                     |
 | SourceHost |        |          |                                            |
@@ -2660,7 +2753,7 @@ The syslogFields datatype consists of the following fields:
 |            |        |          |                                            |
 |            |        |          | 23 local use 7 (local7 )                   |
 +------------+--------+----------+--------------------------------------------+
-| syslog\    | string | Yes      | Version of the syslogFields block as “#.#” |
+| syslog\    | string | Yes      | Version of the syslogFields block as "#.#" |
 | Fields\    |        |          | where # is a digit; see section 1 for the  |
 | Version    |        |          | correct digits to use.                     |
 +------------+--------+----------+--------------------------------------------+
@@ -2679,7 +2772,7 @@ The syslogFields datatype consists of the following fields:
 | syslog\    | number | No       | The process number assigned by the OS when |
 | ProcId     |        |          | the application was started                |
 +------------+--------+----------+--------------------------------------------+
-| syslog\    | string | No       | A <space> separated list of key=”value”    |
+| syslog\    | string | No       | A <space> separated list of key="value"    |
 | SData      |        |          | pairs following the rfc5424 standard for   |
 |            |        |          | SD-ELEMENT.                                |
 |            |        |          |                                            |
@@ -2735,13 +2828,13 @@ Examples of syslogSData :
 
 Preferred
 
-    ts=”1985-04-12T23:20:50.52Z” tag=”BGP\_NEIGHBOR\_DOWN” msg=”The BGP
-    session to neighbor 10.10.10.10 is down”
+    ts="1985-04-12T23:20:50.52Z" tag="BGP\_NEIGHBOR\_DOWN" msg="The BGP
+    session to neighbor 10.10.10.10 is down"
 
 Deprecated
 
-    [attinc@1234 ts=”1985-04-12T23:20:50.52Z” tag=”BGP\_NEIGHBOR\_DOWN”
-    msg=”The BGP session to neighbor 10.10.10.10 is down”]
+    [attinc@1234 ts="1985-04-12T23:20:50.52Z" tag="BGP\_NEIGHBOR\_DOWN"
+    msg="The BGP session to neighbor 10.10.10.10 is down"]
 
 Syslog references:
 
@@ -2830,7 +2923,7 @@ fields:
 +------------+------------+----------+----------------------------------------+
 | threshold\ | string     | Yes      | Version of the                         |
 | Crossing   |            |          | thresholdCrossingAlertFields block as  |
-| Fields\    |            |          | “#.#” where # is a digit; see section 1|
+| Fields\    |            |          | "#.#" where # is a digit; see section 1|
 | Version    |            |          | for the correct digits to use.         |
 +------------+------------+----------+----------------------------------------+
 
@@ -3105,7 +3198,7 @@ The mobileFlowFields datatype consists of the following fields:
 | mnc         | string     | No       | Mobile network code                   |
 +-------------+------------+----------+---------------------------------------+
 | mobileFlow\ | string     | Yes      | Version of the mobileFlowFields block |
-| Fields\     |            |          | as “#.#” where # is a digit; see      |
+| Fields\     |            |          | as "#.#" where # is a digit; see      |
 | Version     |            |          | section 1 for the correct digits to   |
 |             |            |          | use.                                  |
 +-------------+------------+----------+---------------------------------------+
@@ -3186,7 +3279,7 @@ following fields:
 | remotePort   | string    | Yes      | Port of peer endpoint                 |
 +--------------+-----------+----------+---------------------------------------+
 | sipSignaling\| string    | Yes      | Version of the sipSignalingFields     |
-| FieldsVersion|           |          | block as “#.#” where # is a digit; see|
+| FieldsVersion|           |          | block as "#.#" where # is a digit; see|
 |              |           |          | section 1 for the correct digits to   |
 |              |           |          | use.                                  |
 +--------------+-----------+----------+---------------------------------------+
@@ -3343,7 +3436,7 @@ facing voice products; consists of the following fields:
 | NameFields   | NameFields  |          |                                     |
 +--------------+-------------+----------+-------------------------------------+
 | voiceQuality\| string      | Yes      | Version of the voiceQualityFields   |
-| FieldsVersion|             |          | block as “#.#” where # is a digit;  |
+| FieldsVersion|             |          | block as "#.#" where # is a digit;  |
 |              |             |          | see section 1 for the correct digits|
 |              |             |          | to use.                             |
 +--------------+-------------+----------+-------------------------------------+
@@ -3502,9 +3595,9 @@ REST Operation Summary
 Table - REST Operation Summary
 
 Api Versioning
-+++++++++++++++
+++++++++++++++
 
-apiVersion is used to describe the major version number of the event
+``apiVersion`` is used to describe the major version number of the event
 listener API (which is the same as the major version number of this
 specification). When this number changes, the implication is: the new
 major version will break clients of older major versions in some way, if
@@ -3524,37 +3617,75 @@ requests to indicate the specific version they are interested in.
 If a client requests major version 7 (per the REST resource URL) and
 does not specify the above headers, then they will be provided with the
 latest patch version of 7.0.x (which is 7.0.1). If the client wants a
-particular minor version of major version 7, then they need to supply
+minor version of major version 7, then they need to supply
 the X-MinorVersion header with their request. For example, if they
 request major version 7 with X-MinorVersion: 1, they will get the latest
 patch version of 7.1, which is 7.1.0.
 
 Buffering of Events
-++++++++++++++++++++
++++++++++++++++++++
 
-{ServerRoot} is defined in section 3 of this document, which defines the
-REST resource URL. One or more FQDNs may be provisioned in an event
-source when it is instantiated or updated. If an event source is unable
-to reach any of the provisioned FQDNs, it should buffer the event data
-specified below, up to a maximum of 1 hour, until a connection can be
-established and the events can be successfully delivered to the VES
-Event Listener service.
+``{ServerRoot}`` is defined in section 3 of this document, which defines the
+REST resource URL.  One or more FQDNs may be provisioned in an event source
+when it is instantiated or updated.  If an event source is unable to reach any
+of the provisioned FQDNs, it should buffer the event data specified below, up
+to a maximum of 1 hour, and re-transmit them once a connection has been
+established.
 
-xNFs acting as event sources should not send syslog events to the VES
-Event Listener during debug mode (which is controlled via the Netconf
-management interface), but should store syslog events locally for
-access, and possible FTP transfer, via the xNF console (e.g., command
-line interface).
+The following events should be buffered:
 
-If the internal event source event buffer or local storage should
-overflow, then the event source should send a Fault event, and should
-discard events in a first-in, first-out (FIFO) manner (i.e., discard
-oldest events first).
+* Faults with eventSeverity of ``MINOR``, ``MAJOR``, ``NORMAL``, or ``CRITICAL``
+  with following expected behavior:
+
+    * NF keeps a First-In-First-Out buffer.
+    * Until the collectors are working again, it is desired that the NF sends
+      the final state events only, and not intermediate ones. However, it is
+      acceptable to buffer all events and send them over to the collector in
+      the same order in which they were generated/received.
+
+* When one VES Event Listener connectivity is re-established, NF should first
+  send the buffered events and then start streaming the new events.
+
+    * Syslog with syslogSev of ``Emergency``, ``Alert``, ``Critical``,
+      ``Error``, or ``Warning``
+
+* All measurements events
+
+publishEventBatch Expectations
+******************************
+
+Buffered events can be sent in batch using ``publishEventBatch`` defined in VES
+Event Listener Specifications. However, a NF vendor must only include multiple
+events for the same domain in the ``publishEventBatch``. The ``publishEventBatch``
+event must conform to 1 Megabyte event size limit
+
+``publishEventBatch`` events are handled similarly to a single event. The
+acknowledgement from the VES Event Listener is for the ``publishEventBatch`` and
+not individual events within the ``publishEventBatch``. It is assumed that
+events within ``publishEventBatch`` have undergone testing to resolve any
+syntax or security credential issues. It is the vendor’s responsibility to
+ensure events are delivered to a VES Event Listener for life cycle management
+of the device.
+
+Debug Mode
+**********
+
+NFs acting as event sources should not send syslog events to the
+VES Event Listener during debug mode (which is controlled via the Netconf
+management interface), but should store syslog events locally for access, and
+possible FTP transfer, via the NF console (e.g., command line interface).
+
+Overflow
+********
+
+If the internal event source event buffer or local storage should overflow, then
+the event source should send a Fault event, and should discard events in a
+first-in, first-out (FIFO) manner (i.e., discard oldest events first).
 
 Message Size
 +++++++++++++++
 
-Message size should be limited to 2 megabytes of uncompressed text sent
+Message size should be limited to 1 megabyte of uncompressed text sent
 as application/json.
 
 Operation: publishAnyEvent
@@ -3566,7 +3697,7 @@ Functional Behavior
 Allows authorized clients to publish any single event to the VES event
 listener.
 
--  Supports only secure HTTPS (one way SSL) access.
+-  Supports only HTTPS access.
 
 -  Uses the HTTP verb POST
 
@@ -3578,9 +3709,10 @@ listener.
 Call Flow
 ++++++++++
 
-.. image:: publish-event-flow.png
+.. figure:: publish-event-flow.png
+    :alt: publishAnyEvent Call Flow
 
-Figure - publishAnyEvent Call Flow
+    ``publishAnyEvent`` Call Flow
 
 Input Parameters
 +++++++++++++++++
@@ -3598,11 +3730,11 @@ case-insensitive):
 +---------------+----------+----------+---------------------------------------+
 | Authorization | string   | Yes      | The username and password are formed  |
 |               |          |          | into one string as                    |
-|               |          |          | “username:password”. This string is   |
+|               |          |          | ``username:password``. This string is |
 |               |          |          | then Base64 encoded to produce the    |
 |               |          |          | encoded credential which is           |
 |               |          |          | communicated in the header after the  |
-|               |          |          | string “Authorization: Basic “. See   |
+|               |          |          | string "Authorization: Basic ". See   |
 |               |          |          | examples below. If the Authorization  |
 |               |          |          | header is missing, then an HTTP 400   |
 |               |          |          | Invalid Request message shall be      |
@@ -3611,7 +3743,7 @@ case-insensitive):
 |               |          |          | message shall be returned.            |
 +---------------+----------+----------+---------------------------------------+
 | Content-length| integer  | No       | Note that content length is limited to|
-|               |          |          | 2Megabyte.                            |
+|               |          |          | 1 Megabyte.                           |
 +---------------+----------+----------+---------------------------------------+
 | Content-type  | string   | Yes      | Must be set to one of the following   |
 |               |          |          | values:                               |
@@ -3708,105 +3840,78 @@ HTTP Status Codes
 |     |              | resources).                                            |
 +-----+--------------+--------------------------------------------------------+
 
+* **Event Handling Requirements/Expectations**
+
+    * Every Event is acknowledged by the VES Event Listener.
+    * For 2xx (success) acknowledgement the NF must not resend the event to
+      VES Event Listener.
+    * For all other 4xx/5xx acknowledgements (failure), the NF must create an
+      internal flag/notification to ensure issue is corrected (since these
+      events have failed and they need to fix by Vendor), so the event can be
+      successfully sent to VES Event Collector for life cycle maintenance of
+      the NF.
+
+
 Sample Request and Response
 ++++++++++++++++++++++++++++
 
 Sample Request
 ***************
 
-+-----------------------------------------------------------------------------+
-| POST /eventListener/v7 HTTP/1.1                                             |
-|                                                                             |
-| Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==                           |
-|                                                                             |
-| content-type: application/json                                              |
-|                                                                             |
-| content-length: 12345                                                       |
-|                                                                             |
-| X-MinorVersion: 1                                                           |
-|                                                                             |
-| {                                                                           |
-|                                                                             |
-|   "event": {                                                                |
-|                                                                             |
-|     "commonEventHeader": {                                                  |
-|                                                                             |
-|       "version": "4.1",                                                     |
-|                                                                             |
-|       "vesEventListenerVersion": "7.1",                                     |
-|                                                                             |
-|       "domain": "fault",                                                    |
-|                                                                             |
-|       "eventName": "Fault\_Vscf:Acs-Ericcson\_PilotNumberPoolExhaustion",   |
-|                                                                             |
-|       "eventId": "fault0000245",                                            |
-|                                                                             |
-|       "sequence": 1,                                                        |
-|                                                                             |
-|       "priority": "High",                                                   |
-|                                                                             |
-|       "reportingEntityId": "cc305d54-75b4-431b-adb2-eb6b9e541234",          |
-|                                                                             |
-|       "reportingEntityName": "ibcx0001vm002oam001",                         |
-|                                                                             |
-|       "sourceId": "de305d54-75b4-431b-adb2-eb6b9e546014",                   |
-|                                                                             |
-|       "sourceName": "scfx0001vm002cap001",                                  |
-|                                                                             |
-|       "nfVendorName": "Ericsson",                                           |
-|                                                                             |
-|       "nfNamingCode": "scfx",                                               |
-|                                                                             |
-|       "nfcNamingCode": "ssc",                                               |
-|                                                                             |
-|       "startEpochMicrosec": 1413378172000000,                               |
-|                                                                             |
-|       "lastEpochMicrosec": 1413378172000000,                                |
-|                                                                             |
-|       "timeZoneOffset": "UTC-05:30"                                         |
-|                                                                             |
-|     },                                                                      |
-|                                                                             |
-|     "faultFields": {                                                        |
-|                                                                             |
-|       "faultFieldsVersion": 4.0,                                            |
-|                                                                             |
-|       "alarmCondition": "PilotNumberPoolExhaustion",                        |
-|                                                                             |
-|       "eventSourceType": "other",                                           |
-|                                                                             |
-|       "specificProblem": "Calls cannot complete -                           |
-|                           pilot numbers are unavailable",                   |
-|                                                                             |
-|       "eventSeverity": "CRITICAL",                                          |
-|                                                                             |
-|       "vfStatus": "Active",                                                 |
-|                                                                             |
-|       "alarmAdditionalInformation": {                                       |
-|                                                                             |
-|         "PilotNumberPoolSize": "1000"                                       |
-|                                                                             |
-|       }                                                                     |
-|                                                                             |
-|     }                                                                       |
-|                                                                             |
-|   }                                                                         |
-|                                                                             |
-| }                                                                           |
-+-----------------------------------------------------------------------------+
+.. code-block:: http
+
+    POST  /eventListener/v7 HTTP/1.1
+    Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==
+    content-type: application/json
+    content-length: 12345
+    X-MinorVersion: 1
+
+    {
+        "event": {
+            "commonEventHeader": {
+                "version": "4.1",
+                "vesEventListenerVersion": "7.1.1",
+                "domain": "fault",
+                "eventName": "Fault_Vscf:Acs-Ericcson_PilotNumberPoolExhaustion",
+                "eventId": "fault0000245",
+                "sequence": 1,
+                "priority": "High",
+                "reportingEntityId": "cc305d54-75b4-431b-adb2-eb6b9e541234",
+                "reportingEntityName": "ibcx0001vm002oam001",
+                "sourceId": "de305d54-75b4-431b-adb2-eb6b9e546014",
+                "sourceName": "scfx0001vm002cap001",
+                "nfVendorName": "Ericsson",
+                "nfNamingCode": "scfx",
+                "nfcNamingCode": "ssc",
+                "startEpochMicrosec": 1413378172000000,
+                "lastEpochMicrosec": 1413378172000000,
+                "timeZoneOffset": "UTC-05:30"
+            },
+            "faultFields": {
+                "faultFieldsVersion": 4.0,
+                "alarmCondition": "PilotNumberPoolExhaustion",
+                "eventSourceType": "other",
+                "specificProblem": "Calls cannot complete - pilot numbers are unavailable",
+                "eventSeverity": "CRITICAL",
+                "vfStatus": "Active",
+                "alarmAdditionalInformation": {
+                    "PilotNumberPoolSize": "1000"
+                }
+            }
+        }
+    }
+
+
 
 Sample Success Response
 ************************
 
-+--------------------------+
-| HTTPS/1.1 202 Accepted   |
-|                          |
-| X-MinorVersion: 1        |
-|                          |
-| X-PatchVersion: 0        |
-|                          |
-| X-LatestVersion: 7.1     |
-+--------------------------+
+.. code-block:: http
+
+    HTTPS/1.1 202 Accepted
+    X-MinorVersion: 1
+    X-PatchVersion: 1
+    X-LatestVersion: 7.1.1
 
 Sample Error Responses
 ************************
@@ -3814,80 +3919,51 @@ Sample Error Responses
 Sample Policy Exception
 """"""""""""""""""""""""
 
-+---------------------------------------------------------------------+
-| HTTPS/1.1 400 Bad Request                                           |
-|                                                                     |
-| content-type: application/json                                      |
-|                                                                     |
-| content-length: 12345                                               |
-|                                                                     |
-| Date: Thu, 04 Jun 2009 02:51:59 GMT                                 |
-|                                                                     |
-| X-MinorVersion: 1                                                   |
-|                                                                     |
-| X-PatchVersion: 0                                                   |
-|                                                                     |
-| X-LatestVersion: 7.1                                                |
-|                                                                     |
-| {                                                                   |
-|                                                                     |
-|   “requestError”: {                                                 |
-|                                                                     |
-|     “policyException”: {                                            |
-|                                                                     |
-|       “messageId”: “POL9003”,                                       |
-|                                                                     |
-|       “text”: “Message content size exceeds the allowable limit”,   |
-|                                                                     |
-|     }                                                               |
-|                                                                     |
-|   }                                                                 |
-|                                                                     |
-| }                                                                   |
-+---------------------------------------------------------------------+
+.. code-block:: http
+
+    HTTPS/1.1 400 Bad Request
+    content-type: application/json
+    content-length: 12345
+    Date: Thu, 04 Jun 2009 02:51:59 GMT
+    X-MinorVersion: 1
+    X-PatchVersion: 1
+    X-LatestVersion: 7.1.1
+
+    {
+      "requestError": {
+        "policyException": {
+          "messageId": "POL9003",
+          "text": "Message content size exceeds the allowable limit",
+        }
+      }
+    }
+
 
 Sample Service Exception
 """""""""""""""""""""""""
 
-+-----------------------------------------------------------+
-| HTTPS/1.1 400 Bad Request                                 |
-|                                                           |
-| content-type: application/json                            |
-|                                                           |
-| content-length: 12345                                     |
-|                                                           |
-| Date: Thu, 04 Jun 2009 02:51:59 GMT                       |
-|                                                           |
-| X-MinorVersion: 1                                         |
-|                                                           |
-| X-PatchVersion: 0                                         |
-|                                                           |
-| X-LatestVersion: 7.1                                      |
-|                                                           |
-| {                                                         |
-|                                                           |
-|   “requestError”: {                                       |
-|                                                           |
-|     “serviceException”: {                                 |
-|                                                           |
-|       “messageId”: “SVC2000”,                             |
-|                                                           |
-|       “text”: “Missing Parameter: %1. Error code is %2”   |
-|                                                           |
-|       “variables”: [                                      |
-|                                                           |
-|         “severity”,                                       |
-|                                                           |
-|         “400”                                             |
-|                                                           |
-|       ]                                                   |
-|                                                           |
-|     }                                                     |
-|                                                           |
-|   }                                                       |
-|                                                           |
-| }                                                         |
-+-----------------------------------------------------------+
+.. code-block:: http
+
+    HTTPS/1.1 400 Bad Request
+    content-type: application/json
+    content-length: 12345
+    Date: Thu, 04 Jun 2009 02:51:59 GMT
+    X-MinorVersion: 1
+    X-PatchVersion: 1
+    X-LatestVersion: 7.1.1
+    
+    {
+      "requestError": {
+        "serviceException": {
+          "messageId": "SVC2000",
+          "text": "Missing Parameter: %1. Error code is %2"
+          "variables": [
+            "severity",
+            "400"
+          ]
+        }
+      }
+    }
 
 Operation: publishEventBatch
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -3898,7 +3974,7 @@ Functional Behavior
 Allows authorized clients to publish a batch of events to the VES event
 listener.
 
-- Supports only secure HTTPS (one way SSL) access.
+- Supports only HTTPS access.
 
 - Uses the HTTP verb POST
 
@@ -3910,9 +3986,10 @@ listener.
 Call Flow
 +++++++++++
 
-.. image:: publish-event-flow.png
+.. figure:: publish-event-flow.png
+    :alt: publishEvent Call Flow
 
-Figure – publishEventBatch Call Flow
+    ``publishEventBatch`` Call Flow
 
 Input Parameters
 +++++++++++++++++
@@ -3928,13 +4005,13 @@ case-insensitive):
 |               |          |          |                                       |
 |               |          |          | -  application/json                   |
 +---------------+----------+----------+---------------------------------------+
-| Authorization | string   | Yes      | The username and password are formed  |
-|               |          |          | into one string as “username:password”|
+| Authorization | string   | No       | The username and password are formed  |
+|               |          |          | into one string as "username:password"|
 |               |          |          | . This string is then Base64 encoded  |
 |               |          |          | to produce the encoded credential     |
 |               |          |          | which is communicated in the header   |
-|               |          |          | after the string “Authorization:      |
-|               |          |          | Basic“. See examples below. If the    |
+|               |          |          | after the string "Authorization:      |
+|               |          |          | Basic". See examples below. If the    |
 |               |          |          | Authorization header is missing, then |
 |               |          |          | an HTTP 400 Invalid Request message   |
 |               |          |          | shall be returned. If the string      |
@@ -3943,7 +4020,7 @@ case-insensitive):
 |               |          |          | returned.                             |
 +---------------+----------+----------+---------------------------------------+
 | Content-length| integer  | No       | Note that content length is limited to|
-|               |          |          | 2Megabyte.                            |
+|               |          |          | 1 megabyte.                           |
 +---------------+----------+----------+---------------------------------------+
 | Content-type  | string   | Yes      | Must be set to one of the following   |
 |               |          |          | values:                               |
@@ -4007,7 +4084,7 @@ Body Fields (for error responses):
 +--------------+--------------+----------------+------------------------------+
 
 HTTP Status Codes
-++++++++++++++++++
++++++++++++++++++
 
 +-----+--------------+--------------------------------------------------------+
 | Code| Reason Phrase| Description                                            |
@@ -4046,160 +4123,89 @@ Sample Request and Response
 Sample Request
 ****************
 
-+-----------------------------------------------------------------------------+
-| POST /eventListener/v7/eventBatch HTTP/1.1                                  |
-|                                                                             |
-| Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==                           |
-|                                                                             |
-| content-type: application/json                                              |
-|                                                                             |
-| content-length: 12345                                                       |
-| X-MinorVersion: 1                                                           |
-|                                                                             |
-| {                                                                           |
-|                                                                             |
-|   "eventList": [                                                            |
-|                                                                             |
-|      {                                                                      |
-|                                                                             |
-|        "commonEventHeader": {                                               |
-|                                                                             |
-|          "version": "4.1",                                                  |
-|                                                                             |
-|          "vesEventListenerVersion": "7.1",                                  |
-|                                                                             |
-|          "domain": "fault",                                                 |
-|                                                                             |
-|          "eventName": "Fault_Vscf:Acs-Ericcson_PilotNumberPoolExhaustion",  |
-|                                                                             |
-|          "eventId": "fault0000250",                                         |
-|                                                                             |
-|          "sequence": 1,                                                     |
-|                                                                             |
-|          "priority": "High",                                                |
-|                                                                             |
-|          "reportingEntityId": "cc305d54-75b4-431b-adb2-eb6b9e541234",       |
-|                                                                             |
-|          "reportingEntityName": "ibcx0001vm002oam0011234",                  |
-|                                                                             |
-|          "sourceId": "de305d54-75b4-431b-adb2-eb6b9e546014",                |
-|                                                                             |
-|          "sourceName": "scfx0001vm002cap001",                               |
-|                                                                             |
-|          "nfVendorName": "Ericsson",                                        |
-|                                                                             |
-|          "nfNamingCode": "scfx",                                            |
-|                                                                             |
-|          "nfcNamingCode": "ssc",                                            |
-|                                                                             |
-|          "startEpochMicrosec": 1413378172000000,                            |
-|                                                                             |
-|          "lastEpochMicrosec": 1413378172000000,                             |
-|                                                                             |
-|          "timeZoneOffset": "UTC-05:30"                                      |
-|                                                                             |
-|        },                                                                   |
-|                                                                             |
-|        "faultFields": {                                                     |
-|                                                                             |
-|          "faultFieldsVersion": 4.0,                                         |
-|                                                                             |
-|          "alarmCondition": "PilotNumberPoolExhaustion",                     |
-|                                                                             |
-|          "eventSourceType": "other",                                        |
-|                                                                             |
-|          "specificProblem": "Calls cannot complete - pilot numbers are      |
-|                             unavailable",                                   |
-|                                                                             |
-|          "eventSeverity": "CRITICAL",                                       |
-|                                                                             |
-|          "vfStatus": "Active",                                              |
-|                                                                             |
-|          "alarmAdditionalInformation": {                                    |
-|                                                                             |
-|            "PilotNumberPoolSize": "1000"                                    |
-|                                                                             |
-|          }                                                                  |
-|                                                                             |
-|        }                                                                    |
-|                                                                             |
-|      },                                                                     |
-|                                                                             |
-|      {                                                                      |
-|                                                                             |
-|        "commonEventHeader": {                                               |
-|                                                                             |
-|          "version": "4.1",                                                  |
-|                                                                             |
-|          "vesEventListenerVersion": "7.1",                                  |
-|                                                                             |
-|          "domain": "fault",                                                 |
-|                                                                             |
-|          "eventName": " Fault_Vscf:Acs-Ericcson_RecordingServerUnreachable",|
-|                                                                             |
-|          "eventId": "fault0000251",                                         |
-|                                                                             |
-|          "sequence": 0,                                                     |
-|                                                                             |
-|          "priority": "High",                                                |
-|                                                                             |
-|          "reportingEntityId": "cc305d54-75b4-431b-adb2-eb6b9e541234",       |
-|                                                                             |
-|          "reportingEntityName": "ibcx0001vm002oam0011234",                  |
-|                                                                             |
-|          "sourceId": "de305d54-75b4-431b-adb2-eb6b9e546014",                |
-|                                                                             |
-|          "sourceName": "scfx0001vm002cap001",                               |
-|                                                                             |
-|          "nfVendorName": "Ericsson",                                        |
-|                                                                             |
-|          "nfNamingCode": "scfx",                                            |
-|                                                                             |
-|          "nfcNamingCode": "ssc",                                            |
-|                                                                             |
-|          "startEpochMicrosec": 1413378172000010,                            |
-|                                                                             |
-|          "lastEpochMicrosec": 1413378172000010,                             |
-|                                                                             |
-|          "timeZoneOffset": "UTC-05:30"                                      |
-|                                                                             |
-|        },                                                                   |
-|                                                                             |
-|        "faultFields": {                                                     |
-|                                                                             |
-|          "faultFieldsVersion": 4.0,                                         |
-|                                                                             |
-|          "alarmCondition": "RecordingServerUnreachable",                    |
-|                                                                             |
-|          "eventSourceType": "other",                                        |
-|                                                                             |
-|          "specificProblem": "Recording server unreachable",                 |
-|                                                                             |
-|          "eventSeverity": "CRITICAL",                                       |
-|                                                                             |
-|          "vfStatus": "Active"                                               |
-|                                                                             |
-|        }                                                                    |
-|                                                                             |
-|      }                                                                      |
-|                                                                             |
-|    ]                                                                        |
-|                                                                             |
-|  }                                                                          |
-+-----------------------------------------------------------------------------+
+.. code-block:: http
+
+    POST /eventListener/v7/eventBatch HTTP/1.1
+    Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==
+    content-type: application/json
+    content-length: 12345
+    X-MinorVersion: 1
+
+    {
+       "eventList": [
+          {
+             "commonEventHeader": {
+                "version": "4.1",
+                "vesEventListenerVersion": "7.1.1",
+                "domain": "fault",
+                "eventName": "Fault_Vscf:Acs-Ericcson_PilotNumberPoolExhaustion",
+                "eventId": "fault0000250",
+                "sequence": 1,
+                "priority": "High",
+                "reportingEntityId": "cc305d54-75b4-431b-adb2-eb6b9e541234",
+                "reportingEntityName": "ibcx0001vm002oam0011234",
+                "sourceId": "de305d54-75b4-431b-adb2-eb6b9e546014",
+                "sourceName": "scfx0001vm002cap001",
+                "nfVendorName": "Ericsson",
+                "nfNamingCode": "scfx",
+                "nfcNamingCode": "ssc",
+                "startEpochMicrosec": 1413378172000000,
+                "lastEpochMicrosec": 1413378172000000,
+                "timeZoneOffset": "UTC-05:30"
+             },
+             "faultFields": {
+                "faultFieldsVersion": 4.0,
+                "alarmCondition": "PilotNumberPoolExhaustion",
+                "eventSourceType": "other",
+                "specificProblem": "Calls cannot complete - pilot numbers are unavailable",
+                "eventSeverity": "CRITICAL",
+                "vfStatus": "Active",
+                "alarmAdditionalInformation": {
+                    "PilotNumberPoolSize": "1000"
+                }
+             }
+          },
+          {
+             "commonEventHeader": {
+                "version": "4.1",
+                "vesEventListenerVersion": "7.1.1",
+                "domain": "fault",
+                "eventName": " Fault_Vscf:Acs-Ericcson_RecordingServerUnreachable",
+                "eventId": "fault0000251",
+                "sequence": 0,
+                "priority": "High",
+                "reportingEntityId": "cc305d54-75b4-431b-adb2-eb6b9e541234",
+                "reportingEntityName": "ibcx0001vm002oam0011234",
+                "sourceId": "de305d54-75b4-431b-adb2-eb6b9e546014",
+                "sourceName": "scfx0001vm002cap001",
+                "nfVendorName": "Ericsson",
+                "nfNamingCode": "scfx",
+                "nfcNamingCode": "ssc",
+                "startEpochMicrosec": 1413378172000010,
+                "lastEpochMicrosec": 1413378172000010,
+                "timeZoneOffset": "UTC-05:30"
+             },
+             "faultFields": {
+                "faultFieldsVersion": 4.0,
+                "alarmCondition": "RecordingServerUnreachable",
+                "eventSourceType": "other",
+                "specificProblem": "Recording server unreachable",
+                "eventSeverity": "CRITICAL",
+                "vfStatus": "Active"
+             }
+          }
+       ]
+    }
 
 Sample Success Response
 *************************
 
-+--------------------------+
-| HTTPS/1.1 202 Accepted   |
-|                          |
-| X-MinorVersion: 1        |
-|                          |
-| X-PatchVersion: 0        |
-|                          |
-| X-LatestVersion: 7.1     |
-+--------------------------+
+.. code-block:: http
+
+    HTTPS/1.1 202 Accepted
+    X-MinorVersion: 1
+    X-PatchVersion: 1
+    X-LatestVersion: 7.1.1
 
 Sample Error Responses
 ************************
@@ -4207,80 +4213,53 @@ Sample Error Responses
 Sample Policy Exception
 """"""""""""""""""""""""
 
-+-------------------------------------------------------------------+
-| HTTPS/1.1 400 Bad Request                                         |
-|                                                                   |
-| content-type: application/json                                    |
-|                                                                   |
-| content-length: 12345                                             |
-|                                                                   |
-| Date: Thu, 04 Jun 2009 02:51:59 GMT                               |
-|                                                                   |
-| X-MinorVersion: 1                                                 |
-|                                                                   |
-| X-PatchVersion: 0                                                 |
-|                                                                   |
-| X-LatestVersion: 7.1                                              |
-|                                                                   |
-| {                                                                 |
-|                                                                   |
-|   “requestError”: {                                               |
-|                                                                   |
-|     “policyException”: {                                          |
-|                                                                   |
-|       “messageId”: “POL9003”,                                     |
-|                                                                   |
-|       “text”: “Message content size exceeds the allowable limit”, |
-|                                                                   |
-|     }                                                             |
-|                                                                   |
-|   }                                                               |
-|                                                                   |
-| }                                                                 |
-+-------------------------------------------------------------------+
+.. code-block:: http
+
+    HTTPS/1.1 400 Bad Request
+    content-type: application/json
+    content-length: 12345
+    Date: Thu, 04 Jun 2009 02:51:59 GMT
+    X-MinorVersion: 1
+    X-PatchVersion: 1
+    X-LatestVersion: 7.1.1
+
+    {
+      "requestError": {
+        "policyException": {
+          "messageId": "POL9003",
+          "text": "Message content size exceeds the allowable limit",
+        }
+      }
+    }
+
+
 
 Sample Service Exception
 """""""""""""""""""""""""
 
-+-----------------------------------------------------------+
-| HTTPS/1.1 400 Bad Request                                 |
-|                                                           |
-| content-type: application/json                            |
-|                                                           |
-| content-length: 12345                                     |
-|                                                           |
-| Date: Thu, 04 Jun 2009 02:51:59 GMT                       |
-|                                                           |
-| X-MinorVersion: 1                                         |
-|                                                           |
-| X-PatchVersion: 0                                         |
-|                                                           |
-| X-LatestVersion: 7.1                                      |
-|                                                           |
-| {                                                         |
-|                                                           |
-|   “requestError”: {                                       |
-|                                                           |
-|     “serviceException”: {                                 |
-|                                                           |
-|       “messageId”: “SVC2000”,                             |
-|                                                           |
-|       “text”: “Missing Parameter: %1. Error code is %2”   |
-|                                                           |
-|       “variables”: [                                      |
-|                                                           |
-|         “severity”,                                       |
-|                                                           |
-|         “400”                                             |
-|                                                           |
-|       ]                                                   |
-|                                                           |
-|     }                                                     |
-|                                                           |
-|   }                                                       |
-|                                                           |
-| }                                                         |
-+-----------------------------------------------------------+
+.. code-block:: http
+
+    HTTPS/1.1 400 Bad Request
+    content-type: application/json
+    content-length: 12345
+    Date: Thu, 04 Jun 2009 02:51:59 GMT
+    X-MinorVersion: 1
+    X-PatchVersion: 1
+    X-LatestVersion: 7.1.1
+
+    {
+      "requestError": {
+        "serviceException": {
+          "messageId": "SVC2000",
+          "text": "Missing Parameter: %1. Error code is %2"
+          "variables": [
+            "severity",
+            "400"
+          ]
+        }
+      }
+    }
+
 
 Terminology
 ^^^^^^^^^^^^
@@ -4606,7 +4585,7 @@ Contents.
 | 9/16/2015 | v1.4    | JSON Schema rev’d to v10:                             |
 |           |         |                                                       |
 |           |         | - Fixed an error in the way that the top level        |
-|           |         |   “event” object was specified in the v9 json schema. |
+|           |         |   "event" object was specified in the v9 json schema. |
 |           |         |   This was discovered when validating examples        |
 |           |         |   against the schema using this site:                 |
 |           |         |   http://json-schema-validator.herokuapp.com/index.jsp|
@@ -4735,7 +4714,7 @@ Contents.
 |           |         |                                                       |
 |           |         | -  Note: for the VendorEventListener: added new       |
 |           |         |    licensing language on the back of the title page;  |
-|           |         |    added an “attCopyrightNotice” definition at the top|
+|           |         |    added an "attCopyrightNotice" definition at the top|
 |           |         |    of the commonEventFormat\_Vendors.json file; also  |
 |           |         |    removed all references to internalHeaderFields from|
 |           |         |    this file and from the VendorEventListener spec.   |
@@ -5262,7 +5241,7 @@ Contents.
 |           |         |       removed the following statement near the end of |
 |           |         |       the schema file:                                |
 |           |         |                                                       |
-|           |         |     “required”: [ “event” ]                           |
+|           |         |     "required": [ "event" ]                           |
 |           |         |                                                       |
 |           |         | -  Fixed the characters used in some of the quotes    |
 |           |         |                                                       |
@@ -5516,7 +5495,7 @@ Contents.
 |           |         |       removed the following statement near the end of |
 |           |         |       the schema file:                                |
 |           |         |                                                       |
-|           |         |     “required”: [ “event” ]                           |
+|           |         |     "required": [ "event" ]                           |
 |           |         |                                                       |
 |           |         | -  Fixed the characters used in some of the quotes    |
 |           |         |                                                       |
@@ -5659,10 +5638,10 @@ Contents.
 |           |         |       - ‘Voice Quality’ Domain Datatypes              |
 |           |         |                                                       |
 |           |         | -  Section 6.1.3: Commands Toward Event Source        |
-|           |         |    Clients: Added a statement: “Note: Vendors are not |
+|           |         |    Clients: Added a statement: "Note: Vendors are not |
 |           |         |    currently required to implement support for command|
 |           |         |    processing; in addition, command processing may be |
-|           |         |    supported by an App-C interface in future.”        |
+|           |         |    supported by an App-C interface in future."        |
 +-----------+---------+-------------------------------------------------------+
 | 6/22/2017 | v5.3    | -  JSON Schema: created v28.3 by correcting an error  |
 |           |         |    in the sipSignalingFields: changed                 |
@@ -5681,8 +5660,8 @@ Contents.
 |           |         |       addition to just events.                        |
 |           |         |                                                       |
 |           |         |    -  Moved the schema title to the top of the schema |
-|           |         |       and changed the text from “Event Listener” to   |
-|           |         |       “VES Event Listener”                            |
+|           |         |       and changed the text from "Event Listener" to   |
+|           |         |       "VES Event Listener"                            |
 |           |         |                                                       |
 |           |         |    -  Added a schema header block under the title to  |
 |           |         |       clearly communicate the schema version,         |
@@ -5742,10 +5721,10 @@ Contents.
 |           |         |                                                       |
 |           |         |    -  4.1.1: Common Event Datatypes:                  |
 |           |         |                                                       |
-|           |         |       -  removed "field" and added “hashMap”          |
+|           |         |       -  removed "field" and added "hashMap"          |
 |           |         |                                                       |
-|           |         |       -  removed “namedArrayOfFields” and added       |
-|           |         |          “namedHashMap”                               |
+|           |         |       -  removed "namedArrayOfFields" and added       |
+|           |         |          "namedHashMap"                               |
 |           |         |                                                       |
 |           |         |       -  added arrayOfNamedHashMap                    |
 |           |         |                                                       |
@@ -6017,7 +5996,7 @@ Contents.
 |           |         |                                                       |
 |           |         | -  Section 4 embedded schema changed to v30:          |
 |           |         |                                                       |
-|           |         |    -  Added “ ‘additionalProperties’: false ” to      |
+|           |         |    -  Added " ‘additionalProperties’: false " to      |
 |           |         |       objects to reject events that attempt to send   |
 |           |         |       properties that are not listed in the           |
 |           |         |       ‘properties’ keyword. Note: does not affect     |
@@ -6196,6 +6175,35 @@ Contents.
 |           |         |                                                       |
 |           |         | -  Changed the location of the doc to VNF             |
 |           |         |    Requirements and changed the formatting            |
++-----------+---------+-------------------------------------------------------+
+| 1/28/202  | v7.1.1  | -  Changed event sizes from 2Mb to 1Mb                |
+|           |         | -  Configuration Requirement comments addressed       |
+|           |         | -  Changed DCAE Collector to VES Event Listener       |
+|           |         | -  Replaced VNF with NF where appropriate             |
+|           |         | -  Updated publishAnyEvent and publishBatchEvent to   |
+|           |         |    clarify both one way and mutual TLS are supported  |
+|           |         | -  Changed authorization for publishEventBatch        |
+|           |         |    because certification authorization is also        |
+|           |         |    supported                                          |
+|           |         | -  Updated fault use case in EventId Use Case         |
+|           |         |    Examples based on Ericsson feedback                |
+|           |         | -  Added new Configuration Requirements section       |
+|           |         | -  Added new Event Domain Requirements section        |
+|           |         | -  Updated security requirements based on agreements  |
+|           |         |    in ONAP  Security Committee with details on 2-way  |
+|           |         |    certificate support                                |
+|           |         | -  Provided clarifications on event buffering         |
+|           |         | -  Added Event Handling Requirements for              |
+|           |         |    publishEventFlow                                   |
+|           |         | -  Updated Field Block Versions to support existing   |
+|           |         |    clients of major version 7                         |
+|           |         | -  Updated sample request and response schemas        |
+|           |         | -  Updated embedded schema as follows:                |
+|           |         |                                                       |
+|           |         |    * Changed schema version to 30.1.1                 |
+|           |         |    * Changed measValues to measValuesList and similar |
+|           |         |      changes throughout                               |
+|           |         |    * Changed iMeasTypesList to sMeasTypesList         |
 +-----------+---------+-------------------------------------------------------+
 
 .. _time_zone_abbreviations: https://en.wikipedia.org/wiki/List_of_time_zone_abbreviations
