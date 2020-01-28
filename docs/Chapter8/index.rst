@@ -24,5 +24,5 @@ Appendix
     VNF-License-Information-Guidelines
     TOSCA-model
     Ansible-Playbook-Examples
-    VES_Registraion_3_2.rst
+    VES_Registration_3_2.rst
     ves7_1spec.rst
