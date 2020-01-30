@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "454ac1f7_cb86feef",
+        "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-01-30T20:37:37Z",
+      "side": 1,
+      "message": "2017-2020",
+      "range": {
+        "startLine": 3,
+        "startChar": 13,
+        "endLine": 3,
+        "endChar": 22
+      },
+      "revId": "881338a0e4366e90fc786550f07b1fc9fbebb739",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "acc030cb_8c0eba57",
+        "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-01-30T20:37:37Z",
+      "side": 1,
+      "message": "SDC",
+      "range": {
+        "startLine": 168,
+        "startChar": 1,
+        "endLine": 168,
+        "endChar": 5
+      },
+      "revId": "881338a0e4366e90fc786550f07b1fc9fbebb739",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
