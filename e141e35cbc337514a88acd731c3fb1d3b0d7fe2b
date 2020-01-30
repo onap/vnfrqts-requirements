@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee743fb9_78ecc9f7",
+        "filename": "docs/Chapter8/CommonEventFormat_30.1.1_ONAP.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-01-30T20:32:24Z",
+      "side": 1,
+      "message": "should be updated",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 36
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fe260b26_884072cb",
+        "filename": "docs/Chapter8/CommonEventFormat_30.1.1_ONAP.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-01-30T20:32:24Z",
+      "side": 1,
+      "message": "2020",
+      "range": {
+        "startLine": 34,
+        "startChar": 41,
+        "endLine": 34,
+        "endChar": 46
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "14d3f6f6_3828835b",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 508,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-01-30T20:32:24Z",
+      "side": 1,
+      "message": "These option individually are no longer supported in DCAE/VESCollector (as they are covered under certBasicAuth)",
+      "range": {
+        "startLine": 504,
+        "startChar": 0,
+        "endLine": 508,
+        "endChar": 42
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "431344cb_ca6c193e",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 518,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-01-30T20:32:24Z",
+      "side": 1,
+      "message": "should be removed",
+      "range": {
+        "startLine": 515,
+        "startChar": 66,
+        "endLine": 518,
+        "endChar": 21
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "87f88cfa_aebb80f9",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 580,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-01-30T20:32:24Z",
+      "side": 1,
+      "message": "1",
+      "range": {
+        "startLine": 580,
+        "startChar": 20,
+        "endLine": 580,
+        "endChar": 21
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4c4e2bf3_dea19913",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 3613,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-01-30T20:32:24Z",
+      "side": 1,
+      "message": "1 and 1",
+      "range": {
+        "startLine": 3611,
+        "startChar": 0,
+        "endLine": 3613,
+        "endChar": 20
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
