@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "d72054d1_e0161404",
+        "filename": "docs/Chapter8/CommonEventFormat_30.1.1_ONAP.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-04T12:02:15Z",
+      "side": 1,
+      "message": "General comment - We shall not have this file here.\nThe Common Schema is stored in DCAE project, and from there it is fetched to a DCAE/VES collector Dockers, when these are built.\n\nHaving the schema separately in the doc means, that each update we need to do twice. What storing the schema in DCAEGEN2 project directly, and maybe we could refer to that in the DOC?\n\nAll schemas are available in human-friendly form here:\nhttps://github.com/onap/dcaegen2-collectors-ves/tree/master/etc",
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ee743fb9_78ecc9f7",
         "filename": "docs/Chapter8/CommonEventFormat_30.1.1_ONAP.json",
         "patchSetId": 1
@@ -41,6 +58,167 @@
         "startChar": 41,
         "endLine": 34,
         "endChar": 46
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7e029b07_fae3b638",
+        "filename": "docs/Chapter8/CommonEventFormat_30.1.1_ONAP.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 1406,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-04T12:02:15Z",
+      "side": 1,
+      "message": "Correct formatting.\nMove one level left.",
+      "range": {
+        "startLine": 1403,
+        "startChar": 0,
+        "endLine": 1406,
+        "endChar": 18
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fe2e0f7a_06efb5c8",
+        "filename": "docs/Chapter8/CommonEventFormat_30.1.1_ONAP.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 1443,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-04T12:02:15Z",
+      "side": 1,
+      "message": "Correct formatting - move one level left.\nContinue for all measInfo fields.\n\nWould be nice to decide, if we use \"spaces\" or \"tabs\" across teh",
+      "range": {
+        "startLine": 1441,
+        "startChar": 0,
+        "endLine": 1443,
+        "endChar": 20
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9cb93f03_228a7856",
+        "filename": "docs/Chapter8/CommonEventFormat_30.1.1_ONAP.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 1705,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-04T12:02:15Z",
+      "side": 1,
+      "message": "Formatting - again. TABS not really nice for JSON",
+      "range": {
+        "startLine": 1703,
+        "startChar": 0,
+        "endLine": 1705,
+        "endChar": 20
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "01109eb9_0b1fe09e",
+        "filename": "docs/Chapter8/CommonEventFormat_30.1.1_ONAP.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 2191,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-04T12:02:15Z",
+      "side": 1,
+      "message": "Formatting, again... Avoid TABs.",
+      "range": {
+        "startLine": 2191,
+        "startChar": 0,
+        "endLine": 2191,
+        "endChar": 3
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1608c2d1_081c8a2b",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-04T12:02:15Z",
+      "side": 1,
+      "message": "what about calling that domain\u003cnnnnnn\u003e instead of domainnnnnnn? domainnnnnn looks like a typo actually.",
+      "range": {
+        "startLine": 206,
+        "startChar": 23,
+        "endLine": 206,
+        "endChar": 35
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c1611c1_70fcb8a9",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-04T12:02:15Z",
+      "side": 1,
+      "message": "Same here, domainIdnnnnn --\u003e domainID\u003cnnnnn\u003e?",
+      "range": {
+        "startLine": 206,
+        "startChar": 39,
+        "endLine": 206,
+        "endChar": 51
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "31454b63_afb2774c",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-04T12:02:15Z",
+      "side": 1,
+      "message": "the domain is called \"notification\" in this example.\nIf the notification3gppPerfFileReady is a domainId (not a domain), then do we have a description, how to build a domian ID in the document somewhere?",
+      "range": {
+        "startLine": 208,
+        "startChar": 0,
+        "endLine": 208,
+        "endChar": 29
       },
       "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
