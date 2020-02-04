@@ -226,6 +226,581 @@
     },
     {
       "key": {
+        "uuid": "4a97ff56_16403e6c",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-04T16:59:15Z",
+      "side": 1,
+      "message": "This is a little unclear to me.\nAs far as I recall, the startEpochMicrosec is a timestamp, when the 1st event related to the fault was reported.\n\nWhen other events related to that fault are received, they are expected to have the same startEpochMicrosec, but the lastEpochMicrosec is updated.\n\nThis sentence \"when that event is generated\" - it is not actually when the event is generated, as we have multiple events related to a single fault. \"when this fault is first reported\" sounds to be better, at least to me.",
+      "range": {
+        "startLine": 231,
+        "startChar": 64,
+        "endLine": 233,
+        "endChar": 20
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63ebaac6_3c15131c",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-04T16:59:15Z",
+      "side": 1,
+      "message": "Following the comment before... \"when the fault is raised\"...",
+      "range": {
+        "startLine": 237,
+        "startChar": 68,
+        "endLine": 238,
+        "endChar": 30
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "58a0cba3_3174caca",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-04T16:59:15Z",
+      "side": 1,
+      "message": "Well, We need to be careful about this in a specification like this one here. We need to provide a single solution here, and not possible alternatives. What does that mean for the NF providers? That they could use any approach mentioned here?\nOr they should use the 1st one, and be informed about future changes?",
+      "range": {
+        "startLine": 270,
+        "startChar": 43,
+        "endLine": 274,
+        "endChar": 32
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "33edfbbd_318339bf",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-04T16:59:15Z",
+      "side": 1,
+      "message": "Let`s remove this.\nWe have other protocols/serialization methods used in other collectors (e.g. HV-VES)\n\nVES seems to be simply REST/JSON.",
+      "range": {
+        "startLine": 325,
+        "startChar": 0,
+        "endLine": 326,
+        "endChar": 37
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1db711b7_c465bfaf",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-04T16:59:15Z",
+      "side": 1,
+      "message": "General comment to this part.\nI think, it shall be a part of VNF Requirements project, rather than a chapter in the VES spec.\n\nA suggested method of VNF internal configuration (see e.g. mesaurements period, aso) - looks to be really a requirement against a VNF - not really something, we we can see in the protocol.\n\nThe requirements below (on specific config parameters) really look like sth to be kept in VNFRQTs as R-xyz.",
+      "range": {
+        "startLine": 328,
+        "startChar": 0,
+        "endLine": 328,
+        "endChar": 26
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a19fe8e_6e6d5502",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-04T16:59:15Z",
+      "side": 1,
+      "message": "This is not always the case.\nFor PNFs, when executing PNFRegistration use-case, the IP address of VES interface, a port (complete URI) needs to be known, before a controller is able connect to that PNF.\n\nProposal of the text to be changed: \nIt is assumed, that VES endpoint connection details are part of the xNF configuration, and they can be introduced manually, or via an ONAP Controller configuration action.\n\nDon`t mention protocol/mechanisms here (NetConf/Ansible) - these will change over time probably.",
+      "range": {
+        "startLine": 332,
+        "startChar": 0,
+        "endLine": 333,
+        "endChar": 35
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "40040812_fed66859",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-04T16:59:15Z",
+      "side": 1,
+      "message": "The description matches perfectly something I would see as a VNF Requirement. Let`s move it there.\nIt is really a requirement against an xNF.",
+      "range": {
+        "startLine": 335,
+        "startChar": 2,
+        "endLine": 344,
+        "endChar": 10
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "98a3b1fc_011eb9c8",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-04T16:59:15Z",
+      "side": 1,
+      "message": "Do we need this in the VES Event Listner spec?\nIs this a generic behavior of DNS servers, of behavior expected by ONAP? If this is needed at all - shall we move this to VNF Requirements?",
+      "range": {
+        "startLine": 345,
+        "startChar": 0,
+        "endLine": 347,
+        "endChar": 39
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c9512075_b58ef20e",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-04T16:59:15Z",
+      "side": 1,
+      "message": "Is this a requirement against xNF to offer a different configuration structure/object for each VES domain?\n\nIf Yes, it shall be stated in VNF Requirements.",
+      "range": {
+        "startLine": 348,
+        "startChar": 2,
+        "endLine": 354,
+        "endChar": 52
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c30e61e9_220a119d",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-04T16:59:15Z",
+      "side": 1,
+      "message": "Maybe we can put here the complete VES Listener URI, e.g.\nhttps://192.168.0.101:8080/eventListener/v7\n\nWe will need the path anyway, as there might be different versions of VES running, and there are 2 VES endpoints (eventListener and eventBatch).",
+      "range": {
+        "startLine": 355,
+        "startChar": 0,
+        "endLine": 355,
+        "endChar": 73
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "519a5b65_a625946a",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-04T16:59:15Z",
+      "side": 1,
+      "message": "To me, this sounds like a VNF Requirement.",
+      "range": {
+        "startLine": 356,
+        "startChar": 2,
+        "endLine": 361,
+        "endChar": 28
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1425ed6f_d14e430d",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-04T16:59:15Z",
+      "side": 1,
+      "message": "This is a VES specific behavior, that can stay here - but most probably in VES Collector configuration section.",
+      "range": {
+        "startLine": 361,
+        "startChar": 29,
+        "endLine": 361,
+        "endChar": 79
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2607123c_d058a763",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-04T16:59:15Z",
+      "side": 1,
+      "message": "Again, that`s a VNF Requirement, not a VES Event Listener characteristic.",
+      "range": {
+        "startLine": 363,
+        "startChar": 2,
+        "endLine": 365,
+        "endChar": 23
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a1ff1e44_b5ae23f3",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-04T16:59:15Z",
+      "side": 1,
+      "message": "If this applies to 3GPP devices, then there is a dedicated PM job definition within 3GPP specs, which has relevant property.\n\nIf not - this shall go to VNF Requirements, and maybe there we can mention that requirement for non-3GPP NFs.\n\n(For 3GPP NFs, that requirement is covered in 3GPP specs. Perhaps we coudl note, which 3GPP spec that 3GPP_compliant box needs to be compatible with)",
+      "range": {
+        "startLine": 366,
+        "startChar": 0,
+        "endLine": 367,
+        "endChar": 52
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c20d6349_5f11e402",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-04T16:59:15Z",
+      "side": 1,
+      "message": "Again, a VNF Requirement- ACK timeout to be a config parameter on xNF, as as such a VNF Rqt applies here.",
+      "range": {
+        "startLine": 368,
+        "startChar": 0,
+        "endLine": 368,
+        "endChar": 60
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b900b93_2f44e5d7",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-04T16:59:15Z",
+      "side": 1,
+      "message": "VNF Requirement.",
+      "range": {
+        "startLine": 373,
+        "startChar": 1,
+        "endLine": 374,
+        "endChar": 25
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2f834715_8e435245",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-04T16:59:15Z",
+      "side": 1,
+      "message": "VNF Requirement",
+      "range": {
+        "startLine": 375,
+        "startChar": 2,
+        "endLine": 376,
+        "endChar": 12
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea7892aa_0944d402",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-04T16:59:15Z",
+      "side": 1,
+      "message": "VNF Requirement",
+      "range": {
+        "startLine": 377,
+        "startChar": 0,
+        "endLine": 378,
+        "endChar": 36
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "afbd111d_c90d5796",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-04T16:59:15Z",
+      "side": 1,
+      "message": "VNF Requirement",
+      "range": {
+        "startLine": 379,
+        "startChar": 0,
+        "endLine": 382,
+        "endChar": 74
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a44835ac_4eea6f92",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-04T16:59:15Z",
+      "side": 1,
+      "message": "We need to state a requirement here, or simply remove this from this VES Event Listener spec.",
+      "range": {
+        "startLine": 383,
+        "startChar": 1,
+        "endLine": 385,
+        "endChar": 21
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bede95f1_b2f7d6ce",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-04T16:59:15Z",
+      "side": 1,
+      "message": "Not clear. Is this about configuration objects, or active connections established to 2 x VES endpoints, one of them Active?\n\nIf",
+      "range": {
+        "startLine": 390,
+        "startChar": 2,
+        "endLine": 391,
+        "endChar": 11
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3666156_ef750504",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-04T16:59:15Z",
+      "side": 1,
+      "message": "Usually, more complex mechanisms are used, e.g. attempt to send a message 3 times, with a configurable time-spans, and then fall-back to a passive instance. Still, it is required, that an xNF checks the health of primary active endpoint.",
+      "range": {
+        "startLine": 397,
+        "startChar": 0,
+        "endLine": 399,
+        "endChar": 62
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e851b06b_2df47b26",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-04T16:59:15Z",
+      "side": 1,
+      "message": "VNF Requirement?",
+      "range": {
+        "startLine": 404,
+        "startChar": 2,
+        "endLine": 406,
+        "endChar": 34
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10fa5e27_c42e5b38",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-04T16:59:15Z",
+      "side": 1,
+      "message": "VNF Requirement?",
+      "range": {
+        "startLine": 409,
+        "startChar": 2,
+        "endLine": 412,
+        "endChar": 36
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "81188419_aa8f47c7",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-04T16:59:15Z",
+      "side": 1,
+      "message": "After applying the comment from Vijay, that would be 2 methods, not 4. And I agree with Vijay`s comment.",
+      "range": {
+        "startLine": 492,
+        "startChar": 70,
+        "endLine": 494,
+        "endChar": 37
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "14d3f6f6_3828835b",
         "filename": "docs/Chapter8/ves7_1spec.rst",
         "patchSetId": 1
