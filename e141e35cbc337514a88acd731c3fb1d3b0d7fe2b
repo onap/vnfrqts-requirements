@@ -226,6 +226,30 @@
     },
     {
       "key": {
+        "uuid": "87c73d0f_361d04f3",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 5328
+      },
+      "writtenOn": "2020-02-05T20:28:11Z",
+      "side": 1,
+      "message": "I don\u0027t understand this example notification3gppPerfFileReady0005.  I would have thought that it would be the domain notification0005.  There is not currently a notification called 3gppPerfFileReady to the best of my knowledge.  there is a fileReady notification type. Are we saying that if there are different subtypes within a domain like notification then we should be including the type in the event ID? I think if this is the case then all the types within a domain need to also be included",
+      "parentUuid": "31454b63_afb2774c",
+      "range": {
+        "startLine": 208,
+        "startChar": 0,
+        "endLine": 208,
+        "endChar": 29
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a97ff56_16403e6c",
         "filename": "docs/Chapter8/ves7_1spec.rst",
         "patchSetId": 1
@@ -246,6 +270,23 @@
       "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7899640_af09242c",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 5328
+      },
+      "writtenOn": "2020-02-05T20:28:11Z",
+      "side": 1,
+      "message": "this should say is the timestamp when the original onset of the fault occurred.  The timestamp for the clear should also be the timestamp for the onset of the original fault.  The starEpochMicrosec for a clear should not be when the clear arrives.",
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
     },
     {
       "key": {
@@ -292,6 +333,30 @@
       "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ed7fc48_643547d9",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 5328
+      },
+      "writtenOn": "2020-02-05T20:28:11Z",
+      "side": 1,
+      "message": "I agree the specification should be saying what is expected not what might be done.  This leaves it fully open to interpretation.  I have no idea what VES requires",
+      "parentUuid": "58a0cba3_3174caca",
+      "range": {
+        "startLine": 270,
+        "startChar": 43,
+        "endLine": 274,
+        "endChar": 32
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
     },
     {
       "key": {
@@ -430,6 +495,23 @@
       "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f92cbab2_f8e4e598",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 5328
+      },
+      "writtenOn": "2020-02-05T20:28:11Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this also go in the VNF requirements?  Are we saying that a NF needs to be able to support a different destination IP address for different domains if the service provider wishes to request this?  That is really the requirement and its not on the VES Event Listener.  If a NF sends an event to a collector and it is not valid then the collector should discard it.  So if the service provider has their network set up such that they have configured different collector FQDNS/IP Addresses then the collector should reject the event.  It should be a VNF requirement on the NF to be able to support multiple destinations.  This would go in one of the general requirements sections I think.\n\nI won\u0027t repeat myself I agree with Damian on his remarks in this section regarding what is appropriate for the Event Listener chapter and what should go in other chapters of the VNF requirements.  We can help direct what other chapters might be appropriate.",
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
     },
     {
       "key": {
@@ -709,6 +791,52 @@
     },
     {
       "key": {
+        "uuid": "588cdefa_4e32ce0b",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 5328
+      },
+      "writtenOn": "2020-02-05T20:28:11Z",
+      "side": 1,
+      "message": "isn\u0027t this in conflict with some of the above statements.  I thought that the NF had to be able to support different listeners for different domains.  This is implying that no you only have to support one listener.  I think we have to sort out what this is for.  I am thinking that if it is related to the other general requirements for what a NF must support then it doesn\u0027t belong in this chapter.",
+      "range": {
+        "startLine": 390,
+        "startChar": 0,
+        "endLine": 391,
+        "endChar": 11
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9addbffd_5e3f7ff7",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 5328
+      },
+      "writtenOn": "2020-02-05T20:28:11Z",
+      "side": 1,
+      "message": "this is an example of a requirement that I think should be in the VNF requirements general section but is okay to have here as well.",
+      "range": {
+        "startLine": 392,
+        "startChar": 0,
+        "endLine": 396,
+        "endChar": 7
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e3666156_ef750504",
         "filename": "docs/Chapter8/ves7_1spec.rst",
         "patchSetId": 1
@@ -890,6 +1018,46 @@
       "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e7d79a9f_373271c7",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 3647,
+      "author": {
+        "id": 5328
+      },
+      "writtenOn": "2020-02-05T20:28:11Z",
+      "side": 1,
+      "message": "shouldn\u0027t it just say send?  Streaming implies a websocket or persistent connection",
+      "range": {
+        "startLine": 3647,
+        "startChar": 41,
+        "endLine": 3647,
+        "endChar": 52
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "20376cc8_4d3243e8",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 3668,
+      "author": {
+        "id": 5328
+      },
+      "writtenOn": "2020-02-05T20:28:11Z",
+      "side": 1,
+      "message": "How does one identify these batch events do they have to all be from the same domain?  I don\u0027t understand how one populates headers etc to indicate that this is a batch.  Will the Collector look at each event individually?  How do these events get to the proper topic if they are from different domains.",
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
     }
   ]
 }
