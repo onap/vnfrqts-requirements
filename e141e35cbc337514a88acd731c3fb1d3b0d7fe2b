@@ -250,6 +250,30 @@
     },
     {
       "key": {
+        "uuid": "5a1a9de3_a8ae8f08",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 5279
+      },
+      "writtenOn": "2020-02-05T21:40:13Z",
+      "side": 1,
+      "message": "There were some email discussions last year about eventId, with conclusion that format domain\u003cnnn\u003e is not mandatory. It is just an example. One of the things that triggered this dicussion is that the notification domain can be used for several purposes and it may not be practical to have a single eventId sequence. I don\u0027t agree to adding new rules about value of eventId, maybe it needs to be clarified what is just example and what is requirement.",
+      "parentUuid": "87c73d0f_361d04f3",
+      "range": {
+        "startLine": 208,
+        "startChar": 0,
+        "endLine": 208,
+        "endChar": 29
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a97ff56_16403e6c",
         "filename": "docs/Chapter8/ves7_1spec.rst",
         "patchSetId": 1
@@ -526,6 +550,30 @@
       "writtenOn": "2020-02-04T16:59:15Z",
       "side": 1,
       "message": "Maybe we can put here the complete VES Listener URI, e.g.\nhttps://192.168.0.101:8080/eventListener/v7\n\nWe will need the path anyway, as there might be different versions of VES running, and there are 2 VES endpoints (eventListener and eventBatch).",
+      "range": {
+        "startLine": 355,
+        "startChar": 0,
+        "endLine": 355,
+        "endChar": 73
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a833450_5a2783b4",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 5279
+      },
+      "writtenOn": "2020-02-05T21:40:13Z",
+      "side": 1,
+      "message": "I think this line can be removed. There is a more complete description of the VES Event Listener URL already in section \u0027Resource Structure\u0027.",
+      "parentUuid": "c30e61e9_220a119d",
       "range": {
         "startLine": 355,
         "startChar": 0,
@@ -883,6 +931,30 @@
     },
     {
       "key": {
+        "uuid": "f71e1354_4515be2d",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 5279
+      },
+      "writtenOn": "2020-02-05T21:40:13Z",
+      "side": 1,
+      "message": "Buffering is also described elsewhere in the spec and the requirements are not fully consistent.  This text could be interpreted that all events must be buffered which is not consistent with separate section regarding buffering. Also here it says at least 1h while other section says max 1h.",
+      "parentUuid": "e851b06b_2df47b26",
+      "range": {
+        "startLine": 404,
+        "startChar": 2,
+        "endLine": 406,
+        "endChar": 34
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "10fa5e27_c42e5b38",
         "filename": "docs/Chapter8/ves7_1spec.rst",
         "patchSetId": 1
@@ -917,6 +989,30 @@
       "writtenOn": "2020-02-04T16:59:15Z",
       "side": 1,
       "message": "After applying the comment from Vijay, that would be 2 methods, not 4. And I agree with Vijay`s comment.",
+      "range": {
+        "startLine": 492,
+        "startChar": 70,
+        "endLine": 494,
+        "endChar": 37
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "52e2525b_743f9dbd",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 5279
+      },
+      "writtenOn": "2020-02-05T21:40:13Z",
+      "side": 1,
+      "message": "Should DCAE and its configuration options be mentioned at all in VES listener spec? Can this section be reworded?",
+      "parentUuid": "81188419_aa8f47c7",
       "range": {
         "startLine": 492,
         "startChar": 70,
@@ -1055,6 +1151,40 @@
       "writtenOn": "2020-02-05T20:28:11Z",
       "side": 1,
       "message": "How does one identify these batch events do they have to all be from the same domain?  I don\u0027t understand how one populates headers etc to indicate that this is a batch.  Will the Collector look at each event individually?  How do these events get to the proper topic if they are from different domains.",
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63f7d607_1396647a",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 3669,
+      "author": {
+        "id": 5279
+      },
+      "writtenOn": "2020-02-05T21:40:13Z",
+      "side": 1,
+      "message": "Who is supposed to perform the testing described above? Why is this part of the spec?\nI also don\u0027t understand \u0027for lifecycle management of the device\u0027. Does this refer to some specific type of event?",
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b407ab7_e03b67bf",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 3852,
+      "author": {
+        "id": 5279
+      },
+      "writtenOn": "2020-02-05T21:40:13Z",
+      "side": 1,
+      "message": "What is the event sent to VES Event Collector for life cycle maintenance of the NF?",
       "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
