@@ -203,6 +203,30 @@
     },
     {
       "key": {
+        "uuid": "c117cc0e_56d57266",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 6348
+      },
+      "writtenOn": "2020-02-06T18:17:49Z",
+      "side": 1,
+      "message": "I suggest domain\u003cn\u003e where \u003cn\u003e is a number.  I don\u0027t think we should require the number to be a certain number of digits.",
+      "parentUuid": "1608c2d1_081c8a2b",
+      "range": {
+        "startLine": 206,
+        "startChar": 23,
+        "endLine": 206,
+        "endChar": 35
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "31454b63_afb2774c",
         "filename": "docs/Chapter8/ves7_1spec.rst",
         "patchSetId": 1
@@ -268,6 +292,23 @@
         "endLine": 208,
         "endChar": 29
       },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48922ede_10a3007b",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 6348
+      },
+      "writtenOn": "2020-02-06T18:17:49Z",
+      "side": 1,
+      "message": "We should not require a certain number of digits in the number, so examples heartbeat3, notification11 should be valid",
       "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
@@ -464,6 +505,29 @@
       "writtenOn": "2020-02-04T16:59:15Z",
       "side": 1,
       "message": "The description matches perfectly something I would see as a VNF Requirement. Let`s move it there.\nIt is really a requirement against an xNF.",
+      "range": {
+        "startLine": 335,
+        "startChar": 2,
+        "endLine": 344,
+        "endChar": 10
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d063292_d684515a",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 6348
+      },
+      "writtenOn": "2020-02-06T18:17:49Z",
+      "side": 1,
+      "message": "This should be removed. This active/standby behavior for FQDNs or IP addresses is not supported by 3GPP Subscription Control NRM.  If a destination address subscribes to an event, events go to that destination.  If 2 destinations subscribe, events go to 2 destinations.  There is no concept of try one first, then the other.",
       "range": {
         "startLine": 335,
         "startChar": 2,
@@ -886,6 +950,29 @@
     },
     {
       "key": {
+        "uuid": "fb424010_f7adf95c",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 6348
+      },
+      "writtenOn": "2020-02-06T18:17:49Z",
+      "side": 1,
+      "message": "This should be removed.  First - It is unclear.  NF doesn\u0027t have an event listener, ONAP does.  Second - If this means NF should have 2 destination addresses for each event listener; active and standby - this is not supported by 3GPP Subscription NRM.  3GPP NF sends to all destinations that subscribe.",
+      "range": {
+        "startLine": 390,
+        "startChar": 2,
+        "endLine": 391,
+        "endChar": 11
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9addbffd_5e3f7ff7",
         "filename": "docs/Chapter8/ves7_1spec.rst",
         "patchSetId": 1
@@ -925,6 +1012,29 @@
         "startChar": 0,
         "endLine": 399,
         "endChar": 62
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7e9c7d03_e76e8c04",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 6348
+      },
+      "writtenOn": "2020-02-06T18:17:49Z",
+      "side": 1,
+      "message": "Remove. Active/standby destination addresses are not supported in 3GPP Subscription NRM.",
+      "range": {
+        "startLine": 400,
+        "startChar": 2,
+        "endLine": 403,
+        "endChar": 64
       },
       "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
