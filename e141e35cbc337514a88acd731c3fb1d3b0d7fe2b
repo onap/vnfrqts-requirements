@@ -499,6 +499,30 @@
     },
     {
       "key": {
+        "uuid": "a04177a9_76b653d0",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-06T16:30:02Z",
+      "side": 1,
+      "message": "\u003e Do we need this in the VES Event Listner spec?\n \u003e Is this a generic behavior of DNS servers, of behavior expected by\n \u003e ONAP? If this is needed at all - shall we move this to VNF\n \u003e Requirements?\n\nI can add here - we can get a few IP addresses in a DNS query (even an IPv6 and IPv4 in a single DNS response). \nThus this is specific to some environment. DO we have here really a requirement about a specific configuration of DNS, that resolves ONAP`s VES collector address in a specific way?",
+      "parentUuid": "98a3b1fc_011eb9c8",
+      "range": {
+        "startLine": 345,
+        "startChar": 0,
+        "endLine": 347,
+        "endChar": 39
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c9512075_b58ef20e",
         "filename": "docs/Chapter8/ves7_1spec.rst",
         "patchSetId": 1
@@ -1025,6 +1049,30 @@
     },
     {
       "key": {
+        "uuid": "372f8eb6_dd812428",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-06T16:30:02Z",
+      "side": 1,
+      "message": "Well, onap.readthedocs.io is the right place for this. \nI agree with Oskar here.",
+      "parentUuid": "52e2525b_743f9dbd",
+      "range": {
+        "startLine": 492,
+        "startChar": 70,
+        "endLine": 494,
+        "endChar": 37
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "14d3f6f6_3828835b",
         "filename": "docs/Chapter8/ves7_1spec.rst",
         "patchSetId": 1
@@ -1071,6 +1119,52 @@
     },
     {
       "key": {
+        "uuid": "ef7ba5fb_e932a25b",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 531,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-06T16:30:02Z",
+      "side": 1,
+      "message": "This could become as well a VNF Requirement, if not already there.",
+      "range": {
+        "startLine": 524,
+        "startChar": 19,
+        "endLine": 531,
+        "endChar": 27
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18954778_eaf6c244",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-06T16:30:02Z",
+      "side": 1,
+      "message": "Is this still relevant?\nWe have some kind of Cert based security provided in previous section. Not sure, if we need this TLS chapter here, if it is still relevant after changes, we`ve been doing in ONAP/Frankfurt within VES.",
+      "range": {
+        "startLine": 533,
+        "startChar": 0,
+        "endLine": 535,
+        "endChar": 31
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "87f88cfa_aebb80f9",
         "filename": "docs/Chapter8/ves7_1spec.rst",
         "patchSetId": 1
@@ -1087,6 +1181,121 @@
         "startChar": 20,
         "endLine": 580,
         "endChar": 21
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "49fcc051_85b9a50a",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 585,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-06T16:30:02Z",
+      "side": 1,
+      "message": "TLS and not TSL, typo here.",
+      "range": {
+        "startLine": 585,
+        "startChar": 7,
+        "endLine": 585,
+        "endChar": 10
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "caefea3d_64179fdd",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 603,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-06T16:30:02Z",
+      "side": 1,
+      "message": "Not always a domain. domain, if fqdn is used, and still, we can use IP addresses.",
+      "range": {
+        "startLine": 603,
+        "startChar": 22,
+        "endLine": 603,
+        "endChar": 28
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c6bf0b1f_f8636d79",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-06T16:30:02Z",
+      "side": 1,
+      "message": "In the previous section, there was a statement about configuring the domain in a config management operation, or setting that manually. Please sync.",
+      "range": {
+        "startLine": 612,
+        "startChar": 0,
+        "endLine": 613,
+        "endChar": 36
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e0e9b1c_303b7bc5",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 621,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-06T16:30:02Z",
+      "side": 1,
+      "message": "Please make a link to DCAE repo, and please fix branch to Frankfurt. Then we have only a single file, and if bugs are fixed there, we immediately see it here in the spec.",
+      "range": {
+        "startLine": 621,
+        "startChar": 0,
+        "endLine": 621,
+        "endChar": 53
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cc8931f2_c2bc03ee",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-06T16:30:02Z",
+      "side": 1,
+      "message": "VNF Requirement.",
+      "range": {
+        "startLine": 626,
+        "startChar": 4,
+        "endLine": 628,
+        "endChar": 27
       },
       "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
