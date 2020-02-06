@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "efbb7dc8_63ac5ded",
+        "filename": "docs/Chapter8/CommonEventFormat_30.1.1_ONAP.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5279
+      },
+      "writtenOn": "2020-02-06T20:32:36Z",
+      "side": 1,
+      "message": "I don\u0027t agree with this proposal. The authoritative version of the JSON Schema should be published and owned by the VNF requirements project. In case it is kept in DCAE, it creates doubts about spec ownership and increased risk for divergence.\nI understand that DCAE is one of the primary users of this schema, and that importing new versions should be as easy as possible. But I think discussion should start with looking at how to simplify that process.",
+      "parentUuid": "d72054d1_e0161404",
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ee743fb9_78ecc9f7",
         "filename": "docs/Chapter8/CommonEventFormat_30.1.1_ONAP.json",
         "patchSetId": 1
@@ -468,6 +486,30 @@
       "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4f56d736_adabee67",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 5279
+      },
+      "writtenOn": "2020-02-06T20:32:36Z",
+      "side": 1,
+      "message": "I agree that requirements for the VNF/PNF that are not directly related to the VES protocol definition should generally go into VNF requirements (section 7.4 Monitoring \u0026 Management). There are already several examples of such VES-related requirements today in 7.4. Some of them also overlap with requirements below while not always being fully aligned, in those cases further analysis and discussion is needed to resolve the overlap or misalignment.\n\nFor this review, it seems most of the proposed new text in the following sections would fall into this category and would fit better in VNF requirements (7.4):\n* Configuration Requirements\n* Event Domain Requirements/Expectations\n* Use of Collector FQDNs and/or IP Address\n* (Parts of) Buffering, e g what events to buffer and for how long\n\n(Conversely, probably some of the existing text in 7.4 should be removed in the future, since it repeats parts of the protocol description from this document.)",
+      "parentUuid": "1db711b7_c465bfaf",
+      "range": {
+        "startLine": 328,
+        "startChar": 0,
+        "endLine": 328,
+        "endChar": 26
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
     },
     {
       "key": {
@@ -1019,6 +1061,30 @@
     },
     {
       "key": {
+        "uuid": "a21742ca_eb4494ca",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 5279
+      },
+      "writtenOn": "2020-02-06T20:32:36Z",
+      "side": 1,
+      "message": "I agree that implementations might use a more sophisticated approach.",
+      "parentUuid": "e3666156_ef750504",
+      "range": {
+        "startLine": 397,
+        "startChar": 0,
+        "endLine": 399,
+        "endChar": 62
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7e9c7d03_e76e8c04",
         "filename": "docs/Chapter8/ves7_1spec.rst",
         "patchSetId": 1
@@ -1100,6 +1166,30 @@
       "writtenOn": "2020-02-04T16:59:15Z",
       "side": 1,
       "message": "VNF Requirement?",
+      "range": {
+        "startLine": 409,
+        "startChar": 2,
+        "endLine": 412,
+        "endChar": 36
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "685974ba_ff4d914d",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 5279
+      },
+      "writtenOn": "2020-02-06T20:32:36Z",
+      "side": 1,
+      "message": "In the 7.1.1 draft-4 Word document, there is review comment explaining that the second part with sending of fault event in this scenario is optional. As those extra review comments are not imported here, I think the text above needs to be clarified to make it clear this is not mandatory.",
+      "parentUuid": "10fa5e27_c42e5b38",
       "range": {
         "startLine": 409,
         "startChar": 2,
@@ -1299,6 +1389,30 @@
     },
     {
       "key": {
+        "uuid": "9b8eabde_76607a9b",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 531,
+      "author": {
+        "id": 5279
+      },
+      "writtenOn": "2020-02-06T20:32:36Z",
+      "side": 1,
+      "message": "I think this looks like part of the protocol definition. (In this case it is really re-stating content of RFC2617).",
+      "parentUuid": "ef7ba5fb_e932a25b",
+      "range": {
+        "startLine": 524,
+        "startChar": 19,
+        "endLine": 531,
+        "endChar": 27
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "18954778_eaf6c244",
         "filename": "docs/Chapter8/ves7_1spec.rst",
         "patchSetId": 1
@@ -1434,6 +1548,30 @@
       "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "444b1a38_f8b2ca95",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 621,
+      "author": {
+        "id": 5279
+      },
+      "writtenOn": "2020-02-06T20:32:36Z",
+      "side": 1,
+      "message": "I don\u0027t agree that official JSON Schema should be kept in the DCAE project. See separate comment for the Schema file review.",
+      "parentUuid": "4e0e9b1c_303b7bc5",
+      "range": {
+        "startLine": 621,
+        "startChar": 0,
+        "endLine": 621,
+        "endChar": 53
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
     },
     {
       "key": {
