@@ -45,6 +45,57 @@
       "revId": "881338a0e4366e90fc786550f07b1fc9fbebb739",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cf8213d_eaabcf7e",
+        "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 954,
+      "author": {
+        "id": 6348
+      },
+      "writtenOn": "2020-02-06T18:18:31Z",
+      "side": 1,
+      "message": "Example for nfType should be gnb-Nokia",
+      "revId": "881338a0e4366e90fc786550f07b1fc9fbebb739",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ec83ea5_af9d1a7d",
+        "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 962,
+      "author": {
+        "id": 6348
+      },
+      "writtenOn": "2020-02-06T18:18:31Z",
+      "side": 1,
+      "message": "Example for pmDefSchemaVsn should be 2.0",
+      "revId": "881338a0e4366e90fc786550f07b1fc9fbebb739",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "12464b37_0a1d2480",
+        "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 970,
+      "author": {
+        "id": 6348
+      },
+      "writtenOn": "2020-02-06T18:18:31Z",
+      "side": 1,
+      "message": "Example for pmDefVsn should remove the slashes",
+      "revId": "881338a0e4366e90fc786550f07b1fc9fbebb739",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
