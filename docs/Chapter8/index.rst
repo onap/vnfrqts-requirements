@@ -26,3 +26,4 @@ Appendix
     Ansible-Playbook-Examples
     VES_Registraion_3_2.rst
     ves7_1spec.rst
+    OPNFV-Verified-Badging.rst
