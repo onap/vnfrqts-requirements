@@ -316,6 +316,30 @@
     },
     {
       "key": {
+        "uuid": "b89a8f25_90c82e27",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 5279
+      },
+      "writtenOn": "2020-02-07T19:51:14Z",
+      "side": 1,
+      "message": "I\u0027m copying the entire email below for reference. It was sent to several people that are also reviewers here on June 14, 2019. I got agreement from Nokia, while nobody objected:\n\n\u003eYou agree that we can have different eventIDs for different notification file types but you don’t want to specify the exact format of the eventID; e.g. notification.\u003cchangeIdnetifier\u003e.x.\n\nYes\n\n\u003eIt is enough to say that the eventId must uniquely identify a sequence of event types from a particular source.\n\nIt is important to be clear what is meant by source. Within the common header there is a sourceName field, and our interpretation of the VES specification is that the only MUST requirement for eventIDs is that if sourceName is the same, then eventIDs must be unique (except special case where sequence field is used as well). In addition to this, you could perhaps talk about even more fine-grained (logical) event sources such as producers of different kind of files. But whether those logical sources share the same eventID sequence or not would be up to the implementation.\n\n\u003eIt is up to the NF to craft an eventId that identifies the source and is a monotonously increasing integer that lets the manager determine when a particular type of event is missing.\n\nCreating eventID using some prefix followed by monotonously increasing integer could be described as recommended format. However I think that would be at most a SHOULD requirement, as otherwise existing NFs may no longer be compliant with the spec. Also how many prefixes and corresponding eventID sequences to use per domain would be implementation-specific as discussed above.\n\n\u003eAlso leading zeroes are not required.\n\nI expect this is the case already today, even if some of the examples in the VES spec include leading zeroes.",
+      "parentUuid": "5a1a9de3_a8ae8f08",
+      "range": {
+        "startLine": 208,
+        "startChar": 0,
+        "endLine": 208,
+        "endChar": 29
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "48922ede_10a3007b",
         "filename": "docs/Chapter8/ves7_1spec.rst",
         "patchSetId": 1
