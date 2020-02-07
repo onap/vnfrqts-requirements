@@ -629,6 +629,29 @@
     },
     {
       "key": {
+        "uuid": "6e794e5b_1af39ef4",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-07T14:33:48Z",
+      "side": 1,
+      "message": "I would have a suggestion here.\nheartBeat shall be allowed for all the endPoints.\n\nIt is not only used to check, if an NF is alive from ONAP perspective, it can be used as well as a keep-alive mechanism for xNF, against a VES endpoint. That`s why I think HeartBeat shall be allowed for each VES Endpoint, or... a different mechanism needs to be proposed, so an NF is able to periodically check the health of each configured VES event Listener endpoint.",
+      "range": {
+        "startLine": 350,
+        "startChar": 54,
+        "endLine": 352,
+        "endChar": 72
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c9512075_b58ef20e",
         "filename": "docs/Chapter8/ves7_1spec.rst",
         "patchSetId": 1
@@ -1575,6 +1598,30 @@
     },
     {
       "key": {
+        "uuid": "ff9ffc1f_cac286ca",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 621,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-07T14:33:48Z",
+      "side": 1,
+      "message": "Oskar, I think, it should be kept in 1 place only.\nNow, we have 2 copies - one in DCAE, nad one in VNF-Rqts.\n\nI am afraid, the two files will get de-synchronized really soon. Actually, it doesn`t matter, where this schema is located, if there is only one copy. That`s the ultimate goal.",
+      "parentUuid": "444b1a38_f8b2ca95",
+      "range": {
+        "startLine": 621,
+        "startChar": 0,
+        "endLine": 621,
+        "endChar": 53
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cc8931f2_c2bc03ee",
         "filename": "docs/Chapter8/ves7_1spec.rst",
         "patchSetId": 1
@@ -1591,6 +1638,29 @@
         "startChar": 4,
         "endLine": 628,
         "endChar": 27
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7483ece0_22f104a7",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 2332,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-07T14:33:48Z",
+      "side": 1,
+      "message": "Would it be possible to give a file-name example, that corresponds to the 3GPP format (chapter 5.1.2 in 3GPP TS32.432)?\n\nSth. like:\nA20000626.2315+0200-2330+0200_NodeBId\nC20050907.1030+0000-20050909.1500+0000_NodeId",
+      "range": {
+        "startLine": 2332,
+        "startChar": 64,
+        "endLine": 2332,
+        "endChar": 80
       },
       "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
@@ -1644,6 +1714,52 @@
     },
     {
       "key": {
+        "uuid": "03c989e3_7605f1ea",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 3623,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-07T14:33:48Z",
+      "side": 1,
+      "message": "According to this document, 7.1.1, not 7.1.0",
+      "range": {
+        "startLine": 3623,
+        "startChar": 31,
+        "endLine": 3623,
+        "endChar": 36
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42a397c4_505e15fd",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 3632,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-07T14:33:48Z",
+      "side": 1,
+      "message": "Don`t we ask this to be configurable in a previous section of this document?",
+      "range": {
+        "startLine": 3631,
+        "startChar": 26,
+        "endLine": 3632,
+        "endChar": 22
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e7d79a9f_373271c7",
         "filename": "docs/Chapter8/ves7_1spec.rst",
         "patchSetId": 1
@@ -1667,6 +1783,29 @@
     },
     {
       "key": {
+        "uuid": "c94c566e_7a5876c7",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 3666,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-07T14:33:48Z",
+      "side": 1,
+      "message": "What is the behaviour if that requirement is not met? Complete eventBatch is rejected? Selected events are discarded, and rest is rejected?\nWhat shall be the xNF behavior in case an eventBatch is rejected?",
+      "range": {
+        "startLine": 3665,
+        "startChar": 70,
+        "endLine": 3666,
+        "endChar": 37
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "20376cc8_4d3243e8",
         "filename": "docs/Chapter8/ves7_1spec.rst",
         "patchSetId": 1
@@ -1678,6 +1817,24 @@
       "writtenOn": "2020-02-05T20:28:11Z",
       "side": 1,
       "message": "How does one identify these batch events do they have to all be from the same domain?  I don\u0027t understand how one populates headers etc to indicate that this is a batch.  Will the Collector look at each event individually?  How do these events get to the proper topic if they are from different domains.",
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f8a6b3e_1423d86a",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 3668,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-07T14:33:48Z",
+      "side": 1,
+      "message": "I would assume, that This event batch will be placed on DMaaP in one operation, that`s why all events needs to belong to the same domain. VES will not be doing here routing for each event, routing will be done for a complete batch, to be confirmed, with an author of this sentence.",
+      "parentUuid": "20376cc8_4d3243e8",
       "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
@@ -1701,6 +1858,144 @@
     },
     {
       "key": {
+        "uuid": "15282bc0_2980fab1",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 3674,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-07T14:33:48Z",
+      "side": 1,
+      "message": "To me, that could as well go to VNF Requirements.\nIt is actually a VNF Requirement.",
+      "range": {
+        "startLine": 3673,
+        "startChar": 0,
+        "endLine": 3674,
+        "endChar": 36
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c08f048e_bd3305f5",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 3675,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-07T14:33:48Z",
+      "side": 1,
+      "message": "Why do we focus on NetConf controlled devices here?\nAre they any special in this regard of syslog?\n\nIf not, we shall use a more general approach stating \"controller via respective configuration management interface\".",
+      "range": {
+        "startLine": 3674,
+        "startChar": 38,
+        "endLine": 3675,
+        "endChar": 20
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8df1b0ea_c6e9a2eb",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 3683,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-07T14:33:48Z",
+      "side": 1,
+      "message": "Two comments to this:\n1. This looks to me like a VNF Requirement, rather than an interface description. It says, what the NF shall do...\n\n2. How shall that work in detail?\nI see my buffer is full, I generate a Fault, and put it as last one in buffer. After N tries, I`d have there N \"buffer overflow\" alarms/faults in a buffer, and I release this later?\n\nOr shall it work like this for all events but faults?",
+      "range": {
+        "startLine": 3681,
+        "startChar": 0,
+        "endLine": 3683,
+        "endChar": 70
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "27578192_28373c25",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 3688,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-07T14:33:48Z",
+      "side": 1,
+      "message": "Initially, it was 1,5 MB, then 2 MB, now going back to 1 MB.\nExtending is backwards compatible (1,5 -\u003e 2 MBs).\nShrinking is not backwards compatible (2MB -\u003e 1MB). I might have an implementation based on 2MB limit, it won`t work with 1MB limit, we introduce here.",
+      "range": {
+        "startLine": 3688,
+        "startChar": 31,
+        "endLine": 3688,
+        "endChar": 44
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b3c2a3bc_138e3bf3",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 3746,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-07T14:33:48Z",
+      "side": 1,
+      "message": "See coment below. This is not a backwards compatible change.",
+      "range": {
+        "startLine": 3746,
+        "startChar": 40,
+        "endLine": 3746,
+        "endChar": 51
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6544320a_75d5b69e",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 3843,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-07T14:33:48Z",
+      "side": 1,
+      "message": "Now really clear.\nEvent handling within VES?\nEvent handling within xNF?\n\nRequirements against what? xNF? VES?",
+      "range": {
+        "startLine": 3843,
+        "startChar": 4,
+        "endLine": 3843,
+        "endChar": 44
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5b407ab7_e03b67bf",
         "filename": "docs/Chapter8/ves7_1spec.rst",
         "patchSetId": 1
@@ -1715,6 +2010,75 @@
       "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98b202e3_997d0031",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 3852,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-07T14:33:48Z",
+      "side": 1,
+      "message": "I don`t understand this part:\n1. \"The NF must create an internal flag.....\" Sounds like a VNF requirement for me.\n\n2. I don`t treally understand the purpose. Say I sand an event to VES, I`ll get HTTP/503 internal server error. It doesn`t mean, that the event I was sending is wrong in any way. \nWhy shall I fix these events as a vendor? Events are fine (I can validate them locally against a schema) - but teh receiving end might be wrong (e.g. no more disk space, no more memory, no networking to DMaaP - this will all result in 5xx HTTP response code).",
+      "range": {
+        "startLine": 3848,
+        "startChar": 6,
+        "endLine": 3852,
+        "endChar": 13
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c9f7297_6b402995",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 3866,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-07T14:33:48Z",
+      "side": 1,
+      "message": "Would be nice to correct this to a real value, here and in the previous examples.",
+      "range": {
+        "startLine": 3866,
+        "startChar": 4,
+        "endLine": 3866,
+        "endChar": 25
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b55657b_7e791dc1",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 4023,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-07T14:33:48Z",
+      "side": 1,
+      "message": "Not a backwards compatible change (2-\u003e1MB).",
+      "range": {
+        "startLine": 4023,
+        "startChar": 40,
+        "endLine": 4023,
+        "endChar": 51
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
