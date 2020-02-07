@@ -923,6 +923,30 @@
     },
     {
       "key": {
+        "uuid": "144b9e0b_d08a4928",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 5279
+      },
+      "writtenOn": "2020-02-07T18:30:42Z",
+      "side": 1,
+      "message": "The VNF requirements describe a number of different methods to deliver measurement data that VNF/PNF may use.",
+      "parentUuid": "ea7892aa_0944d402",
+      "range": {
+        "startLine": 377,
+        "startChar": 0,
+        "endLine": 378,
+        "endChar": 36
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "afbd111d_c90d5796",
         "filename": "docs/Chapter8/ves7_1spec.rst",
         "patchSetId": 1
@@ -943,6 +967,30 @@
       "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "91a000a2_61a414b8",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 5279
+      },
+      "writtenOn": "2020-02-07T18:30:42Z",
+      "side": 1,
+      "message": "Clarify that this is should requirement, see R-332680",
+      "parentUuid": "afbd111d_c90d5796",
+      "range": {
+        "startLine": 379,
+        "startChar": 0,
+        "endLine": 382,
+        "endChar": 74
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
     },
     {
       "key": {
