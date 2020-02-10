@@ -1717,6 +1717,29 @@
     },
     {
       "key": {
+        "uuid": "fa82f51f_62617cce",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 676,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-10T13:45:41Z",
+      "side": 1,
+      "message": "\"perf3gpp\" are probably missing in this table.",
+      "range": {
+        "startLine": 676,
+        "startChar": 0,
+        "endLine": 676,
+        "endChar": 15
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7483ece0_22f104a7",
         "filename": "docs/Chapter8/ves7_1spec.rst",
         "patchSetId": 1
