@@ -48,6 +48,75 @@
     },
     {
       "key": {
+        "uuid": "c5c5bfa1_aa57fb0b",
+        "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 789,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-10T13:50:15Z",
+      "side": 1,
+      "message": "Shouldn`t that be:\n },\nmeasurements: {\n\nComma \",\" added after the \"}\", and before \"measurements: {\"",
+      "range": {
+        "startLine": 788,
+        "startChar": 7,
+        "endLine": 789,
+        "endChar": 23
+      },
+      "revId": "881338a0e4366e90fc786550f07b1fc9fbebb739",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "151b0b3e_b0859aec",
+        "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 922,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-10T13:50:15Z",
+      "side": 1,
+      "message": "from \"network functions\", not really from \"vendors\".",
+      "range": {
+        "startLine": 922,
+        "startChar": 5,
+        "endLine": 922,
+        "endChar": 12
+      },
+      "revId": "881338a0e4366e90fc786550f07b1fc9fbebb739",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a7f6c6c8_e2b8a09c",
+        "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 936,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-10T13:50:15Z",
+      "side": 1,
+      "message": "Add: \"It is as well provided, as the first YAML document in a PM Dictionary YAML file, which might contain multiple YAML documents\"",
+      "range": {
+        "startLine": 935,
+        "startChar": 69,
+        "endLine": 936,
+        "endChar": 50
+      },
+      "revId": "881338a0e4366e90fc786550f07b1fc9fbebb739",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1cf8213d_eaabcf7e",
         "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
         "patchSetId": 1
