@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4e247ad0_4387545f",
+        "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-02-14T17:34:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "454ac1f7_cb86feef",
+      "range": {
+        "startLine": 3,
+        "startChar": 13,
+        "endLine": 3,
+        "endChar": 22
+      },
+      "revId": "881338a0e4366e90fc786550f07b1fc9fbebb739",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "acc030cb_8c0eba57",
         "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2020-01-30T20:37:37Z",
       "side": 1,
       "message": "SDC",
+      "range": {
+        "startLine": 168,
+        "startChar": 1,
+        "endLine": 168,
+        "endChar": 5
+      },
+      "revId": "881338a0e4366e90fc786550f07b1fc9fbebb739",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d02b48d0_1c288162",
+        "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-02-14T17:34:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "acc030cb_8c0eba57",
       "range": {
         "startLine": 168,
         "startChar": 1,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "ca06f82a_be8598bf",
+        "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 789,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-02-14T17:34:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5c5bfa1_aa57fb0b",
+      "range": {
+        "startLine": 788,
+        "startChar": 7,
+        "endLine": 789,
+        "endChar": 23
+      },
+      "revId": "881338a0e4366e90fc786550f07b1fc9fbebb739",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "151b0b3e_b0859aec",
         "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2020-02-10T13:50:15Z",
       "side": 1,
       "message": "from \"network functions\", not really from \"vendors\".",
+      "range": {
+        "startLine": 922,
+        "startChar": 5,
+        "endLine": 922,
+        "endChar": 12
+      },
+      "revId": "881338a0e4366e90fc786550f07b1fc9fbebb739",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c5ee0b9d_30361fd4",
+        "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 922,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-02-14T17:34:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "151b0b3e_b0859aec",
       "range": {
         "startLine": 922,
         "startChar": 5,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "ed144d90_64bbcc35",
+        "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 936,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-02-14T17:34:42Z",
+      "side": 1,
+      "message": "Done.  Slightly different wording.",
+      "parentUuid": "a7f6c6c8_e2b8a09c",
+      "range": {
+        "startLine": 935,
+        "startChar": 69,
+        "endLine": 936,
+        "endChar": 50
+      },
+      "revId": "881338a0e4366e90fc786550f07b1fc9fbebb739",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1cf8213d_eaabcf7e",
         "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
         "patchSetId": 1
@@ -128,6 +248,24 @@
       "writtenOn": "2020-02-06T18:18:31Z",
       "side": 1,
       "message": "Example for nfType should be gnb-Nokia",
+      "revId": "881338a0e4366e90fc786550f07b1fc9fbebb739",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18621175_ffdd5cb7",
+        "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 954,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-02-14T17:34:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1cf8213d_eaabcf7e",
       "revId": "881338a0e4366e90fc786550f07b1fc9fbebb739",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
@@ -151,6 +289,24 @@
     },
     {
       "key": {
+        "uuid": "935cf7db_fd6008f7",
+        "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 962,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-02-14T17:34:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ec83ea5_af9d1a7d",
+      "revId": "881338a0e4366e90fc786550f07b1fc9fbebb739",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "12464b37_0a1d2480",
         "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
         "patchSetId": 1
@@ -162,6 +318,24 @@
       "writtenOn": "2020-02-06T18:18:31Z",
       "side": 1,
       "message": "Example for pmDefVsn should remove the slashes",
+      "revId": "881338a0e4366e90fc786550f07b1fc9fbebb739",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a5558fe3_63a528e1",
+        "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 970,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-02-14T17:34:42Z",
+      "side": 1,
+      "message": "The slashes aren\u0027t rendered in the generated HTML.  They are just escaped for the RST version.\n\nIt is displayed as 5G19_1906_002 in HTML.",
+      "parentUuid": "12464b37_0a1d2480",
       "revId": "881338a0e4366e90fc786550f07b1fc9fbebb739",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
