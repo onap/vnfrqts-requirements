@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "99018851_2c7ab382",
+        "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 992,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-02-17T21:04:15Z",
+      "side": 1,
+      "message": "Done as code",
+      "parentUuid": "eaa8102d_a8e177e1",
+      "revId": "26ec581ce3288362c04d4d953caf3ece3a297c64",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1141c89e_1a014370",
         "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "26ec581ce3288362c04d4d953caf3ece3a297c64",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4cb925fd_b6d00a31",
+        "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 1344,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-02-17T21:04:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1141c89e_1a014370",
+      "revId": "26ec581ce3288362c04d4d953caf3ece3a297c64",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "569a7d7a_21826978",
+        "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 1374,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-02-17T21:04:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "966721f6_3bf5d142",
+      "revId": "26ec581ce3288362c04d4d953caf3ece3a297c64",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "323a13b4_e7c1bf7f",
         "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
         "patchSetId": 2
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "a8ee3ead_ad18785e",
+        "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 1383,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-02-17T21:04:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "323a13b4_e7c1bf7f",
+      "revId": "26ec581ce3288362c04d4d953caf3ece3a297c64",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7d025c89_f2e30d8e",
         "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
         "patchSetId": 2
@@ -84,6 +156,24 @@
       "revId": "26ec581ce3288362c04d4d953caf3ece3a297c64",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "255f1bd9_e33945b7",
+        "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 1386,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-02-17T21:04:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7d025c89_f2e30d8e",
+      "revId": "26ec581ce3288362c04d4d953caf3ece3a297c64",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
