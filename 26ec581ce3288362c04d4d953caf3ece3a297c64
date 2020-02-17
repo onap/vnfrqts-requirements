@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eaa8102d_a8e177e1",
+        "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 992,
+      "author": {
+        "id": 5279
+      },
+      "writtenOn": "2020-02-17T09:43:37Z",
+      "side": 1,
+      "message": "Typo: Should be \u0027O\u0027 (optional) rather than \u00270\u0027 (zero)",
+      "revId": "26ec581ce3288362c04d4d953caf3ece3a297c64",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1141c89e_1a014370",
+        "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 1344,
+      "author": {
+        "id": 5279
+      },
+      "writtenOn": "2020-02-17T09:43:37Z",
+      "side": 1,
+      "message": "typo: unit32 \u003d\u003e uint32",
+      "revId": "26ec581ce3288362c04d4d953caf3ece3a297c64",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "966721f6_3bf5d142",
+        "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 1374,
+      "author": {
+        "id": 5279
+      },
+      "writtenOn": "2020-02-17T09:43:37Z",
+      "side": 1,
+      "message": "don\u0027t think there should be comma sign here",
+      "revId": "26ec581ce3288362c04d4d953caf3ece3a297c64",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "323a13b4_e7c1bf7f",
+        "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 1383,
+      "author": {
+        "id": 5279
+      },
+      "writtenOn": "2020-02-17T09:43:37Z",
+      "side": 1,
+      "message": "Should be called PM Dictionary Measument Examples, as it is not a complete PM dictionary (excludes the schema part)",
+      "revId": "26ec581ce3288362c04d4d953caf3ece3a297c64",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d025c89_f2e30d8e",
+        "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 1386,
+      "author": {
+        "id": 5279
+      },
+      "writtenOn": "2020-02-17T09:43:37Z",
+      "side": 1,
+      "message": "The following are PM Dictionary measurement examples [...]",
+      "revId": "26ec581ce3288362c04d4d953caf3ece3a297c64",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
