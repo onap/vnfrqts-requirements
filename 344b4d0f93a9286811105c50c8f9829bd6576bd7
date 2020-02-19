@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "256a194b_2aa00d78",
+        "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 5279
+      },
+      "writtenOn": "2020-02-19T14:44:53Z",
+      "side": 1,
+      "message": "Yes, the dots are not mandatory. But my understanding of the YAML specification is that the dots are always allowed at end of a document, but not required except if the following document is preceeded by one or more % directives.",
+      "parentUuid": "1ddee481_32acb43e",
+      "range": {
+        "startLine": 191,
+        "startChar": 0,
+        "endLine": 192,
+        "endChar": 19
+      },
+      "revId": "344b4d0f93a9286811105c50c8f9829bd6576bd7",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "455fa216_94230711",
         "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
         "patchSetId": 3
