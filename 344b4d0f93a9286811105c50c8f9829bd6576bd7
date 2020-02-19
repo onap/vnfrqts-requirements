@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1ddee481_32acb43e",
+        "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-19T14:09:41Z",
+      "side": 1,
+      "message": "This is not really correct.\nYAML documents shall be delimited with \"---\" only, according to this: https://yaml.org/spec/1.2/spec.html \n\nWe actually don`t need \"...\" here, as the \u003cdots\u003e are used close the communications message, when YAML is sent over the wire.\n\nSo this shall be:\n\u003cstart\u003e\nYAML document 1\n---\nYAML document 2\n---\nYAML document 3\n\u003cEOF\u003e",
+      "range": {
+        "startLine": 191,
+        "startChar": 0,
+        "endLine": 192,
+        "endChar": 19
+      },
+      "revId": "344b4d0f93a9286811105c50c8f9829bd6576bd7",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "455fa216_94230711",
+        "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-19T14:09:41Z",
+      "side": 1,
+      "message": "\"---\" is enough",
+      "range": {
+        "startLine": 199,
+        "startChar": 4,
+        "endLine": 200,
+        "endChar": 7
+      },
+      "revId": "344b4d0f93a9286811105c50c8f9829bd6576bd7",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b8c52624_ffaf0f04",
+        "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-19T14:09:41Z",
+      "side": 1,
+      "message": "\"---\" is enough",
+      "range": {
+        "startLine": 203,
+        "startChar": 3,
+        "endLine": 204,
+        "endChar": 7
+      },
+      "revId": "344b4d0f93a9286811105c50c8f9829bd6576bd7",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ababa55e_7369c61d",
+        "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 779,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-19T14:09:41Z",
+      "side": 1,
+      "message": "\"---\"",
+      "range": {
+        "startLine": 778,
+        "startChar": 4,
+        "endLine": 779,
+        "endChar": 7
+      },
+      "revId": "344b4d0f93a9286811105c50c8f9829bd6576bd7",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6324d29a_448315b3",
+        "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 814,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-19T14:09:41Z",
+      "side": 1,
+      "message": "\"---\"",
+      "range": {
+        "startLine": 813,
+        "startChar": 4,
+        "endLine": 814,
+        "endChar": 7
+      },
+      "revId": "344b4d0f93a9286811105c50c8f9829bd6576bd7",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7976a440_2cb15666",
+        "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 1422,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-19T14:09:41Z",
+      "side": 1,
+      "message": "\"---\"",
+      "range": {
+        "startLine": 1421,
+        "startChar": 3,
+        "endLine": 1422,
+        "endChar": 7
+      },
+      "revId": "344b4d0f93a9286811105c50c8f9829bd6576bd7",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50038073_c30798a6",
+        "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 1449,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-19T14:09:41Z",
+      "side": 1,
+      "message": "\"---\"",
+      "range": {
+        "startLine": 1448,
+        "startChar": 3,
+        "endLine": 1449,
+        "endChar": 7
+      },
+      "revId": "344b4d0f93a9286811105c50c8f9829bd6576bd7",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fe735273_d2caf5c0",
+        "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 1505,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-19T14:09:41Z",
+      "side": 1,
+      "message": "\"---\"",
+      "range": {
+        "startLine": 1504,
+        "startChar": 3,
+        "endLine": 1505,
+        "endChar": 7
+      },
+      "revId": "344b4d0f93a9286811105c50c8f9829bd6576bd7",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cf90c8f0_27636eb2",
+        "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 1528,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-19T14:09:41Z",
+      "side": 1,
+      "message": "\"---\"",
+      "range": {
+        "startLine": 1527,
+        "startChar": 4,
+        "endLine": 1528,
+        "endChar": 7
+      },
+      "revId": "344b4d0f93a9286811105c50c8f9829bd6576bd7",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
