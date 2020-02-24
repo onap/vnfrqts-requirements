@@ -71,6 +71,23 @@
     },
     {
       "key": {
+        "uuid": "202432f3_3875d2d9",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 5279
+      },
+      "writtenOn": "2020-02-24T14:47:39Z",
+      "side": 1,
+      "message": "I had one unresolved comment here that there are multiple ways to deliver measurement data so this should not be must requirement. VNF requirements today describe a number of options. E g a 3GPP NF can use a 3GPP defined mechanism such as file transfer.",
+      "revId": "3a3ec4b8f98a96c16d0dbfbafdf1c85e5d8ad835",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "90a8d388_ec11e234",
         "filename": "docs/Chapter8/ves7_1spec.rst",
         "patchSetId": 2
