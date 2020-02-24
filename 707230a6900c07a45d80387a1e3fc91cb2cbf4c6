@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c04c34f0_624fb583",
+        "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-24T11:00:11Z",
+      "side": 1,
+      "message": "\"denoting the end of the last document in a YAML file\".",
+      "range": {
+        "startLine": 192,
+        "startChar": 59,
+        "endLine": 193,
+        "endChar": 21
+      },
+      "revId": "707230a6900c07a45d80387a1e3fc91cb2cbf4c6",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c74592ed_db3d21c0",
+        "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-24T11:00:11Z",
+      "side": 1,
+      "message": "This shall be \"---\" only.\n\"...\" shows the end of the file, not the end of a YAML document. See YAML spec: https://yaml.org/spec/1.0/\n\nCitation: \"YAML uses three dashes (“---”) to separate documents within a stream. Comment lines begin with the pound sign (“#”). Three dots (“...”) indicate the end of a document without starting a new one, for use in communication channels.\"\n\nSo \"...\" are applicable after the last YAML document only.\nA different approach taken here might have influence on certain YAML parsers.",
+      "range": {
+        "startLine": 200,
+        "startChar": 3,
+        "endLine": 201,
+        "endChar": 7
+      },
+      "revId": "707230a6900c07a45d80387a1e3fc91cb2cbf4c6",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6aec570_90111c15",
+        "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-24T11:00:11Z",
+      "side": 1,
+      "message": "As before: \"---\" is appilcable here, not \"--- ...\"",
+      "range": {
+        "startLine": 204,
+        "startChar": 3,
+        "endLine": 205,
+        "endChar": 7
+      },
+      "revId": "707230a6900c07a45d80387a1e3fc91cb2cbf4c6",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30a50ecc_4baf10d8",
+        "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 933,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-24T11:00:11Z",
+      "side": 1,
+      "message": "\"from that network function\" -not really from a vendor.\nDifferent network functions from the same vendor might have different mappings.",
+      "range": {
+        "startLine": 933,
+        "startChar": 25,
+        "endLine": 933,
+        "endChar": 31
+      },
+      "revId": "707230a6900c07a45d80387a1e3fc91cb2cbf4c6",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "60845738_e10b7181",
+        "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 1423,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-24T11:00:11Z",
+      "side": 1,
+      "message": "make this \"---\" only.",
+      "range": {
+        "startLine": 1422,
+        "startChar": 4,
+        "endLine": 1423,
+        "endChar": 7
+      },
+      "revId": "707230a6900c07a45d80387a1e3fc91cb2cbf4c6",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e06814d3_77dcd365",
+        "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 1450,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-24T11:00:11Z",
+      "side": 1,
+      "message": "make this \"---\" only.",
+      "range": {
+        "startLine": 1449,
+        "startChar": 2,
+        "endLine": 1450,
+        "endChar": 7
+      },
+      "revId": "707230a6900c07a45d80387a1e3fc91cb2cbf4c6",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85a189e0_8c40c63b",
+        "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 1506,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-24T11:00:11Z",
+      "side": 1,
+      "message": "make this \"---\"",
+      "range": {
+        "startLine": 1505,
+        "startChar": 3,
+        "endLine": 1506,
+        "endChar": 7
+      },
+      "revId": "707230a6900c07a45d80387a1e3fc91cb2cbf4c6",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0a53fd1_608ea902",
+        "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 1529,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-24T11:00:11Z",
+      "side": 1,
+      "message": "make this \"---\"",
+      "range": {
+        "startLine": 1528,
+        "startChar": 4,
+        "endLine": 1529,
+        "endChar": 7
+      },
+      "revId": "707230a6900c07a45d80387a1e3fc91cb2cbf4c6",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1812840c_efecfa15",
+        "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 2846,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-24T11:00:11Z",
+      "side": 1,
+      "message": "What about flipping the direction of this table?\nI mean, start with newest updates...?",
+      "range": {
+        "startLine": 2844,
+        "startChar": 0,
+        "endLine": 2846,
+        "endChar": 79
+      },
+      "revId": "707230a6900c07a45d80387a1e3fc91cb2cbf4c6",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
