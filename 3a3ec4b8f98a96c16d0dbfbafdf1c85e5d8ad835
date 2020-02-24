@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "17cbb424_b05647a9",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-24T12:52:43Z",
+      "side": 1,
+      "message": "What is the exact definition of alarm re-raise?\nSeverity change, or a new occurence of an alarm, after it was cleared?",
+      "range": {
+        "startLine": 229,
+        "startChar": 48,
+        "endLine": 229,
+        "endChar": 56
+      },
+      "revId": "3a3ec4b8f98a96c16d0dbfbafdf1c85e5d8ad835",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ea7765b_d4223914",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-24T12:52:43Z",
+      "side": 1,
+      "message": "In which cases id the NF able to reset the \u003cnnn\u003e counter?\nWhat about a case, where we have a restart of the box, a software crash, a reset, aso?\n\nShall these be persisted, or can these \u003cnnn\u003e be reset, and DCAE will be able not to see these as duplicates based on the start and endMicroSec parameters?",
+      "range": {
+        "startLine": 243,
+        "startChar": 11,
+        "endLine": 243,
+        "endChar": 61
+      },
+      "revId": "3a3ec4b8f98a96c16d0dbfbafdf1c85e5d8ad835",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b52fe6db_c90dc913",
         "filename": "docs/Chapter8/ves7_1spec.rst",
         "patchSetId": 2
@@ -87,6 +133,29 @@
         "startChar": 70,
         "endLine": 406,
         "endChar": 27
+      },
+      "revId": "3a3ec4b8f98a96c16d0dbfbafdf1c85e5d8ad835",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6611498_37c3267c",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-24T12:52:43Z",
+      "side": 1,
+      "message": "How are vendor NFs able to test that connectivity?\nIs the assumption, that HeartBeat events can be used, is it valid? Or any other approach for testing (which includes passing the security checks)?",
+      "range": {
+        "startLine": 406,
+        "startChar": 28,
+        "endLine": 407,
+        "endChar": 65
       },
       "revId": "3a3ec4b8f98a96c16d0dbfbafdf1c85e5d8ad835",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
@@ -363,6 +432,29 @@
         "startChar": 31,
         "endLine": 3838,
         "endChar": 44
+      },
+      "revId": "3a3ec4b8f98a96c16d0dbfbafdf1c85e5d8ad835",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a82444da_c229f152",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 3845,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-02-24T12:52:43Z",
+      "side": 1,
+      "message": "It is not that clear, that these events failed due to a vendors xNF behaviour. They might have failed due to VES collector endpoint unavailability, certificates, that haven`t been uploaded properly, and possibly many other issues not really related to thr xNF (e.g. no connectivity to VES collector due to wrong routing of messages).",
+      "range": {
+        "startLine": 3844,
+        "startChar": 63,
+        "endLine": 3845,
+        "endChar": 55
       },
       "revId": "3a3ec4b8f98a96c16d0dbfbafdf1c85e5d8ad835",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
