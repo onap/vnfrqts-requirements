@@ -71,6 +71,30 @@
     },
     {
       "key": {
+        "uuid": "2d42081f_58027130",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-02-26T15:54:48Z",
+      "side": 1,
+      "message": "Not as part of this review.  There are numerous places where a precedent for defining VNF behavior in this spec `was established. Removing all VNF behavior definitions from this review is beyond the scope of this review. I\u0027ve created a separate ticket to address this VNFRQTS-813.",
+      "parentUuid": "b52fe6db_c90dc913",
+      "range": {
+        "startLine": 341,
+        "startChar": 0,
+        "endLine": 370,
+        "endChar": 60
+      },
+      "revId": "3a3ec4b8f98a96c16d0dbfbafdf1c85e5d8ad835",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "202432f3_3875d2d9",
         "filename": "docs/Chapter8/ves7_1spec.rst",
         "patchSetId": 2
@@ -99,6 +123,30 @@
       "writtenOn": "2020-02-24T12:39:38Z",
       "side": 1,
       "message": "This shall be converted to VNF Requirements too, and these need to be handled within VNF Requirements project.",
+      "range": {
+        "startLine": 375,
+        "startChar": 2,
+        "endLine": 387,
+        "endChar": 21
+      },
+      "revId": "3a3ec4b8f98a96c16d0dbfbafdf1c85e5d8ad835",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "072f9aab_da9cff6c",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-02-26T15:54:48Z",
+      "side": 1,
+      "message": "See VNFRQTS-813",
+      "parentUuid": "90a8d388_ec11e234",
       "range": {
         "startLine": 375,
         "startChar": 2,
