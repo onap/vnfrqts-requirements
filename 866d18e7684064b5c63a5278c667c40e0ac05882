@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7b249d2f_41c19461",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 5678
+      },
+      "writtenOn": "2020-02-26T20:19:36Z",
+      "side": 1,
+      "message": "For consistency, can we alpha-sort this table rather than just \u0027append\u0027 to the tables.\nWe spent a lot of time ensuring that all the tables and JSON were sorted for consistency.",
+      "revId": "866d18e7684064b5c63a5278c667c40e0ac05882",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
