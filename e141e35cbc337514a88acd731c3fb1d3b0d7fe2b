@@ -1732,6 +1732,30 @@
     },
     {
       "key": {
+        "uuid": "9d3aa276_a43e2045",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-02-26T15:54:48Z",
+      "side": 1,
+      "message": "Updated wording to be clear this is about using the same measuremetnInterval",
+      "parentUuid": "144b9e0b_d08a4928",
+      "range": {
+        "startLine": 377,
+        "startChar": 0,
+        "endLine": 378,
+        "endChar": 36
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "afbd111d_c90d5796",
         "filename": "docs/Chapter8/ves7_1spec.rst",
         "patchSetId": 1
@@ -1838,6 +1862,30 @@
       "side": 1,
       "message": "Will add to the agenda.",
       "parentUuid": "a44835ac_4eea6f92",
+      "range": {
+        "startLine": 383,
+        "startChar": 1,
+        "endLine": 385,
+        "endChar": 21
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "226034a7_5151f5c4",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-02-26T15:54:48Z",
+      "side": 1,
+      "message": "Added language about the otherFields domain to the review.  Please review.",
+      "parentUuid": "5bb24f40_06e2c545",
       "range": {
         "startLine": 383,
         "startChar": 1,
@@ -1991,6 +2039,30 @@
     },
     {
       "key": {
+        "uuid": "122572c6_634309a0",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-02-26T15:54:48Z",
+      "side": 1,
+      "message": "We\u0027ll use the language, and create a new ticket for harmonizing with 3GPP if possible.  That will be added to the ongoing 3GPP harmonization agenda.",
+      "parentUuid": "9fa21fae_4bc512fa",
+      "range": {
+        "startLine": 390,
+        "startChar": 2,
+        "endLine": 391,
+        "endChar": 11
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9addbffd_5e3f7ff7",
         "filename": "docs/Chapter8/ves7_1spec.rst",
         "patchSetId": 1
@@ -2097,6 +2169,30 @@
       "side": 1,
       "message": "Will add to the agenda.  I agree other methods could be used, but we need to determine if those will be specified and how.",
       "parentUuid": "a21742ca_eb4494ca",
+      "range": {
+        "startLine": 397,
+        "startChar": 0,
+        "endLine": 399,
+        "endChar": 62
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d318855_2be09c43",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-02-26T15:54:48Z",
+      "side": 1,
+      "message": "Revised language. Please review.  Primary and fallback compatibility with 3GPP will be discussed in a separate ticket - with 3GPP.",
+      "parentUuid": "146dc8ef_00792273",
       "range": {
         "startLine": 397,
         "startChar": 0,
@@ -2381,6 +2477,30 @@
       "side": 1,
       "message": "Adding to agenda",
       "parentUuid": "372f8eb6_dd812428",
+      "range": {
+        "startLine": 492,
+        "startChar": 70,
+        "endLine": 494,
+        "endChar": 37
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6580cbb0_517ce75e",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-02-26T15:54:48Z",
+      "side": 1,
+      "message": "Revised to remove DCAE references.  Please review.",
+      "parentUuid": "a22e8c93_5b24172b",
       "range": {
         "startLine": 492,
         "startChar": 70,
