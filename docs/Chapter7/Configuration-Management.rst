@@ -16,9 +16,29 @@
 
 Configuration Management
 ------------------------
+The protocol used to communicate with VNF or PNF for life cycle management (LCM) operations is NETCONF, Ansible or Chef.
+A VNF or PNF shall support at least one of communication protocols as specified in the requirement R-305645.
+
+.. req::
+    :id: R-305645
+    :target: VNF or PNF
+    :keyword: MUST
+    :updated: Frankfurt
+
+    The VNF or PNF MUST supports configuration management including
+    life cycle management (LCM) using at least one of the following
+    protocols a)NETCONF/YANG, b)Ansible and c)Chef.
+
+Since Frankfurt release, SO building blocks can use either APPC or CDS API path
+for life cycle management (LCM) operations. The associated API is either APPC/SDN-C LCM API or CDS self-service API.
+A VNF or PNF must supports LCM operations that using either of two APIs.
+The selection of which API to use for LCM operations for a given PNF/VNF type is defined in design time by the service designer. 
+
+The requirements for supporting of SDN-C/APPC LCM API for LCM operations are documented in section 7.3.1.
 
 Controller Interactions With VNF or PNF
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+This section is not applicable to LCM operations using CDS self-service API.
 
 APPC/SDN-C expose a northbound API to clients (such as SO) in order for
 the clients to initiate an activity (aka command) on a VNF or PNF. APPC/SDN-C
