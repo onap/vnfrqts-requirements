@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c8a7257f_68d2087a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 3967
+      },
+      "writtenOn": "2020-02-28T22:50:45Z",
+      "side": 1,
+      "message": "or",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 4
+      },
+      "revId": "c81df3e752110aec976e6a3a02d44867ead0197b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "897f1612_cef5d8ae",
+        "filename": "docs/Chapter7/Configuration-Management.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 3967
+      },
+      "writtenOn": "2020-02-28T22:50:45Z",
+      "side": 1,
+      "message": "support",
+      "range": {
+        "startLine": 28,
+        "startChar": 31,
+        "endLine": 28,
+        "endChar": 32
+      },
+      "revId": "c81df3e752110aec976e6a3a02d44867ead0197b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49fcb006_8c62cb4b",
+        "filename": "docs/Chapter7/Configuration-Management.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 3967
+      },
+      "writtenOn": "2020-02-28T22:50:45Z",
+      "side": 1,
+      "message": "APPC/SDN-C API",
+      "range": {
+        "startLine": 32,
+        "startChar": 59,
+        "endLine": 32,
+        "endChar": 63
+      },
+      "revId": "c81df3e752110aec976e6a3a02d44867ead0197b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "198f0add_c103a78a",
+        "filename": "docs/Chapter7/Configuration-Management.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 3967
+      },
+      "writtenOn": "2020-02-28T22:50:45Z",
+      "side": 1,
+      "message": "be used",
+      "range": {
+        "startLine": 35,
+        "startChar": 30,
+        "endLine": 35,
+        "endChar": 34
+      },
+      "revId": "c81df3e752110aec976e6a3a02d44867ead0197b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
