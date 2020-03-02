@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "421b9983_a9b34099",
+        "filename": "docs/Chapter7/Configuration-Management.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1303
+      },
+      "writtenOn": "2020-03-02T19:01:29Z",
+      "side": 1,
+      "message": "agree.",
+      "parentUuid": "75d0fdf5_af30e96c",
+      "range": {
+        "startLine": 26,
+        "startChar": 17,
+        "endLine": 26,
+        "endChar": 26
+      },
+      "revId": "98bdaad52cfa21c4537582661f37186492151768",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "975b6fc9_ad68c463",
         "filename": "docs/Chapter7/Configuration-Management.rst",
         "patchSetId": 4
@@ -141,6 +165,30 @@
       "writtenOn": "2020-03-02T18:28:03Z",
       "side": 1,
       "message": "CDS self-service API does not have an specific requirement on PNF or VNF implementation.",
+      "parentUuid": "a00c949d_646d9518",
+      "range": {
+        "startLine": 33,
+        "startChar": 95,
+        "endLine": 33,
+        "endChar": 115
+      },
+      "revId": "98bdaad52cfa21c4537582661f37186492151768",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03f57fb3_c2eac9c2",
+        "filename": "docs/Chapter7/Configuration-Management.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1303
+      },
+      "writtenOn": "2020-03-02T19:01:29Z",
+      "side": 1,
+      "message": "There is no specific pages for CDS self-service API. For LCM using CDS self-sevice API, PNF or VNF should follow the new requirement R-305645, it is sufficient.",
       "parentUuid": "a00c949d_646d9518",
       "range": {
         "startLine": 33,
