@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7fdd535f_c03f3bbb",
+        "filename": "docs/Chapter7/Configuration-Management.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 3967
+      },
+      "writtenOn": "2020-03-02T18:28:03Z",
+      "side": 1,
+      "message": "REST cannot be used by itself. according to section 7.3.3, REST only contains HealthCheck, not a full set of LCM operations. REST is only an additional protocol if HealthCheck does not supported by NETCONF, Ansible or Chef.",
+      "parentUuid": "390f5fb0_a51578b5",
+      "range": {
+        "startLine": 19,
+        "startChar": 95,
+        "endLine": 19,
+        "endChar": 119
+      },
+      "revId": "98bdaad52cfa21c4537582661f37186492151768",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "75d0fdf5_af30e96c",
         "filename": "docs/Chapter7/Configuration-Management.rst",
         "patchSetId": 4
@@ -65,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "61565b77_88cd883d",
+        "filename": "docs/Chapter7/Configuration-Management.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 3967
+      },
+      "writtenOn": "2020-03-02T18:28:03Z",
+      "side": 1,
+      "message": "REST cannot be used by itself. according to section 7.3.3, REST only contains HealthCheck, not a full set of LCM operations. REST is only an additional protocol if HealthCheck does not supported by NETCONF, Ansible or Chef.",
+      "parentUuid": "975b6fc9_ad68c463",
+      "revId": "98bdaad52cfa21c4537582661f37186492151768",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a00c949d_646d9518",
         "filename": "docs/Chapter7/Configuration-Management.rst",
         "patchSetId": 4
@@ -76,6 +118,30 @@
       "writtenOn": "2020-03-02T16:47:11Z",
       "side": 1,
       "message": "Elsewhere in the document we provide a link to the LCM API.  Is there a similar reference to the CDS self-service API we can include?",
+      "range": {
+        "startLine": 33,
+        "startChar": 95,
+        "endLine": 33,
+        "endChar": 115
+      },
+      "revId": "98bdaad52cfa21c4537582661f37186492151768",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c9ea5cf_7b911da4",
+        "filename": "docs/Chapter7/Configuration-Management.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 3967
+      },
+      "writtenOn": "2020-03-02T18:28:03Z",
+      "side": 1,
+      "message": "CDS self-service API does not have an specific requirement on PNF or VNF implementation.",
+      "parentUuid": "a00c949d_646d9518",
       "range": {
         "startLine": 33,
         "startChar": 95,
