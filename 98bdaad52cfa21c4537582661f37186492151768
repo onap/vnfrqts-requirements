@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "dcb7cff0_71dd6347",
+        "filename": "docs/Chapter7/Configuration-Management.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1303
+      },
+      "writtenOn": "2020-03-02T19:55:47Z",
+      "side": 1,
+      "message": "I will rewording this statement to \"The protocol used to communicate with VNF or PNF for life cycle management (LCM) operations are NETCONF, Ansible, Chef and REST\"",
+      "parentUuid": "7fdd535f_c03f3bbb",
+      "range": {
+        "startLine": 19,
+        "startChar": 95,
+        "endLine": 19,
+        "endChar": 119
+      },
+      "revId": "98bdaad52cfa21c4537582661f37186492151768",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "75d0fdf5_af30e96c",
         "filename": "docs/Chapter7/Configuration-Management.rst",
         "patchSetId": 4
@@ -125,6 +149,24 @@
       "side": 1,
       "message": "REST cannot be used by itself. according to section 7.3.3, REST only contains HealthCheck, not a full set of LCM operations. REST is only an additional protocol if HealthCheck does not supported by NETCONF, Ansible or Chef.",
       "parentUuid": "975b6fc9_ad68c463",
+      "revId": "98bdaad52cfa21c4537582661f37186492151768",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed467f30_db7d346e",
+        "filename": "docs/Chapter7/Configuration-Management.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1303
+      },
+      "writtenOn": "2020-03-02T19:55:47Z",
+      "side": 1,
+      "message": "I am going to submit a new requirement for LCM operations via NETCONF including HealthCheck.For the details of the requirement please see JIRA ticket VNFRQTS-830",
+      "parentUuid": "61565b77_88cd883d",
       "revId": "98bdaad52cfa21c4537582661f37186492151768",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
