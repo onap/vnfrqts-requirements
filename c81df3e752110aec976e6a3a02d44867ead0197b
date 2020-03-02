@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "3b29f7a2_5b1b6f45",
+        "filename": "docs/Chapter7/Configuration-Management.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1303
+      },
+      "writtenOn": "2020-03-02T15:45:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "897f1612_cef5d8ae",
+      "range": {
+        "startLine": 28,
+        "startChar": 31,
+        "endLine": 28,
+        "endChar": 32
+      },
+      "revId": "c81df3e752110aec976e6a3a02d44867ead0197b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "49fcb006_8c62cb4b",
         "filename": "docs/Chapter7/Configuration-Management.rst",
         "patchSetId": 3
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "7d1e8126_97e28c18",
+        "filename": "docs/Chapter7/Configuration-Management.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1303
+      },
+      "writtenOn": "2020-03-02T15:45:05Z",
+      "side": 1,
+      "message": "I changed to APPC or CDS client API path, according to https://wiki.onap.org/display/DW/PNF+software+upgrade+in+R6+Frankfurt",
+      "parentUuid": "49fcb006_8c62cb4b",
+      "range": {
+        "startLine": 32,
+        "startChar": 59,
+        "endLine": 32,
+        "endChar": 63
+      },
+      "revId": "c81df3e752110aec976e6a3a02d44867ead0197b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "198f0add_c103a78a",
         "filename": "docs/Chapter7/Configuration-Management.rst",
         "patchSetId": 3
@@ -91,6 +139,30 @@
       "revId": "c81df3e752110aec976e6a3a02d44867ead0197b",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3465fcd_8db6d9e5",
+        "filename": "docs/Chapter7/Configuration-Management.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1303
+      },
+      "writtenOn": "2020-03-02T15:45:05Z",
+      "side": 1,
+      "message": "both are good",
+      "parentUuid": "198f0add_c103a78a",
+      "range": {
+        "startLine": 35,
+        "startChar": 30,
+        "endLine": 35,
+        "endChar": 34
+      },
+      "revId": "c81df3e752110aec976e6a3a02d44867ead0197b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
