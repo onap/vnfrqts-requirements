@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "bfe08879_a99249f3",
+        "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 5279
+      },
+      "writtenOn": "2020-03-03T14:03:42Z",
+      "side": 1,
+      "message": "The latest YAML version is 1.2, however statement about \u0027...\u0027 indicating end of document without automatically starting new one is still valid. But meaning is a bit different, e g you can have multiple end markers following each other before the next document. See e g section 9.2 in YAML 1.2 about \u0027intentionally sloppy format\u0027. At the same time it seems you don\u0027t need to include \u0027---\u0027 before document if you have an end marker and don\u0027t use any \u0027%\u0027 directives before next document.\nI guess general question is if there is reason to propose a more restrictive syntax here, because we think some parsers don\u0027t correctly support the full YAML 1.2 syntax correctly?",
+      "parentUuid": "c74592ed_db3d21c0",
+      "range": {
+        "startLine": 200,
+        "startChar": 3,
+        "endLine": 201,
+        "endChar": 7
+      },
+      "revId": "707230a6900c07a45d80387a1e3fc91cb2cbf4c6",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b6aec570_90111c15",
         "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
         "patchSetId": 4
