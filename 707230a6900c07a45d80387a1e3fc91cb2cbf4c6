@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8bf0ca6b_f5a2642e",
+        "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-03-04T02:29:16Z",
+      "side": 1,
+      "message": "Per https://yaml.org/spec/1.2/spec.html section 2.2 - the ... denotes the end of a document - not just a file.  That\u0027s the language pulled from the spec with an associated example",
+      "parentUuid": "c04c34f0_624fb583",
+      "range": {
+        "startLine": 192,
+        "startChar": 59,
+        "endLine": 193,
+        "endChar": 21
+      },
+      "revId": "707230a6900c07a45d80387a1e3fc91cb2cbf4c6",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c74592ed_db3d21c0",
         "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
         "patchSetId": 4
@@ -60,6 +84,30 @@
       "side": 1,
       "message": "The latest YAML version is 1.2, however statement about \u0027...\u0027 indicating end of document without automatically starting new one is still valid. But meaning is a bit different, e g you can have multiple end markers following each other before the next document. See e g section 9.2 in YAML 1.2 about \u0027intentionally sloppy format\u0027. At the same time it seems you don\u0027t need to include \u0027---\u0027 before document if you have an end marker and don\u0027t use any \u0027%\u0027 directives before next document.\nI guess general question is if there is reason to propose a more restrictive syntax here, because we think some parsers don\u0027t correctly support the full YAML 1.2 syntax correctly?",
       "parentUuid": "c74592ed_db3d21c0",
+      "range": {
+        "startLine": 200,
+        "startChar": 3,
+        "endLine": 201,
+        "endChar": 7
+      },
+      "revId": "707230a6900c07a45d80387a1e3fc91cb2cbf4c6",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "073c87fb_2119d2e4",
+        "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-03-04T02:29:16Z",
+      "side": 1,
+      "message": "I tested this with several validators and parsers locally, and didn\u0027t run into any issues with how this is specifies.  With no evidence to denote the current examples and wording cause a problem, I\u0027d like to just leave this as is for now.  We\u0027ve stated that the ... is not required.",
+      "parentUuid": "bfe08879_a99249f3",
       "range": {
         "startLine": 200,
         "startChar": 3,
@@ -118,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "18757ee3_115ee524",
+        "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 933,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-03-04T02:29:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30a50ecc_4baf10d8",
+      "range": {
+        "startLine": 933,
+        "startChar": 25,
+        "endLine": 933,
+        "endChar": 31
+      },
+      "revId": "707230a6900c07a45d80387a1e3fc91cb2cbf4c6",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "60845738_e10b7181",
         "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
         "patchSetId": 4
@@ -129,6 +201,30 @@
       "writtenOn": "2020-02-24T11:00:11Z",
       "side": 1,
       "message": "make this \"---\" only.",
+      "range": {
+        "startLine": 1422,
+        "startChar": 4,
+        "endLine": 1423,
+        "endChar": 7
+      },
+      "revId": "707230a6900c07a45d80387a1e3fc91cb2cbf4c6",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0776da14_36a75f72",
+        "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 1423,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-03-04T02:29:16Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "60845738_e10b7181",
       "range": {
         "startLine": 1422,
         "startChar": 4,
@@ -164,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "a5922d22_09ee6530",
+        "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 1450,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-03-04T02:29:16Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e06814d3_77dcd365",
+      "range": {
+        "startLine": 1449,
+        "startChar": 2,
+        "endLine": 1450,
+        "endChar": 7
+      },
+      "revId": "707230a6900c07a45d80387a1e3fc91cb2cbf4c6",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "85a189e0_8c40c63b",
         "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
         "patchSetId": 4
@@ -175,6 +295,30 @@
       "writtenOn": "2020-02-24T11:00:11Z",
       "side": 1,
       "message": "make this \"---\"",
+      "range": {
+        "startLine": 1505,
+        "startChar": 3,
+        "endLine": 1506,
+        "endChar": 7
+      },
+      "revId": "707230a6900c07a45d80387a1e3fc91cb2cbf4c6",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8b121a5_f6c9ad37",
+        "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 1506,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-03-04T02:29:16Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "85a189e0_8c40c63b",
       "range": {
         "startLine": 1505,
         "startChar": 3,
@@ -210,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "d9e2bb8c_4c69ec5e",
+        "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 1529,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-03-04T02:29:16Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b0a53fd1_608ea902",
+      "range": {
+        "startLine": 1528,
+        "startChar": 4,
+        "endLine": 1529,
+        "endChar": 7
+      },
+      "revId": "707230a6900c07a45d80387a1e3fc91cb2cbf4c6",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1812840c_efecfa15",
         "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
         "patchSetId": 4
@@ -221,6 +389,30 @@
       "writtenOn": "2020-02-24T11:00:11Z",
       "side": 1,
       "message": "What about flipping the direction of this table?\nI mean, start with newest updates...?",
+      "range": {
+        "startLine": 2844,
+        "startChar": 0,
+        "endLine": 2846,
+        "endChar": 79
+      },
+      "revId": "707230a6900c07a45d80387a1e3fc91cb2cbf4c6",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc77dc97_589657ab",
+        "filename": "docs/Chapter8/VES_Registraion_3_2.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 2846,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-03-04T02:29:16Z",
+      "side": 1,
+      "message": "In RST that\u0027s not all that trivial.  It would probably make more sense, but I\u0027m not game to make that change right now. If someone wants to contribute the change, then I\u0027ll merge it.",
+      "parentUuid": "1812840c_efecfa15",
       "range": {
         "startLine": 2844,
         "startChar": 0,
