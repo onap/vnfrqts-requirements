@@ -2772,6 +2772,30 @@
     },
     {
       "key": {
+        "uuid": "87140d63_036c438d",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-03-04T01:57:07Z",
+      "side": 1,
+      "message": "Removed TLS level support as there\u0027s already a VNF Requirement for this.  Removing the duplication.",
+      "parentUuid": "d4d23878_226fd822",
+      "range": {
+        "startLine": 533,
+        "startChar": 0,
+        "endLine": 535,
+        "endChar": 31
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "87f88cfa_aebb80f9",
         "filename": "docs/Chapter8/ves7_1spec.rst",
         "patchSetId": 1
@@ -3055,6 +3079,30 @@
     },
     {
       "key": {
+        "uuid": "4527a05a_59ce258f",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 621,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-03-04T01:57:07Z",
+      "side": 1,
+      "message": "I\u0027ll open an ONAP ticket and look to resolve in the G the release.",
+      "parentUuid": "1a13fb01_c4c820df",
+      "range": {
+        "startLine": 621,
+        "startChar": 0,
+        "endLine": 621,
+        "endChar": 53
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cc8931f2_c2bc03ee",
         "filename": "docs/Chapter8/ves7_1spec.rst",
         "patchSetId": 1
@@ -3160,6 +3208,30 @@
       "writtenOn": "2020-02-07T14:33:48Z",
       "side": 1,
       "message": "Would it be possible to give a file-name example, that corresponds to the 3GPP format (chapter 5.1.2 in 3GPP TS32.432)?\n\nSth. like:\nA20000626.2315+0200-2330+0200_NodeBId\nC20050907.1030+0000-20050909.1500+0000_NodeId",
+      "range": {
+        "startLine": 2332,
+        "startChar": 64,
+        "endLine": 2332,
+        "endChar": 80
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9bd82cf1_5bed327d",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 2332,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-03-04T01:57:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7483ece0_22f104a7",
       "range": {
         "startLine": 2332,
         "startChar": 64,
@@ -3360,6 +3432,30 @@
     },
     {
       "key": {
+        "uuid": "50bb8d7a_f5fc690a",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 3632,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-03-04T01:57:07Z",
+      "side": 1,
+      "message": "Configuration section refers to this and does not list this as a configurable parameter",
+      "parentUuid": "cb6dceda_5284f408",
+      "range": {
+        "startLine": 3631,
+        "startChar": 26,
+        "endLine": 3632,
+        "endChar": 22
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e7d79a9f_373271c7",
         "filename": "docs/Chapter8/ves7_1spec.rst",
         "patchSetId": 1
@@ -3430,6 +3526,30 @@
     },
     {
       "key": {
+        "uuid": "0f1d5278_89d8fe55",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 3666,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-03-04T01:57:07Z",
+      "side": 1,
+      "message": "Removed text, will look at Monitoring requirements to see if we need something stating that events adhere to the format and ensure delivery",
+      "parentUuid": "c94c566e_7a5876c7",
+      "range": {
+        "startLine": 3665,
+        "startChar": 70,
+        "endLine": 3666,
+        "endChar": 37
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "20376cc8_4d3243e8",
         "filename": "docs/Chapter8/ves7_1spec.rst",
         "patchSetId": 1
@@ -3483,6 +3603,24 @@
     },
     {
       "key": {
+        "uuid": "5b558ead_dac31fb1",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 3668,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-03-04T01:57:07Z",
+      "side": 1,
+      "message": "The requirement stands for now.  We will need more details on what happens if the event does include multiple domains.",
+      "parentUuid": "ef258c77_221741d0",
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "63f7d607_1396647a",
         "filename": "docs/Chapter8/ves7_1spec.rst",
         "patchSetId": 1
@@ -3515,6 +3653,24 @@
       "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd5aca0f_2f29099f",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 3669,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-03-04T01:57:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fdbe5db6_2f28128b",
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
@@ -3612,6 +3768,30 @@
     },
     {
       "key": {
+        "uuid": "4151caee_92b872ba",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 3675,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-03-04T01:57:07Z",
+      "side": 1,
+      "message": "Opened a ticket, but removed netconf language.",
+      "parentUuid": "223eaafe_3a2f9851",
+      "range": {
+        "startLine": 3674,
+        "startChar": 38,
+        "endLine": 3675,
+        "endChar": 20
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8df1b0ea_c6e9a2eb",
         "filename": "docs/Chapter8/ves7_1spec.rst",
         "patchSetId": 1
@@ -3659,6 +3839,30 @@
     },
     {
       "key": {
+        "uuid": "88fc3b60_90f94e01",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 3683,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-03-04T01:57:07Z",
+      "side": 1,
+      "message": "Open a ticket to better specify the semantics and behavior of the sender.",
+      "parentUuid": "1f0ec8fb_c050c56f",
+      "range": {
+        "startLine": 3681,
+        "startChar": 0,
+        "endLine": 3683,
+        "endChar": 70
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "27578192_28373c25",
         "filename": "docs/Chapter8/ves7_1spec.rst",
         "patchSetId": 1
@@ -3694,6 +3898,30 @@
       "side": 1,
       "message": "It\u0027s a should requirement - not mandatory.",
       "parentUuid": "27578192_28373c25",
+      "range": {
+        "startLine": 3688,
+        "startChar": 31,
+        "endLine": 3688,
+        "endChar": 44
+      },
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "649969f0_d29bef68",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 3688,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-03-04T01:57:07Z",
+      "side": 1,
+      "message": "I will send an note to Vijay to determine if this is a hard requirement for DCAE, and propose a path forward based on that information.",
+      "parentUuid": "51cffc71_58b2bf1a",
       "range": {
         "startLine": 3688,
         "startChar": 31,
@@ -3828,6 +4056,48 @@
       "side": 1,
       "message": "Adding to the agenda",
       "parentUuid": "5b407ab7_e03b67bf",
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb5242c1_2dc1e97f",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 3852,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-03-04T01:57:07Z",
+      "side": 1,
+      "message": "Removed for now.  Will create a ticket to better define what an NF should do based on various failure types.",
+      "parentUuid": "86c3039b_879374aa",
+      "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b5de4fe_3fe8a5b8",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 3852,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-03-04T01:57:07Z",
+      "side": 1,
+      "message": "Removed for now.  Will create a ticket to better define what an NF should do based on various failure types.",
+      "parentUuid": "691e6aea_aa419421",
+      "range": {
+        "startLine": 3848,
+        "startChar": 6,
+        "endLine": 3852,
+        "endChar": 13
+      },
       "revId": "e141e35cbc337514a88acd731c3fb1d3b0d7fe2b",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
