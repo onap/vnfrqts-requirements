@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "301376ca_54b2acb6",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-03-04T01:57:07Z",
+      "side": 1,
+      "message": "Ticket opened to address ambiguities of eventId semantics. See VNFRQTS-835",
+      "parentUuid": "17cbb424_b05647a9",
+      "range": {
+        "startLine": 229,
+        "startChar": 48,
+        "endLine": 229,
+        "endChar": 56
+      },
+      "revId": "3a3ec4b8f98a96c16d0dbfbafdf1c85e5d8ad835",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8ea7765b_d4223914",
         "filename": "docs/Chapter8/ves7_1spec.rst",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2020-02-24T12:52:43Z",
       "side": 1,
       "message": "In which cases id the NF able to reset the \u003cnnn\u003e counter?\nWhat about a case, where we have a restart of the box, a software crash, a reset, aso?\n\nShall these be persisted, or can these \u003cnnn\u003e be reset, and DCAE will be able not to see these as duplicates based on the start and endMicroSec parameters?",
+      "range": {
+        "startLine": 243,
+        "startChar": 11,
+        "endLine": 243,
+        "endChar": 61
+      },
+      "revId": "3a3ec4b8f98a96c16d0dbfbafdf1c85e5d8ad835",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "654320b3_decc1aad",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-03-04T01:57:07Z",
+      "side": 1,
+      "message": "See VNFRQTS-835.  Will be addressed under that ticket.",
+      "parentUuid": "8ea7765b_d4223914",
       "range": {
         "startLine": 243,
         "startChar": 11,
@@ -112,6 +160,24 @@
     },
     {
       "key": {
+        "uuid": "f269716a_e5adb52c",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-03-04T01:57:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "202432f3_3875d2d9",
+      "revId": "3a3ec4b8f98a96c16d0dbfbafdf1c85e5d8ad835",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90a8d388_ec11e234",
         "filename": "docs/Chapter8/ves7_1spec.rst",
         "patchSetId": 2
@@ -182,6 +248,30 @@
     },
     {
       "key": {
+        "uuid": "e96ee5b6_e42d93bf",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-03-04T01:57:07Z",
+      "side": 1,
+      "message": "Resolved on prior patchset.",
+      "parentUuid": "8992f97b_09c27f15",
+      "range": {
+        "startLine": 391,
+        "startChar": 0,
+        "endLine": 395,
+        "endChar": 14
+      },
+      "revId": "3a3ec4b8f98a96c16d0dbfbafdf1c85e5d8ad835",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2e2fc93e_bb718d41",
         "filename": "docs/Chapter8/ves7_1spec.rst",
         "patchSetId": 2
@@ -193,6 +283,30 @@
       "writtenOn": "2020-02-24T12:39:38Z",
       "side": 1,
       "message": "Not really \"vendors\" - Network Functions or Vendor network functions.",
+      "range": {
+        "startLine": 405,
+        "startChar": 70,
+        "endLine": 406,
+        "endChar": 27
+      },
+      "revId": "3a3ec4b8f98a96c16d0dbfbafdf1c85e5d8ad835",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fbca1071_df101fad",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-03-04T01:57:07Z",
+      "side": 1,
+      "message": "Wording previously revised on patchset 1.",
+      "parentUuid": "2e2fc93e_bb718d41",
       "range": {
         "startLine": 405,
         "startChar": 70,
@@ -228,6 +342,30 @@
     },
     {
       "key": {
+        "uuid": "29218810_8110c6b2",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-03-04T01:57:07Z",
+      "side": 1,
+      "message": "Wording revised based on patchset 1 feedback",
+      "parentUuid": "f6611498_37c3267c",
+      "range": {
+        "startLine": 406,
+        "startChar": 28,
+        "endLine": 407,
+        "endChar": 65
+      },
+      "revId": "3a3ec4b8f98a96c16d0dbfbafdf1c85e5d8ad835",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6d5da737_5f179e32",
         "filename": "docs/Chapter8/ves7_1spec.rst",
         "patchSetId": 2
@@ -239,6 +377,30 @@
       "writtenOn": "2020-02-24T12:39:38Z",
       "side": 1,
       "message": "it would be better to refer to this limit in a \"relative way\".\nE.g. \"However, the maximum VES event message size is applicable here\"",
+      "range": {
+        "startLine": 411,
+        "startChar": 54,
+        "endLine": 411,
+        "endChar": 67
+      },
+      "revId": "3a3ec4b8f98a96c16d0dbfbafdf1c85e5d8ad835",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "863401dc_c34c72b2",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-03-04T01:57:07Z",
+      "side": 1,
+      "message": "Wording revised based on patchset 1 feedback",
+      "parentUuid": "6d5da737_5f179e32",
       "range": {
         "startLine": 411,
         "startChar": 54,
@@ -274,6 +436,30 @@
     },
     {
       "key": {
+        "uuid": "a8f9f2e3_e90b6829",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 495,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-03-04T01:57:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b4d4e9f8_507e8359",
+      "range": {
+        "startLine": 494,
+        "startChar": 0,
+        "endLine": 495,
+        "endChar": 25
+      },
+      "revId": "3a3ec4b8f98a96c16d0dbfbafdf1c85e5d8ad835",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "41c16970_3145d594",
         "filename": "docs/Chapter8/ves7_1spec.rst",
         "patchSetId": 2
@@ -285,6 +471,30 @@
       "writtenOn": "2020-02-24T12:39:38Z",
       "side": 1,
       "message": "We shall probably use here one of the supported notification types, e.g. heartBeat , Fault, aso. The request below looks a little incomplete, without a HeartBeatFields structure (domain set to: \"heartbeat\"",
+      "range": {
+        "startLine": 532,
+        "startChar": 0,
+        "endLine": 532,
+        "endChar": 0
+      },
+      "revId": "3a3ec4b8f98a96c16d0dbfbafdf1c85e5d8ad835",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c6ebe802_199dcf42",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-03-04T01:57:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "41c16970_3145d594",
       "range": {
         "startLine": 532,
         "startChar": 0,
@@ -320,6 +530,30 @@
     },
     {
       "key": {
+        "uuid": "6926af49_fcda1d82",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 3649,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-03-04T01:57:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b737eca5_7f6aaa75",
+      "range": {
+        "startLine": 3649,
+        "startChar": 18,
+        "endLine": 3649,
+        "endChar": 30
+      },
+      "revId": "3a3ec4b8f98a96c16d0dbfbafdf1c85e5d8ad835",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0876ac82_89373b83",
         "filename": "docs/Chapter8/ves7_1spec.rst",
         "patchSetId": 2
@@ -343,6 +577,30 @@
     },
     {
       "key": {
+        "uuid": "3b258177_cf0833a7",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 3653,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-03-04T01:57:07Z",
+      "side": 1,
+      "message": "Just removed defined in part",
+      "parentUuid": "0876ac82_89373b83",
+      "range": {
+        "startLine": 3652,
+        "startChar": 76,
+        "endLine": 3653,
+        "endChar": 30
+      },
+      "revId": "3a3ec4b8f98a96c16d0dbfbafdf1c85e5d8ad835",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1e70c508_cc44bb9f",
         "filename": "docs/Chapter8/ves7_1spec.rst",
         "patchSetId": 2
@@ -354,6 +612,30 @@
       "writtenOn": "2020-02-24T12:39:38Z",
       "side": 1,
       "message": "Please refer to a chapter within this document, where this limit is defined. When we change this limit one day in the future, we will have to describe it only in 1 place in the doc.",
+      "range": {
+        "startLine": 3655,
+        "startChar": 11,
+        "endLine": 3655,
+        "endChar": 49
+      },
+      "revId": "3a3ec4b8f98a96c16d0dbfbafdf1c85e5d8ad835",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "27f9c100_e9d8f692",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 3655,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-03-04T01:57:07Z",
+      "side": 1,
+      "message": "Waiting feedback from DCAE on rationale for 1MB limit.",
+      "parentUuid": "1e70c508_cc44bb9f",
       "range": {
         "startLine": 3655,
         "startChar": 11,
@@ -412,6 +694,30 @@
     },
     {
       "key": {
+        "uuid": "226f50a9_1f3896dc",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 3661,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-03-04T01:57:07Z",
+      "side": 1,
+      "message": "Language was removed based on patchset 1 feedback",
+      "parentUuid": "b3a46d1c_48126482",
+      "range": {
+        "startLine": 3660,
+        "startChar": 41,
+        "endLine": 3661,
+        "endChar": 36
+      },
+      "revId": "3a3ec4b8f98a96c16d0dbfbafdf1c85e5d8ad835",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a1e1046a_b753add6",
         "filename": "docs/Chapter8/ves7_1spec.rst",
         "patchSetId": 2
@@ -423,6 +729,30 @@
       "writtenOn": "2020-02-24T12:39:38Z",
       "side": 1,
       "message": "There is no reason to limit this to NetConf.\nLet`s write \"...via NFs management interface\"",
+      "range": {
+        "startLine": 3669,
+        "startChar": 62,
+        "endLine": 3669,
+        "endChar": 73
+      },
+      "revId": "3a3ec4b8f98a96c16d0dbfbafdf1c85e5d8ad835",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dd8dfc0f_e1edbeb9",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 3669,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-03-04T01:57:07Z",
+      "side": 1,
+      "message": "Resolved based on patchset 1 feedback",
+      "parentUuid": "a1e1046a_b753add6",
       "range": {
         "startLine": 3669,
         "startChar": 62,
@@ -458,6 +788,30 @@
     },
     {
       "key": {
+        "uuid": "c9c780d8_487c6cac",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 3678,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-03-04T01:57:07Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ef8cc27c_eaa649ee",
+      "range": {
+        "startLine": 3673,
+        "startChar": 0,
+        "endLine": 3678,
+        "endChar": 70
+      },
+      "revId": "3a3ec4b8f98a96c16d0dbfbafdf1c85e5d8ad835",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1d48c701_f9167442",
         "filename": "docs/Chapter8/ves7_1spec.rst",
         "patchSetId": 2
@@ -469,6 +823,30 @@
       "writtenOn": "2020-02-24T12:39:38Z",
       "side": 1,
       "message": "This is a backwards incompatible change. As such it deserves a new Major version of the spec. (means 7.0.1 devices might not really work with 7.1.1.)",
+      "range": {
+        "startLine": 3683,
+        "startChar": 31,
+        "endLine": 3683,
+        "endChar": 44
+      },
+      "revId": "3a3ec4b8f98a96c16d0dbfbafdf1c85e5d8ad835",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a96a1b00_04987ac5",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 3683,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-03-04T01:57:07Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1d48c701_f9167442",
       "range": {
         "startLine": 3683,
         "startChar": 31,
@@ -527,6 +905,30 @@
     },
     {
       "key": {
+        "uuid": "f9f525ed_48e6f9ae",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 3845,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-03-04T01:57:07Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a82444da_c229f152",
+      "range": {
+        "startLine": 3844,
+        "startChar": 63,
+        "endLine": 3845,
+        "endChar": 55
+      },
+      "revId": "3a3ec4b8f98a96c16d0dbfbafdf1c85e5d8ad835",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "988fbed1_f76346f5",
         "filename": "docs/Chapter8/ves7_1spec.rst",
         "patchSetId": 2
@@ -538,6 +940,30 @@
       "writtenOn": "2020-02-24T12:39:38Z",
       "side": 1,
       "message": "This is a VNF requirement, not part of the interface specification. Please move to VNF RQTS",
+      "range": {
+        "startLine": 3843,
+        "startChar": 6,
+        "endLine": 3847,
+        "endChar": 13
+      },
+      "revId": "3a3ec4b8f98a96c16d0dbfbafdf1c85e5d8ad835",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "91676fc1_7e343f32",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 3847,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-03-04T01:57:07Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "988fbed1_f76346f5",
       "range": {
         "startLine": 3843,
         "startChar": 6,
