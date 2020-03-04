@@ -16,6 +16,24 @@
       "revId": "866d18e7684064b5c63a5278c667c40e0ac05882",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f13d9a18_61276ca9",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-03-04T01:57:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7b249d2f_41c19461",
+      "revId": "866d18e7684064b5c63a5278c667c40e0ac05882",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
