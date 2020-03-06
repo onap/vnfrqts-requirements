@@ -1033,6 +1033,21 @@ NETCONF RFCs.
     protocol according to [RFC7589].
 
 
+LCM Operations via NETCONF
+++++++++++++++++++++++++++++++
+
+.. req::
+    :id: R-246519
+    :target: VNF or PNF
+    :keyword: MAY
+    :introduced: frankfurt
+
+    As alternative to Ansible, Chef or REST, a VNF or PNF MAY support YANG models
+    allowing execution of standard controller LCM operations including HealthCheck.
+    Note: To support vendor YANG models for LCM operations, the controller is responsible
+    for performing VNF/PNF specific translation of north-bound API requests into one or more
+    south-bound NETCONF requests.
+
 .. _xnf_rest_apis:
 
 VNF or PNF REST APIs
