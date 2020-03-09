@@ -420,11 +420,11 @@ NETCONF Server Requirements
 
 .. req::
     :id: R-73468
-    :target: VNF or PNF
+    :target: VNF
     :keyword: MUST
-    :updated: dublin
+    :updated: frankfurt
 
-    The VNF or PNF **MUST** allow the NETCONF server connection
+    The VNF **MUST** allow the NETCONF server connection
     parameters to be configurable during virtual machine instantiation
     through Heat templates where SSH keys, usernames, passwords, SSH
     service and SSH port numbers are Heat template parameters.
