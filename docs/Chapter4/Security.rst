@@ -406,15 +406,6 @@ Identity and Access Management Requirements
     to restrict access to VNF functions and data to authorized entities.
 
 .. req::
-    :id: R-85419
-    :target: VNF
-    :keyword: SHOULD
-    :updated: casablanca
-
-    The VNF **SHOULD** support OAuth 2.0 authorization using an external
-    Authorization Server.
-
-.. req::
     :id: R-75041
     :target: VNF
     :keyword: MUST
@@ -530,13 +521,23 @@ Identity and Access Management Requirements
    ending that session for that authenticated user.
 
 .. req::
+   :id: R-251639
+   :target: VNF
+   :keyword: MUST
+   :introduced: frankfurt
+
+   The VNF **MUST** provide explicit confirmation of a session termination
+   such as a message, new page, or rerouting to a login page.
+
+.. req::
    :id: R-45719
    :target: VNF
    :keyword: MUST
    :introduced: casablanca
+   :updated: frankfurt
 
    The VNF **MUST**, if not integrated with the Operator's Identity and Access
-   Management system, or enforce a configurable "terminate idle sessions"
+   Management system, enforce a configurable "terminate idle sessions"
    policy by terminating the session after a configurable period of inactivity.
 
 
