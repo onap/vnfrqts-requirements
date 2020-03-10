@@ -1,0 +1,9 @@
+Verified+1: ONAP Jobbuilder <onap-jobbuilder@jenkins.onap.org>
+Code-Review+1: Oskar Malm <oskar.malm@ericsson.com>
+Code-Review+1: Zu Qiang (Ericsson) <qiang.zu@gmail.com>
+Code-Review+2: Hagop Bozawglanian <hagop.bozawglanian@att.com>
+Submitted-by: Hagop Bozawglanian <hagop.bozawglanian@att.com>
+Submitted-at: Tue, 10 Mar 2020 16:07:37 +0000
+Reviewed-on: https://gerrit.onap.org/r/c/vnfrqts/requirements/+/103390
+Project: vnfrqts/requirements
+Branch: refs/heads/master
