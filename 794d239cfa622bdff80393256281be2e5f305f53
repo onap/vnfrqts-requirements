@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d30ac0bc_66e9ed47",
+        "filename": "docs/Chapter7/VNF-On-boarding-and-package-management.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-03-11T21:09:41Z",
+      "side": 1,
+      "message": "Can we simply change this to the VNF or PNF Provider **MUST** provide...  Not every VNF uses a CSAR package (ex: Heat-based VNFs).  I\u0027m ok if we added some some statement at the end that \"If the VNF or PNF is packaged in a CSAR package, then the artifacts MUST be in included in the CSAR\".  Can we provide guidance on where in the CSAR it should be packaged?",
+      "revId": "794d239cfa622bdff80393256281be2e5f305f53",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
