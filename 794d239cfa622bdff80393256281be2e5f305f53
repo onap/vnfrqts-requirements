@@ -34,6 +34,24 @@
       "revId": "794d239cfa622bdff80393256281be2e5f305f53",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd4a7b55_0e300021",
+        "filename": "docs/Chapter7/VNF-On-boarding-and-package-management.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-03-11T21:20:01Z",
+      "side": 1,
+      "message": "Honestly, I think the original requirement should have been on the VNF Provider to begin with as it\u0027s not the VNF that provides the artifacts as they must be delivered via some other process to the operator.  If there\u0027s an issue with the recommendation that I gave, then we could alternatively split it into 2 different requirements... for PNF use the PNF CSAR package for VNFs, then the VNF Provider must provide it.",
+      "parentUuid": "510b8781_8a4bb71c",
+      "revId": "794d239cfa622bdff80393256281be2e5f305f53",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
     }
   ]
 }
