@@ -182,15 +182,11 @@ Resource Configuration
     :id: R-89571
     :target: VNF or PNF
     :keyword: MUST
-    :updated: dublin
+    :updated: frankfurt
 
-    The VNF or PNF **MUST** support and provide artifacts for configuration
+    The VNF or PNF CSAR package **MUST** provide artifacts for configuration
     management using at least one of the following technologies;
     a) Netconf/YANG, b) Chef, or c) Ansible.
-
-    Note: The requirements for Netconf/YANG, Chef, and Ansible protocols
-    are provided separately and must be supported only if the corresponding
-    protocol option is provided by the VNF or PNF providor.
 
 
 Configuration Management via NETCONF/YANG
