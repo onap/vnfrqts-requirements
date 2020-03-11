@@ -1053,9 +1053,9 @@ LCM Operations via NETCONF
 VNF or PNF REST APIs
 ^^^^^^^^^^^^^^^^^^^^
 
-HealthCheck is a command for which no NETCONF support exists.
-Therefore, this must be supported using a RESTful interface
-(defined in this section) or with a Chef cookbook/Ansible playbook
+HealthCheck command must be supported using a RESTful interface
+(defined in this section) or with NETCONF/YANG (defined in section
+`NETCONF Standards and Capabilities`_) or with a Chef cookbook/Ansible playbook
 (defined in sections `Chef Standards and Capabilities`_ and
 `Ansible Standards and Capabilities`_).
 
