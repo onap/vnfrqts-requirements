@@ -180,17 +180,13 @@ Resource Configuration
 
 .. req::
     :id: R-89571
-    :target: VNF or PNF
+    :target: VNF or PNF PROVIDER
     :keyword: MUST
-    :updated: dublin
+    :updated: frankfurt
 
-    The VNF or PNF **MUST** support and provide artifacts for configuration
+    The VNF or PNF PROVIDER **MUST** provide artifacts for configuration
     management using at least one of the following technologies;
     a) Netconf/YANG, b) Chef, or c) Ansible.
-
-    Note: The requirements for Netconf/YANG, Chef, and Ansible protocols
-    are provided separately and must be supported only if the corresponding
-    protocol option is provided by the VNF or PNF providor.
 
 
 Configuration Management via NETCONF/YANG
