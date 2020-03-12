@@ -88,6 +88,24 @@
       "revId": "794d239cfa622bdff80393256281be2e5f305f53",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32d18417_04c76450",
+        "filename": "docs/Chapter7/VNF-On-boarding-and-package-management.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 3967
+      },
+      "writtenOn": "2020-03-12T15:28:17Z",
+      "side": 1,
+      "message": "totally agree. so let\u0027s split this into two requirements. thanks.",
+      "parentUuid": "ab8ed0df_0b6af55b",
+      "revId": "794d239cfa622bdff80393256281be2e5f305f53",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
     }
   ]
 }
