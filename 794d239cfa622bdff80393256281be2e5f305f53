@@ -70,6 +70,24 @@
       "revId": "794d239cfa622bdff80393256281be2e5f305f53",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab8ed0df_0b6af55b",
+        "filename": "docs/Chapter7/VNF-On-boarding-and-package-management.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-03-12T14:43:51Z",
+      "side": 1,
+      "message": "yes, I\u0027m good either way.  We can use the approach from my first comment or split this into 2 requirements.  We just need to make sure that if we provide separate requirements, that they are worded in such a way that they don\u0027t overlap or cause confusion (i.e. the requirement for Heat-based VNFs must explicitly state that when the requirement applies)",
+      "parentUuid": "85851b4c_1644fad7",
+      "revId": "794d239cfa622bdff80393256281be2e5f305f53",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
     }
   ]
 }
