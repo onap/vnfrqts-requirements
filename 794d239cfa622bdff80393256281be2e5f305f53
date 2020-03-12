@@ -52,6 +52,24 @@
       "revId": "794d239cfa622bdff80393256281be2e5f305f53",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85851b4c_1644fad7",
+        "filename": "docs/Chapter7/VNF-On-boarding-and-package-management.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 3967
+      },
+      "writtenOn": "2020-03-12T00:43:47Z",
+      "side": 1,
+      "message": "Original text is \"The VNF or PNF **MUST** support and provide artifacts for configuration ...\", which is wrong. VNF/PNF cannot provide artifacts. \nOne option is to make this requirement on VNF/PNF CSAR package only. And add a new requirement on Heat-based onboarding procedure. Is this good?",
+      "parentUuid": "cd4a7b55_0e300021",
+      "revId": "794d239cfa622bdff80393256281be2e5f305f53",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
     }
   ]
 }
