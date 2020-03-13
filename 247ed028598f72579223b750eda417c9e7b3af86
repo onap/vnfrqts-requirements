@@ -22,6 +22,30 @@
       "revId": "247ed028598f72579223b750eda417c9e7b3af86",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39ce5003_c4e41d0e",
+        "filename": "docs/Chapter7/Configuration-Management.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 1600,
+      "author": {
+        "id": 6505
+      },
+      "writtenOn": "2020-03-13T20:02:03Z",
+      "side": 1,
+      "message": "as",
+      "parentUuid": "6b28cc3e_77601d9c",
+      "range": {
+        "startLine": 1600,
+        "startChar": 77,
+        "endLine": 1600,
+        "endChar": 78
+      },
+      "revId": "247ed028598f72579223b750eda417c9e7b3af86",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
