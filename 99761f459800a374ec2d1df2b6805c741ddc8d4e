@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0b937279_65075f87",
+        "filename": "docs/Chapter7/Configuration-Management.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 1875,
+      "author": {
+        "id": 2477
+      },
+      "writtenOn": "2020-03-16T13:07:12Z",
+      "side": 1,
+      "message": "mech ID, i think we need to remove it",
+      "range": {
+        "startLine": 1875,
+        "startChar": 49,
+        "endLine": 1875,
+        "endChar": 69
+      },
+      "revId": "99761f459800a374ec2d1df2b6805c741ddc8d4e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
