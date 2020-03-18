@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4e3fc125_f925b623",
+        "filename": "docs/Chapter4/Security.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-03-18T19:40:56Z",
+      "side": 1,
+      "message": "These seem requirements are also in VNFRQTS-457 which is not listed in this commit.  I am cancelling that ticket as a duplicate of VNFRQTS-816 and VNFRQTS-815.",
+      "range": {
+        "startLine": 296,
+        "startChar": 0,
+        "endLine": 316,
+        "endChar": 74
+      },
+      "revId": "95601c53a52c67d13d9def02155ecc962304317a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
