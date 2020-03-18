@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "45c6e5cb_c6b19d50",
+        "filename": "docs/Chapter4/Security.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-03-18T19:40:56Z",
+      "side": 1,
+      "message": "There are 2 tickets open for this requirement (VNFRQTS-781, VNFRQTS-829).  I will cancel VNFRQTS-781 as it is not listed as In Progress. Please let me know if you disagree.",
+      "revId": "472dca11ee50934e6eb3ea051eefe430642b1d18",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}

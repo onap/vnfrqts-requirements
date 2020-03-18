@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4c2d3447_0e9725af",
+        "filename": "docs/Chapter4/Security.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-03-18T19:40:56Z",
+      "side": 0,
+      "message": "There are two other open tickets referencing this requirement that state it should be reworded vs. removed (VNFRQTS-727, VNFRQTS-661).  Can those be cancelled?  If not which one should survive?",
+      "revId": "43d18d36fb1caf8156895d0e462f93f3e02d1b12",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
