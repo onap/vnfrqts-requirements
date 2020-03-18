@@ -1394,10 +1394,12 @@ Ansible Client Requirements
     :id: R-54373
     :target: VNF or PNF
     :keyword: MUST
-    :updated: dublin
+    :updated: frankfurt
 
-    The VNF or PNF **MUST** have Python >= 2.6 on the endpoint VM(s)
-    of a VNF or PNF on which an Ansible playbook will be executed.
+    The VNF or PNF Provider **MUST** provide Ansible playbooks that are
+    compatible with the Operator’s deployed versions of Ansible and Python.
+    As the Ansible runtime itself is not deployed as part of ONAP, the ONAP
+    project cannot dictate the specific versions supported.
 
 .. req::
     :id: R-35401
@@ -1587,7 +1589,7 @@ complete the desired action.
     :id: R-48698
     :target: VNF or PNF
     :keyword: MUST
-    :updated: dublin
+    :updated: frankfurt
 
     The VNF or PNF **MUST** utilize information from key value pairs that will
     be provided by the Ansible Server as "extra-vars" during invocation to
@@ -1597,7 +1599,7 @@ complete the desired action.
     supplied using the methodology detailed in the Ansible Server API, unless
     they are bundled with playbooks, example, generic templates. Any files
     containing instance specific info (attribute-value pairs), not obtainable
-    from any ONAP inventory databases or other sources, referenced and used an
+    from any ONAP inventory databases or other sources, referenced and used as
     input by playbooks, shall be provisioned (and distributed) in advance of
     use, e.g., VNF or PNF instantiation. Recommendation is to avoid these
     instance specific, manually created in advance of instantiation, files.
@@ -1627,7 +1629,7 @@ will be considered to have failed.
     :id: R-50252
     :target: VNF or PNF
     :keyword: MUST
-    :updated: dublin
+    :updated: frankfurt
 
     The VNF or PNF **MUST** write to a response file in JSON format that will
     be retrieved and made available by the Ansible Server if, as part of a VNF
@@ -1635,8 +1637,8 @@ will be considered to have failed.
     PNF information/response. The text files must be written in the main
     playbook home directory, in JSON format. The JSON file must be created for
     the VNF or PNF with the name '<VNF or PNF name>_results.txt'. All playbook
-    output results, for all VNF or PNF VMs, to be provided as a response to the
-    request, must be written to this response file.
+    output results, for all VNF VMS or PNF Server/Blades, to be provided as a
+    response to the request, must be written to this response file.
 
 .. req::
     :id: R-51442
@@ -1836,6 +1838,133 @@ performs a full VNF or PNF health check.
     playbook set. The functionality of a new playbook set must be tested before
     it is deployed to the production.
 
+.. req::
+    :id: R-42333
+    :target: VNF or PNF
+    :keyword: MUST
+    :introduced: frankfurt
+
+    The VNF or PNF playbooks targeting a subset of VMs (or servers/blades) part
+    of a VNF (or PNF) instance **MUST** be designed to use the VNF or PNF
+    inventory host file and to use a parameter named target_vm_list to provide
+    the subset of VMs in the VNF instance specifically targeted by the
+    playbook.
+
+    NOTE: Example of such playbooks would be playbooks used to configure VMs
+    added to a VNF instance as part of a scale-out/up or scale-in/down
+    operation. Such playbook is expected to also need to perform
+    configuration/reconfiguration tasks part of the base VNF instance build.
+
+.. req::
+    :id: R-39003
+    :target: VNF or PNF
+    :keyword: MUST
+    :introduced: frankfurt
+
+    The VNF or PNF provider **MUST** store passwords and other attributes
+    that must remain secret in JSON, YAML or INI files that can be
+    encrypted/decrypted using Ansible Vault capabilities.
+
+.. req::
+    :id: R-46823
+    :target: VNF or PNF
+    :keyword: MUST
+    :introduced: frankfurt
+
+    The VNF or PNF provider **MUST** store passwords and other attributes that
+    must remain secret in JSON, YAML or INI with differentiated names when
+    passwords and secrets vary from environment to environment. Example, name
+    must include <Mechanized user ID>_...json or <Mechanized user ID>_...xml
+    when labs and production use different passwords and/or secrets. The
+    <Mechanized user ID> is discovered from the environment
+    /etc/ansible/ansible.cfg where the playbook runs.
+
+.. req::
+    :id: R-83092
+    :target: VNF or PNF
+    :keyword: MUST
+    :introduced: frankfurt
+
+    The VNF or PNF provider **MUST** develop playbooks that load passwords
+    and other attributes that must remain secret from JSON, YAML or INI files
+    that can be encrypted/decrypted using Ansible Vault capabilities.
+
+.. req::
+    :id: R-09209
+    :target: VNF or PNF
+    :keyword: MUST
+    :introduced: frankfurt
+
+    The VNF or PNF Provider **MUST** store any playbook configuration data
+    that requires encryption (passwords, secrets, etc.) in a JSON (.json),
+    YAML (.yaml|.yml) or INI (.ini) file, which will be placed in
+    <VNF type>/<Version>/ansible/vars directory.
+
+.. req::
+    :id: R-56988
+    :target: VNF or PNF
+    :keyword: MUST
+    :introduced: frankfurt
+
+    The VNF or PNF Provider **MUST** load any playbook configuration data
+    that requires encryption (passwords, secrets, etc.) in a JSON (.json),
+    YAML (.yaml|.yml) or INI (.ini) file, from the
+    <VNF type>/<Version>/ansible/vars directory.
+
+.. req::
+    :id: R-20988
+    :target: VNF or PNF
+    :keyword: MUST
+    :introduced: frankfurt
+
+    The VNF or PNF provider **MUST** develop playbooks that do not log or
+    display passwords and other attributes that must remain secret when
+    running playbook in debug mode.
+
+    NOTE: Use "no_log: True"
+
+.. req::
+    :id: R-53245
+    :target: VNF or PNF
+    :keyword: MUST
+    :introduced: frankfurt
+
+    The VNF or PNF provider **MUST** provide playbooks that do not require
+    passwords or secrets to be passed in clear text in the command line or
+    Rest API request to run the playbook.
+
+.. req::
+    :id: R-78640
+    :target: VNF or PNF
+    :keyword: SHOULD
+    :introduced: frankfurt
+
+    The VNF or PNF provider **SHOULD** provide a single YAML or JSON file
+    with all the passwords and secrets to reduce the number of files to be
+    decrypted/encrypted before on-boarding into the central repository.
+
+.. req::
+    :id: R-88786
+    :target: VNF or PNF
+    :keyword: MUST
+    :introduced: frankfurt
+
+    The VNF or PNF provider **SHOULD** place the passwords and secrets to
+    be edited at the top of the single YAML or JSON file with all the secrets,
+    and the (default) ones that are to remain unchanged towards the bottom,
+    with commentary separating them.
+
+.. req::
+    :id: R-88002
+    :target: VNF or PNF Provider
+    :keyword: MUST
+    :introduced: frankfurt
+
+    The VNF or PNF provider **MUST** use a pre-agreed upon password to encrypt
+    the Ansible Vault file, or provide the vault password used to encrypt
+    the file to the customer, in a secure manner, to allow the customer to
+    decrypt/encrypt (rekey) Ansible Vault files before they are checked
+    into the central repository for distribution.
 
 Ansible API Usage
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1893,7 +2022,7 @@ Table 8. APPC/SDN-C APIs and NETCONF Commands
 |             |                    |The JSON file for   |NodeList must list  |
 |             |                    |this VNF or PNF     |IP addresses or DNS |
 |             |                    |action is required  |supported FQDNs of  |
-|             |                    |to set "PushJobFlag"|an example VNF      |
+|             |                    |to set "PushJobFlag"|the VNF instance    |
 |             |                    |to "True" and       |on which to         |
 |             |                    |"GetOutputFlag" to  |execute playbook.   |
 |             |                    |"True". The "Node"  |                    |
