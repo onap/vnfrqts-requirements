@@ -106,21 +106,18 @@ the product's lifecycle.
     intervals.
 
 .. req::
-    :id: R-23882
-    :target: VNF
-    :keyword: SHOULD
-    :updated: casablanca
-
-    The VNF **SHOULD** provide the capability for the Operator to run security
-    vulnerability scans of the operating system and all application layers.
-
-.. req::
     :id: R-46986
     :target: VNF
-    :keyword: SHOULD
+    :keyword: MUST
+    :updated: frankfurt
 
-    The VNF **SHOULD** have source code scanned using scanning
-    tools (e.g., Fortify) and provide reports.
+    The VNF provider **MUST** follow GSMA vendor practices and SEI CERT Coding
+    Standards when developing the VNF in order to minimize the risk of
+    vulnerabilities. See GSMA NESAS Network Equipment Security Assurance Scheme –
+    Development and Lifecycle Security Requirements Version 1.0 (https://www.gsma.com/
+    security/wp-content/uploads/2019/11/FS.16-NESAS-Development-and-Lifecycle-Security-
+    Requirements-v1.0.pdf) and SEI CERT Coding Standards (https://wiki.sei.cmu.edu/
+    confluence/display/seccode/SEI+CERT+Coding+Standards).
 
 .. req::
     :id: R-99771
@@ -139,29 +136,23 @@ the product's lifecycle.
     :id: R-19768
     :target: VNF
     :keyword: SHOULD
-    :updated: casablanca
+    :updated: frankfurt
 
-    The VNF **SHOULD** support network segregation, i.e., separation of OA&M
-    traffic from signaling and payload traffic, using technologies such as
-    VPN and VLAN.
-
-.. req::
-    :id: R-40813
-    :target: VNF
-    :keyword: SHOULD
-    :updated: casablanca
-
-    The VNF **SHOULD** support the use of virtual trusted platform
-    module.
+    The VNF **SHOULD** support the separation of (1) signaling and payload traffic
+    (i.e., customer facing traffic), (2) operations, administration and management
+    traffic, and (3) internal VNF traffic (i.e., east-west traffic such as storage
+    access) using technologies such as VPN and VLAN.
 
 .. req::
     :id: R-56904
     :target: VNF
     :keyword: MUST
+    :updated: frankfurt
 
     The VNF **MUST** interoperate with the ONAP (SDN) Controller so that
     it can dynamically modify the firewall rules, ACL rules, QoS rules, virtual
-    routing and forwarding rules.
+    routing and forwarding rules. This does not preclude the VNF providing other
+    interfaces for modifying rules.
 
 .. req::
     :id: R-69649
@@ -178,9 +169,9 @@ the product's lifecycle.
     :id: R-62498
     :target: VNF
     :keyword: MUST
-    :updated: casablanca
+    :updated: frankfurt
 
-    The VNF **MUST** support encrypted access protocols, e.g., TLS,
+    The VNF **MUST** support only encrypted access protocols, e.g., TLS,
     SSH, SFTP.
 
 .. req::
@@ -211,11 +202,9 @@ the product's lifecycle.
     :id: R-19082
     :target: VNF
     :keyword: MUST
-    :updated: casablanca
+    :updated: frankfurt
 
-    The VNF **MUST** allow the Operator to disable or remove any security
-    testing tools or programs included in the VNF, e.g., password cracker,
-    port scanner.
+    The VNF **MUST** not contain undocumented functionality.
 
 .. req::
     :id: R-21819
@@ -231,10 +220,9 @@ the product's lifecycle.
     :id: R-86261
     :target: VNF
     :keyword: MUST
-    :updated: casablanca
+    :updated: frankfurt
 
-    The VNF **MUST** support the ability to prohibit remote access to the VNF
-    via a host based security mechanism.
+    The VNF **MUST** be able to authenticate and authorize all remote access.
 
 .. req::
    :id: R-638682
@@ -294,26 +282,38 @@ the product's lifecycle.
    encrypted protocol such as SSH or TLS.
 
 .. req::
-   :id: R-343842
-   :target: VNF
-   :keyword: MUST
-   :introduced: casablanca
-
-   The VNF **MUST**, after a successful login at command line or a GUI,
-   display the last valid login date and time and the number of unsuccessful
-   attempts since then made with that user's ID. This requirement is only
-   applicable when the user account is defined locally in the VNF.
-
-.. req::
    :id: R-842258
    :target: VNF
    :keyword: MUST
    :introduced: casablanca
+   :updated: frankfurt
 
-   The VNF **MUST** include a configuration, e.g., a heat template or CSAR
-   package, that specifies the targetted parameters, e.g. a limited set of
-   ports, over which the VNF will communicate (including internal, external
-   and management communication).
+   The VNF **MUST** include a configuration (e.g. a heat template or CSAR package)
+   that specifies the targeted parameters (e.g. a limited set of ports)
+   over which the VNF will communicate; including internal, external and
+   management communication.
+
+.. req::
+   :id: R-353637
+   :target: VNF
+   :keyword: SHOULD
+   :introduced: frankfurt
+
+   Containerized components of VNFs **SHOULD** follow the recommendations for
+   Container Base Images and Build File Configuration in the latest available version
+   of the CIS Docker Community Edition Benchmarks to ensure that containerized VNFs
+   are secure. All non-compliances with the benchmarks MUST be documented.
+
+.. req::
+   :id: R-381623
+   :target: VNF
+   :keyword: SHOULD
+   :introduced: frankfurt
+
+   Containerized components of VNFs **SHOULD** execute in a Docker run-time environment
+   that follows the Container Runtime Configuration in the latest available version
+   of the CIS Docker Community Edition Benchmarks to ensure that containerized VNFs
+   are secure. All non-compliances with the benchmarks MUST be documented.
 
 VNF Identity and Access Management Requirements
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -338,22 +338,30 @@ Identity and Access Management Requirements
     :id: R-42874
     :target: VNF
     :keyword: MUST
-    :updated: casablanca
+    :updated: frankfurt
 
-    The VNF **MUST** allow the Operator to restrict access based on
-    the assigned permissions associated with an ID in order to support
-    Least Privilege (no more privilege than required to perform job
-    functions).
+    The VNF **MUST** allow the Operator to restrict access to protected
+    resources based on the assigned permissions associated with an ID in
+    order to support Least Privilege (no more privilege than required to
+    perform job functions).
 
 .. req::
-    :id: R-71787
+    :id: R-358699
     :target: VNF
     :keyword: MUST
-    :updated: casablanca
+    :introduced: frankfurt
 
-    Each architectural layer of the VNF (eg. operating system, network,
-    application) **MUST** support access restriction independently of all
-    other layers so that Segregation of Duties can be implemented.
+    The VNF **MUST** support at least the following roles: system administrator,
+    application administrator, network function O&M.
+
+.. req::
+    :id: R-373737
+    :target: VNF
+    :keyword: MUST
+    :introduced: frankfurt
+
+    The VNF **MUST**, if not integrated with the operator's IAM system, provide
+    a mechanism for assigning roles and/or permissions to an identity.
 
 .. req::
     :id: R-59391
@@ -369,25 +377,20 @@ Identity and Access Management Requirements
     :id: R-86835
     :target: VNF
     :keyword: MUST
-    :updated: casablanca
+    :updated: frankfurt
 
     The VNF **MUST** set the default settings for user access
     to deny authorization, except for a super user type of account.
-    When a VNF is added to the network, nothing should be able to use
-    it until the super user configures the VNF to allow other users
-    (human and application)  have access.
 
 .. req::
     :id: R-81147
     :target: VNF
     :keyword: MUST
-    :updated: casablanca
+    :updated: frankfurt
 
-    The VNF **MUST** support strong authentication, also known as
-    multifactor authentication, on all protected interfaces exposed by the
-    VNF for use by human users. Strong authentication uses at least two of the
-    three different types of authentication factors in order to prove the
-    claimed identity of a user.
+    The VNF **MUST**, if not integrated with the Operator’s Identity and
+    Access Management system, support multifactor authentication on all
+    protected interfaces exposed by the VNF for use by human users.
 
 .. req::
     :id: R-39562
@@ -395,15 +398,6 @@ Identity and Access Management Requirements
     :keyword: MUST
 
     The VNF **MUST** disable unnecessary or vulnerable cgi-bin programs.
-
-.. req::
-    :id: R-15671
-    :target: VNF
-    :keyword: MUST
-    :updated: casablanca
-
-    The VNF **MUST** provide access controls that allow the Operator
-    to restrict access to VNF functions and data to authorized entities.
 
 .. req::
     :id: R-75041
@@ -438,87 +432,92 @@ Identity and Access Management Requirements
    :target: VNF
    :keyword: MUST
    :introduced: casablanca
+   :updated: frankfurt
 
-   The VNF MUST not store authentication credentials to itself in clear
+   The VNF **MUST** not store authentication credentials to itself in clear
    text or any reversible form and must use salting.
 
 .. req::
     :id: R-79107
     :target: VNF
     :keyword: MUST
-    :updated: casablanca
+    :updated: frankfurt
 
-    The VNF **MUST**, if not integrated with the Operator's Identity
-    and Access Management system, support the ability to disable the
+    The VNF **MUST**, if not integrated with the Operator’s Identity
+    and Access Management system, support the ability to lock out the
     userID after a configurable number of consecutive unsuccessful
-    authentication attempts using the same userID.
+    authentication attempts using the same userID. The locking mechanism
+    must be reversible by an administrator and should be reversible after
+    a configurable time period.
 
 .. req::
     :id: R-23135
     :target: VNF
     :keyword: MUST
-    :updated: casablanca
+    :updated: frankfurt
 
     The VNF **MUST**, if not integrated with the Operator's identity and
-    access management system, authenticate all access to protected GUIs, CLIs,
-    and APIs.
+    access management system, authenticate all access to protected resources.
 
 .. req::
     :id: R-78010
     :target: VNF
     :keyword: MUST
-    :updated: casablanca
+    :updated: frankfurt
 
-    The VNF **MUST** integrate with standard identity and access management
-    protocols such as LDAP, TACACS+, Windows Integrated Authentication
-    (Kerberos), SAML federation, or OAuth 2.0.
+    The VNF **MUST** support LDAP in order to integrate with an external identity
+    and access manage system. It MAY support other identity and access management
+    protocols.
 
 .. req::
    :id: R-814377
    :target: VNF
    :keyword: MUST
    :introduced: casablanca
+   :updated: frankfurt
 
    The VNF **MUST** have the capability of allowing the Operator to create,
-   manage, and automatically provision user accounts using an Operator
-   approved identity lifecycle management tool using a standard protocol,
-   e.g., NETCONF API.
+   manage, and automatically provision user accounts using one of the protocols
+   specified in Chapter 7.
 
 .. req::
    :id: R-931076
    :target: VNF
    :keyword: MUST
-   :introduced: casablanca
+   :introduced: frankfurt
 
    The VNF **MUST** support account names that contain at least A-Z, a-z,
-   0-9 character sets and be at least 6 characters in length.
+   and 0-9 character sets and be at least 6 characters in length.
 
 .. req::
    :id: R-581188
    :target: VNF
    :keyword: MUST NOT
    :introduced: casablanca
+   :updated: frankfurt
 
-   A failed authentication attempt **MUST NOT** identify the reason for the
-   failure to the user, only that the authentication failed.
+   The VNF **MUST NOT** identify the reason for a failed authentication,
+   only that the authentication failed.
 
 .. req::
    :id: R-479386
    :target: VNF
-   :keyword: MUST NOT
+   :keyword: MUST
    :introduced: casablanca
+   :updated: frankfurt
 
-   The VNF **MUST NOT** display "Welcome" notices or messages that could
-   be misinterpreted as extending an invitation to unauthorized users.
+   The VNF **MUST** provide the capability of setting a configurable message
+   to be displayed after successful login. It MAY provide a list of supported
+   character sets.
 
 .. req::
    :id: R-231402
    :target: VNF
    :keyword: MUST
    :introduced: casablanca
+   :updated: frankfurt
 
-   The VNF **MUST** provide a means for the user to explicitly logout, thus
-   ending that session for that authenticated user.
+   The VNF **MUST** provide a means to explicitly logout, thus ending that session.
 
 .. req::
    :id: R-251639
