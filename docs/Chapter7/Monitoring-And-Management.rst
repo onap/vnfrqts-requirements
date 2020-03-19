@@ -357,12 +357,14 @@ These changes may modify any of the following:
    :introduced: casablanca
    :validation_mode: in_service
    :impacts: dcae
-   :updated: el alto
+   :updated: frankfurt
 
-   The events produced by the VNF or PNF **MUST** must be compliant with the common
-   event format defined in the
-   :ref:`VES Event Listener<ves_event_listener_7_1>`
-   specification.
+   The events produced by the VNF or PNF **MUST** must be compliant with the
+   common event formats defined in either the
+   :ref:`VES Event Listener 7.1.1<ves_event_listener_7_1>` or
+   :ref:`VES Event Listener 5.4.1<ves_event_listener_5_4_1>`
+   specifications. Version 7.1.1 should be preferred, and VES 5.4.1 is only
+   provided for backwards compatibility.
 
 .. req::
    :id: R-123044
