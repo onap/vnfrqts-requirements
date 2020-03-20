@@ -1,0 +1,9 @@
+Verified+1: ONAP Jobbuilder <onap-jobbuilder@jenkins.onap.org>
+Code-Review+1: Marge Hillis <marge.hillis@nokia.com>
+Code-Review+1: Linda Horn <Linda.Horn@nokia.com>
+Code-Review+2: Hagop Bozawglanian <hagop.bozawglanian@att.com>
+Submitted-by: Hagop Bozawglanian <hagop.bozawglanian@att.com>
+Submitted-at: Fri, 20 Mar 2020 15:38:42 +0000
+Reviewed-on: https://gerrit.onap.org/r/c/vnfrqts/requirements/+/104011
+Project: vnfrqts/requirements
+Branch: refs/heads/master
