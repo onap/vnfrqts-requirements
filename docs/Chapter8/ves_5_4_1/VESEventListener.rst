@@ -199,18 +199,22 @@ Sample Success Response
 
     HTTPS/1.1 202 Accepted
 
-Resource Structure
+Resource Structure              --
 ==================
 
 REST resources are defined with respect to a ServerRoot:
 
     ServerRoot = /{optionalRoutingtPath}
 
-The resource structure is provided below:
+The resource structure is provided below::
 
-    |image0|
+    {ServerRoot}
+        |
+        |--- /eventListener/v{apiVersion}
+                 |
+                 |--- /eventBatch
 
-Figure 1 REST Resource Structure
+**Figure 1**: REST Resource Structure
 
 The {Domain} or FQDN above is typically provisioned into each
 eventsource when it is instantiated. The {Port} above is typically 8443.
@@ -223,100 +227,6 @@ reproduced in the tables that follow.
 
 Common Event Datatypes
 ----------------------
-
-Command List Processing Datatypes
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Datatype: command
-^^^^^^^^^^^^^^^^^
-
-The command datatype is used by an event collector to request changes in the
-behavior of an event source (for more information, see 6.1.3); it consists
-of the following fields:
-
-+-------------------------------------+------------------------------------+-------------+-----------------------------------------------------------------------------------------------------+
-| Field                               | Type                               | Required?   | Description                                                                                         |
-+=====================================+====================================+=============+=====================================================================================================+
-| commandType                         | string                             | Yes         | Enumeration: 'heartbeatIntervalChange', 'measurementIntervalChange',                                |
-|                                     |                                    |             |                                                                                                     |
-|                                     |                                    |             | 'provideThrottlingState', 'throttllingSpecification'                                                |
-+-------------------------------------+------------------------------------+-------------+-----------------------------------------------------------------------------------------------------+
-| eventDomainThrottle Specification   | eventDomainThrottleSpecification   | No          | If commandType is 'throttlingSpecification', the fields to suppress within an event domain          |
-+-------------------------------------+------------------------------------+-------------+-----------------------------------------------------------------------------------------------------+
-| heartbeatInterval                   | integer                            | No          | If commandType is 'heartbeatIntervalChange', the heartbeatInterval duration to use in seconds       |
-+-------------------------------------+------------------------------------+-------------+-----------------------------------------------------------------------------------------------------+
-| measurementInterval                 | integer                            | No          | If commandType is 'measurementIntervalChange', the measurementInterval duration to use in seconds   |
-+-------------------------------------+------------------------------------+-------------+-----------------------------------------------------------------------------------------------------+
-
-Datatype: commandList
-^^^^^^^^^^^^^^^^^^^^^
-
-The commandList datatype is an array of commands from an event collector toward
-an event source; it consists of the following fields:
-
-+---------------+---------------+-------------+-------------------------------------------------------------------+
-| Field         | Type          | Required?   | Description                                                       |
-+===============+===============+=============+===================================================================+
-| commandList   | Command [ ]   | Yes         | List of commands from an event collector toward an event source   |
-+---------------+---------------+-------------+-------------------------------------------------------------------+
-
-Datatype: eventDomainThrottleSpecification
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-The eventDomainThrottleSpecification datatype specifies what fields to
-suppress within an event domain; it consists of the following fields common to
-all events:
-
-+-------------------------+-------------------------+-------------+-------------------------------------------------------------------------------------------------+
-| Field                   | Type                    | Required?   | Description                                                                                     |
-+=========================+=========================+=============+=================================================================================================+
-| eventDomain             | string                  | Yes         | Event domain enum from the commonEventHeader domain field                                       |
-+-------------------------+-------------------------+-------------+-------------------------------------------------------------------------------------------------+
-| suppressedFieldNames    | string [ ]              | No          | List of optional field names in the event block that should not be sent to the Event Listener   |
-+-------------------------+-------------------------+-------------+-------------------------------------------------------------------------------------------------+
-| suppressedNvPairsList   | suppressedNvPairs [ ]   | No          | Optional list of specific NvPairsNames to suppress within a given Name-Value Field              |
-+-------------------------+-------------------------+-------------+-------------------------------------------------------------------------------------------------+
-
-Datatype: eventDomainThrottleSpecificationList
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-The eventDomainThrottleSpecificationList datatype consists of the
-following fields:
-
-+----------------------------------------+----------------------------------------+-------------+----------------------------------------------+
-| Field                                  | Type                                   | Required?   | Description                                  |
-+========================================+========================================+=============+==============================================+
-| eventDomainThrottleSpecificationList   | eventDomainThrottleSpecification [ ]   | Yes         | Array of eventDomainThrottleSpecifications   |
-+----------------------------------------+----------------------------------------+-------------+----------------------------------------------+
-
-Datatype: eventThrottlingState
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-The eventThrottlingState datatype reports the throttling in force at the event
-source; it consists of the following fields:
-
-+----------------------------------------+----------------------------------------+-------------+------------------------------------------------------------------------------------------------------------------------------+
-| Field                                  | Type                                   | Required?   | Description                                                                                                                  |
-+========================================+========================================+=============+==============================================================================================================================+
-| eventThrottlingMode                    | string                                 | Yes         | Enumeration: 'normal', 'throttled'                                                                                           |
-+----------------------------------------+----------------------------------------+-------------+------------------------------------------------------------------------------------------------------------------------------+
-| eventDomainThrottleSpecificationList   | eventDomainThrottleSpecificationList   | No          | A list of eventDomainThrottleSpecifications currently in force at the event source, if the eventManagerMode is 'throttled'   |
-+----------------------------------------+----------------------------------------+-------------+------------------------------------------------------------------------------------------------------------------------------+
-
-Datatype: suppressedNvPairs
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-The suppressedNvPairs datatype is a list of specific NvPairsNames to suppress
-within a given Name-Value Field (for event throttling); it consists of the
-following fields:
-
-+-------------------------+--------------+-------------+-------------------------------------------------------------------+
-| Field                   | Type         | Required?   | Description                                                       |
-+=========================+==============+=============+===================================================================+
-| nvPairFieldName         | string       | Yes         | Name of the field within which are the nvpair names to suppress   |
-+-------------------------+--------------+-------------+-------------------------------------------------------------------+
-| suppressedNvPairNames   | string [ ]   | Yes         | Array of nvpair names to suppress (within the nvpairFieldName)    |
-+-------------------------+--------------+-------------+-------------------------------------------------------------------+
 
 Common Event Datatypes
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -1583,8 +1493,6 @@ REST Operation Summary
 +--------------------------------+------------+----------------------------------------------------------------------------+
 | publishEventBatch              | POST       | /eventListener/v{apiVersion}/eventBatch                                    |
 +--------------------------------+------------+----------------------------------------------------------------------------+
-| provideClientThrottlingState   | POST       | /eventListener/v{apiVersion}/clientThrottlingState                         |
-+--------------------------------+------------+----------------------------------------------------------------------------+
 
 Table - REST Operation Summary
 
@@ -1597,47 +1505,6 @@ specification). When this number changes, the implication is: clients of
 older versions will break in some way, if they try to use the new API
 without modification (e.g., unmodified v1 clients would not be able to
 use v2 without error).
-
-Commands Toward Event Source Clients
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Note: Vendors are not currently required to implement support for
-command processing; in addition, command processing may be supported by
-an App-C interface in future.
-
-This specification supports commands from event consumers back toward
-event source clients. This enables the event consumer (e.g., AT&T event
-collectors) to command event sources to change their measurement
-intervals or throttle the information they are sending to the event
-consumer. Note that commands are sent as part of the synchronous
-response to events sent by the event source toward the event consumer.
-This is done so that the event source does not need to host a service to
-listen for commands from events consumers. The following commands are
-currently supported:
-
-+-----------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| **Command**                 | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-+-----------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| heartbeatInterval Change    | Commands the event source to change the interval (in seconds) it waits between heartbeat events sent to the VES Event Listener. If '0'is provided, the event source should return to its default heartbeatInterval.                                                                                                                                                                                                                                                                                                                               |
-+-----------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| measurementIntervalChange   | Commands the event source to change its measurementInterval to the number provided (in seconds). If '0'is provided, the event source should return to its default measurementInterval.                                                                                                                                                                                                                                                                                                                                                            |
-+-----------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| provideThrottlingState      | Commands the event source to invoke the provideThrottlingState operation on the event consumer.                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-+-----------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| throttlingSpecification     | Commands the event source to throttle events as specified by the provided eventDomainThrottlingSpecification. This specification identifies the fields to suppress within the domain and even supports identification of subfields to suppress within objects or name-value pair structures. Note that required fields should not be suppressed and may result in errors being thrown by the event consumer back toward the event source when events without the required fields are sent to the event consumer. Other notes for event sources:   |
-|                             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-|                             | -  the default throttling state is \*off\* for all domains                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-|                             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-|                             | -  the throttling state for a domain is altered only by receipt of an eventDomainThrottleSpecification for that domain                                                                                                                                                                                                                                                                                                                                                                                                                            |
-|                             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-|                             | -  the presence of the optional suppressedFieldNames replaces any existing list of suppressed field names                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|                             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-|                             | -  if suppressedFieldNames is not provided, then any existing list of suppressed field names shall be discarded                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-|                             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-|                             | -  the presence of the optional suppressedNvPairsList replaces the any existing list of suppressed name-value pairs                                                                                                                                                                                                                                                                                                                                                                                                                               |
-|                             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-|                             | -  if suppressedNvPairsList is not provided, then any existing list of suppressed name-value pairs shall be discarded                                                                                                                                                                                                                                                                                                                                                                                                                             |
-+-----------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Buffering of Events
 ~~~~~~~~~~~~~~~~~~~~
@@ -1686,9 +1553,6 @@ listener.
 
 -  Provides HTTP response codes as well as Service and Policy error
    messages
-
--  Allows the event collector to use the HTTP response to command the
-   event source to throttle event messages it may send in the future.
 
 Call Flow
 ~~~~~~~~~
@@ -1742,17 +1606,8 @@ Header fields:
 | Date             | datetime        | Yes             | Date time of the response in GMT   |
 +------------------+-----------------+-----------------+------------------------------------+
 
-Body Fields (for success responses without a commandList): no content is
-provided and the header fields are not required.
-
-Body Fields (for success responses with one or more commands from the
-event collector toward the event source):
-
-+-----------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| **Parameter**   | **Data Type**   | **Required?**   | **Brief description**                                                                                                                                                                                                                                                                                                                                                                                     |
-+-----------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| commandList     | commandList     | No              | Array of commands (e.g., measurement Interval changes and/or what fields to suppress within specified event domains and/or a request to report the state of event throttling by event domain that is currently in force in the event source). Note: for 'provideThrottlingState'commands, the client should subsequently provide the throttling state by calling the provideThrottlingState operation.    |
-+-----------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+Body Fields (for success responses): no content is provided and the header
+fields are not required.
 
 Body Fields (for error Responses):
 
@@ -1831,65 +1686,9 @@ Sample Request
 Sample Success Response #1
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    For success responses without a provided command list:
-
     .. code:: bash
 
         HTTPS/1.1 202 Accepted
-
-Sample Success Response #2
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-    For success responses with a provided command list:
-
-    .. code:: bash
-
-        HTTPS/1.1 202 Accepted
-        content-type: application/json
-        content-length: nnn
-        date: Sat, 04 Jul 2015 02:03:15 GMT
-        {
-        "commandList": [
-            {
-                "commandType": "throttlingSpecification",
-                "eventDomainThrottleSpecification": {
-                    "eventDomain": "fault",
-                    "suppressedFieldNames": [
-                        "alarmInterfaceA",
-                        "alarmAdditionalInformation"
-            ]
-            }
-        },
-            {
-                "commandType": "throttlingSpecification",
-                eventDomainThrottleSpecification": {
-            "eventDomain": "thresholdCrossingAlert",
-            "suppressedFieldNames": [
-                    "associatedAlertIdList",
-                "possibleRootCause"
-            ],
-            "suppressedNvPairs" {
-                "nvPairFieldName": additionalParameters",
-                "suppressedNvPairNames": [
-                    "someCounterName",
-                    "someOtherCounterName"
-                ]
-            }
-                 }
-        },
-                {
-                    "commandType": "measurementIntervalChange",
-                    "measurementInterval": 600
-                },
-                {
-                    "commandType": "heartbeatIntervalChange",
-                    "heartbeatInterval": 90
-                },
-                {
-                    "commandType": "provideThrottlingState"
-                }
-            ]
-        }
 
 **Sample Policy Exception**
 
@@ -1948,9 +1747,6 @@ listener.
 -  Provides HTTP response codes as well as Service and Policy error
    messages
 
--  Allows the event collector to use the HTTP response to command the
-   event source to throttle event messages it may send in the future.
-
 Call Flow
 ~~~~~~~~~
 
@@ -2003,17 +1799,8 @@ Header fields:
 | Date             | datetime        | Yes             | Date time of the response in GMT   |
 +------------------+-----------------+-----------------+------------------------------------+
 
-Body Fields (for success responses without a commandList): no content is
-provided and the header fields are not required.
-
-Body Fields (for success responses with one or more commands from the
-event collector toward the event source):
-
-+-----------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| **Parameter**   | **Data Type**   | **Required?**   | **Brief description**                                                                                                                                                                                                                                                                                                                                                                                     |
-+-----------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| commandList     | commandList     | No              | Array of commands (e.g., measurement Interval changes and/or what fields to suppress within specified event domains and/or a request to report the state of event throttling by event domain that is currently in force in the event source). Note: for 'provideThrottlingState'commands, the client should subsequently provide the throttling state by calling the provideThrottlingState operation.    |
-+-----------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+Body Fields (for success responses): no content is provided and the header
+fields are not required.
 
 Body Fields (for error Responses):
 
@@ -2120,66 +1907,9 @@ Sample Request
 Sample Success Response #1
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    For success responses without a provided commandList:
-
     .. code:: bash
 
         HTTPS/1.1 202 Accepted
-
-Sample Success Response #2
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-    For success responses with a provided commandList:
-
-    .. code:: bash
-
-        HTTPS/1.1 202 Accepted
-        content-type: application/json
-        content-length: nnn
-        date: Sat, 04 Jul 2015 02:03:15 GMT
-        {
-            "commandList": [
-            {
-                "commandType": "throttlingSpecification",
-                "eventDomainThrottleSpecification": {
-                "eventDomain": "fault",
-                "suppressedFieldNames": [
-                    "alarmInterfaceA",
-                    "alarmAdditionalInformation"
-                    ]
-                }
-            },
-            {
-            "commandType": "throttlingSpecification",
-            "eventDomainThrottleSpecification": {
-                "eventDomain": "thresholdCrossingAlert",
-                "suppressedFieldNames": [
-                    "associatedAlertIdList",
-                    "possibleRootCause"
-                ],
-                "suppressedNvPairs" {
-                    "nvPairFieldName": additionalParameters",
-                    "suppressedNvPairNames": [
-                        "someCounterName",
-                        "someOtherCounterName"
-                    ]
-                    }
-                }
-            },
-            {
-                "commandType": "measurementIntervalChange",
-                "measurementInterval": 600
-            },
-            {
-                "commandType": "heartbeatIntervalChange",
-                "heartbeatInterval": 90
-            },
-            {
-                "commandType": "provideThrottlingState"
-            }
-            ]
-    }
-
 
 **Sample Policy Exception**
 
@@ -2220,208 +1950,9 @@ Sample Service Exception
         }
     }
 
-Operation: provideThrottlingState
----------------------------------
-
-Functional Behavior
-~~~~~~~~~~~~~~~~~~~
-
-Allows authorized event source clients to report the state of event
-throttling by event domain that is currently in force in the event
-source.
-
--  Supports only secure HTTPS (one way SSL) access.
-
--  Uses the HTTP verb POST
-
--  Supports application/json content types
-
--  Provides HTTP response codes as well as Service and Policy error
-   messages
-
-Call Flow
-~~~~~~~~~
-
-|image3|
-
-Figure 4 - provideClientThrottlingState Call Flow
-
-Input Parameters
-~~~~~~~~~~~~~~~~
-
-Header Fields (note: all parameter names shall be treated as
-case-insensitive):
-
-+------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| **Parameter**    | **Data Type**   | **Required?**   | **Brief description**                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-+------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Accept           | string          | No              | Determines the format of the body of the response. Valid values are:                                                                                                                                                                                                                                                                                                                                                                                  |
-|                  |                 |                 |                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-|                  |                 |                 | -  application/json                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-+------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Authorization    | string          | Yes             | The username and password are formed into one string as "username:password". This string is then Base64 encoded to produce the encoded credential which is communicated in the header after the string "Authorization: Basic ". See examples below. If the Authorization header is missing, then an HTTP 400 Invalid Request message shall be returned. If the string supplied is invalid, then an HTTP 401 Unauthorized message shall be returned.   |
-+------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Content-length   | integer         | No              | Note that content length is limited to 1Megabyte.                                                                                                                                                                                                                                                                                                                                                                                                     |
-+------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Content-type     | string          | Yes             | Must be set to one of the following values:                                                                                                                                                                                                                                                                                                                                                                                                           |
-|                  |                 |                 |                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-|                  |                 |                 | -  application/json                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-+------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-
-Body Fields:
-
-+------------------------+------------------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| **Parameter**          | **Data Type**          | **Required?**   | **Brief description**                                                                                                                                              |
-+------------------------+------------------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| eventThrottlingState   | eventThrottlingState   | Yes             | Consists of an eventThrottlingMode enumeration which can be 'normal'or 'throttled'followed by an optional array of eventDomainThrottleSpecification structures   |
-+------------------------+------------------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-
-Output Parameters
-~~~~~~~~~~~~~~~~~
-
-The only output parameters are an HTTP response code and message.
-
-+------------------+-----------------+-----------------+----------------------------------+
-| **Parameter**    | **Data Type**   | **Required?**   | **Brief description**            |
-+------------------+-----------------+-----------------+----------------------------------+
-| Content-length   | integer         | No              | Used only in error conditions.   |
-+------------------+-----------------+-----------------+----------------------------------+
-| Content-type     | string          | No              | Used only in error conditions.   |
-+------------------+-----------------+-----------------+----------------------------------+
-
-Body Fields:
-
-+-----------------+-----------------+-----------------+----------------------------------+
-| **Parameter**   | **Data Type**   | **Required?**   | **Brief description**            |
-+-----------------+-----------------+-----------------+----------------------------------+
-| requestError    | requestError    | No              | Used only in error conditions.   |
-+-----------------+-----------------+-----------------+----------------------------------+
-
-HTTP Status Codes
-~~~~~~~~~~~~~~~~~
-
-+----------+-------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| *Code*   | *Reason Phrase*         | *Description*                                                                                                                                                                                                                                                                                                                                                                            |
-+==========+=========================+==========================================================================================================================================================================================================================================================================================================================================================================================+
-| 204      | No Content              | The throttling state update message has been accepted.                                                                                                                                                                                                                                                                                                                                   |
-+----------+-------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| 400      | Bad Request             | Many possible reasons not specified by the other codes (e.g., missing required parameters or incorrect format). The response body may include a further exception code and text. HTTP 400 errors may be mapped to SVC0001 (general service error), SVC0002 (bad parameter), SVC2000 (general service error with details) or PO9003 (message content size exceeds the allowable limit).   |
-+----------+-------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| 401      | Unauthorized            | Authentication failed or was not provided. HTTP 401 errors may be mapped to POL0001 (general policy error) or POL2000 (general policy error with details).                                                                                                                                                                                                                               |
-+----------+-------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| 404      | Not Found               | The server has not found anything matching the Request-URI. No indication is given of whether the condition is temporary or permanent.                                                                                                                                                                                                                                                   |
-+----------+-------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| 405      | Method Not Allowed      | A request was made of a resource using a request method not supported by that resource (e.g., using PUT on a REST resource that only supports POST).                                                                                                                                                                                                                                     |
-+----------+-------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| 409      | Locked                  | The request could not be completed due to a conflict with the current state of the resource.                                                                                                                                                                                                                                                                                             |
-+----------+-------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| 500      | Internal Server Error   | The server encountered an internal error or timed out; please retry (general catch-all server-side error).HTTP 500 errors may be mapped to SVC1000 (no server resources).                                                                                                                                                                                                                |
-+----------+-------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| 503      | Service Unavailable     | The server is currently unable to handle the request due to a temporary overloading or maintenance of the server. The implication is that this is a temporary condition which will be alleviated after some delay.                                                                                                                                                                      |
-+----------+-------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| 504      | Gateway Timeout         | The server, while acting as a gateway or proxy, did not receive a timely response from the upstream process.                                                                                                                                                                                                                                                                             |
-+----------+-------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-
-Sample Request and Response
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Sample Request
-^^^^^^^^^^^^^^
-
-    .. code:: bash
-
-        POST /eventListener/v5/clientThrottlingState HTTPS/1.1
-        Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==
-        content-type: application/json
-        content-length: nnn
-        accept: application/json
-        {
-            "eventThrottlingState": {
-                "eventThrottlingMode": "throttled",
-                "eventDomainThrottleSpecificationList": [
-                    {
-                        "eventDomain": "fault",
-                        "suppressedFieldNames": [
-                            "alarmInterfaceA",
-                            "alarmAdditionalInformation"
-                        ]
-                    },
-                    {
-                        "eventDomain": "thresholdCrossingAlert",
-                        "suppressedFieldNames": [
-                            "associatedAlertIdList",
-                            "possibleRootCause"
-                        ],
-                        "suppressedNvPairsList": [
-                            {
-                                "nvPairFieldName": "additionalParameters",
-                                "suppressedNvPairNames": [
-                                    "someCounterName",
-                                    "someOtherCounterName"
-                                ]
-                            }
-                        ]
-                    }
-                ]
-            }
-        }
-
-Sample Success Response
-^^^^^^^^^^^^^^^^^^^^^^^
-
-    .. code:: bash
-
-        HTTPS/1.1 204 No Content
-
-
-**Sample Policy Exception**
-
-    .. code:: bash
-
-        HTTPS/1.1 400 Bad Request
-        content-type: application/json
-        content-length: 12345
-        Date: Thu, 04 Jun 2009 02:51:59 GMT
-        {
-            "requestError": {
-                "policyException": {
-                    "messageId": "POL9003",
-                    "text": "Message content size exceeds the allowable limit",
-                }
-            }
-        }
-
-Sample Service Exception
-''''''''''''''''''''''''
-
-    .. code:: bash
-
-        HTTPS/1.1 400 Bad Request
-        content-type: application/json
-        content-length: 12345
-        Date: Thu, 04 Jun 2009 02:51:59 GMT
-        {
-            "requestError": {
-                "serviceException": {
-                    "messageId": "SVC2000",
-                    "text": "Missing Parameter: %1. Error code is %2"
-                    "variables": [
-                        "severity",
-                        "400"
-                    ]
-                }
-            }
-        }
-
-.. |image0| image:: ves-rest-resource-structure.png
-   :height: 600px
-   :width: 800px
 .. |image1| image:: ves-publishanyevent.png
    :height: 600px
    :width: 800px
 .. |image2| image:: ves-publisheventbatch.png
-   :height: 600px
-   :width: 800px
-.. |image3| image:: ves-providethrottlingstate.png
    :height: 600px
    :width: 800px
