@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "37d7b17a_184e38ca",
+        "filename": "docs/Chapter8/ves_5_4_1/VESEventListener.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 1616,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-03-20T14:21:53Z",
+      "side": 1,
+      "message": "I see this note here, but this should be expanded to indicate the throttling api\u0027s are not supported and will be removed in future VES version (VES 7.1.1 does not include throttling)",
+      "range": {
+        "startLine": 1601,
+        "startChar": 0,
+        "endLine": 1616,
+        "endChar": 20
+      },
+      "revId": "fc1078e2b647179e11fff5fea720dd992bc7eb0a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "652d3baa_85908634",
         "filename": "docs/Chapter8/ves_5_4_1/ves-providethrottlingstate.png",
         "patchSetId": 2
