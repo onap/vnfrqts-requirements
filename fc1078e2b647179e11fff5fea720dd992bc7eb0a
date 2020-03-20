@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "652d3baa_85908634",
+        "filename": "docs/Chapter8/ves_5_4_1/ves-providethrottlingstate.png",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-03-20T14:18:03Z",
+      "side": 1,
+      "message": "Not supported",
+      "revId": "fc1078e2b647179e11fff5fea720dd992bc7eb0a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be087b90_e14a0c9f",
+        "filename": "docs/Chapter8/ves_5_4_1/ves-rest-resource-structure.png",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-03-20T14:18:03Z",
+      "side": 1,
+      "message": "/clientthrottlingState api is not supported",
+      "revId": "fc1078e2b647179e11fff5fea720dd992bc7eb0a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
