@@ -3729,7 +3729,7 @@ case-insensitive):
 |               |          |          |                                       |
 |               |          |          | -  application/json                   |
 +---------------+----------+----------+---------------------------------------+
-| Authorization | string   | Yes      | The username and password are formed  |
+| Authorization | string   | No       | The username and password are formed  |
 |               |          |          | into one string as                    |
 |               |          |          | ``username:password``. This string is |
 |               |          |          | then Base64 encoded to produce the    |
