@@ -224,6 +224,8 @@ VNF or PNF Package Contents
     as a non-MANO artifact set identifiers, then the PNF software information file is
     included in the package and it **MUST** be compliant to:
 
+    .. code-block:: yaml
+
     - The file extension which contains the PNF software version must be .yaml
 
     - The PNF software version information must be specified as following:
