@@ -228,6 +228,8 @@ VNF or PNF Package Contents
 
     - The PNF software version information must be specified as following:
 
+    .. code-block:: yaml
+
        pnf_software_information:
 
         - pnf_software_version:  "<version>"
