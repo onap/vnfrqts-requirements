@@ -484,7 +484,8 @@ Identity and Access Management Requirements
    :id: R-931076
    :target: VNF
    :keyword: MUST
-   :introduced: frankfurt
+   :introduced: casablanca
+   :updated: frankfurt
 
    The VNF **MUST** support account names that contain at least A-Z, a-z,
    and 0-9 character sets and be at least 6 characters in length.

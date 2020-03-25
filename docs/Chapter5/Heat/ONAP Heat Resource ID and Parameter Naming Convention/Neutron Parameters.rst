@@ -205,7 +205,7 @@ the port is attached to.
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: dublin
+    :updated: frankfurt
 
     When the VNF's Heat Orchestration Template's Resource
     ``OS::Neutron::Port``
@@ -1237,7 +1237,7 @@ input parameter.
     :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :updated: casablanca
+    :updated: frankfurt
 
     When
 

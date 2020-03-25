@@ -80,7 +80,7 @@ An external network may be designed to perform
     :target: VNF
     :keyword: MUST
     :validation_mode: none
-    :updated: casablanca
+    :updated: frankfurt
 
     An ONAP external network **MUST** have one subnet. An external network
     **MAY** have more than one subnet.
@@ -179,7 +179,7 @@ operational complications.
     :id: R-86972
     :target: VNF
     :keyword: SHOULD
-    :updated: casablanca
+    :updated: frankfurt
 
     A VNF **SHOULD** create the ONAP internal network in the VNF's Heat
     Orchestration Template's Base Module.

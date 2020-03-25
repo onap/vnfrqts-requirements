@@ -169,7 +169,8 @@ VNF or PNF Package Contents
     :id: R-221914
     :target: VNF or PNF CSAR PACKAGE
     :keyword: MUST
-    :introduced: frankfurt
+    :introduced: dublin
+    :updated: frankfurt
 
     The VNF or PNF CSAR package **MUST** contain a human-readable change log text
     file. The Change Log file keeps a history describing any changes in the VNF
