@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "251709ca_c32216d9",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 3721,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-03-26T13:27:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a76f87e_121cca2b",
+      "revId": "14b82833bbdc92c7989effbe01e09ce40a852312",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "83e9a614_4f623e2a",
         "filename": "docs/Chapter8/ves7_1spec.rst",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "14b82833bbdc92c7989effbe01e09ce40a852312",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9666f666_c8c1c670",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 3724,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-03-26T13:27:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "83e9a614_4f623e2a",
+      "revId": "14b82833bbdc92c7989effbe01e09ce40a852312",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
