@@ -607,12 +607,15 @@ REST resources are defined with respect to a ServerRoot:
 
 ServerRoot = https://{Domain|IP}:{Port}/{optionalRoutingPath}
 
-The resource structure is provided below:
+The resource structure is provided below::
 
-.. figure:: rest-resource.png
-    :alt: REST Resource Structure
+    {ServerRoot}
+        |
+        |--- /eventListener/v{apiVersion}
+                 |
+                 |--- /eventBatch
 
-    REST Resource Structure
+**Figure 1**: REST Resource Structure
 
 The {Port} above is typically 8443.
 
@@ -3686,8 +3689,8 @@ Message Size
 The maximum allowed message size is 2 megabytes of uncompressed text.
 However,messages of this size have been known to cause performance and data
 loss. It is strongly recommended,that messages not exceed 1 megabyte.
-In a future version of the specification, a 1 megabyte limit will become 
-a mandatory requirement. 
+In a future version of the specification, a 1 megabyte limit will become
+a mandatory requirement.
 
 Operation: publishAnyEvent
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -3710,10 +3713,17 @@ listener.
 Call Flow
 ++++++++++
 
-.. figure:: publish-event-flow.png
-    :alt: publishAnyEvent Call Flow
+.. seqdiag::
+    :caption: ``publishAnyEvent`` Call Flow
 
-    ``publishAnyEvent`` Call Flow
+    seqdiag {
+      edge_length = 250;
+      client  -> listener [label = "POST /eventlistener/v7"];
+      client <- listener [label = "HTTP 202 Accepted", note = "sync response"];
+      === Error Scenario ===
+      client  -> listener [label = "POST /eventlistener/v7"];
+      client <- listener [label = "HTTP 4XX/5XX", note = "sync response"];
+    }
 
 Input Parameters
 +++++++++++++++++
@@ -3940,7 +3950,7 @@ Sample Service Exception
     X-MinorVersion: 1
     X-PatchVersion: 1
     X-LatestVersion: 7.1.1
-    
+
     {
       "requestError": {
         "serviceException": {
@@ -3975,10 +3985,17 @@ listener.
 Call Flow
 +++++++++++
 
-.. figure:: publish-event-flow.png
-    :alt: publishEvent Call Flow
+.. seqdiag::
+    :caption: ``publishEventBatch`` Call Flow
 
-    ``publishEventBatch`` Call Flow
+    seqdiag {
+      edge_length = 250;
+      client  -> listener [label = "POST /eventlistener/v7/eventBatch"];
+      client <- listener [label = "HTTP 202 Accepted", note = "sync response"];
+      === Error Scenario ===
+      client  -> listener [label = "POST /eventlistener/v7/eventBatch"];
+      client <- listener [label = "HTTP 4XX/5XX", note = "sync response"];
+    }
 
 Input Parameters
 +++++++++++++++++
@@ -6193,6 +6210,9 @@ Contents.
 |           |         |    * Changed measValues to measValuesList and similar |
 |           |         |      changes throughout                               |
 |           |         |    * Changed iMeasTypesList to sMeasTypesList         |
+|           |         | - Corrected publishEventBatch call flow diagram       |
+|           |         | - Changed AuthorizationHeader to Required? = NO for   |
+|           |         |   publishAnyEvent operation                           |
 +-----------+---------+-------------------------------------------------------+
 
 .. _time_zone_abbreviations: https://en.wikipedia.org/wiki/List_of_time_zone_abbreviations
