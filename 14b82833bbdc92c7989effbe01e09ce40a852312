@@ -33,6 +33,29 @@
       "revId": "14b82833bbdc92c7989effbe01e09ce40a852312",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4d16c98_f3a0104e",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 6213,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-03-26T09:48:48Z",
+      "side": 1,
+      "message": "Can we add here as well the note on the change I have done in another bug posted- VNFRQTS-863? \nSth like this:\n\"Change Authentication header Required? property to NO for publishAnyEvent operation\".",
+      "range": {
+        "startLine": 6213,
+        "startChar": 26,
+        "endLine": 6213,
+        "endChar": 72
+      },
+      "revId": "14b82833bbdc92c7989effbe01e09ce40a852312",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
