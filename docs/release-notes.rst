@@ -18,6 +18,52 @@ VNFRQTS Project Release Notes
 Version: 5.0.1
 --------------
 
+:Release Date: 2020-05-14
+
+.. container:: note
+
+   :doc:`Detailed Summmary of Changes <changes-by-section-frankfurt>`
+
+A higher level summary of changes as well as non-requirement impacting
+changes can be found below.
+
+**New Features**
+    - Added Release notes to be more discoverable
+    - Added new Security Requirements
+    - Moved and updated VES Documentation
+    - Updated Ansible Requirements
+
+**Bug Fixes**
+    - Fixed typos
+    - Fixed metadata errors
+    - Fixed traceability matrix rendering
+    - Reformatted VES spec docs
+    - Cleaning requirements for TOSCA/HEAT
+    - Cleaning requirements for VNF or PNF
+
+**Known Issues**
+    - Links that refer to "latest" version are static.  Please report
+      any broken links.
+
+**Security Issues**
+    - None
+
+**Upgrade Notes**
+    - If you would like to add requirements, you **MUST** follow
+      `instructions on Wiki <https://wiki.onap.org/display/DW/VNFRQTS+How+to+Contribute>`__.
+    - If you would like to see a list of JIRA tickets closed in El Alto,
+      `please click here for Frankfurt changes <https://jira.onap.org/projects/VNFRQTS/versions/10841>`_.
+
+**Deprecation Notes**
+    - None
+
+**Other**
+    - None
+
+
+Version: 5.0.1
+--------------
+
 :Release Date: 2019-08-16
 
 .. container:: note
