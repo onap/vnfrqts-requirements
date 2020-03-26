@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6a76f87e_121cca2b",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 3721,
+      "author": {
+        "id": 5279
+      },
+      "writtenOn": "2020-03-26T07:24:46Z",
+      "side": 1,
+      "message": "Should not have \u0027/\u0027 following v7 in the path.",
+      "revId": "14b82833bbdc92c7989effbe01e09ce40a852312",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83e9a614_4f623e2a",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 3724,
+      "author": {
+        "id": 5279
+      },
+      "writtenOn": "2020-03-26T07:24:46Z",
+      "side": 1,
+      "message": "Should not have \u0027/\u0027 following v7 in the path.",
+      "revId": "14b82833bbdc92c7989effbe01e09ce40a852312",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
