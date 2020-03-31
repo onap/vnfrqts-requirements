@@ -166,15 +166,15 @@ Resource Description
    :target: VNF or PNF PROVIDER
    :keyword: MUST
    :introduced: dublin
+   :updated: frankfurt
    :impacts: DCAE,Documentation,Integration,SDC
    :validation_mode: static
 
-   The VNF or PNF PROVIDER *MUST* provide the Service Provider with
-   PM Meta Data (PM Dictionary) to support the analysis of PM events delivered
-   to DCAE. The PM Dictionary is to be provided as a separate YAML artifact at
-   onboarding and must follow the VES Event Listener Specification and VES
-   Event Registration Specification which contain the format and content
-   required.
+   THe VNF or PNF PROVIDER MUST provide :ref:`PM_meta_data` (PM Dictionary)
+   to support the analysis of PM data delivered to DCAE.
+   The PM Dictionary is to be provided as a separate YAML artifact at
+   onboarding and must follow the VES Event Registration Specification
+   which contain the format and content required.
 
 Resource Configuration
 ^^^^^^^^^^^^^^^^^^^^^^^

@@ -915,6 +915,8 @@ This means that the trigger fires if condition B occurs 3 (or more)
 times in 5 minutes, OR, if condition D occurs 2 (or more) times in 10
 minutes AND condition C is in effect.
 
+.. _PM_meta_data:
+
 PM Dictionary
 ~~~~~~~~~~~~~~
 
