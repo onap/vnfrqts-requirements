@@ -117,12 +117,13 @@ addresses were scrubbed):
  [wp0ny:children]
  oam
  rdb
+ oamvip
 
 Virtual IP addresses that can be used by multiple VMs, usually, used by the
 active VM of an active-standby pair, are placed under a group named after the
 VNFC (VM) type, plus "vip" string, example of such a group name "oamvip". An
 inventory hosts file site also contains a (group) with all groups as children
-(see last three lines in above example), to load site specific variables like
+(see last four lines in above example), to load site specific variables like
 NTP, DNS IP addresses, and other site specific variables, making them global
 variables to be used by playbooks, namely, configure playbook.
 
@@ -728,6 +729,7 @@ With no names, only IP addresses, template "InventoryNames": "None" (Default)
  [wp0ny:children]
  oam
  rdb
+ oamvip
 
 With VM names and IP addresses, template inventory names setting
 "InventoryNames": "VM"
@@ -752,6 +754,7 @@ With VM names and IP addresses, template inventory names setting
  [wp0ny:children]
  oam
  rdb
+ oamvip
 
 With VNFC names and IP addresses, template inventory names setting
 "InventoryNames": "VNFC"
@@ -776,6 +779,7 @@ With VNFC names and IP addresses, template inventory names setting
  [wp0ny:children]
  oam
  rdb
+ oamvip
 
 
 
@@ -862,6 +866,8 @@ Ansible Server.
  [wp0ny:children]
  oam
  rdb
+ oamvip
+
 
 Virtual IP addresses that can be used by multiple VMs, usually, used by the
 active VM of an active-standby pair, are placed under a group named after the
