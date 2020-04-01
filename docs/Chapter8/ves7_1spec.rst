@@ -115,9 +115,9 @@ the uniqueness of the eventName:
 
     {DomainAbbreviation}\_{PublisherName}\_{Description}
 
-Each underscore-separated subfield above must start with a capital
+Each underscore-separated subfield above should start with a capital
 letter and use camel-casing to separate words and acronyms. Acronyms
-must capitalize only the first letter of the acronym. Spaces and
+should capitalize only the first letter of the acronym. Spaces and
 underscores should not appear within any subfield.
 
 The DomainAbbreviation subfield derives from the ‘domain’ field in the
@@ -647,7 +647,7 @@ Note on extensible fields:
    VES has explicitly defined a cpuUsage.cpuIdle field for the
    communication of that information.
 
--  Keys sent through extensible fields must use camel casing to separate
+-  Keys sent through extensible fields should use camel casing to separate
    words and acronyms; only the first letter of each acronym shall be
    capitalized.
 
@@ -748,8 +748,8 @@ Datatype: hashMap
 
 The hashMap datatype is an ‘associative array’, which is an unordered
 collection of key-value pairs of the form "key": "value", where each key
-and value are strings. Keys must use camel casing to separate words and
-acronyms; only the first letter of each acronym shall be capitalized.
+and value are strings. Keys should use camel casing to separate words and
+acronyms; only the first letter of each acronym should be capitalized.
 
 Datatype: jsonObject
 ++++++++++++++++++++
@@ -6213,6 +6213,8 @@ Contents.
 |           |         | - Corrected publishEventBatch call flow diagram       |
 |           |         | - Changed AuthorizationHeader to Required? = NO for   |
 |           |         |   publishAnyEvent operation                           |
+|           |         | - Relaxed various requirements related to camel       |
+|           |         |   casing of values from 'must' to 'should'            |
 +-----------+---------+-------------------------------------------------------+
 
 .. _time_zone_abbreviations: https://en.wikipedia.org/wiki/List_of_time_zone_abbreviations
