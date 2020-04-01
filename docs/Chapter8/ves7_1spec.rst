@@ -362,9 +362,10 @@ an ONAP controller action, or provided manually.
   VES Events. The events shall only be sent to one VES Event Listener at a time.
   Please note: If a FQDN is used, the DNS query would return a single IP
   address.
-* A single VES Event Listener may handle more than one type of VES event
-  (different domains); i.e. same VES Event Listener can receive and process
-  heartbeat, fault, measurement, syslog, etc. events.
+* The active VES Event Listener (either the primary or secondary) will handle
+  all VES events regardless of domain. In 7.1, it was implied that there
+  may be different listener endpoints for different event domains, but this
+  is not currently supported and therefore the language was removed in 7.1.1.
 * **VES Credentials**: If the NF is using Basic Authentication, then the NF
   must support the provisioning of security and authentication parameters
   (HTTP username and password) in order to be able to authenticate with the
