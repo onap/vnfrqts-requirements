@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f569371_f7de5dc4",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 5279
+      },
+      "writtenOn": "2020-04-02T08:18:54Z",
+      "side": 1,
+      "message": "The first sentence looks ok. The second part looks more like background information why this is being updated. Should it be part of specification itself? Also which section of 7.1 implied this? This entire section is new in 7.1.1.",
+      "revId": "c1ccfdaec290dadb17c4cd75690cd892d6e24a07",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
