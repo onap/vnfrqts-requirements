@@ -1,4 +1,5 @@
 .. Modifications Copyright © 2017-2018 AT&T Intellectual Property.
+.. _master_index:
 
 .. Licensed under the Creative Commons License, Attribution 4.0 Intl.
    (the "License"); you may not use this documentation except in compliance
