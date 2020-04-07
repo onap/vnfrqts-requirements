@@ -16,6 +16,24 @@
       "revId": "c1ccfdaec290dadb17c4cd75690cd892d6e24a07",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6068ee03_420cf9a6",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-04-07T13:29:44Z",
+      "side": 1,
+      "message": "Agreed, I will remove the second sentence.",
+      "parentUuid": "3f569371_f7de5dc4",
+      "revId": "c1ccfdaec290dadb17c4cd75690cd892d6e24a07",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
