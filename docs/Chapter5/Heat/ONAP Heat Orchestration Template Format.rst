@@ -90,29 +90,15 @@ parameters
 ~~~~~~~~~~~~~~~~~~~~~~
 
 .. req::
-    :id: R-35413
-    :target: VNF
-    :keyword: MAY
-    :introduced: frankfurt
-
-    A VNF Heat Orchestration's template's base module **MAY** (or **MAY NOT**)
-    contain the section ``parameters:``.
-
-When a VNF is composed of two or more Heat Orchestration Templates (i.e., a
-base module and one or more incremental modules),
-it is valid for the base module to not declare
-any input parameters.
-
-
-.. req::
     :id: R-35414
     :target: VNF
     :keyword: MUST
     :validation_mode: static
     :updated: frankfurt
 
-    A VNF Heat Orchestration's template's incremental module and volume module
-    **MUST** contain the section ``parameters:``.
+    A VNF Heat Orchestration's template
+    **MUST** contain the section ``parameters:`` with at least one
+    parameter defined.
 
 
 .. code-block:: yaml
@@ -160,7 +146,7 @@ attributes (e.g., type, label) defined as nested elements.
     - in a output parameter (in the outputs section)
 
     with the exception of the parameters for the ``OS::Nova::Server``
-    resource property ``availability_zone``.
+    resource property ``availability_zone`` which is defined in R-98450.
 
 .. req::
     :id: R-91273
