@@ -3,10 +3,10 @@
 .. Copyright 2017 AT&T Intellectual Property, All rights reserved
 .. Copyright 2017-2018 Huawei Technologies Co., Ltd.
 
-.. _ves_event_listener_7_1:
+.. _ves_event_listener_7_2:
 
-Service: VES Event Listener 7.1.1
----------------------------------
+Service: VES Event Listener 7.2
+-------------------------------
 
 +-----------------------------------------------------------------------------+
 | **Legal Disclaimer**                                                        |
@@ -26,9 +26,9 @@ Service: VES Event Listener 7.1.1
 
 
 :Document: VES Event Listener
-:Revision: 7.1.1
-:Revision Date: January 28th, 2020
-:Author: Rich Erickson
+:Revision: 7.2
+:Revision Date: May 6th, 2020
+:Author: Trevor Lovett
 
 +-----------------+-----------------------------+
 | Contributors:   | **Min Chen – AT&T**         |
@@ -50,6 +50,10 @@ Service: VES Event Listener 7.1.1
 |                 | **Tim Verall – Intel**      |
 |                 |                             |
 |                 | **Sumit Verdi – VMWare**    |
+|                 |                             |
+|                 | **Trevor Lovett – AT&T**    |
+|                 |                             |
+|                 | **Rich Erickson – AT&T**    |
 +-----------------+-----------------------------+
 
 .. contents:: Table of Contents
@@ -61,385 +65,26 @@ This document describes the RESTful interface for the VES Event
 Listener. The VES acronym originally stood for Virtual-function Event
 Streaming, but VES has been generalized to support network-function
 event streaming, whether virtualized or not. The VES Event Listener is
-capable of receiving any event sent in the VES Common Event Format. The
-Common Event Format is expressed in JSON schema in section 4 of this
-document. In the Common Event Format, an event consists of a required
-Common Event Header block (i.e., object) accompanied by zero or more
-event domain blocks.
+capable of receiving any event sent in the VES
+:ref:`ves_common_event_format_7_2`. In the VES Common Event Format, an event
+consists of a required
+:ref:`Common Event Header <ves_common_event_header_7_2>` (i.e., object)
+accompanied by zero or more event domain blocks.
 
 It should be understood that events are well structured packages of
-information, identified by an eventName, which are asynchronously
-communicated to subscribers who are interested in the eventName. Events
+information, identified by an ``eventName``, which are asynchronously
+communicated to subscribers who are interested in the ``eventName``. Events
 can convey measurements, faults, syslogs, threshold crossing alerts and
 other types of information. Events are simply a way of communicating
 well-structured packages of information to one or more instances of an
-Event Listener service.
-
-This document describes a RESTful connectionless push event listener
-can receive single events or batches of events in the
-Common Event Format. In future, additional documents may describe other
-transports which make use of persistent TCP connections for high volumes
-of streaming events.
-
-Compatibility with ONAP
-~~~~~~~~~~~~~~~~~~~~~~~
-
-Unless otherwise stated, this version of the Event Listener specification is
-compatible with the release of ONAP the specification is released under.  In
-other words, if the specification is released under the Frankfurt ONAP Release,
-then the VES Event Collectors provided by DCAE will also be compatible with
-the specification.
-
-Event Registration
-~~~~~~~~~~~~~~~~~~
-
-All events must be compliant with the common event format, but specific
-events identified by their eventNames, may require that certain fields,
-which are optional in the common event format, be present when they are
-published. For example, a specific eventName may require that specific
-name-value pairs be present in the extensible structures provided within
-the Common Event Format.
-
-Events are registered using an extensible YAML format (defined in a
-separate document), which specifies, for each eventName, the fields that
-are required, what field values may be sent, and any special handling
-that should be performed on those eventNames.
-
-Naming Standards for eventName
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-To prevent naming collisions, eventNames sent as part of the
-commonEventHeader, should conform to the following naming convention
-designed to summarize the purpose and type of the event, and to ensure
-the uniqueness of the eventName:
-
-    {DomainAbbreviation}\_{PublisherName}\_{Description}
-
-Each underscore-separated subfield above should start with a capital
-letter and use camel-casing to separate words and acronyms. Acronyms
-should capitalize only the first letter of the acronym. Spaces and
-underscores should not appear within any subfield.
-
-The DomainAbbreviation subfield derives from the ‘domain’ field in the
-commonEventHeader, as specified below:
-
--  ‘Fault’ for the fault domain
-
--  ‘Heartbeat’ for the heartbeat domain
-
--  ‘Measurement’ for the measurement domain
-
--  ‘MobileFlow’ for the mobileFlow domain
-
--  ‘Notification’ for the notification domain
-
--  ‘Other’ for the other domain
-
--  ‘Perf3gpp’ for the perf3gpp domain
-
--  ‘PnfReg’ for the pnfRegistration domain
-
--  ‘SipSignaling’ for the sipSignaling domain
-
--  ‘StateChange’ for the stateChange domain
-
--  ‘Syslog’ for the syslog domain
-
--  ‘Tca’ for the thresholdCrossingAlert domain
-
--  ‘VoiceQuality’ for the voiceQuality domain
-
-The PublisherName subfield describes the vendor product or application
-publishing the event. This subfield conforms to the following
-conventions:
-
--  Vendor products are specified as:
-
-     {productName}-{vendorName}
-
-    For example: Visbc-Metaswitch or Vdbe-Juniper, where a hyphen is
-    used to separate the productName and vendorName subfields. Note that
-    the productName and vendorName subfields must not include hyphens
-    themselves.
-
-    Organizing the information in this way will cause an alphabetical
-    listing of eventNames to sort similar network functions together,
-    rather than to sort them by vendor.
-
-    The productName subfield may describe a NF or a NFC. Where NFC names
-    may be reused across different NF’s, they should be specified as:
-
-     {NfName}:{NfcName}
-
-    where a colon is used to separate the NfName and NfcName subfields.
-    Note that the NfName and NfcName subfields must not include colons
-    themselves.
-
-    The ProductName may also describe other types of vendor modules or
-    components such as a VM, application or hostname. As with NFs and
-    NFCs, parent:child relationships may be communicated using colon as
-    a subfield delimiter.
-
--  Service providers who adopt the VES Common Event Format for internal
-   use, may provide PublisherName without the vendorName subfield. They
-   would typically identify an application, system, service or
-   microservice publishing the event (e.g., ‘Policy’, ‘So’,
-   ‘MobileCallRecording’ or ‘Dkat’). As with NFs and NFCs, parent:child
-   relationships may be communicated using colon as a subfield delimiter
-   (e.g., ApplicationName:ApplicationComponent).
-
-The final subfield of the eventName name should describe, in a compact
-camel case format the specific information being conveyed by the event.
-In some cases, this final subfield may not be required (e.g., in the
-case of certain heartbeats).
-
-Examples of eventNames following the naming standards are provided
-below:
-
-- Tca\_Vdbe-Ericsson\_CpuThresholdExceeded
-
-- Heartbeat\_Visbc:Mmc-Metaswitch
-
-- Syslog\_Vdbe-Ericsson
-
-- Fault\_MobileCallRecording\_PilotNumberPoolExhaustion
-
-- Other\_So:WanBonding\_InstantiationPart1Complete
-
-EventId Use Cases Examples
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-eventId Examples:
-
-**NOTE**: Please note, the following are only *examples*, and other formats
-can be used provided they meet the requirement that the ``eventId`` is unique
-for all events or unique fault occurrence.
-
-**Example 1**: assumes a unique key for each domain consisting of domain
-followed by an integer domain<n> or domainId<n>, where <n> is a positive integer,
-e.g. fault000001, heartbeat000001, measurement000005,
-notification3gppPerfFileReady0005
-
-**Example 2**: assumes a unique integer key for all events across all domains
-<n>: 000000001, 00000002, 000000003
-
-Rules:
-
-1. All domains except Fault: each time a subsequent event is sent the
-   integer part of eventId will increment by 1. Repeat of eventId
-   assumes duplicate event. Sequence number is set to 0 for all domains
-   except fault.
-
-2. eventId construction for Fault Events:
-
-   a. Most likely scenario
-
-      *    The sourceName on each Fault event is the NF Instance Name
-           (pnf-name or vnf-name or vm-name) as entered in A&AI uniquely
-           identifying this instance of the NF.
-
-      *    The eventId on Fault events is the same every time a given
-           fault is raised (including onset and re-raise)
-
-            1. The startEpochMicrosec value for the Fault event is the
-               timestamp for when the fault onset occurs. Subsequent
-               events for the same fault will keep the same startEpochMicrosec
-               value.
-
-            2. lastEpochMicrosec indicates the current event time. This value
-               will be updated for each subsequent event for a given fault.
-
-            3. The sequence number for each Fault event is set to 1 when the
-               fault is raised and increments each time the same
-               fault event is raised, until a clear is sent.
-
-      *    After the fault is cleared, a new eventId is used.
-
-   .. image:: Use-Case-1.png
-
-   b. **Alternative Scenario**: Network Function When Fault Event Status is Not
-      Maintained.
-
-      *    The sourceName on each Fault event is the NF Instance Name
-           (pnf-name or vnf-name or vm-name) as entered in A&AI uniquely
-           identifying this instance of the NF.
-
-      *    The eventId on Fault events is the same every time a given
-           fault is raised or cleared, even if it is re-raised after it
-           had previously cleared.  So, for example, if EMS loses
-           contact with a particular device then a Fault event might be
-           sent for a raise, re-raise (because EMS has re-tried and
-           still can’t contact the device), clear (because EMS has
-           re-tried and it can contact the device) and then raise again
-           (because EMS has lost contact with the device again).  The
-           same eventId is used for all 4 of those Fault events.
-
-      *    The startEpochMicrosec value for each Fault event is the
-           timestamp for when that event is generated, not when the
-           fault first occurred.  So all 4 of the Fault events in the
-           previous bullet point would have a different timestamp.
-
-      *    lastEpochMicrosec indicates the current event time.
-
-      *    The sequence number for each Fault event is currently set to
-           0 on a raise and 1 on a clear.  We could change that so that
-           each Fault event is given a new monotonically increasing
-           sequence number whether it is a raise or a clear if that is
-           helpful (which is reset to 0 if the VM restarts) but they
-           won’t be consecutive.
-
-      *    Normally, a clear is expected for each fault to be sent from a
-           network function. However a few fault notification types will never
-           be re-raised or cleared. In this case, general rules for VES events
-           shall be followed with a new eventId for each event and sequence
-           number set to 0.
-
-   .. image:: Use-Case-2.png
-
-Measurement Expansion Fields
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-When expansion fields are used, the goal is to avoid custom development
-by the service provider collecting the fields, since custom development
-adds obvious cost, delay and resource overhead. In the domain of
-measurements, it is expected that a high percentage (perhaps as high as
-90 percent) of use cases for extensible fields can be satisfied by using
-the additionalMeasurements arrayOfNamedHashMap data structure in
-combination with a YAML registration file (provided at design time). The
-YAML registration file conveys meta-information about the processing of
-additionalMeasurements. For more information, please see the VES Event
-Registration specification and in particular the aggregationRole, castTo
-and isHomogeneous keywords.
-
-Syslogs
-~~~~~~~~
-
-Syslog’s can be classified as either Control or Session/Traffic. They
-differ by message content and expected volume:
-
-- Control logs are generally free-form human-readable text used for
-  reporting errors or warnings supporting the operation and
-  troubleshooting of NFs.  The volume of these logs is typically less
-  than 2k per day.
-
-- Session logs use common structured fields to report normal NF
-  processing such as DNS lookups or firewall rules processed.  The
-  volume of these logs is typically greater than 1k per hour (and
-  sometimes as high as 10k per second).
-
-VES supports both classes of syslog, however VES is only recommended for
-control logs or for lower volume session logs, less than 60k per hour.
-High volume session logging should use a file-based transport solution.
-
-Support for Protocols Other Than HTTPS
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-This API specification describes an HTTPS RESTful interface using the
-JSON content-type.
-
-Alternative API specifications may be provided in future using Google
-Protobuf, websockets, or Apache Avro.
-
-Configuration Requirements
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-This section provides network function configuration requirements for
-connectivity to a VES Event Listener via a RESTful API, using a VES JSON event.
-
-There are several methods available to provide configuration settings to a
-network function. This document does not specify the exact manner in which
-the configuration elements described below must be required. The
-configuration can be provided during instantiation (e.g. preload), provided by
-an ONAP controller action, or provided manually.
-
-* **VES Event Listener IP Addresses or FQDNs resolved via DNS**: Two FQDNs
-  and/or IP Addresses are required. NF shall select one of the 2 FQDNs/IP
-  Addresses for sending events and if the NF is unable to get an
-  acknowledgement within predefined configurable time interval
-  or unable to establish a TCP connection due inability to resolve DNS query or
-  if the VES Event Listener is unresponsive, then the NF shall attempt to use
-  the other FQDN/IP Address to connect to VES Event Listener to deliver the
-  VES Events. The events shall only be sent to one VES Event Listener at a time.
-  Please note: If a FQDN is used, the DNS query would return a single IP
-  address.
-* The active VES Event Listener (either the primary or secondary) will handle
-  all VES events regardless of domain.
-* **VES Credentials**: If the NF is using Basic Authentication, then the NF
-  must support the provisioning of security and authentication parameters
-  (HTTP username and password) in order to be able to authenticate with the
-  VES Event Listener. The Username and Password should be set unique per NF
-  instance and should be configured during the NF deployment through a
-  Controller or other means. The same password must also be configured into VES
-  Event Listener instance for successful handshake.
-* **VES Heartbeat Interval**: This must be a configurable parameter; current
-  default is 60 seconds. Note: the heartbeat interval should be greater than
-  the ack timeout value.
-* **Measurement Interval**: For measurement events, the measurement interval
-  must be configurable and a default of 300 seconds.
-* **ACK Timeout Interval**: Configurable, default 5 seconds.
-
-Event Domain Requirements/Expectations
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-* **Heartbeat**: Heartbeat events must be sent to VES Event Listener based on
-  configurable parameter.
-* **Faults**: Fault events must be sent to the VES Event Listener as soon as
-  they occur.
-* **Measurements**: All measurement events must be sent at the configured
-  measurementInterval. If the NF provides both application and GuestOS
-  metrics, then they must both use the same measurementInterval.
-* **Syslogs**: Syslog events should be sent to the VES Event Listener as soon as
-  created, unless the NF is in debug mode (verbose logging enabled to get
-  additional data to diagnose a problem), in which case the syslogs must be
-  stored locally in the NF, for later access and possible secure transfer.
-* **Pre-defined Events Formats (Domain: Mobile Flow, TCA, State Chang, etc)**:
-  Other events (State change, TCA, Mobile Flow, etc) may use other pre-defined
-  VES domains from the VES Common Event Format specification based on the role
-  of the NF.
-* **otherFields**: The otherFields Record defines fields for events belonging
-  to the otherFields domain of the Technology Independent domain enumeration.
-  This record provides a mechanism to convey a complex set of fields
-  and is purely intended to address miscellaneous needs such as addressing
-  time-to-market considerations or other proof-of-concept evaluations. Hence,
-  use of this record type is discouraged and should be minimized.
-
-Use of Collector FQDNs and/or IP Address
-++++++++++++++++++++++++++++++++++++++++
-
-* The NF must support two configurable endpoints for the VES Event Listener.
-  One will be the active, primary event listener endpoint.  The other
-  will be a standby event listener in the event the active endpoint is
-  unavailable.
-* When sending an event (FM, PM, Syslog, HB), the NF shall establish an HTTPS
-  connection to one VES Event Listener FQDN/IP Address (if not already
-  established) and send a VES event to it. Note that connections are not
-  persistent. The events shall only be sent to only one VES Event Listener at a
-  time.
-* The NF must be able to detect that a VES Event Listener endpoint is
-  unavailable, and trigger the fail-over to the backup endpoint. The mechanism
-  for detecting unavailability must be configurable by the Service Operator
-  (e.g. number of attempts, timeout value).
-* If the NF is sending events to the VES Event Listener backup endpoint, then
-  the NF must poll the primary endpoint on a configurable interval to check
-  if the primary endpoint is now available. The NF may use the Heartbeat
-  event or another mechanism to test availability.  If the primary endpoint
-  becomes available, then the NF must fallback to the primary endpoint.
-* A NF must only send a unique event to a single VES Event Listener endpoint
-  at a time.  In other words, the NF must not send a duplicate event to the
-  secondary endpoint unless the delivery to the primary endpoint failed.
-* If both Primary and Secondary endpoints are not available, then the NF shall
-  buffer the events locally. Refer to the Buffering of Events section for full
-  details.
-* If a NF is unable to establish a connection with a VES Event Listener or does
-  not get an acknowledgement within a specified time, then it should log this
-  failure and, optionally, send a fault event indicating
-  connection/acknowledgement failure via the alternate FQDN/IP Address. The
-  intent of this fault is to inform the Service Operator that the VES Event
-  Listener endpoint has become unreachable by the NF.
-
+VES Event Listener service.
+
+This document describes a RESTful, connectionless, push event listener
+that can receive single events or batches of events in the
+:ref:`ves_common_event_format_7_2`.
 
 Versioning
-~~~~~~~~~~~
+^^^^^^^^^^
 
 Three types of version numbers supported by this specification:
 
@@ -468,8 +113,46 @@ Three types of version numbers supported by this specification:
   to that block (e.g., a field name is added or text changes are made
   to the field descriptions) will increment only the minor number.
 
+Client Requirements
+^^^^^^^^^^^^^^^^^^^
+
+Any NF or client library that is responsible for delivering VES events
+to a VES Event Listener must comply with this specification to ensure events are
+received, accepted, and processed properly.
+
+Because the VES specification relies on clients to push events to the
+VES Event Listener, the client assumes certain responsibilities such as:
+
+- Providing configuration options supporting integration into a
+  Service Provider environment
+- Ensuring reliable delivery of events
+- Customization of default behaviors based on Service Provider needs
+
+While the documentation of these expectations are beyond the Event Listener
+specification, these requirements are documented in the ONAP VNF Requirements
+for :ref:`VES Monitoring Requirements <ves_monitoring_requirements>`.
+
+
+Compatibility with ONAP
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Unless otherwise stated, this version of the Event Listener specification is
+compatible with the release of ONAP the specification is released under.  In
+other words, if the specification is released under the Frankfurt ONAP release,
+then the VES Event Listeners provided by DCAE will also be compatible with
+this specification.
+
+Support for Protocols Other Than HTTPS
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This API specification describes an HTTPS RESTful interface using the
+JSON content-type.
+
+Alternative API specifications may be provided in future using Google
+Protocol Buffers, WebSockets, or Apache Avro.
+
 Field Block Versions
-+++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^
 
 A summary of the latest field block version enums as of this version of
 the API spec is provided below:
@@ -508,115 +191,7 @@ the API spec is provided below:
 
 - voiceQualityFieldsVersion: 4.0
 
-Security
-^^^^^^^^
-
-Event sources must identify themselves to the VES Event Listener.
-
-There are 2 methods of HTTP authentication supported: Certificate Authentication
-and Basic Authentication.
-
-Basic authentication is supported in VES Event Listener for backward
-compatibility for existing NFs that are already managed by ONAP. New NFs should
-support Certificate Authentication. Because the security is better, NFs may
-choose to only support Certificate Authentication and not support Basic
-Authentication.
-
-Basic Authentication
-~~~~~~~~~~~~~~~~~~~~
-
-When using Basic Authentication, the event source must not pass credentials on
-the query string.  Credentials must be sent in an Authorization header as
-follows:
-
-1. The username and password are formed into one string as
-   ``username:password``
-2. The resulting string is Base64 encoded to produce the encoded credential.
-3. The encoded credential is communicated in the header after the string
-   ``Authorization: Basic``
-
-Because the credentials are merely encoded but not encrypted, HTTPS (rather
-than HTTP) should be used.  HTTPS will also encrypt and protect event contents.
-
-Sample Request and Response
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Sample Request
-++++++++++++++
-
-.. code-block:: http
-
-    POST /eventListener/v7 HTTP/1.1
-    Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==
-    content-type: application/json
-    content-length: 12345
-    {
-        "event": {
-            "commonEventHeader": {
-                "version": "4.1",
-                "vesEventListenerVersion": "7.1.1",
-                "domain": "heartbeat",
-                "eventName": "Heartbeat_vIsbcMmc",
-                "eventId": "heartbeat0000249",
-                "sequence": 0,
-                "priority": "Normal",
-                "reportingEntityId": "cc305d54-75b4-431b-adb2-eb6b9e541234",
-                "reportingEntityName": "ibcx0001vm002oam001",
-                "sourceId": "de305d54-75b4-431b-adb2-eb6b9e546014",
-                "sourceName": "ibcx0001vm002ssc001",
-                "nfVendorName": "Ericsson",
-                "nfNamingCode": "ibcx",
-                "nfcNamingCode": "ssc",
-                "startEpochMicrosec": 1413378172000000,
-                "lastEpochMicrosec": 1413378172000000,
-                "timeZoneOffset": "UTC-05:30"
-            }
-        }
-    }
-
-
-Sample Success Response
-++++++++++++++++++++++++
-
-.. code-block:: http
-
-    HTTPS/1.1 202 Accepted
-    X-MinorVersion: 1
-    X-PatchVersion: 1
-    X-LatestVersion: 7.1
-
-
-Mutual TLS Certificate Authentication
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-When using Certificate Authentication, the event source must initialize the
-HTTPS connection with TLS 1.2 or higher and execute mutual authentication
-procedures according to `RFC5246 <https://tools.ietf.org/html/rfc5246#section-7.4.6>`__.
-The event source must authenticate the VES Listener certificate and must
-provide its own X.509v3 end-entity certificate to the VES Listener for
-authentication. The Subject Name in the end-entity certificate must be used
-according to `RFC5280 <https://www.ietf.org/rfc/rfc5280.txt>`__. If a
-certificate is provided by the NF but it is invalid, the VES Listener is
-expected to reject the connection and not fall back to basic authentication.
-
-Resource Structure
-^^^^^^^^^^^^^^^^^^
-
-REST resources are defined with respect to a ServerRoot:
-
-ServerRoot = https://{Domain|IP}:{Port}/{optionalRoutingPath}
-
-The resource structure is provided below::
-
-    {ServerRoot}
-        |
-        |--- /eventListener/v{apiVersion}
-                 |
-                 |--- /eventBatch
-
-**Figure 1**: REST Resource Structure
-
-The {Port} above is typically 8443.
+.. _ves_common_event_format_7_2:
 
 Common Event Format
 ^^^^^^^^^^^^^^^^^^^^
@@ -891,6 +466,8 @@ information:
 Common Event Header Data Types
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+.. _ves_common_event_header_7_2:
+
 Datatype: commonEventHeader
 ++++++++++++++++++++++++++++
 
@@ -921,10 +498,13 @@ to all events:
 |           |          |           | cases, eventId must be the same as the  |
 |           |          |           | initial alarm (along with the same      |
 |           |          |           | startEpochMicrosec but with a different |
-|           |          |           | sequence number). Note: see section 1.3 |
-|           |          |           | for eventId use case examples.          |
+|           |          |           | sequence number).                       |
+|           |          |           | See :ref:`ves_eventid_usecases_7_2` for |
+|           |          |           | additional guidance on eventId usage.   |
 +-----------+----------+-----------+-----------------------------------------+
-| eventName | string   | Yes       |                                         |
+| eventName | string   | Yes       |  See :ref:`ves_eventname_guidelines_7_2`|
+|           |          |           |  for additional information on naming   |
+|           |          |           |  events                                 |
 +-----------+----------+-----------+-----------------------------------------+
 | eventType | string   | No        |                                         |
 +-----------+----------+-----------+-----------------------------------------+
@@ -1052,6 +632,201 @@ provided by any event source but instead are added by the VES Event
 Listener service itself as part of an event enrichment process necessary
 for efficient internal processing of events received by the VES Event
 Listener.
+
+
+.. _ves_eventname_guidelines_7_2:
+
+Best Practices for eventName
+++++++++++++++++++++++++++++
+
+To prevent naming collisions, eventNames sent as part of the
+commonEventHeader, should conform to the following naming convention
+designed to summarize the purpose and type of the event, and to ensure
+the uniqueness of the eventName:
+
+    ``{DomainAbbreviation}_{PublisherName}_{Description}``
+
+Each underscore-separated subfield above should start with a capital
+letter and use camel-casing to separate words and acronyms. Acronyms
+should capitalize only the first letter of the acronym. Spaces and
+underscores should not appear within any subfield.
+
+The DomainAbbreviation subfield derives from the ‘domain’ field in the
+commonEventHeader, as specified below:
+
+-  ‘Fault’ for the fault domain
+
+-  ‘Heartbeat’ for the heartbeat domain
+
+-  ‘Measurement’ for the measurement domain
+
+-  ‘MobileFlow’ for the mobileFlow domain
+
+-  ‘Notification’ for the notification domain
+
+-  ‘Other’ for the other domain
+
+-  ‘Perf3gpp’ for the perf3gpp domain
+
+-  ‘PnfReg’ for the pnfRegistration domain
+
+-  ‘SipSignaling’ for the sipSignaling domain
+
+-  ‘StateChange’ for the stateChange domain
+
+-  ‘Syslog’ for the syslog domain
+
+-  ‘Tca’ for the thresholdCrossingAlert domain
+
+-  ‘VoiceQuality’ for the voiceQuality domain
+
+The PublisherName subfield describes the vendor product or application
+publishing the event. This subfield conforms to the following
+conventions:
+
+-   Vendor products are specified as: ``{productName}-{vendorName}``
+
+    For example: ``Visbc-Metaswitch`` or ``Vdbe-Juniper``, where a hyphen is
+    used to separate the ``productName`` and ``vendorName`` subfields. Note that
+    the ``productName`` and ``vendorName`` subfields must not include hyphens
+    themselves.
+
+    Organizing the information in this way will cause an alphabetical
+    listing of eventNames to sort similar network functions together,
+    rather than to sort them by vendor.
+
+    The ``productName`` subfield may describe a NF or a NFC. Where NFC names
+    may be reused across different NF’s, they should be specified as:
+
+    ``{NfName}:{NfcName}``
+
+    where a colon is used to separate the ``NfName`` and ``NfcName`` subfields.
+    Note that the ``NfName`` and ``NfcName`` subfields must not include colons
+    themselves.
+
+    The ``productName`` may also describe other types of vendor modules or
+    components such as a VM, application or hostname. As with NFs and
+    NFCs, parent:child relationships may be communicated using colon as
+    a subfield delimiter.
+
+-   Service providers who adopt the VES Common Event Format for internal
+    use, may provide PublisherName without the vendorName subfield. They
+    would typically identify an application, system, service or
+    microservice publishing the event (e.g., ‘Policy’, ‘So’,
+    ‘MobileCallRecording’ or ‘Dkat’). As with NFs and NFCs, parent:child
+    relationships may be communicated using colon as a subfield delimiter
+    (e.g., ApplicationName:ApplicationComponent).
+
+The final subfield of the eventName name should describe, in a compact
+camel case format the specific information being conveyed by the event.
+In some cases, this final subfield may not be required (e.g., in the
+case of certain heartbeats).
+
+Examples of event names following the naming standards are provided
+below:
+
+- ``Tca_Vdbe-Ericsson_CpuThresholdExceeded``
+
+- ``Heartbeat_Visbc:Mmc-Metaswitch``
+
+- ``Syslog_Vdbe-Ericsson``
+
+- ``Fault_MobileCallRecording_PilotNumberPoolExhaustion``
+
+- ``Other_So:WanBonding_InstantiationPart1Complete``
+
+.. _ves_eventid_usecases_7_2:
+
+EventId Use Cases Examples
+++++++++++++++++++++++++++
+
+``eventId`` Examples:
+
+**NOTE**: Please note, the following are only *examples*, and other formats
+can be used provided they meet the requirement that the ``eventId`` is unique
+for all events or unique fault occurrence.
+
+**Example 1**: assumes a unique key for each domain consisting of domain
+followed by an integer domain<n> or domainId<n>, where <n> is a positive integer,
+e.g. fault000001, heartbeat000001, measurement000005,
+notification3gppPerfFileReady0005
+
+**Example 2**: assumes a unique integer key for all events across all domains
+<n>: 000000001, 00000002, 000000003
+
+Rules:
+
+1. All domains except Fault: each time a subsequent event is sent the
+   integer part of eventId will increment by 1. Repeat of eventId
+   assumes duplicate event. Sequence number is set to 0 for all domains
+   except fault.
+
+2. eventId construction for Fault Events:
+
+   a. Most likely scenario
+
+      *    The sourceName on each Fault event is the NF Instance Name
+           (pnf-name or vnf-name or vm-name) as entered in A&AI uniquely
+           identifying this instance of the NF.
+
+      *    The eventId on Fault events is the same every time a given
+           fault is raised (including onset and re-raise)
+
+            1. The startEpochMicrosec value for the Fault event is the
+               timestamp for when the fault onset occurs. Subsequent
+               events for the same fault will keep the same startEpochMicrosec
+               value.
+
+            2. lastEpochMicrosec indicates the current event time. This value
+               will be updated for each subsequent event for a given fault.
+
+            3. The sequence number for each Fault event is set to 1 when the
+               fault is raised and increments each time the same
+               fault event is raised, until a clear is sent.
+
+      *    After the fault is cleared, a new eventId is used.
+
+   .. image:: Use-Case-1.png
+
+   b. **Alternative Scenario**: Network Function When Fault Event Status is Not
+      Maintained.
+
+      *    The sourceName on each Fault event is the NF Instance Name
+           (pnf-name or vnf-name or vm-name) as entered in A&AI uniquely
+           identifying this instance of the NF.
+
+      *    The eventId on Fault events is the same every time a given
+           fault is raised or cleared, even if it is re-raised after it
+           had previously cleared.  So, for example, if EMS loses
+           contact with a particular device then a Fault event might be
+           sent for a raise, re-raise (because EMS has re-tried and
+           still can’t contact the device), clear (because EMS has
+           re-tried and it can contact the device) and then raise again
+           (because EMS has lost contact with the device again).  The
+           same eventId is used for all 4 of those Fault events.
+
+      *    The startEpochMicrosec value for each Fault event is the
+           timestamp for when that event is generated, not when the
+           fault first occurred.  So all 4 of the Fault events in the
+           previous bullet point would have a different timestamp.
+
+      *    lastEpochMicrosec indicates the current event time.
+
+      *    The sequence number for each Fault event is currently set to
+           0 on a raise and 1 on a clear.  We could change that so that
+           each Fault event is given a new monotonically increasing
+           sequence number whether it is a raise or a clear if that is
+           helpful (which is reset to 0 if the VM restarts) but they
+           won’t be consecutive.
+
+      *    Normally, a clear is expected for each fault to be sent from a
+           network function. However a few fault notification types will never
+           be re-raised or cleared. In this case, general rules for VES events
+           shall be followed with a new eventId for each event and sequence
+           number set to 0.
+
+   .. image:: Use-Case-2.png
+
 
 Technology Independent Datatypes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1876,7 +1651,7 @@ it consists of the following fields:
 Datatype: measurementFields
 ****************************
 
-The measurementFields datatype consists of the following fields:
+The ``measurementFields`` datatype consists of the following fields:
 
 +-------------+--------------+----------+-------------------------------------+
 | Field       | Type         | Required?| Description                         |
@@ -1976,6 +1751,29 @@ The measurementFields datatype consists of the following fields:
 | Rate        |              |          | second to the xNF over the          |
 |             |              |          | measurementInterval                 |
 +-------------+--------------+----------+-------------------------------------+
+
+
+Note on Measurement Expansion Fields
+""""""""""""""""""""""""""""""""""""
+
+The ``measurementFields`` data type provides fields that can be used to
+pass additional data with the event. These fields are listed below and
+referred to as expansion fields:
+
+* ``additionalFields``
+* ``additionalObjects``
+* ``additionalMeasurements``
+
+When expansion fields are used, the goal is to avoid custom development
+by the service provider collecting the fields, since custom development
+adds obvious cost, delay and resource overhead. In the domain of
+measurements, it is expected that a high percentage of use cases for
+extensible fields can be satisfied by using the ``additionalMeasurements``
+``arrayOfNamedHashMap`` data structure in combination with a YAML registration
+file (provided at design time). The YAML registration file conveys
+metadata about the processing of ``additionalMeasurements``. For more
+information, please see the VES Event Registration specification and in
+particular the ``aggregationRole``, ``castTo``, and ``isHomogeneous`` keywords.
 
 Datatype: memoryUsage
 **********************
@@ -3450,11 +3248,123 @@ facing voice products; consists of the following fields:
 |              |             |          | to use.                             |
 +--------------+-------------+----------+-------------------------------------+
 
+
+RESTful Web Services Definition
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Security
+~~~~~~~~
+
+Event sources must identify themselves to the VES Event Listener.
+
+There are 2 methods of HTTP authentication supported: Certificate Authentication
+and Basic Authentication.
+
+Basic authentication is supported in VES Event Listener for backward
+compatibility for existing NFs that are already managed by ONAP. New NFs should
+support Certificate Authentication. Because the security is better, NFs may
+choose to only support Certificate Authentication and not support Basic
+Authentication.
+
+Basic Authentication
+++++++++++++++++++++
+
+When using Basic Authentication, the event source must not pass credentials on
+the query string.  Credentials must be sent in an Authorization header as
+follows:
+
+1. The username and password are formed into one string as
+   ``username:password``
+2. The resulting string is Base64 encoded to produce the encoded credential.
+3. The encoded credential is communicated in the header after the string
+   ``Authorization: Basic``
+
+Because the credentials are merely encoded but not encrypted, HTTPS (rather
+than HTTP) should be used.  HTTPS will also encrypt and protect event contents.
+
+Sample Request and Response
++++++++++++++++++++++++++++
+
+Sample Request
+**************
+
+.. code-block:: http
+
+    POST /eventListener/v7 HTTP/1.1
+    Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==
+    content-type: application/json
+    content-length: 12345
+    {
+        "event": {
+            "commonEventHeader": {
+                "version": "4.1",
+                "vesEventListenerVersion": "7.2",
+                "domain": "heartbeat",
+                "eventName": "Heartbeat_vIsbcMmc",
+                "eventId": "heartbeat0000249",
+                "sequence": 0,
+                "priority": "Normal",
+                "reportingEntityId": "cc305d54-75b4-431b-adb2-eb6b9e541234",
+                "reportingEntityName": "ibcx0001vm002oam001",
+                "sourceId": "de305d54-75b4-431b-adb2-eb6b9e546014",
+                "sourceName": "ibcx0001vm002ssc001",
+                "nfVendorName": "Ericsson",
+                "nfNamingCode": "ibcx",
+                "nfcNamingCode": "ssc",
+                "startEpochMicrosec": 1413378172000000,
+                "lastEpochMicrosec": 1413378172000000,
+                "timeZoneOffset": "UTC-05:30"
+            }
+        }
+    }
+
+
+Sample Success Response
+***********************
+
+.. code-block:: http
+
+    HTTPS/1.1 202 Accepted
+    X-MinorVersion: 1
+    X-PatchVersion: 1
+    X-LatestVersion: 7.1
+
+
+Mutual TLS Certificate Authentication
++++++++++++++++++++++++++++++++++++++
+
+When using Certificate Authentication, the event source must initialize the
+HTTPS connection with TLS 1.2 or higher and execute mutual authentication
+procedures according to `RFC5246 <https://tools.ietf.org/html/rfc5246#section-7.4.6>`__.
+The event source must authenticate the VES Listener certificate and must
+provide its own X.509v3 end-entity certificate to the VES Listener for
+authentication. The Subject Name in the end-entity certificate must be used
+according to `RFC5280 <https://www.ietf.org/rfc/rfc5280.txt>`__. If a
+certificate is provided by the NF but it is invalid, the VES Listener is
+expected to reject the connection and not fall back to basic authentication.
+
+Resource Structure
+~~~~~~~~~~~~~~~~~~
+
+REST resources are defined with respect to a ServerRoot:
+
+ServerRoot = https://{Domain|IP}:{Port}/{optionalRoutingPath}
+
+The resource structure is provided below::
+
+    {ServerRoot}
+        |
+        |--- /eventListener/v{apiVersion}
+                 |
+                 |--- /eventBatch
+
+**Figure 1**: REST Resource Structure
+
 Exceptions
-^^^^^^^^^^^
+~~~~~~~~~~
 
 RESTful Web Services Exceptions
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++++++++++++++++++++++++++++++++
 
 RESTful services generate and send exceptions to clients in response to
 invocation errors. Exceptions send HTTP status codes (specified later in
@@ -3497,18 +3407,18 @@ exceptions may be defined: service exceptions and policy exceptions.
 +-----------+---------------+-------------+-----------------------------------+
 
 Service Exceptions
-~~~~~~~~~~~~~~~~~~~
+++++++++++++++++++
 
-   When a service is not able to process a request, and retrying the
-   request with the same information will also result in a failure, and
-   the issue is not related to a service policy issue, then the service
-   will issue a fault using the service exception fault message.
-   Examples of service exceptions include invalid input, lack of
-   availability of a required resource or a processing error.
+When a service is not able to process a request, and retrying the
+request with the same information will also result in a failure, and
+the issue is not related to a service policy issue, then the service
+will issue a fault using the service exception fault message.
+Examples of service exceptions include invalid input, lack of
+availability of a required resource or a processing error.
 
-   A service exception uses the letters 'SVC' at the beginning of the
-   message identifier. ‘SVC’ service exceptions used by the VES Event
-   Listener API are defined below.
+A service exception uses the letters 'SVC' at the beginning of the
+message identifier. ‘SVC’ service exceptions used by the VES Event
+Listener API are defined below.
 
 +----------+--------------+-----------------------+----------------+----------+
 | MessageId| Description  | Text                  | Variables      | Parent   |
@@ -3533,25 +3443,25 @@ Service Exceptions
 |          |              |  Error code is %2.    | %2: error code |          |
 +----------+--------------+-----------------------+----------------+----------+
 
-    Table - Service Exceptions
+Table - Service Exceptions
 
 Policy Exceptions
-~~~~~~~~~~~~~~~~~~
++++++++++++++++++
 
-   When a service is not able to complete because the request fails to
-   meet a policy criteria, then the service will issue a fault using the
-   policy exception fault message. To clarify how a policy exception
-   differs from a service exception, consider that all the input to an
-   operation may be valid as meeting the required input for the
-   operation (thus no service exception), but using that input in the
-   execution of the service may result in conditions that require the
-   service not to complete. Examples of policy exceptions include
-   privacy violations, requests not permitted under a governing service
-   agreement or input content not acceptable to the service provider.
+When a service is not able to complete because the request fails to
+meet a policy criteria, then the service will issue a fault using the
+policy exception fault message. To clarify how a policy exception
+differs from a service exception, consider that all the input to an
+operation may be valid as meeting the required input for the
+operation (thus no service exception), but using that input in the
+execution of the service may result in conditions that require the
+service not to complete. Examples of policy exceptions include
+privacy violations, requests not permitted under a governing service
+agreement or input content not acceptable to the service provider.
 
-   A Policy Exception uses the letters 'POL' at the beginning of the
-   message identifier. ‘POL’ policy exceptions used by the VES Event
-   Listener API are defined below.
+A Policy Exception uses the letters 'POL' at the beginning of the
+message identifier. ‘POL’ policy exceptions used by the VES Event
+Listener API are defined below.
 
 +----------+---------------+-----------------------+---------------+----------+
 | MessageId| Description   |Text                   | Variables     | Parent   |
@@ -3580,10 +3490,7 @@ Policy Exceptions
 |          |               | limit                 |               |          |
 +----------+---------------+-----------------------+---------------+----------+
 
-    Table - Policy Exceptions
-
-RESTful Web Services Definition
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Table - Policy Exceptions
 
 REST Operation Overview
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -3617,11 +3524,11 @@ The Event Listener shall provide the following HTTP headers in response
 to all requests. Additionally, clients may populate these headers on
 requests to indicate the specific version they are interested in.
 
--  X-MinorVersion: 1
+-  X-MinorVersion: 2
 
--  X-PatchVersion: 1
+-  X-PatchVersion: 0
 
--  X-LatestVersion: 7.1
+-  X-LatestVersion: 7.2
 
 If a client requests major version 7 (per the REST resource URL) and
 does not specify the above headers, then they will be provided with the
@@ -3631,63 +3538,14 @@ the X-MinorVersion header with their request. For example, if they
 request major version 7 with X-MinorVersion: 1, they will get the latest
 patch version of 7.1, which is 7.1.1.
 
-Buffering of Events
-+++++++++++++++++++
-
-``{ServerRoot}`` is defined in section 3 of this document, which defines the
-REST resource URL.  One or more FQDNs may be provisioned in an event source
-when it is instantiated or updated.  If an event source is unable to reach any
-of the provisioned FQDNs, it should buffer the event data specified below, up
-to a maximum of 1 hour, and re-transmit them once a connection has been
-established.
-
-The following events should be buffered:
-
-* Faults with eventSeverity of ``MINOR``, ``MAJOR``, ``NORMAL``, or ``CRITICAL``
-  with following expected behavior:
-
-    * NF keeps a First-In-First-Out buffer.
-    * Until the collectors are working again, it is desired that the NF sends
-      the final state events only, and not intermediate ones. However, it is
-      acceptable to buffer all events and send them over to the collector in
-      the same order in which they were generated/received.
-
-* When one VES Event Listener connectivity is re-established, NF should first
-  send the buffered events and then start sending the new events.
-
-    * Syslog with syslogSev of ``Emergency``, ``Alert``, ``Critical``,
-      ``Error``, or ``Warning``
-
-* All measurements events
-
-publishEventBatch Requirements
-******************************
-
-Buffered events can be sent in batch using ``publishEventBatch``. However, a
-NF vendor must only include multiple events for the same domain in the
-``publishEventBatch``. The ``publishEventBatch`` event must also conform to
-event size limits.
-
-``publishEventBatch`` events are handled similarly to a single event. The
-acknowledgement from the VES Event Listener is for the ``publishEventBatch`` and
-not individual events within the ``publishEventBatch``.
-
-Debug Mode
-**********
-
-NFs acting as event sources should not send syslog events to the
-VES Event Listener during debug mode, but should store syslog events locally
-for access, and possible FTP transfer, via the NF console (e.g., command line
-interface).
-
-.. _msg-size:
+.. _ves_msg_size_7_2:
 
 Message Size
 ++++++++++++
 
 The maximum allowed message size is 2 megabytes of uncompressed text.
-However,messages of this size have been known to cause performance and data
-loss. It is strongly recommended,that messages not exceed 1 megabyte.
+However, messages of this size have been known to cause performance and data
+loss. It is strongly recommended, that messages not exceed 1 megabyte.
 In a future version of the specification, a 1 megabyte limit will become
 a mandatory requirement.
 
@@ -3753,7 +3611,8 @@ case-insensitive):
 |               |          |          | message shall be returned.            |
 +---------------+----------+----------+---------------------------------------+
 | Content-length| integer  | No       | Note that content length is limited to|
-|               |          |          | 2 Megabyte (see :ref:`msg-size`)      |
+|               |          |          | 2 Megabyte                            |
+|               |          |          | (see :ref:`ves_msg_size_7_2`)         |
 +---------------+----------+----------+---------------------------------------+
 | Content-type  | string   | Yes      | Must be set to one of the following   |
 |               |          |          | values:                               |
@@ -3868,7 +3727,7 @@ Sample Request
         "event": {
             "commonEventHeader": {
                 "version": "4.1",
-                "vesEventListenerVersion": "7.1.1",
+                "vesEventListenerVersion": "7.2",
                 "domain": "fault",
                 "eventName": "Fault_Vscf:Acs-Ericcson_PilotNumberPoolExhaustion",
                 "eventId": "fault0000245",
@@ -3907,9 +3766,9 @@ Sample Success Response
 .. code-block:: http
 
     HTTPS/1.1 202 Accepted
-    X-MinorVersion: 1
-    X-PatchVersion: 1
-    X-LatestVersion: 7.1.1
+    X-MinorVersion: 2
+    X-PatchVersion: 0
+    X-LatestVersion: 7.2
 
 Sample Error Responses
 ************************
@@ -3925,7 +3784,7 @@ Sample Policy Exception
     Date: Thu, 04 Jun 2009 02:51:59 GMT
     X-MinorVersion: 1
     X-PatchVersion: 1
-    X-LatestVersion: 7.1.1
+    X-LatestVersion: 7.2
 
     {
       "requestError": {
@@ -3948,7 +3807,7 @@ Sample Service Exception
     Date: Thu, 04 Jun 2009 02:51:59 GMT
     X-MinorVersion: 1
     X-PatchVersion: 1
-    X-LatestVersion: 7.1.1
+    X-LatestVersion: 7.2
 
     {
       "requestError": {
@@ -3980,6 +3839,10 @@ listener.
 
 - Provides HTTP response codes as well as Service and Policy error
   messages
+
+``publishEventBatch`` events are handled similarly to a single event. The
+acknowledgement from the VES Event Listener is for the ``publishEventBatch`` and
+not individual events within the ``publishEventBatch``.
 
 Call Flow
 +++++++++++
@@ -4025,7 +3888,8 @@ case-insensitive):
 |               |          |          | returned.                             |
 +---------------+----------+----------+---------------------------------------+
 | Content-length| integer  | No       | Note that content length is limited to|
-|               |          |          | 2 megabyte (see :ref:`msg-size`).     |
+|               |          |          | 2 megabyte                            |
+|               |          |          | (see :ref:`ves_msg_size_7_2`).        |
 +---------------+----------+----------+---------------------------------------+
 | Content-type  | string   | Yes      | Must be set to one of the following   |
 |               |          |          | values:                               |
@@ -4049,7 +3913,9 @@ Body Fields:
 | **Parameter**| **Data Type**| **Required?**| **Brief description**         |
 +--------------+--------------+--------------+-------------------------------+
 | eventList    | eventList    | Yes          | Array of events conforming to |
-|              |              |              | the common event format.      |
+|              |              |              | the common event format. All  |
+|              |              |              | events must belong to a       |
+|              |              |              | single domain.                |
 +--------------+--------------+--------------+-------------------------------+
 
 Output Parameters
@@ -4141,7 +4007,7 @@ Sample Request
           {
              "commonEventHeader": {
                 "version": "4.1",
-                "vesEventListenerVersion": "7.1.1",
+                "vesEventListenerVersion": "7.2",
                 "domain": "fault",
                 "eventName": "Fault_Vscf:Acs-Ericcson_PilotNumberPoolExhaustion",
                 "eventId": "fault0000250",
@@ -4173,7 +4039,7 @@ Sample Request
           {
              "commonEventHeader": {
                 "version": "4.1",
-                "vesEventListenerVersion": "7.1.1",
+                "vesEventListenerVersion": "7.2",
                 "domain": "fault",
                 "eventName": " Fault_Vscf:Acs-Ericcson_RecordingServerUnreachable",
                 "eventId": "fault0000251",
@@ -4208,9 +4074,9 @@ Sample Success Response
 .. code-block:: http
 
     HTTPS/1.1 202 Accepted
-    X-MinorVersion: 1
-    X-PatchVersion: 1
-    X-LatestVersion: 7.1.1
+    X-MinorVersion: 2
+    X-PatchVersion: 0
+    X-LatestVersion: 7.2
 
 Sample Error Responses
 ************************
@@ -4224,9 +4090,9 @@ Sample Policy Exception
     content-type: application/json
     content-length: 12345
     Date: Thu, 04 Jun 2009 02:51:59 GMT
-    X-MinorVersion: 1
-    X-PatchVersion: 1
-    X-LatestVersion: 7.1.1
+    X-MinorVersion: 2
+    X-PatchVersion: 0
+    X-LatestVersion: 7.2
 
     {
       "requestError": {
@@ -4248,9 +4114,9 @@ Sample Service Exception
     content-type: application/json
     content-length: 12345
     Date: Thu, 04 Jun 2009 02:51:59 GMT
-    X-MinorVersion: 1
-    X-PatchVersion: 1
-    X-LatestVersion: 7.1.1
+    X-MinorVersion: 2
+    X-PatchVersion: 0
+    X-LatestVersion: 7.2
 
     {
       "requestError": {
@@ -4280,9 +4146,6 @@ a trap name.
 
 **APPC (formerly APP-C)**. Application Controller. Handles the life
 cycle management of Virtual Network Functions (VNFs).
-
-**ASDC**. AT&T Service Design and Creation Platform: the original name
-for the SDC. Replaced by SDC.
 
 **Common Event Format**. A JSON schema describing events sent to the VES
 Event Listener.
@@ -4348,10 +4211,6 @@ associative array, a structure than can map keys to values. In VES 6.0,
 all name-value pair structures were changed to hash maps (i.e., {‘name’:
 ‘keyName’, ‘value’: ‘keyValue’} was replaced with {‘keyName’:
 ‘keyValue’}).
-
-**ICE**. Incubation and Certification Environment. Facilitates vendors
-and third-party in developing virtual network functions using ONAP and a
-network cloud.
 
 **IPMI**. The `Intelligent Platform Management
 Interface <https://en.wikipedia.org/wiki/Intelligent_Platform_Management_Interface>`__.
@@ -6181,7 +6040,7 @@ Contents.
 |           |         | -  Changed the location of the doc to VNF             |
 |           |         |    Requirements and changed the formatting            |
 +-----------+---------+-------------------------------------------------------+
-| 1/28/202  | v7.1.1  | -  Changed event sizes from 2Mb to 1Mb                |
+| 1/28/2020 | v7.1.1  | -  Changed event sizes from 2Mb to 1Mb                |
 |           |         | -  Configuration Requirement comments addressed       |
 |           |         | -  Changed DCAE Collector to VES Event Listener       |
 |           |         | -  Replaced VNF with NF where appropriate             |
@@ -6214,6 +6073,10 @@ Contents.
 |           |         |   publishAnyEvent operation                           |
 |           |         | - Relaxed various requirements related to camel       |
 |           |         |   casing of values from 'must' to 'should'            |
++-----------+---------+-------------------------------------------------------+
+| 5/27/2020 | v7.2    | -  Re-organized sections to flow more logically       |
+|           |         | -  Moved NF requirements to VNF Requirements          |
+|           |         | -  Changed DCAE Collector to VES Event Listener       |
 +-----------+---------+-------------------------------------------------------+
 
 .. _time_zone_abbreviations: https://en.wikipedia.org/wiki/List_of_time_zone_abbreviations
