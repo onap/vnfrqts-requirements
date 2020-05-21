@@ -27,4 +27,5 @@ Appendix
     VES_Registration_3_2.rst
     ves7_1spec.rst
     ves_5_4_1/VESEventListener.rst
+    ves_7_2/ves_event_listener_7_2.rst
     OPNFV-Verified-Badging.rst

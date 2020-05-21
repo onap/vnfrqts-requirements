@@ -33,7 +33,7 @@ changes can be found below.
     - Significant additions, updates, and removals in Security requirements
     - Updated latest
       :ref:`VES Event Listener Specification  <ves_event_listener_7_1>` to 7.1.1
-    - Added :ref:`VES Event Listener Specification 5.4.1 <ves_event_listener_5_41>`
+    - Added :ref:`VES Event Listener Specification 5.4.1 <ves_event_listener_5_4_1>`
       as ONAP still supports this version
     - Updated Ansible Requirements in :ref:`vnf_configuration_management`
 
@@ -128,7 +128,7 @@ changes can be found below.
     - Added Release notes to higher level
     - Added CICD build to generate requirements and create traceability matrix
     - Added Traceability matrix with dynamic links
-    - Moved VES spec 
+    - Moved VES spec
     - Created RST Requirement generator in wiki
 
 **Bug Fixes**
