@@ -2,6 +2,7 @@
 .. http://creativecommons.org/licenses/by/4.0
 .. Copyright 2017 AT&T Intellectual Property, All rights reserved
 .. Copyright 2017-2018 Huawei Technologies Co., Ltd.
+.. Copyright 2020 Nokia Solutions & Networks
 
 .. _ves_event_listener_7_1:
 
@@ -616,7 +617,7 @@ The resource structure is provided below::
 
 **Figure 1**: REST Resource Structure
 
-The {Port} above is typically 8443.
+The {Port} above (as seen from the network function perspective) is typically 30417, in environments, where local VES collector port 8443 is mapped to a Kubernetes NodePort, which is a standard configuration in ONAP OOM Helm charts.
 
 Common Event Format
 ^^^^^^^^^^^^^^^^^^^^
