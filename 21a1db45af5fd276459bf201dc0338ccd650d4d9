@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fcf8e49e_0f0c2efb",
+        "filename": "docs/Chapter8/ves_7_2/CommonEventFormat_30.1.1_ONAP.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-05-29T16:56:44Z",
+      "side": 1,
+      "message": "Having same json schema filename (CommonEventFormat_30.1.1_ONAP.json) will be confusing, version should updated to reflect specific to 7.2",
+      "revId": "21a1db45af5fd276459bf201dc0338ccd650d4d9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
