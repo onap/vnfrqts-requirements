@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f7f61aca_ffa98d15",
+        "filename": "docs/Chapter8/ves7_1spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 620,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-05-29T14:46:16Z",
+      "side": 1,
+      "message": "I take your point about 8443 being incorrect in some cases, but I question if we need to even say anything at all about the typical port.  The requirement is for the VES endpoint to be configured by the Service Provider. I don\u0027t see how knowing the port, but not the FQDN of the listener is additive to this spec.  Rather than introduce details that may change in a future ONAP release, could we just remove the sentence entirely?",
+      "revId": "02017742c75dd2dd981bafe177e495ea12fd7978",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
