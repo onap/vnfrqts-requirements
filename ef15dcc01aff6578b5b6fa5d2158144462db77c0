@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6957afb4_7d90043e",
+        "filename": "docs/Chapter7/Monitoring-And-Management.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-06-01T14:53:05Z",
+      "side": 1,
+      "message": "collecting, receiving, and analyzing.",
+      "range": {
+        "startLine": 18,
+        "startChar": 48,
+        "endLine": 18,
+        "endChar": 71
+      },
+      "revId": "ef15dcc01aff6578b5b6fa5d2158144462db77c0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e4d3719_8ad81e53",
+        "filename": "docs/Chapter7/Monitoring-And-Management.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-06-01T14:53:05Z",
+      "side": 1,
+      "message": "DCAE is not really an application.\nDCAE seems to be a platform, which provides a framework for running different applications, like Collectors, Analytics, Mappers and others.",
+      "range": {
+        "startLine": 18,
+        "startChar": 13,
+        "endLine": 18,
+        "endChar": 29
+      },
+      "revId": "ef15dcc01aff6578b5b6fa5d2158144462db77c0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0d54427_1ee454a0",
+        "filename": "docs/Chapter7/Monitoring-And-Management.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-06-01T14:53:05Z",
+      "side": 1,
+      "message": "...platform...",
+      "range": {
+        "startLine": 20,
+        "startChar": 57,
+        "endLine": 20,
+        "endChar": 69
+      },
+      "revId": "ef15dcc01aff6578b5b6fa5d2158144462db77c0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5866606_134766c5",
+        "filename": "docs/Chapter7/Monitoring-And-Management.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-06-01T14:53:05Z",
+      "side": 1,
+      "message": "I thing, we have an SNMP trap collector, not really a full SNMP collector.\nIt would be worth to check.",
+      "range": {
+        "startLine": 23,
+        "startChar": 58,
+        "endLine": 23,
+        "endChar": 62
+      },
+      "revId": "ef15dcc01aff6578b5b6fa5d2158144462db77c0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c0ce3b9f_aec1e68e",
+        "filename": "docs/Chapter8/ves_7_2/ves_event_listener_7_2.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 3299,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-06-01T14:53:05Z",
+      "side": 1,
+      "message": "7.2?",
+      "range": {
+        "startLine": 3299,
+        "startChar": 44,
+        "endLine": 3299,
+        "endChar": 49
+      },
+      "revId": "ef15dcc01aff6578b5b6fa5d2158144462db77c0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7d78640_ffed758f",
+        "filename": "docs/Chapter8/ves_7_2/ves_event_listener_7_2.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 3328,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-06-01T14:53:05Z",
+      "side": 1,
+      "message": "This probably needs a change to 7.2.0:\nX-MinorVersion: 2\nX-PatchVersion: 0\nX-LatestVersion: 7.2",
+      "range": {
+        "startLine": 3326,
+        "startChar": 0,
+        "endLine": 3328,
+        "endChar": 24
+      },
+      "revId": "ef15dcc01aff6578b5b6fa5d2158144462db77c0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af789df8_c5cb9a28",
+        "filename": "docs/Chapter8/ves_7_2/ves_event_listener_7_2.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 3361,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-06-01T14:53:05Z",
+      "side": 1,
+      "message": "Remove this part, as agreed in another review around this default port topic.",
+      "range": {
+        "startLine": 3361,
+        "startChar": 0,
+        "endLine": 3361,
+        "endChar": 34
+      },
+      "revId": "ef15dcc01aff6578b5b6fa5d2158144462db77c0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
