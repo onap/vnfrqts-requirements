@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "41eaccf5_8e311efb",
+        "filename": "docs/Chapter7/Monitoring-And-Management.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 5279
+      },
+      "writtenOn": "2020-06-03T23:06:27Z",
+      "side": 1,
+      "message": "This requirement needs to be updated to describe also file-based option for periodic reporting of performance measurements. See R-908291 as well as section \u0027Bulk Performance Measurement\u0027.",
+      "revId": "aa8388d930e0f025a32a2f36cf3291e28a42d31e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "340c8637_600c2fdd",
+        "filename": "docs/Chapter7/Monitoring-And-Management.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 5279
+      },
+      "writtenOn": "2020-06-03T23:06:27Z",
+      "side": 1,
+      "message": "Duplicate of R-935717 above",
+      "revId": "aa8388d930e0f025a32a2f36cf3291e28a42d31e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55e0d181_b1729ec2",
+        "filename": "docs/Chapter7/Monitoring-And-Management.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 5279
+      },
+      "writtenOn": "2020-06-03T23:06:27Z",
+      "side": 1,
+      "message": "updated: Guilin",
+      "revId": "aa8388d930e0f025a32a2f36cf3291e28a42d31e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35b1c501_78fb76b8",
+        "filename": "docs/Chapter7/Monitoring-And-Management.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 5279
+      },
+      "writtenOn": "2020-06-03T23:06:27Z",
+      "side": 1,
+      "message": "The YAML file is provided by VNF or PNF provider. Could use similar wording as for SNMP above:\nIf the VNF or PNF is using VES, then the VNF or PNF Provider **MUST** provide...",
+      "revId": "aa8388d930e0f025a32a2f36cf3291e28a42d31e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "301c9f4c_c8b709b6",
+        "filename": "docs/Chapter7/Monitoring-And-Management.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 5279
+      },
+      "writtenOn": "2020-06-03T23:06:27Z",
+      "side": 1,
+      "message": "remove \u0027events that\u0027 after **MUST**",
+      "revId": "aa8388d930e0f025a32a2f36cf3291e28a42d31e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce913b64_34a77878",
+        "filename": "docs/Chapter7/Monitoring-And-Management.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 5279
+      },
+      "writtenOn": "2020-06-03T23:06:27Z",
+      "side": 1,
+      "message": "MUST -\u003e SHOULD, see requirement text",
+      "revId": "aa8388d930e0f025a32a2f36cf3291e28a42d31e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9096192e_98bb7309",
+        "filename": "docs/Chapter7/Monitoring-And-Management.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 490,
+      "author": {
+        "id": 5279
+      },
+      "writtenOn": "2020-06-03T23:06:27Z",
+      "side": 1,
+      "message": "The VNF or PNF may have a time limit for how long events are buffered. In fact VES 7.1.1 stated that events should be buffered for maximum of 1h, although this is changed to at least 1h in R-658596 above. I think this requirement should be reworded to describe that if buffer becomes full before time limit is reached, FIFO approach shall be used to make room for new events.",
+      "revId": "aa8388d930e0f025a32a2f36cf3291e28a42d31e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
