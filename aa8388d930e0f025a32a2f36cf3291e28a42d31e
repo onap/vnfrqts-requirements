@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "933287c9_e6706049",
+        "filename": "docs/Chapter7/Monitoring-And-Management.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-06-09T17:02:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "41eaccf5_8e311efb",
+      "revId": "aa8388d930e0f025a32a2f36cf3291e28a42d31e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "340c8637_600c2fdd",
         "filename": "docs/Chapter7/Monitoring-And-Management.rst",
         "patchSetId": 4
@@ -33,6 +51,24 @@
       "revId": "aa8388d930e0f025a32a2f36cf3291e28a42d31e",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f78ab81_abb62b4e",
+        "filename": "docs/Chapter7/Monitoring-And-Management.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-06-09T17:02:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "340c8637_600c2fdd",
+      "revId": "aa8388d930e0f025a32a2f36cf3291e28a42d31e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "f79aa3a6_4008d898",
+        "filename": "docs/Chapter7/Monitoring-And-Management.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-06-09T17:02:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "55e0d181_b1729ec2",
+      "revId": "aa8388d930e0f025a32a2f36cf3291e28a42d31e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "35b1c501_78fb76b8",
         "filename": "docs/Chapter7/Monitoring-And-Management.rst",
         "patchSetId": 4
@@ -67,6 +121,24 @@
       "revId": "aa8388d930e0f025a32a2f36cf3291e28a42d31e",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa5a3851_f8630070",
+        "filename": "docs/Chapter7/Monitoring-And-Management.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-06-09T17:02:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35b1c501_78fb76b8",
+      "revId": "aa8388d930e0f025a32a2f36cf3291e28a42d31e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "95327327_12c89cee",
+        "filename": "docs/Chapter7/Monitoring-And-Management.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-06-09T17:02:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "301c9f4c_c8b709b6",
+      "revId": "aa8388d930e0f025a32a2f36cf3291e28a42d31e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ce913b64_34a77878",
         "filename": "docs/Chapter7/Monitoring-And-Management.rst",
         "patchSetId": 4
@@ -104,6 +194,24 @@
     },
     {
       "key": {
+        "uuid": "f12c5e25_6819d85e",
+        "filename": "docs/Chapter7/Monitoring-And-Management.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-06-09T17:02:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce913b64_34a77878",
+      "revId": "aa8388d930e0f025a32a2f36cf3291e28a42d31e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9096192e_98bb7309",
         "filename": "docs/Chapter7/Monitoring-And-Management.rst",
         "patchSetId": 4
@@ -118,6 +226,24 @@
       "revId": "aa8388d930e0f025a32a2f36cf3291e28a42d31e",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51f5cd66_d999235c",
+        "filename": "docs/Chapter7/Monitoring-And-Management.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 490,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-06-09T17:02:23Z",
+      "side": 1,
+      "message": "I\u0027ve made some changes here, but I don\u0027t know if I fully addressed the comment.  I split out the sizing of the buffer to a new requirement (i.e. the buffer size must be enough to store at least an hour).  I tweaked the wording here, but I don\u0027t know if it\u0027s what you\u0027re looking for. I think regardless of whether the buffer fills up before or after the minimum time limit, the logic is is the same (FIFO).  If the revised wording does not address your concerns, then please feel free to propose alternate language.",
+      "parentUuid": "9096192e_98bb7309",
+      "revId": "aa8388d930e0f025a32a2f36cf3291e28a42d31e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }

@@ -16,6 +16,24 @@
       "revId": "21a1db45af5fd276459bf201dc0338ccd650d4d9",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "192ea27a_b78d169a",
+        "filename": "docs/Chapter8/ves_7_2/ves_event_listener_7_2.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 3668,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-06-09T17:02:23Z",
+      "side": 0,
+      "message": "agreed.  I added this to the body fields section",
+      "parentUuid": "65c4945a_955a438c",
+      "revId": "21a1db45af5fd276459bf201dc0338ccd650d4d9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
     }
   ]
 }
