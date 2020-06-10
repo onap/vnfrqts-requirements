@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffeb9bfc_41696443",
+        "filename": "docs/Chapter7/Monitoring-And-Management.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1303
+      },
+      "writtenOn": "2020-06-10T18:47:08Z",
+      "side": 1,
+      "message": "remove extra \"should\"",
+      "range": {
+        "startLine": 81,
+        "startChar": 48,
+        "endLine": 81,
+        "endChar": 54
+      },
+      "revId": "0b828897c07bb588f174393624119424fe906493",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "082cc36c_96fbb2de",
+        "filename": "docs/Chapter7/Monitoring-And-Management.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1303
+      },
+      "writtenOn": "2020-06-10T18:47:08Z",
+      "side": 1,
+      "message": "MUST shall be MAY to align with above keyword",
+      "revId": "0b828897c07bb588f174393624119424fe906493",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
