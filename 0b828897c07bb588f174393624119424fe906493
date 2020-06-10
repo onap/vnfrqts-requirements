@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "60672f61_c1ee7bc3",
+        "filename": "docs/Chapter7/Monitoring-And-Management.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-06-10T20:31:48Z",
+      "side": 1,
+      "message": "would suggest removing this as we dont have SNMPPolling collectors. \nDataFileCollector is only pull based collector currently.",
+      "range": {
+        "startLine": 23,
+        "startChar": 25,
+        "endLine": 23,
+        "endChar": 63
+      },
+      "revId": "0b828897c07bb588f174393624119424fe906493",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ffeb9bfc_41696443",
         "filename": "docs/Chapter7/Monitoring-And-Management.rst",
         "patchSetId": 5
