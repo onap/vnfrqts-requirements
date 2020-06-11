@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8b7235a6_8606bf0a",
+        "filename": "docs/Chapter7/Monitoring-And-Management.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-06-11T15:40:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60672f61_c1ee7bc3",
+      "range": {
+        "startLine": 23,
+        "startChar": 25,
+        "endLine": 23,
+        "endChar": 63
+      },
+      "revId": "0b828897c07bb588f174393624119424fe906493",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ffeb9bfc_41696443",
         "filename": "docs/Chapter7/Monitoring-And-Management.rst",
         "patchSetId": 5
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "2861751d_78f8e55b",
+        "filename": "docs/Chapter7/Monitoring-And-Management.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-06-11T15:40:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ffeb9bfc_41696443",
+      "range": {
+        "startLine": 81,
+        "startChar": 48,
+        "endLine": 81,
+        "endChar": 54
+      },
+      "revId": "0b828897c07bb588f174393624119424fe906493",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "082cc36c_96fbb2de",
         "filename": "docs/Chapter7/Monitoring-And-Management.rst",
         "patchSetId": 5
@@ -62,6 +110,24 @@
       "revId": "0b828897c07bb588f174393624119424fe906493",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99087957_fe6e4453",
+        "filename": "docs/Chapter7/Monitoring-And-Management.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-06-11T15:40:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "082cc36c_96fbb2de",
+      "revId": "0b828897c07bb588f174393624119424fe906493",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
@@ -82,6 +148,24 @@
     },
     {
       "key": {
+        "uuid": "812addbb_db99b155",
+        "filename": "docs/Chapter7/Monitoring-And-Management.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-06-11T15:40:14Z",
+      "side": 1,
+      "message": "I fixed the extraneous should.\n\nI\u0027ve added something like what you\u0027ve proposed.  I\u0027ve added some recommendations though.  I\u0027m ok adding this for backwards compatibility, but I think the best practice would be to retain until the buffer is full.  This would seem to open up the possibility of discarding events based on time limit even if the buffer is not full.  I\u0027ve updated the language to allow that, but added language to recommend the behavior in R-346137",
+      "parentUuid": "4b1a95bc_327c543d",
+      "revId": "0b828897c07bb588f174393624119424fe906493",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b6feffbb_8da801ce",
         "filename": "docs/Chapter7/Monitoring-And-Management.rst",
         "patchSetId": 5
@@ -96,6 +180,24 @@
       "revId": "0b828897c07bb588f174393624119424fe906493",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8670fc4f_ad451fc9",
+        "filename": "docs/Chapter7/Monitoring-And-Management.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 493,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-06-11T15:40:14Z",
+      "side": 1,
+      "message": "I\u0027m not sure I understand the semantic difference between what you are proposing and what is written, but I adopted the language you proposed.",
+      "parentUuid": "b6feffbb_8da801ce",
+      "revId": "0b828897c07bb588f174393624119424fe906493",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
