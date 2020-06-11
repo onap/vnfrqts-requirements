@@ -62,6 +62,40 @@
       "revId": "0b828897c07bb588f174393624119424fe906493",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b1a95bc_327c543d",
+        "filename": "docs/Chapter7/Monitoring-And-Management.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 5279
+      },
+      "writtenOn": "2020-06-11T09:21:56Z",
+      "side": 1,
+      "message": "Both MUST and should in text.\n\nTo be backwards compatible with VES 7.1.1, should add the following:\n\nThe VNF or PNF MAY discard buffered events older than a certain time limit even if the event was never successfully delivered to the event listener. This limit should not be less than 1 hour.",
+      "revId": "0b828897c07bb588f174393624119424fe906493",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b6feffbb_8da801ce",
+        "filename": "docs/Chapter7/Monitoring-And-Management.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 493,
+      "author": {
+        "id": 5279
+      },
+      "writtenOn": "2020-06-11T09:21:56Z",
+      "side": 1,
+      "message": "This requirement is not backwards compatible with VES 7.1.1. See also comment above. Suggested change:\n\nA VNF or PNF producing VES events that is buffering events per R-658596 MUST store new in-scope events even when the maximum capacity of the buffer has been reached. To make room for new events in this situation, the oldest events in the buffer shall be removed as necessary (i.e. First In First Out).",
+      "revId": "0b828897c07bb588f174393624119424fe906493",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
     }
   ]
 }
