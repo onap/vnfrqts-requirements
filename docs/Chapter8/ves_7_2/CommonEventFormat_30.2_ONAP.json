@@ -104,6 +104,7 @@
             "pnfRegistration",
             "sipSignaling",
             "stateChange",
+            "stndDefined",
             "syslog",
             "thresholdCrossingAlert",
             "voiceQuality"
@@ -174,6 +175,10 @@
           "description": "the earliest unix time aka epoch time associated with the event from any component--as microseconds elapsed since 1 Jan 1970 not including leap seconds",
           "type": "number"
         },
+        "stndDefinedNamespace": {
+          "description": "Standards organization defined event namespace; expected usage includes event routing by the event listener",
+          "type": "string"
+        },
         "timeZoneOffset": {
           "description": "UTC offset for the local time zone of the device as UTC+/-hh.mm",
           "type": "string"
@@ -195,7 +200,7 @@
             "7.0.1",
             "7.1",
             "7.1.1",
-            "7.2",
+            "7.2"
           ]
         }
       },
@@ -715,6 +720,9 @@
         },
         "stateChangeFields": {
           "$ref": "#/definitions/stateChangeFields"
+        },
+        "stndDefinedFields": {
+          "$ref": "#/definitions/stndDefinedFields"
         },
         "syslogFields": {
           "$ref": "#/definitions/syslogFields"
@@ -2778,6 +2786,33 @@
         "stateChangeFieldsVersion",
         "stateInterface"
       ]
+    },
+    "stndDefinedFields": {
+      "description": "stndDefined fields",
+      "type": "object",
+      "properties": {
+        "schemaReference": {
+          "description": "a uri of a standards-defined JSON object schema; used to valide the stndDefinedFields.data property contents",
+          "type": "string",
+          "format": "uri"
+        },
+        "data": {
+          "description": "a native standards-defined JSON notification",
+          "type": "object"
+        },
+        "stndDefinedFieldsVersion": {
+          "description": "version of stndDefinedFields block",
+          "type": "string",
+          "enum": [
+            "1.0"
+          ]
+        }
+      },
+      "additionalProperties": false,
+        "required": [
+          "data",
+          "stndDefinedFieldsVersion"
+        ]
     },
     "syslogFields": {
       "description": "sysLog fields",
