@@ -104,6 +104,7 @@
             "pnfRegistration",
             "sipSignaling",
             "stateChange",
+			"stndDefined",
             "syslog",
             "thresholdCrossingAlert",
             "voiceQuality"
@@ -174,6 +175,10 @@
           "description": "the earliest unix time aka epoch time associated with the event from any component--as microseconds elapsed since 1 Jan 1970 not including leap seconds",
           "type": "number"
         },
+		"stndDefinedNamespace": {
+		  "description": "Standards organization defined event namespace; will be used for event routing to respective DMaaP topic",
+		  "type": "string"
+		},
         "timeZoneOffset": {
           "description": "UTC offset for the local time zone of the device as UTC+/-hh.mm",
           "type": "string"
@@ -716,6 +721,9 @@
         "stateChangeFields": {
           "$ref": "#/definitions/stateChangeFields"
         },
+		"stndDefinedFields": {
+		  "$ref": "#/definitions/stndDefinedFields"
+		},
         "syslogFields": {
           "$ref": "#/definitions/syslogFields"
         },
@@ -2779,6 +2787,33 @@
         "stateInterface"
       ]
     },
+	"stndDefinedFields": {
+	  "description": "stndDefined fields",
+	  "type": "object",
+	  "properties": {
+	    "schemaReference": {
+		  "description": "a uri of a standards-defined JSON object schema; used to valide the stndDefinedFields.data property contents",
+		  "type": "string",
+		  "format": "uri"
+		},
+		"data": {
+          "description": "a native standards-defined JSON notification",
+          "type": "object"
+        },
+		"stndDefinedFieldsVersion": {
+		  "description": "version of stndDefinedFields block",
+		  "type": "string",
+		  "enum": [
+		    "1.0"
+		  ]
+		}
+	  },
+	  "additionalProperties": false,
+	  "required": [
+	    "data",
+		"stndDefinedFieldsVersion"
+	  ]
+	},
     "syslogFields": {
       "description": "sysLog fields",
       "type": "object",
