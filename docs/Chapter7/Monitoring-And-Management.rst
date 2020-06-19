@@ -596,9 +596,9 @@ Bulk Performance Measurement
     :keyword: SHOULD
     :introduced: casablanca
     :impacts: dcae, dmaap
-    :updated: dublin
+    :updated: guilin 
 
-    The VNF or PNF **SHOULD** support the data schema defined in 3GPP TS 32.435, when
+    The VNF or PNF **SHOULD** support the data schema defined in 3GPP TS 32.435 or 3GPP TS 28.532, when
     supporting the event-driven bulk transfer of monitoring data.
 
 .. req::
