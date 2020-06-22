@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d4b6850f_b3876ff4",
+        "filename": "docs/Chapter8/ves_7_2/CommonEventFormat_30.2_ONAP.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 5279
+      },
+      "writtenOn": "2020-06-22T11:16:27Z",
+      "side": 1,
+      "message": "Since this is the protocol definition, I think DMaaP should not be mentioned. Second part could be changed to:\n\u0027expected usage includes event routing by the event listener\u0027",
+      "revId": "37634c8babda4f28ad5c45914c10b0657a2ac183",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
