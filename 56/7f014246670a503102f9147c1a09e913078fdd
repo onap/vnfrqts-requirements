@@ -1,0 +1,14 @@
+Verified+1: ONAP Jobbuilder <onap-jobbuilder@jenkins.onap.org>
+Code-Review+1: Marek Kukulski <marek.kukulski@nokia.com>
+Code-Review+1: Paweł Baniewski <pawel.baniewski@nokia.com>
+Code-Review+1: Gerard Hynes <gerard.hynes@att.com>
+Code-Review+1: Junfeng Wang  <junfeng.a.wang@ericsson.com>
+Code-Review+1: Benjamin Cheung <ben.cheung@nokia.com>
+Code-Review+1: Linda Horn <Linda.Horn@nokia.com>
+Code-Review+1: Oskar Malm <oskar.malm@ericsson.com>
+Code-Review+2: Trevor Lovett <trevor.lovett@att.com>
+Submitted-by: Trevor Lovett <trevor.lovett@att.com>
+Submitted-at: Tue, 23 Jun 2020 15:18:55 +0000
+Reviewed-on: https://gerrit.onap.org/r/c/vnfrqts/requirements/+/109343
+Project: vnfrqts/requirements
+Branch: refs/heads/master
