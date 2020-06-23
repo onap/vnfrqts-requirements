@@ -1,0 +1,10 @@
+Code-Review+1: Damian Nowak <damian.nowak@nokia.com>
+Code-Review+1: Oskar Malm <oskar.malm@ericsson.com>
+Code-Review+1: Junfeng Wang  <junfeng.a.wang@ericsson.com>
+Code-Review+2: Trevor Lovett <trevor.lovett@att.com>
+Verified+1: ONAP Jobbuilder <onap-jobbuilder@jenkins.onap.org>
+Submitted-by: Trevor Lovett <trevor.lovett@att.com>
+Submitted-at: Tue, 23 Jun 2020 15:18:26 +0000
+Reviewed-on: https://gerrit.onap.org/r/c/vnfrqts/requirements/+/109199
+Project: vnfrqts/requirements
+Branch: refs/heads/master
