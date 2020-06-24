@@ -2,6 +2,7 @@
 .. http://creativecommons.org/licenses/by/4.0
 .. Copyright 2017 AT&T Intellectual Property, All rights reserved
 .. Copyright 2017-2018 Huawei Technologies Co., Ltd.
+.. Copyright 2020 Nokia Solutions and Networks
 
 .. _ves_event_listener_7_2:
 
@@ -44,6 +45,8 @@ Service: VES Event Listener 7.2
 |                 | **Gerard Hynes – AT&T**     |
 |                 |                             |
 |                 | **Ken Kelly – AT&T**        |
+|                 |                             |
+|                 | **Damian Nowak - Nokia**    |
 |                 |                             |
 |                 | **Mark Scott – Ericsson**   |
 |                 |                             |
@@ -138,7 +141,7 @@ Compatibility with ONAP
 
 Unless otherwise stated, this version of the Event Listener specification is
 compatible with the release of ONAP the specification is released under.  In
-other words, if the specification is released under the Frankfurt ONAP release,
+other words, if the specification is released under the Guilin ONAP release,
 then the VES Event Listeners provided by DCAE will also be compatible with
 this specification.
 
@@ -161,8 +164,8 @@ the API spec is provided below:
   4.0.1, 4.1 to avoid breaking clients of earlier versions of major
   version 4)
 
-- commonEventHeader vesEventListenerVersion enum: 7.1 (note: the enum
-  will support 7.0, 7.0.1, 7.1 to avoid breaking clients of earlier
+- commonEventHeader vesEventListenerVersion enum: 7.2 (note: the enum
+  will support 7.0, 7.0.1, 7.1, 7.2 to avoid breaking clients of earlier
   versions of major version 7)
 
 - faultFieldsVersion:4.0
@@ -184,6 +187,8 @@ the API spec is provided below:
 - sigSignalingFieldsVersion: 3.0
 
 - stateChangeFieldsVersion: 4.0
+
+- stndDefinedFieldsVersion: 1.0 
 
 - syslogFieldsVersion: 4.0
 
@@ -295,6 +300,9 @@ The event datatype consists of the following fields which constitute the
 +--------------+--------------+-----------+-----------------------------------+
 | stateChange\ | stateChange\ | No        | Fields specific to state change   |
 | Fields       | Fields       |           | events                            |
++--------------+--------------+-----------+-----------------------------------+
+| stndDefined\ | stndDefined\ | No        | Fields specific to standards      |
+| Fields       | Fields       |           | defined events                    |
 +--------------+--------------+-----------+-----------------------------------+
 | syslogFields | syslogFields | No        | Fields specific to syslog events  |
 +--------------+--------------+-----------+-----------------------------------+
@@ -604,6 +612,10 @@ to all events:
 |           |          |           | collector will replace it with Collector|
 |           |          |           | time stamp (when the event is received) |
 +-----------+----------+-----------+-----------------------------------------+
+| stnd\     | string   | No        | Standards-organization defined event    |
+| Defined\  |          |           | namespace; expected usage includes event|
+| Namespace |          |           | routing by the event listener           |
++-----------+----------+-----------+-----------------------------------------+
 | timeZone\ | string   | No        | Offset to GMT to indicate local time    |
 | Offset    |          |           | zone for device formatted as            |
 |           |          |           | ‘UTC+/-hh:mm’; see                      |
@@ -673,6 +685,8 @@ commonEventHeader, as specified below:
 -  ‘SipSignaling’ for the sipSignaling domain
 
 -  ‘StateChange’ for the stateChange domain
+
+-  ‘StndDefined’ for the stndDefined domain
 
 -  ‘Syslog’ for the syslog domain
 
@@ -2208,15 +2222,15 @@ fields:
 | IdList         | [ ]     |          | distinguished name ids per 3GPP TS    |
 |                |         |          | 32.300                                |
 +----------------+---------+----------+---------------------------------------+
-| measured\      | string  | Yes      | Distinguished name per 3GPP TS 28.550 |
+| measured\      | string  | Yes      | Distinguished name per 3GPP TS 28.532 |
 | EntityDn       |         |          |                                       |
 +----------------+---------+----------+---------------------------------------+
 | measuredEntity\| string  | No       | Software version for the NF providing |
 | SoftwareVersion|         |          | the PM data as specified in 3GPP TS   |
-|                |         |          | 28.550                                |
+|                |         |          | 28.532                                |
 +----------------+---------+----------+---------------------------------------+
 | measuredEntity\| string  | No       | User Definable name for the measured  |
-| UserName       |         |          | object per 3GPP TS 28.550             |
+| UserName       |         |          | object per 3GPP TS 28.532             |
 +----------------+---------+----------+---------------------------------------+
 
 Datatype: measInfo
@@ -2363,7 +2377,7 @@ the following fields:
 | measObj\| hashMap                          | No       | Additional key-value|
 | AddlFlds|                                  |          | pairs if needed     |
 +---------+----------------------------------+----------+---------------------+
-| measObj\|measDataCollection                | Yes      | Monitored object    |
+| measObj\| measDataCollection               | Yes      | Monitored object    |
 | InstId  |                                  |          | local distinguished |
 |         |                                  |          | name per 3GPP TS    |
 |         |                                  |          | 32.300 and 3GPP TS  |
@@ -2486,6 +2500,48 @@ The stateChangeFields datatype consists of the following fields:
 | state\       | string | Yes      | Card or port name of the entity that     |
 | Interface    |        |          | changed state                            |
 +--------------+--------+----------+------------------------------------------+
+
+‘StndDefined’ Domain Datatypes
+++++++++++++++++++++++++++++++++
+
+Datatype: stndDefinedFields
+*****************************
+
+The stndDefinedFields datatype consists of the following fields:
+
++--------------+--------+----------+------------------------------------------+
+| Field        | Type   | Required?| Description                              |
++==============+========+==========+==========================================+
+| data         | object | Yes      | Expected to contain a notification       |
+|              |        |          | contents defined by relevant standards   |
+|              |        |          | group/body. Must be a JSON.              |  
++--------------+--------+----------+------------------------------------------+
+| schema\      | string | No       | A reference to standards defined schema, |
+| Reference    |        |          | against which the contents of data       |
+|              |        |          | property will be validated               |
++--------------+--------+----------+------------------------------------------+
+| stndDefined\ | string | Yes      | Version of the stndDefinedFields block as|
+| FieldsVersion|        |          | "#.#" where # is a digit; see section 1  |
+|              |        |          | for the correct digits to use.           |
++--------------+--------+----------+------------------------------------------+
+
+Additional rules, when using stndDefined domain
+************************************************
+
+Following rules shall be followed, when using a StndDefined domain:
+
+If the VNF or PNF is using VES StndDefined domain, then the VNF or PNF MUST 
+fill the VES.commonEventHeader.stndDefinedNamespace with a value defined by 
+relevant standards organization.
+
+If the VNF or PNF is using VES StndDefined domain, then the VNF or PNF MAY 
+fill the VES.stndDefinedFields.schemaReference property with a URI 
+corresponding to the specific JSON schema object, against which validation 
+of VES.stndDefinedFields.data will be executed.
+
+If the VNF or PNF is using VES StndDefined domain and eventBatch is sent, 
+then each and every event within eventBatch needs to have exactly 
+the same VES.commonEventHeader.stndDefinedNamespace set.
 
 ‘Syslog’ Domain Datatypes
 ++++++++++++++++++++++++++
@@ -3442,6 +3498,25 @@ Listener API are defined below.
 |          |              |                       |                |          |
 |          |              |  Error code is %2.    | %2: error code |          |
 +----------+--------------+-----------------------+----------------+----------+
+| SVC2004  | Invalid input| Invalid input value   | %1: attribute  | 400      |
+|          | value        | for %1 %2: %3         |                |          |
+|          |              |                       | %2: event.com\ |          |
+|          |              |                       | monEventHeader\|          |
+|          |              |                       | .stndDefined\  |          |
+|          |              |                       | Namespace      |          |
+|          |              |                       |                |          |
+|          |              |                       | %3: Unable to  |          |
+|          |              |                       | route event    |          |
+|          |              |                       |                |          |
++----------+--------------+-----------------------+----------------+----------+
+| SVC2006  | Mandatory    | Mandatory input %1 %2 | %1: attribute  | 400      |
+|          | input missing| is missing from       |                |          |
+|          |              | request               | %2: event.com\ |          |
+|          |              |                       | monEventHeader\|          |
+|          |              |                       | .stndDefined\  |          |
+|          |              |                       | Namespace      |          |
++----------+--------------+-----------------------+----------------+----------+
+
 
 Table - Service Exceptions
 
@@ -3688,8 +3763,10 @@ HTTP Status Codes
 |     |              | . The response body may include a further exception    |
 |     |              | code and text. HTTP 400 errors may be mapped to SVC0001|
 |     |              | (general service error), SVC0002 (bad parameter),      |
-|     |              | SVC2000 (general service error with details) or PO9003 |
-|     |              | (message content size exceeds the allowable limit).    |
+|     |              | SVC2004 (Invalid input value), SVC2006 (Mandatory input|
+|     |              | is missing from request), SVC2000 (general service     |
+|     |              | error with details) or PO9003 (message content size    |
+|     |              | exceeds the allowable limit).                          |
 +-----+--------------+--------------------------------------------------------+
 | 401 | Unauthorized | Authentication failed or was not provided. HTTP 401    |
 |     |              | errors may be mapped to POL0001 (general policy error) |
@@ -3782,8 +3859,8 @@ Sample Policy Exception
     content-type: application/json
     content-length: 12345
     Date: Thu, 04 Jun 2009 02:51:59 GMT
-    X-MinorVersion: 1
-    X-PatchVersion: 1
+    X-MinorVersion: 2
+    X-PatchVersion: 0 
     X-LatestVersion: 7.2
 
     {
@@ -3805,8 +3882,8 @@ Sample Service Exception
     content-type: application/json
     content-length: 12345
     Date: Thu, 04 Jun 2009 02:51:59 GMT
-    X-MinorVersion: 1
-    X-PatchVersion: 1
+    X-MinorVersion: 2
+    X-PatchVersion: 0
     X-LatestVersion: 7.2
 
     {
@@ -6077,7 +6154,11 @@ Contents.
 | 5/27/2020 | v7.2    | -  Re-organized sections to flow more logically       |
 |           |         | -  Moved NF requirements to VNF Requirements          |
 |           |         | -  Changed DCAE Collector to VES Event Listener       |
+|           |         | -  Added StndDefined domain datatypes                 |
+|           |         | -  Added eventCommonHeader field stndDefinedNamespace |
+|           |         | -  Updated SVC exceptions with SVC2004 and SVC2006    |
+|           |         | -  Updated links to OMA                               |
 +-----------+---------+-------------------------------------------------------+
 
 .. _time_zone_abbreviations: https://en.wikipedia.org/wiki/List_of_time_zone_abbreviations
-.. _Common_definitions: http://technical.openmobilealliance.org/Technical/release_program/docs/REST_NetAPI_Common/V1_0-20120417-C/OMA-TS-REST_NetAPI_Common-V1_0-20120417-C.pdf
+.. _Common_definitions: https://www.openmobilealliance.org/release/REST_NetAPI_Common/V1_0-20180116-A/OMA-TS-REST_NetAPI_Common-V1_0-20180116-A.pdf
