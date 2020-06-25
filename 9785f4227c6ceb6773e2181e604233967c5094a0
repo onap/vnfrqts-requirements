@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e1f9084a_0b566344",
+        "filename": "docs/Chapter8/ves_7_2/ves_event_listener_7_2.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-06-25T13:32:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e9f678eb_7b650d36",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 1
+      },
+      "revId": "9785f4227c6ceb6773e2181e604233967c5094a0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "80ec8b4c_22c52c6d",
         "filename": "docs/Chapter8/ves_7_2/ves_event_listener_7_2.rst",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "028676a3_460ce695",
+        "filename": "docs/Chapter8/ves_7_2/ves_event_listener_7_2.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 689,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-06-25T13:32:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80ec8b4c_22c52c6d",
+      "range": {
+        "startLine": 689,
+        "startChar": 4,
+        "endLine": 689,
+        "endChar": 15
+      },
+      "revId": "9785f4227c6ceb6773e2181e604233967c5094a0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "110821c6_0f4e7630",
         "filename": "docs/Chapter8/ves_7_2/ves_event_listener_7_2.rst",
         "patchSetId": 1
@@ -68,6 +116,30 @@
       "revId": "9785f4227c6ceb6773e2181e604233967c5094a0",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5071a0b_3148d243",
+        "filename": "docs/Chapter8/ves_7_2/ves_event_listener_7_2.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 2531,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-06-25T13:32:27Z",
+      "side": 1,
+      "message": "I went thru the paragraphs/chapters, which I changed in the spec. \nI think, I updated the relevant parts with capitalized name (unless I am writing about stuff like JSON property names). If You catch a place where I missed it, shout!",
+      "parentUuid": "110821c6_0f4e7630",
+      "range": {
+        "startLine": 2531,
+        "startChar": 0,
+        "endLine": 2531,
+        "endChar": 1
+      },
+      "revId": "9785f4227c6ceb6773e2181e604233967c5094a0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
