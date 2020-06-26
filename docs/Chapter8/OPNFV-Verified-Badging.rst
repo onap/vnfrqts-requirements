@@ -124,7 +124,7 @@ Clone the VNFSDK repo.
 
 .. code-block:: bash
 
-    git clone --branch elalto https://git.onap.org/vnfsdk/refrepo
+    git clone --depth 1 --branch elalto https://git.onap.org/vnfsdk/refrepo
 
 Install the VTP by using script
 ``refrepo/vnfmarket-be/deployment/install/vtp_install.sh``
