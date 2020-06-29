@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "116556cc_073beae6",
+        "filename": "docs/Chapter8/ves_7_2/ves_event_listener_7_2.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 5279
+      },
+      "writtenOn": "2020-06-29T11:10:49Z",
+      "side": 1,
+      "message": "7.1.1 is missing here",
+      "revId": "547b7440d2893bb3a09631edc71a06b088f3a052",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3be22fe1_d0d932ca",
+        "filename": "docs/Chapter8/ves_7_2/ves_event_listener_7_2.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 5279
+      },
+      "writtenOn": "2020-06-29T11:10:49Z",
+      "side": 1,
+      "message": "extra space at end of line",
+      "revId": "547b7440d2893bb3a09631edc71a06b088f3a052",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d41e37cf_6045a2f8",
+        "filename": "docs/Chapter8/ves_7_2/ves_event_listener_7_2.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 2516,
+      "author": {
+        "id": 5279
+      },
+      "writtenOn": "2020-06-29T11:10:49Z",
+      "side": 1,
+      "message": "remove \u0027contents\u0027?",
+      "revId": "547b7440d2893bb3a09631edc71a06b088f3a052",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16bb55d4_81b611bc",
+        "filename": "docs/Chapter8/ves_7_2/ves_event_listener_7_2.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 2517,
+      "author": {
+        "id": 5279
+      },
+      "writtenOn": "2020-06-29T11:10:49Z",
+      "side": 1,
+      "message": "Must be a JSON object?\nAlso several extra space at end of line in this new section.",
+      "revId": "547b7440d2893bb3a09631edc71a06b088f3a052",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ea8ce3f_fe20316f",
+        "filename": "docs/Chapter8/ves_7_2/ves_event_listener_7_2.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 2531,
+      "author": {
+        "id": 5279
+      },
+      "writtenOn": "2020-06-29T11:10:49Z",
+      "side": 1,
+      "message": "when using the StndDefined domain",
+      "revId": "547b7440d2893bb3a09631edc71a06b088f3a052",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "800e2273_17c14903",
+        "filename": "docs/Chapter8/ves_7_2/ves_event_listener_7_2.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 2543,
+      "author": {
+        "id": 5279
+      },
+      "writtenOn": "2020-06-29T11:10:49Z",
+      "side": 1,
+      "message": "needs to \u003d\u003e MUST?",
+      "revId": "547b7440d2893bb3a09631edc71a06b088f3a052",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b6d5b739_ad1f4034",
+        "filename": "docs/Chapter8/ves_7_2/ves_event_listener_7_2.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 3502,
+      "author": {
+        "id": 5279
+      },
+      "writtenOn": "2020-06-29T11:10:49Z",
+      "side": 1,
+      "message": "I don\u0027t quite understand this. Are %1, %2 and %3 really variables or do they always use the same text?",
+      "revId": "547b7440d2893bb3a09631edc71a06b088f3a052",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d03ca09_5c3b378a",
+        "filename": "docs/Chapter8/ves_7_2/ves_event_listener_7_2.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 3863,
+      "author": {
+        "id": 5279
+      },
+      "writtenOn": "2020-06-29T11:10:49Z",
+      "side": 1,
+      "message": "extra space",
+      "revId": "547b7440d2893bb3a09631edc71a06b088f3a052",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
