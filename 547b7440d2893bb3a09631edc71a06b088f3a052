@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "87e4b1b5_2b90460a",
+        "filename": "docs/Chapter8/ves_7_2/ves_event_listener_7_2.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-06-29T14:53:07Z",
+      "side": 1,
+      "message": "OK, added.",
+      "parentUuid": "116556cc_073beae6",
+      "revId": "547b7440d2893bb3a09631edc71a06b088f3a052",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3be22fe1_d0d932ca",
         "filename": "docs/Chapter8/ves_7_2/ves_event_listener_7_2.rst",
         "patchSetId": 3
@@ -33,6 +51,24 @@
       "revId": "547b7440d2893bb3a09631edc71a06b088f3a052",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ec3c64a_4b92104c",
+        "filename": "docs/Chapter8/ves_7_2/ves_event_listener_7_2.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-06-29T14:53:07Z",
+      "side": 1,
+      "message": "OK, removed.",
+      "parentUuid": "3be22fe1_d0d932ca",
+      "revId": "547b7440d2893bb3a09631edc71a06b088f3a052",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "4238d2bf_771796d1",
+        "filename": "docs/Chapter8/ves_7_2/ves_event_listener_7_2.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 2516,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-06-29T14:53:07Z",
+      "side": 1,
+      "message": "removed",
+      "parentUuid": "d41e37cf_6045a2f8",
+      "revId": "547b7440d2893bb3a09631edc71a06b088f3a052",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16bb55d4_81b611bc",
         "filename": "docs/Chapter8/ves_7_2/ves_event_listener_7_2.rst",
         "patchSetId": 3
@@ -67,6 +121,24 @@
       "revId": "547b7440d2893bb3a09631edc71a06b088f3a052",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a3a511a_8eef9308",
+        "filename": "docs/Chapter8/ves_7_2/ves_event_listener_7_2.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 2517,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-06-29T14:53:07Z",
+      "side": 1,
+      "message": "updated to \"JSON object\".",
+      "parentUuid": "16bb55d4_81b611bc",
+      "revId": "547b7440d2893bb3a09631edc71a06b088f3a052",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "946d825c_51579b97",
+        "filename": "docs/Chapter8/ves_7_2/ves_event_listener_7_2.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 2531,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-06-29T14:53:07Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8ea8ce3f_fe20316f",
+      "revId": "547b7440d2893bb3a09631edc71a06b088f3a052",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "800e2273_17c14903",
         "filename": "docs/Chapter8/ves_7_2/ves_event_listener_7_2.rst",
         "patchSetId": 3
@@ -101,6 +191,24 @@
       "revId": "547b7440d2893bb3a09631edc71a06b088f3a052",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "38ae95d0_6e8c48d0",
+        "filename": "docs/Chapter8/ves_7_2/ves_event_listener_7_2.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 2543,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-06-29T14:53:07Z",
+      "side": 1,
+      "message": "changed to must.",
+      "parentUuid": "800e2273_17c14903",
+      "revId": "547b7440d2893bb3a09631edc71a06b088f3a052",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "56f36314_37b9bc7b",
+        "filename": "docs/Chapter8/ves_7_2/ves_event_listener_7_2.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 3502,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-06-29T14:53:07Z",
+      "side": 1,
+      "message": "Well, this is following OMA: https://www.openmobilealliance.org/release/REST_NetAPI_Common/V1_0-20180116-A/OMA-TS-REST_NetAPI_Common-V1_0-20180116-A.pdf\n\nThere is a Text defined, with variables.\nI used here the text values for variables, as we might use the same text to express issues related to other variables, e.g. schemaReference, data,...\n\nSo there are really variables in the text, which can change, depending, on where we have this issue in the event received.",
+      "parentUuid": "b6d5b739_ad1f4034",
+      "revId": "547b7440d2893bb3a09631edc71a06b088f3a052",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7d03ca09_5c3b378a",
         "filename": "docs/Chapter8/ves_7_2/ves_event_listener_7_2.rst",
         "patchSetId": 3
@@ -135,6 +261,24 @@
       "revId": "547b7440d2893bb3a09631edc71a06b088f3a052",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f8b634f_f4177a22",
+        "filename": "docs/Chapter8/ves_7_2/ves_event_listener_7_2.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 3863,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-06-29T14:53:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7d03ca09_5c3b378a",
+      "revId": "547b7440d2893bb3a09631edc71a06b088f3a052",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
