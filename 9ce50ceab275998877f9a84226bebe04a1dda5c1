@@ -46,6 +46,30 @@
       "revId": "9ce50ceab275998877f9a84226bebe04a1dda5c1",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "370695e1_fb2759fd",
+        "filename": "docs/Chapter8/ves_7_2/ves_event_listener_7_2.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 493,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-06-30T09:17:54Z",
+      "side": 1,
+      "message": "Done, I knew I was missing this somewhere. Thanks for helping me find that spot.",
+      "parentUuid": "8cab7150_1249925a",
+      "range": {
+        "startLine": 493,
+        "startChar": 38,
+        "endLine": 493,
+        "endChar": 61
+      },
+      "revId": "9ce50ceab275998877f9a84226bebe04a1dda5c1",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
