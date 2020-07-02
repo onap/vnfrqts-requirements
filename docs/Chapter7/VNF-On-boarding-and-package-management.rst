@@ -17,7 +17,7 @@ VNF and PNF On-boarding and package management
 ----------------------------------------------
 
 Design Definition
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^
 
 The ONAP Design Time Framework provides the ability to design NFV
 resources including VNFs, Services, and products. The VNF provider must
@@ -35,11 +35,11 @@ and GS NFV IFA011 V0.3.0 (2015-10) - Network Functions Virtualization
 (NFV), Management and Orchestration, VNF Packaging Specification.
 
 Resource Description
-^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^
 
 .. req::
     :id: R-66070
-    :target: VNF Package
+    :target: VNF HEAT PACKAGE
     :keyword: MUST
     :updated: dublin
 
@@ -126,13 +126,13 @@ Resource Description
 
 .. req::
     :id: R-22346
-    :target: VNF or PNF PACKAGE
+    :target: VNF or PNF PROVIDER
     :keyword: MUST
     :introduced: casablanca
-    :updated: el alto
+    :updated: guilin
     :validation_mode: static
 
-    The VNF or PNF package **MUST** provide :ref:`VES Event Registration <ves_event_registration_3_2>`
+    The VNF or PNF Provider **MUST** provide :ref:`VES Event Registration <ves_event_registration_3_2>`
     for all VES events provided by that VNF or PNF.
 
 .. req::
@@ -150,8 +150,8 @@ Resource Description
    :target: VNF or PNF PROVIDER
    :keyword: MUST
    :updated: frankfurt
-   :impacts: DCAE,Documentation,Integration,SDC
    :validation_mode: static
+   :impacts: DCAE,Documentation,Integration,SDC
 
    The VNF or PNF PROVIDER **MUST** provide :ref:`FM_meta_data` to support the
    analysis of fault events delivered to DCAE. The metadata must be
@@ -159,7 +159,7 @@ Resource Description
    supported by that VNF or PNF at onboarding time. The metadata must follow
    the VES Event Listener Specifications for Fault domain and VES Event
    Registration Specifications for YAML registration file format.
-   
+
 
 .. req::
    :id: R-816745
@@ -167,8 +167,8 @@ Resource Description
    :keyword: MUST
    :introduced: dublin
    :updated: frankfurt
-   :impacts: DCAE,Documentation,Integration,SDC
    :validation_mode: static
+   :impacts: DCAE,Documentation,Integration,SDC
 
    THe VNF or PNF PROVIDER **MUST** provide PM Meta Data (:ref:`PM_Dictionary`)
    to support the analysis of PM data delivered to DCAE.
@@ -177,7 +177,7 @@ Resource Description
    which contain the format and content required.
 
 Resource Configuration
-^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
 
 
 .. req::
@@ -192,7 +192,7 @@ Resource Configuration
 
 
 Configuration Management via NETCONF/YANG
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. req::
     :id: R-30278
@@ -204,7 +204,7 @@ Configuration Management via NETCONF/YANG
     as a foundation for creating the YANG model for configuration.
 
 Configuration Management via Chef
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 .. req::
@@ -277,7 +277,7 @@ Configuration Management via Ansible
     (e.g., customer provisioning data).
 
 Resource Control Loop
-^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^
 
 
 .. req::
@@ -448,7 +448,7 @@ Resource Control Loop
 
 
 Compute, Network, and Storage Requirements
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 .. req::
@@ -521,7 +521,7 @@ Compute, Network, and Storage Requirements
 
 
 Testing
-^^^^^^^^^^
+^^^^^^^
 
 .. req::
     :id: R-43958
@@ -554,7 +554,7 @@ Testing
     necessary simulators.
 
 Licensing Requirements
-^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
 ONAP can support external licensing management solution (e.g. vendor specific)
 in addition to its own licensing management solution.  If licensing management
 solution is provided by ONAP, then ONAP operators build the VNF License using SDC during onboarding.

@@ -5,13 +5,13 @@
 .. _ONAP Output Parameter Names:
 
 ONAP Output Parameter Names
--------------------------------------------------------------
+---------------------------
 
 ONAP defines three types of Output Parameters as detailed in
 :ref:`Output Parameters`.
 
 ONAP Base Module Output Parameters:
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ONAP Base Module Output Parameters do not have an explicit naming
 convention.
@@ -20,28 +20,28 @@ convention.
     :id: R-97726
     :target: VNF
     :keyword: MUST
-    :validation_mode: none
     :updated: casablanca
+    :validation_mode: none
 
     A VNF's Heat Orchestration Template's Base Module Output Parameter names
     **MUST** contain ``{vm-type}`` and/or ``{network-role}`` when appropriate.
 
 ONAP Volume Template Output Parameters:
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. req::
     :id: R-88524
     :target: VNF
     :keyword: MUST
-    :validation_mode: none
     :updated: casablanca
+    :validation_mode: none
 
     A VNF's Heat Orchestration Template's Volume Template
     Output Parameter names
     **MUST** contain ``{vm-type}`` when appropriate.
 
 Predefined Output Parameters
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ONAP currently defines one predefined output parameter the OAM
 Management IP Addresses.
@@ -49,7 +49,7 @@ Management IP Addresses.
 .. _OAM Management IP Addresses:
 
 OAM Management IP Addresses
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 A VNF may have a management interface for application controllers to
 interact with and configure the VNF. Typically, this will be via a
@@ -73,8 +73,8 @@ or may be a single IP address assigned to one VM.
     :id: R-18683
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     If a VNF has one IPv4 OAM Management IP Address and the
     IP Address needs to be inventoried in ONAP's A&AI
@@ -86,8 +86,8 @@ or may be a single IP address assigned to one VM.
     :id: R-94669
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     If a VNF has one IPv6 OAM Management IP Address and the
     IP Address needs to be inventoried in ONAP's A&AI
@@ -103,8 +103,8 @@ The OAM Management IP Address maybe assigned either via
     :id: R-56287
     :target: VNF
     :keyword: MUST
-    :validation_mode: none
     :updated: casablanca
+    :validation_mode: none
 
     If the VNF's OAM Management IP Address is assigned by ONAP SDN-C and
     assigned in the VNF's Heat Orchestration Template's via a heat resource
@@ -166,8 +166,8 @@ oam_management_v4_address*
     :id: R-48987
     :target: VNF
     :keyword: MUST
-    :validation_mode: none
     :updated: casablanca
+    :validation_mode: none
 
     If the VNF's OAM Management IP Address is cloud assigned and
     and the OAM IP Address is required to be inventoried in ONAP A&AI,

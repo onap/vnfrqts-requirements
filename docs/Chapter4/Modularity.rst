@@ -73,7 +73,7 @@ This overview is provided to set the stage and help clarify the concepts
 that will be introduced.
 
 ONAP VNF Modularity
-^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^
 
 ONAP supports a modular Heat Orchestration Template design pattern,
 referred to as *VNF Modularity.* With this approach, a single VNF may be
@@ -137,7 +137,7 @@ template must correspond 1:1 with a base template or add-on module
 template.
 
 Suggested Patterns for Modular VNFs
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 There are numerous variations of VNF modularity. Below are two suggested
 usage patterns.
@@ -180,7 +180,7 @@ which might be appropriate for smaller VNFs that do not have any scaling
 options.
 
 Modularity Rules
-^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^
 
 There are some rules to follow when building modular VNF templates:
 

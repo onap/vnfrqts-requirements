@@ -222,7 +222,7 @@ Definition
 
 
 Artifact
-~~~~~~~~~~
+~~~~~~~~
 
 Note: currently not supported.
 

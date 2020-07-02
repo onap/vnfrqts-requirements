@@ -86,10 +86,10 @@ ONAP.
    :id: R-332680
    :target: VNF or PNF
    :keyword: SHOULD
-   :impacts: dcae
-   :validation_mode: in_service
    :introduced: casablanca
    :updated: guilin
+   :validation_mode: in_service
+   :impacts: dcae
 
    The VNF or PNF producing VES events **SHOULD** deliver syslog messages
    that meet the criteria in R-209104 to the VES Event Listener using the
@@ -110,8 +110,8 @@ ONAP.
    :keyword: MAY
    :introduced: casablanca
    :updated: guilin
-   :impacts: DCAE
    :validation_mode: in_service
+   :impacts: DCAE
 
    The VNF or PNF **MAY** leverage ONAP's High Volume VNF Event Streaming
    (HV-VES) when there is a need to deliver large volumes of real-time
@@ -124,8 +124,8 @@ ONAP.
    :target: VNF or PNF PROVIDER
    :keyword: MUST
    :introduced: guilin
-   :impacts: DCAE
    :validation_mode: none
+   :impacts: DCAE
 
    VNF or PNF Provider **MUST** have agreement with the Service Provider before
    utilizing the HV-VES option for monitoring as this option does not fully
@@ -136,9 +136,9 @@ ONAP.
    :target: VNF or PNF
    :keyword: MAY
    :introduced: casablanca
-   :impacts: dcae, dmaap
-   :validation_mode: in_service
    :updated: guilin
+   :validation_mode: in_service
+   :impacts: dcae, dmaap
 
    The VNF or PNF **MAY** leverage a bulk VNF or PNF telemetry transmission
    mechanism in instances where other transmission
@@ -195,9 +195,9 @@ Event Definition and Registration
    :target: VNF or PNF PROVIDER
    :keyword: MUST
    :introduced: casablanca
+   :updated: guilin
    :validation_mode: static
    :impacts: dcae
-   :updated: guilin
 
    If the VNF or PNF is using VES, then the VNF or PNF Provider **MUST** provide
    a YAML file formatted in adherence with the
@@ -235,11 +235,11 @@ Event Definition and Registration
 .. req::
    :id: R-123044
    :target: VNF or PNF PROVIDER
-   :keyword: MUST
+   :keyword: MAY
    :introduced: casablanca
+   :updated: dublin
    :validation_mode: in_service
    :impacts: dcae
-   :updated: dublin
 
    The VNF or PNF Provider **MAY** require that specific events, identified by
    their ``eventName``, require that certain fields, which are optional in the
@@ -270,11 +270,11 @@ Event Formatting and Usage
 .. req::
    :id: R-528866
    :target: VNF or PNF
+   :keyword: MUST
    :introduced: casablanca
+   :updated: guilin
    :validation_mode: in_service
    :impacts: dcae
-   :keyword: MUST
-   :updated: guilin
 
    The VES events produced by the VNF or PNF **MUST** conform to the schema and
    other formatting requirements specified in the relevant VES Event Listener
@@ -283,11 +283,11 @@ Event Formatting and Usage
 .. req::
    :id: R-283988
    :target: VNF or PNF
+   :keyword: MUST NOT
    :introduced: casablanca
    :updated: guilin
    :validation_mode: in_service
    :impacts: dcae
-   :keyword: MUST NOT
 
    A VNF or PNF producing VES events **MUST NOT** send information through
    extensible structures if the event specification has explicitly defined
@@ -296,11 +296,11 @@ Event Formatting and Usage
 .. req::
    :id: R-470963
    :target: VNF or PNF
+   :keyword: SHOULD
    :introduced: casablanca
    :updated: guilin
    :validation_mode: in_service
    :impacts: dcae
-   :keyword: SHOULD
 
    A VNF or PNF producing VES events **SHOULD** leverage camel case to
    separate words and acronyms used as keys that will be sent through extensible
@@ -540,7 +540,7 @@ unavailable or unhealthy, the NF must adhere to these requirements.
    restrictions in place for the operation.
 
 Security
-~~~~~~~~~~
+~~~~~~~~
 
 .. req::
     :id: R-68165
@@ -573,8 +573,8 @@ Bulk Performance Measurement
     :target: VNF or PNF
     :keyword: SHOULD
     :introduced: casablanca
-    :impacts: dcae, dmaap
     :updated: dublin
+    :impacts: dcae, dmaap
 
     The VNF or PNF **SHOULD** support FileReady VES event for event-driven bulk transfer
     of monitoring data.
@@ -584,8 +584,8 @@ Bulk Performance Measurement
     :target: VNF or PNF
     :keyword: SHOULD
     :introduced: casablanca
-    :impacts: dcae, dmaap
     :updated: dublin
+    :impacts: dcae, dmaap
 
     The VNF or PNF **SHOULD** support File transferring protocol, such as FTPES or SFTP,
     when supporting the event-driven bulk transfer of monitoring data.
@@ -595,8 +595,8 @@ Bulk Performance Measurement
     :target: VNF or PNF
     :keyword: SHOULD
     :introduced: casablanca
+    :updated: guilin
     :impacts: dcae, dmaap
-    :updated: guilin 
 
     The VNF or PNF **SHOULD** support the data schema defined in 3GPP TS 32.435 or 3GPP TS 28.532, when
     supporting the event-driven bulk transfer of monitoring data.

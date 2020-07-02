@@ -14,7 +14,7 @@
 
 
 Requirement Changes Introduced in Casablanca
-========================================================
+--------------------------------------------
 
 This document summarizes the requirement changes by section that were
 introduced between the Beijing release and
@@ -25,7 +25,7 @@ navigate to the
     :depth: 2
 
 Summary of Changes
-------------------
+^^^^^^^^^^^^^^^^^^
 
 * **Requirements Added:** 102
 * **Requirements Changed:** 232
@@ -33,7 +33,7 @@ Summary of Changes
 
 
 Configuration Management > Ansible Standards and Capabilities > xNF Configuration via Ansible Requirements > Ansible Client Requirements
-----------------------------------------------------------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Added
@@ -175,7 +175,7 @@ Requirements Changed
 
 
 Configuration Management > Ansible Standards and Capabilities > xNF Configuration via Ansible Requirements > Ansible Playbook Requirements
-------------------------------------------------------------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Added
@@ -312,7 +312,7 @@ Requirements Changed
 
 
 Configuration Management > Chef Standards and Capabilities > xNF Configuration via Chef Requirements > Chef Roles/Requirements
-------------------------------------------------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -332,7 +332,7 @@ Requirements Changed
 
 
 Configuration Management > Controller Interactions With xNF > Configuration Commands
-------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -382,7 +382,7 @@ Requirements Changed
 
 
 Configuration Management > Controller Interactions With xNF > HealthCheck and Failure Related Commands
-------------------------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -397,7 +397,7 @@ Requirements Changed
 
 
 Configuration Management > Controller Interactions With xNF > Lifecycle Management Related Commands
----------------------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Added
@@ -481,7 +481,7 @@ Requirements Changed
 
 
 Configuration Management > NETCONF Standards and Capabilities > xNF Configuration via NETCONF Requirements > NETCONF Server Requirements
-----------------------------------------------------------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -576,7 +576,7 @@ Requirements Changed
 
 
 Contrail Resource Parameters > Contrail Network Parameters > External Networks
-------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -599,7 +599,7 @@ Requirements Changed
 
 
 Heat > Cinder Volumes
----------------------
+^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Removed
@@ -617,7 +617,7 @@ Requirements Removed
 
 
 Heat > Heat Orchestration Template Format > Heat Orchestration Template Structure > resources > metadata
---------------------------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Removed
@@ -633,7 +633,7 @@ Requirements Removed
 
 
 Heat > Heat Template Constructs > Heat Files Support (get_file)
----------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Removed
@@ -649,7 +649,7 @@ Requirements Removed
 
 
 Heat > Heat Template Constructs > Nested Heat Template Requirements
--------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Removed
@@ -665,7 +665,7 @@ Requirements Removed
 
 
 Heat > Networking > External Networks
--------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Removed
@@ -682,7 +682,7 @@ Requirements Removed
 
 
 Heat > Networking > Internal Networks
--------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Removed
@@ -700,7 +700,7 @@ Requirements Removed
 
 
 Heat > ONAP Resource ID and Parameter Naming Convention > Contrail Resource Parameters > Contrail Network Parameters > External Networks
-----------------------------------------------------------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Removed
@@ -717,7 +717,7 @@ Requirements Removed
 
 
 Heat > ONAP Resource ID and Parameter Naming Convention > Resource: OS::Nova::Server – Metadata Parameters > vm_role
---------------------------------------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Removed
@@ -740,7 +740,7 @@ Requirements Removed
 
 
 Heat > ONAP Support of Environment Files
-----------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Removed
@@ -772,7 +772,7 @@ Requirements Removed
 
 
 Monitoring & Management > Data Structure Specification of the Event Record
---------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Added
@@ -823,7 +823,7 @@ Requirements Added
 
 
 Monitoring & Management > Event Records - Data Structure Description > Common Event Header
-------------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Added
@@ -856,7 +856,7 @@ Requirements Added
 
 
 Monitoring & Management > Event Records - Data Structure Description > Miscellaneous
-------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Added
@@ -893,7 +893,7 @@ Requirements Added
 
 
 Monitoring & Management > Monitoring & Management Requirements > Asynchronous and Synchronous Data Delivery
------------------------------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Added
@@ -909,7 +909,7 @@ Requirements Added
 
 
 Monitoring & Management > Monitoring & Management Requirements > Bulk Performance Measurement
----------------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Added
@@ -941,7 +941,7 @@ Requirements Added
 
 
 Monitoring & Management > Monitoring & Management Requirements > Google Protocol Buffers (GPB)
-----------------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Added
@@ -982,7 +982,7 @@ Requirements Added
 
 
 Monitoring & Management > Monitoring & Management Requirements > JSON
----------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -1001,7 +1001,7 @@ Requirements Changed
 
 
 Monitoring & Management > Monitoring & Management Requirements > Reporting Frequency
-------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Added
@@ -1017,7 +1017,7 @@ Requirements Added
 
 
 Monitoring & Management > Monitoring & Management Requirements > VNF telemetry via standardized interface
----------------------------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Added
@@ -1046,7 +1046,7 @@ Requirements Removed
 
 
 Monitoring & Management > Transports and Protocols Supporting Resource Interfaces
----------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Added
@@ -1079,7 +1079,7 @@ Requirements Added
 
 
 Monitoring & Management > Transports and Protocols Supporting Resource Interfaces > Bulk Telemetry Transmission
----------------------------------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Added
@@ -1096,7 +1096,7 @@ Requirements Added
 
 
 Monitoring & Management > Transports and Protocols Supporting Resource Interfaces > xNF Telemetry using Google Protocol Buffers
--------------------------------------------------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Added
@@ -1114,7 +1114,7 @@ Requirements Added
 
 
 Monitoring & Management > Transports and Protocols Supporting Resource Interfaces > xNF Telemetry using VES/JSON Model
-----------------------------------------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Added
@@ -1132,7 +1132,7 @@ Requirements Added
 
 
 ONAP Heat Cinder Volumes
-------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Added
@@ -1155,7 +1155,7 @@ Requirements Added
 
 
 ONAP Heat Heat Template Constructs > Heat Files Support (get_file)
-------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -1203,7 +1203,7 @@ Requirements Changed
 
 
 ONAP Heat Heat Template Constructs > Nested Heat Templates > Nested Heat Template Requirements
-----------------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Added
@@ -1220,7 +1220,7 @@ Requirements Added
 
 
 ONAP Heat Networking > External Networks
-----------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -1236,7 +1236,7 @@ Requirements Changed
 
 
 ONAP Heat Networking > Internal Networks
-----------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -1269,7 +1269,7 @@ Requirements Changed
 
 
 ONAP Heat Orchestration Template Format
----------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Added
@@ -1285,7 +1285,7 @@ Requirements Added
 
 
 ONAP Heat Orchestration Template Format > Environment File Format
------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -1317,7 +1317,7 @@ Requirements Changed
 
 
 ONAP Heat Orchestration Template Format > Heat Orchestration Template Structure > parameters
---------------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -1343,7 +1343,7 @@ Requirements Changed
 
 
 ONAP Heat Orchestration Template Format > Heat Orchestration Template Structure > parameters > constraints
-----------------------------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -1406,7 +1406,7 @@ Requirements Changed
 
 
 ONAP Heat Orchestration Template Format > Heat Orchestration Template Structure > parameters > default
-------------------------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -1422,7 +1422,7 @@ Requirements Changed
 
 
 ONAP Heat Orchestration Template Format > Heat Orchestration Template Structure > parameters > type
----------------------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -1444,7 +1444,7 @@ Requirements Changed
 
 
 ONAP Heat Orchestration Template Format > Heat Orchestration Template Structure > resources
--------------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -1460,7 +1460,7 @@ Requirements Changed
 
 
 ONAP Heat Orchestration Template Format > Heat Orchestration Template Structure > resources > deletion_policy
--------------------------------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -1476,7 +1476,7 @@ Requirements Changed
 
 
 ONAP Heat Orchestration Template Format > Heat Orchestration Template Structure > resources > external_id
----------------------------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -1492,7 +1492,7 @@ Requirements Changed
 
 
 ONAP Heat Orchestration Template Format > Heat Orchestration Template Structure > resources > metadata
-------------------------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Added
@@ -1508,7 +1508,7 @@ Requirements Added
 
 
 ONAP Heat Orchestration Template Format > Heat Orchestration Template Structure > resources > properties
---------------------------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -1525,7 +1525,7 @@ Requirements Changed
 
 
 ONAP Heat Orchestration Templates Overview > ONAP Heat Orchestration Template Filenames > Base Modules
-------------------------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -1554,7 +1554,7 @@ Requirements Changed
 
 
 ONAP Heat Orchestration Templates Overview > ONAP Heat Orchestration Template Filenames > Cinder Volume Modules
----------------------------------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -1580,7 +1580,7 @@ Requirements Changed
 
 
 ONAP Heat Orchestration Templates Overview > ONAP Heat Orchestration Template Filenames > Incremental Modules
--------------------------------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -1597,7 +1597,7 @@ Requirements Changed
 
 
 ONAP Heat Orchestration Templates Overview > ONAP Heat Orchestration Template Filenames > Nested Heat file
-----------------------------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -1614,7 +1614,7 @@ Requirements Changed
 
 
 ONAP Heat Orchestration Templates Overview > ONAP VNF Modularity Overview
--------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -1679,7 +1679,7 @@ Requirements Changed
 
 
 ONAP Heat Orchestration Templates Overview > Output Parameters > ONAP Volume Module Output Parameters
------------------------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -1709,7 +1709,7 @@ Requirements Changed
 
 
 ONAP Heat VNF Modularity
-------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -1739,7 +1739,7 @@ Requirements Changed
 
 
 ONAP Output Parameter Names > Predefined Output Parameters > OAM Management IP Addresses
-----------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -1790,7 +1790,7 @@ Requirements Changed
 
 
 ONAP TOSCA VNFD Requirements > TOSCA VNF Descriptor > Capability Types
-----------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Added
@@ -1830,7 +1830,7 @@ Requirements Added
 
 
 ONAP TOSCA VNFD Requirements > TOSCA VNF Descriptor > Data Types
-----------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Added
@@ -1858,7 +1858,7 @@ Requirements Added
 
 
 ONAP TOSCA VNFD Requirements > TOSCA VNF Descriptor > General
--------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Added
@@ -1942,7 +1942,7 @@ Requirements Added
 
 
 ONAP TOSCA VNFD Requirements > TOSCA VNF Descriptor > Interface Types
----------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Added
@@ -1960,7 +1960,7 @@ Requirements Added
 
 
 ONAP TOSCA VNFD Requirements > TOSCA VNF Descriptor > Relationship Types
-------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Added
@@ -1986,7 +1986,7 @@ Requirements Added
 
 
 ONAP TOSCA VNFD Requirements > VNF CSAR Package > VNF Package Contents
-----------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Added
@@ -2053,7 +2053,7 @@ Requirements Added
 
 
 ONAP TOSCA VNFD Requirements > VNF CSAR Package > VNF Package Structure and Format
-----------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Added
@@ -2082,7 +2082,7 @@ Requirements Added
 
 
 PNF Plug and Play > PNF Plug and Play
--------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Added
@@ -2333,7 +2333,7 @@ Requirements Added
 
 
 Resource IDs
-------------
+^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -2403,7 +2403,7 @@ Requirements Changed
 
 
 Resource IDs > Contrail Heat Resources Resource ID Naming Convention > OS::ContrailV2::VirtualNetwork
------------------------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -2433,7 +2433,7 @@ Requirements Changed
 
 
 Resource IDs > OpenStack Heat Resources Resource ID Naming Convention > OS::Neutron::Net
-----------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -2456,7 +2456,7 @@ Requirements Changed
 
 
 Resource: OS::Neutron::Port - Parameters > Introduction > Items to Note
------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -2504,7 +2504,7 @@ Requirements Changed
 
 
 Resource: OS::Neutron::Port - Parameters > Property: allowed_address_pairs, Map Property: ip_address > VIP Assignment, External Networks, Supported by Automation
------------------------------------------------------------------------------------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -2564,7 +2564,7 @@ Requirements Changed
 
 
 Resource: OS::Neutron::Port - Parameters > Property: fixed_ips, Map Property: ip_address
-----------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -2878,7 +2878,7 @@ Requirements Changed
 
 
 Resource: OS::Neutron::Port - Parameters > Property: fixed_ips, Map Property: subnet
-------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -3036,7 +3036,7 @@ Requirements Changed
 
 
 Resource: OS::Neutron::Port - Parameters > Property: network
-------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -3107,7 +3107,7 @@ Requirements Changed
 
 
 Resource: OS::Nova::Server - Parameters
----------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Added
@@ -3132,7 +3132,7 @@ Requirements Added
 
 
 Resource: OS::Nova::Server - Parameters > Property: Name
---------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Added
@@ -3184,7 +3184,7 @@ Requirements Changed
 
 
 Resource: OS::Nova::Server - Parameters > Property: Name > Contrail Issue with Values for OS::Nova::Server Property Name
-------------------------------------------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -3205,7 +3205,7 @@ Requirements Changed
 
 
 Resource: OS::Nova::Server - Parameters > Property: availability_zone
----------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -3235,7 +3235,7 @@ Requirements Changed
 
 
 Resource: OS::Nova::Server - Parameters > Property: flavor
-----------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Added
@@ -3251,7 +3251,7 @@ Requirements Added
 
 
 Resource: OS::Nova::Server - Parameters > Property: image
----------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Added
@@ -3267,7 +3267,7 @@ Requirements Added
 
 
 Resource: OS::Nova::Server Metadata Parameters > environment_context
---------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -3305,7 +3305,7 @@ Requirements Changed
 
 
 Resource: OS::Nova::Server Metadata Parameters > vf_module_id
--------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -3364,7 +3364,7 @@ Requirements Changed
 
 
 Resource: OS::Nova::Server Metadata Parameters > vf_module_index
-----------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -3434,7 +3434,7 @@ Requirements Changed
 
 
 Resource: OS::Nova::Server Metadata Parameters > vf_module_name
----------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -3493,7 +3493,7 @@ Requirements Changed
 
 
 Resource: OS::Nova::Server Metadata Parameters > vm_role
---------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -3553,7 +3553,7 @@ Requirements Changed
 
 
 Resource: OS::Nova::Server Metadata Parameters > vnf_id
--------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -3612,7 +3612,7 @@ Requirements Changed
 
 
 Resource: OS::Nova::Server Metadata Parameters > vnf_name
----------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -3669,7 +3669,7 @@ Requirements Changed
 
 
 Resource: OS::Nova::Server Metadata Parameters > workload_context
------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -3718,7 +3718,7 @@ Requirements Changed
 
 
 VNF On-boarding and package management > Resource Description
--------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Added
@@ -3742,7 +3742,7 @@ Requirements Added
 
 
 VNF On-boarding and package management > Testing
-------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -3758,7 +3758,7 @@ Requirements Changed
 
 
 VNF Resiliency > Virtual Function - Container Recovery Requirements
--------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Added
@@ -3780,7 +3780,7 @@ Requirements Added
 
 
 VNF Security > VNF API Security Requirements
---------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -3898,7 +3898,7 @@ Requirements Removed
 
 
 VNF Security > VNF Cryptography Requirements
---------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -3944,7 +3944,7 @@ Requirements Changed
 
 
 VNF Security > VNF Data Protection Requirements
------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -4054,7 +4054,7 @@ Requirements Removed
 
 
 VNF Security > VNF General Security Requirements
-------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Added
@@ -4382,7 +4382,7 @@ Requirements Removed
 
 
 VNF Security > VNF Identity and Access Management Requirements
---------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Added
@@ -4763,7 +4763,7 @@ Requirements Removed
 
 
 VNF Security > VNF Security Analytics Requirements
---------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Added
@@ -5004,7 +5004,7 @@ Requirements Removed
 
 
 {network-role}
---------------
+^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -5041,7 +5041,7 @@ Requirements Changed
 
 
 {vm-type}
----------
+^^^^^^^^^
 
 
 Requirements Changed

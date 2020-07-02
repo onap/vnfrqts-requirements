@@ -5,15 +5,15 @@
 .. _ONAP Heat Support of Environment Files:
 
 ONAP Heat Support of Environment Files
------------------------------------------
+--------------------------------------
 
 
 .. req::
     :id: R-599443
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :introduced: dublin
+    :validation_mode: static
 
     A parameter enumerated in a
     VNF's Heat Orchestration Template's environment file **MUST** be declared

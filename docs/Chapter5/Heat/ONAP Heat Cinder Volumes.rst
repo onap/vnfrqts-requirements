@@ -5,7 +5,7 @@
 .. _ONAP Heat Cinder Volumes:
 
 ONAP Heat Cinder Volumes
-----------------------------
+------------------------
 
 Cinder Volumes are created with the heat resource OS::Cinder::Volume.
 
@@ -64,8 +64,8 @@ Parameters.
     :id: R-270358
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :introduced: casablanca
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's Cinder Volume Template **MUST**
     contain either
@@ -78,7 +78,7 @@ Parameters.
       an ``OS::Cinder::Volume`` resource
 
 Optional Property availability_zone
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. req::
     :id: R-25190
@@ -97,7 +97,7 @@ same as the ``OS::Nova::Server`` property ``availability_zone`` (i.e.,
 ``availability_zone_{index}``).
 
 Optional Property volume_type
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 OpenStack supports multiple volume types. If the ``OS::Cinder::Volume``
 optional property ``volume_type`` is not specified, the OpenStack default
@@ -106,7 +106,7 @@ is used and the value **MUST** be enumerated in the environment file. There
 are no requirements on the parameter naming convention.
 
 Cinder Volume Examples
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
 
 *Examples: Volume Template*
 

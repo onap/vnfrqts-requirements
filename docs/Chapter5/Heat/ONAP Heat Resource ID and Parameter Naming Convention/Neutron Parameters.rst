@@ -10,7 +10,7 @@ The resource OS::Neutron::Port is for managing Neutron ports.
 (See https://docs.openstack.org/developer/heat/template_guide/openstack.html#OS::Neutron::Port)
 
 Introduction
-^^^^^^^^^^^^^
+^^^^^^^^^^^^
 
 Four properties of the resource ``OS::Neutron::Port`` must follow the ONAP
 naming convention. The four properties are:
@@ -73,8 +73,8 @@ or **MUST** have statically assigned IP addresses.
     :id: R-45602
     :target: VNF
     :keyword: MUST NOT
-    :validation_mode: none
     :updated: casablanca
+    :validation_mode: none
 
     If a VNF's Port is attached to a network (internal or external)
     and the port's IP addresses are cloud assigned by OpenStack's DHCP
@@ -100,8 +100,8 @@ or **MUST** have statically assigned IP addresses.
     :id: R-48880
     :target: VNF
     :keyword: MUST
-    :validation_mode: none
     :updated: frankfurt
+    :validation_mode: none
 
     If a VNF's Port is attached to an ONAP external network (per the ONAP
     definition, see Requirement R-57424 and R-16968) and the port's
@@ -128,8 +128,8 @@ or **MUST** have statically assigned IP addresses.
     :id: R-70964
     :target: VNF
     :keyword: MUST NOT
-    :validation_mode: none
     :updated: frankfurt
+    :validation_mode: none
 
     If a VNF's Port is attached to an ONAP internal network
     (per the ONAP definition, see Requirements R-52425 and R-46461 and R-35666)
@@ -146,8 +146,8 @@ or **MUST** have statically assigned IP addresses.
     :id: R-681859
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :introduced: dublin
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's ``OS::Neutron::Port`` resource's
 
@@ -174,8 +174,8 @@ the port is attached to.
     :id: R-18008
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     The VNF's Heat Orchestration Template's Resource ``OS::Neutron::Port``
     property ``network`` parameter **MUST** be declared as type: ``string``.
@@ -184,8 +184,8 @@ the port is attached to.
     :id: R-62983
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: frankfurt
+    :validation_mode: static
 
     When the VNF's Heat Orchestration Template's Resource
     ``OS::Neutron::Port`` is attaching to an ONAP external network (per the
@@ -204,8 +204,8 @@ the port is attached to.
     :id: R-86182
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: frankfurt
+    :validation_mode: static
 
     When the VNF's Heat Orchestration Template's Resource
     ``OS::Neutron::Port``
@@ -250,8 +250,8 @@ and the ONAP internal network is
     :id: R-29872
     :target: VNF
     :keyword: MUST NOT
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     The VNF's Heat Orchestration Template's Resource ``OS::Neutron::Port``
     property ``network``
@@ -311,8 +311,8 @@ IPv4 and/or IPv6 addresses.
     :id: R-34037
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     The VNF's Heat Orchestration Template's
     resource ``OS::Neutron::Port`` property ``fixed_ips``
@@ -324,8 +324,8 @@ IPv4 and/or IPv6 addresses.
     :id: R-40971
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: frankfurt
+    :validation_mode: static
 
     When the VNF's Heat Orchestration Template's Resource
     ``OS::Neutron::Port`` is attaching to an ONAP external network (per the
@@ -349,8 +349,8 @@ IPv4 and/or IPv6 addresses.
     :id: R-39841
     :target: VNF
     :keyword: MUST NOT
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     The VNF's Heat Orchestration Template's Resource
     ``OS::Neutron::Port`` property ``fixed_ips``
@@ -376,8 +376,8 @@ the value at orchestration to the Heat Orchestration Template.
     :id: R-04697
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: frankfurt
+    :validation_mode: static
 
     When the VNF's Heat Orchestration Template's Resource
     ``OS::Neutron::Port`` is attaching to an ONAP external network (per the
@@ -402,8 +402,8 @@ the value at orchestration to the Heat Orchestration Template.
     :id: R-98905
     :target: VNF
     :keyword: MUST NOT
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     The VNF's Heat Orchestration Template's Resource
     ``OS::Neutron::Port`` property ``fixed_ips``
@@ -431,8 +431,8 @@ Parameter Definition*
     :id: R-71577
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: frankfurt
+    :validation_mode: static
 
     When the VNF's Heat Orchestration Template's Resource
     ``OS::Neutron::Port`` is attaching to an ONAP external network (per the
@@ -457,8 +457,8 @@ Parameter Definition*
     :id: R-87123
     :target: VNF
     :keyword: MUST NOT
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     The VNF's Heat Orchestration Template's Resource
     ``OS::Neutron::Port`` property ``fixed_ips``
@@ -484,8 +484,8 @@ the value at orchestration to the Heat Orchestration Template.
     :id: R-23503
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: frankfurt
+    :validation_mode: static
 
     When the VNF's Heat Orchestration Template's Resource
     ``OS::Neutron::Port`` is attaching to an ONAP external network (per the
@@ -510,8 +510,8 @@ the value at orchestration to the Heat Orchestration Template.
     :id: R-93030
     :target: VNF
     :keyword: MUST NOT
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     The VNF's Heat Orchestration Template's Resource
     ``OS::Neutron::Port`` property ``fixed_ips``
@@ -539,8 +539,8 @@ Definition*
     :id: R-78380
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: frankfurt
+    :validation_mode: static
 
     When the VNF's Heat Orchestration Template's Resource
     ``OS::Neutron::Port`` is attaching to an ONAP internal network (per the
@@ -566,8 +566,8 @@ Definition*
     :id: R-28795
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     The VNF's Heat Orchestration Template's Resource
     ``OS::Neutron::Port`` property ``fixed_ips``
@@ -594,8 +594,8 @@ Heat Orchestration Template's Environment File.
     :id: R-85235
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: frankfurt
+    :validation_mode: static
 
     When the VNF's Heat Orchestration Template's Resource
     ``OS::Neutron::Port`` is attaching to an ONAP internal network (per the
@@ -620,8 +620,8 @@ Heat Orchestration Template's Environment File.
     :id: R-90206
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     The VNF's Heat Orchestration Template's Resource
     ``OS::Neutron::Port`` property ``fixed_ips``
@@ -647,8 +647,8 @@ Heat Orchestration Template's Environment File.
     :id: R-27818
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: frankfurt
+    :validation_mode: static
 
     When the VNF's Heat Orchestration Template's Resource
     ``OS::Neutron::Port`` is attaching to an ONAP internal network (per the
@@ -674,8 +674,8 @@ Heat Orchestration Template's Environment File.
     :id: R-97201
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     The VNF's Heat Orchestration Template's Resource
     ``OS::Neutron::Port`` property ``fixed_ips``
@@ -702,8 +702,8 @@ Heat Orchestration Template's Environment File.
     :id: R-29765
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: frankfurt
+    :validation_mode: static
 
     When the VNF's Heat Orchestration Template's Resource
     ``OS::Neutron::Port`` is attaching to an ONAP internal network (per the
@@ -740,8 +740,8 @@ Definition*
     :id: R-98569
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     The VNF's Heat Orchestration Template's Resource
     ``OS::Neutron::Port`` property ``fixed_ips``
@@ -766,8 +766,8 @@ Heat Orchestration Template's Environment File.
     :id: R-62590
     :target: VNF
     :keyword: MUST NOT
-    :validation_mode: static
     :updated: frankfurt
+    :validation_mode: static
 
     The VNF's Heat Orchestration Template's Resource ``OS::Neutron::Port``
     property ``fixed_ips``
@@ -788,8 +788,8 @@ Heat Orchestration Template's Environment File.
     :id: R-93496
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: frankfurt
+    :validation_mode: static
 
     The VNF's Heat Orchestration Template's Resource ``OS::Neutron::Port``
     property ``fixed_ips``
@@ -1014,8 +1014,8 @@ The property ``fixed_ips`` is used to assign IPs to a port. The Map Property
     :id: R-38236
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     The VNF's Heat Orchestration Template's
     resource ``OS::Neutron::Port`` property ``fixed_ips``
@@ -1026,8 +1026,8 @@ The property ``fixed_ips`` is used to assign IPs to a port. The Map Property
     :id: R-62802
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: frankfurt
+    :validation_mode: static
 
     When the VNF's Heat Orchestration Template's
     resource ``OS::Neutron::Port`` is attaching
@@ -1053,8 +1053,8 @@ of a given network.
     :id: R-83677
     :target: VNF
     :keyword: MUST NOT
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
 
     The VNF's Heat Orchestration Template's Resource
@@ -1082,8 +1082,8 @@ value at orchestration to the Heat Orchestration Template.
     :id: R-15287
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: frankfurt
+    :validation_mode: static
 
     When the VNF's Heat Orchestration Template's
     resource ``OS::Neutron::Port`` is attaching
@@ -1108,8 +1108,8 @@ of a given network.
     :id: R-80829
     :target: VNF
     :keyword: MUST NOT
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     The VNF's Heat Orchestration Template's Resource
     ``OS::Neutron::Port`` property ``fixed_ips``
@@ -1176,8 +1176,8 @@ represent an oam network and the ``{vm-type}`` has been defined as
     :id: R-84123
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: frankfurt
+    :validation_mode: static
 
     When
 
@@ -1205,8 +1205,8 @@ represent an oam network and the ``{vm-type}`` has been defined as
     :id: R-69634
     :target: VNF
     :keyword: MUST NOT
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     The VNF's Heat Orchestration Template's Resource
     ``OS::Neutron::Port`` property ``fixed_ips``
@@ -1236,8 +1236,8 @@ input parameter.
     :id: R-76160
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: frankfurt
+    :validation_mode: static
 
     When
 
@@ -1263,8 +1263,8 @@ input parameter.
     :id: R-22288
     :target: VNF
     :keyword: MUST NOT
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     The VNF's Heat Orchestration Template's Resource
     ``OS::Neutron::Port`` property ``fixed_ips``
@@ -1358,8 +1358,8 @@ VIP Assignment, ONAP External Networks
     :id: R-83412
     :target: VNF
     :keyword: MUST NOT
-    :validation_mode: static
     :updated: frankfurt
+    :validation_mode: static
 
     If a VNF's Heat Orchestration Template's resource
     ``OS::Neutron::Port`` is attaching to an ONAP external network (per the
@@ -1374,8 +1374,8 @@ VIP Assignment, ONAP External Networks
     :id: R-41492
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: frankfurt
+    :validation_mode: static
 
     When the VNF's Heat Orchestration Template's resource
     ``OS::Neutron::Port`` is attaching to an ONAP external network
@@ -1412,8 +1412,8 @@ VIP Assignment, ONAP External Networks
     :id: R-35735
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: frankfurt
+    :validation_mode: static
 
     When the VNF's Heat Orchestration Template's resource
     ``OS::Neutron::Port`` is attaching to an ONAP external network
@@ -1450,9 +1450,9 @@ VIP Assignment, ONAP External Networks
     :id: R-41493
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :introduced: dublin
     :updated: frankfurt
+    :validation_mode: static
 
     When the VNF's Heat Orchestration Template's resource
     ``OS::Neutron::Port`` is attaching to an ONAP external network
@@ -1531,8 +1531,8 @@ and ``OS::Neutron::FloatingIPAssociation``.
     :id: R-05257
     :target: VNF
     :keyword: MUST NOT
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's **MUST NOT**
     contain the Resource ``OS::Neutron::FloatingIP``.
@@ -1541,8 +1541,8 @@ and ``OS::Neutron::FloatingIPAssociation``.
     :id: R-76449
     :target: VNF
     :keyword: MUST NOT
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's **MUST NOT**
     contain the Resource ``OS::Neutron::FloatingIPAssociation``.
@@ -1623,11 +1623,11 @@ VIP Assignment, ONAP Internal Networks
 
 .. req::
     :id: R-717227
+    :target: VNF
     :keyword: MUST
     :introduced: dublin
-    :validation_mode: static
-    :target: VNF
     :updated: frankfurt
+    :validation_mode: static
 
     When the VNF's Heat Orchestration Template's Resource
     ``OS::Neutron::Port`` is attaching to an ONAP internal network (per the
@@ -1670,11 +1670,11 @@ VIP Assignment, ONAP Internal Networks
 
 .. req::
     :id: R-805572
+    :target: VNF
     :keyword: MUST
     :introduced: dublin
-    :validation_mode: static
-    :target: VNF
     :updated: frankfurt
+    :validation_mode: static
 
     When the VNF's Heat Orchestration Template's Resource
     ``OS::Neutron::Port`` is attaching to an ONAP internal network (per the

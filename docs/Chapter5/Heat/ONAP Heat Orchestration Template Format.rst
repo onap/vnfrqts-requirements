@@ -5,15 +5,15 @@
 .. _ONAP Heat Orchestration Template Format:
 
 ONAP Heat Orchestration Template Format
-------------------------------------------------
+---------------------------------------
 As stated above, Heat Orchestration templates must be defined in YAML.
 
 .. req::
     :id: R-92635
-    :keyword: MUST
-    :validation_mode: static
-    :introduced: casablanca
     :target: VNF
+    :keyword: MUST
+    :introduced: casablanca
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template **MUST** be compliant with the
     OpenStack Template Guide.
@@ -22,7 +22,7 @@ The OpenStack Template Guide is defined at
 https://docs.openstack.org/heat/latest/template_guide/index.html#top.
 
 Heat Orchestration Template Structure
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Heat Orchestration template structure follows the following format, as
 defined by OpenStack at
@@ -52,13 +52,13 @@ https://docs.openstack.org/developer/heat/template_guide/hot_spec.html.
 
 
 heat_template_version
-~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
 
 
 .. req::
     :id: R-27078
-    :keyword: MUST
     :target: VNF
+    :keyword: MUST
     :validation_mode: static
 
     A VNF's Heat Orchestration template **MUST** contain the
@@ -68,33 +68,33 @@ The section ``heat_template_version:`` must be set to a date that
 is supported by the OpenStack environment.
 
 description
-~~~~~~~~~~~~
+~~~~~~~~~~~
 
 
 .. req::
     :id: R-39402
+    :target: VNF
     :keyword: MUST
     :validation_mode: static
-    :target: VNF
 
     A VNF's Heat Orchestration Template **MUST** contain the
     section ``description:``.
 
 parameter_groups
-~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~
 
 A VNF Heat Orchestration template may
 contain the section "parameter_groups:".
 
 parameters
-~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~
 
 .. req::
     :id: R-35414
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: frankfurt
+    :validation_mode: static
 
     A VNF Heat Orchestration's template
     **MUST** contain the section ``parameters:`` with at least one
@@ -137,8 +137,8 @@ attributes (e.g., type, label) defined as nested elements.
     :id: R-90279
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: frankfurt
+    :validation_mode: static
 
     A VNF Heat Orchestration's template's parameter **MUST** be used
 
@@ -163,7 +163,7 @@ That is, the parameter associated with the property ``availability_zone``
 maybe declared but not used in a resource.
 
 <param name>
-+++++++++++++
+++++++++++++
 
 The name of the parameter.
 
@@ -195,8 +195,8 @@ type
     :id: R-11441
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's parameter type **MUST** be one of
     the following values:
@@ -208,7 +208,7 @@ type
     * ``boolean``
 
 label
-++++++
++++++
 
 
 .. req::
@@ -221,7 +221,7 @@ label
     contain the attribute ``label:``.
 
 description
-+++++++++++++
++++++++++++
 
 
 .. req::
@@ -238,13 +238,13 @@ attribute that provides a description of the parameter.
 ONAP implementation requires this attribute.
 
 default
-++++++++
++++++++
 
 
 .. req::
     :id: R-90526
     :target: VNF
-    :keyword: MUST
+    :keyword: MUST NOT
     :validation_mode: static
 
     A VNF Heat Orchestration Template parameter declaration **MUST NOT**
@@ -254,8 +254,8 @@ default
     :id: R-26124
     :target: VNF
     :keyword: MUST
-    :validation_mode: none
     :updated: casablanca
+    :validation_mode: none
 
     If a VNF Heat Orchestration Template parameter has a default value,
     it **MUST** be enumerated in the environment file.
@@ -265,7 +265,7 @@ attribute that declares the default value of the parameter.
 ONAP implementation prohibits the use of this attribute.
 
 hidden
-+++++++
+++++++
 
 
 .. req::
@@ -283,7 +283,7 @@ information about a stack created from the template.
 This attribute can be used to hide passwords specified as parameters.
 
 constraints
-++++++++++++
++++++++++++
 
 The parameter attribute ``constraints:`` is an OpenStack optional attribute
 that defines a list of constraints to apply to the parameter.
@@ -293,8 +293,8 @@ that defines a list of constraints to apply to the parameter.
     :id: R-88863
     :target: VNF
     :keyword: MAY
-    :validation_mode: none
     :updated: dublin
+    :validation_mode: none
 
     A VNF's Heat Orchestration Template's parameter defined
     in a non-nested YAML file as type
@@ -344,8 +344,8 @@ that defines a list of constraints to apply to the parameter.
     :id: R-00011
     :target: VNF
     :keyword: SHOULD NOT
-    :validation_mode: static
     :updated: dublin
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's parameter defined
     in a nested YAML file
@@ -424,7 +424,7 @@ Alternatively, the following YAML list notation can be used
       - ...
 
 immutable
-++++++++++++
++++++++++
 
 
 .. req::
@@ -441,12 +441,12 @@ stack update fails if ``immutable`` is set to ``true`` and the parameter
 value is changed.  This attribute ``immutable`` defaults to ``false``.
 
 tags
-++++++++++++
+++++
 
 .. req::
     :id: R-225891
-    :keyword: MAY
     :target: VNF
+    :keyword: MAY
     :introduced: el alto
 
     A VNF's Heat Orchestration Template parameter declaration
@@ -456,7 +456,7 @@ tags
 .. _resources:
 
 resources
-~~~~~~~~~~~~
+~~~~~~~~~
 
 .. req::
     :id: R-23663
@@ -478,8 +478,8 @@ a resource.
     :id: R-23664
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: frankfurt
+    :validation_mode: static
 
     A VNF's Heat Orchestration template's incremental
     module and volume module **MUST**
@@ -535,7 +535,7 @@ separate block in the resources section with the following syntax.
 
 
 resource ID
-+++++++++++++
++++++++++++
 
 .. req::
     :id: R-75141
@@ -564,7 +564,7 @@ Heat Orchestration Template and not unique across all Heat
 Orchestration Templates the compose the VNF.
 
 type
-+++++
+++++
 
 The resource attribute ``type`` is an OpenStack required attribute that
 defines the resource type, such as ``OS::Nova::Server`` or
@@ -593,7 +593,7 @@ Orchestration Template Nested YAML file.
     **MUST NOT** reference a HTTP-based Nested YAML file.
 
 properties
-+++++++++++++
+++++++++++
 
 The resource attribute ``properties`` is an OpenStack optional attribute that
 provides a list of resource-specific properties. The property value can
@@ -605,8 +605,8 @@ be provided in place, or via a function
     :id: R-10834
     :target: VNF
     :keyword: MUST NOT
-    :validation_mode: static
     :updated: el alto
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template resource attribute ``property:``
     **MUST NOT** use more than two levels of nested ``get_param`` intrinsic
@@ -627,7 +627,7 @@ be provided in place, or via a function
 
 
 metadata
-++++++++++
+++++++++
 
 The resource attribute ``metadata`` is an OpenStack optional attribute.
 
@@ -635,14 +635,14 @@ The resource attribute ``metadata`` is an OpenStack optional attribute.
     :id: R-67386
     :target: VNF
     :keyword: MAY
-    :validation_mode: static
     :introduced: casablanca
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's Resource **MAY** declare the
     attribute ``metadata``.
 
 depends_on
-+++++++++++
+++++++++++
 
 The resource attribute ``depends_on`` is an OpenStack optional attribute.
 See `Section <https://docs.openstack.org/developer/heat/template_guide/hot_spec.html#hot-spec-resources-dependencies>`__ 9.7 for additional details.
@@ -656,7 +656,7 @@ See `Section <https://docs.openstack.org/developer/heat/template_guide/hot_spec.
     attribute ``depends_on:``.
 
 update_policy
-++++++++++++++
++++++++++++++
 
 
 .. req::
@@ -668,7 +668,7 @@ update_policy
     attribute ``update_policy:``.
 
 deletion_policy
-+++++++++++++++++++
++++++++++++++++
 
 
 .. req::
@@ -689,7 +689,7 @@ The default policy is to delete the physical resource when
 deleting a resource from the stack.
 
 external_id
-++++++++++++
++++++++++++
 
 
 .. req::
@@ -711,12 +711,12 @@ heat when stack is deleted.
 
 
 condition
-+++++++++++
++++++++++
 
 The resource attribute ``condition`` is an OpenStack optional attribute.
 
 outputs
-~~~~~~~~~
+~~~~~~~
 
 
 .. req::
@@ -734,7 +734,7 @@ See :ref:`Output Parameters` and
 :ref:`ONAP Output Parameter Names` for additional details.
 
 Environment File Format
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^
 
 A VNF's Heat Orchestration Template's environment file is a yaml text file.
 (https://docs.openstack.org/developer/heat/template_guide/environment.html)
@@ -744,8 +744,8 @@ A VNF's Heat Orchestration Template's environment file is a yaml text file.
     :id: R-86285
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     A VNF's Heat Orchestration template **MUST** have a
     corresponding environment file.
@@ -760,8 +760,8 @@ the mandatory parameter section.
     :id: R-03324
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     A VNF's Heat Orchestration template's Environment File **MUST**
     contain the ``parameters:`` section.

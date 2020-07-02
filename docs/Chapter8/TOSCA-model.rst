@@ -17,7 +17,7 @@ TOSCA model
 -----------
 
 Table D1. ONAP Resource DM TOSCA/YAML constructs
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Standard TOSCA/YAML definitions agreed by VNF SDK Modeling team to be used by
 VNF vendors to create a standard VNF descriptor.
@@ -84,7 +84,7 @@ ETSI GS NFV-SOL001 stable draft for VNF-D.
 
 
 Table D2. TOSCA CSAR structure
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This section defines the requirements around the CSAR structure.
 

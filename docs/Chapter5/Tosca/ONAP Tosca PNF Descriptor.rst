@@ -32,7 +32,7 @@ General
 
 
 Data Types
-^^^^^^^^^^^^^^
+^^^^^^^^^^
 
 .. req::
     :id: R-484843
@@ -63,7 +63,7 @@ No artifact type is currently supported in ONAP.
 
 
 Capability Types
-^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^
 
 .. req::
     :id: R-177937
@@ -78,11 +78,11 @@ Capability Types
 
 
 Requirements Types
-^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^
 
 
 Relationship Types
-^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^
 
 .. req::
     :id: R-64064
@@ -97,13 +97,13 @@ Relationship Types
 
 
 Interface Types
-^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^
 
 No interface type is currently supported in ONAP.
 
 
 Node Types
-^^^^^^^^^^^^^^
+^^^^^^^^^^
 
 .. req::
     :id: R-535009
@@ -123,13 +123,13 @@ Node Types
 
 
 Group Types
-^^^^^^^^^^^^^^
+^^^^^^^^^^^
 
 No group type is currently supported in ONAP.
 
 
 Policy Types
-^^^^^^^^^^^^^^
+^^^^^^^^^^^^
 
 .. req::
     :id: R-596064

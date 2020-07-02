@@ -97,7 +97,7 @@ events in a way that can be compiled or interpreted by applications
 across a Service Provider's infrastructure.
 
 Relation to the Common Event Format
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The Common Event Format described in the VES Event Listener service
 specification defines the structure of VES events including optional
@@ -123,7 +123,7 @@ value (e.g., ``MINOR``), or to a subset of the possible enumerated values
 allowed by the Common Event Format (e.g., ``MINOR`` or ``NORMAL``).
 
 Relation to Service Design and Creation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Event registration for a VNF (or other event source) is provided to the
 Service Provider's Service Creation and Design Environment (e.g., SDC)
@@ -548,7 +548,7 @@ Examples:
 
 
 HeartbeatAction
-++++++++++++++++
++++++++++++++++
 
 The ``heartbeatAction`` keyword is provided on the ``event`` objectName for
 heartbeat events only. It provides design time guidance to the service
@@ -628,7 +628,7 @@ Examples:
     }
 
 Presence
-+++++++++
+++++++++
 
 The ``presence`` keyword may be defined as 'required' or 'optional'. If
 not provided, the element is assumed to be 'optional'.
@@ -649,7 +649,7 @@ Examples:
     # by omitting a presence definition, the element is assumed to be optional
 
 Range
-+++++++
++++++
 
 The ``range`` keyword applies to fields (i.e., simpleTypes); indicates the
 value of the field is a number within a specified range of values from
@@ -675,7 +675,7 @@ Examples:
     fieldname: { range: [ 0, 3.14 ] }
 
 Structure
-++++++++++
++++++++++
 
 The ``structure`` keyword indicates that the element is a complexType
 (i.e., an object) and is followed by curly braces containing that
@@ -699,7 +699,7 @@ Example:
     }
 
 Units
-+++++++
++++++
 
 The ``units`` qualifier may be applied to values provided in VES Common
 Event Format extensible field structures. The 'units' qualifier
@@ -720,7 +720,7 @@ Example:
     }
 
 Value
-+++++++
++++++
 
 The ``value`` keyword applies to fields (i.e., simpleTypes); indicates a
 single value or an enumeration of possible values. If not provided, it
@@ -823,7 +823,7 @@ preceding event definitions. For example:
     ...
 
 Rules Syntax and Semantics
-++++++++++++++++++++++++++++
+++++++++++++++++++++++++++
 
 The YAML ``rules`` document begins with the keyword ``rules`` followed by a
 colon and square brackets. Each rule is then defined within the square
@@ -850,7 +850,7 @@ Notes:
   microservices and alerts may be specified.
 
 Simple Triggers
-++++++++++++++++
++++++++++++++++
 
 The trigger is based on the named ``conditions`` asserted in the action
 qualifiers within the event definitions earlier in the YAML file. The
@@ -892,7 +892,7 @@ the action on). Future versions of this document may provide more
 clarity.
 
 Time Based Qualifiers
-+++++++++++++++++++++++
++++++++++++++++++++++
 
 Time based rules may be established by following any named condition
 with a colon and curly braces. The time based rule is placed in the
@@ -918,7 +918,7 @@ minutes AND condition C is in effect.
 .. _PM_Dictionary:
 
 PM Dictionary
-~~~~~~~~~~~~~~
+~~~~~~~~~~~~~
 
 The Performance Management (PM) Dictionary is used by analytics
 applications to interpret and process perf3gpp measurement information
@@ -1556,7 +1556,7 @@ indent-style YAML formats
 .. _FM_meta_data:
 
 FM Meta Data
-~~~~~~~~~~~~~
+~~~~~~~~~~~~
 
 FM Meta Data enables vendors to provide meta information about FM events
 using a set of standard keywords. FM Meta Data is conveyed in the YAML
@@ -1578,7 +1578,7 @@ Successive keywords must be separated by commas. These conventions will
 make machine processing of FM Meta Data Keywords easier to perform.
 
 Alarm Meta Data Keywords
-++++++++++++++++++++++++++++
+++++++++++++++++++++++++
 
 The following is a list of standard Alarm Meta Data Keywords. Note: the
 keywords are in CAPS so they can be easily found within the YAML
@@ -1648,7 +1648,7 @@ comments. R / O refers to recommended / optional.
 +------------+---------+-----------------------------------------------------+
 
 Fault Meta Data Keywords
-+++++++++++++++++++++++++
+++++++++++++++++++++++++
 
 The following is a list of standard Fault Meta Data Keywords. Note: the
 keywords are in CAPS so they can be easily found within the YAML
@@ -1683,7 +1683,7 @@ comments. R / O refers to recommended / optional.
 +------------------------+---------+------------------------------------------+
 
 FM Meta Data Example
-+++++++++++++++++++++
+++++++++++++++++++++
 
 The following is a snippet of a fault event registration showing use of
 the FM Meta Data keywords. Note: it is recommended the information be
@@ -1804,7 +1804,7 @@ breaks that interrupt this single file; they were added to make it
 easier to rapidly find examples of different types of events.
 
 Fault
-~~~~~~
+~~~~~
 
 .. code-block:: yaml
 
@@ -1892,7 +1892,7 @@ Fault
     }
 
 Heartbeat
-~~~~~~~~~~
+~~~~~~~~~
 
 .. code-block:: yaml
 
@@ -1934,7 +1934,7 @@ Heartbeat
 
 
 Measurements
-~~~~~~~~~~~~~
+~~~~~~~~~~~~
 
 .. code-block:: yaml
 
@@ -2653,7 +2653,7 @@ Mobile Flow
 
 
 Sip Signaling
-~~~~~~~~~~~~~~
+~~~~~~~~~~~~~
 
 .. code-block:: yaml
 
@@ -2721,7 +2721,7 @@ Sip Signaling
 
 
 Voice Quality
-~~~~~~~~~~~~~~
+~~~~~~~~~~~~~
 
 .. code-block:: yaml
 
@@ -2819,7 +2819,7 @@ Voice Quality
 
 
 Rules
-~~~~~~
+~~~~~
 
 .. code-block:: yaml
 
@@ -2840,7 +2840,7 @@ Rules
 
 
 Appendix: Historical Change Log
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 For the latest changes, see the Change Block just before the Table of
 Contents.

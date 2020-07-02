@@ -3,7 +3,7 @@
 .. Copyright 2017 AT&T Intellectual Property.  All rights reserved.
 
 Resource Property "name"
-----------------------------
+------------------------
 
 The parameter naming convention of the property ``name`` for the resource
 ``OS::Nova::Server`` has been defined in
@@ -18,8 +18,8 @@ some resources do not support the property.
     :id: R-85734
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: dublin
+    :validation_mode: static
 
     If a VNF's Heat Orchestration Template contains the property ``name``
     for a non ``OS::Nova::Server`` resource, the intrinsic function
@@ -47,8 +47,8 @@ construct a unique value.
     :id: R-99812
     :target: VNF
     :keyword: MUST NOT
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     A value for VNF's Heat Orchestration Template's property ``name``
     for a non ``OS::Nova::Server`` resource **MUST NOT** be declared
@@ -109,7 +109,7 @@ construct a unique value.
   . . . .
 
 Contrail Issue with Values for the Property Name
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 .. req::
