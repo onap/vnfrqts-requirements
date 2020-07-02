@@ -1917,7 +1917,7 @@ performs a full VNF or PNF health check.
     :target: VNF or PNF Provider
     :keyword: MUST
     :introduced: frankfurt
-    :update: guilin
+    :updated: guilin
 
     The VNF or PNF Provider's Ansible playbooks **MUST** store any playbook
     configuration data that requires encryption (passwords, secrets, etc.) in
