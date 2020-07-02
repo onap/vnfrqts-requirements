@@ -4,7 +4,7 @@
 
 
 Resource: OS::Nova::Server - Parameters
------------------------------------------------------------------------
+---------------------------------------
 
 The OS::Nova::Server resource manages the running virtual machine (VM)
 instance within an OpenStack cloud. (See
@@ -28,9 +28,9 @@ Requirement R-01455 defines how the ``{vm-type]`` is defined.
     :id: R-304011
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :introduced: casablanca
     :updated: el alto
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource's
 
@@ -75,8 +75,8 @@ Property: image
     :id: R-901331
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :introduced: casablanca
+    :validation_mode: static
 
     The VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``
     property ``image`` value **MUST** be be obtained via a ``get_param``.
@@ -85,8 +85,8 @@ Property: image
     :id: R-71152
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     The VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``
     property
@@ -96,8 +96,8 @@ Property: image
     :id: R-58670
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     The VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``
     property
@@ -108,8 +108,8 @@ Property: image
     :id: R-91125
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     The VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``
     property
@@ -120,8 +120,8 @@ Property: image
     :id: R-57282
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     Each VNF's Heat Orchestration Template's ``{vm-type}`` **MUST**
     have a unique parameter name for the ``OS::Nova::Server`` property
@@ -139,15 +139,15 @@ Property: image
 .. _Property flavor:
 
 Property: flavor
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^
 
 
 .. req::
     :id: R-481670
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :introduced: casablanca
+    :validation_mode: static
 
     The VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``
     property ``flavor`` value **MUST** be be obtained via a ``get_param``.
@@ -156,8 +156,8 @@ Property: flavor
     :id: R-50436
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     The VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``
     property
@@ -167,8 +167,8 @@ Property: flavor
     :id: R-45188
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     The VNF's Heat Orchestration Template's Resource 'OS::Nova::Server' property
     ``flavor`` parameter name **MUST** follow the naming convention
@@ -178,8 +178,8 @@ Property: flavor
     :id: R-69431
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     The VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``
     property
@@ -190,8 +190,8 @@ Property: flavor
     :id: R-40499
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     Each VNF's Heat Orchestration Template's ``{vm-type}`` **MUST**
     have a unique parameter name for the ``OS::Nova::Server`` property
@@ -207,15 +207,15 @@ Property: flavor
          description: {vm-type} flavor
 
 Property: Name
-^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^
 
 
 .. req::
     :id: R-663631
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :introduced: casablanca
+    :validation_mode: static
 
     The VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``
     property ``name`` value **MUST** be be obtained via a ``get_param``.
@@ -224,8 +224,8 @@ Property: Name
     :id: R-51430
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     The VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``
     property
@@ -236,8 +236,8 @@ Property: Name
     :id: R-54171
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: dublin
+    :validation_mode: static
 
     When the VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``
     property ``name`` parameter is defined as a ``string``,
@@ -252,8 +252,8 @@ Property: Name
     :id: R-87817
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     When the VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``
     property ``name`` parameter is defined as a ``comma_delimited_list``,
@@ -264,8 +264,8 @@ Property: Name
     :id: R-22838
     :target: VNF
     :keyword: MUST NOT
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     The VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``
     property
@@ -348,7 +348,7 @@ In this example, the {vm-type} has been defined as "lb" for load balancer.
         ...
 
 Contrail Issue with Values for OS::Nova::Server Property Name
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 .. req::
@@ -374,8 +374,8 @@ Property: availability_zone
     :id: R-98450
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: el alto
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's base module or incremental module
     resource ``OS::Nova::Server``
@@ -392,8 +392,8 @@ Property: availability_zone
     :id: R-23311
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: el alto
+    :validation_mode: static
 
     The VNF's Heat Orchestration Template's base module or incremental module
     resource ``OS::Nova::Server`` property
@@ -406,8 +406,8 @@ not support it.
     :id: R-59568
     :target: VNF
     :keyword: MUST NOT
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     The VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``
     property
@@ -420,8 +420,8 @@ not support it.
     :id: R-256790
     :target: VNF
     :keyword: MAY
-    :validation_mode: none
     :introduced: el alto
+    :validation_mode: none
 
     A VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``
     property ``availability_zone`` parameter name **MAY** change when
@@ -454,7 +454,7 @@ for the OS::Nova::Server resource property availability_zone.
     resources in the Heat Orchestration Template.
 
 Example
-^^^^^^^^^^^
+^^^^^^^
 
 The example below depicts part of a Heat Orchestration Template that
 uses the four ``OS::Nova::Server`` properties discussed in this section.
@@ -549,7 +549,7 @@ a string for ``oam``.
   . . .
 
 Boot Options
-^^^^^^^^^^^^^^^
+^^^^^^^^^^^^
 
 
 .. req::
@@ -566,8 +566,8 @@ Boot Options
     :id: R-83706
     :target: VNF
     :keyword: MUST
-    :validation_mode: none
     :updated: casablanca
+    :validation_mode: none
 
     When a VNF's Heat Orchestration Template's Virtual Machine
     (i.e., ``OS::Nova::Server`` resource) boots from an image, the
@@ -581,8 +581,8 @@ the 'image' property are detailed in `Property: image`_
     :id: R-69588
     :target: VNF
     :keyword: MUST
-    :validation_mode: none
     :updated: casablanca
+    :validation_mode: none
 
     When a VNF's Heat Orchestration Template's Virtual Machine
     (i.e., ``OS::Nova::Server`` Resource) boots from Cinder Volume, the

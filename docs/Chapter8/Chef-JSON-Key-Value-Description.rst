@@ -14,13 +14,13 @@
 
 
 Chef JSON Key Value Description
--------------------------------------
+-------------------------------
 
 The following provides the key value pairs that must be contained in the
 JSON file supporting Chef action.
 
 Table A1. Chef JSON File key value description
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 +----------------+--------------------------+---------+----------------------+
 | **Field Name** | **Description**          | **Type**| **Comment**          |
@@ -145,7 +145,7 @@ b. If a VNF action involves multiple endpoints (VMs) of a VNF, ONAP will
 The following table describes the JSON dictionary to post in Callback.
 
 Table A2. JSON Dictionary to Post in Callback
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 +--------------+----------------------------+---------+-----------------------+
 | **Key**      | **Description**            | **Type**| **Comment**           |

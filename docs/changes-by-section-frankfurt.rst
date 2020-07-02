@@ -14,7 +14,7 @@
 
 
 Requirement Changes Introduced in Frankfurt
-========================================================
+-------------------------------------------
 
 This document summarizes the requirement changes by section that were
 introduced between the El Alto release and
@@ -25,7 +25,7 @@ navigate to the
     :depth: 2
 
 Summary of Changes
-------------------
+^^^^^^^^^^^^^^^^^^
 
 * **Requirements Added:** 22
 * **Requirements Changed:** 129
@@ -33,7 +33,7 @@ Summary of Changes
 
 
 Configuration Management
-------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Added
@@ -50,7 +50,7 @@ Requirements Added
 
 
 Configuration Management > Ansible Standards and Capabilities > VNF or PNF Configuration via Ansible Requirements > Ansible Client Requirements
------------------------------------------------------------------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -68,7 +68,7 @@ Requirements Changed
 
 
 Configuration Management > Ansible Standards and Capabilities > VNF or PNF Configuration via Ansible Requirements > Ansible Playbook Requirements
--------------------------------------------------------------------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Added
@@ -229,7 +229,7 @@ Requirements Changed
 
 
 Configuration Management > NETCONF Standards and Capabilities > VNF or PNF Configuration via NETCONF Requirements > LCM Operations via NETCONF
-----------------------------------------------------------------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Added
@@ -248,7 +248,7 @@ Requirements Added
 
 
 Configuration Management > NETCONF Standards and Capabilities > VNF or PNF Configuration via NETCONF Requirements > NETCONF Server Requirements
------------------------------------------------------------------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -266,7 +266,7 @@ Requirements Changed
 
 
 Contrail Resource Parameters > Contrail Network Parameters > ONAP External Networks
------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -303,7 +303,7 @@ Requirements Changed
 
 
 Contrail Resource Parameters > OS::ContrailV2::VirtualMachineInterface Property virtual_machine_interface_allowed_address_pairs > ONAP External Networks
---------------------------------------------------------------------------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -445,7 +445,7 @@ Requirements Changed
 
 
 Contrail Resource Parameters > OS::ContrailV2::VirtualMachineInterface Property virtual_machine_interface_allowed_address_pairs > ONAP Internal Networks
---------------------------------------------------------------------------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -548,7 +548,7 @@ Requirements Changed
 
 
 Contrail Resource Parameters > Resource OS::ContrailV2::InstanceIp > Resource OS::ContrailV2::InstanceIp Property instance_ip_address
--------------------------------------------------------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -797,7 +797,7 @@ Requirements Changed
 
 
 Contrail Resource Parameters > Resource OS::ContrailV2::InstanceIp > Resource OS::ContrailV2::InstanceIp Property subnet_uuid
------------------------------------------------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -899,7 +899,7 @@ Requirements Changed
 
 
 Monitoring & Management > Data Structure Specification of the Event Record
---------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -919,7 +919,7 @@ Requirements Changed
 
 
 ONAP Heat Heat Template Constructs > Nested Heat Templates > Nested Heat Template Requirements
-----------------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -937,7 +937,7 @@ Requirements Changed
 
 
 ONAP Heat Networking > External Networks
-----------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -985,7 +985,7 @@ Requirements Changed
 
 
 ONAP Heat Networking > Internal Networks
-----------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -1081,7 +1081,7 @@ Requirements Changed
 
 
 ONAP Heat Orchestration Template Format > Heat Orchestration Template Structure > parameters
---------------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Added
@@ -1122,7 +1122,7 @@ Requirements Changed
 
 
 ONAP Heat Orchestration Template Format > Heat Orchestration Template Structure > resources
--------------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Added
@@ -1152,7 +1152,7 @@ Requirements Changed
 
 
 Resource IDs
-------------
+^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -1251,7 +1251,7 @@ Requirements Changed
 
 
 Resource IDs > Contrail Heat Resources Resource ID Naming Convention > OS::ContrailV2::InstanceIp
--------------------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -1419,7 +1419,7 @@ Requirements Changed
 
 
 Resource IDs > Contrail Heat Resources Resource ID Naming Convention > OS::ContrailV2::NetworkIpam
---------------------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -1440,7 +1440,7 @@ Requirements Changed
 
 
 Resource IDs > Contrail Heat Resources Resource ID Naming Convention > OS::ContrailV2::VirtualMachineInterface
---------------------------------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -1510,7 +1510,7 @@ Requirements Changed
 
 
 Resource IDs > Contrail Heat Resources Resource ID Naming Convention > OS::ContrailV2::VirtualNetwork
------------------------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -1535,7 +1535,7 @@ Requirements Changed
 
 
 Resource IDs > OpenStack Heat Resources Resource ID Naming Convention > OS::Neutron::Net
-----------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -1559,7 +1559,7 @@ Requirements Changed
 
 
 Resource IDs > OpenStack Heat Resources Resource ID Naming Convention > OS::Neutron::Port
------------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -1673,7 +1673,7 @@ Requirements Changed
 
 
 Resource IDs > OpenStack Heat Resources Resource ID Naming Convention > OS::Neutron::SecurityGroup
---------------------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -1796,7 +1796,7 @@ Requirements Changed
 
 
 Resource IDs > OpenStack Heat Resources Resource ID Naming Convention > OS::Neutron::Subnet
--------------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -1823,7 +1823,7 @@ Requirements Changed
 
 
 Resource IDs > OpenStack Heat Resources Resource ID Naming Convention > OS::Nova::Keypair
------------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -1865,7 +1865,7 @@ Requirements Changed
 
 
 Resource: OS::Neutron::Port - Parameters > Introduction > Items to Note
------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -1925,7 +1925,7 @@ Requirements Changed
 
 
 Resource: OS::Neutron::Port - Parameters > Property: allowed_address_pairs, Map Property: ip_address > VIP Assignment, ONAP External Networks
----------------------------------------------------------------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -2019,7 +2019,7 @@ Requirements Changed
 
 
 Resource: OS::Neutron::Port - Parameters > Property: allowed_address_pairs, Map Property: ip_address > VIP Assignment, ONAP Internal Networks
----------------------------------------------------------------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -2114,7 +2114,7 @@ Requirements Changed
 
 
 Resource: OS::Neutron::Port - Parameters > Property: fixed_ips, Map Property: ip_address
-----------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -2354,7 +2354,7 @@ Requirements Changed
 
 
 Resource: OS::Neutron::Port - Parameters > Property: fixed_ips, Map Property: subnet
-------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -2456,7 +2456,7 @@ Requirements Changed
 
 
 Resource: OS::Neutron::Port - Parameters > Property: network
-------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -2502,7 +2502,7 @@ Requirements Changed
 
 
 Resource: OS::Nova::Server Metadata Parameters > vf_module_index
-----------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Added
@@ -2530,7 +2530,7 @@ Requirements Added
 
 
 VNF Security > VNF General Security Requirements
-------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Added
@@ -2657,7 +2657,7 @@ Requirements Removed
 
 
 VNF Security > VNF Identity and Access Management Requirements
---------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Added
@@ -2828,7 +2828,7 @@ Requirements Removed
 
 
 VNF and PNF On-boarding and package management > Resource Configuration
------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -2845,7 +2845,7 @@ Requirements Changed
 
 
 VNF or PNF CSAR Package > VNF or PNF Package Contents
------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Added
@@ -2968,7 +2968,7 @@ Requirements Changed
 
 
 VNF or PNF CSAR Package > VNF or PNF Package Structure and Format
------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Requirements Changed
@@ -2995,7 +2995,7 @@ Requirements Changed
 
 
 {network-role}
---------------
+^^^^^^^^^^^^^^
 
 
 Requirements Changed

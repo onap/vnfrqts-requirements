@@ -14,7 +14,7 @@
 
 
 VNF Devops
----------------------
+----------
 
 This section includes guidelines for VNF providers to ensure that a Network
 Cloud Service Provider’s operations personnel have a common and

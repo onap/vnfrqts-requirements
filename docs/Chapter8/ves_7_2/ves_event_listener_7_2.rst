@@ -199,7 +199,7 @@ the API spec is provided below:
 .. _ves_common_event_format_7_2:
 
 Common Event Format
-^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^
 
 A JSON schema describing the Common Event Format is provided below and
 is reproduced in the tables that follow.
@@ -231,10 +231,10 @@ Note on extensible fields:
    capitalized.
 
 Common Event Datatypes
-~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
 
 Datatype: arrayOfJsonObject
-++++++++++++++++++++++++++++
++++++++++++++++++++++++++++
 
 The arrayOfJsonObject datatype provides an array of json objects, each
 of which is describ ed by name, schema and other meta-information. It
@@ -247,7 +247,7 @@ consists of the following fields:
 +---------------------+------------------+----------+----------------------+
 
 Datatype: arrayOfNamedHashMap
-++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++
 
 The arrayOfNamedHashMap datatype provides an array of hashMaps, each of
 which is associated with a descriptive name. It consists of the
@@ -260,7 +260,7 @@ following fields:
 +---------------------+------------------+-----------+-----------------------+
 
 Datatype: event
-++++++++++++++++
++++++++++++++++
 
 The event datatype consists of the following fields which constitute the
 ‘root level’ of the common event format:
@@ -315,7 +315,7 @@ The event datatype consists of the following fields which constitute the
 +--------------+--------------+-----------+-----------------------------------+
 
 Datatype: eventList
-++++++++++++++++++++
++++++++++++++++++++
 
 The eventList datatype consists of the following fields:
 
@@ -326,7 +326,7 @@ The eventList datatype consists of the following fields:
 +-------------+-------------+----------+-------------------+
 
 Datatype: hashMap
-+++++++++++++++++++
++++++++++++++++++
 
 The hashMap datatype is an ‘associative array’, which is an unordered
 collection of key-value pairs of the form "key": "value", where each key
@@ -365,7 +365,7 @@ the schema:
 +--------------+--------------+-----------+----------------------------------+
 
 Datatype: jsonObjectInstance
-+++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++
 
 The jsonObjectInstance datatype provides meta-information about an
 instance of a jsonObject along with the actual object instance:
@@ -392,7 +392,7 @@ instance of a jsonObject along with the actual object instance:
 +----------------+------------+----------+-----------------------------------+
 
 Datatype: key
-+++++++++++++++
++++++++++++++
 
 The key datatype is a tuple which provides the name of a key along with
 its value and relative order; it consists of the following fields:
@@ -409,7 +409,7 @@ its value and relative order; it consists of the following fields:
 +----------+---------+-----------+-------------------------------------------+
 
 Datatype: namedHashMap
-++++++++++++++++++++++++
+++++++++++++++++++++++
 
 The namedHashMap datatype is a hashMap which is associated with and
 described by a name; it consists of the following fields:
@@ -424,7 +424,7 @@ described by a name; it consists of the following fields:
 +---------+---------+-----------+--------------------------------------------+
 
 Datatype: requestError
-+++++++++++++++++++++++
+++++++++++++++++++++++
 
 The requestError datatype defines the standard request error data
 structure:
@@ -454,7 +454,7 @@ structure:
 +-----------+--------+-----------+-------------------------------------------+
 
 Datatype: vendorNfNameFields
-+++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++
 
 The vendorNfNameFields provides vendor, nf and nfModule identifying
 information:
@@ -477,7 +477,7 @@ Common Event Header Data Types
 .. _ves_common_event_header_7_2:
 
 Datatype: commonEventHeader
-++++++++++++++++++++++++++++
++++++++++++++++++++++++++++
 
 The commonEventHeader datatype consists of the following fields common
 to all events:
@@ -843,10 +843,10 @@ Rules:
 
 
 Technology Independent Datatypes
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ‘Fault’ Domain Datatypes
-+++++++++++++++++++++++++
+++++++++++++++++++++++++
 
 Datatype: faultFields
 *********************
@@ -919,7 +919,7 @@ The faultFields datatype consists of the following fields:
 +-----------------+---------+-----------+-------------------------------------+
 
 Heartbeat’ Domain Datatypes
-++++++++++++++++++++++++++++
++++++++++++++++++++++++++++
 
 Datatype: heartbeatFields
 *************************
@@ -943,7 +943,7 @@ specific to heartbeat events; it consists of the following fields:
 +---------------+---------+-----------+---------------------------------------+
 
 ‘Measurements’ Domain Datatypes
-++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++
 
 Note: NFs are required to report exactly one Measurement event per
 period per sourceName.
@@ -964,7 +964,7 @@ measurementInterval:
 +------------------+-----------+----------+--------------------------------+
 
 Datatype: cpuUsage
-*******************
+******************
 
 The cpuUsage datatype defines the usage of an identifier CPU and
 consists of the following fields:
@@ -1034,7 +1034,7 @@ consists of the following fields:
 +------------+--------+-----------+-------------------------------------------+
 
 Datatype: diskUsage
-********************
+*******************
 
 The diskUsage datatype defines the usage of a disk and consists of the
 following fields:
@@ -1298,7 +1298,7 @@ following fields:
 +-------------+-------+----------+--------------------------------------------+
 
 Datatype: filesystemUsage
-***************************
+*************************
 
 The filesystemUsage datatype consists of the following fields:
 
@@ -1327,7 +1327,7 @@ The filesystemUsage datatype consists of the following fields:
 +-------------+--------+-----------+------------------------------------------+
 
 Datatype: hugePages
-********************
+*******************
 
 The hugePages datatype provides metrics on system hugePages; it consists
 of the following fields:
@@ -1351,7 +1351,7 @@ of the following fields:
 +--------------------+--------+----------+------------------------------------+
 
 Datatype: ipmi (Intelligent Platform Management Interface)
-***********************************************************
+**********************************************************
 
 The ipmi datatype provides intelligent platform management interface
 metrics; it consists of the following fields:
@@ -1406,7 +1406,7 @@ metrics; it consists of the following fields:
 +-------------+---------------------+-----------+-----------------------------+
 
 Datatype: ipmiBaseboardTemperature
-************************************
+**********************************
 
 The ipmiBaseboardTemperature datatype consists of the following fields
 which describe ipmi baseboard temperature metrics:
@@ -1423,7 +1423,7 @@ which describe ipmi baseboard temperature metrics:
 +-------------+--------+-----------+------------------------------------------+
 
 Datatype: ipmiBaseboardVoltageRegulator
-*****************************************
+***************************************
 
 The ipmiBaseboardVoltageRegulator datatype consists of the following
 fields which describe ipmi baseboard voltage regulator metrics:
@@ -1439,7 +1439,7 @@ fields which describe ipmi baseboard voltage regulator metrics:
 +--------------------+-------+----------+-------------------------------------+
 
 Datatype: ipmiBattery
-**********************
+*********************
 
 The ipmiBattery datatype consists of the following fields which describe
 ipmi battery metrics:
@@ -1455,7 +1455,7 @@ ipmi battery metrics:
 +---------------------+--------+----------+------------------------------+
 
 Datatype: ipmiFan
-********************
+*****************
 
 The ipmiFan datatype consists of the following fields which describe
 ipmi fan metrics:
@@ -1469,7 +1469,7 @@ ipmi fan metrics:
 +--------------+-------+----------+-------------------------------------------+
 
 Datatype: ipmiGlobalAggregateTemperatureMargin
-***********************************************
+**********************************************
 
 The ipmiGlobalAggregateTemperatureMargin datatype consists of the
 following fields:
@@ -1490,7 +1490,7 @@ following fields:
 +-------------+-------+----------+--------------------------------------------+
 
 Datatype: ipmiHsbp
-*******************
+******************
 
 The ipmiHsbp datatype provides ipmi hot swap backplane power metrics; it
 consists of the following fields:
@@ -1506,7 +1506,7 @@ consists of the following fields:
 +------------+-------+----------+---------------------------------------------+
 
 Datatype: ipmiNic
-******************
+*****************
 
 The ipmiNic datatype provides network interface control care metrics; it
 consists of the following fields:
@@ -1522,7 +1522,7 @@ consists of the following fields:
 +------------+-------+----------+---------------------------------------------+
 
 Datatype: ipmiPowerSupply
-**************************
+*************************
 
 The ipmiPowerSupply datatype provides ipmi power supply metrics; it
 consists of the following fields:
@@ -1551,7 +1551,7 @@ consists of the following fields:
 +-----------+-------+----------+----------------------------------------------+
 
 Datatype: ipmiProcessor
-************************
+***********************
 
 The ipmiProcessor datatype provides ipmi processor metrics; it consists
 of the following fields:
@@ -1579,7 +1579,7 @@ of the following fields:
 +------------+------------------+-----------+---------------------------------+
 
 Datatype: latencyBucketMeasure
-*******************************
+******************************
 
 The latencyBucketMeasure datatype consists of the following fields which
 describe the number of counts falling within a defined latency bucket:
@@ -1601,7 +1601,7 @@ describe the number of counts falling within a defined latency bucket:
 +-----------+-------+----------+----------------------------------------------+
 
 Datatype: load
-****************
+**************
 
 The load datatype provides metrics on system cpu and io utilization
 obtained using /proc/loadavg; it consists of the following fields:
@@ -1626,7 +1626,7 @@ obtained using /proc/loadavg; it consists of the following fields:
 +----------+-------+----------+-----------------------------------------------+
 
 Datatype: machineCheckException
-********************************
+*******************************
 
 The machineCheckException datatype describes machine check exceptions;
 it consists of the following fields:
@@ -1663,7 +1663,7 @@ it consists of the following fields:
 +-------------+-------+----------+--------------------------------------------+
 
 Datatype: measurementFields
-****************************
+***************************
 
 The ``measurementFields`` datatype consists of the following fields:
 
@@ -1790,7 +1790,7 @@ information, please see the VES Event Registration specification and in
 particular the ``aggregationRole``, ``castTo``, and ``isHomogeneous`` keywords.
 
 Datatype: memoryUsage
-**********************
+*********************
 
 The memoryUsage datatype defines the memory usage of a virtual machine
 and consists of the following fields:
@@ -1861,7 +1861,7 @@ and consists of the following fields:
 +-----------+-------+----------+----------------------------------------------+
 
 Datatype: nicPerformance
-*************************
+************************
 
 The nicPerformance datatype consists of the following fields which
 describe the performance and errors of an of an identified virtual
@@ -2042,7 +2042,7 @@ network interface card:
 +----------------+-------+----------+-----------------------------------------+
 
 Datatype: processorDimmAggregateThermalMargin
-**********************************************
+*********************************************
 
 The processorDimmAggregateThermalMargin datatype provides intelligent
 platform management interface (ipmi) processor dual inline memory module
@@ -2062,7 +2062,7 @@ aggregate thermal margin metrics; it consists of the following fields:
 +-----------------+-------+----------+----------------------------------------+
 
 Datatype: processStats
-***********************
+**********************
 
 The processStats datatype provides metrics on system processes; it
 consists of the following fields:
@@ -2097,10 +2097,10 @@ consists of the following fields:
 +-----------+-------+----------+----------------------------------------------+
 
 ‘Notification’ Domain Datatypes
-++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++
 
 Datatype: notificationFields
-******************************
+****************************
 
 The notificationFields datatype consists of the following fields:
 
@@ -2170,10 +2170,10 @@ in 3GPP TS 28.550. The array contains the following key value pairs:
 Other notificationFields are not used for fileReady.
 
 ‘Other’ Domain Datatypes
-+++++++++++++++++++++++++
+++++++++++++++++++++++++
 
 Datatype: otherFields
-**********************
+*********************
 
 The otherFields datatype defines fields for events belonging to the
 'other' domain of the commonEventHeader domain enumeration; it consists
@@ -2197,10 +2197,10 @@ of the following fields:
 +-------------+-------------+----------+--------------------------------------+
 
 ‘perf3gpp’ Domain Datatypes
-++++++++++++++++++++++++++++
++++++++++++++++++++++++++++
 
 Datatype: measDataCollection
-*****************************
+****************************
 
 The measDataCollection datatype defines a 3GPP measurement collection
 structure aligned with the 3GPP PM format; it consists of the following
@@ -2234,7 +2234,7 @@ fields:
 +----------------+---------+----------+---------------------------------------+
 
 Datatype: measInfo
-********************
+******************
 
 The measInfo datatype provides measurement information; it consists of
 the following fields:
@@ -2258,7 +2258,7 @@ the following fields:
 +-------+--------------------------+----------+-------------------------------+
 
 Datatype: measInfoIdInteger
-****************************
+***************************
 
 The measInfoIdInteger datatype provides an integer measurement group
 identifier; it consists of the following fields:
@@ -2270,7 +2270,7 @@ identifier; it consists of the following fields:
 +---------------+---------+----------+--------------------------------------+
 
 Datatype: measInfoIdString
-***************************
+**************************
 
 The measInfoIdString datatype provides a string measurement group
 identifier; it consists of the following fields:
@@ -2282,7 +2282,7 @@ identifier; it consists of the following fields:
 +---------------+-----------+----------+--------------------------------------+
 
 Datatype: measResultInteger
-****************************
+***************************
 
 The measResultInteger datatype provides an integer 3GPP PM measurement
 result; it consists of the following fields:
@@ -2296,7 +2296,7 @@ result; it consists of the following fields:
 +----------+-----------+-------------+------------------------------------+
 
 Datatype: measResultNull
-*************************
+************************
 
 The measResultNull datatype provides a null 3GPP PM measurement result;
 it consists of the following fields:
@@ -2310,7 +2310,7 @@ it consists of the following fields:
 +----------+-----------+-------------+------------------------------------+
 
 Datatype: measResultNumber
-***************************
+**************************
 
 The measResultNumber datatype provides a number 3GPP PM measurement
 result; it consists of the following fields:
@@ -2324,7 +2324,7 @@ result; it consists of the following fields:
 +----------+-----------+-------------+------------------------------------+
 
 Datatype: measResultString
-***************************
+**************************
 
 The measResultString datatype provides a string 3GPP PM measurement
 result; it consists of the following fields:
@@ -2338,7 +2338,7 @@ result; it consists of the following fields:
 +----------+-----------+-------------+------------------------------------+
 
 Datatype: measTypesInteger
-***************************
+**************************
 
 The measTypesInteger datatype provides an array of integer measurement
 identifiers associated with the measurement results; it consists of the
@@ -2352,7 +2352,7 @@ following fields:
 +----------+--------+----------+----------------------------------------------+
 
 Datatype: measTypesString
-**************************
+*************************
 
 The measTypesString datatype provides an array of string measurement
 identifiers associated with the measurement results; it consists of the
@@ -2366,7 +2366,7 @@ following fields:
 +----------+-------+----------+-----------------------------------------------+
 
 Datatype: measValues
-*********************
+********************
 
 The measValues datatype provides 3GPP measurement values; it consists of
 the following fields:
@@ -2395,7 +2395,7 @@ the following fields:
 +---------+----------------------------------+----------+---------------------+
 
 Datatype: perf3gppFields
-*************************
+************************
 
 The perf3gppFields datatype defines fields for 3GPP PM format events,
 based on 3GPP TS 28.550, belonging to the 'perf3gpp' domain of the
@@ -2416,10 +2416,10 @@ fields:
 +--------------+-----------+----------+---------------------------------------+
 
 ‘pnfRegistration’ Domain Datatypes
-++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
 
 Datatype: pnfRegistrationFields
-********************************
+*******************************
 
 The pnfRegistrationFields datatype defines fields for events belonging
 to the 'pnfRegistration' domain of the commonEventHeader domain
@@ -2474,10 +2474,10 @@ enumeration; it consists of the following fields:
 +-----------------+--------+----------+---------------------------------------+
 
 ‘State Change’ Domain Datatypes
-++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++
 
 Datatype: stateChangeFields
-*****************************
+***************************
 
 The stateChangeFields datatype consists of the following fields:
 
@@ -2502,10 +2502,10 @@ The stateChangeFields datatype consists of the following fields:
 +--------------+--------+----------+------------------------------------------+
 
 ‘StndDefined’ Domain Datatypes
-++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++
 
 Datatype: stndDefinedFields
-*****************************
+***************************
 
 The stndDefinedFields datatype consists of the following fields:
 
@@ -2526,7 +2526,7 @@ The stndDefinedFields datatype consists of the following fields:
 +--------------+--------+----------+------------------------------------------+
 
 Additional rules, when using stndDefined domain
-************************************************
+***********************************************
 
 Following rules shall be followed, when using the StndDefined domain:
 
@@ -2544,10 +2544,10 @@ then each and every event within eventBatch must have exactly the same
 VES.commonEventHeader.stndDefinedNamespace set.
 
 ‘Syslog’ Domain Datatypes
-++++++++++++++++++++++++++
++++++++++++++++++++++++++
 
 Datatype: syslogFields
-***********************
+**********************
 
 The syslogFields datatype consists of the following fields:
 
@@ -2706,10 +2706,10 @@ https://tools.ietf.org/html/rfc5424#section-6
     https://www.iana.org/assignments/syslog-parameters/syslog-parameters.xhtml
 
 ‘Threshold Crossing Alert’ Domain Datatypes
-++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++
 
 Datatype: counter
-******************
+*****************
 
 The counter datatype consists of the following fields:
 
@@ -2726,7 +2726,7 @@ The counter datatype consists of the following fields:
 +------------+--------+----------+--------------------------------------------+
 
 Datatype: thresholdCrossingAlertFields
-****************************************
+**************************************
 
 The thresholdCrossingAlertFields datatype consists of the following
 fields:
@@ -2794,10 +2794,10 @@ Technology Specific Datatypes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Mobile Flow’ Domain Datatypes
-++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++
 
 Datatype: gtpPerFlowMetrics
-****************************
+***************************
 
 The gtpPerFlowMetrics datatype consists of the following fields:
 
@@ -3000,7 +3000,7 @@ The gtpPerFlowMetrics datatype consists of the following fields:
 +---------------+--------+----------+-----------------------------------------+
 
 Datatype: mobileFlowFields
-***************************
+**************************
 
 The mobileFlowFields datatype consists of the following fields:
 
@@ -3113,7 +3113,7 @@ The mobileFlowFields datatype consists of the following fields:
 +++++++++++++++++++++++++++++++
 
 Datatype: sipSignalingFields
-*****************************
+****************************
 
 The sipSignalingFields datatype communicates information about sip
 signaling messages, parameters and signaling state; it consists of the
@@ -3154,10 +3154,10 @@ following fields:
 +--------------+-----------+----------+---------------------------------------+
 
 ‘Voice Quality’ Domain Datatypes
-+++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++
 
 Datatype: endOfCallVqmSummaries
-*********************************
+*******************************
 
 The endOfCallVqmSummaries datatype provides end of call voice quality
 metrics; it consists of the following fields:
@@ -3266,7 +3266,7 @@ metrics; it consists of the following fields:
 +--------------+-------+----------+-------------------------------------------+
 
 Datatype: voiceQualityFields
-*****************************
+****************************
 
 The voiceQualityFields datatype provides statistics related to customer
 facing voice products; consists of the following fields:
@@ -3568,10 +3568,10 @@ Listener API are defined below.
 Table - Policy Exceptions
 
 REST Operation Overview
-~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
 
 REST Operation Summary
-+++++++++++++++++++++++
+++++++++++++++++++++++
 
 +---------------------+---------+------------------------------------------+
 | **Operation Action**| **HTTP**| Resource URL relative to {ServerRoot}\   |
@@ -3625,10 +3625,10 @@ In a future version of the specification, a 1 megabyte limit will become
 a mandatory requirement.
 
 Operation: publishAnyEvent
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Functional Behavior
-+++++++++++++++++++++
++++++++++++++++++++
 
 Allows authorized clients to publish any single event to the VES event
 listener.
@@ -3643,7 +3643,7 @@ listener.
    messages
 
 Call Flow
-++++++++++
++++++++++
 
 .. seqdiag::
     :caption: ``publishAnyEvent`` Call Flow
@@ -3658,7 +3658,7 @@ Call Flow
     }
 
 Input Parameters
-+++++++++++++++++
+++++++++++++++++
 
 Header Fields (note: all parameter names shall be treated as
 case-insensitive):
@@ -3715,7 +3715,7 @@ Body Fields:
 +--------------+--------------+--------------+-------------------------------+
 
 Output Parameters
-++++++++++++++++++
++++++++++++++++++
 
 Header fields:
 
@@ -3751,7 +3751,7 @@ Body Fields (for error responses):
 +--------------+--------------+----------------+------------------------------+
 
 HTTP Status Codes
-++++++++++++++++++
++++++++++++++++++
 
 +-----+--------------+--------------------------------------------------------+
 | Code| Reason Phrase| Description                                            |
@@ -3787,10 +3787,10 @@ HTTP Status Codes
 +-----+--------------+--------------------------------------------------------+
 
 Sample Request and Response
-++++++++++++++++++++++++++++
++++++++++++++++++++++++++++
 
 Sample Request
-***************
+**************
 
 .. code-block:: http
 
@@ -3838,7 +3838,7 @@ Sample Request
 
 
 Sample Success Response
-************************
+***********************
 
 .. code-block:: http
 
@@ -3848,10 +3848,10 @@ Sample Success Response
     X-LatestVersion: 7.2
 
 Sample Error Responses
-************************
+**********************
 
 Sample Policy Exception
-""""""""""""""""""""""""
+"""""""""""""""""""""""
 
 .. code-block:: http
 
@@ -3874,7 +3874,7 @@ Sample Policy Exception
 
 
 Sample Service Exception
-"""""""""""""""""""""""""
+""""""""""""""""""""""""
 
 .. code-block:: http
 
@@ -3900,7 +3900,7 @@ Sample Service Exception
     }
 
 Operation: publishEventBatch
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Functional Behavior
 +++++++++++++++++++
@@ -3922,7 +3922,7 @@ acknowledgement from the VES Event Listener is for the ``publishEventBatch`` and
 not individual events within the ``publishEventBatch``.
 
 Call Flow
-+++++++++++
++++++++++
 
 .. seqdiag::
     :caption: ``publishEventBatch`` Call Flow
@@ -3937,7 +3937,7 @@ Call Flow
     }
 
 Input Parameters
-+++++++++++++++++
+++++++++++++++++
 
 Header Fields (note: all parameter names shall be treated as
 case-insensitive):
@@ -3996,7 +3996,7 @@ Body Fields:
 +--------------+--------------+--------------+-------------------------------+
 
 Output Parameters
-+++++++++++++++++++
++++++++++++++++++
 
 Header fields:
 
@@ -4066,10 +4066,10 @@ HTTP Status Codes
 +-----+--------------+--------------------------------------------------------+
 
 Sample Request and Response
-+++++++++++++++++++++++++++++
++++++++++++++++++++++++++++
 
 Sample Request
-****************
+**************
 
 .. code-block:: http
 
@@ -4146,7 +4146,7 @@ Sample Request
     }
 
 Sample Success Response
-*************************
+***********************
 
 .. code-block:: http
 
@@ -4156,10 +4156,10 @@ Sample Success Response
     X-LatestVersion: 7.2
 
 Sample Error Responses
-************************
+**********************
 
 Sample Policy Exception
-""""""""""""""""""""""""
+"""""""""""""""""""""""
 
 .. code-block:: http
 
@@ -4183,7 +4183,7 @@ Sample Policy Exception
 
 
 Sample Service Exception
-"""""""""""""""""""""""""
+""""""""""""""""""""""""
 
 .. code-block:: http
 
@@ -4210,7 +4210,7 @@ Sample Service Exception
 
 
 Terminology
-^^^^^^^^^^^^
+^^^^^^^^^^^
 
 Terminology used in this document is summarized below:
 
@@ -4369,7 +4369,7 @@ It is a stand-alone executable that is loosely-coupled, granular,
 re-usable, and responsible for a single capability.
 
 Appendix: Historical Change Log
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 For the latest changes, see the Change Block just before the Table of
 Contents.

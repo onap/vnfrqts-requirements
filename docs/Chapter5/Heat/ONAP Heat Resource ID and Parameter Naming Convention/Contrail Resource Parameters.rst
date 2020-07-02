@@ -22,8 +22,8 @@ ONAP External Networks
     :id: R-02164
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: frankfurt
+    :validation_mode: static
 
     When a VNF's Heat Orchestration Template's Contrail resource
     ``OS::ContrailV2::InstanceIp`` and/or
@@ -42,8 +42,8 @@ ONAP External Networks
     :id: R-92193
     :target: VNF
     :keyword: MUST NOT
-    :validation_mode: static
     :updated: frankfurt
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's Contrail resource
     ``OS::ContrailV2::InstanceIp`` and/or
@@ -94,8 +94,8 @@ Interface Route Table Prefixes for Contrail InterfaceRoute Table
     :id: R-28222
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     If a VNF's Heat Orchestration Template
     ``OS::ContrailV2::InterfaceRouteTable`` resource
@@ -109,8 +109,8 @@ Interface Route Table Prefixes for Contrail InterfaceRoute Table
     :id: R-19756
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     If a VNF's Heat Orchestration Template
     ``OS::ContrailV2::InterfaceRouteTable`` resource
@@ -123,8 +123,8 @@ Interface Route Table Prefixes for Contrail InterfaceRoute Table
     :id: R-76682
     :target: VNF
     :keyword: MUST NOT
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     If a VNF's Heat Orchestration Template
     ``OS::ContrailV2::InterfaceRouteTable`` resource
@@ -237,10 +237,10 @@ property ``ip_address`` parameter.
 
 .. req::
     :id: R-100000
-    :keyword: MUST
-    :validation_mode: static
     :target: VNF
+    :keyword: MUST
     :introduced: dublin
+    :validation_mode: static
 
     The VNF's Heat Orchestration Template's
     resource ``OS::ContrailV2::InstanceIp`` property ``instance_ip_address``
@@ -251,11 +251,11 @@ property ``ip_address`` parameter.
 
 .. req::
     :id: R-100010
+    :target: VNF
     :keyword: MUST
     :introduced: dublin
-    :validation_mode: static
-    :target: VNF
     :updated: frankfurt
+    :validation_mode: static
 
     When the VNF's Heat Orchestration Template's Resource
     ``OS::ContrailV2::InstanceIp`` is assigning an IP address
@@ -279,10 +279,10 @@ property ``ip_address`` parameter.
 
 .. req::
     :id: R-100020
-    :keyword: MUST NOT
-    :validation_mode: static
     :target: VNF
+    :keyword: MUST NOT
     :introduced: dublin
+    :validation_mode: static
 
     The VNF's Heat Orchestration Template's Resource
     ``OS::ContrailV2::InstanceIp`` property ``instance_ip_address``
@@ -308,11 +308,11 @@ the value at orchestration to the Heat Orchestration Template.
 
 .. req::
     :id: R-100030
-    :keyword: MUST
-    :validation_mode: static
     :target: VNF
+    :keyword: MUST
     :introduced: dublin
     :updated: frankfurt
+    :validation_mode: static
 
     When the VNF's Heat Orchestration Template's Resource
     ``OS::ContrailV2::InstanceIp`` is assigning an IP address
@@ -338,10 +338,10 @@ the value at orchestration to the Heat Orchestration Template.
 
 .. req::
     :id: R-100040
-    :keyword: MUST NOT
-    :validation_mode: static
     :target: VNF
+    :keyword: MUST NOT
     :introduced: dublin
+    :validation_mode: static
 
     The VNF's Heat Orchestration Template's Resource
     ``OS::ContrailV2::InstanceIp`` property ``instance_ip_address``
@@ -368,11 +368,11 @@ Parameter Definition*
 
 .. req::
     :id: R-100050
+    :target: VNF
     :keyword: MUST
     :introduced: dublin
-    :validation_mode: static
-    :target: VNF
     :updated: frankfurt
+    :validation_mode: static
 
     When the VNF's Heat Orchestration Template's Resource
     ``OS::ContrailV2::InstanceIp`` is assigning an IP address
@@ -398,10 +398,10 @@ Parameter Definition*
 
 .. req::
     :id: R-100060
-    :keyword: MUST NOT
-    :validation_mode: static
-    :introduced: dublin
     :target: VNF
+    :keyword: MUST NOT
+    :introduced: dublin
+    :validation_mode: static
 
     The VNF's Heat Orchestration Template's Resource
     ``OS::ContrailV2::InstanceIp`` property ``instance_ip_address``
@@ -427,11 +427,11 @@ the value at orchestration to the Heat Orchestration Template.
 
 .. req::
     :id: R-100070
-    :keyword: MUST
-    :validation_mode: static
-    :introduced: dublin
     :target: VNF
+    :keyword: MUST
+    :introduced: dublin
     :updated: frankfurt
+    :validation_mode: static
 
     When the VNF's Heat Orchestration Template's Resource
     ``OS::ContrailV2::InstanceIp`` is assigning an IP address
@@ -457,10 +457,10 @@ the value at orchestration to the Heat Orchestration Template.
 
 .. req::
     :id: R-100080
-    :keyword: MUST NOT
-    :validation_mode: static
-    :introduced: dublin
     :target: VNF
+    :keyword: MUST NOT
+    :introduced: dublin
+    :validation_mode: static
 
     The VNF's Heat Orchestration Template's Resource
     ``OS::ContrailV2::InstanceIp`` property ``instance_ip_address``
@@ -487,11 +487,11 @@ Definition*
 
 .. req::
     :id: R-100090
+    :target: VNF
     :keyword: MUST
     :introduced: dublin
-    :validation_mode: static
-    :target: VNF
     :updated: frankfurt
+    :validation_mode: static
 
     When the VNF's Heat Orchestration Template's Resource
     ``OS::ContrailV2::InstanceIp`` is assigning an IP address
@@ -518,10 +518,10 @@ Definition*
 
 .. req::
     :id: R-100100
-    :keyword: MUST
-    :validation_mode: static
     :target: VNF
+    :keyword: MUST
     :introduced: dublin
+    :validation_mode: static
 
     The VNF's Heat Orchestration Template's Resource
     ``OS::ContrailV2::InstanceIp`` property ``instance_ip_address``
@@ -548,11 +548,11 @@ Heat Orchestration Template's Environment File.
 
 .. req::
     :id: R-100110
-    :keyword: MUST
-    :validation_mode: static
     :target: VNF
+    :keyword: MUST
     :introduced: dublin
     :updated: frankfurt
+    :validation_mode: static
 
     When the VNF's Heat Orchestration Template's Resource
     ``OS::ContrailV2::InstanceIp`` is assigning an IP address
@@ -577,10 +577,10 @@ Heat Orchestration Template's Environment File.
 
 .. req::
     :id: R-100120
-    :keyword: MUST
-    :validation_mode: static
     :target: VNF
+    :keyword: MUST
     :introduced: dublin
+    :validation_mode: static
 
     The VNF's Heat Orchestration Template's Resource
     ``OS::ContrailV2::InstanceIp`` property ``instance_ip_address``
@@ -608,11 +608,11 @@ Parameter Definition*
 
 .. req::
     :id: R-100130
+    :target: VNF
     :keyword: MUST
     :introduced: dublin
-    :validation_mode: static
-    :target: VNF
     :updated: frankfurt
+    :validation_mode: static
 
     When the VNF's Heat Orchestration Template's Resource
     ``OS::ContrailV2::InstanceIp`` is assigning an IP address to an
@@ -638,10 +638,10 @@ Parameter Definition*
 
 .. req::
     :id: R-100140
-    :keyword: MUST
-    :validation_mode: static
     :target: VNF
+    :keyword: MUST
     :introduced: dublin
+    :validation_mode: static
 
     The VNF's Heat Orchestration Template's Resource
     ``OS::ContrailV2::InstanceIp`` property ``instance_ip_address``
@@ -668,11 +668,11 @@ Heat Orchestration Template's Environment File.
 
 .. req::
     :id: R-100150
-    :keyword: MUST
-    :validation_mode: static
     :target: VNF
+    :keyword: MUST
     :introduced: dublin
     :updated: frankfurt
+    :validation_mode: static
 
     When the VNF's Heat Orchestration Template's Resource
     ``OS::ContrailV2::InstanceIp`` is assigning an IP address to an
@@ -697,10 +697,10 @@ Heat Orchestration Template's Environment File.
 
 .. req::
     :id: R-100160
-    :keyword: MUST
-    :validation_mode: static
     :target: VNF
+    :keyword: MUST
     :introduced: dublin
+    :validation_mode: static
 
     The VNF's Heat Orchestration Template's Resource
     ``OS::ContrailV2::InstanceIp`` property ``instance_ip_address``
@@ -728,11 +728,11 @@ Definition*
 
 .. req::
     :id: R-100170
-    :keyword: MUST NOT
-    :validation_mode: static
     :target: VNF
+    :keyword: MUST NOT
     :introduced: dublin
     :updated: frankfurt
+    :validation_mode: static
 
     The VNF's Heat Orchestration Template's Resource
     ``OS::ContrailV2::InstanceIp``
@@ -753,11 +753,11 @@ Definition*
 
 .. req::
     :id: R-100180
-    :keyword: MUST
-    :validation_mode: static
     :target: VNF
+    :keyword: MUST
     :introduced: dublin
     :updated: frankfurt
+    :validation_mode: static
 
     The VNF's Heat Orchestration Template's Resource
     ``OS::ContrailV2::InstanceIp``
@@ -838,10 +838,10 @@ The property ``subnet_uuid`` specifies the subnet the IP is assigned from.
 
 .. req::
     :id: R-100190
-    :keyword: MUST
-    :validation_mode: static
     :target: VNF
+    :keyword: MUST
     :introduced: dublin
+    :validation_mode: static
 
     The VNF's Heat Orchestration Template's
     resource ``OS::ContrailV2::InstanceIp`` property ``subnet_uuid``
@@ -851,11 +851,11 @@ The property ``subnet_uuid`` specifies the subnet the IP is assigned from.
 
 .. req::
     :id: R-100200
-    :keyword: MUST
-    :validation_mode: static
     :target: VNF
+    :keyword: MUST
     :introduced: dublin
     :updated: frankfurt
+    :validation_mode: static
 
     When the VNF's Heat Orchestration Template's
     resource ``OS::ContrailV2::InstanceIp`` is assigning an IP address
@@ -877,10 +877,10 @@ of a given network.
 
 .. req::
     :id: R-100210
-    :keyword: MUST NOT
-    :validation_mode: static
     :target: VNF
+    :keyword: MUST NOT
     :introduced: dublin
+    :validation_mode: static
 
     The VNF's Heat Orchestration Template's Resource
     ``OS::ContrailV2::InstanceIp`` property ``subnet_uuid``
@@ -905,11 +905,11 @@ value at orchestration to the Heat Orchestration Template.
 
 .. req::
     :id: R-100220
-    :keyword: MUST
-    :validation_mode: static
     :target: VNF
+    :keyword: MUST
     :introduced: dublin
     :updated: frankfurt
+    :validation_mode: static
 
     When the VNF's Heat Orchestration Template's
     resource ``OS::ContrailV2::InstanceIp`` is assigning an IP address
@@ -932,10 +932,10 @@ of a given network.
 
 .. req::
     :id: R-100230
-    :keyword: MUST NOT
-    :validation_mode: static
     :target: VNF
+    :keyword: MUST NOT
     :introduced: dublin
+    :validation_mode: static
 
     The VNF's Heat Orchestration Template's Resource
     ``OS::ContrailV2::InstanceIp`` property ``subnet_uuid``
@@ -960,11 +960,11 @@ value at orchestration to the Heat Orchestration Template.
 
 .. req::
     :id: R-100240
-    :keyword: MUST
-    :validation_mode: static
     :target: VNF
+    :keyword: MUST
     :introduced: dublin
     :updated: frankfurt
+    :validation_mode: static
 
     When
 
@@ -992,10 +992,10 @@ value at orchestration to the Heat Orchestration Template.
 
 .. req::
     :id: R-100250
-    :keyword: MUST NOT
-    :validation_mode: static
     :target: VNF
+    :keyword: MUST NOT
     :introduced: dublin
+    :validation_mode: static
 
     The VNF's Heat Orchestration Template's Resource
     ``OS::ContrailV2::InstanceIp`` property ``subnet_uuid``
@@ -1025,11 +1025,11 @@ input parameter.
 
 .. req::
     :id: R-100260
-    :keyword: MUST
-    :validation_mode: static
     :target: VNF
+    :keyword: MUST
     :introduced: dublin
     :updated: frankfurt
+    :validation_mode: static
 
     When
 
@@ -1055,10 +1055,10 @@ input parameter.
 
 .. req::
     :id: R-100270
-    :keyword: MUST NOT
-    :validation_mode: static
     :target: VNF
+    :keyword: MUST NOT
     :introduced: dublin
+    :validation_mode: static
 
     The VNF's Heat Orchestration Template's Resource
     ``OS::ContrailV2::InstanceIp`` property ``subnet_uuid``
@@ -1125,11 +1125,11 @@ ONAP External Networks
 
 .. req::
     :id: R-100280
-    :keyword: MUST NOT
-    :validation_mode: static
     :target: VNF
+    :keyword: MUST NOT
     :introduced: dublin
     :updated: frankfurt
+    :validation_mode: static
 
     If a VNF's Heat Orchestration Template's resource
     ``OS::ContrailV2::VirtualMachineInterface``
@@ -1144,7 +1144,7 @@ ONAP External Networks
     ``virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip``,
 
     ``virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip_ip_prefix``
-    
+
     parameter
     **MUST NOT** be enumerated in the
     VNF's Heat Orchestration Template's Environment File.
@@ -1152,11 +1152,11 @@ ONAP External Networks
 
 .. req::
     :id: R-100310
-    :keyword: MUST
-    :validation_mode: static
     :target: VNF
+    :keyword: MUST
     :introduced: dublin
     :updated: frankfurt
+    :validation_mode: static
 
     When the VNF's Heat Orchestration Template's resource
     ``OS::ContrailV2::VirtualMachineInterface`` is attaching to an ONAP external
@@ -1173,7 +1173,7 @@ ONAP External Networks
     ``virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip``,
 
     ``virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip_ip_prefix``
-    
+
     parameter name **MUST** follow the naming convention
 
     * ``{vm-type}_{network-role}_floating_ip``
@@ -1201,11 +1201,11 @@ ONAP External Networks
 
 .. req::
     :id: R-100330
-    :keyword: MUST
-    :validation_mode: static
     :target: VNF
+    :keyword: MUST
     :introduced: dublin
     :updated: frankfurt
+    :validation_mode: static
 
     When the VNF's Heat Orchestration Template's resource
     ``OS::ContrailV2::VirtualMachineInterface`` is attaching to an ONAP
@@ -1223,7 +1223,7 @@ ONAP External Networks
     ``virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip``,
 
     ``virtual_machine_interface_allowed_address_pairs_allowed_address_pair_ip_ip_prefix``
-   
+
     parameter name **MUST** follow the naming convention
 
     * ``{vm-type}_{network-role}_floating_v6_ip``
@@ -1250,11 +1250,11 @@ ONAP External Networks
 
 .. req::
     :id: R-100350
-    :keyword: MUST NOT
-    :introduced: dublin
-    :validation_mode: static
     :target: VNF
+    :keyword: MUST
+    :introduced: dublin
     :updated: frankfurt
+    :validation_mode: static
 
     When the VNF's Heat Orchestration Template's resource
     ``OS::ContrailV2::VirtualMachineInterface`` is attaching to an
@@ -1299,11 +1299,11 @@ ONAP Internal Networks
 
 .. req::
     :id: R-100360
+    :target: VNF
     :keyword: MUST
     :introduced: dublin
-    :validation_mode: static
-    :target: VNF
     :updated: frankfurt
+    :validation_mode: static
 
     When the VNF's Heat Orchestration Template's Resource
     ``OS::ContrailV2::VirtualMachineInterface`` is attaching to an
@@ -1350,11 +1350,11 @@ ONAP Internal Networks
 
 .. req::
     :id: R-100370
+    :target: VNF
     :keyword: MUST
     :introduced: dublin
-    :validation_mode: static
-    :target: VNF
     :updated: frankfurt
+    :validation_mode: static
 
     When the VNF's Heat Orchestration Template's Resource
     ``OS::ContrailV2::VirtualMachineInterface`` is attaching to an

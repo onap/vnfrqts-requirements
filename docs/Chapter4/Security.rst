@@ -14,7 +14,7 @@
 
 
 VNF Security
-----------------------
+------------
 
 The objective of this section is to provide the key security
 requirements that need to be met by VNFs. The security requirements are
@@ -48,7 +48,7 @@ following sections:
    requirements associated with data protection.
 
 VNF General Security Requirements
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This section provides details on the VNF general security requirements
 on various security areas such as user access control, network security,
@@ -316,7 +316,7 @@ the product's lifecycle.
    are secure. All non-compliances with the benchmarks MUST be documented.
 
 VNF Identity and Access Management Requirements
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The following security requirements for logging, identity, and access
 management need to be met by the solution in a virtual environment:
@@ -542,7 +542,7 @@ Identity and Access Management Requirements
 
 
 VNF API Security Requirements
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This section covers API security requirements when these are used by the
 VNFs. Key security areas covered in API security are Access Control,
@@ -601,7 +601,7 @@ API Requirements
     should be tested for spoofed MIME types.
 
 VNF Security Analytics Requirements
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This section covers VNF security analytics requirements that are mostly
 applicable to security monitoring. The VNF Security Analytics cover the
@@ -1015,7 +1015,7 @@ Security Analytics Requirements
    elevated privileges.
 
 VNF Data Protection Requirements
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This section covers VNF data protection requirements that are mostly
 applicable to security monitoring.
@@ -1143,7 +1143,7 @@ Data Protection Requirements
 
 
 VNF Cryptography Requirements
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This section covers VNF cryptography requirements that are mostly
 applicable to encryption or protocol meethods.

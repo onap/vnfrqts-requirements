@@ -14,10 +14,10 @@
 
 
 PNF Plug and Play
-------------------------
+-----------------
 
 PNF Plug and Play
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^
 
 The following are the requirements related to PNF Plug and Play.
 
@@ -36,7 +36,7 @@ The following are the requirements related to PNF Plug and Play.
     :target: PNF
     :keyword: SHOULD
     :introduced: casablanca
-    :updated: El Alto
+    :updated: el alto
 
     The following VES Events **SHOULD** be supported by the PNF: pnfRegistration
     VES Event, HVol VES Event, and Fault VES Event. These are onboarded via
@@ -164,7 +164,7 @@ The following are the requirements related to PNF Plug and Play.
 .. req::
     :id: R-284934
     :target: PNF
-    :keyword: MUST
+    :keyword: MAY
     :introduced: casablanca
 
     If the PNF encounters an error authenticating, reaching the ONAP DCAE VES

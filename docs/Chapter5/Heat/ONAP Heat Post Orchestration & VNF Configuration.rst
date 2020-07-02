@@ -5,7 +5,7 @@
 .. _ONAP Heat Post Orchestration & VNF Configuration:
 
 ONAP Heat Post Orchestration & VNF Configuration
---------------------------------------------------
+------------------------------------------------
 
 Heat templates should contain a minimum amount of post-orchestration
 configuration data. For instance, *do not* embed complex user-data

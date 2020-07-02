@@ -23,8 +23,8 @@ Heat Orchestration Template resources are described in :ref:`resources`.
     :id: R-54517
     :target: VNF
     :keyword: MUST
-    :validation_mode: none
     :updated: casablanca
+    :validation_mode: none
 
     When a VNF's Heat Orchestration Template's resource is associated with
     a single ``{vm-type}``, the Resource ID **MUST** contain the
@@ -34,8 +34,8 @@ Heat Orchestration Template resources are described in :ref:`resources`.
     :id: R-96482
     :target: VNF
     :keyword: MUST
-    :validation_mode: none
     :updated: frankfurt
+    :validation_mode: none
 
     When a VNF's Heat Orchestration Template's resource is associated
     with a single ONAP external network, the Resource ID **MUST** contain the
@@ -45,8 +45,8 @@ Heat Orchestration Template resources are described in :ref:`resources`.
     :id: R-98138
     :target: VNF
     :keyword: MUST
-    :validation_mode: none
     :updated: frankfurt
+    :validation_mode: none
 
     When a VNF's Heat Orchestration Template's resource is associated with a
     single ONAP internal network (per the ONAP definition, see
@@ -58,8 +58,8 @@ Heat Orchestration Template resources are described in :ref:`resources`.
     :id: R-82115
     :target: VNF
     :keyword: MUST
-    :validation_mode: none
     :updated: frankfurt
+    :validation_mode: none
 
     When a VNF's Heat Orchestration Template's resource is associated with a
     single ``{vm-type}``
@@ -83,8 +83,8 @@ Heat Orchestration Template resources are described in :ref:`resources`.
     :id: R-82551
     :target: VNF
     :keyword: MUST
-    :validation_mode: none
     :updated: frankfurt
+    :validation_mode: none
 
     When a VNF's Heat Orchestration Template's resource is associated with a
     single ``{vm-type}`` and a single ONAP internal network (per the ONAP
@@ -107,8 +107,8 @@ Heat Orchestration Template resources are described in :ref:`resources`.
     :id: R-67793
     :target: VNF
     :keyword: MUST NOT
-    :validation_mode: none
     :updated: frankfurt
+    :validation_mode: none
 
     When a VNF's Heat Orchestration Template's resource is associated
     with more than one ``{vm-type}`` and/or more than one ONAP internal network
@@ -136,8 +136,8 @@ Heat Orchestration Template resources are described in :ref:`resources`.
     :id: R-11690
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: dublin
+    :validation_mode: static
 
     When a VNF's Heat Orchestration Template's Resource ID contains an
     ``{index}``, the ``{index}`` is a numeric value that **MUST** start at
@@ -159,7 +159,7 @@ have mandatory or suggested naming conventions.  They are provided
 in the following sections.
 
 OS::Cinder::Volume
-~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~
 
 .. req::
     :id: R-87004
@@ -181,7 +181,7 @@ OS::Cinder::Volume
     * ``{index}`` starts at zero and increments by one (as described in R-11690)
 
 OS::Cinder::VolumeAttachment
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. req::
     :id: R-86497
@@ -203,14 +203,14 @@ OS::Cinder::VolumeAttachment
     * ``{index}`` starts at zero and increments by one (as described in R-11690)
 
 OS::Heat::CloudConfig
-~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
 
 .. req::
     :id: R-04747
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's Resource ``OS::Heat::CloudConfig``
     Resource ID **MUST** contain the ``{vm-type}``.
@@ -239,8 +239,8 @@ OS::Heat::MultipartMime
     :id: R-30804
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's Resource
     ``OS::Heat::MultipartMime``
@@ -268,7 +268,7 @@ OS::Heat::MultipartMime
     * ``RMM`` signifies that it is the Resource Multipart Mime
 
 OS::Heat::ResourceGroup
-~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
 
 There is no mandatory naming convention for
 the resource 'OS::Heat::ResourceGroup'.
@@ -281,8 +281,8 @@ OS::Heat::SoftwareConfig
     :id: R-08975
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's Resource ``OS::Heat::SoftwareConfig``
     Resource ID **MUST** contain the ``{vm-type}``.
@@ -310,8 +310,8 @@ OS::Neutron::Net
     :id: R-25720
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: frankfurt
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's Resource ``OS::Neutron::Net``
     Resource ID **MUST** use the naming convention
@@ -325,15 +325,15 @@ OS::Neutron::Net
     Heat Orchestration Template.
 
 OS::Neutron::Port
-~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~
 
 
 .. req::
     :id: R-20453
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: frankfurt
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's Resource ``OS::Neutron::Port``
     that is attaching to an ONAP external network (per the ONAP definition,
@@ -365,8 +365,8 @@ OS::Neutron::Port
     :id: R-26351
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: frankfurt
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's Resource ``OS::Neutron::Port``
     that is attaching to an ONAP internal network
@@ -398,8 +398,8 @@ OS::Neutron::Port
     :id: R-27469
     :target: VNF
     :keyword: SHOULD
-    :validation_mode: none
     :updated: frankfurt
+    :validation_mode: none
 
     A VNF's Heat Orchestration Template's Resource ``OS::Neutron::Port``
     that is creating a *Reserve Port* with an IPv4 address, the
@@ -423,8 +423,8 @@ OS::Neutron::Port
     :id: R-68520
     :target: VNF
     :keyword: SHOULD
-    :validation_mode: none
     :updated: frankfurt
+    :validation_mode: none
 
     A VNF's Heat Orchestration Template's Resource ``OS::Neutron::Port``
     that is creating a *Reserve Port* with an IPv6 address, the
@@ -636,8 +636,8 @@ OS::Nova::Server
     :id: R-29751
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: dublin
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``
     Resource ID
@@ -679,7 +679,7 @@ OS::Nova::ServerGroup
     * ``{vm-type}_servergroup``
 
 Contrail Heat Resources Resource ID Naming Convention
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Some Contrail Heat Resources Resource IDs
 have mandatory or suggested naming conventions. They are provided
@@ -687,14 +687,14 @@ in the following sections.
 
 
 OS::ContrailV2::InstanceIp
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. req::
     :id: R-53310
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: frankfurt
+    :validation_mode: static
 
 
     A VNF's Heat Orchestration Template's Resource
@@ -736,8 +736,8 @@ OS::ContrailV2::InstanceIp
     :id: R-46128
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: frankfurt
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's Resource
     ``OS::ContrailV2::InstanceIp`` Resource ID
@@ -778,8 +778,8 @@ OS::ContrailV2::InstanceIp
     :id: R-62187
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: frankfurt
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's Resource
     ``OS::ContrailV2::InstanceIp`` Resource ID
@@ -820,8 +820,8 @@ OS::ContrailV2::InstanceIp
     :id: R-87563
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: frankfurt
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's Resource
     ``OS::ContrailV2::InstanceIp`` Resource ID
@@ -865,8 +865,8 @@ OS::ContrailV2::InterfaceRouteTable
     :id: R-81214
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's Resource
     ``OS::ContrailV2::InterfaceRouteTable``
@@ -892,14 +892,14 @@ OS::ContrailV2::InterfaceRouteTable
     * ``RIRT`` signifies that it is the Resource Interface Route Table
 
 OS::ContrailV2::NetworkIpam
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. req::
     :id: R-30753
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: frankfurt
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's Resource
     ``OS::ContrailV2::NetworkIpam``
@@ -933,8 +933,8 @@ OS::ContrailV2::PortTuple
     :id: R-20065
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's Resource
     ``OS::ContrailV2::PortTuple``
@@ -957,14 +957,14 @@ OS::ContrailV2::PortTuple
     * ``RPT`` signifies that it is the Resource Port Tuple
 
 OS::ContrailV2::ServiceHealthCheck
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. req::
     :id: R-76014
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's Resource
     ``OS::ContrailV2::ServiceHealthCheck``
@@ -991,14 +991,14 @@ OS::ContrailV2::ServiceHealthCheck
     * ``RIGHT`` is used if the Service Health Check is on the right interface
 
 OS::ContrailV2::ServiceTemplate
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. req::
     :id: R-16437
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's Resource
     ``OS::ContrailV2::ServiceTemplate``
@@ -1025,14 +1025,14 @@ OS::ContrailV2::ServiceTemplate
       (as described in R-11690).
 
 OS::ContrailV2::VirtualMachineInterface
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. req::
     :id: R-96253
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: frankfurt
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's Resource
     ``OS::ContrailV2::VirtualMachineInterface`` Resource ID
@@ -1065,8 +1065,8 @@ OS::ContrailV2::VirtualMachineInterface
     :id: R-50468
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: frankfurt
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's Resource
     ``OS::ContrailV2::VirtualMachineInterface`` Resource ID
@@ -1096,14 +1096,14 @@ OS::ContrailV2::VirtualMachineInterface
 
 
 OS::ContrailV2::VirtualNetwork
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. req::
     :id: R-99110
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: frankfurt
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's Resource
     ``OS::ContrailV2::VirtualNetwork`` Resource ID **MUST** use the naming

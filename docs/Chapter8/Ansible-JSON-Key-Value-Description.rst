@@ -14,13 +14,13 @@
 
 
 Ansible JSON Key Value Description
--------------------------------------------------------------
+----------------------------------
 
 The following provides the key value pairs that must be contained in the
 JSON file supporting APPC/SDN-C Ansible action.
 
 Table B1. Ansible JSON File key value description
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. csv-table:: **TOSCA Definition**
    :file: Ansible JSON File Key Value Description.csv

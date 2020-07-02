@@ -70,7 +70,7 @@ protocol, which supports multiple TOSCA template yaml files, and also
 supports self-defined node or other extensions.
 
 TOSCA Introduction
-^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^
 
 TOSCA defines a Meta model for defining IT services. This Meta model
 defines both the structure of a service as well as how to manage it. A

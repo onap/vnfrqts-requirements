@@ -5,7 +5,7 @@
 .. _ONAP Heat VNF Modularity:
 
 ONAP Heat VNF Modularity
----------------------------
+------------------------
 
 ONAP supports a modular Heat Orchestration Template design pattern,
 referred to as *VNF Modularity.* With this approach, a single VNF **MAY** be
@@ -54,8 +54,8 @@ A VNF module (base, incremental, cinder) **MAY** support nested templates.
     :id: R-610010
     :target: VNF
     :keyword: MAY
-    :validation_mode: none
     :introduced: el alto
+    :validation_mode: none
 
     A VNF's Heat Orchestration Template's Base Module **MAY** declare zero, one,
     or more than one ``OS::Nova::Server`` resource.  A ``OS::Nova::Server``
@@ -84,8 +84,8 @@ A VNF module (base, incremental, cinder) **MAY** support nested templates.
     :id: R-610020
     :target: VNF
     :keyword: MAY
-    :validation_mode: none
     :introduced: el alto
+    :validation_mode: none
 
     If a VNF's Heat Orchestration Template's Base Module contains two or more
     ``OS::Nova::Server`` resources (created in the base module itself and/or
@@ -108,8 +108,8 @@ A VNF module (base, incremental, cinder) **MAY** support nested templates.
     :id: R-610030
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :introduced: el alto
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's Incremental Module **MUST**
     declare one or more ``OS::Nova::Server`` resources.  A ``OS::Nova::Server``
@@ -120,8 +120,8 @@ A VNF module (base, incremental, cinder) **MAY** support nested templates.
     :id: R-610040
     :target: VNF
     :keyword: MAY
-    :validation_mode: none
     :introduced: el alto
+    :validation_mode: none
 
     If a VNF's Heat Orchestration Template's Incremental Module contains two or
     more ``OS::Nova::Server`` resources, the ``OS::Nova::Server`` resources
@@ -143,8 +143,8 @@ A VNF module (base, incremental, cinder) **MAY** support nested templates.
     :id: R-610050
     :target: VNF
     :keyword: MAY
-    :validation_mode: none
     :introduced: el alto
+    :validation_mode: none
 
     The same ``{vm-type}`` for a VNF's Heat Orchestration Template's
     ``OS::Nova::Server`` resource (as defined in R-01455) **MAY** exist in
@@ -161,8 +161,8 @@ Incremental Module.
     :id: R-61001
     :target: VNF
     :keyword: MUST
-    :validation_mode: none
     :updated: dublin
+    :validation_mode: none
 
     A shared Heat Orchestration Template resource is a resource that **MUST**
     be defined in the base module and will be referenced by one or
@@ -201,7 +201,7 @@ template must correspond 1:1 with a base template or add-on module
 template.
 
 Suggested Patterns for Modular VNFs
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 There are numerous variations of VNF modularity. Below are two suggested
 usage patterns.
@@ -244,7 +244,7 @@ which might be appropriate for smaller VNFs that do not have any scaling
 options.
 
 Modularity Rules
-^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^
 
 There are some rules to follow when building modular VNF templates:
 
@@ -303,7 +303,7 @@ There are some rules to follow when building modular VNF templates:
       name in the add-on module
 
 VNF Modularity Examples
-^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^
 
 *Example: Base Module creates SecurityGroup*
 

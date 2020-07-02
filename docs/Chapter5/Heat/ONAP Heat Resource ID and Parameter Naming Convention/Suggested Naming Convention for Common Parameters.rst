@@ -3,14 +3,14 @@
 .. Copyright 2017 AT&T Intellectual Property.  All rights reserved.
 
 Suggested Naming Convention for Common Parameters
-----------------------------------------------------------------------------------------------------------
+-------------------------------------------------
 
 Many VNFs use the parameters in the table below are used in user_data.
 The table below provides a suggested naming convention for these common
 parameters.
 
 Netmask
-^^^^^^^^^^^^^^^^^^
+^^^^^^^
 
 .. csv-table:: **Table 8: Suggested Naming Convention for Common Parameters:  Netmask**
    :header: Parameter Name,Parameter Type,Notes
@@ -23,7 +23,7 @@ Netmask
    int_{network-role}_v6_subnet_<index>_netmask, string,
 
 CIDR
-^^^^^^^^^^^^^^^^^^
+^^^^
 
 .. csv-table:: **Table 9: Suggested Naming Convention for Common Parameters:  CIDR**
    :header: Parameter Name,Parameter Type,Notes
@@ -36,7 +36,7 @@ CIDR
    int_<network-role>_v6_subnet_<index>_cidr, string,
 
 Default Gateway
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^
 
 .. csv-table:: **Table 10: Suggested Naming Convention for Common Parameters:  Default Gateway**
    :header: Parameter Name,Parameter Type,Notes
@@ -47,7 +47,7 @@ Default Gateway
    {network-role}_v6_subnet_<index>_default_gateway, string,
 
 DCAE Collector IP Address
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. csv-table:: **Table 11: Suggested Naming Convention for Common Parameters:  DCAE Collector Address**
    :header: Parameter Name,Parameter Type,Notes
@@ -58,7 +58,7 @@ DCAE Collector IP Address
    dcae_collector_v6_ip_<index>, string,
 
 NTP Server IP Address
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^
 
 .. csv-table:: **Table 12: Suggested Naming Convention for Common Parameters:  NTP Server IP Address**
    :header: Parameter Name,Parameter Type,Notes
@@ -69,7 +69,7 @@ NTP Server IP Address
    ntp_v6_ip_<index>, string,
 
 DNS
-^^^^^^^^^^^^^^^^^^
+^^^
 
 .. csv-table:: **Table 13: Suggested Naming Convention for Common Parameters:  DCAE Collector Address**
    :header: Parameter Name,Parameter Type,Notes
@@ -80,7 +80,7 @@ DNS
    dns_{network-role}_v6_ip_<index>, string,
 
 Security Group
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^
 
 .. csv-table:: **Table 14: Suggested Naming Convention for Common Parameters:  Security Group**
    :header: Parameter Name,Parameter Type,Notes

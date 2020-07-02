@@ -14,7 +14,7 @@
 
 
 VNF or PNF CSAR Package
-------------------------
+-----------------------
 
 CSAR Overview
 ^^^^^^^^^^^^^
@@ -238,7 +238,7 @@ VNF or PNF Package Contents
 
 
 VNF or PNF Package Authenticity and Integrity
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 VNF or PNF CSAR package shall support a method for authenticity and integrity
 assurance. According to ETSI SOL004 the onboarding package shall be secured.

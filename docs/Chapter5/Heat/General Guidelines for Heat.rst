@@ -5,13 +5,13 @@
 .. _General Guidelines for Heat:
 
 General Guidelines for Heat
-----------------------------
+---------------------------
 
 This section contains general Heat Orchestration Template guidelines
 and requirements.
 
 Heat Template Compliance
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 The Heat Orchestration Template requirements with RFC 2119
 keywords **MUST** and **MUST NOT** can be validated against a set of Heat
@@ -29,7 +29,7 @@ please see the validation scripts
 
 
 YAML Format
-^^^^^^^^^^^^^^
+^^^^^^^^^^^
 
 .. req::
     :id: R-95303

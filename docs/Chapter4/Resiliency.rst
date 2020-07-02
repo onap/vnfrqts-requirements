@@ -14,7 +14,7 @@
 
 
 VNF Resiliency
--------------------------
+--------------
 
 The VNF is responsible for meeting its resiliency goals and must factor
 in expected availability of the targeted virtualization environment.
@@ -32,7 +32,7 @@ the overall guidelines for designing VNFs to meet resiliency goals.
 Below are more detailed resiliency requirements for VNFs.
 
 All Layer Redundancy
-^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^
 
 Design the VNF to be resilient to the failures of the underlying
 virtualized infrastructure (Network Cloud). VNF design considerations
@@ -122,7 +122,7 @@ All Layer Redundancy Requirements
     and evacuate for rollback or back out mechanism.
 
 Minimize Cross Data-Center Traffic
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Avoid performance-sapping data center-to-data center replication delay
 by applying techniques such as caching and persistent transaction paths
@@ -143,7 +143,7 @@ Minimize Cross Data-Center Traffic Requirements
     across multiple data centers to avoid cross data center traffic.
 
 Application Resilient Error Handling
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Ensure an application communicating with a downstream peer is equipped
 to intelligently handle all error conditions. Make sure code can handle
@@ -259,7 +259,7 @@ Application Resilient Error Handling Requirements
     location can take over traffic and process service requests.
 
 System Resource Optimization
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Ensure an application is using appropriate system resources for the task
 at hand; for example, do not use network or IO operations inside
@@ -364,7 +364,7 @@ System Resource Optimization Requirements
     to not prevent use of these assets by other entities.
 
 Application Configuration Management
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Leverage configuration management audit capability to drive conformity
 to develop gold configurations for technologies like Java, Python, etc.
@@ -400,7 +400,7 @@ Application Configuration Management Requirements
     to be bounced so that the VNF availability is not effected.
 
 Intelligent Transaction Distribution & Management
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Leverage Intelligent Load Balancing and redundant components (hardware
 and modules) for all transactions, such that at any point in the
@@ -445,7 +445,7 @@ Intelligent Transaction Distribution & Management Requirements
     is able to control its load against the VNF.
 
 Deployment Optimization
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^
 
 Reduce opportunity for failure, by human or by machine, through smarter
 deployment practices and automation. This can include rolling code
@@ -537,7 +537,7 @@ Deployment Optimization Requirements
     not met.
 
 Monitoring & Dashboard
-^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
 
 Promote dashboarding as a tool to monitor and support the general
 operational health of a system. It is critical to the support of the
@@ -626,7 +626,7 @@ Monitoring & Dashboard Requirements
     development of the VNF.
 
 Virtual Function - Container Recovery Requirements
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 As part of life cycle management, for Cloud environment, VNFs need to
 support a set of basic recovery capabilities to maintain the health

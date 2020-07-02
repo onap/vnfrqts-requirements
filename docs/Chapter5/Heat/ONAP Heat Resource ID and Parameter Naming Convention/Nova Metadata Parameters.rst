@@ -5,7 +5,7 @@
 .. _Nova Server - Metadata Parameters:
 
 Resource: OS::Nova::Server Metadata Parameters
---------------------------------------------------------------------------------
+----------------------------------------------
 
 The ``OS::Nova::Server`` resource property ``metadata`` is an optional
 OpenStack property.
@@ -29,7 +29,7 @@ The sections that follow provides the requirements associated with each
    OS::Nova::Server, metadata, environment_context, string, **MUST**, ONAP
 
 vnf_id
-^^^^^^^^^
+^^^^^^
 
 The ``OS::Nova::Server`` resource property ``metadata`` key/value pair
 ``vnf_id`` is an ONAP generated UUID that identifies the VNF.  The value
@@ -40,8 +40,8 @@ Template at orchestration time.
     :id: R-37437
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server``
     resource property ``metadata`` **MUST**
@@ -52,8 +52,8 @@ Template at orchestration time.
     :id: R-07507
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server``
     resource property
@@ -65,8 +65,8 @@ Template at orchestration time.
     :id: R-55218
     :target: VNF
     :keyword: MUST NOT
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server``
     resource property
@@ -77,8 +77,8 @@ Template at orchestration time.
     :id: R-20856
     :target: VNF
     :keyword: MUST NOT
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server``
     resource property
@@ -96,7 +96,7 @@ Template at orchestration time.
       description: Unique ID for this VNF instance
 
 vf_module_id
-^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^
 
 The OS::Nova::Server Resource ``metadata`` map value parameter ``vf_module_id``
 is an ONAP generated UUID that identifies the VF Module (e.g., Heat
@@ -108,8 +108,8 @@ Template at orchestration time.
     :id: R-71493
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
     property ``metadata`` **MUST**
@@ -120,8 +120,8 @@ Template at orchestration time.
     :id: R-82134
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource property
     ``metadata`` key/value pair ``vf_module_id`` parameter **MUST**
@@ -132,8 +132,8 @@ Template at orchestration time.
     :id: R-98374
     :target: VNF
     :keyword: MUST NOT
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource property
     ``metadata`` key/value pair ``vf_module_id`` parameter ``vf_module_id``
@@ -144,8 +144,8 @@ Template at orchestration time.
     :id: R-72871
     :target: VNF
     :keyword: MUST NOT
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource property
     ``metadata`` key/value pair ``vf_module_id`` parameter ``vf_module_id``
@@ -164,7 +164,7 @@ Template at orchestration time.
 
 
 vnf_name
-^^^^^^^^^
+^^^^^^^^
 
 The ``OS::Nova::Server`` Resource ``metadata`` map value parameter ``vnf_name``
 is the ONAP (SDN-C) generated alphanumeric name of the deployed VNF instance.
@@ -176,8 +176,8 @@ Template at orchestration time.
     :id: R-72483
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource property
     ``metadata`` **MUST** contain the key/value pair ``vnf_name`` and the
@@ -187,8 +187,8 @@ Template at orchestration time.
     :id: R-62428
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
     property ``metadata`` key/value pair ``vnf_name`` parameter **MUST**
@@ -199,8 +199,8 @@ Template at orchestration time.
     :id: R-44318
     :target: VNF
     :keyword: MUST NOT
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
     property ``metadata`` key/value pair ``vnf_name``
@@ -211,8 +211,8 @@ Template at orchestration time.
     :id: R-36542
     :target: VNF
     :keyword: MUST NOT
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
     property ``metadata`` key/value pair ``vnf_name`` parameter
@@ -231,7 +231,7 @@ Template at orchestration time.
       description: Unique name for this VNF instance
 
 vf_module_name
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^
 
 The ``OS::Nova::Server`` Resource ``metadata`` map value parameter
 ``vf_module_name``
@@ -245,9 +245,9 @@ part of the orchestration process.
 
 .. req::
     :id: R-100400
+    :target: VNF
     :keyword: SHOULD
     :introduced: dublin
-    :target: VNF
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
     property metadata **SHOULD** contain the key/value pair ``vf_module_name``.
@@ -255,10 +255,10 @@ part of the orchestration process.
 
 .. req::
     :id: R-68023
-    :keyword: MUST
-    :validation_mode: static
     :target: VNF
+    :keyword: MUST
     :updated: dublin
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
     property ``metadata`` key/value pair ``vf_module_name``
@@ -269,8 +269,8 @@ part of the orchestration process.
     :id: R-39067
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
     property
@@ -282,8 +282,8 @@ part of the orchestration process.
     :id: R-15480
     :target: VNF
     :keyword: MUST NOT
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
     property
@@ -294,8 +294,8 @@ part of the orchestration process.
     :id: R-80374
     :target: VNF
     :keyword: MUST NOT
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
@@ -315,7 +315,7 @@ part of the orchestration process.
       description: Unique name for this VNF Module instance
 
 vm_role
-^^^^^^^^^
+^^^^^^^
 
 The ``OS::Nova::Server`` Resource ``metadata`` map value parameter ``vm_role``
 is a ``metadata`` tag that describes the role of the Virtual Machine.
@@ -338,8 +338,8 @@ is a ``metadata`` tag that describes the role of the Virtual Machine.
     :id: R-95430
     :target: VNF
     :keyword: MAY
-    :validation_mode: none
     :updated: dublin
+    :validation_mode: none
 
     If a VNF's Heat Orchestration Template's ``OS::Nova::Server``
     resource property
@@ -354,8 +354,8 @@ is a ``metadata`` tag that describes the role of the Virtual Machine.
     :id: R-67597
     :target: VNF
     :keyword: MUST NOT
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
     property ``metadata`` key/value pair ``vm_role`` parameter ``vm_role``
@@ -368,8 +368,8 @@ Defining the ``vm_role`` as the ``{vm-type}`` is a recommended convention
     :id: R-86476
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
     property ``metadata`` key/value pair ``vm_role`` value **MUST**
@@ -415,7 +415,7 @@ and retrieved via 'get_param'*
           vm_role: { get_param: vm_role }
 
 Example vnf_id, vf_module_id, vnf_name, vf_module_name, vm_role
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The example below depicts part of a Heat Orchestration Template that
 uses the five of the ``OS::Nova::Server`` resource
@@ -457,14 +457,14 @@ section. The ``{vm-type}`` has been defined as ``lb`` for load balancer.
           vm_role: lb
 
 vf_module_index
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^
 
 
 .. req::
     :id: R-100410
+    :target: VNF
     :keyword: MAY
     :introduced: dublin
-    :target: VNF
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server``
     resource  property ``metadata`` **MAY**
@@ -473,10 +473,10 @@ vf_module_index
 
 .. req::
     :id: R-50816
-    :keyword: MUST
     :target: VNF
-    :validation_mode: static
+    :keyword: MUST
     :updated: dublin
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server``
     resource  property ``metadata``
@@ -487,8 +487,8 @@ vf_module_index
     :id: R-54340
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
     property
@@ -501,8 +501,8 @@ vf_module_index
     :id: R-09811
     :target: VNF
     :keyword: MUST NOT
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
@@ -513,8 +513,8 @@ vf_module_index
     :id: R-37039
     :target: VNF
     :keyword: MUST NOT
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
     property
@@ -526,8 +526,8 @@ vf_module_index
     :id: R-55306
     :target: VNF
     :keyword: MUST NOT
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
     property ``metadata`` key/value pair ``vf_module_index`` **MUST NOT**
@@ -567,8 +567,8 @@ R-46461 and R-35666).  An example is provided below.
     :id: R-55307
     :target: VNF
     :keyword: MUST NOT
-    :validation_mode: static
     :introduced: frankfurt
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's parameter ``vf_module_index``
     **MUST NOT** be used for indexing an:
@@ -645,7 +645,7 @@ YAML File
         fixed_ips: [ { "ip_address": {get_param: [ oam_vm_int_ctrl_ips, { get_param: vf_module_index} ]}}]
 
 workload_context
-^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^
 
 .. req::
     :id: R-47061
@@ -661,8 +661,8 @@ workload_context
     :id: R-74978
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
     property ``metadata`` key/value pair ``workload_context``
@@ -674,8 +674,8 @@ workload_context
     :id: R-34055
     :target: VNF
     :keyword: MUST NOT
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
     property ``metadata`` key/value pair ``workload_context``
@@ -686,8 +686,8 @@ workload_context
     :id: R-02691
     :target: VNF
     :keyword: MUST NOT
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
@@ -731,7 +731,7 @@ Heat Orchestration Template by ONAP at orchestration time.
           workload_context: {get_param: workload_context}
 
 environment_context
-^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^
 
 .. req::
     :id: R-88536
@@ -747,8 +747,8 @@ environment_context
     :id: R-20308
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
     property ``metadata`` key/value pair ``environment_context``
@@ -759,8 +759,8 @@ environment_context
     :id: R-56183
     :target: VNF
     :keyword: MUST NOT
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
     property ``metadata``key/value pair ``environment_context``
@@ -771,8 +771,8 @@ environment_context
     :id: R-13194
     :target: VNF
     :keyword: MUST NOT
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's ``OS::Nova::Server`` resource
     property

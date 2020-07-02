@@ -14,7 +14,7 @@
 
 
 Ansible Playbook Examples
------------------------------------------------
+-------------------------
 
 The following sections contain examples of Ansible playbooks
 which follow the guidelines.
@@ -24,7 +24,7 @@ to: :doc:`APPC Ansible Adapter <../../../../appc/deployment.git/docs/APPC Ansibl
 
 
 Guidelines for Playbooks to properly integrate with APPC/SDN-C
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **NOTE**: To support concurrent requests to multiple playbooks, targeting VNF
 instances of same or different type, VNF files dynamically created by playbooks
@@ -278,7 +278,7 @@ files:
 playbook take precedence over any defaults stored in Ansible Server.
 
 Ansible Playbooks – Notes On Artifacts Required to Run Playbooks
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Inventory hosts file: should be VNF instance specific.
 
@@ -664,7 +664,7 @@ can be found under ONAP (onap.org).
 
 
 Ansible Inventory Hosts File – Supported Formats
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Supported inventory hosts file examples, built from this NodeList model,
 extracted from A&AI by APPC/SDN-C and passed to the Ansible
@@ -784,7 +784,7 @@ With VNFC names and IP addresses, template inventory names setting
 
 
 Ansible Server – On-boarding Ansible Playbooks
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Once playbooks are developed following these guidelines, playbooks need to be
 on-boarded onto Development Ansible Server(s), and placed under (git) code

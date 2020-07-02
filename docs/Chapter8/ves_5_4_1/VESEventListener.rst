@@ -5,14 +5,13 @@
 
 .. _ves_event_listener_5_4_1:
 
-===================================
 Service: *VES Event Listener 5.4.1*
-===================================
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. contents:: Table of Contents
 
 Introduction
-============
+^^^^^^^^^^^^
 
 This document describes the RESTful interface for the VES (Virtual function
 Event Streaming) Event Listener. The VES Event Listener is capable of receiving
@@ -34,7 +33,7 @@ Format. In future, additional documents may describe other transports which
 make use of persistent TCP connections for high volumes of streaming events.
 
 Event Registration
-------------------
+^^^^^^^^^^^^^^^^^^
 
 All events must be compliant with the common event format, but specific events
 identified by their eventNames, may require that certain fields, which are
@@ -48,7 +47,7 @@ what field values may be sent, and any special handling that should be
 performed on those eventNames.
 
 Naming Standards for eventName
-------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To prevent naming collisions, eventNames sent as part of the
 commonEventHeader, should conform to the following naming convention designed
@@ -100,7 +99,7 @@ service and resource onboarding to the ONAP Service Design and Creation
 environment (i.e., SDC).
 
 Support for Protocols Other Than HTTPS
---------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This API specification describes an HTTPS RESTful interface using the JSON
 content-type.
@@ -111,7 +110,7 @@ format over an RPC protocol to be defined. Both would leverage the JSON schema
 provided in this document.
 
 Versioning
-----------
+^^^^^^^^^^
 
 Three types of version numbers supported by this specification:
 
@@ -138,7 +137,7 @@ Three types of version numbers supported by this specification:
    minor number.
 
 Security
---------
+^^^^^^^^
 
 Event sources must identify themselves to the VES Event Listener.
 
@@ -226,7 +225,7 @@ A JSON schema describing the Common Event Format is provided below and is
 reproduced in the tables that follow.
 
 Common Event Datatypes
-----------------------
+^^^^^^^^^^^^^^^^^^^^^^
 
 Common Event Datatypes
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -391,7 +390,7 @@ information:
 +----------------+----------+-------------+---------------------------------------------------------------+
 
 'Common Event Header'Datatypes
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Datatype: commonEventHeader
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -448,10 +447,10 @@ enrichment process necessary for efficient internal processing of events
 received by the VES Event Listener:
 
 Technology Independent Datatypes
---------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 'Fault'Domain Datatypes
-~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
 
 Datatype: faultFields
 ^^^^^^^^^^^^^^^^^^^^^
@@ -481,7 +480,7 @@ The faultFields datatype consists of the following fields:
 +-------------------------------+-------------+-------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 'Heartbeat'Domain Datatypes
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Datatype: heartbeatFields
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -837,7 +836,7 @@ card:
 +------------------------------------------+----------+-------------+-----------------------------------------------------------------------------------------------------------------------------------------------+
 
 'Other'Domain Datatypes
-~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
 
 Datatype: otherFields
 ^^^^^^^^^^^^^^^^^^^^^
@@ -859,7 +858,7 @@ following fields:
 +-----------------------------+--------------------------+-------------+------------------------------------------------------------------------------+
 
 'State Change'Domain Datatypes
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Datatype: stateChangeFields
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -881,7 +880,7 @@ The stateChangeFields datatype consists of the following fields:
 +----------------------------+-------------+-------------+----------------------------------------------------------------------------+
 
 'Syslog'Domain Datatypes
-~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 Datatype: syslogFields
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -1011,7 +1010,7 @@ Example of syslogSData:
     ; except '=', SP, ']', %d34 (")
 
 'Threshold Crossing Alert'Domain Datatypes
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Datatype: counter
 ^^^^^^^^^^^^^^^^^
@@ -1073,7 +1072,7 @@ fields:
 +-----------------------------------+---------------+-------------+-----------------------------------------------------------------------------------------------------------------------------+
 
 Technology Specific Datatypes
------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 'Mobile Flow' Domain Datatypes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1383,7 +1382,7 @@ Exceptions
 ==========
 
 RESTful Web Services Exceptions
--------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 RESTful services generate and send exceptions to clients in response to
 invocation errors. Exceptions send HTTP status codes (specified later in
@@ -1410,7 +1409,7 @@ exceptions may be defined: service exceptions and policy exceptions.
 +------------------+----------------------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Service Exceptions
-------------------
+^^^^^^^^^^^^^^^^^^
 
 When a service is not able to process a request, and retrying the
 request with the same information will also result in a failure, and the
@@ -1440,7 +1439,7 @@ Listener API are defined below.
     Table - Service Exceptions
 
 Policy Exceptions
------------------
+^^^^^^^^^^^^^^^^^
 
 When a service is not able to complete because the request fails to meet
 a policy criteria, then the service will issue a fault using the policy
@@ -1479,10 +1478,10 @@ RESTful Web Services Definition
 ===============================
 
 REST Operation Overview
------------------------
+^^^^^^^^^^^^^^^^^^^^^^^
 
 REST Operation Summary
-~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
 
 +--------------------------------+------------+----------------------------------------------------------------------------+
 | **Operation Action**           | **HTTP**   | **Resource URL relative to {ServerRoot}, which is defined in section 3**   |
@@ -1507,7 +1506,7 @@ without modification (e.g., unmodified v1 clients would not be able to
 use v2 without error).
 
 Buffering of Events
-~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~
 
 {ServerRoot} is defined in section 3 of this document, which defines the
 REST resource URL. One or more FQDNs may be provisioned in an event
@@ -1537,7 +1536,7 @@ discard events in a first-in, first-out (FIFO) manner (i.e., discard
 oldest events first).
 
 Operation: publishAnyEvent
---------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Functional Behavior
 ~~~~~~~~~~~~~~~~~~~
@@ -1730,7 +1729,7 @@ Sample Service Exception
         }
 
 Operation: publishEventBatch
-----------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Functional Behavior
 ~~~~~~~~~~~~~~~~~~~

@@ -25,7 +25,7 @@ A VNF or PNF shall support at least one of communication protocols as specified 
     :keyword: MUST
     :introduced: frankfurt
 
-    The VNF or PNF MUST support configuration management including
+    The VNF or PNF **MUST** support configuration management including
     life cycle management (LCM) using at least one of the following
     protocols a)NETCONF/YANG, b)Ansible and c)Chef.
 
@@ -37,7 +37,7 @@ The selection of which API to use for LCM operations for a given PNF/VNF type is
 The requirements for supporting of SDN-C/APPC LCM API for LCM operations are documented in section 7.3.1.
 
 Controller Interactions With VNF or PNF
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 This section is not applicable to LCM operations using CDS self-service API.
 
 APPC/SDN-C expose a northbound API to clients (such as SO) in order for
@@ -67,7 +67,7 @@ parameter data can be either xml (for NETCONF) or JSON (for Ansible,
 Chef, or REST).
 
 Configuration Commands
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
 
 ``Configure``: The APPC/SDN-C client is requesting that a post-instantiation
 configuration be applied to the target VNF or PNF. After the Configure
@@ -165,7 +165,7 @@ configuration update) is audited against the running configuration on the VNF
     The VNF or PNF **MUST** support APPC ``Audit`` command.
 
 Lifecycle Management Related Commands
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **The following commands are needed to support various lifecycle management
 flows where the VNF may need to be removed for service.**
@@ -318,7 +318,7 @@ UpgradePostCheck failed).
 
 
 HealthCheck and Failure Related Commands
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ``HealthCheck`` The APPC/SDN-C client is requesting a health check over the
 entire scope of the VNF or PNF. The VNF or PNF must be 100% healthy, ready to
@@ -352,7 +352,7 @@ automated fashion.
     The VNF or PNF **MUST** support APPC/SDN-C ``HealthCheck`` command.
 
 Notes On Command Support Using APPC/SDN-C Southbound Protocols
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 APPC/SDN-C are designed to support a standard set of protocols in
 order to communicate with the VNF or PNF instance. The supported protocols are
@@ -381,7 +381,7 @@ Additional details can be found in the
 the `ONAP SDNC project <https://onap.readthedocs.io/en/latest/submodules/sdnc/oam.git/docs/index.html>`_.
 
 NETCONF Standards and Capabilities
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 APPC/SDN-C and their Adapters utilize device YANG model and
 NETCONF APIs to make the required changes in the VNF or PNF state and
@@ -393,7 +393,7 @@ VNF or PNF Configuration via NETCONF Requirements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Configuration Management
-+++++++++++++++++++++++++++
+++++++++++++++++++++++++
 
 
 .. req::
@@ -415,7 +415,7 @@ Configuration Management
     by supplied YANG models for the embedded NETCONF server.
 
 NETCONF Server Requirements
-++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++
 
 
 .. req::
@@ -1034,7 +1034,7 @@ NETCONF RFCs.
 
 
 LCM Operations via NETCONF
-++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++
 
 .. req::
     :id: R-246519
@@ -1042,7 +1042,7 @@ LCM Operations via NETCONF
     :keyword: MAY
     :introduced: frankfurt
 
-    As alternative to Ansible, Chef or REST, a VNF or PNF MAY support YANG models
+    As alternative to Ansible, Chef or REST, a VNF or PNF **MAY** support YANG models
     allowing execution of standard controller LCM operations including HealthCheck.
     Note: To support vendor YANG models for LCM operations, the controller is responsible
     for performing VNF/PNF specific translation of north-bound API requests into one or more
@@ -1107,7 +1107,7 @@ or unhealthy response:
 
 
 Chef Standards and Capabilities
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. container:: note
 
@@ -1137,7 +1137,7 @@ VNF or PNF Configuration via Chef Requirements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Chef Client Requirements
-+++++++++++++++++++++++++
+++++++++++++++++++++++++
 
 
 .. req::
@@ -1180,7 +1180,7 @@ Chef Client Requirements
     push jobs client >= 2.0.
 
 Chef Roles/Requirements
-++++++++++++++++++++++++++
++++++++++++++++++++++++
 
 .. req::
     :id: R-27310
@@ -1358,7 +1358,7 @@ action request against a Chef managed VNF or PNF.
 .. _ansible_playbook_requirements:
 
 Ansible Standards and Capabilities
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ONAP will support configuration of VNFs or PNFs via Ansible subject to the
 requirements and guidelines defined in this section.
@@ -1375,7 +1375,7 @@ VNF or PNF Configuration via Ansible Requirements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Ansible Client Requirements
-+++++++++++++++++++++++++++++
++++++++++++++++++++++++++++
 
 
 .. req::
@@ -1436,7 +1436,7 @@ Ansible Client Requirements
 
 .. req::
     :id: R-92866
-    :target: VNF or PNF Provider
+    :target: VNF or PNF PROVIDER
     :keyword: MUST
     :updated: dublin
 
@@ -1506,7 +1506,7 @@ Ansible Client Requirements
 
 .. req::
     :id: R-94567
-    :target: VNF or PNF Provider
+    :target: VNF or PNF PROVIDER
     :keyword: MUST
     :introduced: casablanca
     :updated: guilin
@@ -1517,7 +1517,7 @@ Ansible Client Requirements
 
 .. req::
     :id: R-67124
-    :target: VNF or PNF Provider
+    :target: VNF or PNF PROVIDER
     :keyword: MUST
     :introduced: casablanca
     :updated: guilin
@@ -1529,7 +1529,7 @@ Ansible Client Requirements
 
 .. req::
     :id: R-24482
-    :target: VNF or PNF Provider
+    :target: VNF or PNF PROVIDER
     :keyword: MUST
     :introduced: casablanca
     :updated: guilin
@@ -1540,7 +1540,7 @@ Ansible Client Requirements
     VM(s) as needed.
 
 Ansible Playbook Requirements
-+++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++
 
 An Ansible playbook is a collection of tasks that is executed on the
 Ansible server (local host) and/or the target VM (s) in order to
@@ -1548,7 +1548,7 @@ complete the desired action.
 
 .. req::
     :id: R-49396
-    :target: VNF or PNF Provider
+    :target: VNF or PNF PROVIDER
     :keyword: MUST
     :updated: guilin
 
@@ -1559,7 +1559,7 @@ complete the desired action.
 
 .. req::
     :id: R-33280
-    :target: VNF or PNF Provider
+    :target: VNF or PNF PROVIDER
     :keyword: MUST NOT
     :updated: guilin
 
@@ -1568,8 +1568,8 @@ complete the desired action.
 
 .. req::
    :id: R-195620
+   :target: VNF or PNF PROVIDER
    :keyword: SHOULD
-   :target: VNF or PNF Provider
    :introduced: guilin
 
    The VNF or PNF Provider's Ansible playbooks **SHOULD** compare the version(s)
@@ -1580,8 +1580,8 @@ complete the desired action.
 
 .. req::
    :id: R-918136
+   :target: VNF or PNF PROVIDER
    :keyword: MUST NOT
-   :target: VNF or PNF Provider
    :introduced: guilin
 
    The VNF or PNF Provider's Ansible playbooks **MUST NOT** fail due to
@@ -1590,8 +1590,8 @@ complete the desired action.
 
 .. req::
    :id: R-444446
+   :target: VNF or PNF PROVIDER
    :keyword: SHOULD
-   :target: VNF or PNF Provider
    :introduced: guilin
 
    The VNF or PNF Provider's Ansible playbooks **SHOULD** issue log messages
@@ -1605,7 +1605,7 @@ complete the desired action.
 
 .. req::
     :id: R-48698
-    :target: VNF or PNF Provider
+    :target: VNF or PNF PROVIDER
     :keyword: MUST
     :updated: guilin
 
@@ -1633,7 +1633,7 @@ will be considered to have failed.
 
 .. req::
     :id: R-43253
-    :target: VNF or PNF Provider
+    :target: VNF or PNF PROVIDER
     :keyword: MUST
     :updated: guilin
 
@@ -1647,7 +1647,7 @@ will be considered to have failed.
 
 .. req::
     :id: R-50252
-    :target: VNF or PNF Provider
+    :target: VNF or PNF PROVIDER
     :keyword: MUST
     :updated: guilin
 
@@ -1662,7 +1662,7 @@ will be considered to have failed.
 
 .. req::
     :id: R-51442
-    :target: VNF or PNF Provider
+    :target: VNF or PNF PROVIDER
     :keyword: SHOULD
     :updated: guilin
 
@@ -1679,7 +1679,7 @@ will be considered to have failed.
 
 .. req::
     :id: R-58301
-    :target: VNF or PNF Provider
+    :target: VNF or PNF PROVIDER
     :keyword: SHOULD NOT
     :updated: dublin
 
@@ -1699,7 +1699,7 @@ will be considered to have failed.
 
 .. req::
     :id: R-02651
-    :target: VNF or PNF Provider
+    :target: VNF or PNF PROVIDER
     :keyword: SHOULD
     :updated: guilin
 
@@ -1711,7 +1711,7 @@ will be considered to have failed.
 
 .. req::
     :id: R-43353
-    :target: VNF or PNF Provider
+    :target: VNF or PNF PROVIDER
     :keyword: MUST
     :updated: guilin
 
@@ -1838,7 +1838,7 @@ performs a full VNF or PNF health check.
 
 .. req::
     :id: R-24189
-    :target: VNF or PNF Provider
+    :target: VNF or PNF PROVIDER
     :keyword: MUST
     :introduced: casablanca
     :updated: guilin
@@ -1849,10 +1849,10 @@ performs a full VNF or PNF health check.
 
 .. req::
     :id: R-49911
-    :target: VNF or PNF Provider
+    :target: VNF or PNF PROVIDER
     :keyword: MUST
-    :updated: guilin
     :introduced: casablanca
+    :updated: guilin
 
     The VNF or PNF Provider **MUST** assign a new point release to the updated
     Ansible playbook set. The functionality of a new playbook set must be
@@ -1860,7 +1860,7 @@ performs a full VNF or PNF health check.
 
 .. req::
     :id: R-42333
-    :target: VNF or PNF Provider
+    :target: VNF or PNF PROVIDER
     :keyword: MUST
     :introduced: frankfurt
     :updated: guilin
@@ -1878,7 +1878,7 @@ performs a full VNF or PNF health check.
 
 .. req::
     :id: R-39003
-    :target: VNF or PNF Provider
+    :target: VNF or PNF PROVIDER
     :keyword: MUST
     :introduced: frankfurt
     :updated: guilin
@@ -1889,7 +1889,7 @@ performs a full VNF or PNF health check.
 
 .. req::
     :id: R-46823
-    :target: VNF or PNF Provider
+    :target: VNF or PNF PROVIDER
     :keyword: MUST
     :introduced: frankfurt
 
@@ -1903,7 +1903,7 @@ performs a full VNF or PNF health check.
 
 .. req::
     :id: R-83092
-    :target: VNF or PNF Provider
+    :target: VNF or PNF PROVIDER
     :keyword: MUST
     :introduced: frankfurt
     :updated: guilin
@@ -1914,7 +1914,7 @@ performs a full VNF or PNF health check.
 
 .. req::
     :id: R-09209
-    :target: VNF or PNF Provider
+    :target: VNF or PNF PROVIDER
     :keyword: MUST
     :introduced: frankfurt
     :updated: guilin
@@ -1926,7 +1926,7 @@ performs a full VNF or PNF health check.
 
 .. req::
     :id: R-56988
-    :target: VNF or PNF Provider
+    :target: VNF or PNF PROVIDER
     :keyword: MUST
     :introduced: frankfurt
 
@@ -1937,7 +1937,7 @@ performs a full VNF or PNF health check.
 
 .. req::
     :id: R-20988
-    :target: VNF or PNF Provider
+    :target: VNF or PNF PROVIDER
     :keyword: MUST
     :introduced: frankfurt
     :updated: guilin
@@ -1950,18 +1950,18 @@ performs a full VNF or PNF health check.
 
 .. req::
     :id: R-53245
-    :target: VNF or PNF Provider
+    :target: VNF or PNF PROVIDER
     :keyword: MUST NOT
     :introduced: frankfurt
     :updated: guilin
 
-    The VNF or PNF Provider's Ansible playbooks **MUST** require
+    The VNF or PNF Provider's Ansible playbooks **MUST NOT** require
     passwords or secrets to be passed in clear text in the command line or
     Rest API request to run the playbook.
 
 .. req::
     :id: R-78640
-    :target: VNF or PNF Provider
+    :target: VNF or PNF PROVIDER
     :keyword: SHOULD
     :introduced: frankfurt
     :updated: guilin
@@ -1973,8 +1973,8 @@ performs a full VNF or PNF health check.
 
 .. req::
     :id: R-88786
-    :target: VNF or PNF Provider
-    :keyword: MUST
+    :target: VNF or PNF PROVIDER
+    :keyword: SHOULD
     :introduced: frankfurt
     :updated: guilin
 
@@ -1985,7 +1985,7 @@ performs a full VNF or PNF health check.
 
 .. req::
     :id: R-88002
-    :target: VNF or PNF Provider
+    :target: VNF or PNF PROVIDER
     :keyword: MUST
     :introduced: frankfurt
 
@@ -1996,7 +1996,7 @@ performs a full VNF or PNF health check.
     into the central repository for distribution.
 
 Ansible API Usage
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~
 
 This section outlines the workflow that APPC/SDN-C invokes when
 it receives an action request against an Ansible managed VNF or PNF.
@@ -2021,7 +2021,7 @@ it receives an action request against an Ansible managed VNF or PNF.
 
 
 Support of APPC/SDN-C Commands And Southbound Protocols
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The following table summarizes the commands and possible protocols selected.
 Note that the HealthCheck can also be supported via REST.

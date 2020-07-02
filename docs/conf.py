@@ -25,11 +25,6 @@ needs_extra_options = {
     "updated": directives.unchanged,
     "impacts": directives.unchanged,
     "validation_mode": directives.unchanged,
-    "validated_by": directives.unchanged,
-    "test": directives.unchanged,
-    "test_case": directives.unchanged,
-    "test_file": directives.unchanged,
-    "notes": directives.unchanged,
 }
 
 needs_id_regex = "^[A-Z0-9]+-[A-Z0-9]+"

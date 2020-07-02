@@ -5,7 +5,7 @@
 .. _ONAP Heat Orchestration Templates Overview:
 
 ONAP Heat Orchestration Templates Overview
------------------------------------------------
+------------------------------------------
 
 ONAP supports a modular Heat Orchestration Template design pattern,
 referred to as *VNF Modularity.*
@@ -13,7 +13,7 @@ referred to as *VNF Modularity.*
 .. _heat_onap_vnf_modularity_overview:
 
 ONAP VNF Modularity Overview
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 .. req::
@@ -131,8 +131,8 @@ on another instance (e.g., during a fail over activity).
     :id: R-11200
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     A VNF's Cinder Volume Module, when it exists, **MUST** be 1:1
     with a Base module or Incremental module.
@@ -144,8 +144,8 @@ Module.
     :id: R-38474
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     A VNF's Base Module **MUST** have a corresponding Environment File.
 
@@ -153,8 +153,8 @@ Module.
     :id: R-81725
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     A VNF's Incremental Module **MUST** have a corresponding Environment File
 
@@ -162,8 +162,8 @@ Module.
     :id: R-53433
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     A VNF's Cinder Volume Module **MUST** have a corresponding environment file
 
@@ -172,7 +172,7 @@ This overview is provided to set the stage and help clarify the concepts
 that will be introduced.
 
 Nested Heat Orchestration Templates Overview
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ONAP supports nested Heat Orchestration Templates per OpenStack
 specifications.
@@ -209,7 +209,7 @@ dynamically (via OS::Heat::ResourceGroup).
 See :ref:`Nested Heat Templates` for additional details.
 
 ONAP Heat Orchestration Template Filenames
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In order to enable ONAP to understand the relationship between Heat
 files, the following Heat file naming convention must be utilized.
@@ -263,8 +263,8 @@ Base Modules
     :id: R-81339
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: el alto
+    :validation_mode: static
 
     A VNF Heat Orchestration Template's Base Module file name **MUST** include
     case insensitive 'base' in the filename and
@@ -301,8 +301,8 @@ Incremental Modules
     :id: R-87247
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: el alto
+    :validation_mode: static
 
     VNF Heat Orchestration Template's Incremental Module file name
     **MUST** contain only alphanumeric characters and underscores
@@ -337,8 +337,8 @@ Cinder Volume Modules
     :id: R-82732
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     A VNF Heat Orchestration Template's Cinder Volume Module **MUST**
     be named identical to the base or incremental module it is supporting with
@@ -347,10 +347,11 @@ Cinder Volume Modules
 
 .. req::
     :id: R-589037
+    :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :introduced: dublin
     :updated: el alto
+    :validation_mode: static
 
     A VNF Heat Orchestration Template's Cinder Volume Module ``resources:``
     section
@@ -366,8 +367,8 @@ Cinder Volume Modules
     :id: R-31141
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     VNF Heat Orchestration Template's Cinder Volume Module's Environment File
     **MUST** be named identical to the VNF Heat Orchestration Template's
@@ -381,8 +382,8 @@ Nested Heat file
     :id: R-76057
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: el alto
+    :validation_mode: static
 
     VNF Heat Orchestration Template's Nested YAML file name **MUST** contain
     only alphanumeric characters and underscores '_' and
@@ -416,7 +417,7 @@ corresponding environment files, per OpenStack specifications.
 .. _Output Parameters:
 
 Output Parameters
-^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^
 
 The output parameters are parameters defined in the output section of a
 Heat Orchestration Template. The ONAP output parameters are subdivided
@@ -429,7 +430,7 @@ into three categories:
 3. ONAP Predefined Output Parameters.
 
 ONAP Base Module Output Parameters
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ONAP Base Module Output Parameters are declared in the ``outputs:`` section
 of the VNF's Heat Orchestration Template's Base Module. A Base Module Output
@@ -445,8 +446,8 @@ other VNFs.
     :id: R-52753
     :target: VNF
     :keyword: MUST
-    :validation_mode: none
     :updated: dublin
+    :validation_mode: none
 
     VNF's Heat Orchestration Template's Base Module's output parameter's
     name and type **MUST** match the VNF's Heat Orchestration Template's
@@ -456,8 +457,8 @@ other VNFs.
     :id: R-22608
     :target: VNF
     :keyword: SHOULD NOT
-    :validation_mode: static
     :updated: dublin
+    :validation_mode: static
 
     When a VNF's Heat Orchestration Template's Base Module's output
     parameter is declared as an input parameter in an Incremental Module,
@@ -474,8 +475,8 @@ ONAP Volume Module Output Parameters
     :id: R-89913
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: dublin
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's Cinder Volume Module Output
     Parameter(s)
@@ -491,8 +492,8 @@ template is associated with.
     :id: R-07443
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: dublin
+    :validation_mode: static
 
     A VNF's Heat Orchestration Templates' Cinder Volume Module Output
     Parameter's name and type **MUST** match the input parameter name and type
@@ -502,8 +503,8 @@ template is associated with.
     :id: R-20547
     :target: VNF
     :keyword: SHOULD NOT
-    :validation_mode: static
     :updated: dublin
+    :validation_mode: static
 
     When an ONAP Volume Module Output Parameter is declared as an input
     parameter in a base or an incremental module Heat Orchestration
@@ -513,7 +514,7 @@ Additional details on ONAP Base Module Output Parameters are provided in
 :ref:`ONAP Output Parameter Names` and :ref:`ONAP Heat Cinder Volumes`.
 
 ONAP Predefined Output Parameters
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ONAP will look for a small set of pre-defined Heat output parameters to
 capture resource attributes for inventory in ONAP. These output parameters
@@ -522,7 +523,7 @@ parameters are optional and are specified in
 :ref:`OAM Management IP Addresses`.
 
 Support of heat stack update
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ONAP does not support the use of heat stack-update command for scaling
 (growth/de-growth).
@@ -550,7 +551,7 @@ It is important to note that ONAP only supports heat stack-update for
 image upgrades.
 
 Scope of a Heat Orchestration Template
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 .. req::
@@ -581,6 +582,7 @@ ONAP VNF On-Boarding
 
 .. req::
     :id: R-511776
+    :target: VNF
     :keyword: MUST
     :introduced: dublin
     :validation_mode: static
@@ -610,9 +612,10 @@ The VNF's Heat Orchestration Template's ZIP file **MAY** include
 
 .. req::
     :id: R-348813
-    :keyword: MUST
-    :validation_mode: static
+    :target: VNF HEAT PACKAGE
+    :keyword: MUST NOT
     :introduced: dublin
+    :validation_mode: static
 
     The VNF's Heat Orchestration Template's ZIP file **MUST NOT** include
     a binary image file.

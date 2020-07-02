@@ -5,12 +5,12 @@
 .. _ONAP Heat Networking:
 
 ONAP Heat Networking
------------------------
+--------------------
 
 ONAP defines two types of networks: External Networks and Internal Networks.
 
 External Networks
-^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^
 
 An ONAP external network is created by using VID or by invoking SO directly
 to instantiate the network.
@@ -41,8 +41,8 @@ An external network may be designed to perform
     :id: R-16968
     :target: VNF
     :keyword: MUST NOT
-    :validation_mode: static
     :updated: frankfurt
+    :validation_mode: static
 
     A VNF's Heat Orchestration Templates **MUST NOT** include heat
     resources to create an ONAP external network.
@@ -64,8 +64,8 @@ An external network may be designed to perform
     :id: R-57424
     :target: VNF
     :keyword: MAY
-    :validation_mode: none
     :updated: frankfurt
+    :validation_mode: none
 
     A VNF's port connected to an ONAP external network **MAY**
     use the port for the purpose of
@@ -79,8 +79,8 @@ An external network may be designed to perform
     :id: R-99794
     :target: VNF
     :keyword: MUST
-    :validation_mode: none
     :updated: frankfurt
+    :validation_mode: none
 
     An ONAP external network **MUST** have one subnet. An external network
     **MAY** have more than one subnet.
@@ -92,7 +92,7 @@ external networks. :ref:`ONAP Heat Resource ID and Parameter Naming Convention`
 provides additional details.
 
 Internal Networks
-^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^
 
 An ONAP internal network is created by the VNF's Heat Orchestration Template.
 That is, the VNF's Heat Orchestration Template contains the heat resources to
@@ -128,8 +128,8 @@ operational complications.
     :id: R-35666
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: frankfurt
+    :validation_mode: static
 
     If a VNF has an ONAP internal network, the VNF's Heat Orchestration
     Template **MUST** include the heat resources to create the
@@ -146,18 +146,28 @@ operational complications.
     :id: R-52425
     :target: VNF
     :keyword: MUST
-    :validation_mode: none
     :updated: frankfurt
+    :validation_mode: none
 
     A VNF's port connected to an ONAP internal network **MUST**
+    use the port for the purpose of reaching VMs in the same VNF.
+
+.. req::
+    :id: R-41542
+    :target: VNF
+    :keyword: MUST
+    :introduced: guilin
+    :validation_mode: none
+
+    A VNF's port connected to fdfsafd ONAP internal network **MUST**
     use the port for the purpose of reaching VMs in the same VNF.
 
 .. req::
     :id: R-46461
     :target: VNF
     :keyword: MUST NOT
-    :validation_mode: none
     :updated: frankfurt
+    :validation_mode: none
 
     A VNF's port connected to an ONAP internal network **MUST NOT**
     use the port
@@ -169,8 +179,8 @@ operational complications.
     :id: R-16241
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: frankfurt
+    :validation_mode: static
 
     A VNF's ONAP internal network **MUST** have one subnet.
     A VNF's ONAP internal network **MAY** have more than one subnet.
@@ -189,8 +199,8 @@ operational complications.
     :id: R-22688
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: frankfurt
+    :validation_mode: static
 
     When a VNF's Heat Orchestration Template creates an ONAP internal network
     (per the ONAP definition, see Requirements R-52425 and R-46461

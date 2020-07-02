@@ -4,15 +4,15 @@
 
 
 {vm-type}
------------------
+---------
 
 
 .. req::
     :id: R-01455
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: dublin
+    :validation_mode: static
 
     When a VNF's Heat Orchestration Template creates a Virtual Machine
     (i.e., ``OS::Nova::Server``),
@@ -68,8 +68,8 @@ found in later sections of this document.
     :id: R-98407
     :target: VNF
     :keyword: MUST NOT
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's ``{vm-type}`` **MUST** contain only
     alphanumeric characters and/or underscores '_' and **MUST NOT**
@@ -80,8 +80,8 @@ found in later sections of this document.
     :id: R-48067
     :target: VNF
     :keyword: MUST NOT
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's ``{vm-type}`` **MUST NOT** be a
     substring
@@ -95,8 +95,8 @@ to produce erroneous error messages.
     :id: R-32394
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's use of ``{vm-type}`` in all Resource
     property parameter names **MUST** be the same case.
@@ -105,8 +105,8 @@ to produce erroneous error messages.
     :id: R-46839
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's use of ``{vm-type}``
     in all Resource IDs **MUST** be the same case.

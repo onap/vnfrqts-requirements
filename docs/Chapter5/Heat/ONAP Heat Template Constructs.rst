@@ -5,7 +5,7 @@
 .. _ONAP Heat Heat Template Constructs:
 
 ONAP Heat Heat Template Constructs
---------------------------------------
+----------------------------------
 
 .. _Nested Heat Templates:
 
@@ -59,6 +59,7 @@ have a unique name in the scope of the VNF.
 
 .. req::
     :id: R-60011
+    :target: VNF
     :keyword: MUST
     :updated: casablanca
     :validation_mode: static
@@ -75,7 +76,8 @@ the second level of nested heat.
 
 .. req::
     :id: R-17528
-    :keyword: MUST
+    :target: VNF
+    :keyword: MUST NOT
     :updated: frankfurt
     :validation_mode: static
 
@@ -86,6 +88,7 @@ the second level of nested heat.
 
 .. req::
     :id: R-708564
+    :target: VNF
     :keyword: MUST NOT
     :introduced: dublin
     :validation_mode: static
@@ -145,6 +148,7 @@ cause issues for other ONAP applications/features.
 
 .. req::
     :id: R-11041
+    :target: VNF
     :keyword: MUST
     :updated: casablanca
     :validation_mode: static
@@ -155,6 +159,7 @@ cause issues for other ONAP applications/features.
 
 .. req::
     :id: R-90022
+    :target: VNF
     :keyword: MAY
     :updated: casablanca
 
@@ -163,6 +168,7 @@ cause issues for other ONAP applications/features.
 
 .. req::
     :id: R-04344
+    :target: VNF
     :keyword: MAY
     :updated: casablanca
 
@@ -305,8 +311,8 @@ OS::Heat::ResourceGroup Property count
     :id: R-50011
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's ``OS::Heat::ResourceGroup``
     property ``count`` **MUST** be enumerated in the VNF's
@@ -624,8 +630,8 @@ following limitations:
     :id: R-76718
     :target: VNF
     :keyword: MUST
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     If a VNF's Heat Orchestration Template uses the intrinsic function
     ``get_file``, the ``get_file`` target **MUST** be referenced in
@@ -639,8 +645,8 @@ See requirement R-511776.
     :id: R-41888
     :target: VNF
     :keyword: MUST NOT
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template intrinsic function
     ``get_file`` **MUST NOT** utilize URL-based file retrieval.
@@ -703,10 +709,10 @@ automatically assign a public/private key pair.
 
 .. req::
     :id: R-100380
+    :target: VNF
     :keyword: SHOULD
     :introduced: dublin
     :validation_mode: none
-    :target: VNF
 
     If a VNF requires the use of an SSH key created by OpenStack, the VNF
     Heat Orchestration Template **SHOULD** create the ``OS::Nova::Keypair``

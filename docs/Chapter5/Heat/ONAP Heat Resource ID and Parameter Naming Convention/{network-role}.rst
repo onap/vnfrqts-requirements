@@ -3,14 +3,14 @@
 .. Copyright 2017 AT&T Intellectual Property.  All rights reserved.
 
 {network-role}
------------------------------
+--------------
 
 .. req::
     :id: R-69014
     :target: VNF
     :keyword: MUST
-    :validation_mode: none
     :updated: frankfurt
+    :validation_mode: none
 
     When a VNF's port connects to an ONAP internal network or ONAP
     external network,
@@ -24,8 +24,8 @@
     :id: R-05201
     :target: VNF
     :keyword: MUST
-    :validation_mode: none
     :updated: dublin
+    :validation_mode: none
 
     When a VNF connects to two or more unique networks, each
     network **MUST** be assigned a unique ``{network-role}``
@@ -36,8 +36,8 @@
     :id: R-21330
     :target: VNF
     :keyword: MUST
-    :validation_mode: none
     :updated: frankfurt
+    :validation_mode: none
 
     A VNF's Heat Orchestration Template's Resource property parameter that is
     associated with an ONAP
@@ -48,8 +48,8 @@
     :id: R-11168
     :target: VNF
     :keyword: MUST
-    :validation_mode: none
     :updated: frankfurt
+    :validation_mode: none
 
     A VNF's Heat Orchestration Template's Resource ID that is associated with
     an ONAP external network **MUST** include the ``{network-role}`` as part
@@ -59,8 +59,8 @@
     :id: R-84322
     :target: VNF
     :keyword: MUST
-    :validation_mode: none
     :updated: frankfurt
+    :validation_mode: none
 
     A VNF's Heat Orchestration Template's Resource property parameter that
     is associated with an ONAP internal network (per the ONAP definition, see
@@ -75,8 +75,8 @@
     :id: R-96983
     :target: VNF
     :keyword: MUST
-    :validation_mode: none
     :updated: frankfurt
+    :validation_mode: none
 
     A VNF's Heat Orchestration Template's Resource ID that is associated
     with an ONAP internal network (per the ONAP definition, see Requirements
@@ -88,8 +88,8 @@
     :id: R-26506
     :target: VNF
     :keyword: MUST NOT
-    :validation_mode: static
     :updated: dublin
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's ``{network-role}`` **MUST** contain
     only alphanumeric characters and/or underscores '_' and
@@ -105,8 +105,8 @@
     :id: R-00977
     :target: VNF
     :keyword: MUST NOT
-    :validation_mode: static
     :updated: casablanca
+    :validation_mode: static
 
     A VNF's Heat Orchestration Template's ``{network-role}``
     **MUST NOT** be a substring of ``{vm-type}``.
@@ -119,8 +119,8 @@ For example, if a VNF has a '{vm-type}' of 'oam' and a
     :id: R-58424
     :target: VNF
     :keyword: MUST
-    :validation_mode: none
     :updated: casablanca
+    :validation_mode: none
 
     A VNF's Heat Orchestration Template's use of ``{network-role}``
     in all Resource property parameter names **MUST** be the same case.
@@ -129,8 +129,8 @@ For example, if a VNF has a '{vm-type}' of 'oam' and a
     :id: R-21511
     :target: VNF
     :keyword: MUST
-    :validation_mode: none
     :updated: casablanca
+    :validation_mode: none
 
     A VNF's Heat Orchestration Template's use of ``{network-role}``
     in all Resource IDs **MUST** be the same case.

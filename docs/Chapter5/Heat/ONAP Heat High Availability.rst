@@ -5,7 +5,7 @@
 .. _ONAP Heat High Availability:
 
 ONAP Heat High Availability
-------------------------------
+---------------------------
 
 VNF/VM parameters may include availability zone IDs for VNFs that
 require high availability.
