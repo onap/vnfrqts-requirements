@@ -63,6 +63,24 @@ A VNF module (base, incremental, cinder) **MAY** support nested templates.
     base module.
 
 .. req::
+    :id: R-610015
+    :target: VNF
+    :keyword: SHOULD NOT
+    :validation_mode: none
+    :introduced: guilin
+
+    When a VNF's Heat Orchestration Template is composed of a Base Module and
+    one or more Incremental Modules, the Base Module **SHOULD NOT** declare an
+    ``OS::Nova::Server`` resource.
+    When a VNF is composed of a Base Module and one or more Incremental
+    Modules, the ONAP *VF Module Replacement Feature* does not support
+    the replacement (updating) of the Base Module.
+    An ``OS::Nova::Server`` resource declared in the Base Module can not be
+    updated.
+
+
+
+.. req::
     :id: R-610020
     :target: VNF
     :keyword: MAY
