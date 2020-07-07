@@ -16,6 +16,24 @@
       "revId": "5a5c89b752bdd21a6e80cf08b1c4934a71f67671",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15644cad_3cfbeb9f",
+        "filename": "docs/Chapter5/Tosca/ONAP VNF or PNF CSAR Package.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1303
+      },
+      "writtenOn": "2020-07-07T19:21:25Z",
+      "side": 1,
+      "message": "yes, you are right",
+      "parentUuid": "a898011c_dd679311",
+      "revId": "5a5c89b752bdd21a6e80cf08b1c4934a71f67671",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
     }
   ]
 }
