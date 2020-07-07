@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a898011c_dd679311",
+        "filename": "docs/Chapter5/Tosca/ONAP VNF or PNF CSAR Package.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 4055
+      },
+      "writtenOn": "2020-07-07T19:15:01Z",
+      "side": 1,
+      "message": "the target states \"VNF\" and the requirement states \"VNF or PNF\".  Should PNF be removed?",
+      "revId": "5a5c89b752bdd21a6e80cf08b1c4934a71f67671",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
