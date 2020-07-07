@@ -107,10 +107,10 @@ VNF or PNF Package Contents
 
 .. req::
     :id: R-40820
-    :target: VNF or PNF CSAR PACKAGE
+    :target: VNF CSAR PACKAGE
     :keyword: MUST
     :introduced: casablanca
-    :updated: frankfurt
+    :updated: guilin
 
     The VNF or PNF CSAR PACKAGE **MUST** enumerate all of the open source
     licenses their VNF(s) incorporate. CSAR License directory as per ETSI
