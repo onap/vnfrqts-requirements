@@ -555,7 +555,9 @@ Testing
 
 Licensing Requirements
 ^^^^^^^^^^^^^^^^^^^^^^^
-ONAP operators build the VNF License using SDC during onboarding.
+ONAP can support external licensing management solution (e.g. vendor specific) 
+in addition to its own licensing management solution.  If licensing management 
+solution is provided by ONAP, ONAP operators build the VNF License using SDC during onboarding.
 Refer to the ONAP User Guide for details.
 The operators require certain information regarding VNF licences.
 This information currently is delivered out of band.
@@ -566,9 +568,9 @@ VNF licensing behavior also has some constraints.
     :id: R-85653
     :target: VNF or PNF
     :keyword: MUST
-    :updated: dublin
+    :updated: guilin
 
-    The VNF or PNF **MUST** provide metrics (e.g., number of sessions,
+    If ONAP licensing management solution is used, then the VNF or PNF **MUST** provide metrics (e.g., number of sessions,
     number of subscribers, number of seats, etc.) to ONAP for tracking
     every license.
 
@@ -604,9 +606,9 @@ VNF licensing behavior also has some constraints.
     :id: R-44569
     :target: VNF or PNF
     :keyword: MUST NOT
-    :updated: dublin
+    :updated: guilin
 
-    The VNF or PNF provider **MUST NOT** require additional
+    If ONAP licensing management solution is usei, the VNF or PNF provider **MUST NOT** require additional
     infrastructure such as a VNF or PNF provider license server for VNF or PNF provider
     functions and metrics.
 
@@ -616,7 +618,7 @@ VNF licensing behavior also has some constraints.
     :keyword: MUST
 
     The VNF **MUST** provide clear measurements for licensing
-    purposes to allow automated scale up/down by the management system.
+    purposes if needed to allow automated scale up/down by the management system.
 
 .. req::
     :id: R-27511
@@ -632,22 +634,22 @@ VNF licensing behavior also has some constraints.
     :id: R-85991
     :target: VNF or PNF
     :keyword: MUST
-    :updated: dublin
+    :updated: guilin
 
-    The VNF or PNF provider **MUST** provide a universal license key
+    When the instantiation of a xNF requires a license then the VNF or PNF provider **MUST** provide a universal license key
     per VNF or PNF to be used as needed by services (i.e., not tied to a VM
     instance) as the recommended solution. The VNF or PNF provider may provide
     pools of Unique VNF or PNF License Keys, where there is a unique key for
-    each VNF or PNF instance as an alternate solution. Licensing issues should
+    each VNF or PNF instance as an alternate solution. In all cases licensing issues should
     be resolved without interrupting in-service VNFs or PNFs.
 
 .. req::
     :id: R-47849
     :target: VNF or PNF
     :keyword: MUST
-    :updated: dublin
+    :updated: guilin
 
-    The VNF or PNF provider **MUST** support the metadata about
+    If ONAP licensing management solution is used, the VNF or PNF provider **MUST** support the metadata about
     licenses (and their applicable entitlements) as defined in this
     specification for VNF or PNF software, and any license keys required to authorize
     use of the VNF or PNF software.  This metadata will be used to facilitate
