@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b8196833_70e54dc8",
+        "filename": "docs/Chapter7/VNF-On-boarding-and-package-management.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 640,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-07-09T18:12:14Z",
+      "side": 1,
+      "message": "Maybe it\u0027s just me, but I don\u0027t think of a PNF instantiating.  Could we just simplify this to:\n\nIf the VNF or PNF requires a license, then the VNF or PNF Provider **MUST**...",
+      "range": {
+        "startLine": 640,
+        "startChar": 13,
+        "endLine": 640,
+        "endChar": 26
+      },
+      "revId": "2735a64a7d8853f90f978c4759d7ece91aec7612",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
