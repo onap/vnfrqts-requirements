@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "bd287e43_1358ea19",
+        "filename": "docs/Chapter7/VNF-On-boarding-and-package-management.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 640,
+      "author": {
+        "id": 1303
+      },
+      "writtenOn": "2020-07-09T17:30:34Z",
+      "side": 1,
+      "message": "ok, I will change xNF to VNF or PNF, also change target to provider. meaanwhile, in Guilin release REQ-353 will support licensing for PNF onboading and PnP procedures. so I will keep this requirement for both VNF and PNF",
+      "parentUuid": "47c8edea_4662800b",
+      "range": {
+        "startLine": 640,
+        "startChar": 32,
+        "endLine": 640,
+        "endChar": 35
+      },
+      "revId": "addbcf8bd1950fc515e83f8762181aa70e215606",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a7d395a6_54bfe332",
         "filename": "docs/Chapter7/VNF-On-boarding-and-package-management.rst",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2020-07-09T15:47:40Z",
       "side": 1,
       "message": "comma",
+      "range": {
+        "startLine": 644,
+        "startChar": 67,
+        "endLine": 644,
+        "endChar": 68
+      },
+      "revId": "addbcf8bd1950fc515e83f8762181aa70e215606",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "92ee0ccf_b0242dbd",
+        "filename": "docs/Chapter7/VNF-On-boarding-and-package-management.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 644,
+      "author": {
+        "id": 1303
+      },
+      "writtenOn": "2020-07-09T17:30:34Z",
+      "side": 1,
+      "message": "agreed",
+      "parentUuid": "a7d395a6_54bfe332",
       "range": {
         "startLine": 644,
         "startChar": 67,
