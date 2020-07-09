@@ -22,6 +22,30 @@
       "revId": "2735a64a7d8853f90f978c4759d7ece91aec7612",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d56bf59b_4120f937",
+        "filename": "docs/Chapter7/VNF-On-boarding-and-package-management.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 640,
+      "author": {
+        "id": 1303
+      },
+      "writtenOn": "2020-07-09T18:20:14Z",
+      "side": 1,
+      "message": "right,to be precise it is PNF PnP. \nSo I agree with your proposal",
+      "parentUuid": "b8196833_70e54dc8",
+      "range": {
+        "startLine": 640,
+        "startChar": 13,
+        "endLine": 640,
+        "endChar": 26
+      },
+      "revId": "2735a64a7d8853f90f978c4759d7ece91aec7612",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
     }
   ]
 }
