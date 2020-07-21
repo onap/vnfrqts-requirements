@@ -108,13 +108,23 @@ A VNF module (base, incremental, cinder) **MAY** support nested templates.
     :id: R-610030
     :target: VNF
     :keyword: MUST
-    :introduced: el alto
+    :introduced: guilin
     :validation_mode: static
 
     A VNF's Heat Orchestration Template's Incremental Module **MUST**
-    declare one or more ``OS::Nova::Server`` resources.  A ``OS::Nova::Server``
+    declare
+
+    - one or more ``OS::Nova::Server`` resources OR
+    - one or more ``OS::Cinder::Volume`` resources.
+
+    An ``OS::Nova::Server``
     **MAY** be created in the incremental module or a nested yaml file invoked
     by the incremental module.
+
+    An ``OS::Cinder::Volume``
+    **MAY** be created in the incremental module or a nested yaml file invoked
+    by the incremental module.
+
 
 .. req::
     :id: R-610040
