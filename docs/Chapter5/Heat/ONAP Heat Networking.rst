@@ -153,16 +153,6 @@ operational complications.
     use the port for the purpose of reaching VMs in the same VNF.
 
 .. req::
-    :id: R-41542
-    :target: VNF
-    :keyword: MUST
-    :introduced: guilin
-    :validation_mode: none
-
-    A VNF's port connected to fdfsafd ONAP internal network **MUST**
-    use the port for the purpose of reaching VMs in the same VNF.
-
-.. req::
     :id: R-46461
     :target: VNF
     :keyword: MUST NOT
