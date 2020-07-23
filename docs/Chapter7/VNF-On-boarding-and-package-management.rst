@@ -575,16 +575,6 @@ VNF licensing behavior also has some constraints.
     every license.
 
 .. req::
-    :id: R-44125
-    :target: VNF or PNF
-    :keyword: MUST
-    :updated: dublin
-
-    The VNF or PNF provider **MUST** agree to the process that can
-    be met by Service Provider reporting infrastructure. The Contract
-    shall define the reporting process and the available reporting tools.
-
-.. req::
     :id: R-40827
     :target: VNF or PNF
     :keyword: MUST
@@ -592,15 +582,6 @@ VNF licensing behavior also has some constraints.
 
     The VNF or PNF provider **MUST** enumerate all of the open
     source licenses their VNF or PNF(s) incorporate.
-
-.. req::
-    :id: R-97293
-    :target: VNF or PNF
-    :keyword: MUST NOT
-    :updated: dublin
-
-    The VNF or PNF provider **MUST NOT** require audits
-    of Service Provider's business.
 
 .. req::
     :id: R-44569
