@@ -69,12 +69,12 @@ Capability Types
     :id: R-177937
     :target: PNF
     :keyword: MUST
-    :introduced: dublin
+    :introduced: guilin
 
     The PNFD provided by a PNF vendor **MUST** comply with the following
     Capabilities Types as specified in ETSI NFV-SOL001 standard:
 
-      - tosca.datatypes.nfv.VirtualLinkable
+      - tosca.capabilities.nfv.VirtualLinkable
 
 
 Requirements Types
@@ -88,12 +88,12 @@ Relationship Types
     :id: R-64064
     :target: PNF
     :keyword: MUST
-    :introduced: dublin
+    :introduced: guilin
 
     The PNFD provided by a PNF vendor **MUST** comply with the following
     Relationship Types as specified in ETSI NFV-SOL001 standard:
 
-      - tosca.datatypes.nfv.VirtualLinksTo
+      - tosca.relations.nfv.VirtualLinksTo
 
 
 Interface Types
@@ -135,9 +135,9 @@ Policy Types
     :id: R-596064
     :target: PNF
     :keyword: MUST
-    :introduced: dublin
+    :introduced: guilin
 
     The PNFD provided by a PNF vendor **MUST** comply with the following Policy
     Types as specified in ETSI NFV-SOL001 standard:
 
-      - tosca.datatypes.nfv.SecurityGroupRule
+      - tosca.policies.nfv.SecurityGroupRule
