@@ -1,4 +1,5 @@
-.. Modifications Copyright © 2017-2018 AT&T Intellectual Property.
+.. Modifications Copyright © 2017-2018 AT&T Intellectual Property
+   Modifications Copyright © 2020 Nokia Solutions and Networks
 
 .. Licensed under the Creative Commons License, Attribution 4.0 Intl.
    (the "License"); you may not use this documentation except in compliance
@@ -320,6 +321,80 @@ Event Formatting and Usage
    able to collect even if the information field is identified as optional.
    However, if the data cannot be collected, then optional fields can be
    omitted.
+ 
+.. req::
+   :id: R-408814
+   :target: VNF or PNF
+   :keyword: MUST
+   :introduced: guilin
+   :validation_mode: none
+   :impacts: dcae
+
+   The VNF or a PNF producing VES stndDefined domain events to report 
+   standards-organization defined events to ONAP, **MUST** set the 
+   event.stndDefinedNamespace property. By default, ONAP ships with support
+   for the following :
+   * 3GPP-Provisioning
+   * 3GPP-Heartbeat
+   * 3GPP-FaultSupervision
+   * 3GPP-PerformanceAssurance
+   Another namespace, outside of the list provided, needs to registered in ONAP in coordination
+   with the operator before it can be used.
+
+.. req::
+   :id: R-408815
+   :target: VNF or PNF
+   :keyword: MUST
+   :introduced: guilin
+   :validation_mode: none
+   :impacts: dcae
+   
+   If the VNF or PNF producing VES stndDefined domain events provides 
+   the event.stndDefinedFields.schemaReference then it **MUST** set its value 
+   to the publicUrl value in DCAE's VES Collector `etc/externalRepo/schema-map.json <https://github.com/onap/dcaegen2-collectors-ves/blob/guilin/etc/externalRepo/schema-map.json>` 
+   that describes the data being sent in event.stndDefinedFields.data.
+
+.. req::
+   :id: R-408816
+   :target: VNF or PNF
+   :keyword: MUST
+   :introduced: guilin
+   :validation_mode: none
+   :impacts: dcae
+   
+   If the VNF or PNF producing VES stndDefined domain events provides 
+   the event.stndDefinedFields.schemaReference then it **MUST** only pass events 
+   that conform to schema references previously registered with DCAE otherwise 
+   the event will be rejected. By default, ONAP ships with support for schemas 
+   found in DCAE's VES Collector `etc/externalRepo/schema-map.json <https://github.com/onap/dcaegen2-collectors-ves/blob/guilin/etc/externalRepo/schema-map.json>`.
+
+.. req::
+   :id: R-408817
+   :target: VNF or PNF
+   :keyword: MUST
+   :introduced: guilin
+   :validation_mode: none
+   :impacts: dcae
+   
+   The VNF or PNF Provider producing stndDefined events **MUST** coordinate with
+   the operator, willing to validate stndDefined events, to configure DCAE to 
+   accept any new event schema prior to sending those events or the events 
+   will be rejected.
+
+.. req::
+   :id: R-408818
+   :target: VNF or PNF
+   :keyword: MUST
+   :introduced: guilin
+   :validation_mode: none
+   :impacts: dcae
+      
+   If the VNF or PNF producing VES stndDefined domain events provides 
+   the event.stndDefinedFields.schemaReference then it **MUST** set the 
+   event.stndDefined.schemaReference property to an exact structure, 
+   from supported schemaReference, describing the notification within 
+   an openAPI specification, e.g.
+   “https://forge.3gpp.org/.../faultMnS.yaml#components/schemas/notifyNewAlarm"
 
 Configuration Requirements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
