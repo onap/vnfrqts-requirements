@@ -11,6 +11,8 @@ linkcheck_ignore = [
 intersphinx_mapping.update({
     'modeling': ('https://docs.onap.org/projects/onap-modeling-modelspec/en/latest/', None),
     'dcae': ('https://docs.onap.org/projects/onap-dcaegen2/en/latest/', None),
+    'appc': ('https://docs.onap.org/projects/onap-appc/en/latest/', None),
+    'appc-deployment': ('https://docs.onap.org/projects/onap-appc-deployment/en/latest/', None),
 })
 
 html_last_updated_fmt = '%d-%b-%y %H:%M'

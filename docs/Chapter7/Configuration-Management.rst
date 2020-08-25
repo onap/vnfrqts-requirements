@@ -171,7 +171,7 @@ Lifecycle Management Related Commands
 flows where the VNF may need to be removed for service.**
 
 Full details on the APIs can be found in the
-:doc:`APPC LCM API Guide <../../../../appc.git/docs/APPC LCM API Guide/APPC LCM API Guide>`
+:doc:`APPC LCM API Guide <appc:APPC-LCM-API-Guide/APPC-LCM-API-Guide>`
 
 ``DistributeTraffic`` The APPC/SDN-C client is requesting a change to
 traffic distribution (redistribution) done by a traffic balancing/distribution
