@@ -8,9 +8,10 @@ linkcheck_ignore = [
     'http://localhost',
 ]
 
-intersphinx_mapping = {
-    'dcae': ('https://docs.onap.org/projects/onap-dcaegen2/en/latest/', None)
-}
+intersphinx_mapping.update({
+    'modeling': ('https://docs.onap.org/projects/onap-modeling-modelspec/en/latest/', None),
+    'dcae': ('https://docs.onap.org/projects/onap-dcaegen2/en/latest/', None),
+})
 
 html_last_updated_fmt = '%d-%b-%y %H:%M'
 

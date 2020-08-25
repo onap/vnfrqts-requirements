@@ -631,15 +631,11 @@ VNF licensing behavior also has some constraints.
     :keyword: MUST
     :updated: guilin
 
-    If ONAP licensing management solution is used, then the VNF or PNF provider **MUST** support the metadata about
-    licenses (and their applicable entitlements) as defined in this
-    specification for VNF or PNF software, and any license keys required to authorize
-    use of the VNF or PNF software.  This metadata will be used to facilitate
-    onboarding the VNF or PNF into the ONAP environment and automating processes
-    for putting the licenses into use and managing the full lifecycle of
-    the licenses. The details of this license model are described in
-    Tables C1 to C8 in the Appendix.
-
-    Note: License metadata support in ONAP is not currently available
-    and planned for 1Q 2018.
-
+    If ONAP licensing management solution is used, then the VNF or PNF provider
+    **MUST** support the metadata about licenses (and their applicable
+    entitlements) as defined in the
+    `ONAP License Management Information Model <https://docs.onap.org/projects/onap-modeling-modelspec/en/latest/ONAP%20Model%20Spec/im/License/LicenseModel.html>`__,
+    and any license keys required to authorize use of the VNF or PNF software.
+    This metadata will be used to facilitate onboarding the VNF or PNF into the
+    ONAP environment and automating processes for putting the licenses into use
+    and managing the full lifecycle of the licenses.
