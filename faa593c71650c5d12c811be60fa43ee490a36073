@@ -22,6 +22,29 @@
       "revId": "faa593c71650c5d12c811be60fa43ee490a36073",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c6959bef_f58ffeb2",
+        "filename": "docs/Chapter7/Monitoring-And-Management.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1303
+      },
+      "writtenOn": "2020-08-25T14:51:49Z",
+      "side": 1,
+      "message": "shall be both VNF and PNF provider? so \"then the VNF and PNF provider must coordinate..",
+      "range": {
+        "startLine": 165,
+        "startChar": 30,
+        "endLine": 165,
+        "endChar": 34
+      },
+      "revId": "faa593c71650c5d12c811be60fa43ee490a36073",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
     }
   ]
 }
