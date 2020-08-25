@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e0cc1b5c_1fd63234",
+        "filename": "docs/Chapter7/Monitoring-And-Management.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-08-25T20:24:51Z",
+      "side": 1,
+      "message": "I assume this note was specific to VNF/PNF, if so might help clarifying it. \nVESCollector updates are more of configuration driven.",
+      "range": {
+        "startLine": 357,
+        "startChar": 48,
+        "endLine": 357,
+        "endChar": 73
+      },
+      "revId": "2a3822dfb5abf5b8261445d94353c5d35325d826",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
