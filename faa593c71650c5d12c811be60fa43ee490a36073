@@ -45,6 +45,54 @@
       "revId": "faa593c71650c5d12c811be60fa43ee490a36073",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d91dd4b5_e4d7e825",
+        "filename": "docs/Chapter7/Monitoring-And-Management.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-08-25T14:53:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "67a7bbdb_fc9bc798",
+      "range": {
+        "startLine": 165,
+        "startChar": 43,
+        "endLine": 165,
+        "endChar": 46
+      },
+      "revId": "faa593c71650c5d12c811be60fa43ee490a36073",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a2ad358_2a137e28",
+        "filename": "docs/Chapter7/Monitoring-And-Management.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-08-25T14:53:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c6959bef_f58ffeb2",
+      "range": {
+        "startLine": 165,
+        "startChar": 30,
+        "endLine": 165,
+        "endChar": 34
+      },
+      "revId": "faa593c71650c5d12c811be60fa43ee490a36073",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
