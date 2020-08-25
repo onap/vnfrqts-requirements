@@ -1,4 +1,5 @@
-.. Modifications Copyright © 2017-2018 AT&T Intellectual Property.
+.. Modifications Copyright © 2017-2018 AT&T Intellectual Property
+   Modifications Copyright © 2020 Nokia Solutions and Networks
 
 .. Licensed under the Creative Commons License, Attribution 4.0 Intl.
    (the "License"); you may not use this documentation except in compliance
@@ -320,6 +321,41 @@ Event Formatting and Usage
    able to collect even if the information field is identified as optional.
    However, if the data cannot be collected, then optional fields can be
    omitted.
+ 
+.. req::
+   :id: R-408814
+   :target: VNF or PNF
+   :keyword: SHOULD
+   :introduced: guilin
+   :validation_mode: none
+   :impacts: dcae
+
+   A VNF or a PNF producing VES stndDefined domain events to report 
+   standards-organization defined events to ONAP, **SHOULD** set the 
+   event.stndDefined.schemaReference property to an exact structure 
+   describing the notification within an openAPI specification, e.g.
+   “https://forge.3gpp.org/.../faultMnS.yaml#components/schemas/notifyNewAlarm"
+
+   This requirement is applicable only, when the optional event.stndDefined.schemaReference
+   property is provided in the stndDefined events produced by a VNF or a PNF.
+
+.. req::
+   :id: R-408815
+   :target: VNF or PNF
+   :keyword: SHOULD
+   :introduced: guilin
+   :validation_mode: none
+   :impacts: dcae
+
+   A VNF or a PNF producing VES stndDefined domain events and using the built-in 
+   3GPP openAPI external schema repository to report standards-organization defined 
+   events to ONAP **SHOULD** set the event.stndDefinedFields.data property to 
+   follow structures defined in one of the following openAPI specifications:
+
+   * https://forge.3gpp.org/rep/sa5/data-models/tree/SA88-Rel16/OpenAPI/faultMnS.yaml
+   * https://forge.3gpp.org/rep/sa5/data-models/tree/SA88-Rel16/OpenAPI/heartbeatNtf.yaml
+   * https://forge.3gpp.org/rep/sa5/data-models/tree/SA88-Rel16/OpenAPI/provMnS.yaml
+   * https://forge.3gpp.org/rep/sa5/data-models/tree/SA88-Rel16/OpenAPI/PerDataFileReportMnS.yaml
 
 Configuration Requirements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
