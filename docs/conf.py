@@ -8,9 +8,12 @@ linkcheck_ignore = [
     'http://localhost',
 ]
 
-intersphinx_mapping = {}
+intersphinx_mapping = {
+    'dcae': ('https://docs.onap.org/projects/onap-dcaegen2/en/latest/', None)
+}
 
 html_last_updated_fmt = '%d-%b-%y %H:%M'
+
 
 def setup(app):
     app.add_stylesheet("css/ribbon.css")

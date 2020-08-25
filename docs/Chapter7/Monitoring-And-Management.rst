@@ -116,7 +116,7 @@ ONAP.
    The VNF or PNF **MAY** leverage ONAP's High Volume VNF Event Streaming
    (HV-VES) when there is a need to deliver large volumes of real-time
    performance management metrics. See
-   `HV-VES Collector <https://onap-doc.readthedocs.io/projects/onap-dcaegen2/en/latest/sections/services/ves-hv/index.html>`__
+   :doc:`HV-VES collector <dcae:sections/services/ves-hv/index>`
    service details for more information.
 
 .. req::
@@ -128,8 +128,9 @@ ONAP.
    :impacts: DCAE
 
    VNF or PNF Provider **MUST** have agreement with the Service Provider before
-   utilizing the HV-VES option for monitoring as this option does not fully
-   integrate with the ONAP's DCAE event processing capabilities.
+   utilizing the :doc:`HV-VES option <dcae:sections/services/ves-hv/index>`
+   for monitoring as this option does not fully integrate with the ONAP's DCAE
+   event processing capabilities.
 
 .. req::
    :id: R-908291
@@ -149,6 +150,20 @@ ONAP.
    the :ref:`bulk_performance_measurement` requirements and the
    `5G - Bulk PM ONAP Development <https://wiki.onap.org/display/DW/5G+-+Bulk+PM>`__
    Wiki page.
+
+.. req::
+   :id: R-63105
+   :target: VNF or PNF
+   :keyword: MAY
+   :introduced: guilin
+   :impacts: dcae
+
+   The VNF or PNF **MAY** produce telemetry data using the
+   :doc:`RESTConf Collector <dcae:sections/services/restconf/index>`, but this
+   requires additional coordination with the operator to appropriately
+   map the data internally to a VES-like structure used within ONAP. If this
+   option is needed, then the VNF Provider mut coordinate with with the
+   Operator for the data to be successfully collected and processed by DCAE.
 
 .. _snmp_monitoring_requirements:
 
