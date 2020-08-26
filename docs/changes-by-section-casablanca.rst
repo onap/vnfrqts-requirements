@@ -786,7 +786,7 @@ Requirements Added
     The xNF provider **MUST** indicate specific conditions that may arise, and
     recommend actions that may be taken at specific thresholds, or if specific
     conditions repeat within a specified time interval, using the semantics and
-    syntax described by the :doc:`VES Event Registration specification<../../../../vnfsdk/module.git/files/VESEventRegistration_3_0>`.
+    syntax described by the :ref:`VES Event Registration specification <ves_event_registration_3_2>`.
 
 
 .. container:: note
@@ -803,7 +803,7 @@ Requirements Added
     :need:`R-520802`
 
     The xNF provider **MUST** provide a YAML file formatted in adherence with
-    the :doc:`VES Event Registration specification<../../../../vnfsdk/module.git/files/VESEventRegistration_3_0>`
+    the :ref:`VES Event Registration specification <ves_event_registration_3_2>`
     that defines the following information for each event produced by the VNF:
 
     * ``eventName``
@@ -818,7 +818,7 @@ Requirements Added
 
     The events produced by the xNF **MUST** must be compliant with the common
     event format defined in the
-    :doc:`VES Event Listener<../../../../vnfsdk/model.git/docs/files/VESEventListener_7_0_1>`
+    :ref:`VES Event Listener <ves_event_listener_7_1>`
     specification.
 
 
@@ -3729,7 +3729,7 @@ Requirements Added
 
     :need:`R-22346`
 
-    The VNF package MUST provide :doc:`VES Event Registration <../../../../vnfsdk/module.git/files/VESEventRegistration_3_0>`
+    The VNF package MUST provide :ref:`VES Event Registration <ves_event_registration_3_2>`
     for all VES events provided by that xNF.
 
 

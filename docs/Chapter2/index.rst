@@ -42,7 +42,7 @@ for informational purposes only.
 Release Notes
 -------------
 
-Release notes for the VNF Requirements can be found :doc:`here <../release-notes>`
+Release notes for the VNF Requirements can be found :ref:`here <release_notes>`
 
 Glossary
 --------

@@ -20,7 +20,7 @@ The following sections contain examples of Ansible playbooks
 which follow the guidelines.
 
 To see specific documentation for the Ansible Adapter please refer
-to: :doc:`APPC Ansible Adapter <../../../../appc/deployment.git/docs/APPC Ansible Adapter/APPC Ansible Adapter>`
+to: :doc:`APPC Ansible Adapter <appc-deployment:APPC Ansible Adapter/APPC Ansible Adapter>`
 
 
 Guidelines for Playbooks to properly integrate with APPC/SDN-C
