@@ -48,7 +48,7 @@ committers:
       timezone: 'US/Eastern'
     - name: 'JunfengWang'
       email: 'junfeng.a.wang@ericsson.com'
-      company: 'ATT'
+      company: 'Ericsson'
       id: 'JunfengWang'
       timezone: 'US/Eastern'
 tsc:
