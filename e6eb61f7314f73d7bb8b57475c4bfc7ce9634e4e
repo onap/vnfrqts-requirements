@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0a0eadfa_4b5446fd",
+        "filename": "docs/Chapter7/Monitoring-And-Management.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 5279
+      },
+      "writtenOn": "2020-08-26T08:59:19Z",
+      "side": 1,
+      "message": "Why master branch? That doesn\u0027t appear to be a specific published version.\nI think the use of branches is still being discussed in 3GPP including current SA5 meeting.",
+      "revId": "e6eb61f7314f73d7bb8b57475c4bfc7ce9634e4e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
