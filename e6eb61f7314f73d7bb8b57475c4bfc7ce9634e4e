@@ -16,6 +16,24 @@
       "revId": "e6eb61f7314f73d7bb8b57475c4bfc7ce9634e4e",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "645e9580_3b3707e3",
+        "filename": "docs/Chapter7/Monitoring-And-Management.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-08-26T14:31:01Z",
+      "side": 1,
+      "message": "Well, You`re correct, I am pointing to the master branch here, as there are no 3GPP release branches available yet. \n\nWe have been urging our 3GPP delegates to reach an agreement on the branches reflecting specific 3GPP releases, I have a kind request to You, if You could reach out to E/// delegates, so a conclusion can be reached.\n\nOn the other hand, if we would point to a specific branch (once available), then we`d have to update this requirement each time, we change the contents of a built-in repo in a VES collector.\n\nThe target solution is based on a configMap, or external schema repo, where an operator is able to onboard specific openAPI descriptions, which she/he wants to use in her environment.\nThere is an ongoing work on a script and a procedure, how to create such a configMap, and how to attach it to any DCAE component (we plan to release it as part of Guilin).\n\nIn this context - do You have a proposal, how could this issue be approach in a fair way?",
+      "parentUuid": "0a0eadfa_4b5446fd",
+      "revId": "e6eb61f7314f73d7bb8b57475c4bfc7ce9634e4e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
     }
   ]
 }

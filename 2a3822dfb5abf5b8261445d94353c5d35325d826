@@ -22,6 +22,30 @@
       "revId": "2a3822dfb5abf5b8261445d94353c5d35325d826",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e9685c2_ab02e9e4",
+        "filename": "docs/Chapter7/Monitoring-And-Management.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-08-26T14:31:01Z",
+      "side": 1,
+      "message": "Patchset 2 is pushed, where this sentence is removed.\nIt`s a valid observation - this sentence is related to the VES Collector, and not to the VNF or PNF behavior.",
+      "parentUuid": "e0cc1b5c_1fd63234",
+      "range": {
+        "startLine": 357,
+        "startChar": 48,
+        "endLine": 357,
+        "endChar": 73
+      },
+      "revId": "2a3822dfb5abf5b8261445d94353c5d35325d826",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
     }
   ]
 }
