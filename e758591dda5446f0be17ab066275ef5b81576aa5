@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bab33e9e_64c4165b",
+        "filename": "docs/Chapter7/Monitoring-And-Management.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 5279
+      },
+      "writtenOn": "2020-09-08T14:38:24Z",
+      "side": 1,
+      "message": "While this looks better than previous links, it is still not clear URLs are permanent and official. The repository description states \u0027Trial SA5 - data models\u0027 and the following warning is found on the main page:\n\nImportant note: This repository serves as a trial for 3GPP SA5 WG adoption. The current name, structure and address (i.e. URL) of the repository may change at the end of the trial period.\n \nIndeed I believe there was an endorsed proposal (S5-204480) in the last SA5 meeting that included repository renaming in turn impacting URLs.\n\nLooking at the YAML files themselves there appear to be a number of inconsistencies for notification definitions. However they do seem to match version of 28.532 approved in SA88.\nThe most serious thing I noticed yet is heartbeatNtf.yaml which probably will not work at all, due to notificationType field definition. (The root cause is really re-use of header from other MnS which seems like a bad idea.)",
+      "revId": "e758591dda5446f0be17ab066275ef5b81576aa5",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
