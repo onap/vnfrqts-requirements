@@ -16,6 +16,24 @@
       "revId": "e758591dda5446f0be17ab066275ef5b81576aa5",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc544421_10595454",
+        "filename": "docs/Chapter7/Monitoring-And-Management.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-09-08T15:12:57Z",
+      "side": 1,
+      "message": "The code freeze for ONAP\u0027s Guilin release is this week.  We\u0027ll have some flexibility to resolve issues after that time, but when will the URLs for the schemas be finalized?  If this will remain beyond our Guilin timeline, then I would suggest we remove the links and refer to them by name.  However to do that, we we need to understand what ONAP has consumed in Guilin (i.e. has DCAE copied in versions of these schemas that could still be changed).  If DCAE has consumed schemas, then this presents a larger challenge unless the finalization of the schemas in 3GPP is imminent. Who can confirm both items?  1) when will these be published in 3GPP (final, static URLs) and 2) what has ONAP consumed?\n\nWith regards to the concern about heartbeatNtf.yaml - that sounds like it needs to be worked in 3GPP.  Who can take point on analyzing that issue and resolving it?",
+      "parentUuid": "bab33e9e_64c4165b",
+      "revId": "e758591dda5446f0be17ab066275ef5b81576aa5",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
     }
   ]
 }
