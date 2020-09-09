@@ -34,6 +34,24 @@
       "revId": "e758591dda5446f0be17ab066275ef5b81576aa5",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b94e7ee_27dbecc8",
+        "filename": "docs/Chapter7/Monitoring-And-Management.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 3793
+      },
+      "writtenOn": "2020-09-09T12:30:27Z",
+      "side": 1,
+      "message": "\u003e when will the URLs for the schemas be finalized?  If this will remain beyond our Guilin timeline, then I would suggest we remove the links and refer to them by name.  However to do that, we we need to understand what ONAP has consumed in Guilin (i.e. has DCAE copied in versions of these schemas that could still be changed).  If DCAE has consumed schemas, then this presents a larger challenge unless the finalization of the schemas in 3GPP is imminent. Who can confirm both items?  1) when will these be published in 3GPP (final, static URLs) and 2) what has ONAP consumed?\n\nAnswering 1) How I understand this is that for now official publishing in 3GPP is via TS documents, so etsi forge is on best effort and changes like creation of permanent URLs are done via ETSI MCC, so only way to speed this is that all companies via they 3GPP delegates complain to 3GPP.\n\nAnswering 2) This is much simpler to answer.  The mentioned file are pre-loaded in DCA but can be change any time.\n\n\u003e With regards to the concern about heartbeatNtf.yaml - that sounds like it needs to be worked in 3GPP.  Who can take point on analyzing that issue and resolving it?\n\nI can raise this issue to our delegates attention but still I don\u0027t think heartbeatNtf.yaml is used in ORAN and ORAN Alignment was main driver of this change.\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\nI think that discussion is going away from the code change. The 2 requirements (R-408814, R-408815) are saying that you need to provide reference to exact data definition and later provide data which match this reference. Additionally second requirement inform that the linked definitions are \"built-in\". This information can be also provided as a pointer to 3GPP appendix or we can include whole files in requirements, we perceive those as less effective.\nDo you see any issues in proposed requirements text which can be solve by changing the text?",
+      "parentUuid": "dc544421_10595454",
+      "revId": "e758591dda5446f0be17ab066275ef5b81576aa5",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
     }
   ]
 }
