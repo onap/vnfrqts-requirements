@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ff0b8705_c0a03aab",
+        "filename": "docs/Chapter7/Monitoring-And-Management.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 5234
+      },
+      "writtenOn": "2020-09-09T21:57:52Z",
+      "side": 1,
+      "message": "Update of schema-map.json to reflect URLs from this file is ready here: https://gerrit.onap.org/r/c/dcaegen2/collectors/ves/+/112424\n\nUpdate of CSITs will be needed after schema-map.json update, MR is ready here:\nhttps://gerrit.onap.org/r/c/integration/csit/+/112423",
+      "parentUuid": "d122bb9d_c4f23a3a",
+      "range": {
+        "startLine": 355,
+        "startChar": 48,
+        "endLine": 355,
+        "endChar": 63
+      },
+      "revId": "e758591dda5446f0be17ab066275ef5b81576aa5",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bab33e9e_64c4165b",
         "filename": "docs/Chapter7/Monitoring-And-Management.rst",
         "patchSetId": 3
