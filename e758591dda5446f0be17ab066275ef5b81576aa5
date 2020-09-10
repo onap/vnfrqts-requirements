@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "deee1ab8_83c700ad",
+        "filename": "docs/Chapter7/Monitoring-And-Management.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-09-10T19:27:27Z",
+      "side": 1,
+      "message": "Given that DCAE has to be pre-configured with the schemas, and will have default schemas already onboarded.  I\u0027m questioning these requirements. Based on a conversation with Vijay, DCAE will reject a stndDefined event that has an unknown schemaReference value.  That means we have mandatory requirements here - not recommendations.\n\nThe set of valid schemaReference field values MUST be a value registered with DCAE in advance in the schema-map.json file. \n\nI\u0027d rather not have have to keep track of the valid values in two places so can we just link the schema-map.json and create requirements to the effect of the following...\n\n* The VNF or PNF producing VES stndDefined domain events **MUST** only pass events that conform to schema references previously registered with DCAE otherwise the event will be rejected. By default, ONAP ships with support for schemas found here (link to schema-map.json).\n\n* The VNF or PNF producing VES stndDefined domain events **MUST** set the schemaReference value to the publicUrl value in DCAE\u0027s schema-map.json file (link) that describes the data being sent in event.stndDefinedFields.data.\n\n* The VNF or PNF Provider producing stndDefined events **MUST** coordinate with the operator to configure DCAE to accept any new event schemas prior to sending those events or the events will be rejected.\n\n\nThe VNF Requirements project exists to define what an NF needs to do to integrate with ONAP.  If we make this simply about what DCAE supports, then we can avoid the timing issues in 3GPP and more easily keep the VNF Requirements in sync with what ONAP supports.  DCAE can evolve what it supports and we don\u0027t have to keep the requirements in sync.",
+      "parentUuid": "ff0b8705_c0a03aab",
+      "range": {
+        "startLine": 355,
+        "startChar": 48,
+        "endLine": 355,
+        "endChar": 63
+      },
+      "revId": "e758591dda5446f0be17ab066275ef5b81576aa5",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bab33e9e_64c4165b",
         "filename": "docs/Chapter7/Monitoring-And-Management.rst",
         "patchSetId": 3
