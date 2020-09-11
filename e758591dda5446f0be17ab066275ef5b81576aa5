@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "fb800544_52474d52",
+        "filename": "docs/Chapter7/Monitoring-And-Management.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 3793
+      },
+      "writtenOn": "2020-09-11T06:45:47Z",
+      "side": 1,
+      "message": "I think we need to have a meeting. We will present all use cases and we can together formulate VNF/PNF requirements.",
+      "parentUuid": "deee1ab8_83c700ad",
+      "range": {
+        "startLine": 355,
+        "startChar": 48,
+        "endLine": 355,
+        "endChar": 63
+      },
+      "revId": "e758591dda5446f0be17ab066275ef5b81576aa5",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bab33e9e_64c4165b",
         "filename": "docs/Chapter7/Monitoring-And-Management.rst",
         "patchSetId": 3
@@ -138,6 +162,24 @@
       "side": 1,
       "message": "The issues Oskar raised are relevant and should be worked with 3GPP; they could be tracked as separate item and worked through ONAP 3GPP liason and/or TSC.\n\nFor Guilin release doc perspective, we could proceed if 1) Identify current 3GPP openAPI external references as draft 2) VNFREQ identified schema references must be consistent to what is supported by DCAE/vescollector  (path change required in dcae/ves as identified in earlier comment)\n\nWhenever there is new revision/final schema from 3GPP, both VNFREQ documentation and DCAE VESCollector can be updated to reflect it. Based on the timing, this could be G point release or H release item.",
       "parentUuid": "2b94e7ee_27dbecc8",
+      "revId": "e758591dda5446f0be17ab066275ef5b81576aa5",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01b37425_836a87a8",
+        "filename": "docs/Chapter7/Monitoring-And-Management.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 3793
+      },
+      "writtenOn": "2020-09-11T06:45:47Z",
+      "side": 1,
+      "message": "Dear Vijay, \nRegarding point 2. I wanted to get consensus here first but Michal created already aligning MR.\nRegarding point 1. I have no issue with this, I can prepare patch.",
+      "parentUuid": "f8cbf224_69144883",
       "revId": "e758591dda5446f0be17ab066275ef5b81576aa5",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
