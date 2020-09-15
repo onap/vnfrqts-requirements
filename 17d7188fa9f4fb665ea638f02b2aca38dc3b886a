@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0c2b7894_15099135",
+        "filename": "docs/Chapter5/Tosca/ONAP VNF or PNF CSAR Package.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-09-15T15:34:56Z",
+      "side": 1,
+      "message": "We need to explain here, what are these two signing options. I`d propose the following:\n...for there signing options,\u003c\u003cas defined in ETSI NFV SOL004 2.7.1.\u003e\u003e, is as follows...\n\ntext in \u003c\u003c\u003e\u003e is what I would add there.",
+      "range": {
+        "startLine": 262,
+        "startChar": 49,
+        "endLine": 263,
+        "endChar": 33
+      },
+      "revId": "17d7188fa9f4fb665ea638f02b2aca38dc3b886a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "949dbbb6_8aa53df4",
+        "filename": "docs/Chapter5/Tosca/ONAP VNF or PNF CSAR Package.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-09-15T15:34:56Z",
+      "side": 1,
+      "message": "Typo - shall be \"Supported\"",
+      "range": {
+        "startLine": 267,
+        "startChar": 18,
+        "endLine": 267,
+        "endChar": 26
+      },
+      "revId": "17d7188fa9f4fb665ea638f02b2aca38dc3b886a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
