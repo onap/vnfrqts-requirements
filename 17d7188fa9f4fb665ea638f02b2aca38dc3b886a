@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d2f76411_66c28f19",
+        "filename": "docs/Chapter5/Tosca/ONAP VNF or PNF CSAR Package.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-09-15T16:31:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0c2b7894_15099135",
+      "range": {
+        "startLine": 262,
+        "startChar": 49,
+        "endLine": 263,
+        "endChar": 33
+      },
+      "revId": "17d7188fa9f4fb665ea638f02b2aca38dc3b886a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "949dbbb6_8aa53df4",
         "filename": "docs/Chapter5/Tosca/ONAP VNF or PNF CSAR Package.rst",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "17d7188fa9f4fb665ea638f02b2aca38dc3b886a",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf0769d3_c0d5b72a",
+        "filename": "docs/Chapter5/Tosca/ONAP VNF or PNF CSAR Package.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-09-15T16:31:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "949dbbb6_8aa53df4",
+      "range": {
+        "startLine": 267,
+        "startChar": 18,
+        "endLine": 267,
+        "endChar": 26
+      },
+      "revId": "17d7188fa9f4fb665ea638f02b2aca38dc3b886a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
