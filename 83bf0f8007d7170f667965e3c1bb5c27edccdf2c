@@ -16,6 +16,24 @@
       "revId": "83bf0f8007d7170f667965e3c1bb5c27edccdf2c",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10f4cd18_22444f4a",
+        "filename": "docs/Chapter7/Monitoring-And-Management.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 3793
+      },
+      "writtenOn": "2020-09-16T07:54:00Z",
+      "side": 1,
+      "message": "It doesn\u0027t need to. Implementation handles both #/components and /components. This is because ambiguity in Swagger documentation from one side it state that fragment need to be JSON Pointer so #/myEleemnt but in URL example they write \n\"\nThe specific element of the document stored on the different server – $ref: \u0027http://path/to/your/resource.json#myElement\u0027\n\"\nMaybe it is typo but to be safe both works.",
+      "parentUuid": "31a86e33_9c6fda18",
+      "revId": "83bf0f8007d7170f667965e3c1bb5c27edccdf2c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
     }
   ]
 }
