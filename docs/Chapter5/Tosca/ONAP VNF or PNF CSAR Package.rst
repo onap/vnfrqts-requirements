@@ -254,15 +254,21 @@ private key. The provider delivers one zip file consisting of the CSAR file, a
 signature file and a certificate file that includes the VNF provider public
 key.
 
-*Dublin release note*
+*Guilin Release Note*
 
-    - VNFSDK pre-onboarding validation procedure:
-      - Option 1: specified in ETSI SOL004 is supported.
-      - Option 2: Will be supported in the future releases.
+In ONAP, there are two key components involved with the creation, validations,
+and reading of a CSAR package. The VNFSDK can be used to create and validate a
+CSAR package prior to ONAP via the SDC application.  The SDC application,
+then opens, parses, and reads the CSAR package.  Their support for these
+two signing options, as defined in ETSI NFV SOL004 2.7.1, is as follows:
+
+    - VNFSDK pre-onboarding validation:
+      - Option 1: Supported
+      - Option 2: Supported
 
     - SDC onboarding procedure:
       - Option 1: Will be supported in the future releases.
-      - Option 2: specified in ETSI SOL004 is supported.
+      - Option 2: Supported
 
 .. req::
     :id: R-787965
