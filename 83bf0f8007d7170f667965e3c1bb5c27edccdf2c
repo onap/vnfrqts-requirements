@@ -34,6 +34,24 @@
       "revId": "83bf0f8007d7170f667965e3c1bb5c27edccdf2c",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "893f02e9_63a9f630",
+        "filename": "docs/Chapter7/Monitoring-And-Management.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 5279
+      },
+      "writtenOn": "2020-09-16T08:09:24Z",
+      "side": 1,
+      "message": "In case both alternatives are supported, can the requirement be clarifý this?",
+      "parentUuid": "10f4cd18_22444f4a",
+      "revId": "83bf0f8007d7170f667965e3c1bb5c27edccdf2c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
     }
   ]
 }
