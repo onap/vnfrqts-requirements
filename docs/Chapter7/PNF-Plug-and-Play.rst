@@ -34,16 +34,11 @@ The following are the requirements related to PNF Plug and Play.
 .. req::
     :id: R-106240
     :target: PNF
-    :keyword: SHOULD
+    :keyword: MUST
     :introduced: casablanca
-    :updated: el alto
+    :updated: guilin
 
-    The following VES Events **SHOULD** be supported by the PNF: pnfRegistration
-    VES Event, HVol VES Event, and Fault VES Event. These are onboarded via
-    he SDC Design Studio.
-
-    Note: these VES Events are emitted from the PNF to support PNF Plug and
-    Play, High Volume Measurements, and Fault events respectively.
+    A PNF MUST support the pnfRegistration VES event which is required to integrate with ONAP’s PNF Plug and Play capabilities.
 
 .. req::
     :id: R-258352
