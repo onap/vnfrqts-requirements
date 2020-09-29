@@ -555,9 +555,9 @@ Testing
 
 Licensing Requirements
 ^^^^^^^^^^^^^^^^^^^^^^
-ONAP can support external licensing management solution (e.g. vendor specific)
-in addition to its own licensing management solution.  If licensing management
-solution is provided by ONAP, then ONAP operators build the VNF License using SDC during onboarding.
+ONAP can support external licensing management solutions. For example, a vendor-specific solution where
+the VNF or PNF obtains its licenses from an external source and ONAP licensing management solution is not used. 
+If the licensing management solution is provided by ONAP, then ONAP operators will build the VNF license using SDC during onboarding.
 Refer to the ONAP User Guide for details.
 The operators require certain information regarding VNF licences.
 This information currently is delivered out of band.
