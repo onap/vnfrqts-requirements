@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a308352b_9215e3e0",
+        "filename": "docs/Chapter7/VNF-On-boarding-and-package-management.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-09-30T14:15:28Z",
+      "side": 1,
+      "message": "For example,",
+      "range": {
+        "startLine": 558,
+        "startChar": 57,
+        "endLine": 558,
+        "endChar": 68
+      },
+      "revId": "de851f8b5e602c49fd24e013dceb22c41cac61e7",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b6ad7b78_b12357e4",
+        "filename": "docs/Chapter7/VNF-On-boarding-and-package-management.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-09-30T14:15:28Z",
+      "side": 1,
+      "message": "solutions",
+      "range": {
+        "startLine": 558,
+        "startChar": 47,
+        "endLine": 558,
+        "endChar": 55
+      },
+      "revId": "de851f8b5e602c49fd24e013dceb22c41cac61e7",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c345fc1c_d605704d",
+        "filename": "docs/Chapter7/VNF-On-boarding-and-package-management.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 559,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-09-30T14:15:28Z",
+      "side": 1,
+      "message": "a network function\n\n(in prior releases there was debate on the use of XNF, and a previous decision was made to not use the term.  Instead we use either Network Function/NF generically or VNF or PNF.)",
+      "range": {
+        "startLine": 559,
+        "startChar": 0,
+        "endLine": 559,
+        "endChar": 4
+      },
+      "revId": "de851f8b5e602c49fd24e013dceb22c41cac61e7",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd8c7a09_cbcf1362",
+        "filename": "docs/Chapter7/VNF-On-boarding-and-package-management.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 560,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-09-30T14:15:28Z",
+      "side": 1,
+      "message": "If *the* licensing management\n\nONAP operators *will* build the",
+      "revId": "de851f8b5e602c49fd24e013dceb22c41cac61e7",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
