@@ -48,6 +48,54 @@
     },
     {
       "key": {
+        "uuid": "0a2ff02c_ef60c24b",
+        "filename": "docs/Chapter7/VNF-On-boarding-and-package-management.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1303
+      },
+      "writtenOn": "2020-09-30T15:37:14Z",
+      "side": 1,
+      "message": "agreed",
+      "parentUuid": "a308352b_9215e3e0",
+      "range": {
+        "startLine": 558,
+        "startChar": 57,
+        "endLine": 558,
+        "endChar": 68
+      },
+      "revId": "de851f8b5e602c49fd24e013dceb22c41cac61e7",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff66817c_5ef51a81",
+        "filename": "docs/Chapter7/VNF-On-boarding-and-package-management.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1303
+      },
+      "writtenOn": "2020-09-30T15:37:14Z",
+      "side": 1,
+      "message": "agreed",
+      "parentUuid": "b6ad7b78_b12357e4",
+      "range": {
+        "startLine": 558,
+        "startChar": 47,
+        "endLine": 558,
+        "endChar": 55
+      },
+      "revId": "de851f8b5e602c49fd24e013dceb22c41cac61e7",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c345fc1c_d605704d",
         "filename": "docs/Chapter7/VNF-On-boarding-and-package-management.rst",
         "patchSetId": 1
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "10ec7821_a34ad6fb",
+        "filename": "docs/Chapter7/VNF-On-boarding-and-package-management.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 559,
+      "author": {
+        "id": 1303
+      },
+      "writtenOn": "2020-09-30T15:37:14Z",
+      "side": 1,
+      "message": "agreed, will use VNF or PNF.",
+      "parentUuid": "c345fc1c_d605704d",
+      "range": {
+        "startLine": 559,
+        "startChar": 0,
+        "endLine": 559,
+        "endChar": 4
+      },
+      "revId": "de851f8b5e602c49fd24e013dceb22c41cac61e7",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd8c7a09_cbcf1362",
         "filename": "docs/Chapter7/VNF-On-boarding-and-package-management.rst",
         "patchSetId": 1
@@ -85,6 +157,24 @@
       "revId": "de851f8b5e602c49fd24e013dceb22c41cac61e7",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4beeb4bc_800812cb",
+        "filename": "docs/Chapter7/VNF-On-boarding-and-package-management.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 560,
+      "author": {
+        "id": 1303
+      },
+      "writtenOn": "2020-09-30T15:37:14Z",
+      "side": 1,
+      "message": "agreed",
+      "parentUuid": "cd8c7a09_cbcf1362",
+      "revId": "de851f8b5e602c49fd24e013dceb22c41cac61e7",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
