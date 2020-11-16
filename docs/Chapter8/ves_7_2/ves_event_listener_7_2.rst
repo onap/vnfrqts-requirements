@@ -3993,6 +3993,10 @@ Body Fields:
 |              |              |              | the common event format. All  |
 |              |              |              | events must belong to a       |
 |              |              |              | single domain.                |
+|              |              |              | In case of stndDefined domain |
+|              |              |              | all events must have the same |
+|              |              |              | stndDefinedNamespace value    |
+|              |              |              | set.                          |
 +--------------+--------------+--------------+-------------------------------+
 
 Output Parameters
@@ -6156,8 +6160,10 @@ Contents.
 |           |         | -  Changed DCAE Collector to VES Event Listener       |
 |           |         | -  Added StndDefined domain datatypes                 |
 |           |         | -  Added eventCommonHeader field stndDefinedNamespace |
+|           |         | -  Updated publishEventBatch to support stndDefined   |
 |           |         | -  Updated SVC exceptions with SVC2004 and SVC2006    |
 |           |         | -  Updated links to OMA                               |
+|           |         | -  Updated publishEventBatch to support stndDefined   |
 +-----------+---------+-------------------------------------------------------+
 
 .. _time_zone_abbreviations: https://en.wikipedia.org/wiki/List_of_time_zone_abbreviations
