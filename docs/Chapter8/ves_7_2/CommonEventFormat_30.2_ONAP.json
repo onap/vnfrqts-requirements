@@ -20,15 +20,15 @@
           "type": "string"
         },
         "lastUpdatedBy": {
-          "description": "tl2972",
+          "description": "damian.nowak@nokia.com",
           "type": "string"
         },
         "schemaDate": {
-          "description": "June 2, 2020",
+          "description": "Nov 24, 2020",
           "type": "string"
         },
         "schemaVersion": {
-          "description": "30.2.0",
+          "description": "30.2.1",
           "type": "number"
         }
       }
@@ -2558,11 +2558,13 @@
         },
         "oamV4IpAddress": {
           "description": "IPv4 m-plane IP address to be used by the manager to contact the PNF",
-          "type": "string"
+          "type": "string",
+          "format":"ipv4"
         },
         "oamV6IpAddress": {
           "description": "IPv6 m-plane IP address to be used by the manager to contact the PNF",
-          "type": "string"
+          "type": "string",
+          "format":"ipv6"
         },
         "pnfRegistrationFieldsVersion": {
           "description": "version of the pnfRegistrationFields block",
