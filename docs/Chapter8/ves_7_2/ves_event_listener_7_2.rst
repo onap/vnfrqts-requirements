@@ -3993,6 +3993,10 @@ Body Fields:
 |              |              |              | the common event format. All  |
 |              |              |              | events must belong to a       |
 |              |              |              | single domain.                |
+|              |              |              | In case of stndDefined domain |
+|              |              |              | all events must have the same |
+|              |              |              | stndDefinedNamespace value    |
+|              |              |              | set.                          |
 +--------------+--------------+--------------+-------------------------------+
 
 Output Parameters
@@ -6158,6 +6162,8 @@ Contents.
 |           |         | -  Added eventCommonHeader field stndDefinedNamespace |
 |           |         | -  Updated SVC exceptions with SVC2004 and SVC2006    |
 |           |         | -  Updated links to OMA                               |
++-----------+---------+-------------------------------------------------------+
+| 11/16/2020| v7.2.1  | - updated publishEventBatch to support stndDefined    |
 +-----------+---------+-------------------------------------------------------+
 
 .. _time_zone_abbreviations: https://en.wikipedia.org/wiki/List_of_time_zone_abbreviations
