@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "942310e6_34debf9e",
+        "filename": "docs/Chapter8/CommonEventFormat_30.1.2_ONAP.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-11-17T17:15:36Z",
+      "side": 1,
+      "message": "30.2.1",
+      "range": {
+        "startLine": 31,
+        "startChar": 26,
+        "endLine": 31,
+        "endChar": 32
+      },
+      "revId": "376ea67d81435f83689e33a52fa6c116b0aa3702",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5628379e_ff744ac0",
+        "filename": "docs/Chapter8/CommonEventFormat_30.1.2_ONAP.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-11-17T17:15:36Z",
+      "side": 1,
+      "message": "missing stndDefined namespace",
+      "revId": "376ea67d81435f83689e33a52fa6c116b0aa3702",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
