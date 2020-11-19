@@ -33,7 +33,7 @@ Summary of Changes
 
 {% for section_change in changes %}
 {{ section_change.section_path }}
-{{ "-"*section_change.section_path|length }}
+{{ "^"*section_change.section_path|length }}
 
 {% if section_change.added %}
 Requirements Added
