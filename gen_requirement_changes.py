@@ -43,14 +43,14 @@ import os
 import re
 import sys
 import argparse
-import requests
-import warnings
+from pathlib import Path
+
 from operator import itemgetter
 
 import jinja2
 
-NEEDS_JSON_URL = "https://nexus.onap.org/service/local/repositories/raw/content/org.onap.vnfrqts.requirements/master/needs.json"
-NEEDS_PATH = "docs/data/needs.json"
+THIS_DIR = Path(__file__).parent
+NEEDS_PATH = THIS_DIR / "docs/data/needs.json"
 JINJA_TEMPLATE = "release-requirement-changes.rst.jinja2"
 
 
@@ -71,17 +71,14 @@ class DifferenceFinder:
     between two different versions of the requirements
     """
 
-    def __init__(self, needs, current_version, prior_version):
+    def __init__(self, current_version, prior_version):
         """
         Determine the differences between the ``current_version`` and the
         ``prior_version`` of the given requirements.
 
-        :param needs:           previously loaded needs.json file
         :param current_version: most recent version to compare against
-        :param prior_version:   a prior version
         :return:
         """
-        self.needs = needs
         self.current_version = current_version
         self.prior_version = prior_version
         self._validate()
@@ -93,28 +90,29 @@ class DifferenceFinder:
         :raises RuntimeError: if the file is not structured properly or the
                               given versions can't be found.
         """
-        check(self.needs is not None, "needs cannot be None")
-        check(isinstance(self.needs, dict), "needs must be be a dict")
-        check("versions" in self.needs, "needs file not properly formatted")
-        for version in (self.current_version, self.prior_version):
-            check(
-                version in self.needs["versions"],
-                "Version " + version + " was not found in the needs file",
-            )
+        for category, needs in (
+            ("current needs", self.current_version),
+            ("prior needs", self.prior_version),
+        ):
+            check(needs is not None, f"{category} cannot be None")
+            check(isinstance(needs, dict), f"{category} needs must be a dict")
+            check("versions" in needs, f"{category} needs file not properly formatted")
 
     @property
     def current_requirements(self):
         """Returns a dict of requirement ID to requirement metadata"""
-        return self.get_version(self.current_version)
+        return self.get_current_version(self.current_version)
 
     @property
     def prior_requirements(self):
         """Returns a dict of requirement ID to requirement metadata"""
-        return self.get_version(self.prior_version)
+        return self.get_current_version(self.prior_version)
 
-    def get_version(self, version):
+    @staticmethod
+    def get_current_version(needs):
         """Returns a dict of requirement ID to requirement metadata"""
-        return self.needs["versions"][version]["needs"]
+        version = needs["current_version"]
+        return needs["versions"][version]["needs"]
 
     @property
     def new_requirements(self):
@@ -153,7 +151,7 @@ class DifferenceFinder:
                     "description": current_text,
                     "sections": sections,
                     "introduced": self.current_requirements[r_id].get("introduced"),
-                    "updated": self.current_requirements[r_id].get("updated")
+                    "updated": self.current_requirements[r_id].get("updated"),
                 }
         return result
 
@@ -185,51 +183,28 @@ class DifferenceFinder:
         return {r_id: data for r_id, data in needs.items() if r_id in ids}
 
 
-def load_requirements(path):
+def load_requirements(path: Path):
     """Load the requirements from the needs.json file"""
-    if not (os.path.exists(path)):
+    if not (path.exists()):
         print("needs.json not found.  Run tox -e docs to generate it.")
         sys.exit(1)
-    with open(path, "r") as req_file:
+    with path.open("r") as req_file:
         return json.load(req_file)
 
-
-def load_current_requirements():
-    """Loads dict of current requirements or empty dict if file doesn't exist"""
-    try:
-        r = requests.get(NEEDS_JSON_URL)
-        if r.headers.get("content-type") == "application/json":
-            with open(NEEDS_PATH, "wb") as needs:
-                needs.write(r.content)
-        else:
-            warnings.warn(
-                (
-                    "Unexpected content-type ({}) encountered downloading "
-                    + "requirements.json, using last saved copy"
-                ).format(r.headers.get("content-type"))
-            )
-    except requests.exceptions.RequestException as e:
-        warnings.warn("Error downloading latest JSON, using last saved copy.")
-        warnings.warn(UserWarning(e))
-    with open(NEEDS_PATH, "r") as f:
-        return json.load(f)
 
 def parse_args():
     """Parse the command-line arguments and return the arguments:
 
-    args.current_version
     args.prior_version
     """
     parser = argparse.ArgumentParser(
         description="Generate RST summarizing requirement changes between "
-        "two given releases. The resulting RST file will be "
-        "written to the docs/ directory"
+        "the current release and a prior releases needs.json file. The resulting RST "
+        "file will be written to the docs/ directory"
     )
     parser.add_argument(
-        "current_version", help="Current release in lowercase (ex: casablanca)"
+        "prior_version", help="Path to file containing prior needs.json file"
     )
-    parser.add_argument("prior_version",
-                        help="Prior release to compare against")
     return parser.parse_args()
 
 
@@ -296,15 +271,18 @@ def render_to_file(template_path, output_path, **context):
     )
 
 
-def print_invalid_metadata_report(difference_finder, current_version):
-    """Write a report to the console for any instances where differences
+def print_invalid_metadata_report(difference_finder):
+    """
+    Write a report to the console for any instances where differences
     are detected, but the appropriate :introduced: or :updated: metadata
-    is not applied to the requirement."""
+    is not applied to the requirement.
+    """
     print("Validating Metadata...")
     print()
     print("Requirements Added, but Missing :introduced: Attribute")
     print("----------------------------------------------------")
     errors = [["reqt_id", "attribute", "value"]]
+    current_version = difference_finder.current_version["current_version"]
     for req in difference_finder.new_requirements.values():
         if "introduced" not in req or req["introduced"] != current_version:
             errors.append([req["id"], ":introduced:", current_version])
@@ -323,22 +301,20 @@ def print_invalid_metadata_report(difference_finder, current_version):
 
 if __name__ == "__main__":
     args = parse_args()
-    requirements = load_current_requirements()
-    differ = DifferenceFinder(requirements,
-                              args.current_version,
-                              args.prior_version)
+    current_reqs = load_requirements(NEEDS_PATH)
+    prior_reqs = load_requirements(Path(args.prior_version))
+    differ = DifferenceFinder(current_reqs, prior_reqs)
 
-    print_invalid_metadata_report(differ, args.current_version)
+    print_invalid_metadata_report(differ)
 
     changes = gather_section_changes(differ)
     render_to_file(
         "release-requirement-changes.rst.jinja2",
-        "docs/changes-by-section-" + args.current_version + ".rst",
+        "docs/changes-by-section-" + current_reqs["current_version"] + ".rst",
         changes=changes,
-        current_version=args.current_version,
-        prior_version=args.prior_version,
+        current_version=current_reqs["current_version"],
+        prior_version=prior_reqs["current_version"],
         num_added=len(differ.new_requirements),
         num_removed=len(differ.removed_requirements),
         num_changed=len(differ.changed_requirements),
     )
-

@@ -38,7 +38,7 @@ The following are the requirements related to PNF Plug and Play.
     :introduced: casablanca
     :updated: guilin
 
-    A PNF MUST support the pnfRegistration VES event which is required to integrate with ONAP’s PNF Plug and Play capabilities.
+    A PNF **MUST** support the pnfRegistration VES event which is required to integrate with ONAP’s PNF Plug and Play capabilities.
 
 .. req::
     :id: R-258352

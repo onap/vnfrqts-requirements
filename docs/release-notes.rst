@@ -16,6 +16,28 @@
 VNFRQTS Project Release Notes
 ==============================
 
+Version: 7.0.0
+--------------
+
+:Release Date: 2020-11-19
+
+.. container:: note
+
+   :doc:`Detailed Summary of Changes <changes-by-section-guilin>`
+
+A higher level summary of changes as well as non-requirement impacting
+changes can be found below.
+
+* Publishing version 7.2.1 of the VES Event Listener specification which
+  includes support for a new ``stndDefined`` domain for carrying event
+  schemas published by other standard defining organizations.
+* Removed network function requirements from the VES Event Listener
+  specification, and moved them to the Monitoring requirements section
+* Various license management requirement corrections and clarifications
+* Significant changes and cleanup on controller related requirements (Ansible,
+  Chef, etc.)
+* `Full list of JIRA tickets <https://jira.onap.org/issues/?jql=project%20%3D%20%22VNF%20Requirements%22%20and%20fixVersion%20%3D%20%22Guilin%20Release%22%20and%20(labels%20is%20EMPTY%20or%20labels%20!%3D%20relman%20)>`__
+
 Version: 6.0.0
 --------------
 
