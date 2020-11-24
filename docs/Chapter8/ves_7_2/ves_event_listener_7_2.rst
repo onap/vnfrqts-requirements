@@ -841,6 +841,13 @@ Rules:
 
    .. image:: Use-Case-2.png
 
+**Example 3**: Exceptions from eventId uniqueness requirement:
+In certain LCM scenarios, the xNF might be unable to assure eventId uniqueness, 
+e.g. in case of an xNF restart. A number of xNFs might not be able to persist 
+their event tables over an event of restart.
+In any situation, where it is not possible for xNF to persist an event (especially
+fault events) table, the xNF shall start sending the active events, restarting 
+the numbering of eventId values from 0, following the "EventId use-case examples".
 
 Technology Independent Datatypes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -6164,6 +6171,8 @@ Contents.
 |           |         | -  Updated links to OMA                               |
 +-----------+---------+-------------------------------------------------------+
 | 11/16/2020| v7.2.1  | - updated publishEventBatch to support stndDefined    |
++-----------+---------+-------------------------------------------------------+
+| 11/24/2020| v7.2.2  | - added eventId use-case related to restarts          |
 +-----------+---------+-------------------------------------------------------+
 
 .. _time_zone_abbreviations: https://en.wikipedia.org/wiki/List_of_time_zone_abbreviations
