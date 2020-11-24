@@ -2,12 +2,12 @@
 .. http://creativecommons.org/licenses/by/4.0
 .. Copyright 2017 AT&T Intellectual Property, All rights reserved
 .. Copyright 2017-2018 Huawei Technologies Co., Ltd.
-.. Copyright 2020 Nokia Solutions and Networks
+.. Copyright 2020-2021 Nokia Solutions and Networks
 
 .. _ves_event_listener_7_2:
 
-Service: VES Event Listener 7.2
--------------------------------
+Service: VES Event Listener 7.2.1
+---------------------------------
 
 +-----------------------------------------------------------------------------+
 | **Legal Disclaimer**                                                        |
@@ -27,8 +27,8 @@ Service: VES Event Listener 7.2
 
 
 :Document: VES Event Listener
-:Revision: 7.2
-:Revision Date: May 6th, 2020
+:Revision: 7.2.1
+:Revision Date: January 13th, 2021
 :Author: Trevor Lovett
 
 +-----------------+-----------------------------+
@@ -841,6 +841,11 @@ Rules:
 
    .. image:: Use-Case-2.png
 
+**Example 3**: Exceptions from eventId uniqueness requirement:
+In certain scenarios such as restarts, the xNF might be unable to assure eventId 
+uniqueness as information about the latest used eventID value might not have been 
+persisted. When such eventId information is unavailable, the xNF should reset the 
+eventID numbering following the :ref:`ves_eventid_usecases_7_2`.
 
 Technology Independent Datatypes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -6163,7 +6168,9 @@ Contents.
 |           |         | -  Updated SVC exceptions with SVC2004 and SVC2006    |
 |           |         | -  Updated links to OMA                               |
 +-----------+---------+-------------------------------------------------------+
-| 11/16/2020| v7.2.1  | - updated publishEventBatch to support stndDefined    |
+| 01/13/2021| v7.2.1  | - updated publishEventBatch to support stndDefined    |
+|           |         | - added eventId use-case example, where eventID       |
+|           |         |   uniqueness cannot be assured                        |
 +-----------+---------+-------------------------------------------------------+
 
 .. _time_zone_abbreviations: https://en.wikipedia.org/wiki/List_of_time_zone_abbreviations
