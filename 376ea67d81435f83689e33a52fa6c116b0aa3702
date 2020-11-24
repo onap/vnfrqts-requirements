@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c704e0b3_13dc1fff",
+        "filename": "docs/Chapter8/CommonEventFormat_30.1.2_ONAP.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-11-24T14:29:36Z",
+      "side": 1,
+      "message": "I modified wrong file actually. I haven`t noticed, that there is a different file in sub-folder\"ves_7_2\". The next PS will target a modification of the right file.",
+      "parentUuid": "942310e6_34debf9e",
+      "range": {
+        "startLine": 31,
+        "startChar": 26,
+        "endLine": 31,
+        "endChar": 32
+      },
+      "revId": "376ea67d81435f83689e33a52fa6c116b0aa3702",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5628379e_ff744ac0",
         "filename": "docs/Chapter8/CommonEventFormat_30.1.2_ONAP.json",
         "patchSetId": 1
@@ -39,6 +63,24 @@
       "revId": "376ea67d81435f83689e33a52fa6c116b0aa3702",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98f73096_1fe76a8c",
+        "filename": "docs/Chapter8/CommonEventFormat_30.1.2_ONAP.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-11-24T14:29:36Z",
+      "side": 1,
+      "message": "I modified wrong file actually. I haven`t noticed, that there is a different file in sub-folder\"ves_7_2\". The next PS will target a modification of the right file.",
+      "parentUuid": "5628379e_ff744ac0",
+      "revId": "376ea67d81435f83689e33a52fa6c116b0aa3702",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
