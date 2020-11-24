@@ -841,6 +841,11 @@ Rules:
 
    .. image:: Use-Case-2.png
 
+**Example 3**: Exceptions from eventId uniqueness requirement:
+In certain scenarios such as restarts, the xNF might be unable to assure eventId 
+uniqueness as information about the latest used eventID value might not have been 
+persisted. When such eventId information is unavailable, the xNF should reset the 
+eventID numbering following the "EventId use-case examples".
 
 Technology Independent Datatypes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -6164,6 +6169,9 @@ Contents.
 |           |         | -  Updated links to OMA                               |
 +-----------+---------+-------------------------------------------------------+
 | 11/16/2020| v7.2.1  | - updated publishEventBatch to support stndDefined    |
++-----------+---------+-------------------------------------------------------+
+| 01/04/2021| v7.2.2  | - added eventId use-case example, where eventID       |
+|           |         |   uniqueness cannot be assured                        |
 +-----------+---------+-------------------------------------------------------+
 
 .. _time_zone_abbreviations: https://en.wikipedia.org/wiki/List_of_time_zone_abbreviations
