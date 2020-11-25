@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c15df9ad_3b49d14e",
+        "filename": "docs/Chapter8/ves_7_2/CommonEventFormat_30.2_ONAP.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 5279
+      },
+      "writtenOn": "2020-11-25T10:50:27Z",
+      "side": 1,
+      "message": "I would prefer that a new file is added with name matching actual schema version (30.2.1), to avoid confusion about contents of version 30.2. See also below comment regarding vesion of VES itself.",
+      "revId": "d34ab073eb112f6f7f0b5451c6605699987af4f9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ccbcb546_ad694565",
+        "filename": "docs/Chapter8/ves_7_2/CommonEventFormat_30.2_ONAP.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 5279
+      },
+      "writtenOn": "2020-11-25T10:50:27Z",
+      "side": 1,
+      "message": "Don\u0027t know if this number also needs to be increased, if the common header definition is changed to allow new VES version number (7.2.1)?",
+      "revId": "d34ab073eb112f6f7f0b5451c6605699987af4f9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c745d4c_0f67370c",
+        "filename": "docs/Chapter8/ves_7_2/CommonEventFormat_30.2_ONAP.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 5279
+      },
+      "writtenOn": "2020-11-25T10:50:27Z",
+      "side": 1,
+      "message": "The VES version number should also change, as soon as there are schema changes, maybe 7.2.1? There is also a need to update the VES specification itself, with the new version numbers (VES + field block versions) as well as link to schema file.",
+      "revId": "d34ab073eb112f6f7f0b5451c6605699987af4f9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "505b3a3b_603c715b",
+        "filename": "docs/Chapter8/ves_7_2/CommonEventFormat_30.2_ONAP.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 2573,
+      "author": {
+        "id": 5279
+      },
+      "writtenOn": "2020-11-25T10:50:27Z",
+      "side": 1,
+      "message": "Since the registration field definitions are being changed, a new version number should be added. Formally the change above is not backwards comaptible since it introduces additional constraints in the schema regarding valid values. However in this case it is already assumed that these fields would contain correctly formatted IPv4 and IPv6 addresses, so it may be ok to use patch version number like 2.0.1.",
+      "revId": "d34ab073eb112f6f7f0b5451c6605699987af4f9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
