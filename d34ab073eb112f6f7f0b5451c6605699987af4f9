@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c7ee06b6_c93c4bf0",
+        "filename": "docs/Chapter8/ves_7_2/CommonEventFormat_30.2_ONAP.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-11-26T08:27:54Z",
+      "side": 1,
+      "message": "Yes, I agree.\nStill, the request from reviewers here was to upload changes using the same filename, and then once we agree we upload a new file, with the right filename.",
+      "parentUuid": "c15df9ad_3b49d14e",
+      "revId": "d34ab073eb112f6f7f0b5451c6605699987af4f9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ccbcb546_ad694565",
         "filename": "docs/Chapter8/ves_7_2/CommonEventFormat_30.2_ONAP.json",
         "patchSetId": 5
@@ -33,6 +51,24 @@
       "revId": "d34ab073eb112f6f7f0b5451c6605699987af4f9",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc721e04_5c73e00a",
+        "filename": "docs/Chapter8/ves_7_2/CommonEventFormat_30.2_ONAP.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-11-26T08:27:54Z",
+      "side": 1,
+      "message": "Well, common header definition was not changed. Nothing new was added here.\nIt is only about fields present in the pnfRegistratonFields (existing fields).",
+      "parentUuid": "ccbcb546_ad694565",
+      "revId": "d34ab073eb112f6f7f0b5451c6605699987af4f9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "f83f7740_917bb029",
+        "filename": "docs/Chapter8/ves_7_2/CommonEventFormat_30.2_ONAP.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-11-26T08:27:54Z",
+      "side": 1,
+      "message": "I think, 7.2.1 would be good here. I`ll keep this for the next PS.\nStill, I have doubts, if we need the VES spec update. The field deifnition wasn`t changed, it is still a string (and it stays a string). What changes is, that we start to validate thw format of that string, but within the VES spec, we already tell,that the field shall contain an OAM IP address (IPv4 or IPv6 respectively). I am not sure, if we really need updates in VES spec. Within the schema, we actually start to validate, if the contents are aligned with VES spec...",
+      "parentUuid": "1c745d4c_0f67370c",
+      "revId": "d34ab073eb112f6f7f0b5451c6605699987af4f9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "505b3a3b_603c715b",
         "filename": "docs/Chapter8/ves_7_2/CommonEventFormat_30.2_ONAP.json",
         "patchSetId": 5
@@ -64,6 +118,24 @@
       "writtenOn": "2020-11-25T10:50:27Z",
       "side": 1,
       "message": "Since the registration field definitions are being changed, a new version number should be added. Formally the change above is not backwards comaptible since it introduces additional constraints in the schema regarding valid values. However in this case it is already assumed that these fields would contain correctly formatted IPv4 and IPv6 addresses, so it may be ok to use patch version number like 2.0.1.",
+      "revId": "d34ab073eb112f6f7f0b5451c6605699987af4f9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a5103d77_d0aaa36c",
+        "filename": "docs/Chapter8/ves_7_2/CommonEventFormat_30.2_ONAP.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 2573,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-11-26T08:27:54Z",
+      "side": 1,
+      "message": "Let us check with Trevor and Vijay. So far we haven`t been really looking at major/minor/patch for XYZFields structures... but... it would be actually nice for this specific change.",
+      "parentUuid": "505b3a3b_603c715b",
       "revId": "d34ab073eb112f6f7f0b5451c6605699987af4f9",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
