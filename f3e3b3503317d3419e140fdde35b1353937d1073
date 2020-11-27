@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba194347_b3bb7de5",
+        "filename": "docs/Chapter8/ves_7_2/ves_event_listener_7_2.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 847,
+      "author": {
+        "id": 5279
+      },
+      "writtenOn": "2020-11-27T17:41:45Z",
+      "side": 1,
+      "message": "Since the general requirement is that eventId shall be unique (except for special case for fault domain), I agree that it is good to mention this exception in the VES specification. In fact I think this was already discussed a long time ago, but never documented.",
+      "revId": "f3e3b3503317d3419e140fdde35b1353937d1073",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87afc344_dd1e3dfd",
+        "filename": "docs/Chapter8/ves_7_2/ves_event_listener_7_2.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 853,
+      "author": {
+        "id": 5279
+      },
+      "writtenOn": "2020-11-27T17:41:45Z",
+      "side": 1,
+      "message": "There are a number of problems with proposal above:\n* It introduces new requirements for use of the eventId field. E g assumption that certain format is used or that numbering starts at zero. This is a non-backwards compatible change that cannot be added in a minor update of the spec.\n* Describing expected behavior of producer or consumer beyond eventId guidelines themselves is a bit out of place for this section of the spec.\n* I don\u0027t think eventId shall be used as general mechanism for consumers to identify restarts. E g 3GPP has defined notification notifyAlarmListRebuilt to address this scenario for alarms. See TS 28.532 clause 11.2.1.1.6 including description of reason field. So the restart is communicated as part of higher level protocol.",
+      "revId": "f3e3b3503317d3419e140fdde35b1353937d1073",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
