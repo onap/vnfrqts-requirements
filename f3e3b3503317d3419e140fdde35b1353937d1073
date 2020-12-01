@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "298b7299_e8a8cf21",
+        "filename": "docs/Chapter8/ves_7_2/ves_event_listener_7_2.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 847,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-12-01T15:19:18Z",
+      "side": 1,
+      "message": "Ok, I understand, that this is then a +1 on the overall initiative.",
+      "parentUuid": "ba194347_b3bb7de5",
+      "revId": "f3e3b3503317d3419e140fdde35b1353937d1073",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "87afc344_dd1e3dfd",
         "filename": "docs/Chapter8/ves_7_2/ves_event_listener_7_2.rst",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2020-11-27T17:41:45Z",
       "side": 1,
       "message": "There are a number of problems with proposal above:\n* It introduces new requirements for use of the eventId field. E g assumption that certain format is used or that numbering starts at zero. This is a non-backwards compatible change that cannot be added in a minor update of the spec.\n* Describing expected behavior of producer or consumer beyond eventId guidelines themselves is a bit out of place for this section of the spec.\n* I don\u0027t think eventId shall be used as general mechanism for consumers to identify restarts. E g 3GPP has defined notification notifyAlarmListRebuilt to address this scenario for alarms. See TS 28.532 clause 11.2.1.1.6 including description of reason field. So the restart is communicated as part of higher level protocol.",
+      "revId": "f3e3b3503317d3419e140fdde35b1353937d1073",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8518a8a2_8721b38e",
+        "filename": "docs/Chapter8/ves_7_2/ves_event_listener_7_2.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 853,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2020-12-01T15:19:18Z",
+      "side": 1,
+      "message": "On Your points:\n1. I was following the eventId use-cases examples mentioned here.\nEach of these examples contains a number at the end of the domain or domainId.\nI was proposing a change on that spirit.\n\nWe can generalize this proposal, stating, that in cases described (when the eventId table cannot be persisted), the network function might not be able to assure, that the eventId are unique. This is as well fine for me, but it doesn`t really help analytics apps.\n\n2. Well, I can remove that part on the expected xNF /Analytics behavior.\nIndeed, this goes beyond the VES event spec definition. \n\n3. Yes, I agree, that 3GPP has better suited mechanisms to deal with different use-cases, when the alarm/event list is expected to be non-consistent. Still, as we have a VES CommonHeader here, I tried to accomodate a solution following existing rules.\n\nIf that is fine for everyone, we can simply remove this requirement, and state clearly, that under certain circumstances the eventId uniqueness cannot be assured. Still, I am not sure, if this will be enough for all stakeholders.",
+      "parentUuid": "87afc344_dd1e3dfd",
       "revId": "f3e3b3503317d3419e140fdde35b1353937d1073",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
