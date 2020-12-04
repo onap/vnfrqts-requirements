@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bd10fa51_261c3cbe",
+        "filename": "docs/Chapter8/ves_7_2/ves_event_listener_7_2.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 850,
+      "author": {
+        "id": 5279
+      },
+      "writtenOn": "2020-12-04T17:35:34Z",
+      "side": 1,
+      "message": "Here is a proposed further update to the text:\n\nIn certain scenarios such as restarts, the xNF might not be able to assure eventId uniqueness as information about the latest used eventId values is not persisted. When such eventId information is unavailable, the xNF should reset the eventId numbering following the eventId use case examples.\n\nNotes:\n* Removed LCM, since restarts can happen due to other reasons than LCM operations\n* Referring simply to eventId information in the xNF, since event table is a bit implementation and domain specific.\n* Removed that numbering starts from 0, and simply stating that numbering is reset. Note that existing examples suggest numbering start from 1 rather than 0, and also refers to these numbers as positive integers (which mathematically speaking excludes zero). In any case it is also stated in the very beginning that everything is just examples for eventId, so I also changed from shall to should to avoid introducing backwards incompatible rule.",
+      "revId": "db9ea40013a2d3daf1446c5f80c9e0a24da1c360",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
