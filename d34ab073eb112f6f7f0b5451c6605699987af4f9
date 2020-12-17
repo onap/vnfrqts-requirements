@@ -157,6 +157,24 @@
       "revId": "d34ab073eb112f6f7f0b5451c6605699987af4f9",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c6385588_0737eb96",
+        "filename": "docs/Chapter8/ves_7_2/CommonEventFormat_30.2_ONAP.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 2573,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-12-17T20:24:38Z",
+      "side": 1,
+      "message": "Agree with sugestion to incldue patch vesion. For VESCollector, this is pass through info, however may need to check if this field is used later in the flow (e.g PRH)",
+      "parentUuid": "03368e90_d3c165dd",
+      "revId": "d34ab073eb112f6f7f0b5451c6605699987af4f9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
     }
   ]
 }
