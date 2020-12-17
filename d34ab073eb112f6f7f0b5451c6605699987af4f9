@@ -139,6 +139,24 @@
       "revId": "d34ab073eb112f6f7f0b5451c6605699987af4f9",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03368e90_d3c165dd",
+        "filename": "docs/Chapter8/ves_7_2/CommonEventFormat_30.2_ONAP.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 2573,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2020-12-17T15:33:20Z",
+      "side": 1,
+      "message": "I\u0027m fine with using patch numbers here, but I think it\u0027s more important that Vijay agree as it would be more a question of the impact (if any) to the listener implementation.",
+      "parentUuid": "a5103d77_d0aaa36c",
+      "revId": "d34ab073eb112f6f7f0b5451c6605699987af4f9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
     }
   ]
 }
