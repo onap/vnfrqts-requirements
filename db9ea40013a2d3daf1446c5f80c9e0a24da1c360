@@ -16,6 +16,24 @@
       "revId": "db9ea40013a2d3daf1446c5f80c9e0a24da1c360",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2bbef5ce_6f6382d1",
+        "filename": "docs/Chapter8/ves_7_2/ves_event_listener_7_2.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 850,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2021-01-04T14:35:29Z",
+      "side": 1,
+      "message": "Ok, Oskar, just had a look at this. It looks to be a nice proposal.\nI just introduced it in the text, and I`ll publish this as the next PS.",
+      "parentUuid": "bd10fa51_261c3cbe",
+      "revId": "db9ea40013a2d3daf1446c5f80c9e0a24da1c360",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
