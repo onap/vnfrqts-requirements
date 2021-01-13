@@ -22,6 +22,30 @@
       "revId": "8c876feef36f9a89d234482366e90b52a74b66e9",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5005779a_bf10a3d2",
+        "filename": "docs/Chapter8/ves_7_2/ves_event_listener_7_2.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 848,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2021-01-13T12:06:32Z",
+      "side": 1,
+      "message": "Well, the description added here is actually a part of \"EventID use-case examples\" chapter.\nI can try to create an internal link. I assume, then that that`s we`re fine with the proposed text, right?",
+      "parentUuid": "c03f2ca4_d2cd8c2d",
+      "range": {
+        "startLine": 848,
+        "startChar": 33,
+        "endLine": 848,
+        "endChar": 59
+      },
+      "revId": "8c876feef36f9a89d234482366e90b52a74b66e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
