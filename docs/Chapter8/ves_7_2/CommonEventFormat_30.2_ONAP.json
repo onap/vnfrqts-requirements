@@ -20,21 +20,21 @@
           "type": "string"
         },
         "lastUpdatedBy": {
-          "description": "damian.nowak@nokia.com",
+          "description": "tl2972",
           "type": "string"
         },
         "schemaDate": {
-          "description": "Jan 04, 2021",
+          "description": "June 2, 2020",
           "type": "string"
         },
         "schemaVersion": {
-          "description": "30.2.1",
+          "description": "30.2.0",
           "type": "number"
         }
       }
     },
     "schemaLicenseAndCopyrightNotice": {
-      "description": "Copyright (c) 2020, AT&T Intellectual Property.  All rights reserved. Modification Copyright (c) 2021, Nokia Solutions and Networks.",
+      "description": "Copyright (c) 2020, AT&T Intellectual Property.  All rights reserved",
       "type": "object",
       "properties": {
         "apacheLicense2.0": {
@@ -200,8 +200,7 @@
             "7.0.1",
             "7.1",
             "7.1.1",
-            "7.2",
-            "7.2.1"
+            "7.2"
           ]
         }
       },
@@ -2559,20 +2558,17 @@
         },
         "oamV4IpAddress": {
           "description": "IPv4 m-plane IP address to be used by the manager to contact the PNF",
-          "type": "string",
-          "format":"ipv4"
+          "type": "string"
         },
         "oamV6IpAddress": {
           "description": "IPv6 m-plane IP address to be used by the manager to contact the PNF",
-          "type": "string",
-          "format":"ipv6"
+          "type": "string"
         },
         "pnfRegistrationFieldsVersion": {
           "description": "version of the pnfRegistrationFields block",
           "type": "string",
           "enum": [
-            "2.0",
-            "2.1"
+            "2.0"
           ]
         },
         "serialNumber": {
