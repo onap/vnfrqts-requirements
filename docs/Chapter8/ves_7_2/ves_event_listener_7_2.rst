@@ -28,7 +28,7 @@ Service: VES Event Listener 7.2.1
 
 :Document: VES Event Listener
 :Revision: 7.2.1
-:Revision Date: January 13th, 2021
+:Revision Date: January 16th, 2021
 :Author: Trevor Lovett
 
 +-----------------+-----------------------------+
@@ -164,9 +164,9 @@ the API spec is provided below:
   4.0.1, 4.1 to avoid breaking clients of earlier versions of major
   version 4)
 
-- commonEventHeader vesEventListenerVersion enum: 7.2 (note: the enum
-  will support 7.0, 7.0.1, 7.1, 7.1.1, 7.2 to avoid breaking clients of earlier
-  versions of major version 7)
+- commonEventHeader vesEventListenerVersion enum: 7.2.1 (note: the enum
+  will support 7.0, 7.0.1, 7.1, 7.1.1, 7.2, 7.2.1 to avoid breaking 
+  clients of earlier versions of major version 7)
 
 - faultFieldsVersion:4.0
 
@@ -182,7 +182,8 @@ the API spec is provided below:
 
 - perf3gppFieldsVersion: 1.0
 
-- pnfRegistrationFieldsVersion: 2.0
+- pnfRegistrationFieldsVersion: 2.1 (note: the enum supports 2.0 and 2.1, 
+  to avoid breaking clients of earlier versions of major version 2)
 
 - sigSignalingFieldsVersion: 3.0
 
@@ -204,7 +205,7 @@ Common Event Format
 A JSON schema describing the Common Event Format is provided below and
 is reproduced in the tables that follow.
 
-:download:`JSON <CommonEventFormat_30.2_ONAP.json>`
+:download:`JSON <CommonEventFormat_30.2.1_ONAP.json>`
 
 
 Note on optional fields:
@@ -3359,7 +3360,7 @@ Sample Request
         "event": {
             "commonEventHeader": {
                 "version": "4.1",
-                "vesEventListenerVersion": "7.2",
+                "vesEventListenerVersion": "7.2.1",
                 "domain": "heartbeat",
                 "eventName": "Heartbeat_vIsbcMmc",
                 "eventId": "heartbeat0000249",
@@ -3387,8 +3388,8 @@ Sample Success Response
 
     HTTPS/1.1 202 Accepted
     X-MinorVersion: 2
-    X-PatchVersion: 0
-    X-LatestVersion: 7.2
+    X-PatchVersion: 1
+    X-LatestVersion: 7.2.1
 
 
 Mutual TLS Certificate Authentication
@@ -3606,9 +3607,9 @@ requests to indicate the specific version they are interested in.
 
 -  X-MinorVersion: 2
 
--  X-PatchVersion: 0
+-  X-PatchVersion: 1
 
--  X-LatestVersion: 7.2
+-  X-LatestVersion: 7.2.1
 
 If a client requests major version 7 (per the REST resource URL) and
 does not specify the above headers, then they will be provided with the
@@ -3809,7 +3810,7 @@ Sample Request
         "event": {
             "commonEventHeader": {
                 "version": "4.1",
-                "vesEventListenerVersion": "7.2",
+                "vesEventListenerVersion": "7.2.1",
                 "domain": "fault",
                 "eventName": "Fault_Vscf:Acs-Ericcson_PilotNumberPoolExhaustion",
                 "eventId": "fault0000245",
@@ -3849,8 +3850,8 @@ Sample Success Response
 
     HTTPS/1.1 202 Accepted
     X-MinorVersion: 2
-    X-PatchVersion: 0
-    X-LatestVersion: 7.2
+    X-PatchVersion: 1
+    X-LatestVersion: 7.2.1
 
 Sample Error Responses
 **********************
@@ -3865,8 +3866,8 @@ Sample Policy Exception
     content-length: 12345
     Date: Thu, 04 Jun 2009 02:51:59 GMT
     X-MinorVersion: 2
-    X-PatchVersion: 0
-    X-LatestVersion: 7.2
+    X-PatchVersion: 1 
+    X-LatestVersion: 7.2.1
 
     {
       "requestError": {
@@ -3888,8 +3889,8 @@ Sample Service Exception
     content-length: 12345
     Date: Thu, 04 Jun 2009 02:51:59 GMT
     X-MinorVersion: 2
-    X-PatchVersion: 0
-    X-LatestVersion: 7.2
+    X-PatchVersion: 1
+    X-LatestVersion: 7.2.1
 
     {
       "requestError": {
@@ -4093,7 +4094,7 @@ Sample Request
           {
              "commonEventHeader": {
                 "version": "4.1",
-                "vesEventListenerVersion": "7.2",
+                "vesEventListenerVersion": "7.2.1",
                 "domain": "fault",
                 "eventName": "Fault_Vscf:Acs-Ericcson_PilotNumberPoolExhaustion",
                 "eventId": "fault0000250",
@@ -4125,7 +4126,7 @@ Sample Request
           {
              "commonEventHeader": {
                 "version": "4.1",
-                "vesEventListenerVersion": "7.2",
+                "vesEventListenerVersion": "7.2.1",
                 "domain": "fault",
                 "eventName": " Fault_Vscf:Acs-Ericcson_RecordingServerUnreachable",
                 "eventId": "fault0000251",
@@ -4161,8 +4162,8 @@ Sample Success Response
 
     HTTPS/1.1 202 Accepted
     X-MinorVersion: 2
-    X-PatchVersion: 0
-    X-LatestVersion: 7.2
+    X-PatchVersion: 1
+    X-LatestVersion: 7.2.1
 
 Sample Error Responses
 **********************
@@ -4177,8 +4178,8 @@ Sample Policy Exception
     content-length: 12345
     Date: Thu, 04 Jun 2009 02:51:59 GMT
     X-MinorVersion: 2
-    X-PatchVersion: 0
-    X-LatestVersion: 7.2
+    X-PatchVersion: 1
+    X-LatestVersion: 7.2.1
 
     {
       "requestError": {
@@ -4201,8 +4202,8 @@ Sample Service Exception
     content-length: 12345
     Date: Thu, 04 Jun 2009 02:51:59 GMT
     X-MinorVersion: 2
-    X-PatchVersion: 0
-    X-LatestVersion: 7.2
+    X-PatchVersion: 1 
+    X-LatestVersion: 7.2.1
 
     {
       "requestError": {
@@ -6169,7 +6170,7 @@ Contents.
 |           |         | -  Updated links to OMA                               |
 |           |         | -  Updated publishEventBatch to support stndDefined   |
 +-----------+---------+-------------------------------------------------------+
-| 01/13/2021| v7.2.1  | - updated publishEventBatch to support stndDefined    |
+| 01/16/2021| v7.2.1  | - updated to reference CommonEventFormat_30.2.1_ONAP  |
 |           |         | - added eventId use-case example, where eventID       |
 |           |         |   uniqueness cannot be assured                        |
 +-----------+---------+-------------------------------------------------------+
