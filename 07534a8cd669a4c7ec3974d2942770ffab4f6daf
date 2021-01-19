@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0887a9ce_4f6c8105",
+        "filename": "docs/Chapter8/ves_7_2/ves_event_listener_7_2.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2021-01-19T16:31:12Z",
+      "side": 1,
+      "message": "You`re correct Oskar, I missed this one. Updated in PS2.",
+      "parentUuid": "04170843_4d151111",
+      "revId": "07534a8cd669a4c7ec3974d2942770ffab4f6daf",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "32132097_56ba0fbf",
         "filename": "docs/Chapter8/ves_7_2/ves_event_listener_7_2.rst",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "07534a8cd669a4c7ec3974d2942770ffab4f6daf",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d7729a4_863fca27",
+        "filename": "docs/Chapter8/ves_7_2/ves_event_listener_7_2.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2021-01-19T16:31:12Z",
+      "side": 1,
+      "message": "Well, So far, we`ve been changing only the major version for \"xyzFields\".\nI decided not to overarchitect this part, and keep 2.1 here, which is as well a novelty, as far as \"xyzFields\" structures are concerned. I`d keep this as 2.1 for the moment, if You`re fine with it.",
+      "parentUuid": "32132097_56ba0fbf",
+      "revId": "07534a8cd669a4c7ec3974d2942770ffab4f6daf",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
