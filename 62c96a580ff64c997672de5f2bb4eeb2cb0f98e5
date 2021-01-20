@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2218afcd_052fe834",
+        "filename": "docs/Chapter8/ves_7_2/ves_event_listener_7_2.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 5279
+      },
+      "writtenOn": "2021-01-20T11:34:16Z",
+      "side": 1,
+      "message": "Related to previous comment, I\u0027m ok with 2.1 as the new version number for this field block. However I notice now that it should also be mentioned here similar to some cases above (commonEventHeader, vesEventListenerVersion) that also version 2.0 of pnfRegistrationFields is still supported to not break clients using previous version.",
+      "revId": "62c96a580ff64c997672de5f2bb4eeb2cb0f98e5",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
