@@ -16,6 +16,24 @@
       "revId": "62c96a580ff64c997672de5f2bb4eeb2cb0f98e5",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4dabf7b6_5b78ec71",
+        "filename": "docs/Chapter8/ves_7_2/ves_event_listener_7_2.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 5597
+      },
+      "writtenOn": "2021-01-20T12:37:07Z",
+      "side": 1,
+      "message": "Updated in PatchSet 3.",
+      "parentUuid": "2218afcd_052fe834",
+      "revId": "62c96a580ff64c997672de5f2bb4eeb2cb0f98e5",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
