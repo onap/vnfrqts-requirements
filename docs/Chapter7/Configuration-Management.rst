@@ -422,12 +422,12 @@ NETCONF Server Requirements
     :id: R-73468
     :target: VNF
     :keyword: MUST
-    :updated: frankfurt
+    :updated: honolulu
 
     The VNF **MUST** allow the NETCONF server connection
     parameters to be configurable during virtual machine instantiation
     through Heat templates where SSH keys, usernames, passwords, SSH
-    service and SSH port numbers are Heat template parameters.
+    service and SSH port numbers are Heat template parameters if VNF is heat based.
 
 .. req::
     :id: R-90007
@@ -442,21 +442,21 @@ NETCONF Server Requirements
     :id: R-70496
     :target: VNF or PNF
     :keyword: MUST
-    :updated: dublin
+    :updated: honolulu
 
     The VNF or PNF **MUST** implement the protocol operation:
     ``commit(confirmed, confirm-timeout)`` - Commit candidate
-    configuration data store to the running configuration.
+    configuration data store to the running configuration if ":candidate" is supported.
 
 .. req::
     :id: R-18733
     :target: VNF or PNF
     :keyword: MUST
-    :updated: dublin
+    :updated: honolulu
 
     The VNF or PNF **MUST** implement the protocol operation:
     ``discard-changes()`` - Revert the candidate configuration
-    data store to the running configuration.
+    data store to the running configuration if ":candidate" is supported.
 
 .. req::
     :id: R-44281
@@ -569,10 +569,10 @@ NETCONF Server Requirements
 .. req::
     :id: R-28756
     :target: VNF or PNF
-    :keyword: MUST
-    :updated: dublin
+    :keyword: MAY
+    :updated: honolulu
 
-    The VNF or PNF **MUST** support ``:partial-lock`` and
+    The VNF or PNF **MAY** support ``:partial-lock`` and
     ``:partial-unlock`` capabilities, defined in RFC 5717. This
     allows multiple independent clients to each write to a different
     part of the <running> configuration at the same time.
@@ -593,20 +593,20 @@ NETCONF Server Requirements
 .. req::
     :id: R-68990
     :target: VNF or PNF
-    :keyword: MUST
-    :updated: dublin
+    :keyword: MAY
+    :updated: honolulu
 
-    The VNF or PNF **MUST** support the ``:startup`` capability. It
+    The VNF or PNF **MAY** support the ``:startup`` capability. It
     will allow the running configuration to be copied to this special
     database. It can also be locked and unlocked.
 
 .. req::
     :id: R-68200
     :target: VNF or PNF
-    :keyword: MUST
-    :updated: dublin
+    :keyword: MAY
+    :updated: honolulu
 
-    The VNF or PNF **MUST** support the ``:url`` value to specify
+    The VNF or PNF **MAY** support the ``:url`` value to specify
     protocol operation source and target parameters. The capability URI
     for this feature will indicate which schemes (e.g., file, https, sftp)
     that the server supports within a particular URL value. The 'file'
@@ -617,19 +617,19 @@ NETCONF Server Requirements
     :id: R-20353
     :target: VNF or PNF
     :keyword: MUST
-    :updated: dublin
+    :updated: honolulu
 
-    The VNF or PNF **MUST** implement both ``:candidate`` and
+    The VNF or PNF **MUST** implement at least one of ``:candidate`` and
     ``:writable-running`` capabilities. When both ``:candidate`` and
     ``:writable-running`` are provided then two locks should be supported.
 
 .. req::
     :id: R-11499
     :target: VNF or PNF
-    :keyword: MUST
-    :updated: dublin
+    :keyword: MAY
+    :updated: honolulu
 
-    The VNF or PNF **MUST** fully support the XPath 1.0 specification
+    The VNF or PNF **MAY** fully support the XPath 1.0 specification
     for filtered retrieval of configuration and other database contents.
     The 'type' attribute within the <filter> parameter for <get> and
     <get-config> operations may be set to 'xpath'. The 'select' attribute
@@ -641,10 +641,10 @@ NETCONF Server Requirements
 .. req::
     :id: R-83790
     :target: VNF or PNF
-    :keyword: MUST
-    :updated: dublin
+    :keyword: MAY
+    :updated: honolulu
 
-    The VNF or PNF **MUST** implement the ``:validate`` capability.
+    The VNF or PNF **MAY** implement the ``:validate`` capability.
 
 .. req::
     :id: R-49145
@@ -658,10 +658,10 @@ NETCONF Server Requirements
 .. req::
     :id: R-58358
     :target: VNF or PNF
-    :keyword: MUST
-    :updated: dublin
+    :keyword: MAY
+    :updated: honolulu
 
-    The VNF or PNF **MUST** implement the ``:with-defaults`` capability
+    The VNF or PNF **MAY** implement the ``:with-defaults`` capability
     [RFC6243].
 
 .. req::
@@ -696,15 +696,6 @@ NETCONF Server Requirements
     rules shall be handled by a built-in  automatic upgrade mechanism.
 
 .. req::
-    :id: R-10716
-    :target: VNF or PNF
-    :keyword: MUST
-    :updated: dublin
-
-    The VNF or PNF **MUST** support parallel and simultaneous
-    configuration of separate objects within itself.
-
-.. req::
     :id: R-29495
     :target: VNF or PNF
     :keyword: MUST
@@ -728,26 +719,13 @@ NETCONF Server Requirements
     out all others until completed.
 
 .. req::
-    :id: R-02616
-    :target: VNF or PNF
-    :keyword: MUST
-    :updated: dublin
-
-    The VNF or PNF **MUST** permit locking at the finest granularity
-    if a VNF or PNF needs to lock an object for configuration to avoid blocking
-    simultaneous configuration operations on unrelated objects (e.g., BGP
-    configuration should not be locked out if an interface is being
-    configured or entire Interface configuration should not be locked out
-    if a non-overlapping parameter on the interface is being configured).
-
-.. req::
     :id: R-41829
     :target: VNF or PNF
     :keyword: MUST
-    :updated: dublin
+    :updated: honolulu
 
     The VNF or PNF **MUST** be able to specify the granularity of the
-    lock via a restricted or full XPath expression.
+    lock via a restricted or full XPath expression if ":partial-lock" is supported.
 
 .. req::
     :id: R-66793
@@ -775,10 +753,10 @@ NETCONF Server Requirements
     :id: R-03465
     :target: VNF or PNF
     :keyword: MUST
-    :updated: dublin
+    :updated: honolulu
 
     The VNF or PNF **MUST** release locks to prevent permanent lock-outs
-    when the corresponding <partial-unlock> operation succeeds.
+    when the corresponding <partial-unlock> operation succeeds if ":partial-lock" is supported.
 
 .. req::
     :id: R-63935
@@ -800,15 +778,6 @@ NETCONF Server Requirements
     The VNF or PNF **MUST** allow another NETCONF session to be able to
     initiate the release of the lock by killing the session owning the lock,
     using the <kill-session> operation to guard against hung NETCONF sessions.
-
-.. req::
-    :id: R-88899
-    :target: VNF or PNF
-    :keyword: MUST
-    :updated: dublin
-
-    The VNF or PNF **MUST** support simultaneous <commit> operations
-    within the context of this locking requirements framework.
 
 .. req::
     :id: R-07545
@@ -838,9 +807,9 @@ NETCONF Server Requirements
 
 .. req::
     :id: R-25238
-    :target: VNF
+    :target: VNF or PNF
     :keyword: MUST
-    :updated: dublin
+    :updated: honolulu
 
     The VNF or PNF PACKAGE **MUST** validated YANG code using the open
     source pyang [#7.3.1]_ program using the following commands:
@@ -849,14 +818,7 @@ NETCONF Server Requirements
 
       $ pyang --verbose --strict <YANG-file-name(s)> $ echo $!
 
-.. req::
-    :id: R-63953
-    :target: VNF or PNF
-    :keyword: MUST
-    :updated: dublin
-
-    The VNF or PNF **MUST** have the echo command return a zero value
-    otherwise the validation has failed.
+    The VNF or PNF **MUST** have the echo command return a zero value otherwise the validation has failed. 
 
 .. req::
     :id: R-26508
@@ -875,15 +837,6 @@ conform, and those where applicable, that suppliers need to use.
 
 
 .. req::
-    :id: R-22700
-    :target: VNF or PNF
-    :keyword: MUST
-    :updated: dublin
-
-    The VNF or PNF **MUST** conform its YANG model to RFC 6470,
-    "NETCONF Base Notifications".
-
-.. req::
     :id: R-10353
     :target: VNF or PNF
     :keyword: MUST
@@ -895,10 +848,10 @@ conform, and those where applicable, that suppliers need to use.
 .. req::
     :id: R-53317
     :target: VNF or PNF
-    :keyword: MUST
-    :updated: dublin
+    :keyword: SHOULD
+    :updated: honolulu
 
-    The VNF or PNF **MUST** conform its YANG model to RFC 6087,
+    The VNF or PNF **SHOULD** conform its YANG model to RFC 8407,
     "Guidelines for Authors and Reviewers of YANG Data Model specification".
 
 .. req::
@@ -914,9 +867,9 @@ conform, and those where applicable, that suppliers need to use.
     :id: R-22946
     :target: VNF or PNF
     :keyword: SHOULD
-    :updated: dublin
+    :updated: honolulu
 
-    The VNF or PNF **SHOULD** conform its YANG model to RFC 6536,
+    The VNF or PNF **SHOULD** conform its YANG model to RFC 8341,
     "NETCONF Access Control Model".
 
 .. req::
@@ -988,31 +941,13 @@ NETCONF RFCs.
     "Using the NETCONF Configuration Protocol over Secure Shell (SSH)".
 
 .. req::
-    :id: R-13800
-    :target: VNF or PNF
-    :keyword: MUST
-    :updated: dublin
-
-    The VNF or PNF **MUST** conform to the NETCONF RFC 5277,
-    "NETCONF Event Notification".
-
-.. req::
     :id: R-01334
     :target: VNF or PNF
-    :keyword: MUST
-    :updated: dublin
+    :keyword: MAY
+    :updated: honolulu
 
-    The VNF or PNF **MUST** conform to the NETCONF RFC 5717,
+    The VNF or PNF **MAY** conform to the NETCONF RFC 5717,
     "Partial Lock Remote Procedure Call".
-
-.. req::
-    :id: R-08134
-    :target: VNF or PNF
-    :keyword: MUST
-    :updated: dublin
-
-    The VNF or PNF **MUST** conform to the NETCONF RFC 6241,
-    "NETCONF Configuration Protocol".
 
 .. req::
     :id: R-78282
