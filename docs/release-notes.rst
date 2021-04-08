@@ -16,6 +16,23 @@
 VNFRQTS Project Release Notes
 ==============================
 
+
+Version: 8.0.0
+--------------
+
+:Release Date: 2021-04-15
+
+.. container:: note
+
+   :doc:`Detailed Summary of Changes <changes-by-section-honolulu>`
+
+A higher level summary of changes as well as non-requirement impacting
+changes can be found below.
+
+* Updated and clarified NETCONF requirements in :ref:`vnf_configuration_management`
+* Updated to :ref:`VES Event Listener 7.2.1 <ves_event_listener_7_2>` with
+  improved enforcement of IP patterns and clarifications on usage expectations
+
 Version: 7.0.0
 --------------
 

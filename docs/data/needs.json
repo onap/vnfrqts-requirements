@@ -1,10 +1,10 @@
 {
-    "created": "2020-11-19T13:28:02.355049",
-    "current_version": "guilin",
+    "created": "2021-04-08T10:32:09.050526",
+    "current_version": "honolulu",
     "project": "onap",
     "versions": {
-        "guilin": {
-            "created": "2020-11-19T13:28:02.355038",
+        "honolulu": {
+            "created": "2021-04-08T10:32:09.050510",
             "filters": {},
             "filters_amount": 0,
             "needs": {
@@ -327,7 +327,7 @@
                     "validation_mode": ""
                 },
                 "R-01334": {
-                    "description": "The VNF or PNF **MUST** conform to the NETCONF RFC 5717,\n\"Partial Lock Remote Procedure Call\".",
+                    "description": "The VNF or PNF **MAY** conform to the NETCONF RFC 5717,\n\"Partial Lock Remote Procedure Call\".",
                     "docname": "Chapter7/Configuration-Management",
                     "full_title": "",
                     "hidden": "",
@@ -338,7 +338,7 @@
                     "introduced": "",
                     "is_need": true,
                     "is_part": false,
-                    "keyword": "MUST",
+                    "keyword": "MAY",
                     "layout": "",
                     "links": [],
                     "parts": {},
@@ -360,7 +360,7 @@
                     "title": "",
                     "type": "req",
                     "type_name": "Requirement",
-                    "updated": "dublin",
+                    "updated": "honolulu",
                     "validation_mode": ""
                 },
                 "R-01359": {
@@ -786,43 +786,6 @@
                     "updated": "dublin",
                     "validation_mode": ""
                 },
-                "R-02616": {
-                    "description": "The VNF or PNF **MUST** permit locking at the finest granularity\nif a VNF or PNF needs to lock an object for configuration to avoid blocking\nsimultaneous configuration operations on unrelated objects (e.g., BGP\nconfiguration should not be locked out if an interface is being\nconfigured or entire Interface configuration should not be locked out\nif a non-overlapping parameter on the interface is being configured).",
-                    "docname": "Chapter7/Configuration-Management",
-                    "full_title": "",
-                    "hidden": "",
-                    "id": "R-02616",
-                    "id_complete": "R-02616",
-                    "id_parent": "R-02616",
-                    "impacts": "",
-                    "introduced": "",
-                    "is_need": true,
-                    "is_part": false,
-                    "keyword": "MUST",
-                    "layout": "",
-                    "links": [],
-                    "parts": {},
-                    "post_template": null,
-                    "pre_template": null,
-                    "section_name": "NETCONF Server Requirements",
-                    "sections": [
-                        "NETCONF Server Requirements",
-                        "VNF or PNF Configuration via NETCONF Requirements",
-                        "NETCONF Standards and Capabilities",
-                        "Configuration Management"
-                    ],
-                    "signature": "",
-                    "status": null,
-                    "style": null,
-                    "tags": [],
-                    "target": "VNF or PNF",
-                    "template": null,
-                    "title": "",
-                    "type": "req",
-                    "type_name": "Requirement",
-                    "updated": "dublin",
-                    "validation_mode": ""
-                },
                 "R-02651": {
                     "description": "The VNF or PNF Provider's Ansible playbooks **SHOULD** use available backup\ncapabilities to save a copy of configuration files before implementing\nchanges to support operations such as backing out of software upgrades,\nconfiguration changes or other work as this will help backing out of\nconfiguration changes when needed.",
                     "docname": "Chapter7/Configuration-Management",
@@ -1000,7 +963,7 @@
                     "validation_mode": "static"
                 },
                 "R-03465": {
-                    "description": "The VNF or PNF **MUST** release locks to prevent permanent lock-outs\nwhen the corresponding <partial-unlock> operation succeeds.",
+                    "description": "The VNF or PNF **MUST** release locks to prevent permanent lock-outs\nwhen the corresponding <partial-unlock> operation succeeds if \":partial-lock\" is supported.",
                     "docname": "Chapter7/Configuration-Management",
                     "full_title": "",
                     "hidden": "",
@@ -1033,7 +996,7 @@
                     "title": "",
                     "type": "req",
                     "type_name": "Requirement",
-                    "updated": "dublin",
+                    "updated": "honolulu",
                     "validation_mode": ""
                 },
                 "R-03595": {
@@ -1886,43 +1849,6 @@
                     "type": "req",
                     "type_name": "Requirement",
                     "updated": "casablanca",
-                    "validation_mode": ""
-                },
-                "R-08134": {
-                    "description": "The VNF or PNF **MUST** conform to the NETCONF RFC 6241,\n\"NETCONF Configuration Protocol\".",
-                    "docname": "Chapter7/Configuration-Management",
-                    "full_title": "",
-                    "hidden": "",
-                    "id": "R-08134",
-                    "id_complete": "R-08134",
-                    "id_parent": "R-08134",
-                    "impacts": "",
-                    "introduced": "",
-                    "is_need": true,
-                    "is_part": false,
-                    "keyword": "MUST",
-                    "layout": "",
-                    "links": [],
-                    "parts": {},
-                    "post_template": null,
-                    "pre_template": null,
-                    "section_name": "NETCONF Server Requirements",
-                    "sections": [
-                        "NETCONF Server Requirements",
-                        "VNF or PNF Configuration via NETCONF Requirements",
-                        "NETCONF Standards and Capabilities",
-                        "Configuration Management"
-                    ],
-                    "signature": "",
-                    "status": null,
-                    "style": null,
-                    "tags": [],
-                    "target": "VNF or PNF",
-                    "template": null,
-                    "title": "",
-                    "type": "req",
-                    "type_name": "Requirement",
-                    "updated": "dublin",
                     "validation_mode": ""
                 },
                 "R-08315": {
@@ -3650,7 +3576,7 @@
                     "validation_mode": ""
                 },
                 "R-106240": {
-                    "description": "A PNF MUST support the pnfRegistration VES event which is required to integrate with ONAP\u2019s PNF Plug and Play capabilities.",
+                    "description": "A PNF **MUST** support the pnfRegistration VES event which is required to integrate with ONAP\u2019s PNF Plug and Play capabilities.",
                     "docname": "Chapter7/PNF-Plug-and-Play",
                     "full_title": "",
                     "hidden": "",
@@ -3682,43 +3608,6 @@
                     "type": "req",
                     "type_name": "Requirement",
                     "updated": "guilin",
-                    "validation_mode": ""
-                },
-                "R-10716": {
-                    "description": "The VNF or PNF **MUST** support parallel and simultaneous\nconfiguration of separate objects within itself.",
-                    "docname": "Chapter7/Configuration-Management",
-                    "full_title": "",
-                    "hidden": "",
-                    "id": "R-10716",
-                    "id_complete": "R-10716",
-                    "id_parent": "R-10716",
-                    "impacts": "",
-                    "introduced": "",
-                    "is_need": true,
-                    "is_part": false,
-                    "keyword": "MUST",
-                    "layout": "",
-                    "links": [],
-                    "parts": {},
-                    "post_template": null,
-                    "pre_template": null,
-                    "section_name": "NETCONF Server Requirements",
-                    "sections": [
-                        "NETCONF Server Requirements",
-                        "VNF or PNF Configuration via NETCONF Requirements",
-                        "NETCONF Standards and Capabilities",
-                        "Configuration Management"
-                    ],
-                    "signature": "",
-                    "status": null,
-                    "style": null,
-                    "tags": [],
-                    "target": "VNF or PNF",
-                    "template": null,
-                    "title": "",
-                    "type": "req",
-                    "type_name": "Requirement",
-                    "updated": "dublin",
                     "validation_mode": ""
                 },
                 "R-10834": {
@@ -3938,7 +3827,7 @@
                     "validation_mode": "static"
                 },
                 "R-11499": {
-                    "description": "The VNF or PNF **MUST** fully support the XPath 1.0 specification\nfor filtered retrieval of configuration and other database contents.\nThe 'type' attribute within the <filter> parameter for <get> and\n<get-config> operations may be set to 'xpath'. The 'select' attribute\n(which contains the XPath expression) will also be supported by the\nserver. A server may support partial XPath retrieval filtering, but\nit cannot advertise the ``:xpath`` capability unless the entire XPath\n1.0 specification is supported.",
+                    "description": "The VNF or PNF **MAY** fully support the XPath 1.0 specification\nfor filtered retrieval of configuration and other database contents.\nThe 'type' attribute within the <filter> parameter for <get> and\n<get-config> operations may be set to 'xpath'. The 'select' attribute\n(which contains the XPath expression) will also be supported by the\nserver. A server may support partial XPath retrieval filtering, but\nit cannot advertise the ``:xpath`` capability unless the entire XPath\n1.0 specification is supported.",
                     "docname": "Chapter7/Configuration-Management",
                     "full_title": "",
                     "hidden": "",
@@ -3949,7 +3838,7 @@
                     "introduced": "",
                     "is_need": true,
                     "is_part": false,
-                    "keyword": "MUST",
+                    "keyword": "MAY",
                     "layout": "",
                     "links": [],
                     "parts": {},
@@ -3971,7 +3860,7 @@
                     "title": "",
                     "type": "req",
                     "type_name": "Requirement",
-                    "updated": "dublin",
+                    "updated": "honolulu",
                     "validation_mode": ""
                 },
                 "R-11690": {
@@ -4713,43 +4602,6 @@
                     "type": "req",
                     "type_name": "Requirement",
                     "updated": "",
-                    "validation_mode": ""
-                },
-                "R-13800": {
-                    "description": "The VNF or PNF **MUST** conform to the NETCONF RFC 5277,\n\"NETCONF Event Notification\".",
-                    "docname": "Chapter7/Configuration-Management",
-                    "full_title": "",
-                    "hidden": "",
-                    "id": "R-13800",
-                    "id_complete": "R-13800",
-                    "id_parent": "R-13800",
-                    "impacts": "",
-                    "introduced": "",
-                    "is_need": true,
-                    "is_part": false,
-                    "keyword": "MUST",
-                    "layout": "",
-                    "links": [],
-                    "parts": {},
-                    "post_template": null,
-                    "pre_template": null,
-                    "section_name": "NETCONF Server Requirements",
-                    "sections": [
-                        "NETCONF Server Requirements",
-                        "VNF or PNF Configuration via NETCONF Requirements",
-                        "NETCONF Standards and Capabilities",
-                        "Configuration Management"
-                    ],
-                    "signature": "",
-                    "status": null,
-                    "style": null,
-                    "tags": [],
-                    "target": "VNF or PNF",
-                    "template": null,
-                    "title": "",
-                    "type": "req",
-                    "type_name": "Requirement",
-                    "updated": "dublin",
                     "validation_mode": ""
                 },
                 "R-14198": {
@@ -5923,7 +5775,7 @@
                     "validation_mode": ""
                 },
                 "R-18733": {
-                    "description": "The VNF or PNF **MUST** implement the protocol operation:\n``discard-changes()`` - Revert the candidate configuration\ndata store to the running configuration.",
+                    "description": "The VNF or PNF **MUST** implement the protocol operation:\n``discard-changes()`` - Revert the candidate configuration\ndata store to the running configuration if \":candidate\" is supported.",
                     "docname": "Chapter7/Configuration-Management",
                     "full_title": "",
                     "hidden": "",
@@ -5956,7 +5808,7 @@
                     "title": "",
                     "type": "req",
                     "type_name": "Requirement",
-                    "updated": "dublin",
+                    "updated": "honolulu",
                     "validation_mode": ""
                 },
                 "R-18864": {
@@ -6350,7 +6202,7 @@
                     "validation_mode": ""
                 },
                 "R-20353": {
-                    "description": "The VNF or PNF **MUST** implement both ``:candidate`` and\n``:writable-running`` capabilities. When both ``:candidate`` and\n``:writable-running`` are provided then two locks should be supported.",
+                    "description": "The VNF or PNF **MUST** implement at least one of ``:candidate`` and\n``:writable-running`` capabilities. When both ``:candidate`` and\n``:writable-running`` are provided then two locks should be supported.",
                     "docname": "Chapter7/Configuration-Management",
                     "full_title": "",
                     "hidden": "",
@@ -6383,7 +6235,7 @@
                     "title": "",
                     "type": "req",
                     "type_name": "Requirement",
-                    "updated": "dublin",
+                    "updated": "honolulu",
                     "validation_mode": ""
                 },
                 "R-20453": {
@@ -7233,43 +7085,6 @@
                     "updated": "frankfurt",
                     "validation_mode": "static"
                 },
-                "R-22700": {
-                    "description": "The VNF or PNF **MUST** conform its YANG model to RFC 6470,\n\"NETCONF Base Notifications\".",
-                    "docname": "Chapter7/Configuration-Management",
-                    "full_title": "",
-                    "hidden": "",
-                    "id": "R-22700",
-                    "id_complete": "R-22700",
-                    "id_parent": "R-22700",
-                    "impacts": "",
-                    "introduced": "",
-                    "is_need": true,
-                    "is_part": false,
-                    "keyword": "MUST",
-                    "layout": "",
-                    "links": [],
-                    "parts": {},
-                    "post_template": null,
-                    "pre_template": null,
-                    "section_name": "NETCONF Server Requirements",
-                    "sections": [
-                        "NETCONF Server Requirements",
-                        "VNF or PNF Configuration via NETCONF Requirements",
-                        "NETCONF Standards and Capabilities",
-                        "Configuration Management"
-                    ],
-                    "signature": "",
-                    "status": null,
-                    "style": null,
-                    "tags": [],
-                    "target": "VNF or PNF",
-                    "template": null,
-                    "title": "",
-                    "type": "req",
-                    "type_name": "Requirement",
-                    "updated": "dublin",
-                    "validation_mode": ""
-                },
                 "R-22838": {
                     "description": "The VNF's Heat Orchestration Template's Resource ``OS::Nova::Server``\nproperty\n``name`` parameter **MUST NOT** be enumerated in the Heat Orchestration\nTemplate's Environment File.",
                     "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Nova Parameters",
@@ -7341,7 +7156,7 @@
                     "validation_mode": ""
                 },
                 "R-22946": {
-                    "description": "The VNF or PNF **SHOULD** conform its YANG model to RFC 6536,\n\"NETCONF Access Control Model\".",
+                    "description": "The VNF or PNF **SHOULD** conform its YANG model to RFC 8341,\n\"NETCONF Access Control Model\".",
                     "docname": "Chapter7/Configuration-Management",
                     "full_title": "",
                     "hidden": "",
@@ -7374,7 +7189,7 @@
                     "title": "",
                     "type": "req",
                     "type_name": "Requirement",
-                    "updated": "dublin",
+                    "updated": "honolulu",
                     "validation_mode": ""
                 },
                 "R-23035": {
@@ -8157,7 +7972,7 @@
                     "validation_mode": ""
                 },
                 "R-25238": {
-                    "description": "The VNF or PNF PACKAGE **MUST** validated YANG code using the open\nsource pyang [#7.3.1]_ program using the following commands:\n\n.. code-block:: text\n\n  $ pyang --verbose --strict <YANG-file-name(s)> $ echo $!",
+                    "description": "The VNF or PNF PACKAGE **MUST** validated YANG code using the open\nsource pyang [#7.3.1]_ program using the following commands:\n\n.. code-block:: text\n\n  $ pyang --verbose --strict <YANG-file-name(s)> $ echo $!\n\nThe VNF or PNF **MUST** have the echo command return a zero value otherwise the validation has failed.",
                     "docname": "Chapter7/Configuration-Management",
                     "full_title": "",
                     "hidden": "",
@@ -8185,12 +8000,12 @@
                     "status": null,
                     "style": null,
                     "tags": [],
-                    "target": "VNF",
+                    "target": "VNF or PNF",
                     "template": null,
                     "title": "",
                     "type": "req",
                     "type_name": "Requirement",
-                    "updated": "dublin",
+                    "updated": "honolulu",
                     "validation_mode": ""
                 },
                 "R-25401": {
@@ -9294,7 +9109,7 @@
                     "validation_mode": ""
                 },
                 "R-28756": {
-                    "description": "The VNF or PNF **MUST** support ``:partial-lock`` and\n``:partial-unlock`` capabilities, defined in RFC 5717. This\nallows multiple independent clients to each write to a different\npart of the <running> configuration at the same time.",
+                    "description": "The VNF or PNF **MAY** support ``:partial-lock`` and\n``:partial-unlock`` capabilities, defined in RFC 5717. This\nallows multiple independent clients to each write to a different\npart of the <running> configuration at the same time.",
                     "docname": "Chapter7/Configuration-Management",
                     "full_title": "",
                     "hidden": "",
@@ -9305,7 +9120,7 @@
                     "introduced": "",
                     "is_need": true,
                     "is_part": false,
-                    "keyword": "MUST",
+                    "keyword": "MAY",
                     "layout": "",
                     "links": [],
                     "parts": {},
@@ -9327,7 +9142,7 @@
                     "title": "",
                     "type": "req",
                     "type_name": "Requirement",
-                    "updated": "dublin",
+                    "updated": "honolulu",
                     "validation_mode": ""
                 },
                 "R-28795": {
@@ -13297,7 +13112,7 @@
                     "validation_mode": ""
                 },
                 "R-41829": {
-                    "description": "The VNF or PNF **MUST** be able to specify the granularity of the\nlock via a restricted or full XPath expression.",
+                    "description": "The VNF or PNF **MUST** be able to specify the granularity of the\nlock via a restricted or full XPath expression if \":partial-lock\" is supported.",
                     "docname": "Chapter7/Configuration-Management",
                     "full_title": "",
                     "hidden": "",
@@ -13330,7 +13145,7 @@
                     "title": "",
                     "type": "req",
                     "type_name": "Requirement",
-                    "updated": "dublin",
+                    "updated": "honolulu",
                     "validation_mode": ""
                 },
                 "R-41888": {
@@ -16648,7 +16463,7 @@
                     "validation_mode": "static"
                 },
                 "R-53317": {
-                    "description": "The VNF or PNF **MUST** conform its YANG model to RFC 6087,\n\"Guidelines for Authors and Reviewers of YANG Data Model specification\".",
+                    "description": "The VNF or PNF **SHOULD** conform its YANG model to RFC 8407,\n\"Guidelines for Authors and Reviewers of YANG Data Model specification\".",
                     "docname": "Chapter7/Configuration-Management",
                     "full_title": "",
                     "hidden": "",
@@ -16659,7 +16474,7 @@
                     "introduced": "",
                     "is_need": true,
                     "is_part": false,
-                    "keyword": "MUST",
+                    "keyword": "SHOULD",
                     "layout": "",
                     "links": [],
                     "parts": {},
@@ -16681,7 +16496,7 @@
                     "title": "",
                     "type": "req",
                     "type_name": "Requirement",
-                    "updated": "dublin",
+                    "updated": "honolulu",
                     "validation_mode": ""
                 },
                 "R-53433": {
@@ -18166,7 +17981,7 @@
                     "validation_mode": ""
                 },
                 "R-58358": {
-                    "description": "The VNF or PNF **MUST** implement the ``:with-defaults`` capability\n[RFC6243].",
+                    "description": "The VNF or PNF **MAY** implement the ``:with-defaults`` capability\n[RFC6243].",
                     "docname": "Chapter7/Configuration-Management",
                     "full_title": "",
                     "hidden": "",
@@ -18177,7 +17992,7 @@
                     "introduced": "",
                     "is_need": true,
                     "is_part": false,
-                    "keyword": "MUST",
+                    "keyword": "MAY",
                     "layout": "",
                     "links": [],
                     "parts": {},
@@ -18199,7 +18014,7 @@
                     "title": "",
                     "type": "req",
                     "type_name": "Requirement",
-                    "updated": "dublin",
+                    "updated": "honolulu",
                     "validation_mode": ""
                 },
                 "R-58370": {
@@ -19682,43 +19497,6 @@
                     "updated": "dublin",
                     "validation_mode": ""
                 },
-                "R-63953": {
-                    "description": "The VNF or PNF **MUST** have the echo command return a zero value\notherwise the validation has failed.",
-                    "docname": "Chapter7/Configuration-Management",
-                    "full_title": "",
-                    "hidden": "",
-                    "id": "R-63953",
-                    "id_complete": "R-63953",
-                    "id_parent": "R-63953",
-                    "impacts": "",
-                    "introduced": "",
-                    "is_need": true,
-                    "is_part": false,
-                    "keyword": "MUST",
-                    "layout": "",
-                    "links": [],
-                    "parts": {},
-                    "post_template": null,
-                    "pre_template": null,
-                    "section_name": "NETCONF Server Requirements",
-                    "sections": [
-                        "NETCONF Server Requirements",
-                        "VNF or PNF Configuration via NETCONF Requirements",
-                        "NETCONF Standards and Capabilities",
-                        "Configuration Management"
-                    ],
-                    "signature": "",
-                    "status": null,
-                    "style": null,
-                    "tags": [],
-                    "target": "VNF or PNF",
-                    "template": null,
-                    "title": "",
-                    "type": "req",
-                    "type_name": "Requirement",
-                    "updated": "dublin",
-                    "validation_mode": ""
-                },
                 "R-63956": {
                     "description": "If the VNF's ports connected to a unique ONAP external network\n(per the ONAP definition, see Requirement R-57424 and R-16968)\nand the port's IP addresses are ONAP SDN-C assigned IP addresses,\nthe IPv4 addresses **MAY** be from different subnets and the IPv6\naddresses **MAY** be from different subnets.",
                     "docname": "Chapter5/Heat/ONAP Heat Resource ID and Parameter Naming Convention/Neutron Parameters",
@@ -20819,7 +20597,7 @@
                     "validation_mode": ""
                 },
                 "R-68200": {
-                    "description": "The VNF or PNF **MUST** support the ``:url`` value to specify\nprotocol operation source and target parameters. The capability URI\nfor this feature will indicate which schemes (e.g., file, https, sftp)\nthat the server supports within a particular URL value. The 'file'\nscheme allows for editable local configuration databases. The other\nschemes allow for remote storage of configuration databases.",
+                    "description": "The VNF or PNF **MAY** support the ``:url`` value to specify\nprotocol operation source and target parameters. The capability URI\nfor this feature will indicate which schemes (e.g., file, https, sftp)\nthat the server supports within a particular URL value. The 'file'\nscheme allows for editable local configuration databases. The other\nschemes allow for remote storage of configuration databases.",
                     "docname": "Chapter7/Configuration-Management",
                     "full_title": "",
                     "hidden": "",
@@ -20830,7 +20608,7 @@
                     "introduced": "",
                     "is_need": true,
                     "is_part": false,
-                    "keyword": "MUST",
+                    "keyword": "MAY",
                     "layout": "",
                     "links": [],
                     "parts": {},
@@ -20852,7 +20630,7 @@
                     "title": "",
                     "type": "req",
                     "type_name": "Requirement",
-                    "updated": "dublin",
+                    "updated": "honolulu",
                     "validation_mode": ""
                 },
                 "R-68520": {
@@ -20927,7 +20705,7 @@
                     "validation_mode": ""
                 },
                 "R-68990": {
-                    "description": "The VNF or PNF **MUST** support the ``:startup`` capability. It\nwill allow the running configuration to be copied to this special\ndatabase. It can also be locked and unlocked.",
+                    "description": "The VNF or PNF **MAY** support the ``:startup`` capability. It\nwill allow the running configuration to be copied to this special\ndatabase. It can also be locked and unlocked.",
                     "docname": "Chapter7/Configuration-Management",
                     "full_title": "",
                     "hidden": "",
@@ -20938,7 +20716,7 @@
                     "introduced": "",
                     "is_need": true,
                     "is_part": false,
-                    "keyword": "MUST",
+                    "keyword": "MAY",
                     "layout": "",
                     "links": [],
                     "parts": {},
@@ -20960,7 +20738,7 @@
                     "title": "",
                     "type": "req",
                     "type_name": "Requirement",
-                    "updated": "dublin",
+                    "updated": "honolulu",
                     "validation_mode": ""
                 },
                 "R-69014": {
@@ -21491,7 +21269,7 @@
                     "validation_mode": ""
                 },
                 "R-70496": {
-                    "description": "The VNF or PNF **MUST** implement the protocol operation:\n``commit(confirmed, confirm-timeout)`` - Commit candidate\nconfiguration data store to the running configuration.",
+                    "description": "The VNF or PNF **MUST** implement the protocol operation:\n``commit(confirmed, confirm-timeout)`` - Commit candidate\nconfiguration data store to the running configuration if \":candidate\" is supported.",
                     "docname": "Chapter7/Configuration-Management",
                     "full_title": "",
                     "hidden": "",
@@ -21524,7 +21302,7 @@
                     "title": "",
                     "type": "req",
                     "type_name": "Requirement",
-                    "updated": "dublin",
+                    "updated": "honolulu",
                     "validation_mode": ""
                 },
                 "R-707977": {
@@ -22168,7 +21946,7 @@
                     "validation_mode": ""
                 },
                 "R-73468": {
-                    "description": "The VNF **MUST** allow the NETCONF server connection\nparameters to be configurable during virtual machine instantiation\nthrough Heat templates where SSH keys, usernames, passwords, SSH\nservice and SSH port numbers are Heat template parameters.",
+                    "description": "The VNF **MUST** allow the NETCONF server connection\nparameters to be configurable during virtual machine instantiation\nthrough Heat templates where SSH keys, usernames, passwords, SSH\nservice and SSH port numbers are Heat template parameters if VNF is heat based.",
                     "docname": "Chapter7/Configuration-Management",
                     "full_title": "",
                     "hidden": "",
@@ -22201,7 +21979,7 @@
                     "title": "",
                     "type": "req",
                     "type_name": "Requirement",
-                    "updated": "frankfurt",
+                    "updated": "honolulu",
                     "validation_mode": ""
                 },
                 "R-73560": {
@@ -24613,7 +24391,7 @@
                     "validation_mode": "none"
                 },
                 "R-83790": {
-                    "description": "The VNF or PNF **MUST** implement the ``:validate`` capability.",
+                    "description": "The VNF or PNF **MAY** implement the ``:validate`` capability.",
                     "docname": "Chapter7/Configuration-Management",
                     "full_title": "",
                     "hidden": "",
@@ -24624,7 +24402,7 @@
                     "introduced": "",
                     "is_need": true,
                     "is_part": false,
-                    "keyword": "MUST",
+                    "keyword": "MAY",
                     "layout": "",
                     "links": [],
                     "parts": {},
@@ -24646,7 +24424,7 @@
                     "title": "",
                     "type": "req",
                     "type_name": "Requirement",
-                    "updated": "dublin",
+                    "updated": "honolulu",
                     "validation_mode": ""
                 },
                 "R-83873": {
@@ -26410,43 +26188,6 @@
                     "type_name": "Requirement",
                     "updated": "dublin",
                     "validation_mode": "none"
-                },
-                "R-88899": {
-                    "description": "The VNF or PNF **MUST** support simultaneous <commit> operations\nwithin the context of this locking requirements framework.",
-                    "docname": "Chapter7/Configuration-Management",
-                    "full_title": "",
-                    "hidden": "",
-                    "id": "R-88899",
-                    "id_complete": "R-88899",
-                    "id_parent": "R-88899",
-                    "impacts": "",
-                    "introduced": "",
-                    "is_need": true,
-                    "is_part": false,
-                    "keyword": "MUST",
-                    "layout": "",
-                    "links": [],
-                    "parts": {},
-                    "post_template": null,
-                    "pre_template": null,
-                    "section_name": "NETCONF Server Requirements",
-                    "sections": [
-                        "NETCONF Server Requirements",
-                        "VNF or PNF Configuration via NETCONF Requirements",
-                        "NETCONF Standards and Capabilities",
-                        "Configuration Management"
-                    ],
-                    "signature": "",
-                    "status": null,
-                    "style": null,
-                    "tags": [],
-                    "target": "VNF or PNF",
-                    "template": null,
-                    "title": "",
-                    "type": "req",
-                    "type_name": "Requirement",
-                    "updated": "dublin",
-                    "validation_mode": ""
                 },
                 "R-89010": {
                     "description": "The VNF **MUST** survive any single points of software failure\ninternal to the VNF (e.g., in memory structures, JMS message queues).",
@@ -29390,7 +29131,7 @@
                     "validation_mode": "static"
                 }
             },
-            "needs_amount": 828
+            "needs_amount": 821
         }
     }
 }

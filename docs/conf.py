@@ -2,7 +2,7 @@ from docs_conf.conf import *
 
 branch = 'latest'
 master_doc = 'index'
-version = 'guilin'
+version = 'honolulu'
 
 linkcheck_ignore = [
     'http://localhost',

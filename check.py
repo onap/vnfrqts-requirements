@@ -84,6 +84,7 @@ VALID_VERSIONS = (
     "el alto",
     "frankfurt",
     "guilin",
+    "honolulu"
 )
 REQUIRED_ATTRIBUTES = (":keyword:", ":target:", ":id:")
 VALID_TARGETS = (
