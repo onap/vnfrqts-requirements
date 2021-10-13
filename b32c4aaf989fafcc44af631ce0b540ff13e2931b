@@ -16,6 +16,24 @@
       "revId": "b32c4aaf989fafcc44af631ce0b540ff13e2931b",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48ca0525_34d1e871",
+        "filename": "docs/release-notes.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 3999
+      },
+      "writtenOn": "2021-10-13T19:34:02Z",
+      "side": 1,
+      "message": "I\u0027ve typically used the sign-off date for the release in the past.  Do you want to use a different date?",
+      "parentUuid": "af186bf8_dd4db1f0",
+      "revId": "b32c4aaf989fafcc44af631ce0b540ff13e2931b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
     }
   ]
 }
