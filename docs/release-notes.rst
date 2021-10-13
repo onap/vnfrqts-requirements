@@ -16,6 +16,13 @@
 VNFRQTS Project Release Notes
 ==============================
 
+Version: 9.0.0
+--------------
+
+:Release Date: 2021-10-28
+
+No changes for this release
+
 
 Version: 8.0.0
 --------------
