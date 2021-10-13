@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "af186bf8_dd4db1f0",
+        "filename": "docs/release-notes.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1303
+      },
+      "writtenOn": "2021-10-13T19:18:46Z",
+      "side": 1,
+      "message": "just to double check if the date is correct?",
+      "revId": "b32c4aaf989fafcc44af631ce0b540ff13e2931b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
