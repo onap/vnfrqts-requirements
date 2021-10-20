@@ -19,7 +19,7 @@ html_last_updated_fmt = '%d-%b-%y %H:%M'
 
 
 def setup(app):
-    app.add_stylesheet("css/ribbon.css")
+    app.add_css_file("css/ribbon.css")
 
 
 from docutils.parsers.rst import directives
