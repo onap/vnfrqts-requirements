@@ -334,8 +334,7 @@ Glossary
     NFVI
         Network Function Virtualization Infrastructure
 
-    VNFC
-        Virtualized Network Function Components
+
 
     MANO
         Management And Network Orchestration
