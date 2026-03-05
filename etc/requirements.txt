@@ -13,7 +13,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #############################################################################
-sphinx>=4.2.0  # BSD
+setuptools>=65.0.0,<81
+sphinx>=4.2.0,<8  # BSD
 sphinx-rtd-theme>=1.0.0  # MIT
 sphinxcontrib-mermaid>=1.0.0
 sphinxcontrib-needs
