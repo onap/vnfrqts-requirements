@@ -3712,17 +3712,23 @@ listener.
 Call Flow
 +++++++++
 
-.. seqdiag::
+.. mermaid::
     :caption: ``publishAnyEvent`` Call Flow
 
-    seqdiag {
-      edge_length = 250;
-      client  -> listener [label = "POST /eventlistener/v7"];
-      client <- listener [label = "HTTP 202 Accepted", note = "sync response"];
-      === Error Scenario ===
-      client  -> listener [label = "POST /eventlistener/v7"];
-      client <- listener [label = "HTTP 4XX/5XX", note = "sync response"];
-    }
+    sequenceDiagram
+        participant client
+        participant listener
+
+        client->>listener: POST /eventlistener/v7
+        listener-->>client: HTTP 202 Accepted
+        Note right of listener: sync response
+
+        rect rgb(255, 230, 230)
+        Note over client, listener: Error Scenario
+        client->>listener: POST /eventlistener/v7
+        listener-->>client: HTTP 4XX/5XX
+        Note right of listener: sync response
+        end
 
 Input Parameters
 ++++++++++++++++
@@ -3984,17 +3990,26 @@ listener.
 Call Flow
 +++++++++
 
-.. seqdiag::
+.. mermaid::
     :caption: ``publishEventBatch`` Call Flow
 
-    seqdiag {
-      edge_length = 250;
-      client  -> listener [label = "POST /eventlistener/v7/eventBatch"];
-      client <- listener [label = "HTTP 202 Accepted", note = "sync response"];
-      === Error Scenario ===
-      client  -> listener [label = "POST /eventlistener/v7/eventBatch"];
-      client <- listener [label = "HTTP 4XX/5XX", note = "sync response"];
-    }
+    sequenceDiagram
+        participant client
+        participant listener
+
+        rect rgb(232, 245, 233)
+        Note over client, listener: Success Scenario
+        client->>listener: POST /eventlistener/v7/eventBatch
+        listener-->>client: HTTP 202 Accepted
+        Note right of listener: sync response
+        end
+
+        rect rgb(255, 235, 238)
+        Note over client, listener: Error Scenario
+        client->>listener: POST /eventlistener/v7/eventBatch
+        listener-->>client: HTTP 4XX/5XX
+        Note right of listener: sync response
+        end
 
 Input Parameters
 ++++++++++++++++
