@@ -1,13 +1,13 @@
 # Compatibility
-setuptools>=65.0.0,<81  # pkg_resources required by sphinxcontrib-needs
+setuptools>=65.0.0
 
 # Core Sphinx
-sphinx>=7.1.2,<9  # sphinxcontrib-needs 0.7.9 compatibility
+sphinx>=7.1.2
 sphinx-rtd-theme>=2.0.0
 
 # Diagram extensions
 sphinxcontrib-mermaid>=1.0.0
 sphinxcontrib-plantuml>=0.27
 
-# Sphinx-needs (VNF requirements)
-sphinxcontrib-needs
+# Sphinx-needs (VNF requirements tracking)
+sphinx-needs>=4.0.0

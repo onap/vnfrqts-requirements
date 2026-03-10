@@ -39,7 +39,7 @@ extensions = [
     "sphinx.ext.intersphinx",
     "sphinx.ext.graphviz",
     "sphinx.ext.ifconfig",
-    "sphinxcontrib.needs",
+    "sphinx_needs",
     "sphinxcontrib.plantuml",
     "sphinxcontrib.mermaid",
 ]
