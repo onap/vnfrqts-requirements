@@ -1,8 +1,8 @@
 # Compatibility
-setuptools>=65.0.0
+setuptools>=65.0.0,<81  # pkg_resources required by sphinxcontrib-needs
 
 # Core Sphinx
-sphinx>=7.1.2
+sphinx>=7.1.2,<9  # sphinxcontrib-needs 0.7.9 compatibility
 sphinx-rtd-theme>=2.0.0
 
 # Diagram extensions
